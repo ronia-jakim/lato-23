@@ -1,0 +1,171 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{notatki}
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+
+\RequirePackage{geometry}
+\geometry {
+    a4paper,
+    total={180mm, 267mm}
+}
+
+\RequirePackage{paratype}
+\renewcommand{\familydefault}{\sfdefault}
+
+\RequirePackage{microtype}
+
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+\RequirePackage{dsfont}
+
+\RequirePackage[document]{ragged2e}
+\sloppy
+\justifying
+
+\RequirePackage{mathastext}
+
+\RequirePackage{parskip}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\setlength{\RaggedRightParindent}{0em}
+
+\RequirePackage{eufrak}
+\RequirePackage{calrsfs}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\continuum}{\mathfrak{c}}
+
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\powerset}[1]{\matcal{P}(#1)}
+
+\newenvironment{pair}{\langle}{\rangle}
+\newenvironment{floor}{\lfloor}{\rfloor}
+\newenvironment{ceiling}{\lceil}{\rceil}
+
+\newcommand{\bijection}{\xrightarrow[na]{1-1}}
+\newcommand{\rarrow}[2]{\xrightarrow[#1]{#2}}
+
+\newcommand{\isomorphism}{\cong}
+\newcommand{\homeomorphism}{\cong}
+\newcommand{\normalsubgroup}{\triangleleft}
+
+\newcommand{\deff}[1]{\textbf{\color{green} #1}}
+\newcommand{\acc}[1]{{\color{blue} #1}}
+\newcommand{\dyg}[1]{\emph{\color{pink} #1}}
+
+%             _  _____  _     ___  ______   __
+%            | |/ / _ \| |   / _ \|  _ \ \ / /
+%            | ' / | | | |  | | | | |_) \ V / 
+%            | . \ |_| | |__| |_| |  _ < | |  
+%            |_|\_\___/|_____\___/|_| \_\|_|  
+
+\RequirePackage{xcolor}
+
+\definecolor{back}{HTML}{353535}
+\definecolor{fore}{HTML}{ffffff}
+\definecolor{red}{HTML}{d25252}
+\definecolor{dark-red}{HTML}{f00c0c}
+\definecolor{green}{HTML}{a4c161}
+\definecolor{dark-green}{HTML}{c1df74}
+\definecolor{orange}{HTML}{ffc56d}
+\definecolor{yellow}{HTML}{e1e48a}
+\definecolor{dark-blue}{HTML}{6c99ba}
+\definecolor{blue}{HTML}{8ab6d9}
+\definecolor{purple}{HTML}{d096d9}
+\definecolor{pink}{HTML}{efb5f7}
+\definecolor{dark-cyan}{HTML}{bdd6ff}
+\definecolor{cyan}{HTML}{dbf4ff}
+
+\color{fore}
+\pagecolor{back}
+
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\newenvironment{illustration}{\begin{center}\begin{tikzpicture}}{\end{tikzpicture}\end{center}}
+\newenvironment{my-axis}{\begin{axis}[axis y line = middle, axis x line = middle, enlarge y limits = true, enlarge x limits = true]}{\end{axis}}
+
+\RequirePackage{sectsty}
+
+\RequirePackage{titlesec}
+\titlelabel{\thetitle.\quad}
+
+\sectionfont{\LARGE\color{orange}}
+\subsectionfont{\Large\color{orange}}
+
+\RequirePackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linktoc = all,
+    linkcolor = fore,
+    urlcolor = blue
+}
+
+\RequirePackage{graphicx}
+\graphicspath{ {./} }
+
+\RequirePackage{array}
+
+\RequirePackage{listings} % zaczynamy \begin{lstlisting}
+
+% kolory z githuba
+\definecolor{gitred}{HTML}{FA7970}
+\definecolor{gityellow}{HTML}{FAA356}
+\definecolor{gitgreen}{HTML}{7CE38B}
+\definecolor{gitlightblue}{HTML}{77BDFD}
+\definecolor{gitblue}{HTML}{77BDFB}
+\definecolor{gitpurple}{HTML}{CEA5FB}
+\definecolor{git25gray}{HTML}{89929B}
+\definecolor{git75gray}{HTML}{21262D}
+\definecolor{git90gray}{HTML}{161B22}
+
+\lstdefinestyle{IIcolors} {
+    keywordstyle=[1]{\color{gitred}},
+    keywordstyle=[2]{\color{gityellow}},
+    keywordstyle=[3]{\color{gitgreen}},
+    keywordstyle=[4]{\color{gitpurple}},
+    commentstyle=\color{git25gray},
+    showtabs=true,
+    keepspaces=true,
+    numbers=left,
+    numberstyle=\tiny\ttfamily\color{git25gray},
+    breaklines=true,
+    backgroundcolor=\color{git75gray},
+    literate={[}{{{\color{gitlightblue}[}}}1 {]}{{{\color{gitlightblue}]}}}1 {+}{{{\color{gitblue}+}}}1 {-}{{{\color{gitblue}-}}}1 {*}{{{\color{gitblue}*}}}1 {/}{{{\color{gitblue}/}}}1 {=}{{{\color{gitblue}=}}}1 {>}{{{\color{gitblue}>}}}1 {<}{{{\color{gitblue}<}}}1,
+}
+\lstset{style=IIcolors}
+
+%             _____ _       _  _____        _______ 
+%            |  ___/ \     | |/ _ \ \      / / ____|
+%            | |_ / _ \ _  | | | | \ \ /\ / /|  _|  
+%            |  _/ ___ \ |_| | |_| |\ V  V / | |___ 
+%            |_|/_/   \_\___/ \___/  \_/\_/  |_____|
+
+\RequirePackage{tikzducks}
+
+\definecolor{ducky-yellow}{HTML}{f2ca63}
+\newcommand{\proofend}{\begin{flushright}\emph{\scriptsize\color{orange}i śmiga}\\ \begin{tikzpicture}\duck[body=ducky-yellow, bill=red,scale=0.36, bowtie, devil=red];\end{tikzpicture}\end{flushright}}
+
+\RequirePackage{marvosym}
+\RequirePackage{phaistos}
+
+\newcommand{\coffee}{\text{\color{def}\large\Coffeecup}}
+\newcommand{\bat}{\text{\color{acc}\large\Bat}}
+
+\newcommand{\cat}{\text{\PHcat}}
+\newcommand{\sheep}{\text{\PHram}}
+\newcommand{\flower}{\text{\PHrosette}}
+
+\pagestyle{empty}
+\endinput

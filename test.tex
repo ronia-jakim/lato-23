@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\usepackage{notatki}
+
+\begin{document}
+
+\begin{illustration}
+    \filldraw[color=red, fill=red] (0, 0) rectangle (0.5, 5);
+    \filldraw[color=dark-red] (1, 0) rectangle (1.5, 5);
+    \filldraw[color=green] (2, 0) rectangle (2.5, 5);
+    \filldraw[color=dark-green] (3, 0) rectangle (3.5, 5);
+    \filldraw[color=yellow] (4, 0) rectangle (4.5, 5);
+    \filldraw[color=orange] (5, 0) rectangle (5.5, 5);
+    \filldraw[color=blue] (6, 0) rectangle (6.5, 5);
+    \filldraw[color=dark-blue] (7, 0) rectangle (7.5, 5);
+    \filldraw[color=purple] (8, 0) rectangle (8.5, 5);
+    \filldraw[color=pink] (9, 0) rectangle (9.5, 5);
+    \filldraw[color=cyan] (10, 0) rectangle (10.5, 5);
+    \filldraw[color=dark-cyan] (11, 0) rectangle (11.5, 5);
+\end{illustration}
+
+\begin{illustration}
+    \begin{my-axis}
+        \addplot[color=red] {x};
+    \end{my-axis}
+\end{illustration}
+Każdą macierz $A$ $m\times n$ o wyrazach rzeczywistych taka, że $rank(A)=n$, można zapisać jako $A=QR$, gdzie $R$ jest macierzą górnotrójkątną, a $Q$ ma kolumny ortogonalne. Ponieważ my będziemy rozważać macierze $A$ będące reprezentacją jednoznacznych układów równań, to interesują nas tylko $A\in GL_n(\R)$.
+
+Zauważmy, że jeśli $A$ ma niezerowy wyznacznik, to $A$ nie może mieć liniowo zależnych kolumn. W takim razie, wektory $a_1,...,a_n$ odpowiadające kolumnom $A$ są bazą przestrzeni $\R^n$ jako maksymalny możliwy układ wektorów liniowo niezależnych. Możemy na ich podstawie stworzyć bazę ortonormalną $u_1,...,u_n$ przez proces Grama-Schmidta. Wtedy dla $k=1,..,n$
+$$u_k=a_k-\sum\limits_{i=1}^{k-1}{\langle u_i,a_k\rangle\over \langle u_i,u_i\rangle}u_i.$$
+Co więcej, dla dowolnego $a_k$ z oryginalnej bazy możemy go zapisać za pomocą kombinacji liniowej wektorów z bazy ortonormalnej:
+\begin{align*}
+    a_k&=\sum\limits_{i=1}^n c_iu_i=\sum\limits_{i=1}^nc_i\sum\limits_{j=1}^{i-1} [a_k-\sum\limits_{i=1}^{k-1}{\langle u_i,a_k\rangle\over \langle u_i,u_i\rangle}u_i]
+\end{align*}
+a ponieważ $a_1,..,a_n$ były wektorami lnz, to dla $i> k$ $c_i=0$. Niech $r_k$ to będzie wektor zawierający współczynniki $c_i$ dla wektora $a_k$:
+$$r_k=\begin{bmatrix}
+    c_1\\
+    c_2\\
+    ...\\
+    c_k\\
+    0\\
+    ...\\
+    0
+\end{bmatrix}$$
+Czyli mamy, że
+$$a_k=\begin{bmatrix}
+    u_1&u_2&...&u_n
+\end{bmatrix}r_k
+$$
+i dalej
+$$
+A=\begin{bmatrix}
+    u_1&u_2&...&u_n
+\end{bmatrix}\begin{bmatrix}
+    r_1&r_2&...&r_n
+\end{bmatrix}.
+$$
+Zauważamy, że $R=\begin{bmatrix}
+    r_1&r_2&...&r_n
+\end{bmatrix}$ to macierz górnotrójkątna, a $Q$ to macierz ortogonalna.
+
+\section{Section test}
+
+\subsection{Subsection test}
+
+Niech teraz $A$ to \deff{macierz główna rozważanego} układu równań, $Q,R$ to \acc{macierze z jej rozkładu}, $X$ niech będzie \dyg{wektorem} wartości szukanych, a $B$ niech będzie wektorem wyrazów wolnych. Wtedy
+\begin{align*}
+    AX&=B\\
+    (QR)X&=B
+\end{align*}
+i ponieważ dla macierzy ortonormalnych mamy $Q^{-1}=Q^T$, to w prosty sposób możemy zamienić powyższy układ na
+$$RX=Q^TB.$$
+$$A\implies B$$
+\proofend
+
+\end{document}
