@@ -63,6 +63,41 @@
 \newcommand{\acc}[1]{{\color{blue} #1}}
 \newcommand{\dyg}[1]{\emph{\color{pink} #1}}
 
+\RequirePackage[framemethod=TikZ]{mdframed}
+
+\mdfdefinestyle{red-box} {
+    outerlinewidth = 2,
+    roundcorner = 5pt,
+    leftmargin = 40,
+    rightmargin = 40,
+    innertopmargin = \topskip,%
+    splittopskip = \topskip,%
+    backgroundcolor = back2,
+    outerlinecolor  = red,
+    innerbottommargin = 10,
+    fontcolor = fore,
+    skipabove = 10,
+    skipbelow = 15
+}
+
+\mdfdefinestyle{purple-box} {
+    outerlinewidth = 1,
+    roundcorner = 5pt,
+    leftmargin = 20,
+    rightmargin = 20,
+    innertopmargin = \topskip,%
+    splittopskip = \topskip,%
+    backgroundcolor = back,
+    outerlinecolor  = purple,
+    innerbottommargin = 10,
+    fontcolor = fore,
+    skipabove = 10,
+    skipbelow = 15
+}
+
+\newenvironment{important}{\begin{mdframed}[style=red-box]}{\end{mdframed}}
+\newenvironment{dygresja}{\begin{mdframed}[style=purple-box]}{\end{mdframed}}
+
 %             _  _____  _     ___  ______   __
 %            | |/ / _ \| |   / _ \|  _ \ \ / /
 %            | ' / | | | |  | | | | |_) \ V / 
@@ -72,6 +107,7 @@
 \RequirePackage{xcolor}
 
 \definecolor{back}{HTML}{353535}
+\definecolor{back2}{HTML}{303030}
 \definecolor{fore}{HTML}{ffffff}
 \definecolor{red}{HTML}{d25252}
 \definecolor{dark-red}{HTML}{f00c0c}

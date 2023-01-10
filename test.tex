@@ -26,7 +26,9 @@
 \end{illustration}
 Każdą macierz $A$ $m\times n$ o wyrazach rzeczywistych taka, że $rank(A)=n$, można zapisać jako $A=QR$, gdzie $R$ jest macierzą górnotrójkątną, a $Q$ ma kolumny ortogonalne. Ponieważ my będziemy rozważać macierze $A$ będące reprezentacją jednoznacznych układów równań, to interesują nas tylko $A\in GL_n(\R)$.
 
+\begin{dygresja}
 Zauważmy, że jeśli $A$ ma niezerowy wyznacznik, to $A$ nie może mieć liniowo zależnych kolumn. W takim razie, wektory $a_1,...,a_n$ odpowiadające kolumnom $A$ są bazą przestrzeni $\R^n$ jako maksymalny możliwy układ wektorów liniowo niezależnych. Możemy na ich podstawie stworzyć bazę ortonormalną $u_1,...,u_n$ przez proces Grama-Schmidta. Wtedy dla $k=1,..,n$
+\end{dygresja}
 $$u_k=a_k-\sum\limits_{i=1}^{k-1}{\langle u_i,a_k\rangle\over \langle u_i,u_i\rangle}u_i.$$
 Co więcej, dla dowolnego $a_k$ z oryginalnej bazy możemy go zapisać za pomocą kombinacji liniowej wektorów z bazy ortonormalnej:
 \begin{align*}
@@ -63,7 +65,10 @@ Zauważamy, że $R=\begin{bmatrix}
 
 \subsection{Subsection test}
 
+\begin{important}
 Niech teraz $A$ to \deff{macierz główna rozważanego} układu równań, $Q,R$ to \acc{macierze z jej rozkładu}, $X$ niech będzie \dyg{wektorem} wartości szukanych, a $B$ niech będzie wektorem wyrazów wolnych. Wtedy
+\end{important}
+
 \begin{align*}
     AX&=B\\
     (QR)X&=B
@@ -71,6 +76,7 @@ Niech teraz $A$ to \deff{macierz główna rozważanego} układu równań, $Q,R$ 
 i ponieważ dla macierzy ortonormalnych mamy $Q^{-1}=Q^T$, to w prosty sposób możemy zamienić powyższy układ na
 $$RX=Q^TB.$$
 $$A\implies B$$
+
 \proofend
 
 \end{document}
