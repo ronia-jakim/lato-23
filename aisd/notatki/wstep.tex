@@ -1,0 +1,66 @@
+\section{Wstęp}
+\subsection{Problemy i algorytmu}
+
+{Algorytmy będziemy prezentować albo w formie języka \verb_C++_, korzystając z innego języka, w pseudokodzie lub w formie słownej. }
+\bigskip
+
+\textbf{Problem:} Obliczanie $n$-tej liczby Fibonacciego.
+\smallskip
+
+\textbf{Dane:} $n\in\N$
+
+\textbf{Wynik:} wartość $n$-tej liczby Fibonacciego modulo stała $c$
+
+\textbf{Algorytm 1:} Metoda rekurencyjna:
+\begin{lstlisting}
+int fib_rek (int n) {
+    if (n <= 1) return 1;
+    return (fib_rek(n-1) + fib_rek(n-2)) % c;
+}
+\end{lstlisting}
+
+\textbf{Algorytm 2:} Metoda iteracyjna:
+\begin{lstlisting}
+int fib_ter (int n) {
+    int i, t;
+    int f0 = 1;
+    int f1 = 1;
+    for (i = 2; i <= n; i++) {
+        t = f0;
+        f0 = f1;
+        f1 = (t + f0) % c;
+    }
+    return f1;
+}
+\end{lstlisting}
+
+\textbf{Algorytm3:} Metoda macierzowa:
+\smallskip
+
+Skorzystamy z faktu znanego z matematyki dyskretnej, że przez operację mnożenia macierzy:
+$$\begin{bmatrix}
+    0 & 1\\1&1
+\end{bmatrix}^{n-1}\begin{bmatrix}
+    F_0\\F_1
+\end{bmatrix}$$
+dostajemy wektor zawierający odpowiednio $(n-1)$-szą i $n$-tą liczbę Fibonacciego:
+$$\begin{bmatrix}
+    0 & 1\\1&1
+\end{bmatrix}^{n-1}\begin{bmatrix}
+    F_0\\F_1
+\end{bmatrix}=\begin{bmatrix}
+    F_{n-1}\\F_n
+\end{bmatrix}$$
+
+\subsection{Złożoność algorytmów i problemów}
+
+Złożoność algorytmu można porównywać stosując metodę empiryczną oraz określać ją teoretycznie. Ze względu na ograniczenia ilości testowanych przypadków oraz różnice implementacji, pierwszy sposób jest mniej niezawodny niż drugi. Z tego powodu, głównie skupimy się na określaniu złożoności metodami teoretycznymi za pomocą funkcji zależnych od rozmiaru danych.
+\medskip
+
+\deff{Złożoność czasowa} - liczba jednostek czasu potrzebnych na wykonanie algorytmu. Przez \acc{jednostkę czasu} rozumiemy czas potrzebny na wykonanie elementarnej operacji. Dla nas podstawowym modelem komputera jest \textbf{maszyna RAM}. Będziemy się posługiwać następującymi kryteriami liczenia czasu:
+
+\indent \point \acc{kryterium jednorodne}: koszt każdej operacji jest równy 1
+
+\indent \point \acc{kryterium logarytmiczne}: koszt operacji jest równy sumie długości operandów (szczególnie przy operacji na dużych liczbach)
+
+\deff{Złożoność pamięciowa} - liczba jednostek pamięci (komórek, bitów) potrzebnych na wykonanie algorytmu.
