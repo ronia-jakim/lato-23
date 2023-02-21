@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+\pgfplotsset{samples=200}
+
+\begin{document}
+
+\subsection*{ZADANIE 1.}
+\emph{Sprawdź, czy podana funkcja jest rozwiązaniem podanego równania różniczkowego:}
+\smallskip
+
+{\color{dark-green}(a) $x(t)=\tan t$, $x'=1+x^2$} //YUP
+
+$$x'(t)={1\over cos^2t}$$
+$$1+x^2=1+{\sin^2t\over \cos^2t}={\cos^2t+\sin^2t\over\cos^2t}={1\over\cos^2t}=x'$$
+
+{\color{dark-green}(b) $x(t)={\sin t\over t}$, $tx'+x=\cos t$} //YUP
+
+$$x'(t)={t\cos t-\sin t\over t^2}$$
+$$tx'+x={t\cos t-\sin t\over t}+{\sin t\over t}={t\cos t\over t}=\cos t$$
+
+\subsection*{ZADANIE 2.}
+\emph{Znaleźć rozwiązania ogólne (tzn. rozwiązania zależne od pewnej stałej $C$) następujących równań różniczkowych o rozdzielonych zmiennych i naszkicować ich wykresy dla różnych stałych $C$:}
+\smallskip
+
+{\color{dark-green}(a) $y'=e^{x+y}$}
+
+\begin{align*}
+    {dy\over dx}&=e^{x+y}\\
+    e^{-y}dy&=e^xdx\\
+    \int e^{-y}dy&=\int e^xdx\\
+    -e^{-y}&=e^x+c\\
+    e^{-y}&=c-e^x\\
+    \ln(e^{-y})&=\ln(c-e^x)\\
+    y&=-\ln(c-e^x)
+\end{align*}
+
+Niech $c=e^m$ dla pewnego $m$, bo wiadomo, że aby ta funkcja była gdziekolwiek określona, to $(c-e^x>0)$ na pewnym przedziale, czyli $c>0$. Rozważmy teraz dwa przypadki: $x<0$ i $x\geq 0$. Dla $x\in(-\infty, 0)$ funkcja będzie coraz bardziej zbliżać się do wartości $m$, bo $e^x$ będzie dążyć do $0$, ale nigdy go nie osiągnie. Dla $x\in [0, m)$ funkcja będzie maleć z $\lim_{x\to m}\ln(c-e^x)=-\infty$. Czyli wykres wygląda tak dla $m=5$: (i tutaj użyję sobie paczuszki do rysowania grafów bo czemu nie XD)
+
+\begin{illustration}
+    \begin{my-axis}
+        \addplot[domain=-6:4.999, very thick, orange] {ln(e^5-e^x)};
+    \end{my-axis}
+\end{illustration}
+
+{\color{dark-green}(b) $y'={\sqrt{x}\over y}$}
+
+\begin{align*}
+    {dy\over dx}&={\sqrt{x}\over y}\\
+    ydy&=\sqrt{x}dx\\
+    \int ydy&=\int\sqrt{x}dx\\
+    \frac12y^2&=\frac23x^{\frac32}+c\\
+    y&=\sqrt{\frac43x^{\frac32}+c}
+\end{align*}
+
+kurwa zajebiste to.
+
+\end{document}
