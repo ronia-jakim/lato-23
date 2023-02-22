@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\begin{document}
+
+\subsection*{ZADANIE 1.}
+\emph{Na szachownicy o wymiarach $n\times n$ umieszczono $8$ nierozróżnialnych wież, w taki sposób, aby żadne dwie się nie biły. Na ile sposobów można to zrobić? Jak zmieni się wynik, gdy wieże będą rozróżnialne?}
+\smallskip
+
+Miejsce pierwszej wieży wybieram na $n^2$ sposobów. Drugi musi siąść tak naprawdę na planszy $(n-1)\times(n-1)$, czyli jego pole wybieram na $(n-1)^2$ sposobów. Koniec końców dostajemy
+$${n\choose 8}^2\cdot (8!)^2.$$
+Jeżeli wieże sa rozróżnialne, to tak jakbyśmy najpierw układali nierozróżnialne wierze, a potem przyporządkowali ich ciągowi $8$ różnych kolorów na
+$${n\choose 8}^2\cdot(8!)^3.$$
+
+\subsection*{ZADANIE 2.}
+\emph{Oblicz prawdopodobieństwo otrzymania przez gracza podczas gry w pokera: pary, dwóch par, trójki, fulla, karety, koloru, pokera? Przypomnijmy, że talia składa się z $24$ kart, a gracz dostaje $5$ kart.}
+\smallskip
+
+Wszystkich układów jest ${24\choose 5}=42504$.
+
+{\color{green}Para:}
+
+Pierwszą kartę wybieramy na $24$ sposoby. Drugą chcemy wziąć do pary, więc na $3$ sposobów i dzielimy na $2$ bo kolejność. Dalej wybieramy cokolwiek, co nie jest tą figurą. Czyli mamy po kolei $20,16,12$ i dzielimy na $3!$.
+\smallskip
+
+{\color{green}Dwie pary:}
+
+Pierwsza idzie na $24$ sposoby, druga na $3$, trzecia na $20$, czwarta też ma być do pary, czyli $3$ sposoby i ostatnia jest na $16$. Całość dzielimy na $4$, bo kolejność tych dwóch par mnie nie obchodzi.
+\smallskip
+
+{\color{green}Trójka:}
+
+Pierwsza kartka leci na $24$ sposobów, druga na $3$, trzecia na $2$, dzielimy przez $3!$, bo kolejność. Czwarta ma być na $20$ i ostatnia na $16$ i dzielimy je na $2$, bo kolejność.
+\smallskip
+
+{\color{green}Full:}
+
+Full to jest taka para i trójka w jednej rączce. Czyli pierwsza karta na $24$, potem na $3$ i $2$. Jeszcze dzielimy na $3!$, bo kolejność nas nie interesuje. Czwarta leci na $20$ i dobieramy do pary na $3$, po czym dzielimy przez kolejność, czyli $2$.
+\smallskip
+
+{\color{green}Kareta:}
+
+Kareta to cztery z jednej figury i jedna losowa, czyli liczy się przyjemnie. Wybieramy figurę na $6$ sposobów i potem pozostaje dobrać ostatnią kartę na $20$ sposobów, czyli mamy $6\cdot 20$.
+
+\smallskip
+
+{\color{green}Kolor:}
+
+Jak sama nazwa wskazuje, kolor to wszystkie pięć tego samego koloru. Wybieramy kolor na $4$ sposoby i jedną z kart która nie wejdzie nam do koloru na $6$ sposobów. Tylko teraz wliczamy pokery i musimy je wyjebać na $8$ sposobów, czyli zostaje $16$.
+\smallskip
+
+{\color{green}Poker:}
+
+Pięć kolejnych w jednym kolorze. Wybieramy kolor na $4$ i mamy albo poker z $9$ albo z Asem, czyli jest ich $8$.
+
+\subsection*{ZADANIE 3.}
+\emph{Na ile sposobów można ustawić $7$ krzeseł białych i $3$ czerwone przy okrągłym stole?}
+\smallskip
+
+Dobra, to wklejamy $3$ elementy do kółeczka $7$ elementów. Czyli mam $7$ miejsc i wybieram na ${7\choose 3}$ miejsca gdzie wrzucam te czerwone. Potem dziele na $10$, bo mogłam zacząć liczyć od losowego miejsca. Zajebiście.
+
+\subsection*{ZADANIE 4.}
+\emph{Ile jest różnych rozwiązań w zbiorze liczb naturalnych równania $x_1+x_2+x_3+x_4+x_5=25$. A jeżeli założymy ponadto, że $x_1\leq x_2\leq x_3\leq x_4\leq x_5$.}
+\smallskip
+
+Pomijam, bo mi się nie chce aktualnie.
+
+\subsection*{ZADANIE 5.}
+\emph{W klasie jest 15 uczniów. Na każdej lekcji odpytywany jest losowo jeden z nich. Oblicz prawdopodobieństwo, że podczas 16 lekcji zostanie przepytany każdy z nich.}
+\smallskip
+
+Najpierw układamy ciąg $15$ uczniów na $15!$ sposobów. Wybieramy na $15$ sposobów Janka, którego trzeba ujebać, i wkładamy go w jedno miejsce między tymi lekcjami na $16$ sposobów. Pamiętamy o kolejności, bo nie ważne czy ujebiemy go przy pierwszym odpytywaniu, czy na drugim. Czyli mamy
+$$15!\cdot8\cdot 15$$
+sposobów żeby odpytać wszystkich. Prawdopodobieństwo, że to się stanie wynosi
+$${15!\cdot8\cdot15\over15^{16}}$$ 
+
+\subsection*{ZADANIE 6.}
+\emph{Oblicz prawdopodobieństwo zdarzenia, że w potasowanej talii 52 kart wszystkie cztery asy znajdują się koło siebie.}
+\smallskip
+
+Ilość sposobów na ułożenie wszystkich czterech asów obok siebie to $4!$. Teraz mamy $48$ kart do potasowania na $48!$ i chcemy włożyć je na jedno z $49$ miejsc, czyli mamy
+$${4!\cdot48!\cdot49}$$
+sposobów. Więc prawdopodobieństwo to
+$${4!\cdot48!\cdot49\over52!}={4!\over52\cdot51\cdot50}$$
+
+\subsection*{ZADANIE 7.}
+\emph{Przez Los Angeles przebiega $5$-pasmowa autostrada. Typowy kierowca co minutę zmienia losowa pas. Oblicz prawdopodobieństwo, że po $4$ minutach będzie z powrotem na początkowym pasie (zakładając, że w międzyczasie się nie rozbije).}
+\smallskip
+
+Ile jest szans, że po $3$ minutach będzie na pasie obok? Bo stąd połowa będzie odpowiadać, a połowa oddali się o dwa od pasu startowego. Jeżeli startuje na pasie środkowym, to ma $4$ sposoby. W przedostatnim mamy o jeden mniej, czyli $3$, a w krańcowym mamy $2$ sposoby. Sytuacja w tych dwóch nieśrodkowych jest symetryczna, czyli ostatecznie mamy $14$ sposobów, żeby po $3$ minutach być na pasie obok. {\color{orange}Chwilowo dalej nie liczę}.
+
+\subsection*{ZADANIE 8.}
+\emph{Na przyjęciu jest $n$ osób. Jakie jest prawdopodobieństwo, że spotkasz tam osobę, która obchodzi urodziny tego samego dnia co Ty? Dla jakich $n$ to prawdopodobieństwo było większe niż $\frac12$?}
+\smallskip
+
+Czy luty 29 istnieje?
+
+Każda osoba ma prawdopodobieństwo $\frac1{365}$, osób jest $n$, czyli mamy ${n\over365}$?
+
+\subsection*{ZADANIE 9.}
+\emph{W Totolotku losuje się $6$ z $49$ liczb. Jakie jest prawdopodobieństwo, że żadne dwie nie będą dwoma kolejnymi liczbami naturalnymi?}
+\smallskip
+
+Zacznijmy od ciągu $49$ jedynek. Chcemy tam włożyć $6$ zer jako końcówki sumowania liczb. Pierwsze normalnie byśmy włożyli na $49$ miejsc, ale musimy zostawić troszkę miejsca na końcu, bo najwyższa pierwsza to $39$, czyli jak obetniemy sobie do tego to mi śmignie. Super. Tutaj już wkładam losowo, czyli na ${39\choose 6}$ sposobów i po prostu dodaje te dwójki zawsze. I śmiga.
+
+\subsection*{ZADANIE 10.}
+\emph{Stefan Banach w każdej z kieszeni trzymał po pudełku zapałek. Początkowo każde z nich zawierało $n$ zapałek. Za każdym razem kiedy Banach potrzebował zapałki sięgał losowo do jednej z kieszeni i wyciągał jedną zapałkę. Oblicz prawdopodobieństwo, że w momencie gdy sięgnął po puste pudełko, w drugim pozostało jeszcze $k$ zapałek.}
+\smallskip
+
+Czyli ile jest sposobów, żeby z jednej wyjął dokładnie $n$, a z drugiej dokładnie $(n-k)$? No to wkładam $(n-k)$ jedynek między $n$ zer. Mogę to zrobić na ${n+1\choose n-k}$ sposobów. Teraz mamy symetrycznie lewą i prawą, czyli mnożę razy $2$. No to mam $2\cdot{n+1\choose n-k}$ sposobów. No a ogółem to są ciągi o $2n-k$ elementach i ich chuji jest $2^{2n-k}$. I przez to dziele.
+
+\subsection*{ZADANIE 11.}
+\emph{Podczas imprezy mikołajkowej wszystkie $n$ prezentów pozbawiono karteczek z imieniem adresata i losowo rozdano uczestnikom. Niech $p_k$ oznacza prawdopodobieństwo, że dokładnie $k$ osób dostanie własny prezent. Oblicz $p_k$ oraz $\lim_{n\to\infty}p_n$.}
+\smallskip
+
+To są nieporządki.
+
+\subsection*{ZADANIE 12.}
+\emph{Grupa składająca się z $2n$ pań i $2n$ panów została podzielona na dwie równoliczne grupy. Znajdź prawdopodobieństwo, że każda z tych grup składa się z takiej samej liczby pań i panów. Przybliż to prawdopodobieństwo za pomocą wzoru Stirlinga.}
+\medskip
+
+
+
+\end{document}

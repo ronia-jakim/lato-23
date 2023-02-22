@@ -128,5 +128,72 @@ po ilu minutach będziemy mieli temperaturę $25^oC$? Jeszu nie wiem i nie chce 
 \indent 2. \emph{Plotka rozprzestrzenia się według prawa Gompertza: $y'=ke^{-(73/520)t}$.}
 
 \emph{Porównaj te dwa modele i otrzymane wyniki.}
+\smallskip
+
+{\color{dark-green}Wersja 1:}
+
+Będziemy modelować $y(t)$, czyli ilość osób, które plotkę już usłyszały w zależności od czasu $t$. Wiemy, że prędkość rozprzestrzeniania się plotki, to znaczy $y'$, jest wprost proporcjonalna do $y(1000-y)$. Rozwiążmy to cudeńko
+\begin{align*}
+    {dy\over dt}&=ay(1000-y)\\
+    {dy\over y(1000-y)}&=adt\\
+    \int {dy\over y(1000-y)}&=\int adt\\
+    {\ln y-\ln(1000-y)\over 1000}&=at+c\\
+    \ln{y\over 1000-y}&=at+c\\
+    {y\over 1000-y}&=e^{at+c}\\
+    y&=(1000-y)e^{at+c}\\
+    y(1+e^{at+c})&=1000e^{at+c}\\
+    y&={1000e^{at+c}\over 1+e^{at+c}}\\
+    y&={1000\over e^{-at-c}+1}
+\end{align*}
+
+To teraz będzie podstawianko-sranko. Gdy $t=0$ mamy $y=5$, czyli
+\begin{align*}
+    5&={1000\over e^{-c}+1}\\
+    e^{-c}+1&=200\\
+    e^{-c}&=199\\
+    -c&=\ln1999\\
+    c&=-\ln199
+\end{align*}
+natomiast, gdy $t=1$, to $y=10$, czyli
+\begin{align*}
+    10&={1000\over e^{-a+\ln199}+1}\\
+    e^{-a}\cdot199+1&=100\\
+    e^{-a}&={99\over199}\\
+    -a&=\ln{99\over199}\\
+    a&=\ln{199\over99}
+\end{align*}
+Teraz chce rozwiązać
+\begin{align*}
+    850&={1000\over e^{t\ln{99\over199}+\ln199}+1}\\
+    199\cdot\left({99\over199}\right)^t&={1000\over 850}-1\\
+    {99^t\over199^{t-1}}&={3\over17}\\
+    99^t\cdot17&=3\cdot199^{t-1}\\
+    \ln(99^t\cdot17)&=\ln(3\cdot199^{t-1})\\
+    t\ln99+\ln17&=\ln3+(t-1)\ln199\\
+    t(\ln99-\ln199)&=\ln{3\over199\cdot17}\\
+    t\ln{99\over199}&=\ln{3\over199\cdot17}
+\end{align*}
+\smallskip
+
+{\color{dark-green}Wersja 2:}
+
+Teraz chcemy rozwiązać równanie już nam dane:
+\begin{align*}
+    {dy\over dx}&=ke^{-(73/520) t}\\
+    dy&=ke^{-(73/520)t}dt\\
+    \int dy&=\int ke^{-(73/520)t}dt\\
+    y&=-{520\over 73}ke^{-(75/520)t}+c
+\end{align*}
+
+To lecimy z podstawianiem:
+\begin{align*}
+    &\begin{cases}
+        5=-{520\over73}k+c\\
+        10=-{520\over73}ke^{-73/520}+c
+    \end{cases}\\
+    &5=-{520\over73}k+{520\over73}ke^{-73\over520}\\
+    &365=k(520e^{-73/520}-520)\\
+    &{365\over 520e^{-73/520}-520}=k
+\end{align*}
 
 \end{document}
