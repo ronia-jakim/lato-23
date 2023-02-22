@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage{../../../notatki}
-\pgfplotsset{samples=200}
+\pgfplotsset{samples=800}
 
 \begin{document}
 
@@ -50,9 +50,83 @@ Niech $c=e^m$ dla pewnego $m$, bo wiadomo, że aby ta funkcja była gdziekolwiek
     ydy&=\sqrt{x}dx\\
     \int ydy&=\int\sqrt{x}dx\\
     \frac12y^2&=\frac23x^{\frac32}+c\\
-    y&=\sqrt{\frac43x^{\frac32}+c}
+    y&=\pm\sqrt{\frac43x^{\frac32}+c}
 \end{align*}
 
-kurwa zajebiste to.
+W tym przypadku możemy mieć dodatnie i ujemne $c$, ale $x$ musi być liczbą dodatnią, inaczej $x^{\frac32}$ nie istnieje. Dla dodatniego $c$ wiemy, że wartość w $x=0$ będzie wynosić $\sqrt{c}$. Wtedy mamy funkcję wyglądającą jak:
+\begin{illustration}
+    \begin{my-axis}
+        \addplot[domain=-0.1:5, very thick, orange] {sqrt(4/3*x^(3/2)+6)};
+    \end{my-axis}
+\end{illustration}
+
+Natomiast dla $c<0$ wiemy, że będziemy ruszać gdzie graf się "zaczyna". To znaczy dla $x<\frac34c^{\frac23}$ funkcja jest nieokreślona, a dla $x\geq \frac34c^{\frac23}$ wygląda troszkę jak funkcja pierwiastka $4$-tego stopnia z $x^3$?
+\begin{illustration}
+    \begin{my-axis}
+        \addplot[domain=0:5, very thick, orange] {sqrt(4/3*x^(3/2)-6)};
+    \end{my-axis}
+\end{illustration}
+
+{\color{dark-green}(c) $y'=\sqrt{{y\over x}}$}
+\begin{align*}
+    {dy\over dx}&={\sqrt{y}\over\sqrt{x}}\\
+    {dy\over \sqrt{y}}&={dx\over\sqrt{x}}\\
+    \int y^{-\frac12}dy&=\int x^{-\frac12}dx\\
+    2y^{\frac12}&=2x^\frac12+c\\
+    y&=x+2c\sqrt{x}+c^2
+\end{align*}
+
+Dla $c<0$ to jakaś potężna okejka, a dla $c\geq 0$ to se leeeeci w górę. Już mi się nie chce rozrysowywać.
+
+\subsection*{ZADANIE 4.}
+\emph{Szybkość zmiany temperatury rozgrzanego czajnika jest proporcjonalna do różnicy między jego temperaturą a temperaturą powietrza (prawo Newtona). Niech $S(t)$ oznacza temperaturę czajnika w chwili $t$. Zakładamy, że $S(0)=100^oC$ w temperaturze otoczenia $20^oC$. Po dziesięciu minutach temperatura czajnika wynosiła $60^oC$. Po ilu minutach czajnik będzie miał temperaturę $25^oC$?}
+
+Wiemy, że pochodna funkcji temperatury od czasu jest wprost proporcjonalna do różnicy w temperaturze:
+$${dS\over dt}=a(S-20).$$
+Rozwiążmy to równanie
+\begin{align*}
+    {dS\over dt}&=a(20-S(t))\\
+    {dS\over 20-S(t)}&=adt\\
+    \int {dS\over 20-S(t)}&=\int adt\\
+    -\ln|20-S(t)|&=at+c\\
+    |20-S(t)|&=e^{-at-c}
+\end{align*}
+Tutaj ciało stygnie, więc $S(t)>20$, czyli
+$$|20-S(t)|=S(t)-20.$$
+Z treści zadania wiemy, że $S(0)=100$, co po podstawieniu da nam wartość $c$:
+\begin{align*}
+    100-20&=e^{-c}\\
+    80&=e^{-c}\\
+    \ln80&=-c\\
+    c&=-\ln80
+\end{align*}
+Dalej, podstawiając $S(10)=60$ możemy poznać wartość $a$:
+\begin{align*}
+    60-20&=e^{-10a+\ln80}\\
+    40&=e^{-10a}\cdot 80\\
+    \frac12&=e^{-10a}\\
+    \ln\frac12&=-10a\\
+    a&=\ln2^{\frac1{10}}
+\end{align*}
+Dostajemy wzór:
+$$S(t)=20+e^{-t\ln2^{1\over10}+\ln80}$$
+po ilu minutach będziemy mieli temperaturę $25^oC$? Jeszu nie wiem i nie chce tego zmieniać tbh.
+\begin{align*}
+    25-20&=e^{-ta-c}\\
+    \ln5&=-ta-c\\
+    \ln5+\ln80&=-ta\\
+    10\ln400&=t\ln2\\
+    10\ln20^2&=t\ln2\\
+    \ln20^{20}&=t\ln2
+\end{align*}
+
+\subsection*{ZADANIE 5.}
+\emph{Modelujemy rozprzestrzenianie się plotki w populacji liczącej 1000 osób. Załóżmy, że $5$ osób rozprzestrzenia plotkę i po jednym dniu wie o niej już $10$ osób. Ile czasu potrzeba, aby o plotce dowiedziało się $850$ osób, przy założeniu, że:}
+
+\indent 1. \emph{Plotka rozprzestrzenia się z prędkością proporcjonalną do iloczynu liczby osób, które już słyszały tę plotkę oraz liczby osób, które jeszcze nie słyszały tej plotki.}
+
+\indent 2. \emph{Plotka rozprzestrzenia się według prawa Gompertza: $y'=ke^{-(73/520)t}$.}
+
+\emph{Porównaj te dwa modele i otrzymane wyniki.}
 
 \end{document}
