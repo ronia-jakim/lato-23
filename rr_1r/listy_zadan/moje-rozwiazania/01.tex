@@ -196,4 +196,41 @@ To lecimy z podstawianiem:
     &{365\over 520e^{-73/520}-520}=k
 \end{align*}
 
+\subsection*{ZADANIE 6.}
+\emph{Ciało zamordowanego znaleziono o 19:30. Lekarz sądowy przybył o 20:20 i natychmiast zmierzył temperaturę ciała denata. Wynosiła ona 32.6$^oC$. Godzinę później, gdy usuwano ciało, temperatura wynosiła 31.4$^oC$. W tym czasie temperatura w pomieszczeniu wynosiła 21$^oC$. Najbardziej podejrzana osoba, która mogła popełnić to morderstwo - Jan G., twierdzi jednak, że jest niewinny. Ma alibi. Po południu był on w restauracji. O 17:00 miał rozmowę zamiejscową, po której natychmiast opuścił restaurację. Restauracja znajduje się 5 minut od miejsca morderstwa. Czy alibi jest niepodważalne?}
+\smallskip
+
+Z prawa Newtona wiemy, że zmiana temperatury jest wprost proporcjonalna do różnicy między ciałem a jego otoczeniem, czyli z zadania 4 kradnę
+$${dS\over dt}=a(S-21)$$
+\begin{align*}
+    {dS\over S-21}&=adt\\
+    \int{dS\over S-21}&=\int adt\\
+    -\ln|S-21|&=at+c\\
+    |S-21|&=e^{at+c}
+\end{align*}
+
+To lecimy z podstawianiem. Chyba będzie mi najwygodniej mieć punkt $t=0$ wtedy kiedy lekarz pomierzył temperaturę?
+\begin{align*}
+    32.6-21=11.6&=e^c\\
+    \ln11.6&=c
+\end{align*}
+Czyli kiedy po godzinie usuwano ciało mamy:
+\begin{align*}
+    31.4-21=10.4&=11.6e^{60a}\\
+    {10.4\over 11.6}=0.8966&=e^{60a}\\
+    {\ln0.8966\over60}=-0.00182&=a
+\end{align*}
+
+Jaką temperaturę oczekujemy o 19:30? Czyli 50 min przed pierwszym pomiarem
+\begin{align*}
+    11.6e^{-0.00182(-50)}+21&=33.705
+\end{align*}
+Kiedy ziomeczek miał $36^oC$?
+\begin{align*}
+    36&=21+11.6e^{-0.00182t}\\
+    {15\over 11.6}=1.2931&=e^{-0.00182t}\\
+    -{\ln1.2931\over0.00182}&=141.232=t
+\end{align*}
+Czyli około 2h 21 min przed pomiarem, czyli około godziny 18. Więc jeśli od razu uciekł to niezbyt?
+
 \end{document}

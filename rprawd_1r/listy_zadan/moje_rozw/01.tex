@@ -111,15 +111,26 @@ Zacznijmy od ciągu $49$ jedynek. Chcemy tam włożyć $6$ zer jako końcówki s
 Czyli ile jest sposobów, żeby z jednej wyjął dokładnie $n$, a z drugiej dokładnie $(n-k)$? No to wkładam $(n-k)$ jedynek między $n$ zer. Mogę to zrobić na ${n+1\choose n-k}$ sposobów. Teraz mamy symetrycznie lewą i prawą, czyli mnożę razy $2$. No to mam $2\cdot{n+1\choose n-k}$ sposobów. No a ogółem to są ciągi o $2n-k$ elementach i ich chuji jest $2^{2n-k}$. I przez to dziele.
 
 \subsection*{ZADANIE 11.}
-\emph{Podczas imprezy mikołajkowej wszystkie $n$ prezentów pozbawiono karteczek z imieniem adresata i losowo rozdano uczestnikom. Niech $p_k$ oznacza prawdopodobieństwo, że dokładnie $k$ osób dostanie własny prezent. Oblicz $p_k$ oraz $\lim_{n\to\infty}p_n$.}
+\emph{Podczas imprezy mikołajkowej wszystkie $n$ prezentów pozbawiono karteczek z imieniem adresata i losowo rozdano uczestnikom. Niech $p_k$ oznacza prawdopodobieństwo, że dokładnie $k$ osób dostanie własny prezent. Oblicz $p_k$ oraz $\lim_{n\to\infty}p_k$.}
 \smallskip
 
 To są nieporządki.
+
+Rozdać $n$ prezentów możemy na $n!$ sposobów, natomiast rozdać tak, żeby dokładnie $k$ trafiło tam gdzie trzeba to jest nieporządek na $(n-k)$ elementach, czyli
+$$!(n-k)=(n-k)!\sum\limits_{i=0}^{n-k}{(-1)^i\over i!}.$$
+W takim razie prawdopodobieństwo wynosi
+$$p_k={(n-k)!\over n!}\sum\limits_{i=0}^{n-k}{(-1)^i\over i!}.$$
+Jak to wygląda przy $n\to\infty$?
+$${(n-k)!\over n!}\sum\limits_{i=0}^{n-k}{(-1)^i\over i!}\leq {1\over n(n-1)...(n-k+1)}\sum\limits_{i=0}^{n-k}{(-1)^i\over 2^i}={2(1-(1/2)^{n-k})\over 3n(n-1)(n-2)...(n-k+1)}\to 0$$
 
 \subsection*{ZADANIE 12.}
 \emph{Grupa składająca się z $2n$ pań i $2n$ panów została podzielona na dwie równoliczne grupy. Znajdź prawdopodobieństwo, że każda z tych grup składa się z takiej samej liczby pań i panów. Przybliż to prawdopodobieństwo za pomocą wzoru Stirlinga.}
 \medskip
 
-
+Ogółem dwie równoliczne grupy tworzymy wybierając spośród $4n$ osób $2n$ reprezentantów pierwszej grupy. Czyli mamy ${4n\choose 2n}$ możliwości. Grupy składające się z takiej samej liczby pań i panów to grupy mające po $n$ każdej płci. Czyli wybieramy panie na ${2n\choose n}$ sposobów i panów na ${2n\choose n}$. Prawdopodobieństwo wynosi to 
+\begin{align*}
+    {(2n)!\over n!n!}\cdot{(2n)!(2n)!\over (4n)!}\cdot{(2n)!(2n)!\over(4n)!}&\approx{(2n)^{2n}\sqrt{4\pi n}\over n^{2n}2\pi n}\cdot{(2n)^{4n}4\pi n\over(4n)^{4n}\sqrt{8\pi n}}\cdot{(2n)^{4n}4\pi n\over(4n)^{4n}\sqrt{8\pi n}}=\\
+    &={2^{-6n}\sqrt{\pi n}}
+\end{align*}
 
 \end{document}
