@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\author{Julia Walczuk, Weronika Jakimowicz}
+
+\begin{document}
+
+Pokazać, że istnieją $A_1,...,A_n$ takie, że:
+
+$$\prod\limits_{i=1}^n{1\over x-x_i}=\sum\limits_{i=1}^n{A_i\over x-x_i}$$
+
+% Pomnóżmy sobie obie strony przez $(x-x_1)...(x-x_n)$
+% \begin{align*}
+%     1&=\sum\limits_{i=1}^nA_i\prod\limits_{j=1,j\neq i}^n(x-x_j)
+% \end{align*}
+
+Pierścień wielomianów $K[X]$ nad ciałem $K$ jest zawsze domeną Euklidesową, a ponieważ $\R$ zdecydowanie jest ciałem, to śmiga, bo mamy rozkład
+$$c=Q(x)A+(x-x_1)B$$
+$${c\over(x-x_1)Q(x)}={A\over (x-x_1)}+{B\over Q(x)}$$
+gdzie $Q(x)=(x-x_2)...(x-x_n)$, a resztę mamy z trywialnej indukcji
+
+\end{document}

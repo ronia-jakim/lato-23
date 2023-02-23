@@ -1,0 +1,15 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\begin{document}
+
+\subsection*{ZADANIE 1.}
+\emph{Udowodnić wzór włączeń i wyłączeń}
+$$\prawdo{\bigcup\limits_{i=1}^nA_i}=\sum\limits_{i=1}^n\prawdo{A_i}-\sum\limits_{1\leq i<j\leq n}\prawdo{A_i\cap A_j}+...+(-1)^{n+1}\prawdo{\bigcap\limits_{i=1}^n A_i}$$
+
+Może stworzę sobie nowy ciąg, tym razem rozłączny? To znaczy 
+$$B_1=A_1\setminus\bigcup\limits_{i=2}^nA_i$$
+$$B_2=A_2\setminus\bigcup\limits_{i=1,i\neq2}^nA_i$$
+
+\end{document}

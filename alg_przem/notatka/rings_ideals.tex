@@ -1,0 +1,77 @@
+\section{Pierścienie i ideały}
+\emph{Szybkie powtórzenie notacji i podstawowych definicji, z małym dodatkiem ponad algebrę 1r.}
+
+\subsection{Pierścienie i homomorfizmy pierścieni}
+
+\deff{Pierścien} $A$ to zbiór z dwoma binarnymi operacjami (dodawanie i mnożenie) takimi, że
+\smallskip
+
+\indent 1. $A$ jest abelową grupą względem dodawania,
+
+\indent 2. mnożenie jest łączne i rozłączne względem dodawania,
+
+\indent 3. dla nas dodatkowo mnożenie jest przemienne,
+
+\indent 4. i ma element neutralny.
+\smallskip
+
+Czyli rozważamy tylko \emph{pierścienie przemienne z jednością}. Warto zaznaczyć, że nie wykluczamy że $1=0$, ale wtedy $A$ ma tylko jeden element i jest pierścieniem zerowym, oznaczanym przez $0$.
+\medskip
+
+\deff{Homomorfizm pierścieni} to funkcja $f$ z pierścienia $A$ w pierścień $B$ taka, że
+\smallskip
+
+\indent 1. $f(x+y)=f(x)+f(y)$,
+
+\indent 2. $f(xy)=f(x)f(y)$,
+
+\indent 3. $f(1)=1$.
+
+\subsection{Ideały, pierścienie ilorazowe}
+
+\deff{Ideał} $I$ pierścienia $A$ to podzbiór $A$ taki, że jest podgrupą względem dodawania i taki, że $AI\subseteq I$. Grupa ilorazowa $A/I$ zachowuje mnożenie zdefiniowane w $I$, co sprawia, że jest pierścieniem, nazywanym \deff{pierścieniem ilorazowym} [lub \emph{residue-class ring}]. Elementami $A/I$ są warstwy $I$ w $A$, a funkcja $\phi:A\to A/I$ taka, że $\phi(x)=x+I$ jest surjiektywnym homomorfizmem.
+\smallskip
+
+\deff{\large Twierdzenie:} Istnieje funkcja $1-1$ zachowująca porządek zależności pomiędzy ideałami $I\subseteq J\normalsubgroup A$ oraz ideałami $J'\normalsubgroup A/I$ zadana przez $J=\phi^{-1}(J')$.
+
+\textbf{Dowód:} Jeśli $f:A\to B$ jest homomorfizmem pierścieni, to jądro $f$ jest ideałem $I$ w $A$ oraz obraz $f$ jest podpierścieniem $C\subseteq B$. $f$ indukuje izomorfizm pierścieni $A/I\cong C$.
+
+\proofend
+
+W dalszej części możemy stosować oznaczenie $x\equiv y\mod I$ żeby powiedzieć, że $x-y\in I$.
+
+\subsection{Dzielniki zera, elementy nilpotentne i odwracalne}
+
+\deff{Dzielnik zera} pierścienia $A$ to element $x$ taki, że istnieje dla niego $y\neq 0$ takie, że $xy=0$. Pierścień, który nie posiada dzielników zera różnych od $0$ jest nazywany \deff{dziedziną całkowitą} [\dyg{integral domain}]. 
+
+Element $x\in A$ jest \deff{nilpotentny}, jeżeli istnieje $n>0$ takie, że $x^n=0$. Element nilpotenty jest zawsze dzielnikiem zera, ale odwrotna zależność nie zawsze zachodzi. 
+
+\deff{Element odwracalny} $x\in A$ to element "dzielący zero", czyli istnieje unikalne $y\in A$ takie, że $xy=1$. Zwykle oznaczamy $y=x^{-1}$. Wszystkie elementy odwracalne pierścienia $A$ tworzą \deff{grupę multiplikatywną} [\emph{multiplicative group}], która jest abelową.
+\smallskip
+
+Wielokrotności $ax$ elementu $x\in A$ tworzą \deff{ideał główny} [\emph{principal ideal}] pierścienia $A$, co oznaczamy przez $(x)$. Jeżeli $x$ jest odwracalny, to $(x)=A=(1)$. Ideał generowany przez $0$ jest zwykle oznaczany $(0)=0$.
+
+\deff{Ciało} to pierścień $A$ w którym $1\neq0$ i każdy niezerowy dzielnik zera jest odwracalny. Każde ciało jest domeną całkowitą.
+\smallskip
+
+\deff{\large Twierdzenie:} Niech $A$ będzie pierścieniem, wtedy poniższe są równoważne:
+
+\indent I $A$ jest ciałem,
+
+\indent II jedyne ideały w $A$ są $0$ lub $(1)$,
+
+\indent III każdy homomorfizm z $A$ w niezerowy pierścień $B$ jest iniekcyjną.
+
+\textbf{Dowód:} 
+
+I $\implies$ II: Niech $I\neq 0$ będzie ideałem w $A$. Wtedy $I$ zawiera niezerowy element $x$, który jest odwracalny. W takim razie $(x)\subseteq I$, a ponieważ $(x)=(1)$, to $I=(1)$. 
+
+II $\implies$ III: Niech $\phi:A\to B$ będzie homomorfizmem pierścieni. Wtedy $ker(\phi)$ jest ideałem różnym od $(1)$, czyli $ker(\phi)$ musi byc zerem, a więc jest funkcją $1-1$.
+
+III $\implies$ I: Niech $x$ będzie elementem $A$, który nie jest odwracalny. WTedy $(x)\neq(1)$, czyli $B=A/(x)$ nie jest pierścieniem zerowym. Niech $\phi:A\to B$ będzie naturalnym homomorfizmem $A$ w $B$ z jądrem $(x)$. Przez hipotezę $\phi$ jest $1-1$, czyli $(x)=0$, więc $x=0$.
+
+\proofend
+
+\subsection{Ideały główne i maksymalne}
+
+Ideał $I\normalsubgroup A$ jest \acc{ideałem głównym}, jeżeli $I\neq(1)$ oraz $xy\in I\implies x\in I\;albo\;y\in I$. 
