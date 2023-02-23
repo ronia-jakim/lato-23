@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\title{Rachunek Prawdopodobieństwa 1R\smallskip\\ {\normalsize Lista 1. Zadanie 10.}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\emph{Stefan Banach w każdej z kieszeni trzymał w każdej z kieszeni po pudełku zapałek. Początkowo każde z nich zawierało $n$ zapałek. Za każdym razem kiedy Banach potrzebował zapałki, sięgał losowo do jednej z kieszeni i wyciągał jedną zapałkę. Oblicz prawdopodobieństwo, że w momencie, gdy sięgał po puste pudełko, w drugim pozostało jeszcze $k$ zapałek.}
+\end{center}
+\medskip
+
+\podz{fore}
+\medskip
+
+Będziemy rozważać ciągi liter $L$ i $P$, które to odpowiadają wyciąganiu zapałki odpowiednio z lewej lub prawej kieszeni. Ponieważ chcemy jedną kieszeń opróżnić całkowicie, a w drugiej zostawić dokładnie $k$ zapałek, to na pewno musimy dokonać $n+(n-k)=2n-k$ ruchów. Dodatkowy ruch, czyli $2n-k+1$ to sięgnięcie do opróżnionej w pewnym momencie wcześniej kieszeni.
+\medskip
+
+Zacznijmy od policzenia sposobów, na które możemy opróżnić lewą kieszeń, a w prawej zostawić dokładnie $k$ zapałek. Sytuacja, gdy opróżniamy kieszeń prawą jest dokładnie symetryczna.
+
+W istocie rzeczy nie interesuje nas, że teraz zawsze na końcu naszego ciągu długości $2n-k+1$ musi stać $L$, a jedynie zastanawiamy się nad tym, co dzieje się na pierwszych $2n-k$ miejscach. Ustawmy najpierw $2n-k$ literek $L$ w stały ciąg. Ponieważ ani nie mamy tylu zapałek w lewej kieszeni, ani też nie interesuje nas wyciąganie tylko z jednej kieszeni, chcemy zamienić część tych literek na literki $P$. Dokładniej, zamieniamy $n-k$ literek, co robimy na 
+$${2n-k\choose n-k}={2n-k\choose n}$$
+sposobów. To jest część, do której doszliśmy na zajęciach.
+\medskip
+
+Problem pojawił się, gdy zaczęliśmy liczyć moc zbioru $\Omega$, czyli liczby sposobów na wyciągniecie $2n-k$ zapałek ogółem. Mój wstępny pomysł to
+$$|\Omega|=2^{2n-k},$$
+ale jest to zliczenie dokładnie wszystkich ciągów złożonych z $L$ i $P$, bez względu na to, czy są one dozwolone. To znaczy, liczymy ciąg złożony tylko z literek $P$, a przecież nie może wyciągać więcej niż $n$ razy z prawej kieszeni, bo nic z pustego pudełka zapałek nie da się wyciągnąć.
+
+Potrzebujemy więc policzyć ilość ciągów długości $2n-k$, w których każdy element pojawia się co najwyżej $n$ razy i co najmniej $n-k$ razy, bo np. wyciąganie tylko $n-k-1$ zapałek z prawej kieszeni wymusi wyciągnięcie $n+1$ zapałek z lewej, a tego nie możemy zrobić.
+
+Zauważmy, że zbiór ciągów zawierających $n$ literek $L$ i $n-k$ literek $P$ jest rozłączny ze zbiorem ciągów, w których $L$ pojawia się dokładnie $n-1$ razy, a $P$ - dokładnie $n-k+1$ razy. Możemy więc zsumować ilość ciągów, gdzie $L$ pojawia się dokładnie $n-i$ razy, a $P$ dokładnie $n-k+i$ razy dla $i=0,1,...,k$:
+$$\sum\limits_{i=0}^k{2n-k\choose n-i}.$$
+Tego, niestety, nie umiem sprowadzić do ładniejszej postaci. Wolfram również nie potrafi, to znaczy umie użyć hipergeometrycznej funkcji Gaussa, z którą nie miałam jeszcze przyjemności sie poznać.
+
+% Możemy iść dalej i spróbować podzielić ${2n-k\choose n}$ przez naszą sumę:
+% \begin{align*}
+%     {{2n-k\choose n}\over\sum{2n-k\choose n-i}}&={{(2n-k)!\over n!(n-k)!}\over \sum{(2n-k)!\over (n-i)!(n-k+i)!}}={1\over\sum{n!(n-k)!\over (n-i)!(n-k+i)!}}={1\over\sum{n(n-1)...(n-i+1)\over (n-k+i)(n-k+i-1)...(n-k+1)}}
+% \end{align*}
+
+\end{document}

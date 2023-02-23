@@ -74,4 +74,113 @@ III $\implies$ I: Niech $x$ będzie elementem $A$, który nie jest odwracalny. W
 
 \subsection{Ideały główne i maksymalne}
 
-Ideał $I\normalsubgroup A$ jest \acc{ideałem głównym}, jeżeli $I\neq(1)$ oraz $xy\in I\implies x\in I\;albo\;y\in I$. 
+Ideał $I\normalsubgroup A$ jest \deff{ideałem pierwszym}, jeżeli $I\neq(1)$ oraz $xy\in I\implies x\in I\;albo\;y\in I$. Ideał $I\normalsubgroup A$ jest z kolei \deff{ideałem maksymalnym}, jeżeli $I\neq (1)$ i nie istnieje ideał $J$ taki, że $I\subsetneq J\subsetneq(1)$. Równoważnie:
+
+\indent \point $I$ jest ideałem pierwszym $\iff$ $A/I$ jest domeną całkowitą,
+
+\indent \point $J$ jest ideałem maksymalnym $\iff$ $A/J$ jest ciałem.
+
+Stąd też, ideał maksymalny jest zawsze pierwszy, ale nie każdy ideał pierwszy jest ideałem maksymalnym.
+\medskip
+
+Jeżeli $f:A\to B$ jest homomorfizmem pierścieni i $I$ jest ideałem pierwszym w $B$, wtedy $f^{-1}(I)$ jest ideałem pierwszym w $A$, ale jeżeli $J$ jest ideałem maksymalnym to $f^{-1}(J)$ niekoniecznie musi byc ideałem maksymalnym.
+\medskip
+
+\deff{\large Twierdzenie:} Każdy pierścień $A\neq 0$ ma co najmniej jeden ideał maksymalny. 
+
+\textbf{Dowód:} Standardowe zastosowanie lematu Zorna\footnote{Niech $S$ będzie niepustym, częściowo uporządkowanym zbiorem, wtedy jeśli każdy jego łańcuch $T$ ma górną granicę w $S$, to $S$ ma co najmniej jeden element maksymalny.}. Niech $\Sigma$ będzie zbiorem wszystkich ideałów różnych od $(1)$. Uporządkujmy $\Sigma$ przez inkluzję. $\Sigma$ jest zbiorem niepustym, bo $0\in\Sigma$. Musimy pokazać, że każdy łańcuch w $\Sigma$ jest ograniczony od góry. Niech $\{I_n\}$ będzie ciągiem ideałów z $\Sigma$, wtedy $I=\bigcup I_n$ też jest ideałem i nie zawiera $1$, bo nic w ciągu $1$ nie zawierało. Wskazaliśmy więc górne ograniczenie dowolnego łańcucha z $\Sigma$, więc z lematu Zorna $\Sigma$ ma element maksymalny.
+
+\proofend
+
+Jeśli $I\neq(1)$ jest ideałem w $A$, to istnieje ideał maksymalny w $A$ zawierający $I$. Trywialne.
+
+Każdy nieodwracalny element $A$ jest zawarty w pewnym maksymalnym ideale. Też trywialne.
+\smallskip
+
+Zauważmy, że jeśli pierścień jest noetherowski, to nie musimy używać Zorna w dowodzie wyżej. Dalej, istnieją pierścienie mające dokładnie jeden pierścień maksymalny, na przykład ciała. Pierścień zawierający dokładnie jeden pierścień maksymalny $I$ jest nazywany \deff{pierścieniem lokalnym} [\emph{local ring}], a ciało $k=A/I$ jest nazywane \acc{residue field} pierścienia $A$.
+
+\deff{\large Twierdzonko:}
+
+\indent I. Jeżeli $A$ jest pierścieniem, a $I\neq(1)$ jego ideałem takim, że dla każdego $x\in A\setminus I$ $x$ jest elementem odwracalnym, to $A$ jest pierścieniem lokalnym.
+
+\indent II. JEżeli $A$ jest pierścieniem i $I$ jego ideałem maksymalnym takim, że każdy element $1+I$ (czyli $1+x,x\in I$) jest odwracalny w $A$, to $A$ jest pierścieniem lokalnym.
+
+\textbf{Dowód:}
+
+I. Każdy ideał składa się z elementów nieodwracalnych,  więc jest zawarty w $I$. Czyli $I$ jest jedynym pierścieniem maksymalnym $A$.
+
+II. Niech $x\in A\setminus I$. Skoro $I$ jest maksymalny, to ideał generowany przez $x$ i $I$ jest równy $(1)$, więc istnieje $y\in A$ i $t\in I$ takie, że $xy+t=1$. Stąd, $xy=1-t$ należy do $1+I$ i jest odwracalny. Teraz używamy punktu I i śmiga.
+
+\proofend
+
+Pierścień \deff{półlokalny} to pierścień zawierający skończoną liczbę ideałów maksymalnych.
+
+\deff{Dziedzina ideałów głównych} [\emph{Principal ideal domain}, \dyg{PID}] to dziedzina całkowita w której każdy ideał jest ideałem głównym.
+
+\subsection{Nilradykał i radykał Jacobsona}
+
+Zbiór $\mathfrak{R}$ zawierający wszystkie nilpotentne elementy pierścienia $A$ jest nazywany jego \deff{nilradykałem} i jest ideałem. Później zostanie podana równoważna definicja nilradykału, ale najpierw twierdzonko.
+
+\deff{\large Twierdzenie:} Nilradykał $\mathfrak{R}$ jest ideałem i $A/\mathfrak{R}$ nie posiada elementów nilpotentych różnych od $0$.
+
+\textbf{Dowód:} Jeśli $x\in\mathfrak{R}$, to $ax\in\mathfrak{R}$ dla dowolnego $a\in A$. Niech $x, y\in\mathfrak{R}$ takie, że $x^m=0=y^n$. Wtedy również $(x+y)^{n+m-1}$ jest sumą wielokrotności $x^ry^s$ takich, że $r+s=m+n-1$. Wiemy, że $r<m$ i $s<n$, stąd też każdy produkt z nich znika i mamy,że $(x+y)^{n+m-1}=0$. Czyli $x+y\in\mathfrak{R}$, więc $\mathfrak{R}$ w istocie jest ideałem.
+
+Niech $\overline x\in A/\mathfrak{R}$ będzie reprezentowane przez $x\in A$. Wtedy $\overline x^n$ jest reprezentowane przez $x^n$, więc jeśli $\overline x^n=0$, to również $x^n=0$ i $x\in\mathfrak{R}$, a więc $\overline x=0$.
+
+\proofend
+
+Druga definicja \acc{nilradykału} to przekrój wszystkich pierwszych ideałów pierścienia $A$.
+
+\textbf{Dowód:} Niech $\mathfrak{R}'$ oznacza przekrój wszystkich pierwszych ideałów pierścienia $A$. Wtedy jeśli $f\in A$ jest nilpotentne i $I$ jest ideałem pierwszym, to $f^n=0\in I$, stąd też $f\in I$, bo $I$ jest ideałem pierwszym. Stąd też $f\in\mathfrak{R}'$.
+
+Z drugiej strony, co jeśli $f$ nie jest nilpotentny? Niech $\Sigma$ będzie zbiorem wszystkich ideałów z własnością $n>0\implies f^n\notin I$. Wtedy $\Sigma$ nie jest pusty, ponieważ $0\in\Sigma$. Znowu możemy śmignąć Zornem przy porządkowaniu przez inkluzję i $\Sigma$ ma pewien element maksymalny, nazwijmy go $J$. Pokażemy, że $J$ jest ideałem pierwszym. Niech $x,y\notin J$. Wtedy ideały $J+(x)$ i $J+(y)$ zawierają właściwie $J$ i stąd też nie należą do $\Sigma$. Stąd też $f^m\in J+(x)$ oraz $f^n\in J+(y)$ dla pewnych $m,n$. W takim razie $f^{m+n}\in J+(xy)$ i ideał $J+(xy)$ nie jest w $\Sigma$, czyli $xy\notin J$. W takim razie mamy ideał pierwszy $J$ taki, że $f\notin J$ i $f\notin\mathfrak{R}'$.
+
+\proofend
+\medskip
+
+\deff{Radykał Jacobsona} $\mathfrak{R}$ to przekrój wszystkich maksymalnych ideałów pierścienia $A$. Spełnia on:
+$$x\in\mathfrak{R}\iff 1-xy\text{ jest odwracalne dla wszystkich} y$$
+\textbf{Dowód:} 
+
+$\implies$ Załóżmy, że $1-xy$ nie jest odwracalne. Wtedy jest zawarte w pewnym ideale maksymalnym $I$. Ale skoro $x\in\mathfrak{R}\subseteq I$, to $xy\in I$ i $1\in I$, co jest sprzecznością.
+
+$\impliedby$ Załóżmy, że $x\notin I$ dla pewnego ideału maksymalnego $I$. Wtedy $I$ i $x$ generują ideał $(1)$, więc dla pewnego $u\in I$ oraz $y\in A$ mamy $u+xy=1$. Stąd też $1-xy\in I$, a więc nie jest elementem odwracalnym i mamy sprzeczność.
+
+\proofend
+
+\subsection{Operacje na ideałach}
+
+Sumę dwóch ideałów $I,J\normalsubgroup A$ definiujemy jako zbiór wszystkich sum $x+y$, gdzie $x\in I$ oraz $y\in J$. Jest to najmniejszy ideał zawierający $I$ oraz $J$. W ogólności, jeśli mamy jakąś rodzinę ideałów $I_\alpha$, to $\sum I_\alpha$ jest definiowane jako zbiór elementów $\sum x_\alpha$, gdzie $x_\alpha\in I_\alpha$. Znowu, jest to najmniejszy ideał zawierający wszystkie ideały $I_\alpha$.
+
+Przekrój ideałów jest nadal ideałem, to wiemy, ale nie wiemy, że tworzą one pełną sałatę względem zawierania.
+
+Produkt dwóch ideałów $I, J$ to ideał $IJ$ generowany przez wszystkie $xy$ dla $x\in I$ oraz $y\in J$. Możemy to uogólnić na zbiór wszystkich $\sum x_\alpha y_\alpha$ dla $x_\alpha\in I$ i $y_\alpha\in J$. Analogicznie możemy zapisać produkt dowolnej, skończonej rodziny ideałów. W szczególności, potęgi $I^n$ ideału $I$ to dobrze zdefiniowane ideały. 
+
+Wszystkie powyżej zdefiniowane operacje sa przemienne i łączne. Co więcej, działa rozłączność mnożenia względem dodawania (czy tam na odwrót). Dodatkowo mamy prawo modułu(?) [\dyg{modular law}], czyli jeśli $J\subseteq I$ albo $L\subseteq I$, to
+$$I\cap(J+L)=I\cap J+I\cap L.$$
+Z ciekawych rzeczy, w $\Z$ $\cap$ i $+$ są rozdzielne względem siebie oraz $(I+J)(I\cap J)=IJ$, ale nie jest to regułą ogólną, zwykle tylko $(I+J)(I\cap J)\subseteq IJ$.
+
+Dwa ideały $I$ oraz $J$ są \deff{względnie pierwsze} lub względnie maksymalne [\emph{coprime or comaximal}], jeżeli $I+J=(1)$. W takim przypadku mamy $I\cap J=IJ$. Jasno widać, że $I$ i $J$ są względnie pierwsze $\iff$ istnieją $x\in I$ oraz $y\in J$ takie, że $x+y=1$.
+\smallskip
+
+Niech $A_1,...,A_n$ będą pierścieniami. Wtedy ich iloczyn prosty \dyg{direct product}
+$$A=\prod A_i$$
+jest zbiorem wszystkich ciągów $x=(x_1,...,x_n)$ dla $x_i\in A_i$ i dodawaniem oraz mnożeniem po współrzędnych.
+
+Niech $A$ będzie pierścieniem, a $I_1,...,I_n$ jego ideałami. Możemy zdefiniować homomorfizm
+$$\phi:A\to \prod(A/I_i)$$
+$$\phi(x)=(x+I_1,...,x+I_n).$$
+
+\deff{\large Twierdzenie:}
+
+\indent I. Jeżeli $I_i,I_j$ są względnie pierwsze, wtedy $\prod I_i=\bigcap I_i$
+
+\indent II. $\phi$ jak wyżej jest "na" $\iff$ $I_i, I_j$ są względnie pierwsze
+
+\indent III. $\phi$ jest 1-1 $\iff$ $\bigcap I_i=(0)$
+
+\textbf{Dowód:}
+
+I. Indukcją po $n$. Przypadek dla $n=2$ jest już rozpykany. Załóżmy, że $n>2$. Niech $J=\prod_{i=1}^{n-1}I_i=\bigcap I_i$. 
+
+STRONA 7 ŚRODEK DOWODU
