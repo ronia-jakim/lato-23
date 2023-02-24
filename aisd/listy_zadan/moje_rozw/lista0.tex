@@ -1,0 +1,88 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\begin{document}
+
+\begin{center}\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & $\Sigma$\\
+
+    \hline
+
+    - & - & - & + & - & + & + & + & - & + & ???\\
+
+    \hline
+\end{tabular}\end{center}
+
+\subsection*{ZADANIE 4.}
+\emph{Udowodnij, że algorytm mnożenia liczb "po rosyjsku" jest poprawny. Jaka jest jego złożoność czasowa i pamięciowa przy:}
+
+\emph{1. jednorodnym kryterium kosztów,}
+
+\emph{2. logarytmicznym kryterium kostów?}
+\medskip
+
+\textbf{Dowodzik:}
+
+Ustalmy dowolne $b\in\N$. Pokażemy przez indukcję, że dla dowolnego $a\in\N$ wynik algorytmu jest równy $ab$. Przypadek bazowy, czyli $a=1$ jest trywialny. 
+
+Załóżmy teraz, że dla dowolnego $a'\leq n$ algorytm działa i niech $a=n+1$. Rozważmy dwa przypadki:
+
+1. $(n+1)$ jest nieparzyste. Wtedy $a_1=(n+1)$ jest nieparzyste, wpp. do $a_1'=n$. Dalej, $a_2=\begin{floor}{n+1\over 2}\end{floor}=\begin{floor}{n\over 2}\end{floor}=a_2'$, czyli od drugiego miejsca ciąg $a_i$ dla $n+1$ jest taki sam jak dla $n$, więc:
+\begin{align*}
+    \sum\limits_{i=1,a_i \;np}^kb_i=b_1+\sum\limits_{i=2,a_i'\; np} b_i=b_1+n\cdot b=b+bn=b(n+1)
+\end{align*}
+
+2. $(n+1)$ jest parzyste. Wtedy $a_1=(n+1)$ jest parzyste, więc $b_1$ nie zostanie użyte w sumie. Natomiast $\begin{floor}{n+1\over 2}\end{floor}=\begin{floor}{n\over 2}\end{floor}+1=a_2'+1$, czyli od trzeciego indeksu $a_i$ jest taki sam jak $a_i'$
+\begin{align*}
+    \sum\limits_{i=1, a_i \;np}^kb_i=a_2b_2+\sum\limits_{i=3,a_i\;np}^kb_i=(a_2'+1)2b+\sum\limits_{i=3}^k b_i=2b+\sum\limits_{i=2,a_i'\;np}^kb_i=2b+\sum\limits_{i=1}^kb_i-b_1=b+\sum\limits_{i=1}^kb_i=b+nb
+\end{align*}
+
+\textbf{Złożoność:}
+
+1. Będziemy obliczać wyrazy ciągu $a_i$ $\log_2(a)$ razy, za każdym razem będziemy dzielić, sprawdzać podzielność, mnożyć $b$ i ewentualnie dodawać, co jest mniej więcej stałą liczbą operacji.
+
+2. {\color{orange}?????}
+
+\subsection*{ZADANIE 5.}
+\emph{Oszacuj z dokładnością do $\Theta$ złożoność poniższego fragmentu programu:}
+\begin{lstlisting}
+res <- 0
+for i <- 1 to n do
+    j <- i
+    while (j jest parzyste) j <- j/2
+    res <- res + j
+\end{lstlisting}
+
+\subsection*{ZADANIE 6.}
+\emph{Pokaż, w jaki sposób algorytm "macierzowy" obliczania $n$-tej liczby Fibonacciego można uogólnić na inne ciągi, w których kolejne elementy definiowane są liniową kombinacją skończonej liczby elementów wcześniejszych. Następnie uogólnij swoje rozwiązanie na przypadek, w którym $n$-ty element ciągu definiowany jest jako suma kombinacji liniowej skończonej liczby elementów wcześniejszych oraz wielomianu zmiennej $n$.}
+\medskip
+
+Pierwsza część jest dość prosta. Rozważamy ciąg zdefiniowany rekurencyjnie
+$$a_n=\alpha_1a_{n-1}+\alpha_2a_{n-2}+...+\alpha_ka_{n-k}.$$
+Popatrzmy na macierz
+$$A=\begin{bmatrix}
+    \alpha_1 & \alpha_2 & \alpha_3 & ... &\alpha_{k-1} & \alpha_k\\
+    1 & 0 & 0 & ... & 0 & 0\\
+    0 & 1 & 0 & ... & 0 & 0\\
+    ... & ... & ... & ... & ... & ...\\
+    0 & 0 & 0 & ... & 1 & 0
+\end{bmatrix}$$
+Mnożąc $A^{n-1}$ przez wektor
+$$\begin{bmatrix}
+    a_{k-1}\\
+    a_{k-2}\\
+    ...\\
+    a_0
+\end{bmatrix}$$
+dostajemy wektor zawierający $a_n$ na pierwszym miejscu oraz wszystkie poprzednie miejsca na pozostałych miejscach.
+\smallskip
+
+Teraz co się dzieje dla ciągu zawierającego wielomian zmiennej $n$?
+
+Przyjrzyjmy się ciągowi zdefiniowanemu rekurencyjnie ze szczyptą wielomianu:
+$$a_n=\sum\limits_{i=1}^k\alpha_ia_{n-i}+\sum\limits_{i=0}^m\beta_in^i$$
+
+\end{document}
