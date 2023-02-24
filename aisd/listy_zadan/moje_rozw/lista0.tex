@@ -84,5 +84,90 @@ Teraz co się dzieje dla ciągu zawierającego wielomian zmiennej $n$?
 
 Przyjrzyjmy się ciągowi zdefiniowanemu rekurencyjnie ze szczyptą wielomianu:
 $$a_n=\sum\limits_{i=1}^k\alpha_ia_{n-i}+\sum\limits_{i=0}^m\beta_in^i$$
+Mogę zacząć od tego, że
+$$\begin{bmatrix}
+    a_n\\a_{n-1}\\a_{n-2}\\...\\a_{n-k+1}
+\end{bmatrix}=\begin{bmatrix}
+    \alpha_1 & \alpha_2 & \alpha_3 & ... &\alpha_{k-1} & \alpha_k\\
+    1 & 0 & 0 & ... & 0 & 0\\
+    0 & 1 & 0 & ... & 0 & 0\\
+    ... & ... & ... & ... & ... & ...\\
+    0 & 0 & 0 & ... & 1 & 0
+\end{bmatrix}\begin{bmatrix}
+    a_{n-1}\\a_{n-2}\\a_{n-3}\\...\\a_{n-k}
+\end{bmatrix}+\begin{bmatrix}
+    \sum\beta_in^i\\0\\0\\...\\0
+\end{bmatrix}$$
+
+{\color{orange}Czy jest coś więcej, co mogę o tym cudeńku powiedzieć?}
+
+\subsection*{ZADANIE 7.}
+\emph{Rozważ poniższy algorytm, który dla danego (wielo)zbioru $A$ liczb całkowitych wylicza pewną wartość. Twoim zadaniem jest napisanie programu (w pseudokodzie), możliwie najoszczędniejszego pamięciowo, który wylicza tę samą wartość.}
+
+\begin{lstlisting}
+while |A| > 1 do
+    a <- losowy element z A
+    A <- A \ {a}
+    b <- losowy element z A
+    A <- A \ {b}
+    A <- A u {a-b}
+
+output (x mod 2), gdzie x jest elementem ze zbioru A
+\end{lstlisting}
+\smallskip
+
+Zauważmy, że wynik zależy od ilości elementów nieparzystych. To znaczy, jeżeli elementów nieparzystych jest parzyście wiele, to dostaniemy $0$, wpp. dostaniemy $1$, gdyż te zbędne jedynki nieparzystości nie zniosą się do końca.
+
+Nie musimy więc trzymać całego $A$ w pamięci przez cały czas, a wystarczy wczytywać je element po elemencie, sprawdzać jego podzielność i odpowiednio modyfikować aktualną wartość wyniku:
+\begin{lstlisting}
+ret = 0
+while A ma niewczytane elementy:
+    a <- kolejny element A
+    if a % 2
+        ret = (ret + 1) % 2
+    
+output ret
+\end{lstlisting}
+
+\subsection*{ZADANIE 8.}
+\emph{Ułóż algorytm, który dla drzewa $T=(V, E)$ oraz listy par wierzchołków $\{v_i,u_i\}$ ($i=1,...,m$) sprawdza, czy $v_i$ leży na ścieżce z $u_i$ do korzenia. Przyjmij, że drzewo zadane jest jako lista $(n-1)$ krawędzi $(p_i,a_i)$ takich, że $p_i$ jest ojcem $a_i$ w drzewie.}
+
+Koncepcja jest taka, że idziemy od $u_i$ w górę, jeśli trafimy na $v_i$, piszemy TAK, wpp gdy jesteśmy na korzeniu, piszemy NIE
+
+\subsection*{ZADANIE 10.}
+\emph{Ułóż algorytm dla następującego problemu:}
+
+\emph{\textbf{PROBLEM}}
+
+\emph{dane: $n,m\in\N$}
+
+\emph{wynik: wartość współczynnika przy $x^2$ (wzięta modulo $m$) wielomiany $(...((x-2)^2-2)^2...-2)^2$, gdzie nawiasów ogółem jest $n$.}
+
+\emph{Czy widzisz zastosowanie metody użytej w szybkim algorytmie obliczania $n$-tej liczby Fibonacciego do rozwiązania tego problemu?}
+\medskip
+
+Tak naprawdę wystarczy, że będę trzymać to, co się dzieje przy wyrazie stałym, wyrazie z $x$ i wyrazie z $x^2$. 
+
+Wyraz stały w tym cudeńku to zawsze będzie $4$, bo z tego nawiasu w środku zawsze mamy $4$ na końcu, odejmujemy $2$ i podnosimy do kwadratu wielomian z $2$ jako wyrazem stałym. To widać. 
+
+Wyraz przy $x$ to będą kolejne potęgi $4$ na minusie? Można to pokazać przy pomocy ciągu rekurencyjnego $a_n$:
+$$a_1=-4$$
+$$a_n=4a_{n-1}=-4^n$$
+bo
+\begin{align*}
+    p_n(x)&=(...((x-2)^2-2)^2...-2)^2=4+a_nx+....\\
+    (p_n(x)-2)^2&=p_n(x)^2-4p_n(x)+4=(4+a_nx+...)^2-4(4+a_nx+...)+4=\\
+    &=8a_nx-4a_nx+...=4a_nx
+\end{align*}
+
+To teraz pozostaje mi napisać rekurencję na $b_n$, czyli wyraz przy $x^2$.
+\begin{align*}
+    p_n(x)&=(...((x-2)^2-2)^2...)^2=4-4^nx+b_nx^2+...\\
+    (p_n(x)-2)^2&=p_n(x)^2-4p_n(x)+4=(4-4^nx+b_nx^2+...)^2-4(4-4^nx+b_nx^2+...)+4=\\
+    &=8b_nx^2+4^{2n}x^2-4b_nx^2+...
+\end{align*}
+Czyli
+$$b_1=1$$
+$$b_n=4b_n+16^{n-1}$$
 
 \end{document}
