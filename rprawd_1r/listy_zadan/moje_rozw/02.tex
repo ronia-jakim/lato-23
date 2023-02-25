@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{../../../notatki}
+\usetikzlibrary{patterns}
 
 \begin{document}
 
@@ -8,8 +9,181 @@
 \emph{Udowodnić wzór włączeń i wyłączeń}
 $$\prawdo{\bigcup\limits_{i=1}^nA_i}=\sum\limits_{i=1}^n\prawdo{A_i}-\sum\limits_{1\leq i<j\leq n}\prawdo{A_i\cap A_j}+...+(-1)^{n+1}\prawdo{\bigcap\limits_{i=1}^n A_i}$$
 
-Może stworzę sobie nowy ciąg, tym razem rozłączny? To znaczy 
-$$B_1=A_1\setminus\bigcup\limits_{i=2}^nA_i$$
-$$B_2=A_2\setminus\bigcup\limits_{i=1,i\neq2}^nA_i$$
+Indukcja po $n$. Jeżeli mamy tylko $A_1, A_2$, to
+$$\prawdo{A_1\cup A_2}=\prawdo{A_1\cup (A_2\setminus(A_1\cap A_2))}=\prawdo{A_1}+\prawdo{A_2\setminus(A_1\cap A_2)}=\prawdo{A_1}+\prawdo{A_2}-\prawdo{A_1\cap A_2}$$
+
+Teraz załóżmy, że wzorek działa dla dowolnego ciągu długości $n$ i weźmy ciąg długości $(n+1)$. Mamy
+\begin{align*}
+    \prawdo{A_1\cup...\cup A_n\cup A_{n+1}}&=\prawdo{(A_1\cup...\cup A_n)\cup(A_{n+1}\setminus(A_1\cup...\cup A_n))}=\\
+    &=\prawdo{A_1\cup...\cup A_n}+\prawdo{A_{n+1}\setminus(({A_1\cup...\cup}A_n)\cap A_{n+1})}=\\
+    &=\prawdo{A_1\cup...\cup A_n}+\prawdo{A_{n+1}}-\prawdo{A_{n+1}\cap(A_1\cup...\cup A_n)}=\\
+    &=\prawdo{A_1\cup...\cup A_n}+\prawdo{A_{n+1}}-\prawdo{(A_{n+1}\cap A_1)\cup...\cup(A_{n+1}\cap A_n)}=\\
+    &=\sum\limits_{i\leq n+1}\prawdo{A_i}-\sum\limits_{i<j\leq n}\prawdo{A_i\cap A_j}+...(-1)^{n+1}\prawdo{\bigcap\limits_{i=1}^n A_i}+\\
+    -&\left(\sum\limits_{i\leq n}\prawdo{A_{n+1}\cap A_i}-\sum\limits_{i<j\leq n}\prawdo{(A_{n+1}\cap A_i)\cap (A_{n+1}\cap A_i)}+...+(-1)^{n+1}\prawdo{\bigcap\limits_{i\leq n}(A_{n+1}\cap A_i)}\right)=\\
+    &=\sum\limits_{i\leq n+1}\prawdo{A_i}-\sum\limits_{i<j\leq n+1}\prawdo{A_i\cap A_j}+...+(-1)^{n+2}\prawdo{\bigcap\limits_{i\leq n+1}A_i}
+\end{align*}
+
+\subsection*{ZADANIE 2.}
+(Nierówności Boole'a) \emph{Udowodnij nierówności} [te na {\color{blue}niebiesko}]
+$$\color{blue}\prawdo{\bigcup\limits_{i\leq n}A_i}\leq\sum\limits_{i\leq n}\prawdo{A_i}$$
+
+Może tutaj też indukcją? Dla $A_1, A_2$ jest to dość oczywiste, bo
+$$\prawdo{A_1\cup A_2}=\prawdo{A_1}+\prawdo{A_2}-\prawdo{A_1\cap A_2}\leq \prawdo{A_1}+\prawdo{A_2}$$
+gdyż $\prawdo{A_1\cap A_2}\geq0$.
+
+To teraz załóżmy, że śmiga dla dowolnego ciągu $n$ zbiorów i weźmy ciąg $(n+1)$-elementowy. 
+
+\begin{align*}
+    \prawdo{\bigcup\limits_{i\leq n+1} A_i}&=\prawdo{\bigcup\limits_{i\leq n}A_i\cup A_{n+1}}=\\
+    &=\prawdo{\bigcup\limits_{i\leq n}A_i}+\prawdo{A_{n+1}}-\prawdo{A_{n+1}\cap\bigcap\limits_{i\leq n}A_i}\leq \\
+    &\leq\prawdo{A_{n+1}}+\prawdo{\bigcup\limits_{i\leq n}A_i}\leq\\
+    &\leq \prawdo{A_{n+1}}+\sum\limits_{i\leq n}\prawdo{A_i}=\\
+    &=\sum\limits_{i\leq n+1}\prawdo{A_i}
+\end{align*}
+Pierwsza nierówność tak samo jak wcześniej, a druga nierówność z założenia indukcyjnego.
+
+$$\color{blue}\prawdo{\bigcap\limits_{i\leq n}A_i}\geq 1-\sum\limits_{i\leq n}\prawdo{A_i^c}$$
+
+To śmiga na podstawie poprzedniej nierówności:
+\begin{align*}
+    \prawdo{\bigcap A_i}=\prawdo{\left(\bigcup A_i\right)^c}=1-\prawdo{\bigcup A_i}\geq1-\sum\prawdo{A_i}
+\end{align*}
+
+\subsection*{ZADANIE 3.}
+\emph{Pokaż, że jeżeli $\prawdo{A_i}=1$ dla $i\geq 1$, to $\prawdo{\bigcap\limits_{i=1}^\infty A_i}=1$}
+\medskip
+
+Rozważmy ciąg $B_n$ taki, że $B_n=\bigcap\limits_{i\leq n}A_i$. Jak wygląda prawdopodobieństwo takiego osła?
+\begin{align*}
+    \prawdo{B_n}=\prawdo{\bigcap\limits_{i\leq n}A_i}\geq 1-\sum\limits_{i\leq n}\prawdo{A_i^c}=1-\sum\limits_{i\leq n}[1-\prawdo{A_i}]=1-\sum\limits_{i\leq n}0=1
+\end{align*}
+Skoro $\prawdo{B_n}\geq 1$, to musi być równe $1$.
+
+Skorzystamy teraz z twierdzenia o ciągłości, które mówi, że dla zstępującego ciągu $B_n$ (jakim on jest, bo to widać) mamy
+$$\prawdo{\bigcap B_n}=\lim\prawdo{B_n}=1$$
+a ponieważ
+$$\bigcap B_n=\bigcap \bigcap\limits_{i\leq n}A_i=\bigcap A_n$$
+to śmiga.
+
+\subsection*{ZADANIE 4.}
+\emph{Rzucamy symetryczną kostką do gry do chwili otrzymania szóstki. Zdefiniuj odpowiednią przestrzeń probabilistyczną. Jaka jest szansa, że liczba rzutów będzie podzielna przez $6$?}
+\medskip
+
+Dziwne to zadanko. $\Omega$ to ciągi liczb $1,2,...,5$ które na końcu mają $6$. Nas interesuje ich długość. Może zróbmy tak, że rzucamy $6n$ razy kostką i zapisujemy kolejne wyniki. Zdarzenia sprzyjające to rzuty, w których $6$ pojawia się po raz pierwszy na pozycji podzielnej przez $6$? 
+
+To będzie ciąg rzeczy wstępujących. Dla $n=1$ prawdopodobieństwo to po prostu 
+$$\left(\frac56\right)^5\cdot\frac16={5^5\over 6^6}.$$
+Dka $n=2$ jest już troszkę ciężej, ale prawdopodobieństwo to
+$$\left(\frac56\right)^5\cdot\frac16+\left(\frac56\right)^{11}\cdot\frac16,$$
+czyli wyrzuci $6$ w $6$ ruchu lub wyrzuci $6$ w $12$ ruchu. Uogólnić to można do
+\begin{align*}
+    p_n&=\sum\limits_{i\leq n}\left(\frac56\right)^{6i-1}\frac16=\frac16\cdot\frac65\sum\limits_{i\leq n}\left(\frac56\right)^{6i}=\frac15\cdot{5^6\over 6^6}\cdot{(5/6)^{6n}-1\over(5/6)^6-1}={5^5\cdot((5/6)^{6n}-1)\over5^6-1}
+\end{align*}
+Nie chce mi się liczyć, ale na oko to jest jakieś
+$${5^5\over 5^6-1}$$
+
+\subsection*{ZADANIE 5.}
+\emph{Na odcinku $[0,1]$ umieszczono losowo punkty $L$ i $M$. Obliczyć prawdopodobieństwo, że:}
+
+\indent \emph{\color{blue}a) środek odcinka $LM$ należy do $[0, \frac13]$}
+\smallskip
+
+Żeby ich środek był w $[0, \frac13]$, to ich średnia arytmetyczna musi być mniejsza niż $\frac13$, czyli
+$${x+y\over 2}\leq \frac13$$
+$$x+y\leq \frac23$$
+No i coś takiego na płaszczyźnie to jest trójkącik
+\begin{illustration}
+    \filldraw[color=green, very thick] (0, 0)--(2, 0)--(0, 2)--cycle;
+    \draw [very thick] (0, 0)--(3.5, 0);
+    \draw [very thick] (0, 0)--(0, 3.4);
+    \draw [very thick] (-0.05, 3)--(0.05, 3);
+    \draw [very thick] (3, 0.05)--(3, -0.05);
+    \node at (-0.4, 3) {1};
+    \node at (3, -0.4) {1};
+    \node at (-0.4, 2) {$\frac23$};
+    \node at (2, -0.4) {$\frac23$};
+\end{illustration}
+Czyli szukane prawdopodobieństwo to pole tego trójkącika, a więc $\frac29$.
+\smallskip
+
+\indent \emph{\color{blue}b) z $L$ jest bliżej do $M$ niż do zera.}
+\smallskip
+
+Czyli $|L-M|>L$, znowu ładnie to się zaprezentuje w dwóch wymiarach. Po co oni dali zadanie o prostej, które się robi płaszczyzną?
+
+Dla $L\geq M$ mam $|L-M|=L-M>L$, czyli $0>M$ co tak średnio śmiga. Dla $L<M$ mam z kolei $|L-M|=M-L>L$, czyli $M>2L$ 
+\begin{illustration}
+    \filldraw[color=green] (0, 0)--(0, 3)--(1.5, 3)--cycle;
+    \draw [very thick] (0, 0)--(4, 0);
+    \draw [very thick] (0, 0)--(0, 4);
+    \draw [very thick] (-0.05, 3)--(0.05, 3);
+    \draw [very thick] (3, 0.05)--(3, -0.05);
+    \node at (-0.4, 3) {1};
+    \node at (3, -0.4) {1};
+    \node at (4, -0.4) {L};
+    \node at (-0.4, 4) {M};
+    \draw [dashed] (0, 3)--(3, 3);
+    \draw [dashed] (3, 0)--(3, 3);
+    \draw [dashed] (1.5, 3)--(1.5, 0);
+    \node at (1.5, -0.4) {$\frac12$};
+\end{illustration}
+Czyli tutaj prawdopodobieństwo to $\frac14$.
+
+\subsection*{ZADANIE 6.}
+\emph{Z przedziału $[0, 1]$ wybrano losowo dwa punkty, które podzieliły go na trzy odcinki. Obliczyć prawdopodobieństwo, że z tych odcinków można skonstruować trójkąt.}
+\smallskip
+
+Osz kurwa, to będzie duuużo liczenia. Moje odcinki mają długość $x, y, 1-y-x$. Potrzebuję spełnić następujące warunki na raz:
+
+\indent 1. $x+y>1-y-x$, czyli $2x+2y>1$, $\color{orange}y>\frac12-x$
+
+\indent 2. $x+1-x-y>y$, czyli $1>2y$, $\color{green}\frac12>y$
+
+\indent 3. $y+1-x-y>x$, czyli $1>2x$, $\color{blue}\frac12>x$
+
+ROZRYSUJMY TO!
+\begin{illustration}
+    \draw [very thick] (0, 0)--(4, 0);
+    \draw [very thick] (0, 0)--(0, 4);
+    \draw [very thick] (-0.05, 3)--(0.05, 3);
+    \draw [very thick] (3, 0.05)--(3, -0.05);
+    \node at (-0.4, 3) {1};
+    \node at (3, -0.4) {1};
+    \node at (4, -0.4) {x};
+    \node at (-0.4, 4) {y};
+    \draw [dashed] (0, 3)--(3, 3);
+    \draw [dashed] (3, 0)--(3, 3);
+    \filldraw [color=blue, pattern=north east lines, pattern color=blue] (0, 0)--(1.5, 0)--(1.5, 3)--(0, 3)--cycle;
+    \filldraw [color=green, pattern=north west lines, pattern color=green] (0, 0)--(3, 0)--(3, 1.5)--(0, 1.5)--cycle;
+    \filldraw [color=orange, pattern=horizontal lines, pattern color=orange] (1.5, 0)--(0, 1.5)--(0, 3)--(3, 3)--(3, 0)--cycle;
+\end{illustration}
+
+Czyli to gdzie wszystkie są spełnione to ten trójkącik w środku o polu $\frac18$.
+
+\subsection*{ZADANIE 7.}
+\emph{Wybrano losowy punkt $(x,y)$ z kwadratu $[0,1]^2$. Oblicz prawdopodobieństwo, że}
+
+\indent \emph{\color{blue}a) $x$ jest liczbą wymierną.}
+\smallskip
+
+To po prostu miara $\lambda(\Q)=0$
+\smallskip
+
+\indent \emph{\color{blue}b) obie liczby $x$ i $y$ są niewymierne.}
+\smallskip
+
+$A^c$ to co najmniej jedna liczba jest wymierna. Czyli mam $A^c=$ x wymierny + y wymierny + oba wymierne. Oba wymierne mają prawdopodobieństwo 0, tak samo to, że $x$ jest wymierny i że $y$ jest wymierny też ma prawdopodobieństwo $0$, czyli $A^c$ wydaje się mieć prawdopodobieństwo $0$, a więc $\prawdo A=1$?
+\smallskip
+
+\indent \emph{\color{blue}c) spełniona jest nierówność $x^2+y^2<1$}
+\smallskip
+
+Czyli punkt ma wylądować w środku ćwiartki koła o promieniu $1$, a więc $\prawdo{A}=\frac\pi4$.
+\smallskip
+
+\indent \emph{\color{blue}d) spełniona jest równość $x^2+y^2=1$.}
+\smallskip
+
+No to też jest miary zero? Bo ograniczam od góry przez koło o promieniu $1+\varepsilon$ i od dołu przez $1-\varepsilon$. Miara to ich różnica i jest dowolnie mała.
 
 \end{document}
