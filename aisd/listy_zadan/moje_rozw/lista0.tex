@@ -101,6 +101,8 @@ $$\begin{bmatrix}
 
 {\color{orange}Czy jest coś więcej, co mogę o tym cudeńku powiedzieć?}
 
+Pierwszy wiersz to współczynniki $\alpha_i$ oraz same $1$, potem górna lewa strona to jak przy normalnej rekurencji, a prawa dolna to są binomial coefficients pod przekątną.
+
 \subsection*{ZADANIE 7.}
 \emph{Rozważ poniższy algorytm, który dla danego (wielo)zbioru $A$ liczb całkowitych wylicza pewną wartość. Twoim zadaniem jest napisanie programu (w pseudokodzie), możliwie najoszczędniejszego pamięciowo, który wylicza tę samą wartość.}
 
@@ -132,7 +134,55 @@ output ret
 \subsection*{ZADANIE 8.}
 \emph{Ułóż algorytm, który dla drzewa $T=(V, E)$ oraz listy par wierzchołków $\{v_i,u_i\}$ ($i=1,...,m$) sprawdza, czy $v_i$ leży na ścieżce z $u_i$ do korzenia. Przyjmij, że drzewo zadane jest jako lista $(n-1)$ krawędzi $(p_i,a_i)$ takich, że $p_i$ jest ojcem $a_i$ w drzewie.}
 
-Koncepcja jest taka, że idziemy od $u_i$ w górę, jeśli trafimy na $v_i$, piszemy TAK, wpp gdy jesteśmy na korzeniu, piszemy NIE
+\begin{lstlisting}
+wierzcholki - tablica vector<int>
+
+n <- liczba wierzcholkow drzewa
+i <- 1
+while i < n:
+    (p, a) <- INPUT
+    wierzcholki[p].push_back(a)
+    wierzcholki[a].push_back(p)
+    i <- i + 1
+
+m <- INPUT ilosc par {v, u}
+ret <- tablica m 0
+i <- 0
+v, u <- tablica n -1
+
+while i < m:
+    (a, b) <- INPUT
+    v[a] <- i
+    u[b] <- i
+    i <- i + 1
+
+w_dol <- tablica n 0
+w_gore <- tablica n 0
+
+czy_u <- -1
+czy_v <- -1
+
+funkcja dfsik (akt):
+    w_dol[akt] <- 1
+
+    j <- 0
+    while j < length(wierzcholki[akt]):
+        p <- wierzcholki[akt][j]
+        if w_dol[p] == 0:
+            dfsik(p)
+        
+    
+
+dfsik(0)
+
+i <- 0
+while i < m:
+    if ret[i]:
+        OUTPUT -> "tak"
+    else:
+        OUTPUT -> "nie"
+
+\end{lstlisting}
 
 \subsection*{ZADANIE 10.}
 \emph{Ułóż algorytm dla następującego problemu:}
