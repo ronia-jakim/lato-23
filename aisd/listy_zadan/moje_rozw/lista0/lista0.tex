@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{../../../notatki}
+\usepackage{../../../../notatki}
 
 \begin{document}
 
@@ -11,7 +11,7 @@
 
     \hline
 
-    - & - & - & + & - & + & + & + & - & + & ???\\
+    - & - & - & + & - & + & + & - & - & + & ???\\
 
     \hline
 \end{tabular}\end{center}
@@ -55,6 +55,9 @@ for i <- 1 to n do
     while (j jest parzyste) j <- j/2
     res <- res + j
 \end{lstlisting}
+
+Mamy $n$ obrotów pętli, liczymy tylko te liczby, które faktycznie podzielimy. Tych, które podzielimy co najmniej raz będzie $\frac n2$, tych które podzielimy co najmniej dwa razy - $\frac n4$ etc, czyli
+$$n\sum\limits_{i=1}^{\log n}{1\over2^i}\leq n\sum{1\over 2^i}=n{1\over1-\frac12}=2n=\Theta(n)$$
 
 \subsection*{ZADANIE 6.}
 \emph{Pokaż, w jaki sposób algorytm "macierzowy" obliczania $n$-tej liczby Fibonacciego można uogólnić na inne ciągi, w których kolejne elementy definiowane są liniową kombinacją skończonej liczby elementów wcześniejszych. Następnie uogólnij swoje rozwiązanie na przypadek, w którym $n$-ty element ciągu definiowany jest jako suma kombinacji liniowej skończonej liczby elementów wcześniejszych oraz wielomianu zmiennej $n$.}
@@ -134,7 +137,7 @@ output ret
 \subsection*{ZADANIE 8.}
 \emph{Ułóż algorytm, który dla drzewa $T=(V, E)$ oraz listy par wierzchołków $\{v_i,u_i\}$ ($i=1,...,m$) sprawdza, czy $v_i$ leży na ścieżce z $u_i$ do korzenia. Przyjmij, że drzewo zadane jest jako lista $(n-1)$ krawędzi $(p_i,a_i)$ takich, że $p_i$ jest ojcem $a_i$ w drzewie.}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=python]
 wierzcholki - tablica vector<int>
 
 n <- liczba wierzcholkow drzewa
@@ -148,22 +151,40 @@ while i < n:
 m <- INPUT ilosc par {v, u}
 ret <- tablica m 0
 i <- 0
-v, u <- tablica n -1
+v, u <- tablica n vector<int>
 
 while i < m:
     (a, b) <- INPUT
-    v[a] <- i
-    u[b] <- i
+    v[a].push_back(i)
+    u[b].push_back(i)
     i <- i + 1
 
 w_dol <- tablica n 0
 w_gore <- tablica n 0
 
-czy_u <- -1
-czy_v <- -1
+czy_bylo_v <- tablica m 0
+czy_bylo_u <- tablica m 0
 
 funkcja dfsik (akt):
     w_dol[akt] <- 1
+
+    if length(v[akt]) > 0:
+        j <- 0
+        while j < length(v[akt]):
+            p <- v[akt][j]
+            if czy_u[p] != 0: # jezeli jeszcze nie odwiedzilam odpowiadajacego u
+                czy_v[p] = 1
+            j <- j + 1
+    
+    if length(u[akt]) > 0:
+        j <- 0
+        while j < length(u[akt]):
+            p <- u[akt][j]
+
+            if czy_v[p] != 1: # jezeli dochodze do u zanim dojde do v
+                czy_u[p] = -1
+            else:
+                czy_u[p] = 1
 
     j <- 0
     while j < length(wierzcholki[akt]):
@@ -171,13 +192,17 @@ funkcja dfsik (akt):
         if w_dol[p] == 0:
             dfsik(p)
         
-    
+    j <- 0
+    while j < m:
+        if czy_u[j] != -1:
+            czy_u[j] = 0
+            czy_v[j] = 0 
 
 dfsik(0)
 
 i <- 0
 while i < m:
-    if ret[i]:
+    if ret[i] != -1:
         OUTPUT -> "tak"
     else:
         OUTPUT -> "nie"
@@ -219,5 +244,66 @@ To teraz pozostaje mi napisać rekurencję na $b_n$, czyli wyraz przy $x^2$.
 Czyli
 $$b_1=1$$
 $$b_n=4b_n+16^{n-1}$$
+
+Mamy
+\begin{align*}
+    \begin{bmatrix}
+        b_n\\16^n
+    \end{bmatrix}&=\begin{bmatrix}
+        4 & 1\\
+        0 & 16
+    \end{bmatrix}\begin{bmatrix}
+        b_{n-1}\\16^{n-1}
+    \end{bmatrix}=\begin{bmatrix}
+        4 & 1\\
+        0 & 16
+    \end{bmatrix}^{n-1}\begin{bmatrix}
+        1\\
+        16
+    \end{bmatrix}
+\end{align*}
+
+Napisałam coś takiego w cepiku:
+\begin{lstlisting}[language=c++]
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+vector<vector<int>> A = {
+    {4, 1},
+    {0, 16}
+};
+
+vector<vector<int>> fast_power (vector<vector<int>> M, int n);
+
+int main () {
+    int n;
+    cout << "Podaj ile nawiasow chcesz rozwazac: ";
+    cin >> n;
+    
+    vector<vector<int>> test = fast_power(A, n-1);
+    int ret = test[0][0] + 16 * test[0][1];
+    cout << "Wspolczynnik przy x^2 to: " << ret << endl;
+
+    return 0;
+}
+
+vector<vector<int>> fast_power (vector<vector<int>> M, int n) {
+    if (n == 0) return {{1, 0}, {0, 1}};
+    if (n == 1) return M;
+    if (n % 2 == 1) {
+        vector<vector<int>> Mn = fast_power(M, n-1);
+        return {
+            {M[0][0] * Mn[0][0] + M[0][1] * Mn[1][0], M[0][0] * Mn[0][1] + M[0][1] * Mn[1][1]},
+            {M[1][0] * Mn[0][0] + M[1][1] * Mn[1][0], M[1][0] * Mn[0][1] + M[1][1] * Mn[1][1]}
+            };
+    }
+    return fast_power({
+            {M[0][0] * M[0][0] + M[0][1] * M[1][0], M[0][0] * M[0][1] + M[0][1] * M[1][1]},
+            {M[1][0] * M[0][0] + M[1][1] * M[1][0], M[1][0] * M[0][1] + M[1][1] * M[1][1]}
+            }, n/2);
+}
+\end{lstlisting}
 
 \end{document}
