@@ -186,4 +186,65 @@ Czyli punkt ma wylądować w środku ćwiartki koła o promieniu $1$, a więc $\
 
 No to też jest miary zero? Bo ograniczam od góry przez koło o promieniu $1+\varepsilon$ i od dołu przez $1-\varepsilon$. Miara to ich różnica i jest dowolnie mała.
 
+\subsection*{ZADANIE 8.}
+\emph{W kwadracie $[0,1]^2$ wybrano losowo dwa punkty $A$ i $B$. Zdefiniuj odpowiednią przestrzeń probabilistyczną. Oblicz prawdopodobieństwo, że}
+
+\indent \emph{\color{blue}a) odcinek $AB$ przecina przekątną łączącą wierzchołki $(0,0)$ i $(1,1)$}
+\smallskip
+
+To ten, wybieram $A$ w dolnym trójkącie, to będzie $\frac12$ i każę $B$ być w górnym, to też jest $\frac12$. Jest symetryczne, więc całość to dwa razy $2\cdot \frac12\cdot\frac12=\frac12$.
+
+\indent \emph{\color{blue}b) odległość punktu $A$ od $(1, 1)$ jest mniejsza niż $1$, a odległość punktu $B$ od $(1, 1)$ jest większa niż $1$}
+\smallskip
+
+Czy to będzie wybieram $A$, jakie jest prawdopodobieństwo, że $A$ będzie w środku ćwiartki koła jednostkowego. Potem wybieram $B$, jakie jest prawdopodobieństwo, że $B$ nie będzie w środku tej ćwiartki. Mnożę i ta da? Czyli
+$$\frac\pi4\cdot(1-\frac\pi4)$$
+
+\indent \emph{\color{blue}c) oba punkty leżą pod parabolą $y=-x(x-1)$}
+\smallskip
+
+To akurat to jest chyba pole pod parabolą do kwadratu?
+$$\int_0^1x(1-x)dx=\int_0^1x-\int_0^1x^2dx=1-\frac12=\frac12$$
+czyli całość to $\frac14$.
+
+\subsection*{ZADANIE 9.}
+\emph{Igłę o długości $l$ rzucono na podłogę z desek o szerokości $a\geq l$. Znajdź prawdopodobieństwo, że igła przetnie krawędź deski.}
+\smallskip
+
+Zgaduję, że tutaj będą zdarzenia wstępujące i rozważam $n$ desek, ale mi się bardzo nie chce.
+
+\subsection*{ZADANIE 10.}
+\emph{Niech $(\Omega,\set{F})$ będzie przestrzenią mierzalna. Uzasadnij, że $\sigma$-ciało $\set{F}$ nie może być nieskończoną przeliczalną rodziną zbiorów.}
+\smallskip
+
+A to akurat robiłam jako pracę domową na MiC XD.
+\smallskip
+
+Mogę wziąć sobie dowolny $A_1\in \set{F}$. Zdefiniujmy teraz $\set{F}_1$ jako tylko te zbiory z $\sigma$-algebry, które są zawarte w $A_1^c$. Wyciągnijmy nowy zbiór $A_2\in\set{F}_1$. Od razu widzimy, że zawsze $A_2\cap A_1=\emptyset$. Możemy tak lecieć dalej, zwężając za każdym razem sigma algebrę do dopełnienia $A_n$ i brać $A_{n+1}$ z tego zwężenia, zawsze zbiory będą parami rozłączne, bo schodzimy coraz to niżej. Ładnie to można narysować.
+\smallskip
+
+MÓJ NA SZYBKO DOWODZIK:
+
+Weźmy $\Omega$ o mocy $\omega$.
+
+Cały dowód to skonstruowanie sobie ciągu rozłącznych zbiorów, ich różne sumy zawsze będą różne, a tych sum możemy wybrać na $2^\omega$, czyli $\set{F}$ jest nieprzeliczalne.
+
+To lecimy. Weźmy sobie dowolny ciąg $A_1\subsetneq A_2\subsetneq A_3\subsetneq...\in\Omega$ oraz $\prawdo{A_1}<1$. Możemy tak zrobić, choćby dlatego, że biorą kolejno sumę coraz to większej liczby singletonów dostaję nowego pyśka. Zdefiniujmy teraz ciąg $B_1\subseteq A_1$, $B_2\subseteq A_2\setminus A_1$ i ogólniej
+$$B_n\subseteq A_n\setminus\bigcup\limits_{i< n} A_{i}$$
+No i teraz $B_n$ są rozłączne.
+
+\subsection*{ZADANIE 11.}
+\emph{Oznaczmy przez $\set{B}_0$ ciało składające sie ze skończonych sum rozłącznych przedziałów $(a, b]$ zawartych w odcinku $(0,1]$. Określmy na $\set{B}_0$ funkcję $P$ taką, że $P(A)=1$ lub $0$, w zależności od tego, czy zbiór $A$ zawiera przedział postaci $(\frac12,\frac12+\varepsilon]$ dla pewnego $\varepsilon>0$, czy też nie. Pokaż, że $P$ jest miarą addytywną, ale nie przeliczalnie addytywną.}
+\smallskip
+
+Skończoną addytywność śmignie się za chwilę, najpierw uwalmy przeliczalną addytywność.
+
+Rozważmy ciąg zbiorów zdefiniowany:
+$$A_n=(\frac12+\frac1{2^{n+1}}, \frac12+\frac1{2^{n}}]$$
+Oczywiście $A=\bigcup A_n=(\frac12, 1)$, czyli $P(A)=1$. Czy one są już rozłączne? Ej no są XD
+$$A_i\cap A_{i+1}=(\frac12+\frac1{2^{i+1}}, \frac12+\frac1{2^i}]\cap(\frac12+\frac1{2^{i+2}},\frac12+\frac1{2^{i+1}}]=\emptyset$$
+Dla dowolnego $n$ $P(A_n)=0$, bo nie zawiera odcinka $(\frac12, \frac12+\varepsilon]$, ale już suma go zabiera, więc nie jest to funkcja przeliczalnie addytywna.
+
+W sumie skończona addytywność jest widoczna od razu. Weźmy dowolny skończony ciąg rozłącznych pyśków.
+
 \end{document}
