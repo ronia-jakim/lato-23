@@ -21,12 +21,12 @@ To się nazywa \dyg{prawem Malthusa}.
 
 Dzisiejszy wykład ma nam powiedzieć, jak znajdować rozwiązanie.
 
-\subsection{Rozwiązywanie równań różniczkowych}
+\subsection{Równania liniowe jednorodne}
 
 \deff{Równanie liniowe jednorodne} to równanie postaci
 $$y'=a(t)y$$
 z warunkiem początkowym $y(0)=y_0$. Szukanie rozwiązania tego równania (czyli tak zwanego \dyg{zagadnienia Cauchy'ego}) to:
-$$y'-a(t)-y=0$$
+$$y'-a(t)y=0$$
 i teraz jeśli przemnożę całe t równanie przez
 $$e^{-\int_0^t a(s)ds},$$
 co nazywamy \acc{czynnikiem całkującym}, i teraz jak napiszemy:
@@ -67,10 +67,8 @@ $$\left[we^{-\int_0^ta(s)ds}\right]'=0$$
 $$we^{-\int_0^ta(s)ds}=c$$
 $$w=ce^{-\int_0^ta(s)ds}$$
 ale ponieważ $w(0)=0$, to $w(0)=0=c$ i mamy, że $w\equiv 0$.
-\medskip
 
-\podz{dark-green}
-\medskip
+\subsection{Równania liniowe niejednorodne}
 
 \deff{\large Twierdzenie:} dla dowolnej funkcji ciągłej $a,f\in C(\R)$ istnieje dokładnie jedno rozwiązanie $y\in C^1(\R)$ zagadnienia
 $$\begin{cases}
@@ -91,10 +89,8 @@ i całkujemy obie strony od $0$ do $t$. Jeszcze przed tym zmienimy sobie oznacze
 \end{align*}
 
 Jednoznaczność możemy pokazać podobnie jak w poprzednim przykładzie.
-\medskip
 
-\podz{dark-green}
-\medskip
+\subsection{Równania o zmiennych rozdzielonych}
 
 \deff{Równanie o zmiennych rozdzielonych} to równanie postaci
 $$y'={g(t)\over f(y)}.$$
@@ -136,8 +132,8 @@ $$y(t)=F^{-1}(F(y_0)+\int_{t_0}^tg(s)ds)$$
 \indent 2. $y=y^2$ i $y(0)=1$. Nadal działamy na równaniu o zmiennych rozdzielonych. Założenie o ciągłości jest prawdziwe. Twierdzenie mówi, że w otoczeniu punktu $(0, 1)$ mamy dokładnie jedno rozwiązanie, które wynosi 
 $$y(t)={1\over 1-t}$$
 
-\podz{dark-green}
-\medskip
+
+\subsection{Równania zupełne}
 
 \deff{Równania zupełne} to równania postaci
 $$M(t, y(t))+N(t, y(t)){dy\over dt}=0,$$
