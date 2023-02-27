@@ -1,0 +1,201 @@
+\section{Wstęp}
+
+\textbf{Przykład:} \dyg{Procent składany}: mamy $x_0=1000$ zł złożone w banku i oprocentowanie to jest $r = 8\%$ w skali roku. Pytamy, ile będziemy mieli po roku na naszym rachunku? $x_1=1008$. To się nazywa \emph{kapitalizacja odsetek} i ogólny wzór to
+$$x_n=x_{n-1}+r\cdot x_{n-1}$$
+i możemy to napisać jawnym wzorem
+$$x_n=x_0\cdot(1+r)^n$$
+i to jest już jakiś model. 
+
+Teraz rozważmy przypadek ciągły tego. Zmieniamy znaczenie oznaczenia $x_n$ na stan rachunku w $n$-tym miesiącu. Model będzie ten sam, tylko $x_n=x_0\cdot(1+{r\over12})^n$.
+
+To teraz rozdrabniamy jeszcze bardziej i stan w chwili $t$ to:
+$$x(t+h)=x(t)+r\cdot h x(t)$$
+i równoważna postać to
+$${x(t+h)-x(t)\over h}=rx(t)$$
+a ponieważ lewa strona przy $h\to 0$ dąży do pochodnej $x$, to mamy
+$${dx\over dt}=rx(t)$$
+To się nazywa \dyg{prawem Malthusa}.
+\smallskip
+
+\textbf{Przykład:} przyrost naturalny. Jeśli przez $r$ oznaczymy przyrost naturalny w Polsce, to mamy $r<0$. Wzór jest taki sam jak dla procentu składanego.
+
+Dzisiejszy wykład ma nam powiedzieć, jak znajdować rozwiązanie.
+
+\subsection{Rozwiązywanie równań różniczkowych}
+
+\deff{Równanie liniowe jednorodne} to równanie postaci
+$$y'=a(t)y$$
+z warunkiem początkowym $y(0)=y_0$. Szukanie rozwiązania tego równania (czyli tak zwanego \dyg{zagadnienia Cauchy'ego}) to:
+$$y'-a(t)-y=0$$
+i teraz jeśli przemnożę całe t równanie przez
+$$e^{-\int_0^t a(s)ds},$$
+co nazywamy \acc{czynnikiem całkującym}, i teraz jak napiszemy:
+$$y'e^{-\int_0^ta(s)ds}-a(t)e^{-\int_0^ta(s)ds}y=0$$
+i to co dostaliśmy to jest pochodna funkcji
+$$\left[e^{-\int_0^ta(s)ds}y\right]'=0$$
+czyli mamy
+$$ye^{-\int_0^ta(s)ds}=c$$
+$$y=ce^{\int_0^ta(s)ds}$$
+
+\deff{\large Twierdzenie:} dla każdej $a\in C(\R)$ istnieje dokładnie jedno rozwiązanie zagadnienia Cauchy'ego:
+$$\begin{cases}
+    y'=a(t)y\\
+    y(0)=y_0
+\end{cases}$$
+
+\textbf{Dowód:} Istnienie jest jasne, bo $y(t)$ jest dane jawny wzorem
+$$y(t)=y_0e^{\int_0^ta(s)ds}.$$
+
+Przy dowodzie jednoznaczności chcemy pokazać, że jest to dokładnie jedno rozwiązanie. Mamy dwie opcje dowodu:
+
+\indent I. Wszystkie krotki wyprowadzania jak wyżej są równoważne, to znaczy $y$ spełnia $y'-a(t)-y=0$ wtedy i tylko wtedy gdy $y$ spełnia $y'e^{-\int_0^ta(s)ds}-a(t)e^{-\int_0^ta(s)ds}y=0$ i tak dalej.
+
+\indent II. Dowód nie wprost, czyli załóżmy, że mamy dwa rozwiązania $y(t)$ oraz $\overline y(t)$. Wtedy
+$$w(t)=y(t)-\overline y(t)$$
+spełnia:
+$$w'=a(t)y-a(t)\overline y=a(t)(y-\overline y)=a(t)w$$
+$$w(0)=y(0)-\overline y(0)$$
+
+Funkcja $w\in C^1(\R)$ spełnia:
+$$w'=aw$$
+$$w(0)=0$$
+Pokazać, że $w(t)\equiv 0$
+
+Mnożymy równanie $w'=aw$ przez $e^{-\int_0^ta(s)ds}$ i dostajemy:
+$$w'e^{-\int_0^ta(s)ds}-awe^{-\int_0^ta(s)ds}=0$$
+$$\left[we^{-\int_0^ta(s)ds}\right]'=0$$
+$$we^{-\int_0^ta(s)ds}=c$$
+$$w=ce^{-\int_0^ta(s)ds}$$
+ale ponieważ $w(0)=0$, to $w(0)=0=c$ i mamy, że $w\equiv 0$.
+\medskip
+
+\podz{dark-green}
+\medskip
+
+\deff{\large Twierdzenie:} dla dowolnej funkcji ciągłej $a,f\in C(\R)$ istnieje dokładnie jedno rozwiązanie $y\in C^1(\R)$ zagadnienia
+$$\begin{cases}
+    y'=a(t)y+f(t)\\
+    y(0)=y_0
+\end{cases}$$
+czyli \deff{równania liniowego niejednorodne}.
+
+\textbf{Dowód:}
+
+Istnienie pokażemy przez konstrukcję rozwiązania. Mnożymy przez czynnik całkujący, czyli $e^{-\int_0^ta(s)ds}$ i dostajemy
+$$\left[ye^{-\int_0^ta(s)ds}\right]'=f(t)e^{-\int_0^ta(s)ds}$$
+i całkujemy obie strony od $0$ do $t$. Jeszcze przed tym zmienimy sobie oznaczenie w równaniu powyżej: $t\to \tau$. Koniec końców, dostaniemy:
+\begin{align*}
+    \int_0^t\left[ye^{-\int_0^\tau a(s)ds}\right]'dz&=\int_0^tf(\tau)e^{-\int_0^\tau a(s)ds}d\tau\\
+    ye^{-\int_0^ta(s)ds}-y_0e^{-\int_0^ta(s)ds}&=\int_0^tf(\tau)e^{-\int_0^\tau a(s)ds}d\tau\\
+    y&=y_0+  e^{\int_0^ta(s)ds}\int_0^tf(\tau)e^{-\int_0^\tau a(s)ds}
+\end{align*}
+
+Jednoznaczność możemy pokazać podobnie jak w poprzednim przykładzie.
+\medskip
+
+\podz{dark-green}
+\medskip
+
+\deff{Równanie o zmiennych rozdzielonych} to równanie postaci
+$$y'={g(t)\over f(y)}.$$
+Równanie liniowe jednorodne to szczególny przypadek równania o zmiennych rozdzielonych dla $g(t)=a(t)$ i $f(y)={1\over y}$. Takie równania są przyjemne, bo łatwo jest je zwinąć do postaci pochodna $=0$:
+$$y'={g(t)\over f(y)}$$
+$$y'f(y)=g(t)$$
+i niech $f=F'$ oraz $g=G'$. Wtedy
+$$[F(y(t))]'=G'(t)$$
+czyli
+$$[F(y(t))]'-G'(t)=0$$
+$$F(y(t))-G(t)=c$$
+Możemy też podejść do tego problemu \dyg{metodą inżynieryjną}, czyli $y'={dy\over dx}$ jest traktowane jako ułamek i mamy
+\begin{align*}
+    {dy\over dt}&={g(t)\over f(y)}\\
+    f(y)dy&=g(t)dt\\
+    \int f(y)dy&=\int g(t)dt
+\end{align*}
+
+\deff{\large Twierdzenie:} Zagadnienie Cauchy'ego:
+$$\begin{cases}y'={g(t)\over f(y)}\\y(t_0)=y_0\end{cases},$$
+gdzie $g(t)$ jest ciągłe w otoczeniu $t_0$. Natomiast $f(y)$ i $\frac1{f(y)}$ są ciągłe w otoczeniu $y_0$. To równanie ma dokładnie jedno rozwiązanie $y\in C^1$ w otoczeniu $(t_0,y_0)$.
+
+\textbf{Dowód:} To jest tak naprawdę to co już napisaliśmy, ale nieco bardziej precyzyjnie.
+
+Ponieważ ${1\over f(y)}$ jest ciągłe w otoczeniu $y_0$, więc $f(y)\neq 0$ w tym otoczeniu. Załóżmy, że $f(y)>0$ na otoczeniu $y_0$. Zatem mamy równoważnie
+$$f(y){dy\over dy}=g(t).$$
+Niech $F'=f$ z dokładnością do stałej. Czyli wtedy
+$${d\over dt}F(y(t))=g(t)$$
+i całkujemy obie strony od ${t_0}$ do $t$:
+$$\int_{t_0}^t{d\over dt}F(y(t))=\int_{t_0}^tg(s)ds$$
+$$F(y(t))-F(y_0)=G(t)-G(t_0)$$
+Ponieważ $F'=f>0$ w otoczeniu $y_0$, to $F$ jest ściśle rosnąca, więc jest odwracalna. Zatem w otoczeniu $(t_0, y_0)$ mamy
+$$y(t)=F^{-1}(F(y_0)+\int_{t_0}^tg(s)ds)$$
+
+\textbf{Przykłady,} dlaczego ważne jest to, że jesteśmy w małym otoczeniu $(t_0, y_0)$ a nie globalnie:
+
+\indent 1. $y=y^\frac13$ i $y(0)=0$. Jest to równanie o zmiennych rozdzielonych. Rozwiązania to $y\equiv 0$, ale jeśli zaczniemy dłużej nad tym siedzieć, to mamy, że $y(t)=\left(\frac23t\right)^\frac32$. Inne rozwiązanie to $y(t)=-\left(\frac23t\right)^\frac32$. Problemem jest fakt, że w otoczeniu punktu $(0, 0)$ funkcja ma być ciągła - nie jest spełnione założenie. Przez to, możemy pokazać, że równanie to ma nieskończenie wiele rozwiązań.
+
+\indent 2. $y=y^2$ i $y(0)=1$. Nadal działamy na równaniu o zmiennych rozdzielonych. Założenie o ciągłości jest prawdziwe. Twierdzenie mówi, że w otoczeniu punktu $(0, 1)$ mamy dokładnie jedno rozwiązanie, które wynosi 
+$$y(t)={1\over 1-t}$$
+
+\podz{dark-green}
+\medskip
+
+\deff{Równania zupełne} to równania postaci
+$$M(t, y(t))+N(t, y(t)){dy\over dt}=0,$$
+gdzie $M, N$ są klasy $C^1$, dla których istnieje funkcja $\psi(t, y)$ klasy $C^1$ taka, że 
+$${\partial\over \partial t}\psi(t, y)=M(t, y)$$
+$${\partial\over\partial y}\psi(t, y)=N(t, y)$$
+
+Dla równań zupełnych mamy:
+\begin{align*}
+    M(t, y)+N(t, y){dy\over dt}&={\partial\over \partial t}\psi(t, y(t))+{\partial\over\partial y}\psi(t, y(t)){dy(t)\over dt}=\\
+    &={d\over dt}\left(\psi(t, y(t))\right)=0
+\end{align*}
+
+\textbf{Przykład:} Rozważmy funkcję
+$$3y+e^t+(3t+\cos y){dy\over dt}=0$$
+Chcę znaleźć funkcję $\psi(t, y(t))$ taką, że
+\begin{align*}
+    {\partial\psi(t, y(t))\over\partial t}&=3y+e^t\\
+    {\partial\psi(t, y(t))\over\partial y}&=3t+\cos y
+\end{align*}
+czyli obie strony możemy sobie przecałkować
+$$\psi(t, y(t))=\int [3y+e^t]dt=3ty+e^t+c(y)$$
+$${\partial\over\partial y}[3ty+e^t+c(y)]=3t+c'(y)={\partial\psi(t,y(y)\over\partial y)}=3t+\cos y$$
+$$3t+e^t+c'(y)=3t+\cos y$$
+$$c'(y)=\cos y$$
+$$c(y)=\sin y+c$$
+Zatem
+$$3y(t)+e^t+(3t+\cos y(t))y'(t)=(3ty(t)+e^t+\sin y(t)+c)'=0$$
+
+\deff{\large Twierdzenie:} rozważamy równanie
+$$M(t, y)+N(t, y){dy\over dt}=0$$
+gdzie $M, N$ są klasy $C^1$ w otoczeniu $(t_0, y_0)$. Równanie to jest zupełne w pewnym otoczeniu $(t_0, y_0)$ $\iff$ ${\partial M\over\partial y}={\partial N\over\partial t}$ w otoczeniu $(t_0, y_0)$.
+
+\textbf{Dowód:}
+
+$\implies$ Zupełność oznacza, że dla pewnej $\psi(t, y)$ mamy, że 
+$${\partial\psi(t, y)\over \partial t}=M(t, y)$$ 
+oraz 
+$${\partial\psi(t, y)\over\partial y}=N(t, y).$$
+Różniczkując pierwsze wyrażenie po $y$ oraz drugie po $t$ dostajemy:
+$${\partial^2\psi(t, y)\over\partial t\partial y}={\partial\over\partial y} M(t, y)$$
+$${\partial^2\psi(t, y)\over\partial y\partial t}={\partial\over\partial t} N(t, y)dy$$
+i z symetryczności drugiej pochodnej mamy równość z twierdzenia.
+
+$\impliedby$ Podajemy funkcję $\phi$:
+$$\phi(t, y)=\int_{t_0}^t M(s, y_0)ds+\int_{y_0}^y N(t, z)dz$$
+w otoczeniu $(t_0, y_0)$. 
+\begin{align*}
+    {\partial\over\partial t}\psi(t, y)&=M(t, y_0)+\int_{y_0}^y{\partial\over\partial t}M(t, z)dz=M(t, y_0)+\int_{y_0}^y{\partial\over\partial y}M(t, z)dz=\\
+    &=M(t, y_0)+M(t, y)-M(t, y_0)=M(t, y)
+\end{align*}
+Pokazanie, że ${\partial\over\partial y}=N(t, y)$ jest pokazywane analogicznie.
+\medskip
+
+\textbf{Przykład:} Równanie liniowe jednorodne $y'=a(t)y$ \acc{nie jest zupełne}. Możemy spróbować zapisać je w postaci z $M$ i $N$:
+$$-a(t)y+1\cdot y'(t)=0$$
+Wtedy $M(t, y)=-a(t)y$ i $N(t, y)=1$. Mamy więc
+$${\partial\over\partial y}M(t, y)=-a(t)\neq0={\partial\over\partial y}N(t, y).$$
+Ale już równanie 
+$$-a(t)ye^{-\int_0^ta(s)ds}+e^{-\int_0^ta(s)ds}y'=0$$
+jest zupełne, mimo że równania są równoważne. Zmieniliśmy tylko postać równania, ale jest sens jest taki sam.
