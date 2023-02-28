@@ -4,6 +4,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
+\RequirePackage[fontsize=12pt]{fontsize}
+
 \RequirePackage{geometry}
 \geometry {
     a4paper,
@@ -19,6 +21,22 @@
 \RequirePackage{amsmath}
 \RequirePackage{mathtools}
 \RequirePackage{dsfont}
+
+\RequirePackage{amsthm}
+\newtheoremstyle{mytheo}
+{}                % Space above
+{}                % Space below
+{\slshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\large\color{yellow}\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{mytheo}
+
+\newtheorem{fakt}{Fakt}[subsection]
+\newtheorem{uwaga}[fakt]{Uwaga}
+\newtheorem{tw}[fakt]{Twierdzenie}
 
 \RequirePackage[document]{ragged2e}
 \sloppy
@@ -62,6 +80,8 @@
 \newcommand{\homeomorphism}{\cong}
 \newcommand{\normalsubgroup}{\triangleleft}
 \newcommand{\obciete}{\upharpoonright}
+
+\newcommand{\izo}[1]{\xrightarrow[#1]{\cong}}
 
 \newcommand{\deff}[1]{\textbf{\color{green} #1}}
 \newcommand{\acc}[1]{{\color{blue} #1}}
@@ -120,12 +140,12 @@
 \definecolor{fore}{HTML}{ffffff}
 \definecolor{red}{HTML}{d25252}
 \definecolor{dark-red}{HTML}{f00c0c}
-\definecolor{green}{HTML}{a4c161}
-\definecolor{dark-green}{HTML}{c1df74}
+\definecolor{dark-green}{HTML}{a4c161}
+\definecolor{green}{HTML}{c1df74}
 \definecolor{orange}{HTML}{ffc56d}
 \definecolor{yellow}{HTML}{e1e48a}
-\definecolor{dark-blue}{HTML}{6c99ba}
-\definecolor{blue}{HTML}{8ab6d9}
+\definecolor{blue}{HTML}{6c99ba}
+\definecolor{dark-blue}{HTML}{8ab6d9}
 \definecolor{purple}{HTML}{d096d9}
 \definecolor{pink}{HTML}{efb5f7}
 \definecolor{dark-cyan}{HTML}{bdd6ff}
@@ -207,8 +227,8 @@
 \RequirePackage{marvosym}
 \RequirePackage{phaistos}
 
-\newcommand{\coffee}{\text{\color{def}\large\Coffeecup}}
-\newcommand{\bat}{\text{\color{acc}\large\Bat}}
+\newcommand{\coffee}{\text{\deff{\large\Coffeecup}}}
+\newcommand{\bat}{\text{\acc{\large\Bat}}}
 
 \newcommand{\cat}{\text{\PHcat}}
 \newcommand{\sheep}{\text{\PHram}}
