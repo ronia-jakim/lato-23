@@ -1,0 +1,130 @@
+\section{Teoria równań algebraicznych}
+
+Przez $R, S$ będziemy oznaczać pierścienie przemienne z $1\neq0$, natomiast $K, L$ będziemy rezerwować dla oznaczeń ciał.
+
+\subsection{Układy równań}
+
+Rozważmy funkcje $f_1,...,f_m\in R[X_1, ..., X_n]$. Dla wygody będziemy oznaczać krotki przez $\overline X$, czyli $R[X_1,...,X_n]=R[\overline X]$. Pojawia się problem: \dyg{czy istnieje rozszerzenie pierścieni z jednością $R\subseteq S$ takie, że układ $U:f_1(\overline X)=...=f_m(\overline X)=0$ ma rozwiązanie w pierścieniu $S$?}
+
+\begin{fakt}
+    $\overline a=(a_1,...,a_n)\subseteq S$, gdzie $S$ jest rozszerzeniem pierścienia $R$, jest \acc{rozwiązaniem układu równań} $U\iff g(\overline a)=0$ dla każdego wielomianu $\color{blue}g\in (f_1,...,f_m)\normalsubgroup R[X]$.
+\end{fakt}
+
+\textbf{Dowód:} 
+
+$\impliedby$ Implikacja jest dość trywialna, jeśli każdy wielomian z $(f_1,...,f_m)$, czyli wytworzony za pomocą sumy i produktu wielomianów $f_1,...,f_m$ zeruje się na $\overline a$, to musi zerować się też na każdym z tych wielomianów.
+
+$\implies$ Rozważamy dwa przypadki:
+
+\indent 1. $(f_1,...,f_m)\ni b\neq 0$ i $b\in R$. 
+
+To znaczy w $(f_1,...,f_m)$ mamy pewien niezerowy wyraz wolny. Wtedy mamy wielomian $g\in(f_1,...,f_m)$ taki, że $g(\overline a)\neq 0$. Ale przecież $g$ jest kombinacką wielomianów $f_1,...,f_m$, która na $\overline a$ przyjmują wartość $0$. W takim razie dostajemy układ sprzeczny i przypadek jest do odrzucenia.
+
+\indent 2. $(f_1,...,f_m)\cap R=\{0\}$. (nie ma wyrazów wolnych różnych od $0$)
+
+Teraz wiemy, że układ $U$ jest niesprzeczny, a więc możemy skonstruować pierścień z $1$ $S$ będący rozszerzeniem $R$ [$S\supseteq R$] oraz rozwiązanie $\overline a\subseteq S$ spełniające nasz układ równań.
+
+Niech $S=R[\overline X]/(f_1,...,f_m)$ i rozważmy
+$$j:R[\overline X]\to S=R[\overline{X}]/(f_1,...,f_m)$$
+nazywane \acc{przekształceniem ilorazowym}. Po pierwsze, zauważmy, że $j\obciete R$ jest $1-1$, bo
+$$\ker(j\obciete R)=\ker(j)\cap R=(f_1,...,f_m)\cap R=\{0\}$$
+i dlatego
+$$j\obciete R:R\izo{}j[R]\subseteq S.$$
+Z uwagi na ten izomorfizm, będziemy utożsamiać $R, j[R]$. W takim razie, $S$ jest rozszerzeniem pierścienia $R$. Czyli mamy rozszerzenie pierścienia $R$.
+
+Niech 
+$$\overline a=(a_1,...,a_m)=(j(X_1),...,j(X_n))\subseteq S,$$
+czyli jako potencjalne rozwiązanie rozważamy zbiór obrazów wielomianów stopnia $1$ przez wcześniej zdefiniowaną funkcję $j:R[\overline X]\to S$. Tak zdefiniowane $\overline a$ jest rozwiązaniem układu $U$ w pierścieniu $S$, bo dla funkcji wielomianowej (czyli zapisywalnej jako wielomian) $\hat{f_i}\in(f_1,...,f_m)$ mamy
+$$\hat{f_i}(\overline a)=\hat{f_i}(j(X_1),...,j(X_m))=j(\hat{f_i}(X_1,...,X_m))=j(f_i)=0.$$
+
+{\color{orange}\large TUTAJ TRZEBA POUZASADNIAĆ KILKA RÓWNOŚCI, ALE MOŻE NIE BĘDĘ TEGO ROBIŁA NA AISD}
+
+\begin{uwaga}
+    Skonstruowane powyżej {rozwiązanie $\overline a$} układu $U$ ma następującą własność {uniwersalności}:
+
+    ($\coffee$) Jeżeli $S'\supseteq R$ jest rozszerzeniem pierścienia z $1$ i $\overline a'=(a_1',...,a_m')\subseteq S$ jest rozwiązaniem $U$ w $S'$, to istnieje jedyny homomorfizm 
+    $$h:R[\overline a]\to R[\overline a']$$ 
+    taki, że $h\obciete R$ jest identycznością na $R$ i $h(\overline a)=\overline a'$. \acc{Wszystkie rozwiązania układów są homomorficzne.}
+\end{uwaga}
+
+\begin{illustration}
+    \node (R) at (0, 0) {$R$};
+    \node (R[a]) at (4, 0) {$R[\overline a]\subseteq S$};
+    \node (R[a']) at (0, -3) {$R[\overline a']\subseteq S'$};
+    \draw [ ->] (R)--(R[a]) node [midway, above] {$\subseteq$};
+    \draw [->] (R)--(R[a']) node [midway, left] {$\subseteq$};
+    \draw[->] (R[a])--(R[a']) node [midway, right] {$h$};
+\end{illustration}
+
+Tutaj \deff{$R[\overline a]\subseteq S$ jest podpierścieniem generowanym przez $R\cup\{\overline a\}$}, czyli zbiór:
+$$R[\overline a]=\{f(\overline a)\;:\;f(\overline X)\in R[\overline X]\}\subseteq S$$
+
+\textbf{Dowód:} Niech $I=\{g\in R[\overline X]\;:\;g(\overline a')=0\}\subseteq S'$. Oczywiście mamy, że $I\normalsubgroup R[\overline X]$, czyli
+$$(f_1,...,f_m)\subseteq I.$$
+Z twierdzenia o faktoryzacji wielomianów w pierścieniu od razu dostajemy od razu
+$$R[X]$$
+
+\subsection{Ciała}
+
+Dla $K\subseteq L$ ciał i $a_1,...,a_n=\overline a\in L$ definiujemy ideał $I({\overline a}/L)$ w $K[X_1,...,X_n]$ jako:
+$$\color{blue}I(\overline a /L):=\{f(X_1,...,X_n)\in K[\overline X]:f(\overline a)=0\},$$
+to znaczy generujemy ideał w wielomianach nad $K$ zawierający wszystkie wielomiany (niekoniecznie tylko jednej zmiennej) zerujące się w $\overline a$. 
+\medskip
+
+\textbf{Przykład:}
+\smallskip
+
+Dla $K=\Q,L=\R,n=1,a_1=\sqrt{2}$ mamy
+$$I(\sqrt{2}/\Q)=\{f(x^2-2)\;:\;f\in\Q[X]\}=(x^2-2)\normalsubgroup \Q[X]$$
+
+Dalej, definiujemy
+$$\color{blue}K[\overline a]:=\{f(\overline a)\;:\;f\in K[X]\}$$
+czyli podpierścień $L$ generowany przez $K\cup\{\overline a\}$ oraz $K(\overline a)$, czyli podciało $L$ generowane przez $K\cup\{\overline a\}$:
+$$\color{blue}K(\overline a):=\{f(\overline a)\;:\;f\in K(X_1,...,X_n)\;i\;f(\overline a)\text{ dobrze określone}\}.$$
+Tutaj $K(X_1,...,X_n)$ to \dyg{ciało ułamków pierścienia} $K[\overline X]$ (czyli najmniejsze ciało, że pierścień może być w nim zanurzony).
+\medskip
+
+\textbf{Przykład:}
+\smallskip
+
+Dla $K=\Q,L=\R$ zachodzi:
+$$K[\sqrt2]=\Q[\sqrt2]=\{q+p\sqrt2\;:\;q,p\in\Q\}$$
+$$K[\sqrt2,\sqrt3]=\Q[\sqrt2,\sqrt3]$$
+$$K(\sqrt2)=\Q[\sqrt2]$$
+to ostatnie to usuwanie niewymierności z mianownika.
+\medskip
+
+\textbf{\large\deff{Twierdzenie:}} Niech $K\subseteq L_1,K\subseteq L_2$ będą ciałami. Wybieramy $\{a_1,...,a_n\}\in L_1$ i $\{b_1,...,b_n\}\in L_2$. Wtedy następujące warunki są równoważne:
+
+\indent \point istnieje izomorfizm $\phi:K[a_1,...,a_n]\to K[b_1,...,b_n]$ taki, że $\phi\obciete K=id_K$ oraz $\phi(a_i)=b_i$.
+
+\indent \point $I(\overline a/K)=I(\overline b/K)$.
+\smallskip
+
+\textbf{Dowodzik:}
+
+$K[\overline a]\isomorphism K[\overline b]$ \acc{$\implies$} $I(\overline a/K)=I(\overline b/K)$
+
+Niech $\omega\in K[\overline X]$. Wtedy $\omega\in I(\overline a/K)$ wtedy i tylko wtedy, gdy $\omega(\overline a)=0$, to mamy z definicji $I(\overline a/K)$. Wiemy też, że $\phi(a)\in K[\overline X]$ wtedy, gdy $\omega(\phi(\overline a))=0$, a ponieważ $\phi(\overline a)=\overline b$, to również $\omega(\overline b)=0$ i mamy, że $\omega\in I(\overline b/K)$. Czyli izomorfizm między $K[\overline a]=K[\overline b]$ implikuje, że $I(\overline a/K)=I(\overline b/K)$.
+\smallskip
+
+$K[\overline a]\isomorphism K[\overline b]$ \acc{$\impliedby$} $I(\overline a/K)=I(\overline b/K)$
+
+Spróbujmy zdefiniować izomorfizm $\phi$ tak, że dla $\omega\in K[\overline X]$ mamy $\phi(\omega(\overline a))=\omega(\overline b)$
+
+1. $\phi$ jest homomorfizmem: 
+$$\phi(\omega(\overline a)\cdot v(\overline a))=f((\omega\cdot v)(\overline a))=(\omega\cdot v)(\overline b)=\omega(\overline b)\cdot v(\overline b)=\phi(\omega(\overline a))\cdot \phi(v(\overline a))$$
+
+2. $\phi$ jest różnowartościowe:
+$$\phi(\omega(\overline a))=\phi(v(\overline a))\iff \omega(\overline b)=v(\overline b)\iff (\omega-v)(\overline b)=0\iff \omega-v\in I(\overline b/K)=I(\overline a/K)\iff (\omega-v)(\overline a)=0\iff \omega(\overline a)=v(\overline a)$$
+
+3. $\phi$ jest dobrze zdefiniowane (czyli przyjmuje tylko jedną wartość dla jednego argumentu):
+$$\omega(\overline a)-v(\overline a)=0\iff (\omega-v)(\overline a)=0\iff \omega -v\in I(\overline a/K)\iff \omega-v\in I(\overline b/K)\iff (\omega-v)(\overline b)=0\iff \omega(\overline b)-v(\overline b)=0$$
+
+\podz{dark-green}
+\bigskip
+
+Możemy teraz zapytać, czy każdy ideał w pierścieniu wielomianów $K[X]$ jest postaci $I(\overline a/K)$ dla pewnego $\overline a\in L\supset K$? Albo ogólniej, czy dla pierścienia przemiennego $R$ z $1_R\neq0_R$ oraz ideału $I=(f_1,...,f_m)=I(\overline a/R)\normalsubgroup R[X]$, czy istnieje nadpierścień $S$ taki, że $1_S=1_R$ i $0_S=0_R$ oraz układ
+$$f_1(\overline x)=...=f_m(\overline m)=0$$
+ma rozwiązanie w $S$? Takie rozwiązanie spełniałoby $\overline a\in S\iff (\forall\;g\in(f_1,...,f_m))\;g(\overline a)=0$.
+

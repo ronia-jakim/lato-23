@@ -1,0 +1,143 @@
+\section{Równania w pierścieniach}
+
+\subsection{Układy równań}
+
+\deff{Notacja:} przez $R, S$ oznaczamy pierścienie przemienne z $1\neq0$. Przez $K, L$ oznaczamy ciała.
+
+Niech $f_1,...,f_n\in R[X_1,..., X_n]=R[\overline X]$.
+
+\deff{Problem:} Czy istnieje rozszerzenie pierścieni z jednością $R\subseteq S$ takie, że układ $U:f_1(\overline X)=...=f_m(\overline X)=0$ ma rozwiązanie w pierścieniu $S$?
+
+$\overline a=(a_1,...,a_n)\subseteq S\supseteq R$ jest rozwiązaniem układu równań $U$ $\iff$ $g(\overline a)=0$ dla każdego wielomianu $g\in(f_1,...,f_m)\normalsubgroup R[X]$.
+
+\textbf{Dowód:} Rozważmy przypadki:
+
+\indent 1. $(f_1,...,f_m)\ni b\neq 0$ i $b\in R$. Wtedy układ $U$ jest sprzeczny i nie ma rozwiązania w żadnym pierścieniu rozszerzającym $R$, więc możemy ten przypadek odrzucić.
+
+\indent 2. $(f_1,...,f_m)\cap R=\{0\}$, czyli negacja pierwszego przypadku. Teraz układ $U$ jest niesprzeczny i skonstruujemy pierścień $S\supseteq R$ z jednością (czyli rozszerzenie pierścienia $S$) i rozwiązanie $\overline a\subseteq S$.
+
+Niech $S=R[\overline X]/(f_1,...,f_m)$ i rozważmy $jR[\overline X]\to S$ ilorazowe. Po pierwsze zauważmy, że $j\obciete R$ jest $1-1$, bo
+$$ker(j\obciete R)=ker(j)\cap R=(f_1,...,f_m)\cap R=\{0\}$$
+i dlatego 
+$$j\obciete R:R\xrightarrow[\cong]{} j[R]\subseteq S.$$
+Z uwagi na ten izomorfizm utożsamiamy $R$ z $j[R]$ i $S$ jest więc rozszerzeniem pierścienia $R$.
+
+Niech $\overline a=(a_1,...,a_m)=(j(X_1),...,j(X_m))$, czyli zbiór obrazów wielomianów stopnia $1$ z peirścienia $S$. Wtedy $\overline a$ jest rozwiązaniem układu $U$ w pierścieniu $S$. Oznaczmy funkcję wielomianową przez
+$$\hat{f_i}(\overline a)=\hat{f_i}(j(X_1),...,j(X_m))=j(\hat{f_i}(X_1,...,X_m))=j(f_i)=0$$
+powyższe równości należy sprawdzić w ramach ćwiczenia.
+
+\deff{Uwaga:} Skonstruowane powyżej rozwiązanie $\overline a$ układu $U$ ma następującą własność uniwersalności. Jeśli $S'\supseteq R$ jest rozszerzeniem pierścieni z 1 i $\overline a'=(a_1',...,a_n')\subseteq S$ jest rozwiązaniem $U$ w $S'$, to istnieje jedyny homomorfizm $h:R[\overline a]\to R[\overline a']$ taki, że $h\obciete R$ jest identycznością na $R$ i $h(\overline a)=\overline a'$. Wszystkie rozwiązania układów sa homomorficzne.
+
+$R[\overline a]\subseteq S$ to podpierścień generowany przez $R\cup\{\overline a\}$, czyli
+$$R[\overline a]=\{f(\overline a)\;:\;f(\overline X)\in R[\overline X]\}\subseteq S$$
+
+\textbf{Dowód:} Niech $I=\{g\in R{\overline X}\;:\;g(\overline a')=0\}$ w $S'$. Oczywiście $I\normalsubgroup R[\overline X]$. Znaczy to, że 
+$$(f_1,...,f_m)\subseteq I$$
+z twierdzenia o faktoryzacji wielomianów w pierściueniu (????) dostajemy od razu
+$$R[X]\xrightarrow[]{j} S=R[\overline X]/(f_1,...,f_m)$$
+i $R[\overline a']\subseteq S'$. Widzimy, że $I=ker\phi\subseteq ker j=(f_1,...,f_m)$. Z twierdzenia o homomorfizmie peirścieni dostajemy jedyne $h:R[X]/(f_1,...,f_m)\to R[\overline a']$ taki, że $h(\overline a)=\overline a'$.
+
+\deff{Uwaga:} Jeśli $I=(f_1,...,f_m)$ to $h:R[\overline a]\xrightarrow[]{\cong}R[\overline a']$
+
+\deff{Definicja:} Załóżmy, że $S\supseteq R$ jest rozszerzeniem pierścienia oraz $\overline a\in S^n$. Wtedy
+
+\indent I. $I(\overline a/R)=\{g\in R[\overline X]\;:\;g(\overline a)=0\}$
+
+\indent II. $\overline a$: \acc{rozwiązanie ogólne} układu $U$ gdy ideał $I(\overline a/R)=(f_1,...,f_m)$.
+
+\deff{Uwaga:} W sytuacji z definicji powyżej, gdy $U$ jest niesprzeczne, wtedy $\overline a$ jest rozwiązaniem ogólnym układu $U$ $\iff$ zachodzi warunek z gwizdką.
+
+\textbf{Dowód:} ćwiczenia.
+
+\subsection{Ciała}
+
+$K\subseteq L$ i $\overline a\subseteq L$. Definiujemy \acc{ideał $\overline a$ nad $K$} jako
+$$I(\overline a/K)=\{g\in K[\overline X]\;:\;g(\overline a)=0\}$$
+
+Wtedy $K[\overline a]=$ podpierścień ciała $L$ generowany przez $K\cup\{a_1,...,a_m\}=\{g(\overline a)\;:\;g\in K[\overline X]$.
+
+$K(\overline a)$ to podciało ciała $L$ generowane przez $K\cup\{a_1,...,a_m\}$. Czyli jest to ciało ułamków pierścienia $K[\overline a]$ w ciele $L$. Inaczej piszemy $K[\overline a]_0$ 
+$$K(\overline a)=\{g(\overline a\;:\;g\in K(\overline X)\text{ i } g(\overline a)\text{ jest dobrze określone})\}$$
+
+\deff{Uwaga:} Załóżmy, że $K\subseteq L_1,K\subseteq L_2$ są to rozszerzenia ciał i $\overline a_1\subseteq L_1$, $\overline a_2\in L_2$ i $|\overline a_1|=|\overline a_2|=n$. Wtedy następujące warunki są równoważne:
+
+\indent 1. $(\exists\;f:K[\overline a_1]\xrightarrow[]{\cong}K[\overline a_2])\;f(\overline a_1)=\overline a_2$ i $f\obciete K=id_k$
+
+\indent 2. $I(\overline a_1/K)=I(\overline A_2/K)$
+
+\textbf{Dowód:}
+
+$1\implies 2$ jest jasne, bo dla $g(\overline x)\in K[\overline x]$ takie, że $g(\overline a_1)=0$ w $K[\overline a_1]$ $\iff$ $g(f(\overline a_1))=0$ dla w $K[\overline a_2]$.
+
+$\impliedby$ Zwróćmy uwagę na odwzorowanie ewaluacji $\overline a_1$
+$$\phi_{\overline a_1}:K[\overline X]\xrightarrow[]{epi} K[\overline a_1]$$
+
+mamy $\phi_{\overline a_1}(w(\overline x))=w(\overline a_1)$, czyli do wielomianu $\phi$ podstawia $\overline a_1$. Oczywiście, 
+$$ker(\phi_{\overline a_1})=I(\overline a_1/K)=I(\overline a_2/K)=ker \phi_{\overline a_2}$$
+
+\deff{Uwaga:} Niech $I\normalsubgroup K[\overline X]$ noetherowskiego pierścienia $K[\overline X]$. I niech $I=(f_1,...,f_m)$  dla pewnych $f_i\in K[\overline X]$. Wtedy istnieje rozszerzenie pierścienia $S\supseteq K$ oraz $\overline a\subseteq S$: rozwiązanie ogólne układu $f_1(\overline X)=..,.= f_m(\overline X)=0$ takie, że $I(\overline a/K)=I$
+
+\textbf{Dowód:} Patrz na poprzednie uwagi, których było już dość dużo.
+
+\deff{Twierdzenie:} Niech $I\normalsubgroup K[\overline X]$. Wtedy istnieje ciało $L\supseteq K$ oraz $\overline a=(a_1,...,a_n)\subseteq L$ takie, że $f(\overline a)=0$ dla każdego $f\in I$.
+
+\textbf{Dowód:} Niech $I\subseteq M\normalsubgroup K[X]$ będzie ideałem maksymalnym. Niech $L=K[\overline X]/M$, $j:K[\overline X]\to L$ ilorazowe, $M\cap K=\{0\}$, więc $j\obciete K:K\to L$ jest $1-1$, a więc
+$$j\obciete K:K\xrightarrow[]{1-1}j[K]\subseteq L.$$
+Utożsamiamy $K$ z $j[K]$, to znaczy $K\subseteq L$. Niech $\overline a=(a_1,...,a_n)$, $a_i=j(X_i)\in L$. $g(\overline a)=0$ dla każdego $g(\overline X)\in M\subseteq I$.
+
+\textbf{Wniosek:} Niech $f\in K[X]$ stopnia $>0$. Wtedy istnieje ciało $L\supseteq K$ rozszerzające ciało $K$ taki, że $f$ ma pierwiastek w ciele $L$.
+
+\textbf{Przykład:} 
+
+\indent 1. Popatrzmy na ciało $K=\Q$ i $f(X)=X-2$. Wtedy $I=(f)\normalsubgroup \Q[X]$ jest ideałem maksymalnym, bo jest on pierwsz (czyli w tym wypadku nierozkładalny). Równanie $f=0$ ma rozwiązanie ogólne w pierścieniu ilorazowym
+$$\Q[X]/I\cong \Q$$
+
+\indent 2. $\C=\R[i]=\R(i)=\R[z]$ dla każdej $z\in \C\setminus\R$.
+
+\deff{Załóżmy, że $k\subseteq L_1$}, $K\subseteq L_2$ to rozszerzenia ciała. Wtedy mówimy, że $L_1$ jest izomorficzne z $L_2$ nad $K$ [$L_1\cong_K L_2$] $\iff$ gdy istnieje izomorfizm $f:L_1\to L_2$ taki, że $f\obciete K=id_k$.
+
+\deff{Fakt:}
+
+\indent 1. Załóżmy, że $f(X)\in K[X]$ jest nierozkładalny. Niech $L_1=K(a_1)$, $L_2=K(a_2)$ $f(a_i)=0$ w $L_i$. Wtedy $L_1\cong_K L_2$.
+
+\indent 2. Ogólnie: załóżmy, że $\phi:K_1\to K_2$ jest izomorfizmem i $f_1\in K_1[X]$, $f_2\in K_2[X]$ i $\phi(f_1)=f_2$, $f_i$ jest nierozkładalne. Dodatkowo załóżmy, że $L_1$ jest rozszerzeniem ciała $K_1$ o element $a_1$ i $L_2=K(a_2)$, gdzie $f_i(a_i)=0$ w $L_i$. Wtedy istnieje izomorfizm $\phi\in \psi:L_1\to L_2$ taki, że $\psi(a_1)=a_2$.
+
+Podpunkt pierwszy jest szczególnym przypadkiem podpunktu 2, gdy $\phi=id$.
+
+\textbf{Dowód:}
+
+\indent 1. $T(a_1/K)=(f)=I(a_2/K)$, stąd na mocy faktu 1.5 mamy $K(a_1)\cong_K K(a_2)$.
+
+\indent 2. Popatrzmy najpierw na izomomfizm $K_1[X]]xrightarrow[\phi]{\cong}K_2[X]$ Wtedy ten $\phi$ indukuje $K_1[X]/(f_1\xrightarrow[\phi]{\cong}K_2[X]/(f_2)$, bo $\phi(f_1)=f_2$. Zatem
+$$I(\overline a_i/K_i)=(f_i)\normalsubgroup K_i[X]$$
+$$L_i=K_i(a_i)=K_i[a_i]\cong K_i[\overline X]/I(a_j/K_j)$$
+
+Ciało $L\supseteq K$ jest \deff{ciałem rozkładu} [decomposition field] nad $K$ wielomianu $f\in K[X]$, gdy spełnione są warunki:
+
+\indent 1. $f$ rozkłada się w pierścieniu $L[X]$ na czynniki liniowe stopnia $1$
+
+\indent 2. Ciało $L$ jest rozszerzeniem ciała $K$ o elementy $a_1,..., a_n$, gdzie $a_1,..., a_n$ to wszystkie pierwiastki $f$ w $L$.
+
+Nie są warunkami równoważnymi, bo $1$ może być spełnione przez coś większego niż 2, a my chcemy najmniejsze takie ciało.
+
+\textbf{Przykład:} Jeżeli $deg(f)=0$, to nie istnieje ciało rozkładu $f$.
+
+\textbf{Wniosek:} Załóżmy, że $f\in K[X]$ jest wielomianem stopnia $>0$. Wtedy 
+
+\indent 1. istnieje $L$: ciało rozkładu $f$ nad $K$,
+
+\indent 2. ciało to jest jedyne z dokładnością do izomorfizmu nad $K$.
+
+\textbf{Dowód:}
+
+\indent 1. Dowód przez indukcję względem stopnia $f$.
+
+$deg(f)=1\implies L=K$ i jest OK
+
+Załóżmy, że stopień $f>1$ i teza zachodzi dla wszystkich wielomianów stopnia $<deg(f)$ i wszystkich ciał $K'$. Teraz z wniosku 1.7. wiemy, że istnieje rozszerzenie ciała $K$, w którym wielomian $f$ ma pierwiastek, powiedzmy $a_0$ to ten pierwastek:
+$$K'=K(a_0)$$
+w $K'[X]$ ma pierwastek $a_0$, więc dzieli się przez $(x-a_0)$, więc
+$$f=(x-a_0)f_1$$
+gdzie $f_1\in K'[X]$, $0<deg(f_1)<deg(f)$. Z założenia indukcyjnego dla $f_1$ istnieje $L'=K'(a_1,..., a_r)$ - ciało rozkładu wielomianu $f_1$ nad $K'$. Wtedy $L=K(a_0,...,a_r)$ jest ciałek rozkładu $f$ nad $K$.
+
+\indent 2. Udowodnimy wersję ogólniejszą: Jeśli $\phi:K_1\to K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $\psi:L_1\to L_2$ izoorfizm nad ciałami rozkładu tych $K_i$. 
