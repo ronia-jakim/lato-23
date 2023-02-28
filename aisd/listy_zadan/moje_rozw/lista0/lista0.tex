@@ -11,7 +11,7 @@
 
     \hline
 
-    - & - & - & + & - & + & + & - & - & + & ???\\
+    - & - & - & + & + & + & + & - & + & + & 8/9\\
 
     \hline
 \end{tabular}\end{center}
@@ -44,7 +44,15 @@ Załóżmy teraz, że dla dowolnego $a'\leq n$ algorytm działa i niech $a=n+1$.
 
 1. Będziemy obliczać wyrazy ciągu $a_i$ $\log_2(a)$ razy, za każdym razem będziemy dzielić, sprawdzać podzielność, mnożyć $b$ i ewentualnie dodawać, co jest mniej więcej stałą liczbą operacji.
 
-2. {\color{orange}?????}
+2. {\color{yellow} Niech $b$ będzie liczbą długości $m$, to znaczy $\log_2(b)=m$. Dzielenie ma złożoność $O(x^2)$, mnożenie ma złożoność $O(x^2)$, chociaż tutaj mam mnożenie przez $2$, czyli dodawanie. Czyli lecimy co się dzieje w każdym kroku tego dziada?
+
+Przy liczeniu $b_i$ mnożymy razy dwa, czyli dodajemy i mamy $2\log_2(b2^i)$, potem dzielimy $a_{i-1}$ przez $2$, czyli robimy operację długości $\log_2{a\over2^i}$? Potem tak naprawdę chcemy sprawdzić podzielność przez $2$, możemy to zrobić powiedzmy w czasie $f({a\over 2^i})$? Mogłabym dzielić $a_i$ przez dwa i mnożyć z powrotem i sprawdzać, czy się zgadza. Czyli powiedzmy, że w każdym kroku robię
+\begin{align*}
+    \sum\limits_{i=1}^{k}\left[\log_2(b\cdot {2^i})+\left[\log_2\left({a\over2^{i}}\right)\right]^2+f\left(({a\over2^i})\right)\right]&=\sum\left[m+i+(k-i)^2+2\cdot(k-i)^2+(k-i)\right]
+\end{align*}
+
+$m$ to długość $b$, a $k$ to długość $a$.
+}
 
 \subsection*{ZADANIE 5.}
 \emph{Oszacuj z dokładnością do $\Theta$ złożoność poniższego fragmentu programu:}
@@ -137,77 +145,104 @@ output ret
 \subsection*{ZADANIE 8.}
 \emph{Ułóż algorytm, który dla drzewa $T=(V, E)$ oraz listy par wierzchołków $\{v_i,u_i\}$ ($i=1,...,m$) sprawdza, czy $v_i$ leży na ścieżce z $u_i$ do korzenia. Przyjmij, że drzewo zadane jest jako lista $(n-1)$ krawędzi $(p_i,a_i)$ takich, że $p_i$ jest ojcem $a_i$ w drzewie.}
 
-\begin{lstlisting}[language=python]
-wierzcholki - tablica vector<int>
+% \begin{lstlisting}[language=python]
+% wierzcholki - tablica vector<int>
 
-n <- liczba wierzcholkow drzewa
-i <- 1
-while i < n:
-    (p, a) <- INPUT
-    wierzcholki[p].push_back(a)
-    wierzcholki[a].push_back(p)
-    i <- i + 1
+% n <- liczba wierzcholkow drzewa
+% i <- 1
+% while i < n:
+%     (p, a) <- INPUT
+%     wierzcholki[p].push_back(a)
+%     wierzcholki[a].push_back(p)
+%     i <- i + 1
 
-m <- INPUT ilosc par {v, u}
-ret <- tablica m 0
-i <- 0
-v, u <- tablica n vector<int>
+% m <- INPUT ilosc par {v, u}
+% ret <- tablica m 0
+% i <- 0
+% v, u <- tablica n vector<int>
 
-while i < m:
-    (a, b) <- INPUT
-    v[a].push_back(i)
-    u[b].push_back(i)
-    i <- i + 1
+% while i < m:
+%     (a, b) <- INPUT
+%     v[a].push_back(i)
+%     u[b].push_back(i)
+%     i <- i + 1
 
-w_dol <- tablica n 0
-w_gore <- tablica n 0
+% w_dol <- tablica n 0
+% w_gore <- tablica n 0
 
-czy_bylo_v <- tablica m 0
-czy_bylo_u <- tablica m 0
+% czy_bylo_v <- tablica m 0
+% czy_bylo_u <- tablica m 0
 
-funkcja dfsik (akt):
-    w_dol[akt] <- 1
+% funkcja dfsik (akt):
+%     w_dol[akt] <- 1
 
-    if length(v[akt]) > 0:
-        j <- 0
-        while j < length(v[akt]):
-            p <- v[akt][j]
-            if czy_u[p] != 0: # jezeli jeszcze nie odwiedzilam odpowiadajacego u
-                czy_v[p] = 1
-            j <- j + 1
+%     if length(v[akt]) > 0:
+%         j <- 0
+%         while j < length(v[akt]):
+%             p <- v[akt][j]
+%             if czy_u[p] != 0: # jezeli jeszcze nie odwiedzilam odpowiadajacego u
+%                 czy_v[p] = 1
+%             j <- j + 1
     
-    if length(u[akt]) > 0:
-        j <- 0
-        while j < length(u[akt]):
-            p <- u[akt][j]
+%     if length(u[akt]) > 0:
+%         j <- 0
+%         while j < length(u[akt]):
+%             p <- u[akt][j]
 
-            if czy_v[p] != 1: # jezeli dochodze do u zanim dojde do v
-                czy_u[p] = -1
-            else:
-                czy_u[p] = 1
+%             if czy_v[p] != 1: # jezeli dochodze do u zanim dojde do v
+%                 czy_u[p] = -1
+%             else:
+%                 czy_u[p] = 1
 
-    j <- 0
-    while j < length(wierzcholki[akt]):
-        p <- wierzcholki[akt][j]
-        if w_dol[p] == 0:
-            dfsik(p)
+%     j <- 0
+%     while j < length(wierzcholki[akt]):
+%         p <- wierzcholki[akt][j]
+%         if w_dol[p] == 0:
+%             dfsik(p)
         
-    j <- 0
-    while j < m:
-        if czy_u[j] != -1:
-            czy_u[j] = 0
-            czy_v[j] = 0 
+%     j <- 0
+%     while j < m:
+%         if czy_u[j] != -1:
+%             czy_u[j] = 0
+%             czy_v[j] = 0 
 
-dfsik(0)
+% dfsik(0)
 
-i <- 0
-while i < m:
-    if ret[i] != -1:
-        OUTPUT -> "tak"
-    else:
-        OUTPUT -> "nie"
+% i <- 0
+% while i < m:
+%     if ret[i] != -1:
+%         OUTPUT -> "tak"
+%     else:
+%         OUTPUT -> "nie"
 
+% \end{lstlisting}
+
+\subsection*{ZADANIE 9.}
+\emph{Udowodnij Twierdzenie 1 podane w Notatce nr 2.}
+\smallskip
+
+\begin{center}
+    \textbf{Twierdzenie 1.}: Procedura buduj-kopiec tworzy kopiec w czasie $O(n)$.
+
+\begin{lstlisting}
+funckja przesun-nizej(K[1,...,n], i)
+    k <- i 
+    while
+        j <- k
+        if 2j <= n and K[2j] > K[k] then k <- 2j
+        if 2j < n and k[2j+1] > K[k] then k <- 2j + 1
+        K[j] <-> K[k]
+    until j = k
+
+funkcja buduj-kopiec(K[1,...,n])
+    for i <- (n div 2) downto 1
+        przesun-nizej (K, i)
 \end{lstlisting}
+\end{center}
+\smallskip
+
+Dajemy naszemu algorytmowi listę $n$ elementową. Będziemy przesuwać się od połowy w dół? Zaczynamy od takiej szerokiej pokraki, czyli drzewo mające $\frac n2$ liście. Przy pierwszych $\frac n4$ pyśków sprawdzam tylko po dwa wyrazy. Potem przez kolejne $\frac n8$ muszę sprawdzać tylko $4$ wyrazy i tak dalej, czyli po zsumowaniu mamy
+$$n\sum\limits_{i=1}^{\log_2n}{1\over 2^{i}}\leq n\sum\frac12=n\cdot {1\over 1-\frac12}=2n=O(n)$$
 
 \subsection*{ZADANIE 10.}
 \emph{Ułóż algorytm dla następującego problemu:}
