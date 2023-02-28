@@ -37,6 +37,7 @@
 \newtheorem{fakt}{Fakt}[subsection]
 \newtheorem{uwaga}[fakt]{Uwaga}
 \newtheorem{tw}[fakt]{Twierdzenie}
+\newtheorem{wniosek}[fakt]{Wniosek}
 
 \RequirePackage[document]{ragged2e}
 \sloppy
@@ -97,12 +98,12 @@
 \mdfdefinestyle{red-box} {
     outerlinewidth = 2,
     roundcorner = 5pt,
-    leftmargin = 40,
-    rightmargin = 40,
+    leftmargin = 20,
+    rightmargin = 20,
     innertopmargin = \topskip,%
     splittopskip = \topskip,%
     backgroundcolor = back2,
-    outerlinecolor  = red,
+    outerlinecolor  = red!90!black!40,
     innerbottommargin = 10,
     fontcolor = fore,
     skipabove = 10,
@@ -144,8 +145,8 @@
 \definecolor{green}{HTML}{c1df74}
 \definecolor{orange}{HTML}{ffc56d}
 \definecolor{yellow}{HTML}{e1e48a}
-\definecolor{blue}{HTML}{6c99ba}
-\definecolor{dark-blue}{HTML}{8ab6d9}
+\definecolor{dark-blue}{HTML}{6c99ba}
+\definecolor{blue}{HTML}{8ab6d9}
 \definecolor{purple}{HTML}{d096d9}
 \definecolor{pink}{HTML}{efb5f7}
 \definecolor{dark-cyan}{HTML}{bdd6ff}

@@ -40,6 +40,7 @@ $$\hat{f_i}(\overline a)=\hat{f_i}(j(X_1),...,j(X_m))=j(\hat{f_i}(X_1,...,X_m))=
 {\color{orange}\large TUTAJ TRZEBA POUZASADNIAĆ KILKA RÓWNOŚCI, ALE MOŻE NIE BĘDĘ TEGO ROBIŁA NA AISD}
 
 \begin{uwaga}
+    \label{uwaga1:1:2-warunek-rozwiazanie-ogolne}
     Skonstruowane powyżej {rozwiązanie $\overline a$} układu $U$ ma następującą własność {uniwersalności}:
 
     ($\coffee$) Jeżeli $S'\supseteq R$ jest rozszerzeniem pierścienia z $1$ i $\overline a'=(a_1',...,a_m')\subseteq S$ jest rozwiązaniem $U$ w $S'$, to istnieje jedyny homomorfizm 
@@ -59,14 +60,54 @@ $$\hat{f_i}(\overline a)=\hat{f_i}(j(X_1),...,j(X_m))=j(\hat{f_i}(X_1,...,X_m))=
 Tutaj \deff{$R[\overline a]\subseteq S$ jest podpierścieniem generowanym przez $R\cup\{\overline a\}$}, czyli zbiór:
 $$R[\overline a]=\{f(\overline a)\;:\;f(\overline X)\in R[\overline X]\}\subseteq S$$
 
-\textbf{Dowód:} Niech $I=\{g\in R[\overline X]\;:\;g(\overline a')=0\}\subseteq S'$. Oczywiście mamy, że $I\normalsubgroup R[\overline X]$, czyli
+\textbf{Dowód:} Niech $I=\{g\in R[\overline X]\;:\;g(\overline a')=0\}\subseteq S'$. Oczywiście mamy, że $I\normalsubgroup R[\overline X]$, a więc
 $$(f_1,...,f_m)\subseteq I.$$
-Z twierdzenia o faktoryzacji wielomianów w pierścieniu od razu dostajemy od razu
-$$R[X]$$
+Z twierdzenia o faktoryzacji wie
+\begin{illustration}
+    \node (R[x]) at (0, 0) {$R[\overline X]$};
+    \node (S) at (4, 0) {$S=R[\overline X]/(f_1,...,f_m)$};
+    \node (R[a']) at (0, -3) {$S'\supseteq R[\overline a']$};
+    \draw[->] (R[x])--(S) node [midway, above] {$j$};
+    \draw[->] (R[x])--(R[a']) node [midway, left] {$\phi$};
+    \draw[->, dashed] (S)--(R[a']) node [midway, right] {$(\exists\;!h)\;h(\overline a)=\overline a'$};
+\end{illustration}
+Homomorfizm $\phi:R[\overline X]\to R[\overline a']$ określamy wzorem
+$$\phi(w)=w(\overline a),$$
+a homomorfizm $j$ jest jak wyżej odwzorowaniem ilorazowym. Widzimy, że 
+$$I=\ker(\phi)$$
+$$\ker(j)=(f_1,...,f_m).$$
+Z twierdzenia o homomorfizmie pierścieni dostajemy jedyny homomorfizm 
+$$h:R[X]/(f_1,...,f_m)\to R[\overline a]$$
+taki, że $h(\overline a)=\overline a'$.
 
-\subsection{Ciała}
+\begin{uwaga}
+    Jeśli $I=(f_1,...,f_m)$, to $h:R[\overline a]\izo R[\overline a']$.
+\end{uwaga}
 
-Dla $K\subseteq L$ ciał i $a_1,...,a_n=\overline a\in L$ definiujemy ideał $I({\overline a}/L)$ w $K[X_1,...,X_n]$ jako:
+Wtedy mamy $\ker\phi=\ker j$, czyli $\ker(h\circ j)=\ker\phi=\ker j$, no a z tego wynika, że $\ker h$ jest trywialne, czyli $h$ jest apimorfizmem (1-1). Z drugiej strony, $Im \phi=Im(h\circ j)$, a $\phi$ jest epimorfizmem ("na"), więc również $h$ musi być "na".
+\medskip
+
+\begin{important}
+Załóżmy, że $S\supseteq R$ jest rozszerzeniem pierścienia oraz $\overline a\in S^n$. Wtedy:
+
+\indent 1. ideał $\overline a$ nad $R$ definiujemy jako 
+$$\color{blue}I(\overline a/R)=\{g\in R[\overline X]\;:\;g(\overline a)=0\}$$
+
+\indent 2. $\overline a$ nazywamy \deff{rozwiązaniem ogólnym} układu $U$, jeśli ideał 
+$$I(\overline a/R)=(f_1,...,f_m).$$
+\end{important}
+
+\begin{uwaga}
+    W sytuacji jak z definicji wyżej, gdy $U$ jest układem niesprzecznym, wtedy 
+    
+    $\overline a$ jest rozwiązaniem ogólnym układu $U$ $\iff$ zachodzi warunek \hyperref[uwaga1:1:2-warunek-rozwiazanie-ogolne]{(\coffee)}.
+\end{uwaga}
+
+\textbf{Dowód:} Ćwiczenia.
+
+\subsection[Rozszerzenia ciał]{Zasadniczy temat: ciała}
+
+Dla $K\subseteq L$ ciał i $\overline a\subseteq L$ definiujemy \deff{ideał $\overline a$ nad $K$} jako:
 $$\color{blue}I(\overline a /L):=\{f(X_1,...,X_n)\in K[\overline X]:f(\overline a)=0\},$$
 to znaczy generujemy ideał w wielomianach nad $K$ zawierający wszystkie wielomiany (niekoniecznie tylko jednej zmiennej) zerujące się w $\overline a$. 
 \medskip
@@ -79,52 +120,178 @@ $$I(\sqrt{2}/\Q)=\{f(x^2-2)\;:\;f\in\Q[X]\}=(x^2-2)\normalsubgroup \Q[X]$$
 
 Dalej, definiujemy
 $$\color{blue}K[\overline a]:=\{f(\overline a)\;:\;f\in K[X]\}$$
-czyli podpierścień $L$ generowany przez $K\cup\{\overline a\}$ oraz $K(\overline a)$, czyli podciało $L$ generowane przez $K\cup\{\overline a\}$:
+czyli \deff{podpierścień $L$ generowany przez $K\cup\{\overline a\}$} oraz \deff{$K(\overline a)$, czyli podciało $L$} generowane przez $K\cup\{\overline a\}$:
 $$\color{blue}K(\overline a):=\{f(\overline a)\;:\;f\in K(X_1,...,X_n)\;i\;f(\overline a)\text{ dobrze określone}\}.$$
-Tutaj $K(X_1,...,X_n)$ to \dyg{ciało ułamków pierścienia} $K[\overline X]$ (czyli najmniejsze ciało, że pierścień może być w nim zanurzony).
+Tutaj $K(X_1,...,X_n)$ to \dyg{ciało ułamków pierścienia} $K[\overline a]$ w ciele $L$ (czyli najmniejsze ciało, że pierścień może być w nim zanurzony). Czasami oznaczamy to przez $K[\overline a]_0$.
 \medskip
 
-\textbf{Przykład:}
-\smallskip
+% \textbf{Przykład:}
+% \smallskip
 
-Dla $K=\Q,L=\R$ zachodzi:
-$$K[\sqrt2]=\Q[\sqrt2]=\{q+p\sqrt2\;:\;q,p\in\Q\}$$
-$$K[\sqrt2,\sqrt3]=\Q[\sqrt2,\sqrt3]$$
-$$K(\sqrt2)=\Q[\sqrt2]$$
-to ostatnie to usuwanie niewymierności z mianownika.
+% Dla $K=\Q,L=\R$ zachodzi:
+% $$K[\sqrt2]=\Q[\sqrt2]=\{q+p\sqrt2\;:\;q,p\in\Q\}$$
+% $$K[\sqrt2,\sqrt3]=\Q[\sqrt2,\sqrt3]$$
+% $$K(\sqrt2)=\Q[\sqrt2]$$
+% to ostatnie to usuwanie niewymierności z mianownika.
+% \medskip
+
+\begin{uwaga}
+    \label{uwga:1:1:5}
+    Niech $K\subseteq L_1,K\subseteq L_2$ będą ciałami. Wybieramy $\overline a_1\in L_1$ i $\overline a_2\in L_2$, $|\overline a_1|=|\overline a_2|=n$. Wtedy następujące warunki są równoważne:
+
+\indent 1. istnieje izomorfizm $\phi:K[\overline a_1]\to K[\overline a_2]$ taki, że $\phi\obciete K=id_K$ oraz $\phi(\overline a_1)=\overline a_2$.
+
+\indent 2. $I(\overline a_1/K)=I(\overline a_2/K)$.
+\end{uwaga}
+
+\textbf{Dowód:}
+
+%\begin{center}
+% $K[\overline a]\isomorphism K[\overline b]$ \acc{$\implies$} $I(\overline a/K)=I(\overline b/K)$
+
+% Niech $\omega\in K[\overline X]$. Wtedy $\omega\in I(\overline a/K)$ wtedy i tylko wtedy, gdy $\omega(\overline a)=0$, to mamy z definicji $I(\overline a/K)$. Wiemy też, że $\phi(a)\in K[\overline X]$ wtedy, gdy $\omega(\phi(\overline a))=0$, a ponieważ $\phi(\overline a)=\overline b$, to również $\omega(\overline b)=0$ i mamy, że $\omega\in I(\overline b/K)$. Czyli izomorfizm między $K[\overline a]=K[\overline b]$ implikuje, że $I(\overline a/K)=I(\overline b/K)$.
+% \smallskip
+
+% $K[\overline a]\isomorphism K[\overline b]$ \acc{$\impliedby$} $I(\overline a/K)=I(\overline b/K)$
+
+% Spróbujmy zdefiniować izomorfizm $\phi$ tak, że dla $\omega\in K[\overline X]$ mamy $\phi(\omega(\overline a))=\omega(\overline b)$
+
+% 1. $\phi$ jest homomorfizmem: 
+% $$\phi(\omega(\overline a)\cdot v(\overline a))=f((\omega\cdot v)(\overline a))=(\omega\cdot v)(\overline b)=\omega(\overline b)\cdot v(\overline b)=\phi(\omega(\overline a))\cdot \phi(v(\overline a))$$
+
+% 2. $\phi$ jest różnowartościowe:
+% $$\phi(\omega(\overline a))=\phi(v(\overline a))\iff \omega(\overline b)=v(\overline b)\iff (\omega-v)(\overline b)=0\iff \omega-v\in I(\overline b/K)=I(\overline a/K)\iff (\omega-v)(\overline a)=0\iff \omega(\overline a)=v(\overline a)$$
+
+% 3. $\phi$ jest dobrze zdefiniowane (czyli przyjmuje tylko jedną wartość dla jednego argumentu):
+% $$\omega(\overline a)-v(\overline a)=0\iff (\omega-v)(\overline a)=0\iff \omega -v\in I(\overline a/K)\iff \omega-v\in I(\overline b/K)\iff (\omega-v)(\overline b)=0\iff \omega(\overline b)-v(\overline b)=0$$
+
+% \podz{dark-green}
+% \bigskip
+
+% Możemy teraz zapytać, czy każdy ideał w pierścieniu wielomianów $K[X]$ jest postaci $I(\overline a/K)$ dla pewnego $\overline a\in L\supset K$? Albo ogólniej, czy dla pierścienia przemiennego $R$ z $1_R\neq0_R$ oraz ideału $I=(f_1,...,f_m)=I(\overline a/R)\normalsubgroup R[X]$, czy istnieje nadpierścień $S$ taki, że $1_S=1_R$ i $0_S=0_R$ oraz układ
+% $$f_1(\overline x)=...=f_m(\overline m)=0$$
+% ma rozwiązanie w $S$? Takie rozwiązanie spełniałoby $\overline a\in S\iff (\forall\;g\in(f_1,...,f_m))\;g(\overline a)=0$.
+%\end{center}
+
+$1\implies 2$
+
+Implikacja jest jasna, bo dla $g(\overline X)\in K[\overline X]$, bo $g(\overline a_1)=0$ w $K[\overline a_1]$ $\iff$ $g(f(\overline a_1))=0$, a $f(\overline a_1)=\overline a_2$.
+
+$1\impliedby 2$
+
+Zwróćmy uwagę na odwzorowanie ewaluacji $\overline a_1$
+$$\phi_{\overline a_1}:K[\overline X]\xrightarrow[]{"na"}K[a_1]$$
+zadane wzorem
+$$\phi(w(\overline X))=w(\overline a_1).$$
+Mamy
+$$\ker(\phi_{\overline a_1})=I(\overline a_1/K).$$
+
+Tak samo dla $\overline a_2$ możemy określić analogicznie odwzorowanie ewaluacyjne $\phi_{\overline a_2}:K[\overline X]\to K[\overline a_2]$. Wtedy
+$$I(\overline a_2/K)=\ker(\phi_{\overline a_2}),$$
+ale ponieważ $I(\overline a_1/K)=I(\overline a_2/K)$, to $\ker(\phi_{\overline a_1})=\ker(\phi_{\overline a_2})$. Oznaczmy $I=I(\overline a_1/K)=I(\overline a_2/K)$. Widzimy, że $\phi_{\overline a_i}\obciete K=id_k$.
+
+\begin{illustration}
+    \node (K) at (4, 0) {$K[\overline X]$};
+    \node (K[a1]) at (0, -2) {$K[\overline a_1]$};
+    \node (K[a2]) at (8, -2) {$K[\overline a_2]$};
+    \node (K[X]/I) at (4, -2.5) {$K[X]/I$};
+    \draw[->] (K)--(K[a1]) node [midway, left] {$\phi_{\overline a_1}$};
+    \draw[->] (K)--(K[a2]) node [midway, right] {$\phi_{\overline a_2}$};
+    \draw[->] (K)--(K[X]/I) node [midway, right] {$j${\scriptsize - ilorazowe}};
+    \draw[->, dashed] (K[X]/I)--(K[a1]) node [midway, below] {$f_1$} node [midway, above] {$\cong$};
+    \draw[->, dashed] (K[X]/I)--(K[a2]) node [midway, below] {$f_2$} node [midway, above] {$\cong$};
+\end{illustration}
+
+Niech $f=f_2f_1^{-1}:K[\overline a_1]\to K[\overline a_2]$ jest funkcją spełniającą warunki punktu 1.
+
+{\large\color{orange}MOŻE TUTAJ ŁADNIE SPRAWDZIĆ ŻE NAPRAWDĘ JEST TO DOBRZE SPEŁNIAJĄCA WARUNKI FUNKCJA?}
+
+\begin{uwaga}
+    Niech $I\normalsubgroup K[\overline X]$ \acc{noetherowskiego} pierścienia $K[\overline X]$. Niech $I=(f_1,...,f_m)$ dla pewnych $f_i\in K[\overline X]$. Wtedy istnieje rozszerzenie pierścienia $S\supseteq K$ oraz $\overline a\subseteq S$ - rozwiązanie ogólne układu $f_1(\overline X)=...=f_m(\overline X)=0$ takie, że $\color{blue}I(\overline a/K)=I$.
+\end{uwaga}
+
+\textbf{Dowód:} Wcześniejsze uwagi {\large\color{orange}KTÓRE KONKRETNIE?}
+
+\begin{tw}
+    Niech $I\normalsubgroup K[\overline X]$. Wtedy istnieje ciało $L\supseteq K$ oraz $\overline a=(a_1,...,a_n)\subseteq L$ takie, że $f(\overline a)=0$ dla każdego $f\in I$.
+\end{tw}
+
+\textbf{Dowód:} Niech $I\subseteq M\normalsubgroup K[\overline X]$ będzie ideałem maksymalnym. Niech $L=K[\overline X]/M$ i określmy przekształcenie ilorazowe
+$$j:K[\overline X]/M\to L=K[\overline X]/M.$$
+Ponieważ $M\cap K=\{0\}$ (bo inaczej w ideale byłby wielomian odwracalny), to $j\obciete K:K\to L$ jest funkcją $1-1$, czyli
+$$j\obciete K:K\xrightarrow[]{1-1}j[K]\subseteq L.$$
+Możemy utożsamić $K$ z $j[K]$, czyli $K\subseteq L$. Niech $\overline a=(a_1,..., a_n)$ takie, że dla każdego $i\in[n]$ 
+$$a_i=j(X_i)\in L.$$
+Wtedy $g(\overline a)=0$ dla każdego $g(\overline X)\in M\supseteq I$ (bo inaczej mielibyśmy wyrazy wolne).
+
+\begin{wniosek}
+    Niech $f\in K[X]$ stopnia $>0$. Wtedy istnieje ciało $L\supseteq K$ rozszerzające ciało $K$ takie, że $f$ ma pierwiastek w ciele $L$.
+\end{wniosek}
+
+\textbf{Przykłady:}
+
+\indent 1. Rozpatrzmy ciało $K=\Q$ i $f(X)=X-2$. Wtedy $I=(f)\normalsubgroup\Q[X]$ jest ideałem maksymalnym, bo jest on pierwszy (w tym wypadku nierozkładalny). Równanie $f=0$ ma rozwiązanie ogólne w pierścieniu ilorazowym
+$$\Q[X]/I\cong \Q.$$
+Czyli nie zawsze musimy rozszerzać ciało do czegoś nowego.
+
+\indent 2. $\C=\R[i]=\R(i)=\R[z]$ dla każdego $z\in\C\setminus\R$, co jest na liście zadań.
 \medskip
 
-\textbf{\large\deff{Twierdzenie:}} Niech $K\subseteq L_1,K\subseteq L_2$ będą ciałami. Wybieramy $\{a_1,...,a_n\}\in L_1$ i $\{b_1,...,b_n\}\in L_2$. Wtedy następujące warunki są równoważne:
+Załóżmy, że $K\subseteq L_1, K\subseteq L_2$ są rozszerzeniami ciała. Wtedy mówimy, że \deff{$L_1$ jest izomorficzne z $L_2$ nad $K$} [\acc{$L_1\cong_KL_2$}] $\iff$ istnieje izomorfizm $f:L_1\to L_2$ taki, że $f\obciete K=id_K$.
 
-\indent \point istnieje izomorfizm $\phi:K[a_1,...,a_n]\to K[b_1,...,b_n]$ taki, że $\phi\obciete K=id_K$ oraz $\phi(a_i)=b_i$.
+\begin{fakt}{\color{back}kotek}
 
-\indent \point $I(\overline a/K)=I(\overline b/K)$.
-\smallskip
+\indent 1. Załóżmy, że $f(X)\in K[X]$ jest nierozkładalny. Niech $L_1=K(a_1)$, $L_2=K(a_2)$ i $f(a_i)=0$ w $L_i$. Wtedy $L_1\cong_KL_2$.
 
-\textbf{Dowodzik:}
+\indent 2. Ogółniej: załóżmy, że $\phi:K_1\to K_2$ jest izomorfizmem i $f_1\in K_1[X],f_2\in K_2[X]$, $\phi(f_1)=f_2$, $f_i$ jest nierozkładalne. Dodatkowo załóżmy, że $L_1=K_1(a_1)$ i $L_2=K_2(a_2)$, gdzie $f_i(a_i)=0$ w $L_i$. Wtedy istnieje \acc{izomorfizm $\phi\in\psi:L_1\to L_2$ taki, że $\psi(a_1)=a_2$.}
+\end{fakt}
 
-$K[\overline a]\isomorphism K[\overline b]$ \acc{$\implies$} $I(\overline a/K)=I(\overline b/K)$
+\textbf{Dowód:}
 
-Niech $\omega\in K[\overline X]$. Wtedy $\omega\in I(\overline a/K)$ wtedy i tylko wtedy, gdy $\omega(\overline a)=0$, to mamy z definicji $I(\overline a/K)$. Wiemy też, że $\phi(a)\in K[\overline X]$ wtedy, gdy $\omega(\phi(\overline a))=0$, a ponieważ $\phi(\overline a)=\overline b$, to również $\omega(\overline b)=0$ i mamy, że $\omega\in I(\overline b/K)$. Czyli izomorfizm między $K[\overline a]=K[\overline b]$ implikuje, że $I(\overline a/K)=I(\overline b/K)$.
-\smallskip
+\indent 1. $I(a_1/K)=(f)=I(a_2/K)$, stąd na mocy \ref{uwga:1:1:5} mamy $K(a_1)\cong_KK(a_2)$. Po dowodzie przypadku 2. możemy uzasadniać, że jest to szczególny przypadek tego ogólniejszego stwierdzenia właśnie.
 
-$K[\overline a]\isomorphism K[\overline b]$ \acc{$\impliedby$} $I(\overline a/K)=I(\overline b/K)$
+\indent 2. Zacznijmy od rozrysowania tej sytuacji:
 
-Spróbujmy zdefiniować izomorfizm $\phi$ tak, że dla $\omega\in K[\overline X]$ mamy $\phi(\omega(\overline a))=\omega(\overline b)$
+\begin{illustration}
+    \draw (-2, 0) ellipse (1.5 and 0.7) node [below] {$K_1$};
+    \draw (2, 0) ellipse (1.5 and 0.7) node [below] {$K_2$};
+    \draw (-3.5, 0)..controls (-3, 3) and (-1, 3)..(-0.5, 0) node [midway, above] {$L_1$};
+    \draw (3.5, 0)..controls (3, 3) and (1, 3)..(0.5, 0) node [midway, above] {$L_2$};
+    \draw[->] (-2, 1)..controls (-1, 2) and (1, 2)..(2, 1) node [midway, below] {$\psi$} node [midway, above] {$\cong$};
+    \draw[->] (-1.2, -0.6)..controls (-0.8, -1) and (0.8, -1)..(1.2, -0.6) node [midway, below] {$\phi$} node [midway, above] {$\cong$};
+\end{illustration}
 
-1. $\phi$ jest homomorfizmem: 
-$$\phi(\omega(\overline a)\cdot v(\overline a))=f((\omega\cdot v)(\overline a))=(\omega\cdot v)(\overline b)=\omega(\overline b)\cdot v(\overline b)=\phi(\omega(\overline a))\cdot \phi(v(\overline a))$$
+Izomorfizm $\phi:K_1[X]\izo K_2[X]$ indukuje nam przekształcenie
+$$K_1[X]/(f_1)\izo{\phi} K_2[X]/(f_2),$$
+bo $\phi(f_1)=f_2$. Wiemy, że $f_i$ jest nierozkładalne, czyli
+$$I(a_i/K_i)=(f_i)\normalsubgroup K_i[X]$$
+jest ideałem maksymalnym. Mamy
+$$L_i=K_i(a_i)=K_i[a_i]\cong K[X]/I(a_i/K_i).$$
 
-2. $\phi$ jest różnowartościowe:
-$$\phi(\omega(\overline a))=\phi(v(\overline a))\iff \omega(\overline b)=v(\overline b)\iff (\omega-v)(\overline b)=0\iff \omega-v\in I(\overline b/K)=I(\overline a/K)\iff (\omega-v)(\overline a)=0\iff \omega(\overline a)=v(\overline a)$$
+\begin{illustration}
+    \node (K1) at (0, 0) {$K_1[X]$};
+    \node (K2) at (4, 0) {$K_2[X]$};
+    \draw[->] (K1)--(K2) node [midway, above] {$\cong$} node [midway, below] {$\phi$};
+    \node (K1f) at (0, -2) {$K_1[X]/(f_1)$};
+    \node (K2f) at (4, -2) {$K_2[X]/(f_2)$};
+    \draw[->] (K1f)--(K2f) node [midway, below] {$\phi$} node [midway, above] {$\cong$};
+    \draw[->] (2, -.7)--(2, -1.3);
+    \node (L1) at (0, -4) {$L_1=K_1(a_1)$};
+    \node (L2) at (4, -4) {$L_2=K_2(a_2)$};
+    \draw[->] (L1)--(L2) node [midway, above] {$\cong$} node [midway, below] {$\psi$};
+    \node (K1) at (0, -5) {$K_1$};
+    \node (K2) at (4, -5) {$K_2$};
+    \draw[->] (K1)--(K2) node [midway, below] {$\phi$};
+    \node[rotate=90] at (0, -4.5) {$\subseteq$};
+    \node[rotate=90] at (4, -4.5) {$\subseteq$};
+    \draw[->] (K1f)--(L1) node [midway, left] {$\cong$} node [midway, right] {$h_1$};
+    \draw[->] (K2f)--(L2) node [midway, left] {$\cong$} node [midway, right] {$h_2$};
+\end{illustration}
 
-3. $\phi$ jest dobrze zdefiniowane (czyli przyjmuje tylko jedną wartość dla jednego argumentu):
-$$\omega(\overline a)-v(\overline a)=0\iff (\omega-v)(\overline a)=0\iff \omega -v\in I(\overline a/K)\iff \omega-v\in I(\overline b/K)\iff (\omega-v)(\overline b)=0\iff \omega(\overline b)-v(\overline b)=0$$
+Ciało $L\supseteq K$ nazywamy \deff{ciałem rozkładu nad $K$} wielomianu $f\in K[X]$, gdy spełnione są warunki:
 
-\podz{dark-green}
-\bigskip
+\indent 1. $f$ rozkłada się w pierścieniu $L[X]$ na czynniki liniowe (stopnia $1$)
 
-Możemy teraz zapytać, czy każdy ideał w pierścieniu wielomianów $K[X]$ jest postaci $I(\overline a/K)$ dla pewnego $\overline a\in L\supset K$? Albo ogólniej, czy dla pierścienia przemiennego $R$ z $1_R\neq0_R$ oraz ideału $I=(f_1,...,f_m)=I(\overline a/R)\normalsubgroup R[X]$, czy istnieje nadpierścień $S$ taki, że $1_S=1_R$ i $0_S=0_R$ oraz układ
-$$f_1(\overline x)=...=f_m(\overline m)=0$$
-ma rozwiązanie w $S$? Takie rozwiązanie spełniałoby $\overline a\in S\iff (\forall\;g\in(f_1,...,f_m))\;g(\overline a)=0$.
+\indent 2. Ciało $L$ jest rozszerzeniem ciała $K$ o elementy $a_1,...,a_n$, gdzie $a_1,...,a_n$ to wszystkie pierwiastki $f$ w $L$.
 
+{\color{orange}ZOSTAŁA JESZCZE KOŃCÓWKA TEGOOOO}
