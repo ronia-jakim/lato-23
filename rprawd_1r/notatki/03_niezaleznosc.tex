@@ -1,0 +1,80 @@
+\section{Niezależność}
+
+Niech $A, B\in \set{F}$ będą dwoma zdarzeniami. Co miałoby oznaczać, że $A$ jest niezależne od $B$? Wiedza o zdarzeniu $A$ nic nie wnosi do wiedzy na temat zdarzenia $B$, czyli:
+$$\color{blue}\prawdo{A}=\prawdo{A|B}={\prawdo{A\cap B}\over\prawdo{B}}$$
+$$\prawdo{A}\cdot\prawdo{B}=\prawdo{A\cap B}$$
+
+Będziemy chcieli budować przestrzeń, w której możemy wykonywać nieskończone eksperymenty, np. przestrzeń, która opisuje nam nieskończone ciągi rzutami monetą. Oczywiście, będziemy zaczynać od przypadków skończonych i przechodzić granicą dalej.
+
+\subsection{Niezależność zdarzeń}
+
+W przestrzeni probabilistycznej $(\Omega,\set{F}, \mathbb{P})$ mówimy, że zdarzenia $A$ i $B$ są \deff{niezależne}, jeżeli
+$$\prawdo{A\cap B}=\prawdo{A}\prawdo{B}.$$
+
+\textbf{Przykład:} Rzucamy dwukrotnie kostką. $A$ to zdarzenie, że w pierwszym rzucie wypadła liczba nieparzysta, a $B$ - że w drugim rzucie wypadło $5$ lub $6$. Wtedy $\Omega$ to wszystkie pary liczb $1,...,6$, $\set{F}$ to wszystkie podzbiory $\Omega$. Wiemy, że $\prawdo{(i, j)}=\frac1{36}$ bez względu na $i,j$.
+$$A=\{(1, 1), (1, 2), ..., (3, 1), (3, 2),...,(5, 6)\}$$
+$$B=\{(1, 5), (1, 6),..., (6, 6)\}$$
+$$A\cap B=\{(1, 5), (1, 6), (3, 5),...,(5, 5), (5, 6)\}$$
+
+mamy $\prawdo{A}={18\over36}$, $\prawdo{B}={12\over36}$ i $\prawdo{A\cap B}={6\over 36}$, czyli zdarzenia są niezależne.
+\medskip
+
+Mówimy, że zdarzenia $A_1, A_2,...,A_n$, $n<\infty$ są \deff{niezależne}, jeżeli dla każdego ciągu $1\leq i_1<i_2<...<i_k\leq n$ zachodzi
+$$\prawdo{A_{i_1}\cap A_{i_2}\cap ...\cap A_{i_k}}=\prawdo{A_{i_1}}\cdot...\cdot\prawdo{A_{i_k}}.$$
+Tych warunków do sprawdzenia jest $2^n-n-1$.
+\medskip
+
+Mówimy, że zdarzenia $A_1,...,A_n$ są \deff{parami niezależne}, jeżeli dla każdych $1\leq i<j\leq n$ zachodzi
+$$\prawdo{A_i\cap A_j}=\prawdo{A_i}\prawdo{A_j}.$$
+Tych warunków jest ${n\choose 2}$. Warunek niezależności ciągu $A_i$ jest mocniejszy niż warunek w ciągu parami niezależnym. [{\large\color{orange}PRZYKŁAD ZE SKRYPTU}]
+\medskip
+
+Niech $\{A_i\}_{i\in I}$, gdzie $I$ jest dowolnym zbiorem indeksującym, będzie rodziną zdarzeń z $(\Omega,\set{F}, \mathbb{P})$. Mówimy, że te zdarzenia są \deff{niezależne}, jeżeli dla każdego skończonego podzbioru indeksów $\{i_1,...,i_n\}\subseteq I$ zdarzenia $A_{i_1},...,A_{i_n}$ są niezależne. Czyli \dyg{niezależność nieskończonej liczby zdarzeń sprowadza się do niezależności na skończonym przypadku}.
+
+\subsection{Niezależność $\sigma$-ciał}
+
+Niech $\set{F}_1, \set{F}_2$ będą $\sigma$-ciałami zawartymi w $\set{F}$, gdzie $(\Omega, \set{F}, \mathbb{P})$ jest przestrzenią probabilistyczną. Mówimy, że te $\sigma$-ciała są \deff{niezależne}, jeśli dla dowolnych $A_1\in\set{F}_1,...,A_n\in\set{F}_n$ zachodzi
+$$\prawdo{A_1\cap...\cap A_n}=\prawdo{A_1}\prawdo{A_2}...\prawdo{A_n},$$
+czyli $\sigma$-ciała są niezależne, jeżeli ich elementy są niezależne. [{\color{orange}ĆWICZENIE na przemyślenie}].
+\medskip
+
+\textbf{Przykład:} Rzucamy dwa razy kostką. $\Omega,\set{F},\mathbb{P}$ są nam już znane. Chcemy pokazać dwa $\sigma$-ciała, które są od siebie niezależne. Wprowadzamy:
+$$\set{F}_1=\{A\times\{1,...,6\}\;:\;A\subseteq\{1,...,6\}\}$$
+czyli tutaj mamy tylko pierwszy rzut kostką,
+$$\set{F}_2=\{\{1,...,6\}\times B\;:\;B\subseteq\{1,...,6\}\}$$
+czyli mamy informację tylko o drugim rzucie kostką. Takie $\sigma$-ciała są niezależne.
+
+Chcemy sprawdzić, że 
+$$\prawdo{A\times\{1,...,6\}\cap\{1,...,6\}\times B}=\prawdo{A}\prawdo{B}.$$
+Prawą stronę liczymy z jednostajności miary:
+$$\prawdo{A}=6\cdot{|A|\over 36}={|A|\over 6}$$
+$$\prawdo{B}=6\cdot{|B|\over36}={|B|\over 6}$$
+Lewą stroną też nie jest ciężko policzyć:
+$$\prawdo{A\cap B}=\prawdo{A\times B}={|A||B|\over 36}.$$
+Czyli 
+$$LHS=\prawdo{A\cap B}={|A||B|\over 36}={|A|\over 6}\cdot{|B|\over 6}=\prawdo{A}\prawdo{B}=RHS$$
+
+Dowolna \deff{rodzina $\sigma$-ciał} $\{F\}_{i\in I}$ z przestrzeni probabilistycznej $(\Omega,\set{F},\mathbb{P})$ jest \deff{niezależna}, jeżeli dowolny jej skończony podzbiór jest niezależny.
+\medskip
+
+\deff{\large Lemat:} Jeżeli zdarzenia $A_1,...,A_n$ są niezależne, to $\sigma$-ciała $\sigma(A_1),...,\sigma(A_n)$ przez nie generowane też są niezależne. [Branie dopełnień zachowuje niezależności].
+
+\textbf{Dowód:} {\large\color{orange}Ćwiczenie}.
+
+\deff{\large Wniosek:} Jeżeli zdarzenia są niezależne, to wtedy 
+$$\prawdo{A_1\cup...\cup A_n}=1-\prawdo{A_1^c\cap...\cap A_n^c}=1-\prod\limits_{i\leq n}\prawdo{A_i^c}=1-\prod\limits_{i\leq n}(1-\prawdo{A_i})$$
+
+\textbf{Problem:} Mamy zadany ciąg $n$ doświadczeń. Wynik $i$-tego doświadczenia opisany jest przestrzenią probabilistyczną $(\Omega_i,\set{F}_i,\mathbb{P}_i)$. Jak skonstruować jedną przestrzeń probabilistyczną $\przesprob$, która modeluje przeprowadzenie tych doświadczeń w sposób niezależny?
+
+Definiujemy
+$$\Omega=\Omega_1\times...\times\Omega_n,$$
+bo chcemy na $i$-tym miejscu wyniki $i$-tego doświadcznia:
+$$\set{F}_i'=\{\Omega_1\times...\times\Omega_{i-1}\times A\times\Omega_{i+1}\times...\times\Omega_n\;:\;A\in\set{F}_i\},$$
+czyli na $i$-tym miejscu bierzemy zbiór, a na całej reszcie współrzędnych bierzemy całość. Czyli $\set{F}_i'$ jest swego rodzaju kopią $\set{F}$ rzuconą na więcej współrzędnych. Zdefiniujmy
+$$\set{F}=\sigma(\set{F}_1',...,\set{F}_n')$$
+czyli najmniejsze $\sigma$-ciało które zawiera wszystkie te rzuty $\set{F}_i'$.$\set{F}$ zawiera w szczególności zbiory postaci $A_1\times...\times A_n$.
+
+Problem pojawia się, kiedy próbujemy konstruować miarę $\mathbb{P}$ która działa na całości. To znaczy, spełnia
+$$\prawdo{A_1\times...\times A_n}=\prawdo{A_1\times\Omega_2\times...\times\Omega_n\cap...\cap\Omega_1\times...\times A_n}=\prod\prawdo{A_i}.$$
+Z teorii miary, wiemy, że takie $\mathbb{P}$ istnieje i jest jedyne. Takie $\prawdo{P}$ jest miarą produktową i oznaczamy je
+$$\mathbb{P}=\mathbb{P}_1\otimes...\otimes\mathbb{P}_n$$

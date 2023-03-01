@@ -9,182 +9,20 @@
 \begin{document}
 \maketit
 
+\textbf{\color{orange}Konsultacje:} środy 9-10, 13-14, pokój 907.
+
+\textbf{\color{orange}Klasówki:} 13.04, 1.06 w skali od 0 do 100, potrzeba zdobyć minimum 101 punktów.
+
+\textbf{\color{orange}Egzamin:} piątek 23.06 godz. 10:00-14:00
 \tableofcontents
 \newpage
 
-\section{Miara i całka v.2.0}
+\input{01_podst_def.tex}
+\newpage
 
-\deff{Krzywa Gaussa} to krzywa zadana wzorem:
-$${1\over\sqrt{2\pi}}e^{-{x^2\over2}}$$
+\input{02_prawd_war.tex}
+\newpage
 
-\deff{Zdarzenie elementarne} [$\color{blue}\omega$] to sposób kodowania jednego wyniku w naszym eksperymencie. \deff{Przestrzeń zdarzeń elementarnych} [$\color{blue}\Omega$] to zbiór wszystkich wyników losowych. Rodzinę $\set{F}$ podzbiorów $\Omega$ nazywamy \acc{$\sigma$-ciałem}, jeśli:
-
-\indent \point $\emptyset\in\set{F}$
-
-\indent \point $A\in\set{F}\implies A^c\in\set{F}$
-
-\indent \point $A_1, A_2,...\in \set{F}\implies \bigcup_{k=1}^\infty A_k\in\set{F}$
-\smallskip
-
-$A\in\set{F}$ nazywamy \deff{zdarzeniem}, a parę $(\Omega,\set{F})$ nazywamy przestrzenią mierzalną.
-\medskip
-
-\textbf{\large Przykłady}: 
-
-\indent 1. Dla rzutu symetryczną monetą możliwe wyniki to orzeł (O) i reszka (R). Wtedy $\Omega=\{O,R\}$, natomiast $\set{F}=\powerset{\Omega}$
-
-\indent 2. Jeżeli będziemy rzucać kostką, to $\Omega=\{1,2,...,6\}$, natomiast $\set{F}=2^{\Omega}$. Zdarzenia możemy próbować opisywać matematycznie, a możemy opisać je po ludzku, czyli $\set{F}\ni A=$\emph{ wypadła parzysta liczba oczek} $=\{2,4,6\}$. Cały trick, żeby zacząć o tym wszystkim myśleć w ramach teorii miary to zacząć myśleć, że my przyporządkowujemy prawdopodobieństwo zdarzeniom postaci bardziej matematycznej.
-
-\indent 3. Jeśli będziemy wykonywać $n$ rzutów kostką, to $\Omega =\{\omega=(\omega_1,...,\omega_n)\;:\;\omega_k\in[6]\}=\{1,2,...,6\}^n$, czyli to po prostu $n$-ta potęga rzutu pojedynczego. Zdarzenie to na przykład $B=$\emph{ suma oczek jest parzysta }$=\{\omega=(\omega_1,...,\omega_n)\;:\;\omega_1+,,,+\omega_n\text{ parzysta}\}$
-\medskip
-
-\podz{dark-blue}
-\medskip
-
-Niech $(\Omega,\set{F})$ będzie przestrzenią mierzalną.Wtedy funkcja
-$$\color{blue}\mathbb{P}:\set{F}\to[0,1]$$
-jest nazywana \deff{prawdopodobieństwem na} $\Omega$, jeżeli:
-
-\indent \point $\mathbb{P}(\Omega)=1$, czyli prawdopodobieństwo wszystkiego wynosi 1,
-
-\indent \point Jeżeli $A_1,.A_2,...\in\set{F}$ są parami rozłączne, to $\mathbb{P}\left(\bigcup A_k\right)=\sum\mathbb{P}(A_k)$, czyli prawdopodobieństwo, że zachodzi którekolwiek ze zdarzeń (suma mnogościowa) jest równe sumie prawdopodobieństw poszczególnych wydarzeń.
-
-Trójkę $(\Omega, \set{F},\mathbb{P})$ nazywamy \deff{przestrzenią probabilistyczną}.
-\medskip
-
-\textbf{\large Przykłady:}
-
-\indent 1. [\dyg{Prawdopodobieństwo klasyczne}] Niech $\Omega$ będzie zbiorem skończonym, $set{F}=2^{\Omega}$ i każde zdarzenie elementarne $\omega\in\Omega$ jest jednakowo prawdopodobne. To oznacza, że $\mathbb[\{\omega\}]={1\over|\Omega|}$, bo inaczej drugi warunek nie zostanie spełniony. Wtedy dla $A\in \set{F}$ mamy 
-$$\mathbb{P}[A]=\mathbb{P}(\bigcup_{\omega\in A}\{\omega\})=\sum_{\omega\in A}\mathbb{P}[\{\omega\}]={|A|\over|\Omega|}$$
-
-\indent 2. Rzucamy trzy razy monetą. Jakie jest prawdopodobieństwo, że orzeł wypadnie dokładnie dwa razy? Spróbujmy zapisać to bardzo formalnie. 
-
-$\Omega=\{O,R\}^3$,
-
-$\set{F}=2^\Omega$, 
-
-$A=$\emph{ orzeł wypadł dokładnie dwa razy }$=\{(O, O, R), (O, R, O), (R, O, O)\}$.
-
-Jeżeli każdy wynik jest jednakowo prawdopodobny, czyli moneta jest symetryczna, to
-$$\mathbb{P}(A)={|A|\over|\Omega|}={3\over 8}$$
-Tutaj zauważmy, że gdyby moneta nie była symetryczna, to ten opis sytuacji nie jest już prawdziwy i potrzebna byłaby inna konstrukcja $\mathbb{P}$.
-
-\indent 3. Niech $\Omega$ będzie przeliczalna. Rozważmy ciąg $p_1,p_2,...$ z przedziału $[0,1]$ taki, że $\sum p_k=1$. Jeżeli $\Omega=\{\omega_1,\omega_2,...\}$, to możemy ustalić, że $\mathbb{P}[\{\omega_k\}]=p_k$. Wtedy dla $A\in\set{F}$ mamy
-$$\mathbb{P}(A)=\sum_{\omega_k\in A}p_k.$$
-Możemy o tym wszystkim myśleć nie jako o prawdopodobieństwie, a jako o masie.
-\medskip
-
-\podz{dark-blue}
-\medskip
-
-\deff{\large Twierdzenie:} Niech $(\Omega,\set{F},\mathbb{P})$ będzie przestrzenią probabilistyczną. Dla $A, B, A_1, A_2,...\in\set{F}$ zachodzą:
-
-\indent 1. $\mathbb{P}(\emptyset)=0$
-
-\indent 2. Jeżeli $n\in\N$ i $A_1, A_2,...,A_n$ są parami rozłączne, to $\mathbb{P}[\bigcup A_k]=\sum\mathbb{P}(A_k)$
-
-\indent 3. $\mathbb{P}(A^c)=1-\mathbb{P}(A)$
-
-\indent 4. Jeżeli $A\subseteq B$, to $\mathbb{B\setminus A}=\mathbb{P}(B)-\mathbb{P}(A)$ (w szczególności $\mathbb{P}(B)\geq\mathbb{P}(A)$)
-
-\indent 5. $\mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)$
-
-\indent 6. $\mathbb{P}(\bigcup A_k)\leq\sum\mathbb{P}(A_k)$
-
-\textbf{Dowód:} ćwiczenia \proofend
-\medskip
-
-\deff{\large Zasada włączeń i wyłączeń}: Dla $n\in \N$ i $A_1,...,A_n\in\set{F}$ mamy
-$$\prawdo{\bigcup A_k}=\sum\prawdo{A_k}-\sum\prawdo{A_i\cap A_j}+\sum\prawdo{A_i\cap A_j\cap A_k}-...(-1)^{n+1}\prawdo{A_1\cap A_2\cap ...\cap A_n}$$
-\textbf{Dowód:} ćwiczniea \proofend
-\medskip
-
-\deff{\large Twierdzenie o ciągłości}: Niech $(\Omega,\set{F},\mathbb{P})$ będzie przestrzenią probabilistyczną, $A_1,...\in\set{F}$. 
-
-\indent 1. Jeżeli $A_1\subseteq A_2\subseteq...$ (są wstępujące), to dla $A=\bigcup A_k$
-$$\prawdo{A}=\lim_{n\to\infty}\prawdo{A_n}$$
-
-\indent 2. Jeżeli $A_1\supseteq A_2\supseteq...$ (są zstępujące), to wtedy dla $B=\bigcap A_k$
-$$\prawdo{B}=\lim_{n\to\infty}\prawdo{A_n}$$
-
-\textbf{Dowód:} 
-
-1. Rozważmy zdarzenia $B_n$ dane przez
-$$B_1=A_1$$
-$$B_n=A_n\setminus A_{n-1}$$
-wtedy 
-$$\bigcup\limits_{k=1}^\infty B_k=\bigcup\limits_{k=1}^\infty A_k=A$$
-i tak samo dla sumy skończonej, czyli
-$$\bigcup\limits_{k=1}^n B_k=\bigcup\limits_{k=1}^n A_k=A_n.$$
-Wtedy
-$$\prawdo{A}=\prawdo{\bigcup B_k}=\sum\prawdo{B_k}=\lim\sum^N\prawdo{B_k}=\lim\prawdo{\bigcup B_N}=\lim\prawdo{A_N}$$
-
-2. Rozważmy teraz ciąg $C_k=A_k^c$ spełniające
-$$C_1\subseteq C_2\subseteq ...$$
-Dodatkowo,
-$$\bigcup C_k=\bigcup A_k^c=\left(\bigcap A_k\right)^c=B^c$$
-Mamy
-$$\prawdo{B}=1-\prawdo{B^c}=1-\prawdo{\bigcup C_k}=1-\lim\prawdo{C_n}=1-\lim(1-\prawdo{A_n})=\lim\prawdo{A_n}$$
-
-\proofend
-\medskip
-
-\textbf{\large Przykład:}
-
-\indent 1. Rozważmy kule o numerach 1, 2, 3, .... Wrzucamy te kule stopniowo do urny. O godzinie 12:59 wrzucamy kule o numerach 1, 2, ..., 10. Pół minuty później chcemy wyciągnąć zgodnie z jednym z trzech wariantów:
-
-\indent a) kulę o numerze 1,
-
-\indent b) kulę o numerze 10,
-
-\indent c) losujemy kulę,
-
-po czym dorzucamy kule o numerach 11, 12, ..., 20. Po kolejnej $\frac14$ minuty wyciągamy
-
-\indent a) kulę o numerze 2,
-
-\indent b) kulę o numerze 20,
-
-\indent c) losowo wybraną kulę
-i znowu dorzucamy kule 21, 22, 30.
-
-Tak robimy przez minutę. Pytanie jest o to, \emph{ile jest kul w urnie o godzinie $13:00$}?
-
-\indent a) 0
-
-\indent b) $\infty$
-
-\indent c) Rozważmy kulę o numerze $1$. $A_n=$\emph{ kula 1 jest w urnie po $n$ losowaniach}. Zauważmy, że jeżeli kula była po $(n+1)$ losowaniu, to musiała w niej też byc po $n$ losowaniach. Czyli $A_{n+1}\subseteq A_n$. W takim razie mamy zdarzenia zstępujące i możemy napisać
-$$A=\bigcap A_n=\text{\emph{ kula 1 jest w urnie o godzinie 13:00}}$$
-$$\prawdo{A}=\lim\prawdo{A_n}.$$
-Dla $n\in\N$ mamy 
-$$\prawdo{A_n}={9\over 10}\cdot{18\over 19}\cdot...{9n\over 9n+1}=\prod\limits_{k=1}^n{9k\over 9k+1}=\prod\left(1-{1\over 9k+1}\right)\leq\prod e^{-{1\over9k+1}}=e^{-\sum{1\over9k+1}},$$
-bo $1-x\leq e^{-x}$. Teraz zauważmy, że szereg
-$$\sum\limits_{k=1}^\infty {1\over 9k+1}=\infty$$
-jest rozbieżny, czyli 
-$$e^{-\sum{1\over 9k+1}}\to0$$
-a skoro prawdopodobieństwo $A_n$ było ograniczone przez to od góry, to
-$$\prawdo{A}=\lim\prawdo{A_k}=0.$$
-
-\indent 2. Romeo i Julia umówili się na spotkanie w nocy o północy. Każde z nich może się spóźnić co najwyżej godzinę. Pierwsza osoba, która przyjdzie czeka co najwyżej 15 minut na tę drugą. \emph{Jakie jest prawdopodobieństwo, że do spotkania wogóle dojdzie?} Będziemy liczyć czas w sposób ciągły. 
-
-Rozważmy przestrzeń $\Omega=[0,1]\times[0,1]$, gdzie $x$ będzie odpowiadać czasowi przyjścia Romeo, a $y$ - kiedy przyszła Julia. Wtedy $\set{F}=Bor([0,1]^2)$, a $\mathbb{P}$ to $2$-wymiarowa miara Lesbegue'a. Szukamy prawdopodobieństwa zdarzenia
-$$A=\text{\emph{ dojdzie do spotkania }}=\{(x,y)\;:\;|x-y|\leq\frac14\}$$
-$$\prawdo{A}=\lambda_2(A)=1-\prawdo{A^c}=1-\frac9{16}=\frac7{16}$$
-
-\indent 3. Wybieramy jednostajnie liczbę z przedziału $[0,1]$. Wtedy $\mathbb{P}$ to miara Lesbegue'a, inaczej ten wybór nie będzie jednostajny.
-
-\indent 4. [\dyg{Paradoks Bertranda}] Jakie jest prawdopodobieństwo, że losowo wybrana cięciwa $AB$ w okręgu jest dłuższa niż bok równobocznego trójkąta wpisanego?
-
-\begin{illustration}
-    \draw[very thick, orange] (0, 0) circle (2);
-    \node at (0, 2) {$\bullet$};
-    \node at (0, 2.3) {A};
-    \coordinate (A) at (0, 2);
-    \coordinate (B) at (1.73, -1);
-    \coordinate (C) at (-1.73, -1);
-    \draw[very thick, green] (A)--(B)--(C)--(A);
-    \draw[very thick, pink] (0, 0) circle (1);
-\end{illustration}
+\input{03_niezaleznosc.tex}
 
 \end{document}

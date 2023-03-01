@@ -225,6 +225,7 @@ $$a_i=j(X_i)\in L.$$
 Wtedy $g(\overline a)=0$ dla każdego $g(\overline X)\in M\supseteq I$ (bo inaczej mielibyśmy wyrazy wolne).
 
 \begin{wniosek}
+    \label{wniosek1:2:4}
     Niech $f\in K[X]$ stopnia $>0$. Wtedy istnieje ciało $L\supseteq K$ rozszerzające ciało $K$ takie, że $f$ ma pierwiastek w ciele $L$.
 \end{wniosek}
 
@@ -239,7 +240,7 @@ Czyli nie zawsze musimy rozszerzać ciało do czegoś nowego.
 
 Załóżmy, że $K\subseteq L_1, K\subseteq L_2$ są rozszerzeniami ciała. Wtedy mówimy, że \deff{$L_1$ jest izomorficzne z $L_2$ nad $K$} [\acc{$L_1\cong_KL_2$}] $\iff$ istnieje izomorfizm $f:L_1\to L_2$ taki, że $f\obciete K=id_K$.
 
-\begin{fakt}{\color{back}kotek}
+\begin{fakt}{\color{back}dupa }
 
 \indent 1. Załóżmy, że $f(X)\in K[X]$ jest nierozkładalny. Niech $L_1=K(a_1)$, $L_2=K(a_2)$ i $f(a_i)=0$ w $L_i$. Wtedy $L_1\cong_KL_2$.
 
@@ -288,10 +289,36 @@ $$L_i=K_i(a_i)=K_i[a_i]\cong K[X]/I(a_i/K_i).$$
     \draw[->] (K2f)--(L2) node [midway, left] {$\cong$} node [midway, right] {$h_2$};
 \end{illustration}
 
+\begin{important}
 Ciało $L\supseteq K$ nazywamy \deff{ciałem rozkładu nad $K$} wielomianu $f\in K[X]$, gdy spełnione są warunki:
 
 \indent 1. $f$ rozkłada się w pierścieniu $L[X]$ na czynniki liniowe (stopnia $1$)
 
 \indent 2. Ciało $L$ jest rozszerzeniem ciała $K$ o elementy $a_1,...,a_n$, gdzie $a_1,...,a_n$ to wszystkie pierwiastki $f$ w $L$.
+\end{important}
 
-{\color{orange}ZOSTAŁA JESZCZE KOŃCÓWKA TEGOOOO}
+\textbf{Przykład:} Jeżeli $deg(f)=0$, to nie istnieje ciało rozkładu $f$.
+
+\begin{wniosek}
+    Załóżmy, że $f\in K[X]$ jest wielomianem stopnia $>0$. Wtedy
+
+\indent 1. istnieje $L$: ciało rozkładu $f$ nad $K$,
+
+\indent 2. to ciało jest jedyne z dokładnością do izomorfizmy nad $K$.
+\end{wniosek}
+
+\textbf{Dowód:}
+
+\indent 1. Dowód przez indukcje względem stopnia $f$
+
+Jako przypadek bazowy rozważmy $f$ takie, że $deg(f)=1$. Wtedy $L=K$ i wszystko wniosek jest spełniony.
+
+Załóżmy teraz, że stopień wielomianu $f$ jest $>1$ i tez zachodzi dla wszystkich wielomianów stopnia $<deg(f)$ i wszystkich ciał $K'$. Teraz z \ref{wniosek1:2:4} wiemy, że istnieje rozszerzenie ciała $L\supseteq K$ takie, że $f$ ma pierwiastek w $L$. Nazwijmy ten pierwiastek $a_0$ i niech
+$$K'=K(a_0).$$
+Ponieważ $K'[X]$ wielomian $f$ ma pierwiastek $a_0$, to możemy zapisać
+$$f=(x-a_0)f_1$$
+dla pewnego $f_1\in K'[X]$ i $deg(f_1)<deg(f)$. Z założenia indukcyjnego dla $f_a$ istnieje $L'=K'(a_1,...,a_r)$ - ciało rozkładu wielomianu $f_1$ nad $K'$. Wtedy 
+$$L=K(a_0,...,a_r)$$
+jest ciałem rozkładu $f$ nad $K$.
+
+\indent 2. Udowodnimy wersję ogólniejszą: jeśli $\phi:K_1\to K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $\psi:L_1\to L_2$ izomorfizm nad ciałami rozkładu tych $K_i$.

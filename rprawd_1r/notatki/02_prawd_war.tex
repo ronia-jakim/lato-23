@@ -1,0 +1,91 @@
+\section{Prawdopodobieństwo warunkowe}
+
+Dalsza część wykładu będzie raczej oderwana od tego co się dzieje tutaj.
+
+Niech $(\Omega,\set{F},\mathbb{P})$ będzie przestrzenią probabilistyczną i niech $A, B$ będą zdarzeniami takimi, że $\prawdo{B}>0$. Wówczas \deff{prawdopodobieństwem warunkowym} zdarzenia $A$ względem $B$ nazywamy wartość
+$$\prawdo{A|B}={\prawdo{A\cap B}\over\prawdo{B}}$$
+Jeśli ustalimy zbiór $B$, to miara $\color{blue}\prawdo{\bullet|B}$ jest miarą probabilistyczną.
+
+\textbf{Przykład:}
+
+\indent 1. Wybieramy losową rodzinę z dwójką dzieci. Oblicz prawdopodobieństwo, że jest to dwóch chłopców, jeżeli
+
+\indent a). starsze dziecko jest chłopcem.
+
+Mamy $\Omega=\{(d, d), (d, c), (c, c), (c, d)\}$ przypadki, kiedy starsze dziecko to chłopiec:
+$$B=\{(d, c), (c, c)\}$$
+i podzbiór tego, gdy oboje są chłopcami to $A=\{(c, c)\}$. Czyli
+$$\prawdo{A|B}={1\over 2}$$
+
+\indent b). jedno z tych dzieci to chłopak.
+
+Omega jest taka sama jak wcześniej, zmienia nam się definicja zbioru $B$:
+$$B=\{(c, d), (d, c), (c, c)\}$$
+$A$ jest nadal singletonem. Ogółem mamy
+$$\prawdo{A|B}=\frac13$$
+
+Mówimy, że rodzina zbiorów $\{B_k\}_{k=1}^n$ (dopuszczamy $n=\infty$) jest \deff{rozbiciem zbioru $\Omega$}, jeśli $\Omega=\bigsqcup_{k=1}^nB_k$ (suma rozłączna).
+
+\subsection{Prawdopodobieństwo całkowite}
+
+\deff{\large Twierdzenie:} [wzór na \dyg{prawdopodobieństwo całkowite}] Niech $\{B_k\}_{k=1}^n$ będzie rozbiciem $\Omega$ takim, że $\prawdo{B_k}>0$ dla każdego $k$. Wówczas dla każdego $A\in\set{F}$ zachodzi:
+$$\prawdo{A}=\sum\limits_{k=1}^n\prawdo{A|B_k}\prawdo{B_k}$$
+
+\textbf{Dowód:}
+$$\prawdo{A}=\prawdo{A\cap\left[\bigsqcup\limits_{k=1}^nB_k\right]}=\prawdo{\bigsqcup\limits_{k\leq n}[A\cap B_k]}=\sum\limits_{k\leq n}\prawdo{A\cap B_k}=\sum\limits_{k\leq n}\prawdo{A|B_k}\cdot\prawdo{B_k}$$
+
+\proofend
+
+\textbf{Przykład:} W loterii fantowej mamy $3$ rodzaje losów:
+
+\indent \point W - wygrana, wyciągany z prawdopodobieństwem $p$
+
+\indent \point P - przegrana - z prawdopodobieństwem $q$
+
+\indent \point D - graj dalej - z prawdopodobieństwem r
+
+gdzie $p+q+r=1$. Oblicz prawdopodobieństwo wygranej. 
+
+Niech $Z$ będzie zdarzeniem, które mówi, że wygraliśmy. Chcemy obliczyć $\prawdo{Z}$. $W, P, D$ to rozbicie przestrzeni $\Omega$. Ze wzoru na prawdopodobieństwo całkowite dostajemy
+\begin{align*}
+    \prawdo{Z}&=\prawdo{Z|W}\cdot\prawdo{W}+\prawdo{Z|P}\cdot\prawdo{P}+\prawdo{Z|D}\cdot\prawdo{D}=\\
+    &=1\cdot p+0\cdot q+\prawdo{Z}\cdot r\\
+    \prawdo{Z}&={p\over 1-r}={p\over p+q}
+\end{align*}
+
+\subsection{Wzór Bayesa}
+
+\deff{\large Twierdzenie:} [\dyg{wzór Bayesa}] załóżmy, że mamy rozbicie $\Omega$ $\{B_k\}_{k=1}^n$ to znaczy, $\prawdo{B_k}>0$. Weźmy dowolne zdarzenie $A$ takie, że $\prawdo{A}>0$. Wówczas dla każdego $j$ zachodzi
+$$\prawdo{B_j|A}={\prawdo{A|B_j}\prawdo{B_j}\over \sum_{k\leq n}\prawdo{A|B_k}\prawdo{B_k}}$$
+
+\textbf{Dowód:} Użycie wzoru na prawdopodobieństwo całkowite:
+\begin{align*}
+    {\prawdo{A|B_j}\prawdo{B_j}\over \sum_{k\leq n}\prawdo{A|B_k}\prawdo{B_k}}&={\prawdo{A|B_j}\cdot\prawdo{B_j}\over \prawdo{A}}={\prawdo{A\cap B_j}\over\prawdo{B_j}}\cdot{\prawdo{B_j}\over\prawdo{A}}=\prawdo{B_j|A}
+\end{align*}
+
+\proofend
+
+\textbf{Przykład:} 
+
+\indent 1. Mamy $100$ monet i $99$ z nich jest uczciwych, a jedna jest fałszywa (orły po dwóch stronach). Losujemy monetę i wypadło $10$ orłów. Oblicz prawdopodobieństwo, że wylosowaliśmy fałszywą monetę.
+
+Niech $B_1$ oznacza, że wylosowaliśmy monetę uczciwą, a $B_2$ - że fałszywą. Wtedy zdarzeniem $A$ będzie wyrzucenie $10$ orłów. Mamy
+\begin{align*}
+    \prawdo{B_2|A}&={\prawdo{A|B_2}\prawdo{B_2}\over\prawdo{A|B_1}\prawdo{B_1}+\prawdo{A|B_2}\prawdo{B_2}}={1\cdot\frac1{100}\over{1\over2^{10}}\cdot{99\over100}+\frac1{100}}=\\
+    &={1024\over1123}\approx91\%
+\end{align*}
+
+\indent 2. U pacjenta przeprowadzono test na rzadką chorobę. Wiadomo, że na tę chorobę choruje $1$ osoba na $1000$. Test jest "mocny", to znaczy jeżeli osoba jest chora, to test wskazuje na chorobę z prawdopodobieństwem ${99\over 100}$. Jeżeli natomiast osoba jest zdrowa, to test nie wskazuje na chorobę z prawdopodobieństwem ${95\over100}$. Test wskazał na chorobę. Oblicz prawdopodobieństwo, że pacjent jest chory.
+
+Mamy trzy zdarzenia:
+
+$Z$ - pacjent jest zdrowy,
+
+$C$ - pacjent jest chory,
+
+$T$ - test wyszedł pozytywny.
+
+Używamy wzoru Bayesa, żeby obliczyć
+\begin{align*}
+    \prawdo{C|T}&={\prawdo{T|C}\prawdo{C}\over\prawdo{T|Z}\prawdo{Z}+\prawdo{T|C}\prawdo{C}}={0.99\cdot0.001\over0.95\cdot0.999+0.99\cdot0.001}={99\over 5094}\approx 2\%
+\end{align*}
