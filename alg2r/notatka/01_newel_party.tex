@@ -241,6 +241,7 @@ Czyli nie zawsze musimy rozszerzać ciało do czegoś nowego.
 Załóżmy, że $K\subseteq L_1, K\subseteq L_2$ są rozszerzeniami ciała. Wtedy mówimy, że \deff{$L_1$ jest izomorficzne z $L_2$ nad $K$} [\acc{$L_1\cong_KL_2$}] $\iff$ istnieje izomorfizm $f:L_1\to L_2$ taki, że $f\obciete K=id_K$.
 
 \begin{fakt}{\color{back}dupa }
+\label{fakt:1:2:5}
 
 \indent 1. Załóżmy, że $f(X)\in K[X]$ jest nierozkładalny. Niech $L_1=K(a_1)$, $L_2=K(a_2)$ i $f(a_i)=0$ w $L_i$. Wtedy $L_1\cong_KL_2$.
 
@@ -321,4 +322,43 @@ dla pewnego $f_1\in K'[X]$ i $deg(f_1)<deg(f)$. Z założenia indukcyjnego dla $
 $$L=K(a_0,...,a_r)$$
 jest ciałem rozkładu $f$ nad $K$.
 
-\indent 2. Udowodnimy wersję ogólniejszą: jeśli $\phi:K_1\to K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $\psi:L_1\to L_2$ izomorfizm nad ciałami rozkładu tych $K_i$.
+\indent 2. Udowodnimy wersję ogólniejszą: 
+\phantomsection
+\label{stwierdzenie:wniosek}
+
+\emph{(\bat) Jeśli $\phi:K_1\izo{} K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $ \psi:L_1\izo{} L_2$ izomorfizm nad ciałami rozkładu $f_i$ w $K_i$ rozszerzający izomorfizm $\phi$ (to znaczy $\phi\subseteq \psi$).}
+
+Wykorzystamy indukcję po $deg(f)$. W przypadku bazowym mamy $deg(f)=1$, czyli $L_1=K_1,L_2=K_2$ i $\phi=\psi$.
+
+Teraz niech $deg(f)>1$ i załóżmy, że dla wszystkich ciał $K'$ oraz wielomianów stopnia $<deg(f)$ jest to prawdą. Niech
+$$f_i=f_i'\cdot g_i,$$
+gdzie $f_i',g_i\in K_i[X]$ i $g_i$ jest wielomianem nierozkładalnym w $K$. Wiemy już, że istnieje $a_i\in L_i$ będące pierwiastkiem wielomianu $g_i$.
+
+Z faktu \ref{fakt:1:2:5}:(2), wiemy, że istnieje wtedy izomorfizm
+$$\psi_0:K_1(a_1)\izo{}K_2(a_2)$$
+taki, że $\psi_0(a_1)=a_2$ i $\phi\subseteq\psi_0$.
+
+\begin{illustration}
+    \node (K1) at (0, 0) {$K_1(a_1)$};
+    \node (K2) at (4, 0) {$K_2(a_2)$};
+    \node (L1) at (0, -2.3) {$L_1$};
+    \node (L2) at (4, -2.3) {$L_2$};
+    \draw[->] (K1)--(K2) node [midway, above] {$\cong$} node [midway, below] {$\exists\;\psi_0$};
+    \draw[->] (L1)--(L2) node [midway, above] {$\cong$} node [midway, below] {$\exists\;\psi_1$};
+    \node [rotate=90] (=1) at (0, -0.5) {$=$};
+    \node [rotate=90] (=1) at (4, -0.5) {$=$};
+    \node (K1') at (0, -1) {$K_1'$};
+    \node (K2') at (4, -1) {$K_2'$};
+    \node [rotate=90] at (0, -1.65) {$\supseteq$};
+    \node [rotate=90] at (4, -1.65) {$\supseteq$};
+\end{illustration}
+
+Mamy, że {\large\color{orange}$L_i$ to ciało rozkładu $f_i'$ nad $K_i$}. W takim razie z założenia indukcyjnego istnieje izomorfizm
+$$\psi_1:L_1\izo{}L_2$$
+taki, że $\psi\subseteq\psi_0$ i to już jest koniec.
+
+\begin{wniosek}
+    Jeśli $f_1\in K_1[X]$ i $f_2\in K_2[X]$ są nierozkładalnymi wielomianami, $\phi:K_1\izo{}K_2$ izomorfizmem i $\phi(f_1)=f_2$, a $L_1,L_2$ to ciała rozkładu $f_1,f_2$ odpowiednio nad $K_1$ i $K_2$, $a_i\in L_i$ to pierwiastek $f_i$, to wtedy istnieje $\psi:L_1\izo{}L_2$ takie, że $\psi(a_1)=a_2$.
+\end{wniosek}
+
+\textbf{Dowód:} Wynika z dowodu stwierdzenia \hyperref[stwierdzenie:wniosek]{\bat}.
