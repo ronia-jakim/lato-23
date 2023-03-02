@@ -34,7 +34,7 @@
 {}                % Theorem head spec
 \theoremstyle{mytheo}
 
-\newtheorem{fakt}{Fakt}[subsection]
+\newtheorem{fakt}{Fakt}[section]
 \newtheorem{uwaga}[fakt]{Uwaga}
 \newtheorem{tw}[fakt]{Twierdzenie}
 \newtheorem{wniosek}[fakt]{Wniosek}
@@ -199,6 +199,8 @@
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \pgfplotsset{compat=1.16}
+
+\usetikzlibrary{cd}
 
 \newenvironment{illustration}{\begin{center}\begin{tikzpicture}}{\end{tikzpicture}\end{center}}
 \newenvironment{my-axis}{\begin{axis}[axis y line = middle, axis x line = middle, enlarge y limits = true, enlarge x limits = true]}{\end{axis}}

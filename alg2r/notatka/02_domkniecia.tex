@@ -1,4 +1,79 @@
-\subsection{Domknięcia ciał}
+\section{Wykład 2: Ciała skończone i pierwiastki z jedności}
+
+\begin{important}
+Ciało $L\supseteq K$ nazywamy \deff{ciałem rozkładu nad $K$} wielomianu $f\in K[X]$, gdy spełnione są warunki:
+
+\indent 1. $f$ rozkłada się w pierścieniu $L[X]$ na czynniki liniowe (stopnia $1$)
+
+\indent 2. Ciało $L$ jest rozszerzeniem ciała $K$ o elementy $a_1,...,a_n$, gdzie $a_1,...,a_n$ to wszystkie pierwiastki $f$ w $L$.
+\end{important}
+
+\textbf{Przykład:} Jeżeli $deg(f)=0$, to nie istnieje ciało rozkładu $f$.
+
+\begin{wniosek}
+    Załóżmy, że $f\in K[X]$ jest wielomianem stopnia $>0$. Wtedy
+
+\indent 1. istnieje $L$: ciało rozkładu $f$ nad $K$,
+
+\indent 2. to ciało jest jedyne z dokładnością do izomorfizmy nad $K$.
+\end{wniosek}
+
+\textbf{Dowód:}
+
+\indent 1. Dowód przez indukcje względem stopnia $f$
+
+Jako przypadek bazowy rozważmy $f$ takie, że $deg(f)=1$. Wtedy $L=K$ i wszystko wniosek jest spełniony.
+
+Załóżmy teraz, że stopień wielomianu $f$ jest $>1$ i tez zachodzi dla wszystkich wielomianów stopnia $<deg(f)$ i wszystkich ciał $K'$. Teraz z \ref{wniosek1:2:4} wiemy, że istnieje rozszerzenie ciała $L\supseteq K$ takie, że $f$ ma pierwiastek w $L$. Nazwijmy ten pierwiastek $a_0$ i niech
+$$K'=K(a_0).$$
+Ponieważ $K'[X]$ wielomian $f$ ma pierwiastek $a_0$, to możemy zapisać
+$$f=(x-a_0)f_1$$
+dla pewnego $f_1\in K'[X]$ i $deg(f_1)<deg(f)$. Z założenia indukcyjnego dla $f_a$ istnieje $L'=K'(a_1,...,a_r)$ - ciało rozkładu wielomianu $f_1$ nad $K'$. Wtedy 
+$$L=K(a_0,...,a_r)$$
+jest ciałem rozkładu $f$ nad $K$.
+
+\indent 2. Udowodnimy wersję ogólniejszą: 
+\phantomsection
+\label{stwierdzenie:wniosek}
+
+\emph{(\bat) Jeśli $\phi:K_1\izo{} K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $ \psi:L_1\izo{} L_2$ izomorfizm nad ciałami rozkładu $f_i$ w $K_i$ rozszerzający izomorfizm $\phi$ (to znaczy $\phi\subseteq \psi$).}
+
+Wykorzystamy indukcję po $deg(f)$. W przypadku bazowym mamy $deg(f)=1$, czyli $L_1=K_1,L_2=K_2$ i $\phi=\psi$.
+
+Teraz niech $deg(f)>1$ i załóżmy, że dla wszystkich ciał $K'$ oraz wielomianów stopnia $<deg(f)$ jest to prawdą. Niech
+$$f_i=f_i'\cdot g_i,$$
+gdzie $f_i',g_i\in K_i[X]$ i $g_i$ jest wielomianem nierozkładalnym w $K$. Wiemy już, że istnieje $a_i\in L_i$ będące pierwiastkiem wielomianu $g_i$.
+
+Z faktu \ref{fakt:1:2:5}:(2), wiemy, że istnieje wtedy izomorfizm
+$$\psi_0:K_1(a_1)\izo{}K_2(a_2)$$
+taki, że $\psi_0(a_1)=a_2$ i $\phi\subseteq\psi_0$.
+
+\begin{illustration}
+    \node (K1) at (0, 0) {$K_1(a_1)$};
+    \node (K2) at (4, 0) {$K_2(a_2)$};
+    \node (L1) at (0, -2.3) {$L_1$};
+    \node (L2) at (4, -2.3) {$L_2$};
+    \draw[->] (K1)--(K2) node [midway, above] {$\cong$} node [midway, below] {$\exists\;\psi_0$};
+    \draw[->] (L1)--(L2) node [midway, above] {$\cong$} node [midway, below] {$\exists\;\psi_1$};
+    \node [rotate=90] (=1) at (0, -0.5) {$=$};
+    \node [rotate=90] (=1) at (4, -0.5) {$=$};
+    \node (K1') at (0, -1) {$K_1'$};
+    \node (K2') at (4, -1) {$K_2'$};
+    \node [rotate=90] at (0, -1.65) {$\supseteq$};
+    \node [rotate=90] at (4, -1.65) {$\supseteq$};
+\end{illustration}
+
+Mamy, że {\large\color{orange}$L_i$ to ciało rozkładu $f_i'$ nad $K_i$}. W takim razie z założenia indukcyjnego istnieje izomorfizm
+$$\psi_1:L_1\izo{}L_2$$
+taki, że $\psi\subseteq\psi_0$ i to już jest koniec.
+
+\begin{wniosek}
+    Jeśli $f_1\in K_1[X]$ i $f_2\in K_2[X]$ są nierozkładalnymi wielomianami, $\phi:K_1\izo{}K_2$ izomorfizmem i $\phi(f_1)=f_2$, a $L_1,L_2$ to ciała rozkładu $f_1,f_2$ odpowiednio nad $K_1$ i $K_2$, $a_i\in L_i$ to pierwiastek $f_i$, to wtedy istnieje $\psi:L_1\izo{}L_2$ takie, że $\psi(a_1)=a_2$.
+\end{wniosek}
+
+\textbf{Dowód:} Wynika z dowodu stwierdzenia \hyperref[stwierdzenie:wniosek]{\bat}.
+
+\subsection{Algebraiczne domknięcie ciała}
 
 Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ o stopniu $>0$ istnieje pierwiastek $f$ w $L$, to znaczy każdy wielomian rozkłada się na czynniki liniowe nad $L$.
 
@@ -20,7 +95,7 @@ Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ 
 
 Rozważmy dobry porządek na zbiorze wielomianów z $K[X]$ stopnia $>0$
 $$\{f\in K[X]\;:\;deg(f)>0\}=\{f_\alpha\;:\;\alpha\subset x\}$$
-KSkonstruujmy rosnący ciąg ciał $\{K_\alpha\;:\;\alpha\subset x\}$ taki, że 
+Skonstruujmy rosnący ciąg ciał $\{K_\alpha\;:\;\alpha\subset x\}$ taki, że 
 
 \indent \point $K\subseteq K_\alpha\subseteq K_\beta$ dla $\alpha<\beta< x$
 
@@ -56,7 +131,7 @@ i $L[X]$ jest algebraicznie domknięte.
 \indent \point $K^*=K\setminus\{0\}<L^*=L\setminus\{0\}$
 \end{uwaga}
 
-\subsection{Ciała proste}
+\subsection{Pierwiastki z jedności}
 
 $K$ jest \deff{ciałem prostym} wtedy i tylko wtedy, gdy $K$ nie zawierza żadnego właściwego podciała. 
 
@@ -97,6 +172,7 @@ Niech $R$ będzie pierścieniem przemiennym z $1\neq0$. Mamy następujące defin
 \indent 4. $\mu_n(K)=\{\text{zera wielomianu }w_n(x)=x^n-1\}$
 
 \begin{uwaga}{\color{back}dupa}
+    \label{uwaga:2:6}
 
 \indent 1. Jeśli $char(K)=0$, to $w_n(x)=x^n-1$ ma tylko pierwiastki jednokrotne w $K$
 
@@ -123,4 +199,113 @@ Z tego, że $char(K)=0$ wynika, że $v_n(a)=na^{n-1}+0$, skąd wynika, że $a$ j
 
 Niech $f:K[X]\to K[X]$, $f(h(x))=w(x)^p$ i 
 $$f(\sum a_kx^k)=\sum a_k^px^{n\cdot p}$$
-Z faktu wyżej mamy, że $f$ jest $1-1$.
+Z faktu wyżej mamy, że $f$ jest $1-1$. Ponieważ $n=p^ln_1$, to mamy 
+$$w_n(x)=x^n-1=x^n-1^n=(x^{n_1})^{p^l}-(1^{n_1})^{p^l}=...l\text{ razy}...=(x^{n_1}-1)^{p^l}=\underbrace{w_{n_1}\cdot...\cdot w_{n_1}}_{p^l},$$
+zatem każdy pierwiastek $w_n(x)$ ma krotność co najmniej $p^l$. Wystarczy więc pokazać, że każdy pierwiastek $w_{n_1}(x)$ jest jednokrotny.
+
+Niech $a\in K$ takie, że $w_{n_1}(a)=0$. Wtedy 
+$$w_{n_1}(x)=x^{n_1}-a^{n_1}=(x-1)(x^{n_1-1}+...+a^{n_1-1})=(x-a)v_{n_1}(x),$$
+gdzie $v_{n_1}$ jest analogiczne jak w dowodzie 1. Ale przecież $v_{n_1}(a)=n_1\cdot a^{n_1-1}\neq0$, bo $p\nmid n_1$.
+
+\begin{tw}
+    Niech $G<\mu(K)$ i $G$ jest podgrupą skończoną o $|G|=n$. Wtedy
+
+\indent 1. $G=\mu_n(K)$
+
+\indent 2. $G$ jest cykliczna
+
+\indent 3. Jeśli $char(K)=p>0$, to $p\nmid n$.
+\end{tw}
+
+\textbf{Dowód}
+
+\indent 1. Jeśli $|G|=n$, to dla każdego $x\in G$ mamy $x^n=1$. Z tego wynika, że $G\subseteq \mu_n(K)$, ale $|\mu_n(K)|\leq n$, czyli $G=\mu_n(K)$.
+
+\indent 2. Wystarczy pokazać, że istnieje $x\in G$ taki, że $rank(x)=n$.
+
+Załóżmy nie wprost, że dla każdego $x\in G$ $rang(x)<n$. Niech 
+$$k=\max\{rank(x)\;:\;x\in G\}.$$ 
+Niech $x_0\in G$ takie, że $rank(x_0)=k$. Wtedy 
+$$(\forall\;y\in G)\;rank(y)|k.$$ 
+Czyli
+$$(\forall\;y\in G)\;y^k=1,$$
+co pociąga $G\subseteq \mu_k(K)$ i $|G|\leq k<n$. Sprzeczność.
+
+\indent 3. Wiemy, że wszystkie pierwiastki $w_n=x^n-1$ są jednokrotne, bo jest ich w tym przypadku dokładnie $n$ (z poprzedniego punktu). Z uwagi \ref{uwaga:2:6}, że jeśli $n=p^ln_1$, to pierwiastki wielomianu $w_n(x)$ mają krotność $p^l$. Ale w tym przypadku pierwiastki mają krotność jeden, czyli $p^l=1$ i $n=1\cdot n_1$, gdzie $p\nmid n_1$.
+
+\begin{wniosek}
+    Jeśli $a\in \mu_n(K)$ jest pierwiastkiem pierwotnym z $1$ stopnia $n>1$, to $a$ generuje $\mu_n(K)$.
+\end{wniosek}
+
+\textbf{Dowód:}
+
+$\mu_n(K)\supseteq\begin{pair}a\end{pair}=\mu_k(K)$ dla pewnego $k\in\N$. Ale ponieważ $a$ było pierwiastkiem pierwotnym z $1$, to musimy mieć $n=k$.
+
+\begin{tw}
+    Niech $K$ będzie ciałem skończonym. Wtedy
+
+\indent 1. $char(K)=p\implies |K|=p^n$ dla pewnego $n\in\N$
+
+\indent 2. Dla każdego $n>0$ istnieje dokładnie jedno ciało $K$ takie, że $|K|=p^n$ z dokładnością do izomorfizmu.
+
+Ciało mocy $p^n$ będziemy oznaczać $\color{blue}F(p^n)$.
+\end{tw}
+
+\textbf{Dowód:}
+
+\indent 1. Skoro $char(K)=p$, to $\Z_p\subseteq K$ jest najmniejszym podciałem $K$. W takim razie, $K$ jest przestrzenią liniową nad $\Z_p$. Jeśli $n=dim_{\Z_p}(K)$, to $K$ jest izomorficzne z $\Z_p^n$, jako przestrzenie liniowe nad $\Z_p$. W takim razie $|K|=p^n$.
+
+\indent 2. 
+
+\emph{Istnienie:}
+
+Niech $n>0$. Rozważmy 
+$$w_{p^{n}-1}(x)=x^{p^n-1}\in\Z_p[X].$$
+Niech $L\supseteq\Z_p$ będzie ciałem rozkładu wielomianu $w_{p^n-1}$, a $K=\{0\}\cup\{\text{ pierwiastki }w_{p^n-1}\}$. Wtedy
+$$|K|=1+p^n-1=p^n,$$
+czyli mamy potencjalne ciało rzędu $p^n$. Wystarczy więc pokazać, że $K$ jest ciałem.
+
+Niech $f:L\xrightarrow[]{1-1}L$ będzie funkcją Frobeniusa $x\mapsto x^p$. Teraz niech $f^n=f\circ...\circ f$, $f^n(x)=x^{p^n}$. Jest to monomorfizm, bo składamy ze sobą $n$ takich samych funkcji $1-1$. Dla $a\in L$ mamy 
+$$(a^{p^n-1}=1\;\lor\;a=0)\implies a\in K.$$
+Co więcej, $a^{p^n-1}=1\iff a^{p^n}=a\iff f^n(a)=a$, czyli $K=\{a\in L\;:\;f^n(a)=a\}$ jest zbiorem punktów stałych morfizmu $f^n$, czyli jest ciałem.
+
+\emph{Jedyność $K$:}
+
+Ciało $K$ stworzone jak wyżej jest ciałem rozkładu $w_{p^n-1}(x)$ nad $\Z_p$. Załóżmy nie wprost, że $K'$ to inne ciało mocy $p^n$. Niech $x\in K'\setminus\{0\}$. wiemy, że $x^{p^n-1}=1$, czyli $w_{p^n-1}$ rozkłada się nad $K'$ na czynniki liniowe. Zatem $K'$ jest również ciałem rozkładu $w_{p^n-1}$ nad $\Z_p$, stąd $K\cong K'$ nad $\Z_p$ i mamy sprzeczność.
+
+\subsection{Rozszerzenia ciał}
+
+Niech $K\subseteq L$ będą ciałami i $a\in L\setminus K$.
+
+\indent \point Jeżeli \acc{$a$ jest algebraiczny nad $K$}, to istnieje $f\in K[X]$ stopnia $>0$ i $f(a)=0$
+
+\indent \point $a$ jest \acc{przestępny nad $K$} $\iff$ $a$ nie jest algebraiczny.
+
+\indent \point \deff{Rozszerzenie} $L\supseteq K$ jest \deff{algebraiczne} $\iff$ dla każdego $a\in L$ $a$ jest algebraiczny nad $K$.
+
+\indent \point \deff{Rozszerzenie jest przestępne} $\iff$ nie jest algebraiczne.
+
+\indent \point Niech $a\in \C$. Wtedy $a$ jest algebraiczna, gdy $a$ jest algebraiczna nad $\Q$.
+
+\begin{uwaga}
+    Niech $a$ jak wyżej. Wtedy $a$ jest algebraiczny nad $K$ $\iff$ $I(a/K)\neq\{0\}$.
+\end{uwaga}
+
+Niech $K\subseteq L$ będzie rozszerzeniem ciała $K$. Wtedy $L$ jest \deff{przestrzenią liniową nad $K$}. Definiujemy
+$$[L:K]:=\dim_K(L)$$
+jako \acc{wymiar przestrzeni liniowej}.
+
+\begin{uwaga}
+    Niech $a\in L\setminus K$. Następujące warunki są równoważne:
+
+\indent 1. $a$ jest algebraiczny nad $K$
+
+\indent 2. $K[a]=K(a)$, to znaczy $K[a]$ jest ciałem (usuwanie niewymierności z mianownika)
+
+\indent 3. $[K(a):K]=\dim_K(a)<\infty$
+\end{uwaga}
+
+\textbf{Dowód:}
+
+$1\implies2$
+

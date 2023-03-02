@@ -1,8 +1,8 @@
-\section{Teoria równań algebraicznych}
+\section{Wykład 1: Teoria równań algebraicznych}
 
 Przez $R, S$ będziemy oznaczać pierścienie przemienne z $1\neq0$, natomiast $K, L$ będziemy rezerwować dla oznaczeń ciał.
 
-\subsection{Układy równań}
+\subsection{Rozwiązywanie układów równań}
 
 Rozważmy funkcje $f_1,...,f_m\in R[X_1, ..., X_n]$. Dla wygody będziemy oznaczać krotki przez $\overline X$, czyli $R[X_1,...,X_n]=R[\overline X]$. Pojawia się problem: \dyg{czy istnieje rozszerzenie pierścieni z jednością $R\subseteq S$ takie, że układ $U:f_1(\overline X)=...=f_m(\overline X)=0$ ma rozwiązanie w pierścieniu $S$?}
 
@@ -105,7 +105,7 @@ $$I(\overline a/R)=(f_1,...,f_m).$$
 
 \textbf{Dowód:} Ćwiczenia.
 
-\subsection[Rozszerzenia ciał]{Zasadniczy temat: ciała}
+\subsection{Rozszerzanie ciał}
 
 Dla $K\subseteq L$ ciał i $\overline a\subseteq L$ definiujemy \deff{ideał $\overline a$ nad $K$} jako:
 $$\color{blue}I(\overline a /L):=\{f(X_1,...,X_n)\in K[\overline X]:f(\overline a)=0\},$$
@@ -206,9 +206,8 @@ Niech $f=f_2f_1^{-1}:K[\overline a_1]\to K[\overline a_2]$ jest funkcją spełni
 
 {\large\color{orange}MOŻE TUTAJ ŁADNIE SPRAWDZIĆ ŻE NAPRAWDĘ JEST TO DOBRZE SPEŁNIAJĄCA WARUNKI FUNKCJA?}
 
-\begin{uwaga}
-    Niech $I\normalsubgroup K[\overline X]$ \acc{noetherowskiego} pierścienia $K[\overline X]$. Niech $I=(f_1,...,f_m)$ dla pewnych $f_i\in K[\overline X]$. Wtedy istnieje rozszerzenie pierścienia $S\supseteq K$ oraz $\overline a\subseteq S$ - rozwiązanie ogólne układu $f_1(\overline X)=...=f_m(\overline X)=0$ takie, że $\color{blue}I(\overline a/K)=I$.
-\end{uwaga}
+\textbf{\large\color{yellow}Uwaga.}
+    \emph{Niech $I\normalsubgroup K[\overline X]$ \acc{noetherowskiego} pierścienia $K[\overline X]$. Niech $I=(f_1,...,f_m)$ dla pewnych $f_i\in K[\overline X]$. Wtedy istnieje rozszerzenie pierścienia $S\supseteq K$ oraz $\overline a\subseteq S$ - rozwiązanie ogólne układu $f_1(\overline X)=...=f_m(\overline X)=0$ takie, że $\color{blue}I(\overline a/K)=I$.}
 
 \textbf{Dowód:} Wcześniejsze uwagi {\large\color{orange}KTÓRE KONKRETNIE?}
 
@@ -289,76 +288,3 @@ $$L_i=K_i(a_i)=K_i[a_i]\cong K[X]/I(a_i/K_i).$$
     \draw[->] (K1f)--(L1) node [midway, left] {$\cong$} node [midway, right] {$h_1$};
     \draw[->] (K2f)--(L2) node [midway, left] {$\cong$} node [midway, right] {$h_2$};
 \end{illustration}
-
-\begin{important}
-Ciało $L\supseteq K$ nazywamy \deff{ciałem rozkładu nad $K$} wielomianu $f\in K[X]$, gdy spełnione są warunki:
-
-\indent 1. $f$ rozkłada się w pierścieniu $L[X]$ na czynniki liniowe (stopnia $1$)
-
-\indent 2. Ciało $L$ jest rozszerzeniem ciała $K$ o elementy $a_1,...,a_n$, gdzie $a_1,...,a_n$ to wszystkie pierwiastki $f$ w $L$.
-\end{important}
-
-\textbf{Przykład:} Jeżeli $deg(f)=0$, to nie istnieje ciało rozkładu $f$.
-
-\begin{wniosek}
-    Załóżmy, że $f\in K[X]$ jest wielomianem stopnia $>0$. Wtedy
-
-\indent 1. istnieje $L$: ciało rozkładu $f$ nad $K$,
-
-\indent 2. to ciało jest jedyne z dokładnością do izomorfizmy nad $K$.
-\end{wniosek}
-
-\textbf{Dowód:}
-
-\indent 1. Dowód przez indukcje względem stopnia $f$
-
-Jako przypadek bazowy rozważmy $f$ takie, że $deg(f)=1$. Wtedy $L=K$ i wszystko wniosek jest spełniony.
-
-Załóżmy teraz, że stopień wielomianu $f$ jest $>1$ i tez zachodzi dla wszystkich wielomianów stopnia $<deg(f)$ i wszystkich ciał $K'$. Teraz z \ref{wniosek1:2:4} wiemy, że istnieje rozszerzenie ciała $L\supseteq K$ takie, że $f$ ma pierwiastek w $L$. Nazwijmy ten pierwiastek $a_0$ i niech
-$$K'=K(a_0).$$
-Ponieważ $K'[X]$ wielomian $f$ ma pierwiastek $a_0$, to możemy zapisać
-$$f=(x-a_0)f_1$$
-dla pewnego $f_1\in K'[X]$ i $deg(f_1)<deg(f)$. Z założenia indukcyjnego dla $f_a$ istnieje $L'=K'(a_1,...,a_r)$ - ciało rozkładu wielomianu $f_1$ nad $K'$. Wtedy 
-$$L=K(a_0,...,a_r)$$
-jest ciałem rozkładu $f$ nad $K$.
-
-\indent 2. Udowodnimy wersję ogólniejszą: 
-\phantomsection
-\label{stwierdzenie:wniosek}
-
-\emph{(\bat) Jeśli $\phi:K_1\izo{} K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $ \psi:L_1\izo{} L_2$ izomorfizm nad ciałami rozkładu $f_i$ w $K_i$ rozszerzający izomorfizm $\phi$ (to znaczy $\phi\subseteq \psi$).}
-
-Wykorzystamy indukcję po $deg(f)$. W przypadku bazowym mamy $deg(f)=1$, czyli $L_1=K_1,L_2=K_2$ i $\phi=\psi$.
-
-Teraz niech $deg(f)>1$ i załóżmy, że dla wszystkich ciał $K'$ oraz wielomianów stopnia $<deg(f)$ jest to prawdą. Niech
-$$f_i=f_i'\cdot g_i,$$
-gdzie $f_i',g_i\in K_i[X]$ i $g_i$ jest wielomianem nierozkładalnym w $K$. Wiemy już, że istnieje $a_i\in L_i$ będące pierwiastkiem wielomianu $g_i$.
-
-Z faktu \ref{fakt:1:2:5}:(2), wiemy, że istnieje wtedy izomorfizm
-$$\psi_0:K_1(a_1)\izo{}K_2(a_2)$$
-taki, że $\psi_0(a_1)=a_2$ i $\phi\subseteq\psi_0$.
-
-\begin{illustration}
-    \node (K1) at (0, 0) {$K_1(a_1)$};
-    \node (K2) at (4, 0) {$K_2(a_2)$};
-    \node (L1) at (0, -2.3) {$L_1$};
-    \node (L2) at (4, -2.3) {$L_2$};
-    \draw[->] (K1)--(K2) node [midway, above] {$\cong$} node [midway, below] {$\exists\;\psi_0$};
-    \draw[->] (L1)--(L2) node [midway, above] {$\cong$} node [midway, below] {$\exists\;\psi_1$};
-    \node [rotate=90] (=1) at (0, -0.5) {$=$};
-    \node [rotate=90] (=1) at (4, -0.5) {$=$};
-    \node (K1') at (0, -1) {$K_1'$};
-    \node (K2') at (4, -1) {$K_2'$};
-    \node [rotate=90] at (0, -1.65) {$\supseteq$};
-    \node [rotate=90] at (4, -1.65) {$\supseteq$};
-\end{illustration}
-
-Mamy, że {\large\color{orange}$L_i$ to ciało rozkładu $f_i'$ nad $K_i$}. W takim razie z założenia indukcyjnego istnieje izomorfizm
-$$\psi_1:L_1\izo{}L_2$$
-taki, że $\psi\subseteq\psi_0$ i to już jest koniec.
-
-\begin{wniosek}
-    Jeśli $f_1\in K_1[X]$ i $f_2\in K_2[X]$ są nierozkładalnymi wielomianami, $\phi:K_1\izo{}K_2$ izomorfizmem i $\phi(f_1)=f_2$, a $L_1,L_2$ to ciała rozkładu $f_1,f_2$ odpowiednio nad $K_1$ i $K_2$, $a_i\in L_i$ to pierwiastek $f_i$, to wtedy istnieje $\psi:L_1\izo{}L_2$ takie, że $\psi(a_1)=a_2$.
-\end{wniosek}
-
-\textbf{Dowód:} Wynika z dowodu stwierdzenia \hyperref[stwierdzenie:wniosek]{\bat}.

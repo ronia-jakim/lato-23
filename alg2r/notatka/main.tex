@@ -6,6 +6,11 @@
 \author{koteczek}
 \date{$\sim$}
 
+\makeatletter
+\let\latexl@section\l@section
+\def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
+\makeatother
+
 \begin{document}
 \maketit
 
@@ -41,6 +46,7 @@
 \newpage
 
 \input{01_newel_party.tex}
+\newpage
 
 \input{02_domkniecia.tex}
 

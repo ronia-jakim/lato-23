@@ -1,7 +1,9 @@
 \documentclass{article}
 
 \usepackage{../../../notatki}
-\usetikzlibrary{patterns}
+%\usetikzlibrary{patterns}
+
+\usetikzlibrary{patterns, patterns.meta}
 
 \begin{document}
 
@@ -128,18 +130,21 @@ Dla $L\geq M$ mam $|L-M|=L-M>L$, czyli $0>M$ co tak średnio śmiga. Dla $L<M$ m
     \node at (1.5, -0.4) {$\frac12$};
 \end{illustration}
 Czyli tutaj prawdopodobieństwo to $\frac14$.
+\newpage
 
 \subsection*{ZADANIE 6.}
 \emph{Z przedziału $[0, 1]$ wybrano losowo dwa punkty, które podzieliły go na trzy odcinki. Obliczyć prawdopodobieństwo, że z tych odcinków można skonstruować trójkąt.}
 \smallskip
 
-Osz kurwa, to będzie duuużo liczenia. Moje odcinki mają długość $x, y, 1-y-x$. Potrzebuję spełnić następujące warunki na raz:
+Zamiast rozważać położenie punktów od $0$, rozważę długości odcinków przez nich tworzonych. Moje odcinki mają długość $x, y, 1-y-x$, gdzie $x<\frac12$, bo nie ważne jaka będzie kolejność rzucania punktów, zawsze mogę ten krótszy odcinek wyróżnić bez tracenia niczego. Czyli działam na $\Omega=[0, \frac12]\times[0, 1]$.
+
+Potrzebuję, żeby $x,y$ spełniały następujące warunki na raz:
 
 \indent 1. $x+y>1-y-x$, czyli $2x+2y>1$, $\color{orange}y>\frac12-x$
 
 \indent 2. $x+1-x-y>y$, czyli $1>2y$, $\color{green}\frac12>y$
 
-\indent 3. $y+1-x-y>x$, czyli $1>2x$, $\color{blue}\frac12>x$
+\indent 3. $y+1-x-y>x$, czyli $1>2x$, $\frac12>x$ <-- ten jest już spełniony.
 
 ROZRYSUJMY TO!
 \begin{illustration}
@@ -149,16 +154,20 @@ ROZRYSUJMY TO!
     \draw [very thick] (3, 0.05)--(3, -0.05);
     \node at (-0.4, 3) {1};
     \node at (3, -0.4) {1};
+    \node at (1.5, -0.4) {$\frac12$};
     \node at (4, -0.4) {x};
     \node at (-0.4, 4) {y};
     \draw [dashed] (0, 3)--(3, 3);
     \draw [dashed] (3, 0)--(3, 3);
-    \filldraw [color=blue, pattern=north east lines, pattern color=blue] (0, 0)--(1.5, 0)--(1.5, 3)--(0, 3)--cycle;
-    \filldraw [color=green, pattern=north west lines, pattern color=green] (0, 0)--(3, 0)--(3, 1.5)--(0, 1.5)--cycle;
-    \filldraw [color=orange, pattern=horizontal lines, pattern color=orange] (1.5, 0)--(0, 1.5)--(0, 3)--(3, 3)--(3, 0)--cycle;
+    \filldraw [color=back2, fill=back2] (0, 1.5)--(1.5, 1.5)--(1.5, 0)--cycle;
+    %\filldraw [color=blue, pattern={Dots[distance=3mm, radius=0.7mm]}, pattern color=blue] (0, 0)--(1.5, 0)--(1.5, 3)--(0, 3)--cycle;
+    \filldraw [very thick, color=green, pattern={Dots[radius=0.7mm, distance=3mm, yshift=1.5mm, xshift=1.5mm]}, pattern color=green] (0, 0)--(1.5, 0)--(1.5, 1.5)--(0, 1.5)--cycle;
+    \filldraw [very thick, color=orange, pattern={Dots[distance=3mm, radius=0.7mm]}, pattern color=orange] (1.5, 0)--(0, 1.5)--(0, 3)--(1.5, 3)--(1.5, 0)--cycle;
+    \draw [very thick, dashed] (1.5, 0)--(1.5, 3);
 \end{illustration}
 
-Czyli to gdzie wszystkie są spełnione to ten trójkącik w środku o polu $\frac18$.
+Czyli to gdzie oba warunki są spełnione to ten trójkącik w środku o polu $\frac18$, ale ponieważ pole całości wynosi $\frac12$, to dostajemy
+$$\prawdo{A}={\frac18\over\frac12}=\frac14.$$
 
 \subsection*{ZADANIE 7.}
 \emph{Wybrano losowy punkt $(x,y)$ z kwadratu $[0,1]^2$. Oblicz prawdopodobieństwo, że}
