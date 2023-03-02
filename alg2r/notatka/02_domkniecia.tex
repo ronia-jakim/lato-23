@@ -1,0 +1,126 @@
+\subsection{Domknięcia ciał}
+
+Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ o stopniu $>0$ istnieje pierwiastek $f$ w $L$, to znaczy każdy wielomian rozkłada się na czynniki liniowe nad $L$.
+
+\textbf{Przykład:}
+
+\indent \point $\C$ jest algebraicznie domknięte.
+
+\indent \point $\R$ nie jest algebraicznie domknięte, gdyż $x^2+1$ nie ma pierwiastka rzeczywistego.
+
+\indent \point $\Q[i]$ nie jest algebraicznie domknięte, bo $x^2-2$ nie ma pierwiastka.
+
+\begin{tw}
+    Każde ciało zawiera się w pewnym ciele algebraicznie domkniętym.
+\end{tw}
+
+\textbf{Dowód:}
+
+\acc{Lemat:} Dla każdego ciała $K$ istnieje $K'\supseteq K$ takie, że $(\forall\;f\in K[X])$ stopnia $>0$ $f$ ma pierwiastek w $K'$.
+
+Rozważmy dobry porządek na zbiorze wielomianów z $K[X]$ stopnia $>0$
+$$\{f\in K[X]\;:\;deg(f)>0\}=\{f_\alpha\;:\;\alpha\subset x\}$$
+KSkonstruujmy rosnący ciąg ciał $\{K_\alpha\;:\;\alpha\subset x\}$ taki, że 
+
+\indent \point $K\subseteq K_\alpha\subseteq K_\beta$ dla $\alpha<\beta< x$
+
+\indent \point $f_\alpha$ ma pierwiastek w $K_{\alpha+1}$.
+
+Załóżmy, że $\alpha<x$ i mamy $\{K_\beta\;:\;\beta<\alpha\}$.
+
+\indent 1. $\alpha$ to liczba graniczna, wtedy $K_\alpha=\ubigcup\limits_{\beta<\alpha}K_\beta$
+
+\indent 2. $\alpha=\beta+1$ to następnik, wtedy $K_\alpha=K_\beta(a)$, gdzie $a$ to pierwiastek wielomianu $f_\beta$.
+
+Czyli lemat jest prawdziwy.
+
+Wracamy teraz do dowodu twierdzenia i niech $(L_n,n<\omega)$ będzie rosnącym ciągiem ciał takim, że
+
+\indent \point $L_0=K$
+
+\indent \point $L_{n+1}\supseteq L_n$, gdzie $L_{n+1}$ dane jest przez lemat, to znaczy $(\forall\;f\in L_n[X])$ $f$ ma pierwiastek $L_{n+1}$.
+
+Niech
+$$\hat{K}=L_\infty=\ubigcup\limits_{n<\omega}L_n.$$
+Jest to ciało, ponieważ suma rosnącego ciągu ciał jest ciałem. Dalej mamy, że również
+$$L[X]=\ubigcup\limits_{n<\omega}L_n[X]$$
+i $L[X]$ jest algebraicznie domknięte.
+
+\begin{uwaga}
+    Załóżmy, że mamy ciała $K\subseteq L$. Wtedy
+
+\indent \point $char(K)=char(L)$
+
+\indent \point $0_K=0_L$ oraz $1_K=1_L$
+
+\indent \point $K^*=K\setminus\{0\}<L^*=L\setminus\{0\}$
+\end{uwaga}
+
+\subsection{Ciała proste}
+
+$K$ jest \deff{ciałem prostym} wtedy i tylko wtedy, gdy $K$ nie zawierza żadnego właściwego podciała. 
+
+\textbf{Przykład:}
+
+\indent \point $\Q$, gdzie $char(\Q)=0$ to ciało proste nieskończone.
+
+\indent \point Ciałem prostym skończonym jest na przykład $\Z_p$ dla liczby pierwszej $p$, wtedy $char(\Z_p)=p$.
+\medskip
+
+Niech $R$ będzie pierścieniem przemiennym z $1\neq0$. Mamy następujące definicje:
+
+\indent 1. $a\in R$ jest \deff{pierwiastkiem z $1$ }stopnia $n>0$ $\iff$ $a^n=1$
+
+\indent 2. $\mu_n(R)=\{a\in R\;:\;a^n=1\}$ jest \deff{grupą pierwiastków z $1$} stopnia $n$
+
+\indent 3. $\mu(R)=\bigcup\limits_{n>0}\mu_n(R)$ jest \deff{grupą pierwiastków z $1$}
+
+\indent 4. $a$ jest \deff{pierwiastkiem pierwotnym} stopnia $n$ z $1$ $\iff$ $a\in\mu_n(R)$ oraz $(\forall\;k<n)a\notin\mu_k(R)$.
+
+\begin{uwaga}{\color{back}dupa}
+
+\indent 1. $\mu_n(R)\normalsubgroup R^X$ jest grupą jednostek pierścienia
+
+\indent 2.$\mu(R)\normalsubgroup R^X$
+
+\indent 3. $\mu(R)$ jest \acc{torsyjną grupą abelową} (każdy element jest pierwiastkiem z $1$).
+\end{uwaga}
+
+\textbf{Przykłady}
+
+\indent 1. $\mu(\C)=\bigcup\limits_{n>0}\mu_n(\C)\lneq(\{z\in\C\;:\;|z|=1\},\cdot\})<\C^x=C\setminus\{0\}$
+
+\indent 2. $\mu(\C)\cong(\Q,+)/(\Z,+)$, bo $f:\Q\xrightarrow[homo]{"na"}\mu(\C)$ taki, że $f(w)=\cos(w2\pi)+i\sin(w2\pi)$ ma jądro $ker(f)=\Z$.
+
+\indent 3. $\mu(\R)=\{\pm1\}$
+
+\indent 4. $\mu_n(K)=\{\text{zera wielomianu }w_n(x)=x^n-1\}$
+
+\begin{uwaga}{\color{back}dupa}
+
+\indent 1. Jeśli $char(K)=0$, to $w_n(x)=x^n-1$ ma tylko pierwiastki jednokrotne w $K$
+
+\indent 2. Jeśli $char(K)=p>0$ i $n=p^ln_1$ takie, że $p\nmid n_1$, to wszystkie pierwiastki $w_n(x)=x^n-1$ mają krotność $p^l$ w $K$.
+\end{uwaga}
+
+\textbf{Dowód:}
+
+\indent 1. Niech $a\in K$ takie, że $w_n(a)=0$. Z twierdzenia Bezouta mamy, że
+$$w_n(x)=x^n-1=x^n-a^n=(x-a)(x^{n-1}+ax^{n-2}+...+a^{n-2}x+a^{n-1})=(x-a)v_n(x),$$
+gdzie $v_n(x)=x^{n-1}+ax^{n-2}+...+a^{n-2}x+a^{n-1}$.
+
+Z tego, że $char(K)=0$ wynika, że $v_n(a)=na^{n-1}+0$, skąd wynika, że $a$ jest jednokrotnym pierwiastkiem $w_n(x)$.
+
+\begin{fakt}
+    Załóżmy, że $char(K)=p>0$. Wtedy funkcja $f:K\to K$ taka, że $f(x)=x^p$ jest homomorfizmem ciał oraz monomorfizmem zwanym \deff{funkcją Frobeniusa}.
+\end{fakt}
+
+\begin{uwaga}
+    $x\mapsto x^p$ nie musi być funkcją "na" (automorfizmem). Na przykład $K=\Z_p(f)$, wtedy $x\mapsto x^p$ nie jest "na".
+\end{uwaga}
+
+\indent 2. Mając powyższy fakt i uwagę z tyłu, przechodzimy do dowodu 2.
+
+Niech $f:K[X]\to K[X]$, $f(h(x))=w(x)^p$ i 
+$$f(\sum a_kx^k)=\sum a_k^px^{n\cdot p}$$
+Z faktu wyżej mamy, że $f$ jest $1-1$.

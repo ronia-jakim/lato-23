@@ -116,4 +116,120 @@ Odwzorowania przejściowe map są automatycznie \dyg{dyfeomorfizmami}.
 \indent 2. każde dwie mapy z tego zbioru są zgodne.
 \medskip
 
-\deff{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$.
+\textbf{Przykład:} Rodzina map $\{(U_i^\pm,\phi_i^\pm)\;:\;i=1,2,...,n+1\}$ jak wcześniej na sferze $S^n\subseteq R^{n+1}$ tworzy gładki atlas. Wystarczy zbadać gładką zgodność tych map. Rozpatrzmy jeden przypadek: $(U_i^+,\phi_i^+),(U_j^+,\phi_j^+),i<j$. Po pierwsze, jak wygląda przekrój tych zbiorów?
+$$U_i\cap U_j=\{x\in S^n\;:\;x_i>0,x_j>0\}$$
+Dalej, jak wyglądają obrazy tego przekroju przez poszczególne mapy?
+$$\phi_i^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1, x_{j-1}>0\}$$
+$$\phi_j^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1,x_i<0\}$$
+Odwzorowania przejścia to:
+\begin{illustration}
+    \node (L) at (0, 0) {$\phi_j^+(U_i^+\cap U_j^+)\ni(x_1,...,x_n)$};
+    \node (C) at (4, -1) {$(x_1,...,x_{j-1},\sqrt{1-|x|^2},x_{j},...x_n)$};
+\end{illustration}
+$$\phi_i^+(\phi_j^+)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$$
+jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejścia.
+
+\deff{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$ na $M$.
+
+\acc{Uściślenie:} Często $(M,\set{A}_1)$ i $(M, \set{A}_2)$ będące rozmaitościami gładkimi określają tę samą rozmaitość.
+\medskip
+
+\begin{important}
+Niech $\set{A}$ będzie gładkim atlasem na $M$.
+
+\indent 1. Mapa $(U,\phi)$ jest \deff{zgodna z atlasem $\set{A}$}, jeśli jest zgodna z każdą mapą z $\set{A}$.
+
+\indent 2. Dwa \deff{atlasy $\set{A}_1,\set{A}_2$ na $M$ są zgodne}, jeśli każda mapa z $\set{A}_1$ jest zgodna z atlasem $\set{A}_2$.
+\end{important}
+
+\deff{\large Twierdzenie:} relacja atlasów jest relacją równoważności.
+
+\textbf{Dowód:} Ćwiczenia.
+
+Konwencja jest wtedy taka, że zgodne atlasy zadają tą samą strukturę gładką na $M$.
+
+Zgodne atlasy można zsumować do jednego większego atlasu.
+\medskip
+
+$\set{A}$ jest \deff{atlasem maksymalnym} na $M$, jeśli każda mapa na $M$ zgodna z $\set{A}$ należy do $\set{A}$. 
+
+\acc{Fakt} Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym na $M$. Zaś ten atlas maksymalny to zbiór wszystkich map na $M$ zgodnych z $\set{A}$.
+\medskip
+
+\dyg{Rozmaitość gładką równoważnie definiuje się jako parę $(M, \set{A})$}, gdzie $M$ to rozmaitość topologiczna, zaś $\set{A}$ to pewien atlas maksymalny.
+
+\subsection{Dopowiedzenie o funkcjach gładkich}
+
+Funkcja $f:M\to \R$ jest \deff{gładka względem atlasu} $\set{A}$ na $M$, jeśli
+$$(\forall\;(U,\phi)\in\set{A})\;f\circ\phi^{-1}:\overline U\to \R\text{ jest gładka.}$$
+To znaczy po wyrażeniu w dowolnej mapie atlasu jest nadal funkcją gładką.
+
+\acc{\large Fakt:}
+
+\indent 1. Jeśli $f:M\to\R$ jest gładka względem $\set{A}$, zaś $(U,\phi)$ jest zgodna z $\set{A}$, to wówczas funkcja $f$ wyrażona w tej nowej mapie (czyli $f\circ\phi^{-1}$) też jest gładka.
+
+\indent 2. Jeśli $\set{A}_1,\set{A}_2$ są zgodnymi atlasami, wówczas taka funkcja $f:M\to\R$ jest gładka względem $\set{A}_1$ $\iff$ jest gładka względem $\set{A}_2$ $\iff$ jest gładka względem atlasu maksymalnego $\set{A}\supseteq \set{A}_1,\set{A}_2$ zawierającego $\set{A}_1$ (oraz $\set{A_2}$).
+\medskip
+
+Niech $M$ będzie gładką rozmaitością. Wówczas $f:M\to\R$ \deff{jest gładka} jeśli $f$ jest gładka względem każdego (dowolnego) atlasu $\set{A}$ wyznaczającego na $M$ daną gładką strukturę.
+\medskip
+
+\podz{dark-blue}
+\medskip
+
+Dwie mapy $(U,\phi)$ i $(V,\psi)$ są \deff{$C^k$-zgodne}, jeśli $\phi\psi^{-1}$ oraz $\psi\phi^{-1}$ są funkcjami klasy $C^k$.
+
+\deff{$C^k$-atlas} to atlas składający się z map, które są $C^k$-zgodne. Taki atlas określa strukturę $C^k$-rozmaitości na $M$. Jest to coś słabszego niż struktura rozmaitości gładkiej.
+
+$C^0$ tutaj to jest rozmaitość topologiczna, a $C^\infty$ to często jest rozmaitość gładka.
+
+Na $C^k$-rozmaitości nie da się sensownie określić funkcji klasy $C^m$ dla $m>k$.
+
+\deff{Rozmaitość analityczna} [$C^\omega$] to rozmaitość, dla której atlas składa się z map analitycznie zgodnych (czyli wyrażają się za pomocą szeregów potęgowych).
+
+\deff{Rozmaitość zespolona} ma mapy jako funkcje w $\C^n$ zamiast w $\R^n$
+
+Rozmaitość konformena - zachowuje kąty.
+
+kawałkami liniowe
+
+Dychotomia pomiędzy sytuacją $C^0$ a sytuacją $C^k$ dla $k>0$:
+
+\indent \point Z każdego maksymalnego atlasu $C^k$-rozmaitości można wybrać atlas złożony z map $C^\infty$-zgodnych. A zatem, każda $C^k$-rozmaitość posiada $C^k$-zgodną strukturę $C^\infty$-rozmaitości.
+
+\indent \point Istnieją $C^0$-rozmaitości niedopuszczające żadnej struktury gładkiej.
+
+Definiowanie rozmaitości gładkiej za pomocą samego atlasu (bez odwołań do topologii).
+
+\acc{Lemat:} Niech $X$ będzie zbiorem (bez topologii). Niech $\{U_\alpha\}$ będzie kolekcją podzbiorów $X$ i dla każdego $\alpha$ mamy $\phi_\alpha:U_\alpha\to\R^n$ różnowartościowe ($n$ jest ustalone dla całego $X$). Ta trójka obiektów ma spełniać następujące warunki:
+
+\indent 1. Dla każdego $\alpha$ $\phi_\alpha(U_\alpha)$ jest otwarty w $\R^n$
+
+\indent 2. Dla każdych $\alpha,\beta$ $\phi_\alpha(U_\alpha\cap U_\beta)$ oraz $\phi_\beta(U_\alpha\cap U_\beta)$ są otwarte w $\R^n$
+
+\indent 3. Gdy $U_\alpha\cap U_\beta\neq\emptyset$, to $\phi_\alpha\circ\phi_\beta^{-1}:\phi(U_\alpha\cap U_\beta)\to\phi(U_\alpha\cap U_\beta)$ jest odwzorowaniem gładkim. Są to dyfeomorfizmy (gładkie i odwracalne).
+
+\indent 4. Przeliczalnie wiele spośród zbiorów $U_\alpha$ pokrywa całe $X$.
+
+\indent 5. Dla dowolnych punktów $p,q\in X,p\neq q$ istnieją $\alpha,\beta$ oraz otwarte podzbiory $V_p\subseteq\phi_\alpha(U_\alpha)$, $V_q\subseteq\phi_\beta(U_\beta)$ takie, że $p\in\phi_\alpha^{-1}[V_p]$, $q\in\phi_\beta^{-1}[V_q]$ oraz $\phi_\alpha^{-1}[V_p]\cap\phi_\beta^{-1}[V_q]=\emptyset$. Czyli możemy rozdzielić dwa dowolne różne punkty za pomocą zbiorów otwartych w $\R^n$.
+
+Wówczas na $X$ istnieje struktura rozmaitości topologicznej dla której $U_\alpha$ są otwarte. Ponadto rodzina $(U_\alpha,\phi_\alpha)$ tworzy gładki atlas na $X$.
+
+\textbf{Szkic dowodu:} Topologię produkujemy jako bazę topologii na $X$ bierzemy przeciwobrazy przez poszczególne $\phi_\alpha$ otwartych podzbiorów w zbiorach $\phi_\alpha(U_\alpha)\subseteq\R^n$.
+
+Lokalna $n$-euklidesowość $X$ względem takiej topologii jest oczywista. Nietrudno jest też wybrać mniejszą bazę przeliczalną [ćwiczenia]. Hausdorffowość tak określonej topologii wynika z warunku 5.
+
+\textbf{Przykład:} Niech $\set{L}$ będzie zbiorem wszystkich prostych na płaszczyźnie. Nie ma na tym zbiorze wygodnej do opisania topologii, ale możemy skorzystać z lematu wyżej.
+
+Zacznijmy od opisania podzbiorów 
+$$U_h=\{\text{proste niepionowe}\}$$
+$$U_v=\{\text{proste niepoziome}\}$$
+Jeśli $U_h\ni L$, to wtedy $L=\{y=ax+b\}$ i wtedy $\phi_h$ będzie przypisywać takiej prostej parę $(a, b)$. Jeśli zaś $U_v\ni L$, to wtedy $L=\{x=yc+d\}$ i wtedy $\phi_v$ przypisze jej $(c, d)$. To, że $\phi_h(U_h)$ i $\phi_v(U_v)$ są różnowartościowe widać. Przyjrzyjmy się teraz przekrojowi naszych zbiorków:
+$$U_h\cap U_v=\{\text{proste niepoziomie i niepionowe}\}=\{y=ax+b\;:\;a\neq 0\}=\{x=cd+d\;:\;c\neq0\}$$
+$$\phi_h(U_h\cap U_v)=\{(a,b)\in\R^2\;:\;a\neq 0\}$$
+$$\phi_v(U_h\cap U_v)=\{(c,d)\in\R^2\;:\;c\neq0\}$$
+i są to zbiory otwarte, więc warunek 3. jest spełniony. Warunek 4. jest tutaj trywialny.
+
+Niech 
+
+To jest homeomorficzne z wnętrzem wstęgi Moejashdfkjasd
