@@ -11,6 +11,7 @@ Ciało $L\supseteq K$ nazywamy \deff{ciałem rozkładu nad $K$} wielomianu $f\in
 \textbf{Przykład:} Jeżeli $deg(f)=0$, to nie istnieje ciało rozkładu $f$.
 
 \begin{wniosek}
+    \label{wniosek:2.1}
     Załóżmy, że $f\in K[X]$ jest wielomianem stopnia $>0$. Wtedy
 
 \indent 1. istnieje $L$: ciało rozkładu $f$ nad $K$,
@@ -63,7 +64,7 @@ taki, że $\psi_0(a_1)=a_2$ i $\phi\subseteq\psi_0$.
     \node [rotate=90] at (4, -1.65) {$\supseteq$};
 \end{illustration}
 
-Mamy, że {\large\color{orange}$L_i$ to ciało rozkładu $f_i'$ nad $K_i$}. W takim razie z założenia indukcyjnego istnieje izomorfizm
+Z założenia wiemy, że {$L_i$ to ciało rozkładu $f_i'$ nad $K_i$}. W takim razie z założenia indukcyjnego istnieje izomorfizm
 $$\psi_1:L_1\izo{}L_2$$
 taki, że $\psi\subseteq\psi_0$ i to już jest koniec.
 
@@ -86,6 +87,7 @@ Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ 
 \indent \point $\Q[i]$ nie jest algebraicznie domknięte, bo $x^2-2$ nie ma pierwiastka.
 
 \begin{tw}
+    \label{tw:2.3}
     Każde ciało $K$ zawiera się w pewnym ciele algebraicznie domkniętym.
 \end{tw}
 
@@ -107,7 +109,7 @@ Dowód przez indukcję pozaskończoną. Dla $K_0=K$.
 
 Załóżmy, że $\alpha<\kappa$ i mamy $\{K_\beta\;:\;\beta<\alpha\}$ spełniają warunki powyżej.  Niech $K'=\ubigcup\limits_{\beta<\alpha}K_\beta$. Musimy pokazać, że $K'$ jest ciałem.
 
-\indent 1. $\alpha$ to liczba graniczna. Definiujemy $K'=\bigcup\limits_{\beta<\alpha}K_\beta$ jako zbiór. 
+\indent 1. $\alpha$ to liczba graniczna. Definiujemy $K'=\ubigcup\limits_{\beta<\alpha}K_\beta$ jako zbiór. 
 
 Musimy określić działania w $K'$. Niech $x,y\in K'$, wtedy istnieje $\beta<\alpha$ takie, że $x,y\in K_\beta$. Czyli $x+y\in K_\beta\subseteq K'$ i $xy\in K_\beta\subseteq K'$. W takim razie $K'$ jest rozszerzeniem ciała $K_\beta$.
 
@@ -115,14 +117,14 @@ Teraz definiujemy $K_\alpha=K'$ i otrzymujemy pożądane rozszerzenie ciała.
 
 \indent 2. $\alpha=\beta+1$ to następnik, wtedy $K'=K_\beta$. 
 
-Wielomian $f_\alpha$ jest wielomianem nad $K\subseteq K'$. Z wniosku 1.7 wiemy, że istnieje rozszerzenie $K_\alpha\supseteq K$ takie, że $f_\alpha$ ma pierwiastek w $K_\alpha$.
+Wielomian $f_\alpha$ jest wielomianem nad $K\subseteq K'$. Z wniosku \ref{wniosek1:2:4} wiemy, że istnieje rozszerzenie $K_\alpha\supseteq K$ takie, że $f_\alpha$ ma pierwiastek w $K_\alpha$.
 
 $L$ definiujemy jako sumę po wyżej udowodnionej konstrukcji:
-$$L=\bigcup\limits_{\alpha<\kappa}K_\alpha$$
+$$L=\ubigcup\limits_{\alpha<\kappa}K_\alpha$$
 i to ciało spełnia nasz lemat.
 \smallskip
 
-Wracamy teraz do dowodu twierdzenia 2.3. i niech $(L_n,n<\omega)$ będzie rosnącym ciągiem ciał takim, że
+Wracamy teraz do dowodu twierdzenia \ref{tw:2.3} i niech $(L_n,n<\omega)$ będzie rosnącym ciągiem ciał takim, że
 
 \indent \point $L_0=K$
 
