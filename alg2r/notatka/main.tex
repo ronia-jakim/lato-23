@@ -6,10 +6,27 @@
 \author{koteczek}
 \date{$\sim$}
 
+% \makeatletter
+% \let\latexl@section\l@section
+% \def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
+% \makeatother
+
+\counterwithin{equation}{section}
+
 \makeatletter
+\renewcommand{\@seccntformat}[1]{%
+  \ifcsname format#1\endcsname
+    \csname format#1\endcsname
+  \else
+    \csname the#1\endcsname\quad % default
+  \fi
+}
 \let\latexl@section\l@section
 \def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
 \makeatother
+
+\newcommand{\formatsection}{Wykład: \thesection: }
+
 
 \begin{document}
 \maketit
