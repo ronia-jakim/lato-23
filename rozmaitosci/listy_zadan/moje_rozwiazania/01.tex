@@ -3,7 +3,7 @@
 \usepackage{../../../notatki}
 
 \begin{document}
-\section*{ZADANIE 1.}
+\subsection*{ZADANIE 1.}
 \emph{Uzasadnij, że jeśli w definicji rozmaitości topologicznej warunek lokalnej euklidesowości zastąpimy którymkolwiek z następujących warunków:}
 
 \emph{(a) każdy punkt posiada otwarte otoczenie homeomorficzne z otwartą kulą w $\R^n$,}
@@ -11,5 +11,65 @@
 \emph{(b) każdy punkt posiada otwarte otoczenie homeomorficzne z całą przestrzenią $\R^n$}
 
 \emph{to otrzymamy definicję równoważną.}
+\medskip
+
+To, że $(a)\iff(b)$ wynika z tego, że otwarta kula jest homeomorficzna z $\R^n$. Pokażemy więc, że
+
+\emph{Lokalnie euklidesowa $\iff$ każdy punkt posiada otoczenie homeomorficzne z otwartą kulą.}
+
+$\implies$
+
+Ustalmy dowolne $x\in M$. Niech $x\in U\subseteq M$ będzie otwartym otoczeniem $x$ w $M$ takim, że $U\cong \overline U\subseteq\R^n$ z definicji podanej na wykładzie. Nazwijmy ten homeomorfizm $\phi:U\to\overline U$. Wiemy, że istnieje $r>0$ takie, że $B_r(\phi(x))\subseteq\overline U$. Co więcej, $\phi^{-1}[B_r(\phi(x))]$ jest otwartym podzbiorem $M$, bo $\phi$ to homeomorfizm i przeciwobraz zbioru otwartego jest przezeń otwarty. Czyli $M\supseteq \phi^{-1}[B_r(\phi(x))]\ni x$ jest otwartym podzbiorem $M$ zawierającym $x$ i homeomorficznym z otwartą kulą w $\R^n$.
+
+$\impliedby$
+
+Otwarta kula jest otwartym podzbiorem $\R^n$, więc mamy homeomorfizm między pewnym otwartym otoczeniem $x\in U\subseteq M$ a otwartym podzbiorem $\R^n$.
+
+\subsection*{ZADANIE 2.}
+\emph{Uzasadnij, że każdy otwarty podzbiór rozmaitości topologicznej jest rozmaitością topologiczną.}
+\medskip
+
+Niech $M$ będzie rozmaitością topologiczną, a $M'\subseteq M$ jej otwartym podzbiorem.
+
+1. Hausdorffowość: 
+
+$x,y\in M'\implies x,y\in M$, czyli istnieją $U,V\subseteq M$ otwarte podzbiory $M$ takie, że $x\in U,y\in V$ oraz $U\cap V=\emptyset$. Ponieważ $M'$ jest otwarty, to istnieją otwarte $x\in U'$ i $y\in V'$ zawarte w $M'$. Skończony przekrój zbiorów otwartych, więc $x\in U'\cap U$ i $y\in V'\cap V$ są rozłącznymi zbiorami otwartymi w $M'$.
+
+2. Przeliczalna baza:
+
+Niech $\{U_i\}_{i\in\N}$ będzie przeliczalną bazą $M$. Wtedy $\{U_i\cap M'\}_{i\in\N}$ jest przeliczalną rodziną zbiorów otwartych w $M'$ (przecięcie dwóch otwartych jest otwarte). Ponieważ otwarty zbiór w $M'$ jest również otwarty w $M$, to mogliśmy go wysumować za pomocą $U_i$, czyli w szczególności możemy go wysumować z $U_i\cap M'$, bo sam jest i tak zawarty z $M'$.
+
+3. Lokalna Hausdorffowość:
+
+Weźmy dowolny $x\in M'\subseteq M$. Ponieważ $M$ było rozmaitością topologiczną, to dla pewnego otwartego otoczenia $x\in U\subseteq M$ mieliśmy homeomorfizm $\phi:U\to\overline U\subseteq\R^n$. Znowu, $U\cap M'$ jest zbiorem otwartym, a więc $\phi\obciete (U\cap M')$ jest homeomorfizmem z otwartym podzbiorem $\R^n$ (bo $U\cap M'$ przechodzi na coś otwartego).
+
+\subsection*{ZADANIE 3.}
+\emph{Uzasadnij, że jeśli rozmaitość $M$ jest spójna, to jest też \text{drogowo spójna}, tzn. każde dwa punkty $p,q\in M$ można połączyć ciągłą krzywą $\gamma:[0,1]\to M$ (taką, że $\gamma(0)=p,\gamma(1)=q$). Wskazówka: dla ustalonego punktu $p$ rozważ zbiór tych punktów $q$, które można połączyć z $p$ krzywą ciągłą.}
+\medskip
+
+Spójna $\implies$ jedyne zbiory otwarto-domknięte to $\emptyset$ i $M$.
+
+Ustalmy dowolne $p\in M$. Niech $\Sigma_p$ będzie zbiorem tych punktów $q\in M$, które można połączyć z $p$ krzywą ciągłą. 
+
+%Zauważmy, że łączenie punktów krzywą ciągłą jest relacją równoważności: zwrotność i symetryczność są trywialne, a przechodniość wynika z faktu, że możemy łączyć dwie krzywe w jedną dłuższą. W takim razie, zbiory $\Sigma_p$ są klasami równoważności na $M$.
+
+1. $\Sigma_p$ jest zbiorem otwartym:
+
+Niech $q\in\Sigma_p$ i $\gamma$ będzie krzywą taką, że $\gamma(0)=p,\gamma(1)=q$. Pokażemy, że możemy na nim opisać zbiór otwarty. Niech $q\in U\subseteq M$ będzie otwartym otoczeniem $q$, a $\phi:U\to\overline U\subseteq \R^n$ będzie homeomorfizmem wynikającej z lokalnej euklidesowości $M$. Weźmy teraz dowolny $y\in U$ i pokażemy, że wówczas istnieje krzywa z $p$ do $y$.
+
+Wiemy, że $\R^n$ jest przestrzenią łukowo spójną, niech więc $\mu:[0,1]\to\R^n$ będzie krzywą ciągłą taką, że $\mu(0)=\phi(q)$ i $\mu(1)=\phi(y)$. Rozważmy teraz krzywą
+$$\gamma':[0,1]\to M$$
+$$\gamma'(a)=\begin{cases}
+    \gamma(2a)\quad a\leq\frac12\\
+    \phi^{-1}[\mu(2a-1)]
+\end{cases}$$
+Mamy $\gamma'(0)=p$ i $\gamma'(1)=\phi^{-1}[\mu(1)]=\phi^{-1}[\phi(y)]=y$, czyli $y\in \Sigma_p$
+
+2. $\Sigma_p$ jest zbiorem domkniętym:
+
+Równoważnie, $M\setminus\Sigma_p$ jest zbiorem otwartym. Jeśli $M\setminus\Sigma_p$ nie byłoby otwarte, to dla pewnego $x\notin\Sigma_p$ mielibyśmy otoczenie z $y\in \Sigma_p$ i argument podobny jak wyżej: punkty są w jednym otoczeniu homeomorficznym z $\R^n$, więc możemy skonstruować krzywą z $p$ przez $y$ do $x$, więc $x\in\Sigma_p$ i mamy sprzeczność.
+
+\subsection*{ZADANIE 4.}
+\emph{Udowodnij, że jeśli $(U,\phi)$ jest mapą na rozmaitości $M$, zaś $K$ jest zwartym podzbiorem $\phi(U)$, to zbiór $\phi^{-1}(K)$ jest domknięty i zwarty w $M$. Pokaż też, że jeśli $K$ jest domknięty w $\phi(U)$, to $\phi^{-1}(K)$ nie musi być domknięty w $M$.}
 
 \end{document}
