@@ -75,7 +75,7 @@ taki, że $\psi\subseteq\psi_0$ i to już jest koniec.
 
 \subsection{Algebraiczne domknięcie ciała}
 
-Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ o stopniu $>0$ istnieje pierwiastek $f$ w $L$, to znaczy każdy wielomian rozkłada się na czynniki liniowe nad $L$.
+Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ o stopniu $>0$ istnieje pierwiastek $f$ w $L$. To znaczy każdy wielomian rozkłada się na czynniki liniowe nad $L$.
 
 \textbf{Przykład:}
 
@@ -86,226 +86,50 @@ Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ 
 \indent \point $\Q[i]$ nie jest algebraicznie domknięte, bo $x^2-2$ nie ma pierwiastka.
 
 \begin{tw}
-    Każde ciało zawiera się w pewnym ciele algebraicznie domkniętym.
+    Każde ciało $K$ zawiera się w pewnym ciele algebraicznie domkniętym.
 \end{tw}
 
 \textbf{Dowód:}
 
-\acc{Lemat:} Dla każdego ciała $K$ istnieje $K'\supseteq K$ takie, że $(\forall\;f\in K[X])$ stopnia $>0$ $f$ ma pierwiastek w $K'$.
+Jak mamy wielomian nad ciałem, to istnieje rozszerzenie ciała do tego wielomianu. I dalej leci kombinatoryka.
+
+\acc{Lemat:} Dla każdego ciała $K$ istnieje $L\supseteq K$ takie, że $(\forall\;f\in K[X])$ stopnia $>0$, $f$ ma pierwiastek w $L$.
 
 Rozważmy dobry porządek na zbiorze wielomianów z $K[X]$ stopnia $>0$
-$$\{f\in K[X]\;:\;deg(f)>0\}=\{f_\alpha\;:\;\alpha\subset x\}$$
-Skonstruujmy rosnący ciąg ciał $\{K_\alpha\;:\;\alpha\subset x\}$ taki, że 
+$$\{f\in K[X]\;:\;deg(f)>0\}=\{f_\alpha\;:\;\alpha< \kappa\}.$$
+Tutaj $\alpha,\kappa$ to liczby porządkowe, niekoniecznie skończone. Skonstruujmy rosnący ciąg rozszerzeń  ciał $\{K_\alpha\;:\;\alpha< \kappa\}$ taki, że 
 
-\indent \point $K\subseteq K_\alpha\subseteq K_\beta$ dla $\alpha<\beta< x$
+\indent \point $K\subseteq K_\alpha\subseteq K_\beta$ dla $\alpha<\beta< \kappa$
 
 \indent \point $f_\alpha$ ma pierwiastek w $K_{\alpha+1}$.
 
-Załóżmy, że $\alpha<x$ i mamy $\{K_\beta\;:\;\beta<\alpha\}$.
+Dowód przez indukcję pozaskończoną. Dla $K_0=K$. 
 
-\indent 1. $\alpha$ to liczba graniczna, wtedy $K_\alpha=\ubigcup\limits_{\beta<\alpha}K_\beta$
+Załóżmy, że $\alpha<\kappa$ i mamy $\{K_\beta\;:\;\beta<\alpha\}$ spełniają warunki powyżej.  Niech $K'=\ubigcup\limits_{\beta<\alpha}K_\beta$. Musimy pokazać, że $K'$ jest ciałem.
 
-\indent 2. $\alpha=\beta+1$ to następnik, wtedy $K_\alpha=K_\beta(a)$, gdzie $a$ to pierwiastek wielomianu $f_\beta$.
+\indent 1. $\alpha$ to liczba graniczna. Definiujemy $K'=\bigcup\limits_{\beta<\alpha}K_\beta$ jako zbiór. 
 
-Czyli lemat jest prawdziwy.
+Musimy określić działania w $K'$. Niech $x,y\in K'$, wtedy istnieje $\beta<\alpha$ takie, że $x,y\in K_\beta$. Czyli $x+y\in K_\beta\subseteq K'$ i $xy\in K_\beta\subseteq K'$. W takim razie $K'$ jest rozszerzeniem ciała $K_\beta$.
 
-Wracamy teraz do dowodu twierdzenia i niech $(L_n,n<\omega)$ będzie rosnącym ciągiem ciał takim, że
+Teraz definiujemy $K_\alpha=K'$ i otrzymujemy pożądane rozszerzenie ciała.
+
+\indent 2. $\alpha=\beta+1$ to następnik, wtedy $K'=K_\beta$. 
+
+Wielomian $f_\alpha$ jest wielomianem nad $K\subseteq K'$. Z wniosku 1.7 wiemy, że istnieje rozszerzenie $K_\alpha\supseteq K$ takie, że $f_\alpha$ ma pierwiastek w $K_\alpha$.
+
+$L$ definiujemy jako sumę po wyżej udowodnionej konstrukcji:
+$$L=\bigcup\limits_{\alpha<\kappa}K_\alpha$$
+i to ciało spełnia nasz lemat.
+\smallskip
+
+Wracamy teraz do dowodu twierdzenia 2.3. i niech $(L_n,n<\omega)$ będzie rosnącym ciągiem ciał takim, że
 
 \indent \point $L_0=K$
 
-\indent \point $L_{n+1}\supseteq L_n$, gdzie $L_{n+1}$ dane jest przez lemat, to znaczy $(\forall\;f\in L_n[X])$ $f$ ma pierwiastek $L_{n+1}$.
+\indent \point $L_{n+1}\supseteq L_n$, gdzie $L_{n+1}$ dane jest przez lemat, to znaczy $(\forall\;f\in L_n[X])$ $f$ ma pierwiastek w $L_{n+1}$.
 
 Niech
-$$\hat{K}=L_\infty=\ubigcup\limits_{n<\omega}L_n.$$
-Jest to ciało, ponieważ suma rosnącego ciągu ciał jest ciałem. Dalej mamy, że również
-$$L[X]=\ubigcup\limits_{n<\omega}L_n[X]$$
-i $L[X]$ jest algebraicznie domknięte.
-
-\begin{uwaga}
-    Załóżmy, że mamy ciała $K\subseteq L$. Wtedy
-
-\indent \point $char(K)=char(L)$
-
-\indent \point $0_K=0_L$ oraz $1_K=1_L$
-
-\indent \point $K^*=K\setminus\{0\}<L^*=L\setminus\{0\}$
-\end{uwaga}
-
-\subsection{Pierwiastki z jedności}
-
-$K$ jest \deff{ciałem prostym} wtedy i tylko wtedy, gdy $K$ nie zawierza żadnego właściwego podciała. 
-
-\textbf{Przykład:}
-
-\indent \point $\Q$, gdzie $char(\Q)=0$ to ciało proste nieskończone.
-
-\indent \point Ciałem prostym skończonym jest na przykład $\Z_p$ dla liczby pierwszej $p$, wtedy $char(\Z_p)=p$.
-\medskip
-
-Niech $R$ będzie pierścieniem przemiennym z $1\neq0$. Mamy następujące definicje:
-
-\indent 1. $a\in R$ jest \deff{pierwiastkiem z $1$ }stopnia $n>0$ $\iff$ $a^n=1$
-
-\indent 2. $\mu_n(R)=\{a\in R\;:\;a^n=1\}$ jest \deff{grupą pierwiastków z $1$} stopnia $n$
-
-\indent 3. $\mu(R)=\bigcup\limits_{n>0}\mu_n(R)$ jest \deff{grupą pierwiastków z $1$}
-
-\indent 4. $a$ jest \deff{pierwiastkiem pierwotnym} stopnia $n$ z $1$ $\iff$ $a\in\mu_n(R)$ oraz $(\forall\;k<n)a\notin\mu_k(R)$.
-
-\begin{uwaga}{\color{back}dupa}
-
-\indent 1. $\mu_n(R)\normalsubgroup R^X$ jest grupą jednostek pierścienia
-
-\indent 2.$\mu(R)\normalsubgroup R^X$
-
-\indent 3. $\mu(R)$ jest \acc{torsyjną grupą abelową} (każdy element jest pierwiastkiem z $1$).
-\end{uwaga}
-
-\textbf{Przykłady}
-
-\indent 1. $\mu(\C)=\bigcup\limits_{n>0}\mu_n(\C)\lneq(\{z\in\C\;:\;|z|=1\},\cdot\})<\C^x=C\setminus\{0\}$
-
-\indent 2. $\mu(\C)\cong(\Q,+)/(\Z,+)$, bo $f:\Q\xrightarrow[homo]{"na"}\mu(\C)$ taki, że $f(w)=\cos(w2\pi)+i\sin(w2\pi)$ ma jądro $ker(f)=\Z$.
-
-\indent 3. $\mu(\R)=\{\pm1\}$
-
-\indent 4. $\mu_n(K)=\{\text{zera wielomianu }w_n(x)=x^n-1\}$
-
-\begin{uwaga}{\color{back}dupa}
-    \label{uwaga:2:6}
-
-\indent 1. Jeśli $char(K)=0$, to $w_n(x)=x^n-1$ ma tylko pierwiastki jednokrotne w $K$
-
-\indent 2. Jeśli $char(K)=p>0$ i $n=p^ln_1$ takie, że $p\nmid n_1$, to wszystkie pierwiastki $w_n(x)=x^n-1$ mają krotność $p^l$ w $K$.
-\end{uwaga}
-
-\textbf{Dowód:}
-
-\indent 1. Niech $a\in K$ takie, że $w_n(a)=0$. Z twierdzenia Bezouta mamy, że
-$$w_n(x)=x^n-1=x^n-a^n=(x-a)(x^{n-1}+ax^{n-2}+...+a^{n-2}x+a^{n-1})=(x-a)v_n(x),$$
-gdzie $v_n(x)=x^{n-1}+ax^{n-2}+...+a^{n-2}x+a^{n-1}$.
-
-Z tego, że $char(K)=0$ wynika, że $v_n(a)=na^{n-1}+0$, skąd wynika, że $a$ jest jednokrotnym pierwiastkiem $w_n(x)$.
-
-\begin{fakt}
-    Załóżmy, że $char(K)=p>0$. Wtedy funkcja $f:K\to K$ taka, że $f(x)=x^p$ jest homomorfizmem ciał oraz monomorfizmem zwanym \deff{funkcją Frobeniusa}.
-\end{fakt}
-
-\begin{uwaga}
-    $x\mapsto x^p$ nie musi być funkcją "na" (automorfizmem). Na przykład $K=\Z_p(f)$, wtedy $x\mapsto x^p$ nie jest "na".
-\end{uwaga}
-
-\indent 2. Mając powyższy fakt i uwagę z tyłu, przechodzimy do dowodu 2.
-
-Niech $f:K[X]\to K[X]$, $f(h(x))=w(x)^p$ i 
-$$f(\sum a_kx^k)=\sum a_k^px^{n\cdot p}$$
-Z faktu wyżej mamy, że $f$ jest $1-1$. Ponieważ $n=p^ln_1$, to mamy 
-$$w_n(x)=x^n-1=x^n-1^n=(x^{n_1})^{p^l}-(1^{n_1})^{p^l}=...l\text{ razy}...=(x^{n_1}-1)^{p^l}=\underbrace{w_{n_1}\cdot...\cdot w_{n_1}}_{p^l},$$
-zatem każdy pierwiastek $w_n(x)$ ma krotność co najmniej $p^l$. Wystarczy więc pokazać, że każdy pierwiastek $w_{n_1}(x)$ jest jednokrotny.
-
-Niech $a\in K$ takie, że $w_{n_1}(a)=0$. Wtedy 
-$$w_{n_1}(x)=x^{n_1}-a^{n_1}=(x-1)(x^{n_1-1}+...+a^{n_1-1})=(x-a)v_{n_1}(x),$$
-gdzie $v_{n_1}$ jest analogiczne jak w dowodzie 1. Ale przecież $v_{n_1}(a)=n_1\cdot a^{n_1-1}\neq0$, bo $p\nmid n_1$.
-
-\begin{tw}
-    Niech $G<\mu(K)$ i $G$ jest podgrupą skończoną o $|G|=n$. Wtedy
-
-\indent 1. $G=\mu_n(K)$
-
-\indent 2. $G$ jest cykliczna
-
-\indent 3. Jeśli $char(K)=p>0$, to $p\nmid n$.
-\end{tw}
-
-\textbf{Dowód}
-
-\indent 1. Jeśli $|G|=n$, to dla każdego $x\in G$ mamy $x^n=1$. Z tego wynika, że $G\subseteq \mu_n(K)$, ale $|\mu_n(K)|\leq n$, czyli $G=\mu_n(K)$.
-
-\indent 2. Wystarczy pokazać, że istnieje $x\in G$ taki, że $rank(x)=n$.
-
-Załóżmy nie wprost, że dla każdego $x\in G$ $rang(x)<n$. Niech 
-$$k=\max\{rank(x)\;:\;x\in G\}.$$ 
-Niech $x_0\in G$ takie, że $rank(x_0)=k$. Wtedy 
-$$(\forall\;y\in G)\;rank(y)|k.$$ 
-Czyli
-$$(\forall\;y\in G)\;y^k=1,$$
-co pociąga $G\subseteq \mu_k(K)$ i $|G|\leq k<n$. Sprzeczność.
-
-\indent 3. Wiemy, że wszystkie pierwiastki $w_n=x^n-1$ są jednokrotne, bo jest ich w tym przypadku dokładnie $n$ (z poprzedniego punktu). Z uwagi \ref{uwaga:2:6}, że jeśli $n=p^ln_1$, to pierwiastki wielomianu $w_n(x)$ mają krotność $p^l$. Ale w tym przypadku pierwiastki mają krotność jeden, czyli $p^l=1$ i $n=1\cdot n_1$, gdzie $p\nmid n_1$.
-
-\begin{wniosek}
-    Jeśli $a\in \mu_n(K)$ jest pierwiastkiem pierwotnym z $1$ stopnia $n>1$, to $a$ generuje $\mu_n(K)$.
-\end{wniosek}
-
-\textbf{Dowód:}
-
-$\mu_n(K)\supseteq\begin{pair}a\end{pair}=\mu_k(K)$ dla pewnego $k\in\N$. Ale ponieważ $a$ było pierwiastkiem pierwotnym z $1$, to musimy mieć $n=k$.
-
-\begin{tw}
-    Niech $K$ będzie ciałem skończonym. Wtedy
-
-\indent 1. $char(K)=p\implies |K|=p^n$ dla pewnego $n\in\N$
-
-\indent 2. Dla każdego $n>0$ istnieje dokładnie jedno ciało $K$ takie, że $|K|=p^n$ z dokładnością do izomorfizmu.
-
-Ciało mocy $p^n$ będziemy oznaczać $\color{blue}F(p^n)$.
-\end{tw}
-
-\textbf{Dowód:}
-
-\indent 1. Skoro $char(K)=p$, to $\Z_p\subseteq K$ jest najmniejszym podciałem $K$. W takim razie, $K$ jest przestrzenią liniową nad $\Z_p$. Jeśli $n=dim_{\Z_p}(K)$, to $K$ jest izomorficzne z $\Z_p^n$, jako przestrzenie liniowe nad $\Z_p$. W takim razie $|K|=p^n$.
-
-\indent 2. 
-
-\emph{Istnienie:}
-
-Niech $n>0$. Rozważmy 
-$$w_{p^{n}-1}(x)=x^{p^n-1}\in\Z_p[X].$$
-Niech $L\supseteq\Z_p$ będzie ciałem rozkładu wielomianu $w_{p^n-1}$, a $K=\{0\}\cup\{\text{ pierwiastki }w_{p^n-1}\}$. Wtedy
-$$|K|=1+p^n-1=p^n,$$
-czyli mamy potencjalne ciało rzędu $p^n$. Wystarczy więc pokazać, że $K$ jest ciałem.
-
-Niech $f:L\xrightarrow[]{1-1}L$ będzie funkcją Frobeniusa $x\mapsto x^p$. Teraz niech $f^n=f\circ...\circ f$, $f^n(x)=x^{p^n}$. Jest to monomorfizm, bo składamy ze sobą $n$ takich samych funkcji $1-1$. Dla $a\in L$ mamy 
-$$(a^{p^n-1}=1\;\lor\;a=0)\implies a\in K.$$
-Co więcej, $a^{p^n-1}=1\iff a^{p^n}=a\iff f^n(a)=a$, czyli $K=\{a\in L\;:\;f^n(a)=a\}$ jest zbiorem punktów stałych morfizmu $f^n$, czyli jest ciałem.
-
-\emph{Jedyność $K$:}
-
-Ciało $K$ stworzone jak wyżej jest ciałem rozkładu $w_{p^n-1}(x)$ nad $\Z_p$. Załóżmy nie wprost, że $K'$ to inne ciało mocy $p^n$. Niech $x\in K'\setminus\{0\}$. wiemy, że $x^{p^n-1}=1$, czyli $w_{p^n-1}$ rozkłada się nad $K'$ na czynniki liniowe. Zatem $K'$ jest również ciałem rozkładu $w_{p^n-1}$ nad $\Z_p$, stąd $K\cong K'$ nad $\Z_p$ i mamy sprzeczność.
-
-\subsection{Rozszerzenia ciał}
-
-Niech $K\subseteq L$ będą ciałami i $a\in L\setminus K$.
-
-\indent \point Jeżeli \acc{$a$ jest algebraiczny nad $K$}, to istnieje $f\in K[X]$ stopnia $>0$ i $f(a)=0$
-
-\indent \point $a$ jest \acc{przestępny nad $K$} $\iff$ $a$ nie jest algebraiczny.
-
-\indent \point \deff{Rozszerzenie} $L\supseteq K$ jest \deff{algebraiczne} $\iff$ dla każdego $a\in L$ $a$ jest algebraiczny nad $K$.
-
-\indent \point \deff{Rozszerzenie jest przestępne} $\iff$ nie jest algebraiczne.
-
-\indent \point Niech $a\in \C$. Wtedy $a$ jest algebraiczna, gdy $a$ jest algebraiczna nad $\Q$.
-
-\begin{uwaga}
-    Niech $a$ jak wyżej. Wtedy $a$ jest algebraiczny nad $K$ $\iff$ $I(a/K)\neq\{0\}$.
-\end{uwaga}
-
-Niech $K\subseteq L$ będzie rozszerzeniem ciała $K$. Wtedy $L$ jest \deff{przestrzenią liniową nad $K$}. Definiujemy
-$$[L:K]:=\dim_K(L)$$
-jako \acc{wymiar przestrzeni liniowej}.
-
-\begin{uwaga}
-    Niech $a\in L\setminus K$. Następujące warunki są równoważne:
-
-\indent 1. $a$ jest algebraiczny nad $K$
-
-\indent 2. $K[a]=K(a)$, to znaczy $K[a]$ jest ciałem (usuwanie niewymierności z mianownika)
-
-\indent 3. $[K(a):K]=\dim_K(a)<\infty$
-\end{uwaga}
-
-\textbf{Dowód:}
-
-$1\implies2$
-
+$$L_\infty=\ubigcup\limits_{n<\omega}L_n\supseteq K.$$
+Jest to ciało, ponieważ suma rosnącego ciągu ciał jest ciałem. Dalej mamy, że jest to ciało algebraicznie domknięte, gdy dowolny $f\in L_\infty [X]$ ma stopień skończony $>0$, czyli istnieje $n$ takie, że $f\in L_n[X]$. A więc $f$ ma wszystkie pierwiastki w $L_{n+1}\subseteq L_\infty$.
+% $$L[X]=\ubigcup\limits_{n<\omega}L_n[X]$$
+% i $L[X]$ jest algebraicznie domknięte.

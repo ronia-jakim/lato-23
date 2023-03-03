@@ -34,26 +34,28 @@ and as mentioned above, $\R[X]/I\cong\C$. Hence, $\R[z]\cong\C$.
 
 Let
 $$f_i=\sum\limits_{1\leq k\leq n}b_{i, k}X_k$$
-for $i=1,...,m$. Take $\overline a=(a_1,..., a_n)$ be a solution from $L$. We have
-$$0=f_i(\overline a)=\sum\limits_{1\leq k\leq n}b_{i, k}a_k.$$
-This is a linear combination of elements from $L$ and therefore we have three possibilities:
+for $i=1,...,m$.
 
-\indent 1. $(\forall\;k=1,...,n)\;b_{i,k}=0$ and so this equation does not influence the remaining $(m-1)$ polynomials. From those remaining polynomials either one has non-zero coefficients $b_{j, k}$ (in this case we jump to case 2 or 3) or all polynomials from the set of equations are trivial and any sequence from $K$ is a solution.
+% Take $\overline a=(a_1,..., a_n)$ be a solution from $L$. We have
+% $$0=f_i(\overline a)=\sum\limits_{1\leq k\leq n}b_{i, k}a_k.$$
+% This is a linear combination of elements from $L$ and therefore we have three possibilities:
 
-\indent 2. $(\forall\;k=1,...,n)\;a_k=0$ and hence $\overline a=(0,...,0)\in K^n$ is a solution.
+% \indent 1. $(\forall\;k=1,...,n)\;b_{i,k}=0$ and so this equation does not influence the remaining $(m-1)$ polynomials. From those remaining polynomials either one has non-zero coefficients $b_{j, k}$ (in this case we jump to case 2 or 3) or all polynomials from the set of equations are trivial and any sequence from $K$ is a solution.
 
-\indent 3. $a_k$ and $b_{i, k}$ are linearly dependent and
-\begin{align*}
-    0&=\sum\limits_{1\leq k\leq n}a_kb_{i, k}\\
-    0&=a_1b_{i, 1}+\sum\limits_{2\leq k\leq n}a_kb_{i, k}\\
-    -a_1b_{i, 1}&=\sum\limits_{2\leq k\leq n}a_kb_{i, k}\\
-    b_{i, 1}&=\sum\limits_{2\leq k\leq n}[a_k(-a_1)^{-1}]b_{i, k}
-\end{align*}
-The last operation is permitted because we are inside a field and $-a_1$ is non-zero, therefore it has a multiplicative inverse. We have that 
-$$\sum\limits_{2\leq k\leq n}[a_k(-a_1)^{-1}]b_{i, k}\in K$$
-and so $a_k(-a_1)^{-1}\in K\implies a_1,a_k\in K$.
+% \indent 2. $(\forall\;k=1,...,n)\;a_k=0$ and hence $\overline a=(0,...,0)\in K^n$ is a solution.
 
-\proofend
+% \indent 3. $a_k$ and $b_{i, k}$ are linearly dependent and
+% \begin{align*}
+%     0&=\sum\limits_{1\leq k\leq n}a_kb_{i, k}\\
+%     0&=a_1b_{i, 1}+\sum\limits_{2\leq k\leq n}a_kb_{i, k}\\
+%     -a_1b_{i, 1}&=\sum\limits_{2\leq k\leq n}a_kb_{i, k}\\
+%     b_{i, 1}&=\sum\limits_{2\leq k\leq n}[a_k(-a_1)^{-1}]b_{i, k}
+% \end{align*}
+% The last operation is permitted because we are inside a field and $-a_1$ is non-zero, therefore it has a multiplicative inverse. We have that 
+% $$\sum\limits_{2\leq k\leq n}[a_k(-a_1)^{-1}]b_{i, k}\in K$$
+% and so $a_k(-a_1)^{-1}\in K\implies a_1,a_k\in K$.
+
+% \proofend
 
 We are working on linear equations, therefore we can construct a matrix that stores the same information as the system of equations $f_1=...=f_m$. Let
 $$f_i=\sum\limits_{1\leq k\leq n}b_{i, k}X_k$$

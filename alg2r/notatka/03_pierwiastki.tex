@@ -1,0 +1,178 @@
+
+\section{Wykład 3: Ciała proste, pierwiastki z jedności}
+
+\subsection{Ciała proste}
+
+\textbf{\large Uwaga 3.0.}
+    \emph{Załóżmy, że mamy ciała $K\subseteq L$. Wtedy}
+
+\indent \point $char(K)=char(L)$
+
+\indent \point \emph{$0_K=0_L$ oraz $1_K=1_L$}
+
+\indent \point $K^*=K\setminus\{0\}<L^*=L\setminus\{0\}$ oraz dla $x\in K$ $-x$ w $K$ jest równe $-x$ w $L$.
+\medskip
+
+$K$ jest \deff{ciałem prostym} wtedy i tylko wtedy, gdy $K$ nie zawierza żadnego właściwego podciała. 
+
+\textbf{Przykład:}
+
+\indent \point $\Q$, gdzie $char(\Q)=0$ to ciało proste nieskończone.
+
+\indent \point Ciałem prostym skończonym jest na przykład $\Z_p$ dla liczby pierwszej $p$, wtedy $char(\Z_p)=p$.
+
+\begin{uwaga}{\color{back}uwu dupa meow meow}
+
+\indent 1. Każde ciało zawiera jedyne podciało proste
+
+\indent 2. Z dokładnościa do $\cong$ $\Q,\Z_p$ to wszystkie ciała proste.
+\end{uwaga}
+
+\textbf{Przykład:} Załóżmy, że $K$ jest skończone. Wtedy $K^*$ też jest skończone rzędu $|K^*|=n<\infty$. Później dowiemy się, że $|K|=p^k$, a więc $|K^*|=p^k-1$. Wiemy, że dla każdego $x\in K^*$ zachodzi $x^n=1$.
+
+\subsection{Pierwiastki z jedności}
+
+Niech $R$ będzie pierścieniem przemiennym z $1\neq0$. Mamy następujące definicje:
+
+\indent 1. $a\in R$ jest \deff{pierwiastkiem z $1$ }stopnia $n>0$ $\iff$ $a^n=1$
+
+\indent 2. $\mu_n(R)=\{a\in R\;:\;a^n=1\}$ jest \deff{grupą pierwiastków z $1$} stopnia $n$
+
+\indent 3. $\mu(R)=\{a\in R\;:\;(\exists\;n)\;a^n=1\}=\bigcup\limits_{n>0}\mu_n(R)$ jest \deff{grupą pierwiastków z $1$}
+
+\indent 4. $a$ jest \deff{pierwiastkiem pierwotnym} [primitive root] stopnia $n$ z $1$ $\iff$ $a\in\mu_n(R)$ oraz dla każdego $k<n$ $a\notin\mu_k(R)$.
+
+\begin{uwaga}{\color{back}dupa}
+
+\indent 1. $\mu_n(R)\normalsubgroup R^*$ jest grupą jednostek pierścienia
+
+\indent 2.$\mu(R)\normalsubgroup R^*$
+
+\indent 3. $\mu(R)$ jest \acc{torsyjną grupą abelową} (każdy element jest pierwiastkiem z $1$).
+\end{uwaga}
+
+\textbf{Przykłady}
+
+\indent 1. $\mu(\C)=\bigcup\limits_{n>0}\mu_n(\C)\lneq(\{z\in\C\;:\;|z|=1\},\cdot)<\C^*=C\setminus\{0\}$ jest nieskończona.
+
+\indent 2. $\mu(\C)\cong(\Q,+)/(\Z,+)$, bo $f:\Q\xrightarrow[homo]{"na"}\mu(\C)$ taki, że $f(w)=\cos(w2\pi)+i\sin(w2\pi)$ ma jądro $ker(f)=\Z$.
+
+\indent 3. $\mu(\R)=\{\pm1\}$
+
+\indent 4. $\mu_n(K)=\{\text{zera wielomianu }x^n-1\}$. Ten wielomian będziemy oznaczali $\color{blue}w_n(x)=x^n-1$.
+
+\begin{uwaga}{\color{back}dupa}
+    \label{uwaga:2:6}
+
+\indent 1. Jeśli $char(K)=0$, to $w_n(x)=x^n-1$ ma tylko pierwiastki jednokrotne w $K$ [simple roots]
+
+\indent 2. Jeśli $char(K)=p>0$ i $n=p^ln_1$ takie, że $p\nmid n_1$, to wszystkie pierwiastki $w_n(x)=x^n-1$ mają krotność $p^l$ w $K$.
+\end{uwaga}
+
+\textbf{Dowód:}
+
+\indent 1. Niech $a\in K$ takie, że $w_n(a)=0$. Z twierdzenia Bezouta mamy, że
+$$w_n(x)=x^n-1=x^n-a^n=(x-a)(x^{n-1}+ax^{n-2}+...+a^{n-2}x+a^{n-1})=(x-a)v_n(x),$$
+gdzie $v_n(x)=x^{n-1}+ax^{n-2}+...+a^{n-2}x+a^{n-1}$.
+
+Z tego, że $char(K)=0$ wynika, że $v_n(a)=na^{n-1}\neq0$, skąd wynika, że $a$ jest jednokrotnym pierwiastkiem $w_n(x)$.
+
+% \textbf{\large\color{yellow}Fakt}
+%     \emph{Załóżmy, że $char(K)=p>0$. Wtedy funkcja $f:K\to K$ taka, że $f(x)=x^p$ jest homomorfizmem ciał oraz monomorfizmem zwanym \deff{funkcją Frobeniusa}.}
+
+% \textbf{\large\color{yellow}Uwaga}
+%     \emph{$x\mapsto x^p$ nie musi być funkcją "na" (automorfizmem). Na przykład $K=\Z_p(f)$, wtedy $x\mapsto x^p$ nie jest "na".}
+
+\indent 2. Jesteśmy w ciele $K$ o $char(K)=p$. Niech $n=p^ln_1$. Rozważmy wielomian
+$$w_n(X)=X^n-1=(X^{n_1})^{p^l}-1^{p^l}=(X^n-1)^{p^l}=w_{n_1}(X)^{p^l}.$$
+Czyli $\mu_n(K)=\mu_{n_1}(K)$. Załóżmy, że $a\in K$ to pierwiastek wielomianu $w_n(X)$. Wtedy $a$ jest też pierwiastkiem wielomianu $w_{n_1}$ w ciele $K$. Wtedy
+$$w_{n_1}(X)=(X-a)v_{n_1}(X),$$
+$v_{n_1}$ jak w przypadku wyżej. Wówczas
+$$v_{n_1}(a)=n_1a^{n_1-1}\neq0,$$
+bo $p\nmid n_1$. 
+Jeśli $a$ jest $1$-krotnym pierwiastkiem $w_{n_1}(X)$, to jest on $p^l$-krotnym pierwiastkiem $w_n(X)$.
+
+% Niech $f:K[X]\to K[X]$, $f(h(x))=w(x)^p$ i 
+% $$f(\sum a_kx^k)=\sum a_k^px^{n\cdot p}$$
+% Z faktu wyżej mamy, że $f$ jest $1-1$. Ponieważ $n=p^ln_1$, to mamy 
+% $$w_n(x)=x^n-1=x^n-1^n=(x^{n_1})^{p^l}-(1^{n_1})^{p^l}=...l\text{ razy}...=(x^{n_1}-1)^{p^l}=\underbrace{w_{n_1}\cdot...\cdot w_{n_1}}_{p^l},$$
+% zatem każdy pierwiastek $w_n(x)$ ma krotność co najmniej $p^l$. Wystarczy więc pokazać, że każdy pierwiastek $w_{n_1}(x)$ jest jednokrotny.
+
+% Niech $a\in K$ takie, że $w_{n_1}(a)=0$. Wtedy 
+% $$w_{n_1}(x)=x^{n_1}-a^{n_1}=(x-1)(x^{n_1-1}+...+a^{n_1-1})=(x-a)v_{n_1}(x),$$
+% gdzie $v_{n_1}$ jest analogiczne jak w dowodzie 1. Ale przecież $v_{n_1}(a)=n_1\cdot a^{n_1-1}\neq0$, bo $p\nmid n_1$.
+
+\begin{tw}
+    Niech $G<\mu(K)$ i $G$ jest podgrupą skończoną o $|G|=n$. Wtedy
+
+\indent 1. $G=\mu_n(K)$
+
+\indent 2. $G$ jest cykliczna
+
+\indent 3. Jeśli $char(K)=p>0$, to $p\nmid n$.
+\end{tw}
+
+\textbf{Dowód}
+
+\indent 1. Jeśli $|G|=n$, to dla każdego $x\in G$ mamy $x^n=1$. Z tego wynika, że $G\subseteq \mu_n(K)$, ale $|\mu_n(K)|\leq n$, czyli $G=\mu_n(K)$.
+
+\indent 2. Chcemy pokazać, że dla wielomianu $w_n(X)$ mamy $n$ różnych pierwiastków. Wystarczy pokazać, że istnieje $x\in G$ taki, że $ord(x)=n$.
+
+Załóżmy nie wprost, że dla każdego $x\in G$ $ord(x)<n$. Niech 
+$$k=\max\{ord(x)\;:\;x\in G\}.$$ 
+Niech $x_0\in G$ takie, że $ord(x_0)=k$. Wtedy 
+$$(\forall\;y\in G)\;ord(y)\;|\;k.$$ 
+Gdyby tak nie było, to istniałby $y\in G$, $ord(y)\nmid k$. Czyli istnieje liczba pierwsza $p$ taka, że $l$ jest podzielne przez wyższą potęgę $p$ niż $k$. To oznacza, że $l=p^{\alpha}l'$ i $k=p^\beta k'$, gdzie $p\nmid l'$ i $\alpha>\beta$. Rozważmy $y'=y^{l'}$. Skoro $y$ ma rząd $l$, to $ord(y')=p^\alpha$, a dla $x_0'=x_0^{p^\beta}$ mamy $ord(x')=k'$. Wobec tego $ord(x_0'y')=p^\alpha\cdot k'$, ale to jest większe od $k$ i dostajemy sprzeczność.
+
+
+% Czyli
+% $$(\forall\;y\in G)\;y^k=1,$$
+% co pociąga $G\subseteq \mu_k(K)$ i $|G|\leq k<n$. Sprzeczność.
+
+\indent 3. Wiemy, że wszystkie pierwiastki $w_n=x^n-1$ są jednokrotne, bo jest ich w tym przypadku dokładnie $n$ (z poprzedniego punktu). Z uwagi \ref{uwaga:2:6}, że jeśli $n=p^ln_1$, to pierwiastki wielomianu $w_n(x)$ mają krotność $p^l$. Ale w tym przypadku pierwiastki mają krotność jeden, czyli $p^l=1$ i $n=1\cdot n_1$, gdzie $p\nmid n_1$. {\color{orange}\large TEGO NIE BYŁO?}
+
+\begin{wniosek}
+    Jeśli $a\in \mu_n(K)$ jest pierwiastkiem pierwotnym z $1$ stopnia $n>1$, to $a$ generuje $\mu_n(K)$.
+\end{wniosek}
+
+\textbf{Dowód:}
+
+$\mu_n(K)\supseteq\begin{pair}a\end{pair}=\mu_k(K)$ dla pewnego $k\in\N$. Ale ponieważ $a$ było pierwiastkiem pierwotnym z $1$, to musimy mieć $n=k$.
+
+\subsection{Ciała skończone}
+
+\begin{tw}
+    Niech $K$ będzie ciałem skończonym. Wtedy
+
+\indent 1. $char(K)=p\implies |K|=p^n$ dla pewnego $n\in\N$
+
+\indent 2. Dla każdego $n>0$ istnieje dokładnie jedno ciało $K$ takie, że $|K|=p^n$ z dokładnością do izomorfizmu.
+
+Ciało mocy $p^n$ będziemy oznaczać $\color{blue}F(p^n)$.
+\end{tw}
+
+\textbf{Dowód:}
+
+\indent 1. Skoro $char(K)=p$, to $\Z_p\subseteq K$ jest najmniejszym podciałem prostym ciała $K$. W takim razie, $K$ jest skończoną przestrzenią liniową nad $\Z_p$. Jeśli $n=dim_{\Z_p}(K)$, to $K$ jest izomorficzne z $\Z_p^n$, jako przestrzenie liniowe nad $\Z_p$. W takim razie $|K|=p^n$.
+
+\indent 2. 
+
+\emph{Istnienie:}
+
+Niech $n>0$. Rozważmy 
+$$w_{p^{n}-1}(x)=x^{p^n-1}\in\Z_p[X].$$
+Niech $L\supseteq\Z_p$ będzie ciałem rozkładu wielomianu $w_{p^n-1}$, a $K=\{0\}\cup\{\text{ pierwiastki }w_{p^n-1}\}$. Wtedy
+$$|K|=1+p^n-1=p^n,$$
+czyli mamy potencjalne ciało rzędu $p^n$. Wystarczy więc pokazać, że $K$ jest ciałem.
+
+Niech $f:L\xrightarrow[]{1-1}L$ będzie funkcją Frobeniusa $x\mapsto x^p$. Teraz niech $f^n=f\circ...\circ f$, $f^n(x)=x^{p^n}$. Jest to monomorfizm, bo składamy ze sobą $n$ takich samych funkcji $1-1$. Dla $a\in L$ mamy 
+$$(a^{p^n-1}=1\;\lor\;a=0)\iff a\in K.$$
+Co więcej, $a^{p^n-1}=1\iff a^{p^n}=a\iff f^n(a)=a$, czyli $K=\{a\in L\;:\;f^n(a)=a\}$ jest zbiorem punktów stałych morfizmu $f^n$, czyli jest ciałem, czego dowód jest pozostawiony na ćwiczenia. 
+
+\emph{Jedyność $K$:}
+
+Ciało $K$ stworzone jak wyżej jest ciałem rozkładu $w_{p^n-1}(x)$ nad $\Z_p$. 
+
+Załóżmy nie wprost, że $K'$ to inne ciało mocy $p^n$. Bes straty ogólności $\Z_p\subseteq K'$. Niech $x\in K'$. wiemy, że $x=0$ lub $x^{p^n-1}=1$. W takim razie $w_{p^n-1}$ rozkłada się nad $K'$ na czynniki liniowe. Zatem $K'$ jest również ciałem rozkładu $w_{p^n-1}$ nad $\Z_p$.
+
+Z wniosku 2.1.(2) mamy, że dwa ciała rozkładu nad jednym wielomianem są izomorficzne i $K\cong K'$ nad $\Z_p$ i mamy sprzeczność.

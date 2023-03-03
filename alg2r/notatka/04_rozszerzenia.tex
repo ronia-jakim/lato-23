@@ -1,0 +1,51 @@
+\section{Wykład 4: Rozszerzenia ciał}
+
+\begin{definicja}
+Niech $K\subseteq L$ będą ciałami i $a\in L\setminus K$.
+
+\indent \point Jeżeli \acc{$a$ jest algebraiczny nad $K$}, to istnieje $f\in K[X]$ stopnia $>0$ i $f(a)=0$
+
+\indent \point $a$ jest \acc{przestępny nad $K$} [transcendental] $\iff$ $a$ nie jest algebraiczny.
+
+\indent \point \deff{Rozszerzenie} $L\supseteq K$ jest \deff{algebraiczne} $\iff$ dla każdego $a\in L$ $a$ jest algebraiczny nad $K$.
+
+\indent \point \deff{Rozszerzenie jest przestępne} $\iff$ nie jest algebraiczne.
+
+\indent \point Niech $a\in \C$. Wtedy $a$ jest algebraiczna, gdy $a$ jest algebraiczna nad $\Q$.
+
+\end{definicja}
+
+\textbf{Przykłady}:
+
+\indent 1. W $\C$ na $i$ jest pierwiastkiem algebraicznym wielomianu $x^2+1$, a $\sqrt[n]{d}$ jest pierwiastkiem $x^n-d$. 
+
+\indent 2. Ciało $F(p^n)$ ma charakterystykę $p$ i $F(p)\subseteq F(p^n)$ jest rozszerzeniem ciał, które jest algebraiczne. Dla dowolnego $a\in F(p^n)$ to jest ono pierwiastkiem wielomianu $X^{p^n}-X$, czyli $a$ jest algebraiczne nad $F(p)$.
+
+\indent 3. Pierwiastki przestępne to na przykład $e,\pi,E^\pi$, aczkolwiek nie jesteśmy pewni tego ostatniego [doczytać w S. Lang, Algebra].
+
+\indent 4. Rozważamy $K\subseteq L=K(X)$, czyli pierścień ułamków. Weźmy $x\in K(X)$ - przestępny nad $K$. Załóżmy, że istnieje wielomian $f\in K[X]$ rózny od $0$. I załóżmy, że $0=\hat{f}(X)$ to funkcja wielomianowa. 
+$$0=\hat{f}(X)=f\neq0$$
+i jest to sprzeczność.
+
+
+\begin{uwaga}
+    Niech $a$ jak wyżej. Wtedy $a$ jest algebraiczny nad $K$ $\iff$ $I(a/K)\neq\{0\}$ jako ideał $K[X]$.
+\end{uwaga}
+
+Niech $K\subseteq L$ będzie rozszerzeniem ciała $K$. Wtedy $L$ jest \deff{przestrzenią liniową nad $K$}. Definiujemy stopień rozszerzenia [coś innego jak indeks przy grupach]
+$$[L:K]:=\dim_K(L)$$
+jako \acc{wymiar przestrzeni liniowej} nad $K$.
+
+\begin{uwaga}
+    Niech $a\in L\setminus K$. Następujące warunki są równoważne:
+
+\indent 1. $a$ jest algebraiczny nad $K$
+
+\indent 2. $K[a]=K(a)$, to znaczy $K[a]$ jest ciałem (usuwanie niewymierności z mianownika)
+
+\indent 3. $[K(a):K]=\dim_K(a)<\infty$
+\end{uwaga}
+
+\textbf{Dowód:}
+
+$1\implies2$
