@@ -164,5 +164,43 @@ I wtedy dziedziny np $\phi_1\phi_2^{-1}$ i $\phi_1\phi_3^{-1}$ są rozłączne.
 
 \subsection*{ZADANIE 10.}
 \emph{\color{pink}Uzasadnij, że każdy atlas $\set{A}$ na rozmaitości $M$ zawiera się w dokładnie jednym atlasie maksymalnym (złożonym ze wszystkich map na $M$ zgodnych z $\set{A}$).}
+\medskip
+
+Z poprzedniego zadania wiemy, że relacja zgodności atlasów $\sim$ jest relacją równoważności na zbiorze wszystkich atlasów danej rozmaitości i klasami równoważności są wszystkie atlasy zgodne z reprezentantem. Chcę pokazać, że dla każdej klasy istnieje atlas, który zawiera wszystkie pozostałe. 
+
+Niech $\set{A}$ będzie atlasem na $M$ i popatrzmy na $[\set{A}]=\Sigma$, czyli wszystkie atlasy z nim zgodne. Postuluję, że zbiór 
+$$A=\bigcup\limits_{b\in\Sigma}b$$
+jest atlasem maksymalnym z $\Sigma$ zawierającym $\set{A}$.
+
+To, że $\set{A}\subseteq A$ jest oczywiste: $\set{A}$ pojawia się jako element sumy którą jest $A$. To, że $A$ jest atlasem też jest jasne: każdy atlas z sumy pokrywa nam całe $M$, a ponieważ wszystkie atlasy z $\Sigma$ są zgodne, to mamy, że jeśli wszystkie wsadzimy w jeden worek, to też dostaniemy atlas złożony z map zgodnych.
+
+$A$ jest atlasem maksymalnym, bo wyjęcie z niego jakiejkolwiek mapy (czyli wyjęcie atlasów, które ją zawierają), będzie równoznaczne z niezawieraniem przez $A$ wszystkich zgodnych map.
+
+\subsection*{ZADANIE 11.}
+\emph{\color{pink}Uzasadnij, że produkt $M\times N$ rozmaitości topologicznych jest rozmaitością topologiczną. Zakładając, że $M$ i $N$ są rozmaitościami gładkimi, opisz naturalny atlas definiujący strukturę gładką na produkcie (i sprawdź, że mapy są gładko zgodne).}
+\medskip
+
+\indent 1. Hausdorffowość
+
+Trywialne, bo jeśli mam dwa punkty $(x_1,y_1), (x_2,y_2)$, $x_i\in M,y_i\in N$, to mam jakieś zbiory otwarte $x_i\in U_i,y_i\in V_i$ takie, że $U_1\cap U_2=\emptyset,V_1\cap V_2=\emptyset$. Mam, że $U_i\times V_i$ jest zbiorem otwartym i
+$$(x_i,y_i)\in U_i\times V_i$$
+$$U_1\times V_1\cap U_2\times V_2=\emptyset.$$
+
+\indent 2. Ma przeliczalną bazę
+
+Odmawiam. Trywialne.
+
+\indent 3. Lokalna euklidesowość
+
+Weźmy punkcik $(x,y)\in M\times N$. Wiem, że $x\in M$ ma otoczenie $x\in U$ takie, że $\phi:U\to \overline U\subseteq \R^n$ jest homeomorfizmem. Tak samo dla $y\in N$ jest $\psi:V\to \overline V\subseteq \R^n$. Rozważmy teraz odwzorowanie $\heartsuit:U\times V\to \R^{n+m}$ dane wzorem:
+$$\heartsuit(a, b)=\begin{pmatrix}
+    \phi(a)\\
+    \psi(b)
+\end{pmatrix}$$
+to znaczy pierwsze $n$ współrzędnych jest zarezerwowanych dla współrzędnych $\phi(a)$, a później do samego dołu mamy $\psi(b)$.
+
+Ciągłość $\heartsuit$ jest trywialna. Wiem, że $\phi,\psi$ mają ciągłe funkcje odwrotne, jak to jest z $\heartsuit$?
+$$\heartsuit^{-1}(a_1,...,a_n,a_{n+1},...,a_{n+m})=(\phi^{-1}(a_1,...,a_n), \psi^{-1}(a_{n+1},...,a_{n+m}))$$
+wygląda jak dobrze zdefiniowana, ciągła funkcja odwrotna. Hence $\heartsuit$ jest homeomorfizmem.
 
 \end{document}
