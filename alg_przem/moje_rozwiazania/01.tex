@@ -4,9 +4,9 @@
 
 \begin{document}
 \subsection*{ZADANIE 18}
-\emph{Z psychologicznych powodów, czasem wygodniej jest oznaczać ideał pierwszy pierścienia $A$ literami $x,y$ jeśli myślimy o nich jako o punkcie $X=Spec(A)$. Kiedy myślimy o $x$ jako o ideale pierwszym $A$, oznaczamy go przez $\mathfrak{p}_x$ (oczywiście jest to ta sama rzecz). Pokaż, że}
+\emph{\color{pink}Z psychologicznych powodów, czasem wygodniej jest oznaczać ideał pierwszy pierścienia $A$ literami $x,y$ jeśli myślimy o nich jako o punkcie $X=Spec(A)$. Kiedy myślimy o $x$ jako o ideale pierwszym $A$, oznaczamy go przez $\mathfrak{p}_x$ (oczywiście jest to ta sama rzecz). Pokaż, że}
 
-\emph{(i) zbiór $\{x\}$ jest domknięty w $Spec(A)\iff\mathfrak{p}_x$ jest maksymalny}
+\emph{\color{pink}(i) zbiór $\{x\}$ jest domknięty w $Spec(A)\iff\mathfrak{p}_x$ jest maksymalny}
 \medskip
 
 $\impliedby$
@@ -17,6 +17,61 @@ $\implies$
 
 Wiem, że $\{x\}$ jest zbiorem domkniętym. Czyli jest przekrojem pewnej rodziny domkniętych zbiorów bazowych
 $$\{x\}=\bigcap\limits_{i\in I}V(E_i)=V\Big(\bigcup\limits_{i\in I}(E_i)\Big)$$
-Jeżeli którykolwiek z $E_i$ zawieraj element odwracalny, to $\mathfrak{p}_x=(1)$. W przeciwnym przypadku
+ale jeśli taka suma zawiera się w jednym, jedynym ideale pierwszym, to jest on maksymalny.
+\medskip
+
+\emph{\color{pink}(ii) $\overline{\{x\}}=V(\mathfrak{p}_x)$}
+
+$\subseteq$
+
+Jest raczej prostym zawieraniem: $\overline{\{x\}}$ jest najmniejszym zbiorem domkniętym zawierającym $\{x\}$, a $V(\mathfrak{p}_x)$ z pewnością to spełnia.
+
+$\supseteq$
+
+Po pierwsze zauważmy, że
+$$V(\pideal_x)=\bigcap\limits_{E\subseteq \pideal_x}V(E) = V\Big(\bigcup\limits_{E\subseteq\pideal_x}V(E)\Big),$$
+bo to są wszystkie te ideały pierwsze, które zawierają jakiś podzbiór $\pideal_x$, czyli obcinamy te mniejsze podzbiory $\pideal_x$ w trakcie brania przekroju.
+
+Wiemy, że $\bigcap\limits_{E\subseteq \pideal_x}V(E)$ jest zbiorem domkniętym. Wiemy, że $x\in\bigcap V(E)$, czyli dostajemy, że $V(\pideal_x)$ jest przekrojem wszystkich zbiorów domkniętych zawierających $x$, czyli jest najmniejszym zbiorem domkniętym zawierającym $x$, czyli domknięciem $x$.
+\medskip
+
+\emph{\color{pink}(iii) $y\in\{\overline x\}\iff\mathfrak{p}_x\subseteq\mathfrak{p}_y$}
+
+$\impliedby$
+
+Niech $x,y\in X$ takie, że $\mathfrak{p}_x\subseteq\mathfrak{p}_y$. Wówczas, $x\in V(E)\implies y\in V(E)$. Ponieważ $\overline{\{x\}}$ jest przekrojem zbiorów $V(E_i)$, który zawiera $x$, to w szczególności każdy z tych zbiorów zawiera również $y$, stąd $y\in\overline{\{x\}}$.
+
+$\implies$
+
+Trywialne z \emph{(ii)}.
+\medskip
+
+\emph{\color{pink}(iv) $X$ jest $T_0$-przestrzenią (jeśli $x,y$ są rozróżnialnymi punktami $X$, to albo istnieje otoczenie $x$ które nie zawiera $y$, albo istnieje otocznie $y$, które nie zawiera $x$).}
+
+Weźmy dowolne punkty $x,y\in X$. Rozważmy dwa przypadki:
+
+1. $\pideal_x\subseteq\pideal_y$ (lub $\pideal_y\subseteq\pideal_x$, ale WLOG pierwsza wersja)
+
+Wtedy $x\in X\setminus V(\pideal_y)$, które jest zbiorem otwartym takim, że $y\notin X\setminus V(\pideal_y)$.
+
+2. $\pideal_x\not\subseteq\pideal_y$ i $\pideal_y\not\subseteq\pideal_x$
+
+Wtedy $y\notin\overline{\{x\} }$ i $x\notin\overline{\{y\} }$. Czyli $y\in X\setminus\{x\}$ jest otwartym zbiorem zawierającym $y$ ale niezawierającym $x$.
+
+\subsection*{ZADANIE 19.}
+\emph{\color{blue}Przestrzeń topologiczna $X$ jest nieredukowalna, jeśli $X\neq\emptyset$ i jeśli każda para niepustych otwartych podzbiorów $X$ się przecina (równoważnie, każdy niepusty podzbiór otwarty jest gęsty w $X$). Pokaż, że $Spec(A)$ jest nieredukowalny $\iff$ nilradykał $A$ jest ideałem pierwszym.}
+
+$\implies$
+
+Chcę mieć punkt, którego dopełnienie jest wszystkim. 
+
+$\impliedby$
+
+Niech $r$ będzie nilradykałem pierścienia $A$ i niech $r$ będzie ideałem pierwszym. Weźmy dowolne $\mathfrak{a}_1,\mathfrak{a}_2\normalsubgroup A$ i rozpatrzmy $U_1=V(\mathfrak{a}_1)^c,U_2=V(\mathfrak{a}_2)^c$.
+
+\subsection*{ZADANIE 20}
+\emph{\color{pink}Niech $X$ będzie przestrzenią topologiczną}
+
+\emph{\color{pink}(i) Jeśli $Y$ jest nieredukowalną podprzestrzenią $X$, wtedy domknięcie $\overline Y$ w $X$ jest nieredukowalne.}
 
 \end{document}
