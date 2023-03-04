@@ -4,13 +4,13 @@
 
 \begin{document}
 \subsection*{ZADANIE 1.}
-\emph{Uzasadnij, że jeśli w definicji rozmaitości topologicznej warunek lokalnej euklidesowości zastąpimy którymkolwiek z następujących warunków:}
+\emph{\color{pink}Uzasadnij, że jeśli w definicji rozmaitości topologicznej warunek lokalnej euklidesowości zastąpimy którymkolwiek z następujących warunków:}
 
-\emph{(a) każdy punkt posiada otwarte otoczenie homeomorficzne z otwartą kulą w $\R^n$,}
+\emph{\color{pink}(a) każdy punkt posiada otwarte otoczenie homeomorficzne z otwartą kulą w $\R^n$,}
 
-\emph{(b) każdy punkt posiada otwarte otoczenie homeomorficzne z całą przestrzenią $\R^n$}
+\emph{\color{pink}(b) każdy punkt posiada otwarte otoczenie homeomorficzne z całą przestrzenią $\R^n$}
 
-\emph{to otrzymamy definicję równoważną.}
+\emph{\color{pink}to otrzymamy definicję równoważną.}
 \medskip
 
 To, że $(a)\iff(b)$ wynika z tego, że otwarta kula jest homeomorficzna z $\R^n$. Pokażemy więc, że
@@ -26,7 +26,7 @@ $\impliedby$
 Otwarta kula jest otwartym podzbiorem $\R^n$, więc mamy homeomorfizm między pewnym otwartym otoczeniem $x\in U\subseteq M$ a otwartym podzbiorem $\R^n$.
 
 \subsection*{ZADANIE 2.}
-\emph{Uzasadnij, że każdy otwarty podzbiór rozmaitości topologicznej jest rozmaitością topologiczną.}
+\emph{\color{pink}Uzasadnij, że każdy otwarty podzbiór rozmaitości topologicznej jest rozmaitością topologiczną.}
 \medskip
 
 Niech $M$ będzie rozmaitością topologiczną, a $M'\subseteq M$ jej otwartym podzbiorem.
@@ -44,7 +44,7 @@ Niech $\{U_i\}_{i\in\N}$ będzie przeliczalną bazą $M$. Wtedy $\{U_i\cap M'\}_
 Weźmy dowolny $x\in M'\subseteq M$. Ponieważ $M$ było rozmaitością topologiczną, to dla pewnego otwartego otoczenia $x\in U\subseteq M$ mieliśmy homeomorfizm $\phi:U\to\overline U\subseteq\R^n$. Znowu, $U\cap M'$ jest zbiorem otwartym, a więc $\phi\obciete (U\cap M')$ jest homeomorfizmem z otwartym podzbiorem $\R^n$ (bo $U\cap M'$ przechodzi na coś otwartego).
 
 \subsection*{ZADANIE 3.}
-\emph{Uzasadnij, że jeśli rozmaitość $M$ jest spójna, to jest też \text{drogowo spójna}, tzn. każde dwa punkty $p,q\in M$ można połączyć ciągłą krzywą $\gamma:[0,1]\to M$ (taką, że $\gamma(0)=p,\gamma(1)=q$). Wskazówka: dla ustalonego punktu $p$ rozważ zbiór tych punktów $q$, które można połączyć z $p$ krzywą ciągłą.}
+\emph{\color{pink}Uzasadnij, że jeśli rozmaitość $M$ jest spójna, to jest też \text{drogowo spójna}, tzn. każde dwa punkty $p,q\in M$ można połączyć ciągłą krzywą $\gamma:[0,1]\to M$ (taką, że $\gamma(0)=p,\gamma(1)=q$). Wskazówka: dla ustalonego punktu $p$ rozważ zbiór tych punktów $q$, które można połączyć z $p$ krzywą ciągłą.}
 \medskip
 
 Spójna $\implies$ jedyne zbiory otwarto-domknięte to $\emptyset$ i $M$.
@@ -70,6 +70,99 @@ Mamy $\gamma'(0)=p$ i $\gamma'(1)=\phi^{-1}[\mu(1)]=\phi^{-1}[\phi(y)]=y$, czyli
 Równoważnie, $M\setminus\Sigma_p$ jest zbiorem otwartym. Jeśli $M\setminus\Sigma_p$ nie byłoby otwarte, to dla pewnego $x\notin\Sigma_p$ mielibyśmy otoczenie z $y\in \Sigma_p$ i argument podobny jak wyżej: punkty są w jednym otoczeniu homeomorficznym z $\R^n$, więc możemy skonstruować krzywą z $p$ przez $y$ do $x$, więc $x\in\Sigma_p$ i mamy sprzeczność.
 
 \subsection*{ZADANIE 4.}
-\emph{Udowodnij, że jeśli $(U,\phi)$ jest mapą na rozmaitości $M$, zaś $K$ jest zwartym podzbiorem $\phi(U)$, to zbiór $\phi^{-1}(K)$ jest domknięty i zwarty w $M$. Pokaż też, że jeśli $K$ jest domknięty w $\phi(U)$, to $\phi^{-1}(K)$ nie musi być domknięty w $M$.}
+\emph{\color{pink}Udowodnij, że jeśli $(U,\phi)$ jest mapą na rozmaitości $M$, zaś $K$ jest zwartym podzbiorem $\phi(U)$, to zbiór $\phi^{-1}(K)$ jest domknięty i zwarty w $M$. Pokaż też, że jeśli $K$ jest domknięty w $\phi(U)$, to $\phi^{-1}(K)$ nie musi być domknięty w $M$.}
+\medskip
+
+Jeśli $K$ jest zwartym podzbiorem $\phi(U)$, to z każdego pokrycia $K$ możemy wybrać podpokrycie skończone. Popatrzmy na zbiór $\phi^{-1}(K)$. Możemy go pokryć zbiorami otwartymi $\{V_i\}_{i\in I}$. Czyli $\phi(V_i)$ pokrywają $K$, a więc możemy wybrać ciąg $i_1,...,i_n\subseteq I$ taki, że $K=\bigcup\limits_{1\leq k\leq n}\phi(V_k)$. W takim razie, 
+$$\bigcup\limits_{1\leq k\leq n}V_i$$ 
+pokrywają $\phi^{-1}(K)$. Czyli $\phi^{-1}(K)$ jest zwarty. 
+
+To drugie to jakiś kontrprzykład, ale mi się nie chce.
+
+\subsection*{ZADANIE 5.}
+\emph{\color{yellow}Pokaż, że jeśli przestrzeń topologiczna ma przeliczalną bazę, to z każdego jej pokrycia zbiorami otwartymi można wybrać przeliczalne podpokrycie.}
+\medskip
+
+\subsection*{ZADANIE 6.}
+\emph{\color{pink}Korzystając z zadań 4 i 5 uzasadnij, że każda rozmaitość jest przeliczalną sumą otwartych podzbiorów homeomorficznych z otwartymi kulami w $\R^n$, których domknięcia w $M$ są homeomorficzne z domkniętymi kulami w $\R^n$.}
+\medskip
+
+Niech $(U_i,\phi_i)_{i\in I}$ będzie rodziną map z $M$. Na mocy zadania $5$ możemy wybrać ciąg $i_1,...,i_n,...\subseteq I$ taki, że
+$$M=\bigcup\limits_{1\leq k}U_k.$$
+Popatrzmy teraz, co się dzieje w środku jednej takiej mapy. To jest ustalmy dowolne $i$ z wcześniej wybranego ciągu $i_1,...,i_n,...$. 
+
+Niech $\overline{U_i}=\phi(U_i)$. Jest to zbiór otwarty w $\R^n$, czyli na dowolnym $x\in\overline{U_i}$ możemy opisać kulę $B_r(x)$ o promieniu $r>0$. Teraz, jeśli weźmiemy $B_{r/2}(x)$, to możemy taką kulę domknąć nie wychodząc z $\overline{U_i}$ (chociażby dlatego, że to domknięcie dalej będzie się zawierało w $B_r(x)$). Teraz zbiór $F=cl(B_{r/2}(x))$ jest zwarty w $\R^n$, czyli na mocy zadania 4. mamy, że $\phi^{-1}(F)$ jest domknięty w $M$.
+
+Mamy więc, że w każdej mapie $(U_i,\phi_i)$ możemy pokryć zbiorami otwartymi homeomorficznymi z kulami w $\R^n$ i o domknięciach homeomorficznych z domkniętymi kulami w $\R^n$. Wystarczy teraz dla każdego $(U_i,\phi_i)$ wybrać przeliczalnie wiele takich zbiorów otwartych, co możemy zrobić z ośrodkowości $\R^n$.
+
+\subsection*{ZADANIE 7.}
+\emph{\color{pink}Uzasadnij, że lokalnie wokół każdego punktu $(x,y)\neq(0, 0)$ współrzędne biegunowe na $\R^2$ są zgodne ze współrzędnymi kartezjańskimi.}
+\medskip
+
+Po pierwsze, co rozumiemy przez współrzędne? To są odwzorowania w $\R^2$, parametryzacje naszej rozmaitości. W tym przypadku kartezjańskie współrzędne to będzie dla nas tak naprawdę funkcja $id$. Popatrzymy też na $\phi$, czyli przejście ze współrzędnych biegunowych do współrzędnych kartezjańskich zadane wzorem:
+$$\phi(\alpha, r)=\begin{pmatrix}
+    r\cos\alpha\\r\sin\alpha
+\end{pmatrix}.$$
+Aby obie te współrzędne były zgodne, potrzebujemy, żeby kolorowe strzałki były funkcjami gładkimi (bo jest to odpowiedni $id\circ\phi^{-1}$ i $\phi\circ id^{-1}$).
+
+\begin{illustration}
+    \draw (0, 0) rectangle (2, 2);
+    \draw (4, 0) rectangle (6, 2);
+    \draw (0, -2) rectangle (2, -4);
+    \draw (5, 1)--(5, 2) node [above] {$\alpha$};
+    \draw (5, 1)--(6, 1) node [right] {$r$};
+    \node at (1, 1) {$\circ$};
+    \node at (5, 1) {$\circ$};
+    \node at (1, -3) {$\circ$};
+    \draw[<-] (2.2, 1)--(3.8, 1) node [midway, above] {$\phi^{-1}$};
+    \node at (0.5, 2.3) {$\R^2\setminus(0, 0)$};
+    \node at(6.5, 2.3) {$\R_+\times[0, 2\pi)$};
+    \draw (1, -3)--(1, -2) node [above, right] {y};
+    \draw (1, -3)--(2, -3) node [right] {x};
+    \draw[->] (1, -0.3)--(1, -1.7) node [midway, right] {id};
+    \draw[<-, blue] (2.3, -2.5)..controls (3, -2.5) and (4.5, -1.1)..(4.5, -0.3) node [midway, above, rotate=40] {$\color{blue}id\circ\phi^{-1}$};
+    \draw[->, pink] (2.3, -2.8)..controls (3.2, -2.8) and (4.8, -1.2)..(4.8, -0.3) node [midway, below, rotate=40] {$\color{pink}\phi\circ id^{-1}$};
+\end{illustration}
+
+Ciągłość funkcji $\phi\circ id^{-1}$ jest jasna ze wzoru na $\phi$. Wystarczy teraz pokazać, że $\phi^{-1}$ jest gładkie. Wiemy, że jeśli Jakobian funkcji nie zeruje się w pewnym punkcie, to na jego otoczeniu funkcja jest odwracalna i ta odwrotność też będzie gładka, bo $\phi_1$ takie było.
+$$D_{\phi}(\alpha,r)=\begin{bmatrix}
+    \cos\alpha&-r\sin\alpha\\\sin\alpha&r\cos\alpha
+\end{bmatrix}=r>0.$$
+Z zadania tego możemy wyciągnąć wniosek, że mapami możemy zadać więcej niż jedną strukturę na rozmaitości.
+
+\subsection*{ZADANIE 8.}
+\emph{\color{yellow}Pokaż, że współrzędne geograficzne na sferze $S^2$ (określone na dopełnieniu biegunów i jednego z południków) są zgodne ze standardową strukturą na $S^2$. Wskazówka: skorzystaj z parametryzacji równania sfery z użyciem współrzędnych geograficznych.}
+\medskip
+
+Czy współrzędne geograficzne to to samo co współrzędne sferyczne?
+
+To zadanie wygląda syfnie jakoś, idę dalej
+
+\subsection*{ZADANIE 9.}
+\emph{\color{pink}Uzasadnić, że zgodność atlasów jest relacją symetryczną i przechodnią.}
+\medskip
+
+Niech $\set{A}_1,\set{A}_2,\set{A}_3$ będą atlasami na rozmaitości $M$.
+
+\textbf{Symetryczność:}
+
+Pokazanie symetryczności relacji zgodności atlasów sprowadza się do wzięcia dwóch map: $(U_1,\phi_1)\in\set{A}_1$ i $(U_2,\phi_2)\in\set{A}_2$ i stwierdzeniu, że jeśli $(U_1,\phi_1)$ jest zgodna z $(U_2,\phi_2)$ (czyli po porównaniu wszystkich $\set{A}_1$ zgodny z $\set{A}_2$), to $\phi_1\phi_2^{-1}$ oraz $\phi_2\phi_1^{-1}$ są gładkie. No ale to samo, jeśli przestawimy indeksy, czyli $(U_2,\phi_2)$ jest zgodne z $(U_1,\phi_1)$ ($\set{A}_2$ jest zgodny z $\set{A}_1$).
+
+\textbf{Przechodniość:}
+
+Tutaj kusiłoby wziąć dowolne trzy mapy: $(U_1,\phi_1)$, $(U_2,\phi_2)$ i $(U_3,\phi_3)$ odpowiednio z $\set{A}_1,\set{A}_2,\set{A}_3$ i powiedzieć, że śmiga, ale w taki sposób ignorujemy dziedziny poszczególnych $\phi_i$. To znaczy, może zajść coś takiego:
+
+\begin{illustration}
+    \draw [very thick] (0, 0) ellipse (3 and 1);
+    \draw [rotate=60, blue, very thick] (0.8, 1.5) ellipse (3 and 1);
+    \draw [rotate=-60, pink, very thick] (-0.8, 1.5) ellipse (3 and 1);
+    \node at (0, -1.5) {$U_1$};
+    \node at (2.5, 1.5) {$\color{pink}U_2$};
+    \node at (-2.5, 1.5) {$\color{blue}U_2$};
+\end{illustration}
+I wtedy dziedziny np $\phi_1\phi_2^{-1}$ i $\phi_1\phi_3^{-1}$ są rozłączne.
+
+\subsection*{ZADANIE 10.}
+\emph{\color{pink}Uzasadnij, że każdy atlas $\set{A}$ na rozmaitości $M$ zawiera się w dokładnie jednym atlasie maksymalnym (złożonym ze wszystkich map na $M$ zgodnych z $\set{A}$).}
 
 \end{document}
