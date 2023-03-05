@@ -193,6 +193,48 @@ From Remark 1.4. we know that $\overline{a}$ is a generic solution $\iff$ for an
 
 \emph{\color{pink}(a) $(1, 1)$}
 
+\subsection*{ZADANIE 6.}
+\emph{\color{pink}Assume that $f\in K[X]$ is irreducible, $deg(f)=n>0$, $char(K)=0$ and $L$ is the splitting field of polynomial $f$ over $K$. Prove that the field $L$ has at least $n$ distinct automorphisms.}
+\smallskip
+
+First of all, I need $f$ to have $n$ distinct roots in $L$. 
+
+% Suppose that $f$ has a root $a$ that is repeated. Then we know from analysis that $f'(x)$, the derivative of $f$, is also equal to zero. 
+
+% $f,f'\in K[X]$ which is an euclidean domain because $K$ is a field. Therefore there exist $p,r\in K[X]$, $deg(r)<n$ such that
+% $$f(x)=f'(x)p(x)+r(x)$$
+
+% Let
+% $$f(x)=(x-a)^2f_1(x)$$
+% where $deg(f_1)=n-2$. Then, from the product rule,
+% $$f'(x)=2(x-a)f_1(x)+(x-a)^2f_1'(x)$$
+% $$(x-a)f'(x)=2(x-a)^2f_1(x)+(x-a)^3f_1'(x)$$
+% $$(x-a)f'(x)=2f(x)+(x-a)^3f_1'(x)$$
+% $$(x-a)f'(x)-(x-a)^3f_1'(x)=2f(x)$$
+% $$2^{-1}(x-a)f'(x)-2^{-1}(x-a)^3f_1'(x)=f(x)$$
+% That would mean that $p(x)=(x-a)$ and $(x-a)^3f_1'(x)=r(x)$. We know that the remainder of Euclidean division is uniquely defined. Bu let us look at the degree of $(x-a)^3f_1'(x)$. Since $deg(f_1)=n-2$, we have that $deg(f_1)=n-3$. Since the leading coefficient of $f_1$ and of $(x-a)^3$ are nonzero, we have that 
+% $$deg((x-a)^3f_1'(x))=deg((x-a)^3)+ deg(f_1'(x))=3+(n-3)=n$$
+% which is a contradiction with $deg(r(x))<n$. Hence $f$ has $n$ different roots.
+
+If $a$ is at least a double root of $f$ then $f'(a)=0$. Let
+$$f(x)=\alpha_nx^n+\alpha_{n-1}x^{n-1}+...+\alpha_1x+\alpha_0$$
+where $\alpha_n\neq 0$. Then, the derivative is
+$$f'(x)=n\alpha_nx^{n-1}+(n-1)\alpha_{n-1}x^{n-1}+...+\alpha_1$$
+and because we $char(K)=0$, then $n\alpha_n=\alpha_n+...+\alpha_n\neq 0$. Thus, $f'(x)\not\equiv 0$.
+
+We know that $f\in K[X]$ is irreducible and $f'$ has lower degree, hence $f'$ does not divide $f$. From Bezout's identity I get that there exist $p, q\in K[X]\setminus\{0\}$ such that
+$$fp+f'q=1.$$
+If $f'(a)=0$, then
+$$0=f(a)p(a)+f'(a)q(a)=1$$
+which is a contradiction, hence $f'(a)\neq 0$ and $f$ has only simple roots.
+
+Let $\phi\in Aut(L)$ such that $\phi_{\obciete K}=id_K$. Let $a_1,...,a_n\in L$ be roots of $f$. Then for $i=1,...,n$ we have
+\begin{align*}
+    0=\phi(f(a_i))&=\phi\Big(\sum\limits_{k=0}^n\alpha_ka_i^k\Big)=\sum\limits_{k=0}^n\phi(\alpha_ka^k_i)=\\
+    &=\sum\limits_{k=0}^n\phi(\alpha_k)\phi(a_i^k)=\sum\limits_{k=0}^n\alpha_k\phi(a_i)^k=f(\phi(a_i))
+\end{align*}
+which implies that we can define an automorphism on $L$ by simply mapping $a_i$ to any of the roots of $f$ and keeping the coefficients from $K$ in place. This gives us with at least $n$ such permutations of roots.
+
 \subsection*{EXERCISE 8.}
 \emph{\color{pink}Prove that the set $\{\sqrt{p}\;:\;p\text{ is a prime number}\}$ is linearly independent over the field $\Q$.}
 \smallskip
