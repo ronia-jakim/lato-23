@@ -74,4 +74,42 @@ Niech $r$ będzie nilradykałem pierścienia $A$ i niech $r$ będzie ideałem pi
 
 \emph{\color{pink}(i) Jeśli $Y$ jest nieredukowalną podprzestrzenią $X$, wtedy domknięcie $\overline Y$ w $X$ jest nieredukowalne.}
 
+Załóżmy nie wprost, że $\overline Y$ nie jest nieredukowalna. Wtedy istnieją $U, V\subseteq \overline Y$ takie, że $U\cap V=\emptyset$. Ale zbiór $U\cap Y$ jest albo pusty albo jest zbiorem otwartym w $Y$. Tak samo dla $V\cap Y$. To znaczy, że $(U\cap Y)\cap(V\cap Y)=\emptyset$ co jest sprzeczne z nieredukowalnością $Y$.
+
+\emph{\color{pink}(ii) Każda nieredukowalna podprzestrzeń $X$ jest zawarta w pewnej nieredukowalnej podprzestrzeni $X$.}
+
+Niech $S$ będzie zbiorem nieredukowalnych podprzestrzeni $X$. Rozważmy łańcuch
+$$Y_1\subseteq Y_2\subseteq...$$
+podprzestrzeni z $S$. Niech $Y=\bigcup Y_i$. Musimy pokazać, że $Y\in S$, czyli $Y$ jest nieredukowalny.
+
+Niech $U,V\subseteq Y$. Wtedy istnieje $i$ takie, że $U,V\subseteq Y_i$. Ponieważ $Y_i$ jest nieredukowalna, to $U\cap V\neq\emptyset$. W takim razie każde dwa zbiory otwarte z $Y$ tną się niepusto, a więc $Y$ jest nieredukowalne.
+
+Wystarczy użyć lematu Zorna dla zbioru $S_A=\{Y\subseteq X\;:\;Y\text{ nieredukowalna i }A\subseteq Y\}$.
+
+\emph{\color{pink}(iii) Maksymalne nieredukowalne podprzestrzenie $X$ są domknięte i pokrywają $X$. Nazywamy je składowe nieredukowalne $X$. Jakie są składowe nieredukowalne przestrzeni Hausdorffa?}
+
+Niech $M\subseteq X$ będzie maksymalną podprzestrzenią nieredukowalną $X$. Domkniętość $M$ wynika wprost z (ii). Gdyby $M$ nie było domknięte, to $M\subsetneq\overline M$, a $\overline M$ też jest nieredukowalne i mamy sprzeczność z maksymalnością $M$.
+
+Dlaczego pokrywają? Bo dla każdego $\{x\}$, $x\in X$ możemy rozpatrzeć zbiór wszystkich nieredukowalnych zbiorów takich, że $\{x\}\subseteq A$ i w ten sposób znajdziemy maksymalne zbiory nieredukowalne zawierające każdy element $X$, czyli pokrywające $X$.
+
+W Hausdorffie możemy każde dwa punkty oddzielić dwoma rozłącznymi otwartymi otoczeniami, więc maksymalne nieredukowalne podprzestrzenie to singletony. I to właśnie przypadek, który mnie natchnął do wytłumaczenia jak pokryć $X$.
+
+\emph{\color{yellow}(iv) Jeśli $A$ jest pierścieniem i $X=Spec(A)$, wtedy składowe nieredukowalne $X$ to zbiory domknięte $V(\pideal)$, gdzie $\pideal$ to najmniejsza zbiory pierwsze $A$.}
+
+\subsection*{ZADANIE 21}
+\emph{\color{pink}Niech $\phi:A\to B$ będzie homomorfizmem pierścieni. Niech $X=Spec(A)$ i $Y=Spec(B)$. Jeśli $\mathfrak{q}\in Y$, to $\phi^{-1}(\mathfrak{q})$ jest ideałem pierwszym w $A$, w szczególności punktem $X$. Z tego powodu $\phi$ indukuje przekształcenie $\phi^*:Y\to X$. Pokaż, że}
+
+\emph{\color{pink}(i) Jeśli $f\in A$, wtedy $\phi^{*-1}(X_f)=Y_{\phi(f)}$ i dlatego $\phi^*$ jest ciągłe.}
+\begin{align*}
+    \phi^{*-1}(X_f)&=\{y\in Y\;:\;(f)\subsetneq\phi^*(y)\}=\{y\in Y\;:\;(f)\subsetneq\phi^{-1}(y)\}=\{y\in Y\;:\;\phi(f)\subseteq y\}=Y_{\phi(f)}
+\end{align*}
+
+\emph{\color{pink}(ii) Jeśli $\mathfrak{a}$ jest ideałem $A$, wtedy $\phi^{*-1}(V(\mathfrak{a}))=V(\mathfrak{a^e})$ }
+
+$\mathfrak{a}^e$ to rozszerzenie obrazy $\phi(\mathfrak{a})$ do ideału w $B$.
+\begin{align*}
+    \phi^{*-1}(V(\mathfrak{a}))=\{y\in Y\;:\;\mathfrak{a}\subseteq \phi^*(y)\}=\{y\in Y\;:\;\mathfrak{a}\subseteq\phi^{-1}(y)\}=\{y\in Y\;:\;\phi(\mathfrak{a})\subseteq y\}=V(\phi(\mathfrak{a}))=V(\mathfrak{a}^e)
+\end{align*}
+Ta ostatnia równość z jakiegoś poprzedniego zadanka, bo wtedy mam, że $V(E)=V((E))$ i to jest to samo.
+
 \end{document}
