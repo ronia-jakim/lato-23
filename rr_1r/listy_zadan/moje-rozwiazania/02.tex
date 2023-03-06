@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\begin{document}
+
+\subsection*{ZADANIE 11.}
+\emph{\color{pink}Spadek kamienia pod wpływem siły grawitacji, z uwzględnienim oporu powietrza, jest opisany równaniem}
+$$\color{pink}x''(t)=-g+k(x'(t))^2,\quad k>0$$
+\emph{\color{pink}Pokaż, że po długim czasie porusza się on z prędkością graniczną, tzn. $\lim\limits_{t\to\infty}x'(t)=-\left({g\over k}\right)^\frac12$.}
+\smallskip
+
+Duuupa dupa dupa
+
+Ułatwię sobie życie i skoro $x'$ to prędkość, to będę je oznaczać przez $v$. Wtedy mam
+$$v'=-g+kv^2$$
+
+Czy ja nie mam po prostu pokazać, że to ma asymptotę poziomą?
+
+
+% Mam, że
+% \begin{align*}
+%     \int_{t_0}^tv'ds=&\int_{t_0}^t[-g+kv^2]ds\\
+%     v-v_0&=\int_{t_0}^t[-g+kv^2]ds=-gt+gt_0+k\int_{t_0}^tv^2ds\\
+%     v&=v_0+gt_0-gt+k\int_{t_0}^tv^2ds\\
+%     \int v^2ds&=\begin{bmatrix}
+%         u=v^2&du=2v\\
+%         w=s&dw=1
+%     \end{bmatrix}=sv^2-2\int svds\\
+%     \int svds&=\begin{bmatrix}
+%         u=v&du=v'\\
+%         w=\frac12 s^2&dw=s
+%     \end{bmatrix}=\frac12s^2v-\frac12\int v's^2ds
+% \end{align*}
+
+\end{document}

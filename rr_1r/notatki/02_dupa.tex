@@ -1,0 +1,270 @@
+\section{Twierdzenie Picarda-Lindel\"ofa}
+Patrzymy na zagadnienie Cauchy'ego
+$$\begin{cases}
+    y'=f(t, y)\\
+    y(t_0)=y_0
+\end{cases}\quad (\coffee)$$
+
+\deff{\large Twierdzenie Picarda-Lindel\"ofa} (ale był też Cauchy, Peano i.in.): Zakładamy, że $f(t, y)$ jest ciągła oraz ${\partial f\over\partial y}$ też jest ciągła w otoczeniu $(t_0, y_0)$. Wówczas istnieje $h>0$ takie, że zagadnienie (\coffee) ma dokładnie jedno rozwiązanie $y\in C^1([t_0,t_0+h])$.
+
+\subsection{Początek dowodu}
+
+Cały dzisiejszy wykład będzie poświęcony na dowodzenie tego twierdzenia.
+
+\textbf{Przykład:}
+
+\indent 1. Równanie liniowe 
+$$y'=a(t)y+b(t)=f(t, y)$$ 
+i $y(t_0)=y_0$. Tydzień temu pokazaliśmy, że takie równanie ma dokładnie jedno rozwiązanie.
+
+\indent 2. Równanie o zmiennych rozdzielonych
+$$y'={g(t)\over f(y)}$$
+i $y(t_0)=y_0$. Tutaj pokazywaliśmy, że mamy dokładnie jedno rozwiązanie dla $t\in [t_0,t_0+h]$, czyli w pewnym otoczeniu $(t_0, y_0)$ przy założeniach, że funkcje $f,g$ są ciągłe i $f(t_0)\neq 0$.
+\medskip
+
+Zaczynamy dowód od przeformułowania problemu:
+
+\textbf{\large\acc{Lemat:}} Funkcja $y\in C^1([t_0, t_0+h])$ jest rozwiązaniem zagadnienia Cauchy'ego $\iff$ $y$ jest rozwiązaniem równania całkowego
+$$y(t)=y_0+\int_{t_0}^tf(s, y(s))ds$$
+
+\textbf{Dowód:}
+$\implies$
+
+Całkujemy nasze rozwiązanie
+\begin{align*}
+    y'&=f(t, y)\\
+    \int_{t_0}^ty'ds&=\int_{t_0}^tf(s, y(s))ds\\
+    y(t)-y(t_0)&=\int_{t_0}^tf(s, y(s))ds
+\end{align*}
+
+$\impliedby$
+
+Różniczkujemy równanie całkowe
+\begin{align*}
+    y(t)&=y_0+\int_{t_0}^tf(s, y(s))ds\\
+    {d\over dt}y(t)&={d\over dt}\left(y_0+\int_{t_0}^tf(s, y(s))ds\right)\\
+    y'&=0+f(t, y(t))
+\end{align*}
+\proofend
+
+\subsection{Konstrukcja rozwiązania}
+
+\deff{\large Twierdzenie:} zbiór $X=C[a,b]$ z normą 
+$$\|f\|_\infty=\max\limits_{x\in[a,b]}|f(x)|$$
+jest przestrzenią Banacha.
+\smallskip
+
+\textbf{Dowód:}
+
+\indent 1. $X$ jest przestrzenią liniową nad $\R$ (oczywiste),
+
+\indent 2. $\|\cdot\|_\infty$ jest normą (oczywiste),
+
+\indent 3. $X$ jest przestrzenią zupełną, równoważnie: każdy szereg
+$$\sum\limits_{i=1}^\infty u_i(x)$$
+jest zbieżny jednostajnie $\iff$ jest bezwzględnie zbieżny (szereg norm jest zbieżny). Tutaj odwołujemy się do analizy i że coś takiego robiliśmy.
+\proofend
+
+\deff{\large Twierdzenie Banacha o punkcie stałym:} Niech $Z\subseteq C[a, b]$ będzie domknięty na zbieżność jednostajną. Zakładamy, że przekształcenie 
+$$\set{F}: C[a, b]\to C[a,b]$$
+ma własności:
+
+\indent 1. $\set{F}[Z]=Z$
+
+\indent 2. $\set{F}$ jest kontrakcją, to znaczy że istnieje $k\in(0, 1)$ taka, że dla każdego $u,v\in Z$ 
+$$\|\set{F}(u)-\set{F}(v)\|\leq k\|u-v\|$$
+Wówczas istnieje dokładnie jedno $u\in Z$ takie, że $\set{F}(u)=u$.
+
+\textbf{Dowód:} Bierzemy dowolne $u_0\in Z$ i definiujemy ciąg:
+$$u_{n+1}=\set{F}(u_n).$$
+
+\indent 1. $(\forall\;n)\;u_n\in Z$ - to z pierwszego założenia o $\set{F}$.
+
+\indent 2. $u_n$ jest zbieżny jednostajnie.
+
+Zauważmy, że 
+$$u_n=\left(\sum\limits_{k=1}^n u_k-u_{k-1}\right)+u_0$$
+[\dyg{suma teleskopowa}]. Pokażemy indukcyjnie, że 
+$$\sum\limits_{k=1}^\infty \|u_k-u_{k-1}\|<\infty.$$
+
+
+Dla $n=1$ jest trywialne, ale popatrzmy jeszcze na $\|u_2-u_1\|$
+\begin{align*}
+    \|u_2-u_1\|\overset{def}{=}\|\set{F}(u_0)-\set{F}(u_1)\|\leq k\|u_0-u_1\|
+\end{align*}
+ogólniej:
+$$\|u_k-u_{k-1}\|=\|\set{F}(u_{k-1})-\set{F}(u_{k-2})\|\leq l\|u_{k-1}-u_{k-2}\|\leq...\leq l^{k-1}\|u_1-u_0\|$$
+Czyli
+$$\sum\limits_{k=1}^\infty\|u_k-u_{k-1}\|\leq\sum\limits_{k=1}^\infty l^{k-1}\|u_1-u_0\|,$$
+a to jest zbieżne, bo $l\in (0, 1)$. Zatem $u_n$ zbiega jednostajnie do $\sum\limits_{k=1}^\infty (u_{k}-u_{k-1})+u_0$.
+
+\subsection{Zastosowania Twierdzenia Banacha}
+
+Mamy równanie
+$$y(t)=y_0+\int_{t_0}^tf(s, y(s))ds$$
+chcemy znaleźć rozwiązanie tego równania.
+
+Niech $X=C[t_0,t_0+h]$. Jak wygląda $\set{F}$?
+$$\set{F}(y)(t)=y_0+\int_{t_0}^tf(s, y(s))ds$$
+Definiujemy $Z\subseteq C[t_0, t_0+h]$. Weźmy dowolne $a,b>0$. Wprowadźmy oznaczenia:
+$$R=\{(t, y)\;:\;t_0\leq t\leq t_0+a,\;|y-y_0|\leq b\}$$
+
+\begin{illustration}
+    \draw[->] (0, 0)--(4, 0) node [right] {t};
+    \draw[->] (0, 0)--(0, 5) node [above right] {y};
+    \draw[dashed] (1, 1)--(1, 3.5);
+    \draw[dashed] (3, 1)--(3, 3.5);
+    \draw[dashed] (3, 1)--(1, 1);
+    \draw[dashed] (3, 3.5)--(1, 3.5);
+    \node at (0, 1) {$\bullet$};
+    \node at (0, 2.25) {$\bullet$};
+    \node at (0, 3.5) {$\bullet$};
+    \node at (-0.8, 1) {$y_0-b$};
+    \node at (-0.8, 3.5) {$y_0+b$};
+    \node at (-0.5, 2.25) {$y_0$};
+    \node at (1, -0.5) {$t_0$};
+    \node at (3, -0.5) {$t_0+a$};
+\end{illustration}
+
+$$M=\max\limits_{(t, y)\in R}|f(t, y)|$$
+$$L=\max\limits_{(t, y)}|{\partial\over\partial y(t, y)|}$$
+
+Weźmy dowolne $h$ spełniające 
+$$0<h<\min\{a, \frac bM, \frac1L\}$$
+Niech 
+$$Z=\{f\in C[t_0, t_0+h]\;:\;(\forall\;t\in [t_0,t_0+h])\;|y(t)-y_0|\leq M(t-t_0)\}$$
+{\large\color{orange}Objaśnienie trzeba dopisać, bo nie słuchałam}
+
+
+Pokażemy, że $Z$ spełnia założenia w twierdzeniu Banacha:
+
+\indent 1. $Z$ jest domknięty na zbieżność jednostajną
+
+\indent 2. $\set{F}(Z)\subseteq Z$ i niech $y\in Z$. Szacujemy 
+$$|\set{F}(y)(t)-y_0|=\left|\int_{t_0}^tf(s, y(s))ds\right|,$$
+ale na tym przedziale $(s, y(s))\in R$, więc
+$$\left|\int_{t_0}^tf(s, y(s))ds\right|\leq \int_{t_0}^t|f(s, y(s))|ds\leq \int_{t_0}^tM(t-t_0)ds$$
+
+\indent 3. Kontrakcja: $y,\overline y\in Z$. Szacujemy 
+\begin{align*}
+    |\set{F}(y)(t)-\set{F}(\overline y)(t)|&=\left|\int_{t_0}^tf(s, y(s))-f(s, \overline y(s))ds\right|\leq\\
+    &\leq\int_{t_0}^t|f(s, y(s))-f(s, \overline y(s))|ds
+\end{align*}
+Teraz dla każdego $s\in[t_0,t]$ stosujemy twierdzenie o wartości średniej:
+$$|f(s, y(s))-f(s, \overline y(s))|=|{\partial\over\partial s}f(s, \theta)||y(s)-\overline y (s)|$$
+dla pewnego $(s, \theta)\in R$.
+
+Zatem
+$$|\set{F}(y)(t)-\set{F}(\overline y)(t_0)|(t-t_0)\leq Lh\|y-\overline y\|$$
+a ponieważ $Lh<1$, to mamy $l=LH$ jak z założenia twierdzenia o punkcie stałym.
+
+\subsection{Twierdzenie Picarda-Lindel\"ofa}
+
+Ten sposób rozwiązywania równań nazywa się często \acc{iteracjami Picarda}.
+\medskip
+
+\deff{\large Założenia:}
+
+\indent \point $f$ i ${\partial\over\partial y}f$ są ciągle w otoczeniu $(t_0,y_0)$
+
+\indent \point $a,b>0$ są dowolne 
+
+\indent \point $R=\{(t, y)\;:\;t_0\leq t\leq t_0+a,\;|y-y_0|\leq b\}$
+
+\indent \point $M=\max\limits_{(t, y)\in R}|f(t, y)|$, $L=\max\limits_{(t, y)}|{\partial\over\partial y(t, y)|}$
+
+\indent \point $0<h<\min\{a, \frac bM, \frac1L\}$
+
+\deff{\large Teza:}
+
+Wtedy zagadnienie Cauchy'ego
+$$y'=f(t, y(t))$$
+ma rozwiązanie na $[t_0,t_0+h]$.
+
+Dlaczego nie napisaliśmy jeszcze, że jest dokładnie jedno rozwiązanie? Bo czasem może się trafić jakiś inny punkt stały poza $Z$.
+\medskip
+
+\textbf{Przykład:}
+
+Popatrzmy na $y'=y$ i $y(0)=1$. Rozwiązanie jest nietrudno znaleźć, aly my chcemy spróbować skorzystać z twierdzenia Banacha o punkcie stałym.
+$$y(t)=1+\int_{t_0}^ty(s)ds.$$
+Definiujemy ciąg
+$$y_0(t)=y_0$$
+$$y_{n+1}=1+\int_{t_0}^ty_n(s)ds$$
+
+Jeśli $y_0(t)=1$, to
+$$y_1(t)=1+\int_{0}^t1ds=1+t$$
+$$y_2(t)=1+\int_0^ty_1(s)ds=1+\int_0^t(1+t)ds=1+t+\frac{t^2}2$$
+indukcyjnie
+$$y_n(t)=1+t+\frac{t^2}2+...+{t^n\over n!}$$
+to zbiega niemal jednostajnie do $e^t$.
+
+\deff{\large Uwaga:} Rozwiązanie (\coffee) istnieje na odcinku $[t_0,t_0+h]$, gdzie $h$ jest dowolne i spełnia 
+$$0<h<\min\{a, \frac bM, \frac1L\}$$
+Założenie, że $h<\frac1L$ nie jest potrzebne, bo wtedy przedłużanie rozwiązań.
+\medskip
+
+\textbf{Przykład:}
+$$y'=t^2+e^{-y^2}$$
+$$y(0)=0$$
+Niech
+$$R=\{(t, y)\;:\;0\leq t\leq 12=a,\;|y|\leq 1=b\}$$
+Wtedy 
+$$M=\max_R|t^2+e^{-y^2}|=\left(\frac12\right)^2+1=\frac54$$
+a więc 
+$$h<\min\{\frac12, {1\over\frac54}=\frac45\}=\frac12.$$
+Z twierdzenia Picarda-Lindel\"ofa istnieje rozwiązanie na $[0, h]$, gdzie $h<\frac12$.
+
+\subsection{Jednoznaczność rozwiązań}
+
+\deff{\large Lemat Greenwalla}: Załóżmy, że $w\in C[t_0,t_0+h]$ spełnia:
+
+\indent 1. $w(x)\geq0$
+
+\indent 2.istnieje takie $c$, że $w(t)\leq c\int_{t_0}^tw(s)ds$ dla wszystkich $t\in[t_0,t_0+h]$
+
+Wówczas $w\equiv0$.
+
+\textbf{Dowód:} Dla każdego $\varepsilon>0$ $w$ spełnia:
+$$w(t)\leq c\int_0^tw(s)ds+\varepsilon>0$$
+czyli
+$${w(t)\over \int_{t_0}^tw(s)ds+\frac\varepsilon c}\leq c$$
+$${d\over dt}\ln\left(\int_{t_0}^tw(s)ds+\frac\varepsilon c\right)={w(t)\over \int_{t_0}^tw(s)ds+\frac\varepsilon c}\leq c$$
+$$\int_{t_0}^t{d\over dt}\ln\left(\int_{t_0}^tw(s)ds+\frac\varepsilon c\right)\leq \int_{t_0}^tcds$$
+$$\ln\left(\int_{t_0}^tw(s)ds+\frac\varepsilon c\right)-\ln\left(\int_{t_0}^{t_0}w(s)ds+\frac\varepsilon c\right)=\ln\left(\int_{t_0}^tw(s)ds+\frac\varepsilon c\right)-\frac\varepsilon2\leq c(t-t_0)$$
+$$\int_{t_0}^tw(s)ds+\frac\varepsilon c\leq\frac\varepsilon ce^{c(t-t_0)}$$
+ostatecznie
+$${w(t)\over c}\leq c\int_{t_0}^tw(s)ds\leq \frac\varepsilon ce^{c(t-t_0)}-\frac\varepsilon c\xrightarrow[]{\varepsilon\to 0}0$$
+\proofend
+
+\deff{\large Jednoznaczność rozwiązania:}
+
+Załóżmy, że mamy dwa rozwiązania $y, \overline y$ zagadnienia
+$$\begin{cases}
+    y'=f(t, y)\\
+    y(t_0)=y_0
+\end{cases}$$
+oba spełniają
+$$y(t)=y_0+\int_{t_0}^tf(s, y(s))ds$$
+$$\overline y(t)=y_0+\int_{t_0}^tf(s, \overline y(s))ds.$$
+
+Niech 
+$$w(t)=|y(t)-\overline y(t)|\leq \int_{t_0}^t|f(s, y(s))-f(s, \overline y(s))|ds\leq L\int_{t_0}^t|y(s)-\overline y(s)|ds$$
+i z Greenwalla mamy, że $w(t)=0$.
+
+\subsection{Luźniej o Twierdzeniu Banacha}
+
+Niech $X=\R$, które są przestrzenią Banacha. Chcemy rozwiązać
+$$x=a+bx^2=\set{F}(x)$$
+zastosujmy twierdzenie Banacha o punkcie stałym.
+
+Trzeba by było znaleźć podzbiór, pokazać że jest zamknięty etc., ale możemy to sobie rozwiązać graficznie
+
+\begin{illustration}
+    \draw (0,0)--(6, 0);
+    \draw (0, 0)--(0, 6);
+    \draw (0, 1)..controls (1, 0) and (4, 0)..(5, 6);
+    \draw (0, 0)--(5, 5.5) node [right, above] {y=x};
+    \node at (2, -0.5) {$x_0$};
+\end{illustration}
+$\set{F}$ rzutuje nam coraz bliżej $OY$. Jest też drugi punkt stały, ten wyżej, do którego nie dojdziemy za pomocą Banacha.
