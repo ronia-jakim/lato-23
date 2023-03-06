@@ -283,6 +283,21 @@ Suppose that $x,y\in K\setminus\{0\}$ such that $xy=0$. But $x,y\in K_i$ and so 
 \emph{\color{pink}Prove that the set $\{\sqrt{p}\;:\;p\text{ is a prime number}\}$ is linearly independent over the field $\Q$.}
 \smallskip
 
-Consider a polynomial $a_1x_1+a_2x_2+...+a_nx_n\in\Q[x_1,...,x_n]$
+We will prove by induction that for any $p_1,...,p_n$ and any $a_1,...,a_n\in\Q$ the sum
+$$\sum a_i\sqrt{p_i}\neq0$$
+
+For $n=2$ it is quite simple. If
+$$a_1\sqrt{p_1}+a_2\sqrt{p_2}=0$$
+then
+$$a_1\sqrt{p_1}=-a_2\sqrt{p_2}$$
+$$a_1^2p_1=a_2^2p_2$$
+and that cannot be true because $p_2$ appears once on the RHS and on the left side can only appear even number of times.
+
+Suppose that $\sum\limits_{i=1}^{n}a_i\sqrt{p_i}=A\neq 0$ and if we add $a\sqrt{p}$ then we suddenly get $0$:
+$$a_1\sqrt{p_1}+a_2\sqrt{p_2}+...+a_n\sqrt{p_n}+a\sqrt{p}=0$$
+$$a_1\sqrt{p_1}+a_2\sqrt{p_2}+...+a_{n}\sqrt{p_n}=-a\sqrt{p}$$
+$$b_1\sqrt{p_1}+b_2\sqrt{p_2}+...+b_n\sqrt{p_n}=\sqrt{p}$$
+now, multiplying this by $\sqrt{p}$ on both sides gives us:
+$$\sqrt{p}(b_1\sqrt{p_1}+b_2\sqrt{p_2}+...+b_n\sqrt{p_n})=p\in\Q$$
 
 \end{document}

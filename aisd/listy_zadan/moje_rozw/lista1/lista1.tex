@@ -11,17 +11,17 @@
 
     \hline
 
-    - & - & - & - & - & - & - & - & ---\\
+    + & - & + & + & + & - & - & - & ---\\
 
     \hline
 \end{tabular}\end{center}
 
 \subsection*{ZADANIE 1.}
-\emph{Napisz rekurencyjne funkcje, które dla danego drzewa binarnego $T$ obliczają:}
+\emph{\color{pink}Napisz rekurencyjne funkcje, które dla danego drzewa binarnego $T$ obliczają:}
 
 Zakładam, że drzewa są pełne binarne (czyli albo ma dwoje dzieci, albo ani jednego)
 
-\emph{(a) liczbę wierzchołków w $T$}
+\emph{\color{pink}(a) liczbę wierzchołków w $T$}
 
 \begin{lstlisting}[language=Python]
 # dupa
@@ -35,7 +35,7 @@ function cnt_vertices(v):
         return 1
 \end{lstlisting}
 
-\emph{(b) maksymalną odległość między wierzchołkami w $T$.}
+\emph{\color{pink}(b) maksymalną odległość między wierzchołkami w $T$.}
 
 \begin{lstlisting}[language=Python]
 # dupa
@@ -56,22 +56,103 @@ OUTPUT max(ret[0], ret[1])
 \end{lstlisting}
 
 \subsection*{ZADANIE 3.}
-\emph{\text{Porządkiem topologicznym} wierzchołków acyklicznego digrafu $G=(V, E)$ nazywamy taki liniowy porządek jego wierzchołków, w którym początek każdej krawędzi występuje przed jej końcem. Jeśli wierzchołki z $V$ utożsamimy z początkowymi liczbami naturalnymi, to każdy ich porządek liniowy można opisać permutacją liczb $1,...,|V|=n$; w szczególności pozwala to na porównanie leksykograficzne porządków.}
+\text{\color{pink}Porządkiem topologicznym} \emph{\color{pink}wierzchołków acyklicznego digrafu $G=(V, E)$ nazywamy taki liniowy porządek jego wierzchołków, w którym początek każdej krawędzi występuje przed jej końcem. Jeśli wierzchołki z $V$ utożsamimy z początkowymi liczbami naturalnymi, to każdy ich porządek liniowy można opisać permutacją liczb $1,...,|V|=n$; w szczególności pozwala to na porównanie leksykograficzne porządków.}
 
-\emph{Ułóż algorytm, który dla danego acyklicznego digrafu znajduje pierwszy leksykograficznie porządek topologiczny.}
+\emph{\color{pink}Ułóż algorytm, który dla danego acyklicznego digrafu znajduje pierwszy leksykograficznie porządek topologiczny.}
 \smallskip
 
-\subsection*{ZADANIE 4.}
-\emph{Niech $u$ i $v$ będą dwoma wierzchołkami w grafi nieskierowanym $G=(V, E; c)$, gdzie $c:E\to \R_+$ jest funkcją wagową. Mówimy, że droga z $u=u_1,...,u_{k-1},u_k=v$ z $u$ do $v$ jest sensowna, jeśli dla każdego $i=2,...,k$ istnieje droga z $u_i$ do $v$ krótsza od każdej drogi z $u_{i-1}$ do $v$ (przez długość drogi rozumiemy sumę wag jej krawędzi).}
+\begin{lstlisting}[language=Python]
+A <- macierz sasiedztwa
+IN <- tablica ilosci krawedzi wchodzacych do wierzcholka
 
-\emph{Ułóż algorytm, który dla danego $G$ oraz wierzchołków $u$ i $v$ wyznaczy liczbę sensownych dróg z $u$ do $v$.}
+ret <- []
+golaski <- [] kolejka piorytetowa
+
+i <- 0
+
+# sprawdzam potencjalne poczatki mojej permutacji i pamietam je w kolejnosci rosnacej
+while i < n:
+    if IN[i] == 0:
+        golaski.insert-node(i)
+
+# dopoki mam potencjalne wierzcholki do wstawienia
+while len(golaski) > 0:
+    m <- find-min(golaski)
+    ret.append(m)
+    golaski.deletemin()
+
+    # obcinam golaska od jego sasiadow
+    for i in A[m]:
+        IN[i]--
+        if IN[i] == 0:
+            golaski.push_back(i)
+    
+OUTPUT ret
+\end{lstlisting}
+
+\subsection*{ZADANIE 4.}
+\emph{\color{pink}Niech $u$ i $v$ będą dwoma wierzchołkami w grafi nieskierowanym $G=(V, E; c)$, gdzie $c:E\to \R_+$ jest funkcją wagową. Mówimy, że droga z $u=u_1,...,u_{k-1},u_k=v$ z $u$ do $v$ jest sensowna, jeśli dla każdego $i=2,...,k$ istnieje droga z $u_i$ do $v$ krótsza od każdej drogi z $u_{i-1}$ do $v$ (przez długość drogi rozumiemy sumę wag jej krawędzi).}
+
+\emph{\color{pink}Ułóż algorytm, który dla danego $G$ oraz wierzchołków $u$ i $v$ wyznaczy liczbę sensownych dróg z $u$ do $v$.}
+
+\begin{lstlisting}[language=Python]
+A <- tablica somsiadow
+
+D <- robimy Dijkstre, dostajemy tablice
+
+i <- 0
+
+S <- [[] * n]
+
+while i < n:
+    for j in A[i]:
+        if D[i] > D[j]:
+            S[i].push_back(j)
+        else if D[j] > D[i]:
+            S[j].push_back(i)
+
+P <- topo sort <3
+
+Dupa <- puste n * []
+Dupa[u] <- 1
+
+for i in P:
+    for j in S[i]:
+        Dupa[j] += Dupa[i]
+
+OUTPUT Dupa[v]
+\end{lstlisting}
 
 \subsection*{ZADANIE 5.}
+\emph{\color{pink}Ułóż algorytm, który dla zadanego acyklicznego grafy skierowanego $G$ znajduje długość najdłuższej drogi w $G$. Następnie zmodyfikuj swój algorytm tak, by wypisywał drogę o największej długości (jeśli jest kilka takich dróg, to Twój algorytm powinien wypisać dowolną z nich).}
 
-\begin{lstlisting}{language=Python}
+
+\begin{lstlisting}[language=Python]
 A <- lista sasiedztwa
 IN <- stworzona przy wczytywaniu lista 
 
+golaski <- []
+
+MAX_DROGA <- tablica n razy 0
+
+i <- 0
+while i < n:
+    if IN[i] == 0:
+        golaski.append(i)
+
+while len(golaski) > 0:
+    m <- golaski[len(golaski)]
+    golaski.pop_back()
+    
+    for i in A[m]:
+        IN[i]--
+        if IN[i] == 0:  
+            golaski.push_back(i)
+
+        # tutaj maksymalna droga do i to jest albo to co bylo, albo droga do m powiekszona o 1?
+        MAX_DROGA[i] = max(MAX_DROGA[m] + 1, MAX_DROGA[i])
+
+OUTPUT max(MAX_DROGA)
 
 \end{lstlisting}
 

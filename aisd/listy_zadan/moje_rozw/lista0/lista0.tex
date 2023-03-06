@@ -145,6 +145,35 @@ output ret
 \subsection*{ZADANIE 8.}
 \emph{Ułóż algorytm, który dla drzewa $T=(V, E)$ oraz listy par wierzchołków $\{v_i,u_i\}$ ($i=1,...,m$) sprawdza, czy $v_i$ leży na ścieżce z $u_i$ do korzenia. Przyjmij, że drzewo zadane jest jako lista $(n-1)$ krawędzi $(p_i,a_i)$ takich, że $p_i$ jest ojcem $a_i$ w drzewie.}
 
+Najpierw wersja prosta, czyli dla jednej pary wierzchołków:
+\begin{lstlisting}[language=Python]
+A <- tablica sasiedztwa
+
+u, v <- para wierzcholkow ktore szukamy
+
+czy_v <- false
+
+def dfsik(i):
+    if i == u:
+        if czy_v == false:
+            return -1
+        else:
+            return 1
+    if i == v:
+        czy_v <- true
+
+    for x in A[i]:
+        dfsik(x)
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+A <- tablica sasiedztwa
+
+
+
+\end{lstlisting}
+
 % \begin{lstlisting}[language=python]
 % wierzcholki - tablica vector<int>
 
