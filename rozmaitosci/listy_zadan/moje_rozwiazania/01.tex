@@ -174,7 +174,7 @@ jest atlasem maksymalnym z $\Sigma$ zawierającym $\set{A}$.
 
 To, że $\set{A}\subseteq A$ jest oczywiste: $\set{A}$ pojawia się jako element sumy którą jest $A$. To, że $A$ jest atlasem też jest jasne: każdy atlas z sumy pokrywa nam całe $M$, a ponieważ wszystkie atlasy z $\Sigma$ są zgodne, to mamy, że jeśli wszystkie wsadzimy w jeden worek, to też dostaniemy atlas złożony z map zgodnych.
 
-$A$ jest atlasem maksymalnym, bo wyjęcie z niego jakiejkolwiek mapy (czyli wyjęcie atlasów, które ją zawierają), będzie równoznaczne z niezawieraniem przez $A$ wszystkich zgodnych map.
+$A$ jest jedynym atlasem maksymalnym, bo wyjęcie z niego jakiejkolwiek mapy (czyli wyjęcie atlasów, które ją zawierają), będzie równoznaczne z niezawieraniem przez $A$ wszystkich zgodnych map.
 
 \subsection*{ZADANIE 11.}
 \emph{\color{pink}Uzasadnij, że produkt $M\times N$ rozmaitości topologicznych jest rozmaitością topologiczną. Zakładając, że $M$ i $N$ są rozmaitościami gładkimi, opisz naturalny atlas definiujący strukturę gładką na produkcie (i sprawdź, że mapy są gładko zgodne).}
@@ -209,13 +209,44 @@ Niech $\set{M}$ będzie atlasem na $M$, a $\set{N}$ będzie atlasem na $N$. Twie
 $$\set{A}=\{(U\times V, \phi\times\psi)\;:\;(U, \phi)\in\set{M}, (V,\psi)\in\set{N}\},$$
 gdzie $\phi\times\psi$ to funkcja jak $\heartsuit$ wyżej.
 
+ONI TUTAJ JAKIEŚ JAKOBIANY SZUKAJA
+$$D(\phi_1\phi_2^{-1}\times\psi_1\psi_2^{-1})=\begin{bmatrix}
+    D(\phi_1\phi_2^{-1}&0\\0&D\psi_1\psi_2^{-1})
+\end{bmatrix}$$
+
 \subsection*{ZADANIE 12.}
-\emph{\color{yellow}Znajdź gładki atlas na $\R^1$ niezgodny ze standardowym. Zrób to samo dla $S^1$.}
+\emph{\color{pink}Znajdź gładki atlas na $\R^1$ niezgodny ze standardowym. Zrób to samo dla $S^1$.}
 \medskip
 
-Odmawiam. Lols.
+Mamy $\R^1$ jako potęgę rozmaitość i $\R$ jako jej model. Funkcja z $\phi_1:\R^1\to\R$ będzie mapą taką, że dla $x\in\R^1$ $\phi_1(x)=\sqrt[3]{x}\in\R$. Nie jest to zgodne, bo dla $\phi_2=id$ mapy nie są zgodne.
+
+Warto sobie sprawdzić, że $\sqrt[3]{x}$ jest dyfeomorfizmem.
+
+Całkiem ściśle wypadałoby jeszcze pokazać, że ta mapa sama w sobie zadaje atlas, ale nam się nie chce.
+
+Dla $S^1$ chcemy ten kawałek nieróżniczkowalny mapy $\sqrt[3]{x}$ wkleić w $S^1$. Bierzemy wykres funkcji biegunowych dla $S^1$.
 
 \subsection*{ZADANIE 13.}
 \emph{\color{pink}Uzasadnij, że dla $k\geq1$ nie istnieje $c^k$-dyfeomorfizm pomiędzy otwartymi podzbiorami w $\R^n$ i $\R^m$ gdy $n\neq m$. Pozwoli to określić pojęcie wymiaru gładkiej rozmaitości w sposób niezależny od topologicznego (znacznie trudniejszego) twierdzenia o nieistnieniu homeomorfizmu pomiędzy otwartymi podzbiorami w $\R^n$ i $\R^m$.}
+
+Pokażemy, że nie istnieje $C^1$ dyfeomorfizm $f:O\subseteq\R^n\to\Omega\subseteq\R^m$ dla $n\neq m$.
+
+Ponieważ dyfeomorfizm musi mieć odwrotność, to $f^{-1}:\Omega\to O$. Możemy założyć, że $m<n$. Pokażemy, że funkcja $C^1$ i "na" nie jest $1-1$. Weźmy $x\in O$, wtedy wiemy, że $\ker(Df(x))\geq1$, bo jeśli mamy operator liniowy $T:V\to W$ i $dim(V)=dim(ker T)+dim(Im T)$.
+
+Zdefiniujmy $F:\R^m\to\R^m$ i $F(x)=(f(x_1,...,x_n), x_{n+1},...,x_{m})$. Z twierdzenia o funkcji odwrotnej wiemy, że jeśli $F$ jest bijekcją na otoczeniu $x$, to dla małego $h$
+$$f(x_1,...,f_m,x_{m+1})$$
+
+Rozwiązanie dużo prostsze: $f^{-1}\circ f=id_{\R^n}$, czyli stosując chain rule
+$$Did_{\R^n}=D(f^{-1}\circ f)=Df^{-1}\cdot Df$$
+stąd $m\geq n$
+$$f\circ f^{-1}=id_{\R^m}$$
+a tutaj $n\geq m$.
+
+\subsection*{ZADANIE 15.}
+\emph{\color{yellow}Niech $M$ będzie rozmaitością gładką, $p\in M$ ustalonym punktem zaś $f:M\to\R$ funkcją rzeczywistą na $M$. Uzasadnij, że jednokrotna różniczkowalność funkcji $f\circ\phi^{-1}$ w punkcie $\phi(p)$ nie zależy od wyboru mapy $(U, \phi)$ zawierającej $p$ (tzn. takiej, że $p\in U$). Oznacza to, że jednokrotna różniczkowalność w punkcie jest dobrze określonym pojęciem dla funkcji rzeczywistych na rozmaitości gładkiej.}
+
+$$\lim\limits_{h\to0}{f\phi_1^{-1}(\phi_1(p)+h)-f\phi_1^{-1}(p)\over h}=c\text{ istnieje}$$
+
+Rysuneczek się przydałby i powiedzieć, że złożenie funkcji gładkich jest różniczkowalne.
 
 \end{document}

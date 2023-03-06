@@ -192,6 +192,30 @@ From Remark 1.4. we know that $\overline{a}$ is a generic solution $\iff$ for an
 \emph{\color{pink}Which of the following solutions of the equation $X_1^2-X_2^3=0$ in the field of rational functions $\C(X)$ are generic over the field $\Q$?}
 
 \emph{\color{pink}(a) $(1, 1)$}
+\smallskip
+
+Ok, so a solution is generic if $\{g\in K[X]\;:\;g(a)=0\}=(f_1,...,f_m)$. So maybe I should look for all polynomials that $g(1, 1)=0$?
+$$(x-1),(y-1)$$
+And it is quite difficult to make a linear polynomial from a polynomial of order $3$.
+
+\emph{\color{pink} $(\sqrt[6]{8}, \sqrt[6]{4})$}
+\smallskip
+
+$$(x^6-8)=(x^2-2)(x^4+2x^2+4)$$
+$$(y^6-4)=(y^3-2)(y^3+2)$$
+
+So the 
+$$I(\overline a/K=\Q)=((x^2-2), (y^3-2))?$$ 
+Suppose that $((x^2-2), (y^3-2))=((x^2-y^3))$. Then we would have that for some $p, q\in \Q[X]$
+$$\begin{cases}
+    x^2-2=p(x^2-y^3)\\
+    y^3-2=q(x^2-y^3)
+\end{cases}$$
+But like, $p$ cannot reduce the degree of $y$ ans $q$ cannot reduce the degree of $x$ so this is absurd.
+
+\emph{\color{pink} $(1, \cos\frac23\pi+i\sin\frac23\pi)$}
+
+Osz to jest w zespo.
 
 \subsection*{ZADANIE 6.}
 \emph{\color{pink}Assume that $f\in K[X]$ is irreducible, $deg(f)=n>0$, $char(K)=0$ and $L$ is the splitting field of polynomial $f$ over $K$. Prove that the field $L$ has at least $n$ distinct automorphisms.}
@@ -234,6 +258,26 @@ Let $\phi\in Aut(L)$ such that $\phi_{\obciete K}=id_K$. Let $a_1,...,a_n\in L$ 
     &=\sum\limits_{k=0}^n\phi(\alpha_k)\phi(a_i^k)=\sum\limits_{k=0}^n\alpha_k\phi(a_i)^k=f(\phi(a_i))
 \end{align*}
 which implies that we can define an automorphism on $L$ by simply mapping $a_i$ to any of the roots of $f$ and keeping the coefficients from $K$ in place. This gives us with at least $n$ such permutations of roots.
+
+\subsection*{ZADANIE 7.}
+\emph{\color{pink}Assume that $K_1\subseteq K_2\subseteq K_3\subseteq...$ is an ascending sequence of fields. Verify in detail that $\bigcup K_n$ is also a field, containing $K_1,K_2,...$ as subfields.}
+\smallskip
+
+\indent 1. Group under addition:
+
+Let $x, y\in K$, then $x,y\in K_i$ and so $x+y\in K_i,-x\in K_i, -y\in K_i$ because $K_i$ is a field. Therefore, $x+y,-x\in K$.
+
+\indent 2. Group under multiplication:
+
+Let $x,y\in K$ then $x,y\in K_i$ and so $xy\in K_i$ and $x^{-1}\in K_i$. Therefore, $xy\in K$ and $x^{-1}\in K$.
+
+\indent 3. Identity element \& the zero:
+
+I guess it boils down to showing that if $K\subseteq L$ are fields, then $1_K=1_L$. Consider $x^2-x\in K[X]$. We know that $1_K, 0_K$ are the two solutions in $K$ and $1_L, 0_L$ are the two solutions in $L$. Therefore $\{1_K,0_K\}=\{1_L, 0_L\}$. If $1_K=0_L$, then for any $x\in K\subseteq L$ we would have that $x=1_Kx=0_Lx=0_L$ and so $x$ would be a zero divisor in $L$ which cannot be true.
+
+\indent 4. No zero divisors?
+
+Suppose that $x,y\in K\setminus\{0\}$ such that $xy=0$. But $x,y\in K_i$ and so $xy\in K_i$ and because $K_i$ is a field, then $xy\neq 0$
 
 \subsection*{EXERCISE 8.}
 \emph{\color{pink}Prove that the set $\{\sqrt{p}\;:\;p\text{ is a prime number}\}$ is linearly independent over the field $\Q$.}
