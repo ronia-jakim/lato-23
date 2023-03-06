@@ -112,4 +112,65 @@ $\mathfrak{a}^e$ to rozszerzenie obrazy $\phi(\mathfrak{a})$ do ideału w $B$.
 \end{align*}
 Ta ostatnia równość z jakiegoś poprzedniego zadanka, bo wtedy mam, że $V(E)=V((E))$ i to jest to samo.
 
+\emph{\color{pink}(iii) Jeśli $\mathfrak{b}$ jest ideałem $B$, wtedy $\overline{\phi^*(V(\mathfrak{b}))}=V(\mathfrak{b}^c)$}
+\begin{align*}
+    \phi^*(V(\mathfrak{b}))&=\{\phi^{-1}(y)\;:\;\mathfrak{b}\subseteq y\in Y\}=\{x\in X\;:\;\phi(x)=y\supseteq \mathfrak{b}\}=\\
+    &=\{x\in X\;:\;\mathfrak{b}\subseteq\phi(x)\}\overset{\star}{=}\{x\in X\;:\;\phi^{-1}(\mathfrak{b})\subseteq x\}=V(\phi^{-1}(\mathfrak{b}))=V(\mathfrak{b}^c)
+\end{align*}
+
+\emph{\color{yellow}(iv) Jeżeli $\phi$ jest suriekcją, wtedy $\phi^*$ jest homeomorfizmem z $Y$ w zamknięty zbiór $V(ker(\phi))$ $X$. (W szczególności $Spec(A)$ i $Spec(A/\mathfrak{R})$, gdzie $\mathfrak{R}$ to nilradykał $A$, są naturalnie homeomorficzne.)}
+
+
+\emph{\color{yellow}(v) Jeśli $\phi$ jest 1-1, to $\phi^*(Y)$ jest gęste w $X$. Dokładniej, $\phi^*(Y)$ jest gęste w $X$ $\iff ker(\phi)\subseteq\mathfrak{R}$}
+
+$\implies$
+
+$$Y=V(0)=V(\phi(ker(\phi)))$$
+Z gęstości $Y$ mam:
+$$V(0)=V(\mathfrak{R})=X=\overline{\phi^*(Y)}=\overline{\phi^*(V(\phi(ker(\phi))))}=V(\phi^{-1}(\phi(ker(\phi))))=V(ker(\phi))$$
+A ponieważ $\mathfrak{R}$ jest ideałem pierwszym, to $\ker(\phi)\subseteq\mathfrak{R}$
+
+$\impliedby$
+
+Wiem, że $ker(\phi)\subseteq\mathfrak{R}$. No to wtedy
+$$V((ker\phi))=X$$
+No to wtedy
+$$V(\phi(ker(\phi)))=V((0))=Y$$
+\begin{align*}
+    \phi^*(Y)&=\phi^*(V(\phi(ker(\phi))))=\{\phi^{-1}(y)\;:\;\phi(ker(\phi))\subseteq y\in Y\}=\\
+    &=\{x\in X\;:\;\phi(ker(\phi))\subseteq\phi(x)\}=V(ker(\phi))=X
+\end{align*}
+
+\subsection*{ZADANIE 22.}
+\emph{\color{yellow}Niech $A=\prod\limits_{i=1}^nA_i$ będzie produktem prostym pierścieni $A_i$. Pokaż, że $Spec(A)$ jest rozłączną sumą otwartych (i zamkniętych) podzbiorów $X_i$, gdzie $X_i$ jest kanonicznie homeomorficzna z $Spec(A_i)$}
+
+To widać. Kanoniczny homeomorfizm to będzie identyczność na jednej współrzędnej i resztę wyrzucamy. 
+
+\emph{\color{pink}Teraz niech $A$ będzie dowolnym pierścieniem. Pokaż, że następujące są równoważne:}
+
+\emph{(i) $X=Spec(A)$ jest niespójna}
+
+\emph{(ii) $A\cong A_1\times A_2$ gdzie żaden z $A_1,A_2$ nie jest pierścieniem zerowym.}
+
+\emph{(iii) $A$ zawiera idempotent $\neq0,1$}
+\medskip
+
+$(i)\implies (ii)$
+
+Skoro $X$ jest niespójna, to jest sumą dwóch rozłącznych zbiorów $V(\mathfrak{a}), V(\mathfrak{b})$.  Mam też, że te zbiory są rozłączne, czyli
+$$\emptyset=V(\mathfrak{a})\cap V(\mathfrak{b})=V(\mathfrak{a}\cup\mathfrak{b})$$
+ale $\mathfrak{a}\cup\mathfrak{b}\subseteq\mathfrak{a}+\mathfrak{b}$, które w tym wypadku wyszłoby $(1)$, bo
+$$V(1)=\emptyset=V(\mathfrak{a}\cup\mathfrak{b})\supseteq V(\mathfrak{a}+\mathfrak{b})$$
+% Dodatkowo,
+% $$V(\mathfrak{a})\cup V(\mathfrak{b})=X$$
+% a z zadania 15 mamy, że wtedy
+% $$V(\mathfrak{a})\cup V(\mathfrak{b})=V(\mathfrak{a}\cap \mathfrak{b})=V(\mathfrak{a}\mathfrak{b})$$
+% czyli $\mathfrak{R}=\mathfrak{a}\mathfrak{b}$.
+
+Czyli mam tutaj $\mathfrak{a},\mathfrak{b}$ wzajemnie pierwsze, czyli $\phi:A\to A/\mathfrak{a}\times A/\mathfrak{b}$ jest izomorfizmem pierścieni.
+
+$(ii)\implies (iii)$
+
+
+
 \end{document}
