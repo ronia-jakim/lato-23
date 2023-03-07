@@ -32,6 +32,8 @@ i jest to sprzeczność.
     Niech $a$ jak wyżej. Wtedy $a$ jest algebraiczny nad $K$ $\iff$ $I(a/K)\neq\{0\}$ jako ideał $K[X]$.
 \end{uwaga}
 
+\subsection{Wymiar przestrzeni liniowej}
+
 Niech $K\subseteq L$ będzie rozszerzeniem ciała $K$. Wtedy $L$ jest \deff{przestrzenią liniową nad $K$}. Definiujemy stopień rozszerzenia [coś innego jak indeks przy grupach]
 $$[L:K]:=\dim_K(L)$$
 jako \acc{wymiar przestrzeni liniowej} nad $K$.
@@ -49,3 +51,105 @@ jako \acc{wymiar przestrzeni liniowej} nad $K$.
 \textbf{Dowód:}
 
 $1\implies2$
+
+Wiemy, że $K[X]$ jest euklidesowy (bo $K$ to ciało), więc $K[X]$ jest też PID.
+
+Skoro $a$ jest algebraiczny nad $K$, to istnieje $f\in K[X]$ takie, że $f(a)=0$, a więc
+$$0\neq I(\overline a/K)\normalsubgroup K[X]$$
+czyli $I(a/K)$ jest maksymalnym ideałem głównym. Teraz, jeśli $I\normalsubgroup R$ jest ideałem maksymalnym pierścienia $R$, to $R/I$ jest ciałem. Czyli
+$$K[a]\cong K[X]/I(a/K)$$
+jest ciałem.
+
+$2\implies 3$
+
+Załóżmy, że $a\neq 0$. Wtedy $a^{-1}\in K[a]$, czyli istnieje wielomian $f\in K[X]$ taki, że 
+$$f(x)=\sum\limits_{i=1}^n b_ix^i,\quad b_n\neq 0$$
+i $a^{-1}=f(a)$. Wobec tego mamy
+$$1=f(a)\cdot a$$
+$$0=f(a)a-1=b_na^{n+1}+b_aa^2+...+b_0a-1,$$
+stąd mamy, że
+$$a^{n+1}=-\frac1{b_n}(b_{n-1}a^n+...+b_0a-1)\in Lin_K(1, a, ..., a^n)$$
+jest w domknięciu liniowym $(1, a,..., a^n)$. Indukcyjnie można pokazać, że
+$$(\forall\;m\geq0)\;a^m\in Lin_K(1,a,...,a^n),$$
+czyli 
+$$K[a]=K(a)=Lin_K(1,a,...,a^n),$$ 
+co daje, że $[K(a):K]\leq n<\infty$.
+
+$3\implies 1$
+
+$[K(a):K]<\infty$, z czego wynika, że
+$$\{1,a,...,a^n,...,\}=\{a^t\;:\;t\in\N\}\subseteq K(a)$$
+jest zbiorem liniowo zależnym. Z liniowej zależności wiemy, że
+$$(\exists\;n\in\N)(\exists\;b_{n-1},...,b_0)\;a^{n}=b_{n-1}a^{n-1}+...+b_1a+b_0.$$
+Stąd dla $f\in K[X]$ zadanego wzorem
+$$f(x)=x^n+b_{n-1}x^{n-1}+...+b_0$$
+mamy $f(a)=0$, zatem $a$ jest algebraiczny nad $K$.
+\medskip
+
+Niech $a\in L\supseteq K$ będzie algebraicznym pierwiastkiem nad $K$, $I(a/K)=\{w\in K[X]\;:\;w(a)=0\}=(f)$, $f\neq 0$, $f\in K[X]$, $f$ unormowany (\dyg{czyli współczynnik przy wyrazie wiodącym jest $1$?})
+
+\indent \point $f$ jest nazywany wielomianem \deff{minimalnym} $a$ nad $K$ (wyznaczony jednoznacznie)
+
+\indent \point \acc{stopień $a$} nad $K$ jest definiowany jako $deg(f)$.
+\medskip
+
+\textbf{Przykład:}
+
+\indent 1. $\sqrt{2}\in\R\supseteq\Q$, wtedy $f(x)=x^2-2$ jest wielomianem minimalnym $\sqrt2$ nad $\Q$ i stopień $\sqrt{2}$ nad $\Q$ jest równy $2$.
+
+\indent 2. $\pi\in\R$ nie ma stopnia, bo $\pi$ nie jest liczbą algebraiczną nad $\Q$
+
+\indent 3. $\sqrt[7]{7+\sqrt[3]{3}}-\sqrt[6]{6}\in\R$, czy jest to algebraiczne nad $\Q$? Tak i ma stopień $126$.
+
+\begin{uwaga}
+    Załóżmy, że $I(a/K)=(f)$ i $f$ jest unormowany. Wówczas:
+
+    \indent 1. $f$ jest unormowanym wielomianem minimalnego stopnia takim, że $f(a)=0$
+
+    \indent 2. $deg(f)=[K(a):K]$, czyli stopień tego wielomianu jest równy stopniu przestrzeni liniowej $K(a)$ nad $K$.
+\end{uwaga}
+
+\textbf{Dowód:}
+
+Niech $n=deg(f)$, 
+$$f(x)=x^n+\sum\limits_{k<n}b_kx^k$$
+Z tego, że $f(a)=0$ mamy, że 
+$$a^n=-\sum\limits_{k<n}b_kx^k\in Lin_K(1,a,...,a^{n-1})\subseteq L.$$
+Czyli $K(a)=Lin_K(1,a,...,a^{n-1})$ i wystarczy zobaczyć, że $\{1,..., a^{n-1}\}$ jest liniowo niezależny nad $K$, to znaczy jest bazą $K(a)$ nad $K$. Jest, bo $f$ jest minimalnego stopnia.
+
+\begin{fakt}
+    Niech $K\subseteq L\subseteq M$ będą rozszerzeniami ciał. Wtedy 
+    $$[M:K]=[M:L]\cdot [L:K]$$
+\end{fakt}
+
+\textbf{Dowód:}
+
+Niech $\{e_i\;:\;i\in I\}$ będzie bazą $L$ nad $K$, a $\{f_j\;:\;j\in J\}$ będzie bazą $M$ nad $L$. Stąd $|I|=[L:K]$ i $|J|=[M:L]$.
+
+Chcemy za pomocą tych dwóch zbiorków zrobić bazę $M$ nad $K$. Rozważmy zbiór
+$$X=\{e_i\cdot f_j\;:\;i\in I,j\in J\}.$$
+Musimy pokazać, że 
+
+1. $|X|=|I|\cdot|J|$
+
+2. $X$ jest liniowo niezależny
+
+3. $X$ jest bazą $M$ nad $K$
+
+Te dwa ostatnie mówią, że $X$ jest bazą.
+
+1. Załóżmy, nie wprost, że dla $i\neq i'$ i $j\neq j'$ i $e_if_j=e_{i'}f_{j'}$. Czyli
+$$e_if_j-e_{i'}f_{j'}=0,$$
+czyli $f_j,f_{j'}$ są liniowo zależne nad $L$, czyli mamy, że $f_j=f_{j'}$ i
+$$0=e_if_j-e_{i'}f_{j}=(e_i-e_{i'})f_j\implies e_i-e_{i'}=0\implies i=i'$$
+
+2. Załóżmy nie wprost, że $X$ nie jest lnz, czyli istnieją $k_{ij}\in K$ takie, że
+$$\sum\limits_{j\in J}\sum\limits_{i\in I}k_{ij}e_if_j=0,$$
+ale $\sum\limits_ik_ije_i=l_j$ są elementami $L$, czyli
+$$\sum\limits_{j\in J}l_jf_j=0$$
+więc $f_j$ są liniowo zależne, a przecież były bazowe, w takim razie
+$$0=l_j=\sum\limits_{i\in I}k_{ij}e_i,$$
+$e_i\neq0$, czyli $k_{ij}=0$ i koniec.
+
+3. $X$ generuje $M$ nad $K$, bo dla $m\in M$ mam
+$$m=\sum l_jf_j=\sum\left(\sum a_{ij}e_i\right)f_j=\sum\sum a_{ij}e_if_j=\sum \sum k_{ij}e_if_j$$
