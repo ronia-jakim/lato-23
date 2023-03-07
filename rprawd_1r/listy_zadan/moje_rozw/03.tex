@@ -6,22 +6,34 @@
 \subsection*{ZADANIE 10.}
 \emph{\color{pink}Niech $(\Omega, \set{F},\mathbb{P})$ będzie przestrzenią probabilistyczną taką, że $\Omega$ jest zbiorem dyskretnym (skończonym lub przeliczalnym). Pokaż, że nie istnieje rodzina niezależnych zdarzeń $\{A_i\}_{i\in \N}$ taka, że $\prawdo{A_n}=\frac12$ dla każdego $n$.}
 
-Najpierw rozpracuję tę wersję nieskończoną przeliczalną.
+\acc{Lemat:} W przestrzeni probabilistycznej dyskretnej $(\exists\;\omega\in\Omega)\;\prawdo{\omega}>0$ a nawet więcej, $(\forall\;A\subseteq\Omega,\prawdo{A}>0)(\exists\;\omega\in A)\;\prawdo{A}$.
 
-Załóżmy nie wprost, że mam ciąg $\{A_i\}_{i\in \N}$ taki, że
-$$\prawdo{A_i}=\frac12.$$
-Wiem, że zdarzeń z $\Omega$ jest przeliczalnie wiele, czyli jest jakiś, którego prawdopodobieństwo jest różne od zera, bo singletony są rozłączne i sumują się do całości. No to weźmy sobie $\omega\in\Omega$ takie, że $\prawdo{\omega}=p\neq0$. Teraz rysuneczek:
+Dowód jest oczywisty: jeśli taka $\omega$ by nie istniała, to
+$$1=\prawdo{\bigcup\limits_{\omega\in\Omega}\{\omega\}}=\sum\limits_{\omega\in\Omega}\prawdo{\omega}=\sum\limits_{\omega\in\Omega}0=0,$$
+bo $\Omega$ jest co najwyżej przeliczalną sumą zbiorów $\{\omega\}$ i są one rozłączne dla różnych elementów $\Omega$. Tak samo powtarzamy dla $A$ - jest ono co najwyżej przeliczalną sumą $\{\omega\}$.
+\medskip
+
+\begin{center}
+    \dyg{Pomysł jest taki, że dla dowolnego $\omega\in\Omega$ i dowolnego $n\in\N$ pokażę, że $\prawdo{\omega}<2^{-n}$, czyli jest równe zero, co jest sprzeczne z dyskretnością $\Omega$.}
+\end{center}
+\medskip
+
+\acc{Lemacik:} dla każdego $n$ $A_1,...,A_n$ ciąg zbiorów
+$$A_1^{c_1}\cap A_2^{c_2}\cap...\cap A_n^{c_n},$$
+gdzie $c_i$ koduje czy bierzemy zbiór $A_i$ czy jego dopełnienie, pokrywa całe $\Omega$.
+
+1. $n=2$, widać na obrazku:
 \begin{illustration}
     \filldraw[pattern={Hatch[line width=0.5mm, distance=3mm]}, pattern color=black!85!gray!80!] (-1, 0) rectangle (8, 6);
     %\filldraw[pattern={Dots[radius=0.7mm, distance=3mm]}, pattern color=gray] (3.5, 3) circle (2);
     \filldraw[color=back, fill=back] (3.5, 1.27) arc (-120:120:2);
     \filldraw[color = back, fill=back] (3.5, 4.73) arc (60:300:2);
-    \filldraw[color=blue, pattern={Lines[line width=1mm, distance=3mm]}, pattern color=black!85!blue!80!] (3.5, 1.27) arc (-120:120:2);
-    \filldraw[color=orange, pattern={Dots[radius=1mm, distance=3mm]}, pattern color=black!85!orange!80!] (3.5, 4.73) arc (60:300:2);
+    \filldraw[color=blue, pattern={Lines[line width=1mm, distance=3mm]}, pattern color=black!80!blue!80!] (3.5, 1.27) arc (-120:120:2);
+    \filldraw[color=orange, pattern={Dots[radius=1mm, distance=3mm]}, pattern color=black!80!orange!80!] (3.5, 4.73) arc (60:300:2);
     \filldraw[color=back, fill=back] (3.5, 1.27) arc (-60:60:2);
     \filldraw[color=back, fill=back] (3.5, 4.73) arc (120:240:2);
-    \filldraw[color=back, pattern={Stars[radius=1mm, distance=3mm]}, pattern color=black!85!green!80!] (3.5, 1.27) arc (-60:60:2);
-    \filldraw[color=back, pattern={Stars[radius=1mm, distance=3mm]}, pattern color=black!85!green!80!] (3.5, 4.73) arc (120:240:2);
+    \filldraw[color=back, pattern={Stars[radius=1mm, distance=3mm]}, pattern color=black!80!green!80!] (3.5, 1.27) arc (-60:60:2);
+    \filldraw[color=back, pattern={Stars[radius=1mm, distance=3mm]}, pattern color=black!80!green!80!] (3.5, 4.73) arc (120:240:2);
     \draw[very thick, blue] (4.5, 3) circle (2);
     \draw[very thick, color=orange] (2.5, 3) circle (2);
     \draw[very thick, color=dark-green, dashed] (3.5, 1.27) arc (-60:60:2);
@@ -34,35 +46,62 @@ Wiem, że zdarzeń z $\Omega$ jest przeliczalnie wiele, czyli jest jakiś, któr
     \node at (5.5, 3.5) {$\color{blue}A_2\cap A_1^c$};
     \node at (3.5, 3) {$\color{green}A_1\cap A_2$};
 \end{illustration}
-Czyli mamy cztery możliwości gdzie zawiera się $\omega$: $(A_1\cup A_2)^c,A_1\cap A_2,A_1\cap A_2^c,A_2\cap A_1^c$. Jak wygląda prawdopodobieństwo każdej z nich?
-\begin{align*}
-\prawdo{A_1\cup A_2}&=1-\prawdo{A_1\cap A_2}=1-\prawdo{A_1^c}\prawdo{A_2^c}=\\
-&=1-(1-\prawdo{A_1})(1-\prawdo{A_2})=1-(1-\frac12)(1-\frac12)=1-\frac14=\frac34
-\end{align*}
-\begin{align*}
-    \prawdo{A_1\cap A_2}&=\prawdo{A_1}\prawdo{A_2}=\frac14
-\end{align*}
-\begin{align*}
-    \prawdo{A_1\cap A_2^c}&=\prawdo{A_1}-\prawdo{A_1\cap A_2}=\frac12-\frac14=\frac14
-\end{align*}
-\begin{align*}
-    \prawdo{A_2\cap A_1^c}&=\prawdo{A_2}-\prawdo{A_1\cap A_2}=\frac12-\frac14=\frac14
-\end{align*}
-Co jeśli weźmiemy sobie trzy niezależne zbiory? Wtedy mamy $A_1, A_2,A_3$ i punkt należy albo do $\prawdo{A_1\cap A_2\cap A_3}=\frac18$, albo $\prawdo{A_1\cup A_2\cup A_3}=\frac78$, albo $\prawdo{A_1\cap A_2\cap A_3^c}=\prawdo{A_1\cap A_2\setminus A_3}=\prawdo{A_1\cap A_2}-\prawdo{A_1\cap A_2\cap A_3}=\frac38$ albo $\prawdo{[A_1\cup A_2\cup A_3]^c}=\prawdo{A_1^c\cap A_2\cap A_3^c}=\frac18$ tudzież inne kombinacje indeksów, ale to pokryłam na dole.
 
-\begin{illustration}
-    \draw[very thick] (-0.5, -0.5) rectangle (8, 6.5);
-    \draw[orange, very thick] (2.5, 2.5) circle (2);
-    \draw[blue, very thick] (4, 4) circle (2);
-    \draw[green, very thick] (5, 2.5) circle (2);
-    \node at (3.8, 3) {$\frac18$};
-    \node at (3.8, 1.5) {$\frac38$};
-    \node at (5, 3.2) {$\frac38$};
-    \node at (2.8, 3.5) {$\frac38$};
-    \node at (1.5, 2) {$\frac18$};
-    \node at (6, 2) {$\frac18$};
-    \node at (3.8, 5) {$\frac18$};
-    \node at (0, 0) {$\frac78$};
-\end{illustration}
+2. Załóżmy, że ciąg $A_1^{c_1}\cap...\cap A_n^{c_n}$ pokrywa całe $\Omega$. Dokładamy kolejny zbiór, $A$.
+
+Weźmy dowolne $\omega$. Wiemy, że istnieje ciąg $c_1,...,c_n$, że $\omega\in A_1^{c_1}\cap....\cap A_n^{c_n}$. Co więcej, $\omega\in A$ lub $\omega\in A^c$. Możemy więc powiedzieć, że $\omega\in A^{c_{n+1}}$. skoro $\omega\in A_1^{c_1}\cap...\cap A_n^{c_n}$ i $\omega\in A^{c_{n+1}}$, to
+$$\omega\in A_1\cap...\cap A_{n+1}^{c_{n+1}}$$
+\newpage
+
+\acc{Lemaciuś:} Dla dowolnego ciągu jak wyżej
+$$\prawdo{A_1^{c_1}\cap...\cap A_n^{c_n}}={1\over2^n}$$
+
+1. $n=2$
+
+\begin{align*}
+    \prawdo{A_1\cap A_2}&=\prawdo{A_1}\prawdo{A_2}=\frac14\\
+    \prawdo{A_1\cap A_2^c}&=\prawdo{A_1\setminus A_2}=\prawdo{A_1}-\prawdo{A_1\cap A_2}=\frac12-\frac14=\frac14\\
+    \prawdo{A_1^c\cap A_2}&=\prawdo{A_2\setminus A_1}=\prawdo{A_2}-\prawdo{A_1\cap A_2}=\frac14\\
+    \prawdo{A_1^c\cap A_2^c}&=\prawdo{(A_1\cup A_2)^c}=1-\prawdo{A_1\cup A_2}=1-(\prawdo{A_1}+\prawdo{A_2}-\prawdo{A_1\cap A_2})=\\
+    &=1-(\frac12+\frac12-\frac14)=\frac14
+\end{align*}
+
+2.  Załóżmy, że $\prawdo{A_1^{c_1}\cap...\cap A_n^{c_n}}=2^{-n}$. Niech teraz $A$ będzie kolejnym zbiorem (lub jego dopełnieniem). Poprzestawiajmy indeksy tak, żeby rozważany ciąg miał postać
+$$A_1\cap...\cap A_m\cap A_{m+1}^c\cap...\cap A_n^c,$$
+którą piszę się zdecydowanie przyjemniej, a jest równoważny. Dla $m=n$ mamy to z faktu, że $A, A_1,...,A_n$ są niezależne, dla $m=n-1$
+\begin{align*}
+    \prawdo{A\cap A_1^c\cap A_2\cap...\cap A_n}&=\prawdo{(A\cap A_2\cap...\cap A_n)\setminus A_1}=\prawdo{A\cap...\cap A_n}-\prawdo{A_1\cap A\cap A_2\cap...\cap A_n}=\\
+    &={1\over 2^n}-{1\over 2^{n+1}}={2-1\over 2^{n+1}}=2^{-n-1}
+\end{align*}
+
+Czyli zostaje nam sprawdzić tezę dla $m<n-1$
+\begin{align*}
+    \prawdo{A\cap A_1\cap...\cap A_m\cap A_{m+1}^c\cap...\cap A_n^c}&=\prawdo{(A\cap A_1\cap...\cap A_m)\cap (A_{m+1}\cup...\cup A_n)^c}=\\
+    &=\prawdo{(A\cap A_1\cap...\cap A_m)\setminus(A_{m+1}\cup...\cup A_n)}=\\
+    &=\prawdo{A\cap A_1\cap ...\cap A_m}-\prawdo{(A\cap A_1\cap...\cap A_m)\cap(A_{m+1}\cup...\cup A_n)}=\\
+    &=\prawdo{A}\prod\limits_{i=1}^m\prawdo{A_i}-\prawdo{\bigcup\limits_{i=m+1}^n(A\cap...\cap A_m)\cap A_{i}}=(\coffee)
+\end{align*}
+
+\begin{align*}
+    \prawdo{\bigcup A\cap ...\cap A_m\cap A_i}&=\sum \prawdo{A\cap...\cap A_m\cap A_i}-\sum\sum \prawdo{A\cap...\cap A_m\cap A_i\cap A_j}+...+\\
+    &+(-1)^{n-m}\prawdo{A\cap A_1\cap...\cap A_n}=\\
+    &=\sum 2^{-m-2}-\sum\sum 2^{-m-3}+...+(-1)^{n-m}2^{-n-1}=\\
+    &=2^{-m-2}{n-m\choose 1}-{n-m\choose 2}2^{-m-3}+...+(-1)^{n-m+1}2^{-n-1}
+\end{align*}
+
+\begin{align*}
+    (\coffee)&=2^{-m-1}-2^{-m-2}{n-m\choose 1}+{n-m\choose 2}2^{-m-3}+...+(-1)^{n-m}2^{-n-1}=\\
+    &=2^{-m-1}(1-2^{-1})^{n-m}=2^{-m-1}2^{-n+m}=2^{-n-1}
+\end{align*}
+\bigskip
+
+Lemacik mówił, że każdy $\omega\in\Omega$ musi wpaść w 
+$$A=A_1^{c_1}\cap...\cap A_n^{c_n},$$ natomiast Lemaciuś powiedział, że
+$$(\forall\;n\in\N)\;\prawdo{A}<2^{-n}$$
+czyli $(\forall\;\varepsilon>0)\;\prawdo{\omega}<\varepsilon\implies\prawdo{\omega}=0$.
+
+Całkowicie pomijam na chwilę obecną przypadek skończony.
+
+\proofend
 
 \end{document}
