@@ -171,6 +171,52 @@ Czyli mam tutaj $\mathfrak{a},\mathfrak{b}$ wzajemnie pierwsze, czyli $\phi:A\to
 
 $(ii)\implies (iii)$
 
+$$x=(1, 0)$$
+$$x^2=(1^2, 0^2)$$
 
+$\color{yellow}(iii)\implies(i)$
+
+Jeśli przestrzeń jest niespójna, to $A\cup B=X$, ale jeśli weźmiemy dopełnienie, to mamy 
+$$\emptyset=X^c=(A\cup B)^c=A^c\cap B^c$$
+$$X=\emptyset^c=(A\cap B)^c=A^c\cap B^c,$$ czyli mogę równoważnie szukać dwóch rozłącznych zbiorów domkniętych sumujących się do całości.
+
+Mamy idempotent, chcemy pokazać, że wtedy da się rozdzielić $A$ na sumę dwóch rozłącznych. Niech $e$ będzie idempotentem i niech $e'=1-e$. Wtedy
+$$e'+e=1$$
+$$e'e=(1-e)e=e-e^2=0$$
+$$X=V(0)=V(e'e)=V(e')\cup V(e)$$
+$$\emptyset=V(1)=V(e'+e)$$
+
+\subsection*{ZADANIE 26.}
+\emph{\color{pink}Niech $A$ będzie pierścieniem. Podprzestrzeń $Spec(A)$ zawierająca ideały maksymalne z $A$, razem z indukowaną topologią, jest nazywana}\text{\color{pink} maksymalnym spektrum $A$}\emph{\color{pink} i oznaczamy ją $Max(A)$. Dla dowolnego pierścienia przemiennego nie ma to ładnych funktorowych własności (zad. 21) $Spec(A)$, bo odwrotny obraz ideału maksymalnego przez homomorfizm pierścieni nie musi być maksymalny.}
+
+\emph{\color{pink}Niech $X$ będzie zwartą przestrzenią Hausdorffa i niech $C(X)$ oznacza pierścień wszystkich ciągłych liniowych funkcji rzeczywistych z $X$. Dla każdego $x\in X$ niech $\mathfrak{m}_x$ będzie zbiorem wszystkich $f\in C(X)$ takich, że $f(x)=0$. Ideał $\mathfrak{m}_x$ jest maksymalny, ponieważ jest jądrem pewnego suriektywnego homomorfizmu $C(X)\to\R$, który mapuje $f\to f(x)$. Jeśli $\overline X$ będzie oznaczało $Max(C(X))$, mamy wtedy mapę $\mu :X\to\overline X$ $x\mapsto \mathfrak{m}_x$.}
+
+\emph{\color{pink}Pokażemy, że $\mu$ jest homeomorfizmem między $X$ w $\overline X$.}
+
+{\color{yellow}\emph{(i) Niech $\mathfrak{m}$ będzie ideałem maksymalnym $C(X)$ i niech $V =V(\mathfrak{m})$ będzie zbiorem zawierającym wszystkie wspólne zera funkcji z $\mathfrak{m}$}
+$$V=\{x\in X\;:\;(\forall\;f\in\mathfrak{m})\;f(x)=0\}$$
+\emph{Załóż, że $V$ jest pusty. Wtedy dla każdego $x\in X$ istnieje $f_x\in\mathfrak{m}$ takie, że $f_x(x)\neq 0$. Ponieważ $f_x$ jest ciągłe, istnieje otwarte otoczenie $x\in U_x\subseteq X$ na którym $f_x$ nie znika. Ze zwartości mamy skończoną liczbę takich sąsiedztw, nazwijmy je $U_{x_1},...,U_{x_n}$ pokrywających $X$. Niech}
+$$f=f_{x_1}^2+...+f_{x_n}^2$$
+\emph{ponieważ $f$ nie znika w żadnym punkcie $X$, $f$ jest odwracalne. Ale to jest sprzeczne z $f\in\mathfrak{m}$, stąd $V$ nie jest pusty.}
+
+\emph{Niech $x$ będzie punktem $V$. Wtedy $\mathfrak{m}\subseteq\mathfrak{m}_x\implies \mathfrak{m}=\mathfrak{m}_x$, bo $\mathfrak{m}$ jest maksymalny. Stąd $\mu$ jest surjiekcją.}}
+
+Czy ja mam potwierdzić, że $\mu$ jest suriekcją? To znaczy no to widać?
+
+Znaczy tak, jeśli coś jest nieodwracalne, to jest zawarte w pewnym ideale maksymalnym a więc przejdzie na coś z $\overline X$. Jeśli coś jest odwracalne, to nie jest zawarte w żadnym ideale maksymalnym
+
+No to ze jest na to widac no
+
+ideały max przejda na siebie i pokryja $\overline X$
+
+\emph{\color{yellow}(ii) Z lematu Urysowa (to jest jedyny nietrywialny fakt potrzebny w tym argumencie) ciągła funkcja rozdziela punkty $X$. Stąd $x\neq y\implies\mathfrak{m}_x\neq\mathfrak{m}_y$ i $\mu$ jest injiekcją.}
+
+Niech $x, y\in X$ i niech $f\in C(X)$ będzie funkcją je rozdzielającą.
+
+\emph{\color{yellow}(iii) Niech $f\in C(X)$, niech}
+$$U_f=\{x\in X\;:\;f(x)\neq 0\}$$
+\emph{\color{yellow}i niech}
+$$\overline{U_f}=\{\mathfrak{m}\in\overline X\;:\;f\notin \mathfrak{m}\}$$
+\emph{\color{yellow}Pokaż, że $\mu(U_f)=\overline{U_f}$. Zbiory otwarte $U+f$ (odpowiednio $\overline{U_f}$) tworzą bazę topologii $X$ (odpowiednio $\overline X$) i z tego powodu $\mu$ jest homeomorfizmem. Więc $X$ można odtworzyć z pierścienia funkcji $C(X)$}
 
 \end{document}
