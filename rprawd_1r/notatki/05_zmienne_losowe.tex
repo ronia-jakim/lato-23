@@ -1,0 +1,98 @@
+\section{Zmienne losowe}
+
+Niech $(\Omega,\set{F},\mathbb{P})$ będzie przestrzenią probabilistyczną. \deff{Zmienna losowa} jest to funkcja mierzalna $X:\Omega\to\R$. ($\R$ rozważamy z $\sigma$-ciałem zbiorów borelowskich). To znaczy $X^{-1}(B)\in \set{F}$.
+
+\textbf{Przykład:}
+
+\indent \point suma wyników $5$ rzutów kostką
+
+\indent \point aktualny limit akcji
+
+\deff{\large Uwaga:}
+
+\indent 1. Jeżeli zbiór $\Omega$ jest przeliczalny i $\set{F}=2^{\Omega}$, to każda funkcja $X:\Omega\to\R$ jest mierzalna.
+
+\indent 2. $X$ jest zmienną losową
+\medskip
+
+\deff{\large Twierdzenie:} Jeżeli $X_1, X_2...$ są zmiennymi losowymi, to
+
+\indent 1. $X_1+X_2$, $X_1-X_2$... są zmiennymi losowymi
+
+\indent 2. $f:\R^n\to \R$, to $f(X_1,...,X_n)$ jest zmienną losową
+
+\indent 3. $\inf X_n$, $\sup X_n$, $\lim\inf X_m$, $\lim\sup X_n$ są zmiennymi losowymi.
+\medskip
+
+Mówimy, że miara $\mu$ na $(\R,Bor(\R))$ zdefiniowana wzorem
+$$\mu(B)=\prawdo{X^{-1}(B)}=\prawdo{\{\omega\;:\;X(\omega)\in B\}}={\color{blue}\prawdo{X\in B}}$$
+jest \deff{rozkładem zmiennej losowej $X$.} Zauważmy, że $(\R,Bor(\R),\mu)$ jest przestrzenią probabilistyczną.
+
+\deff{Dystrybuantą} zmiennej losowej $X$ nazywamy funkcję $F:\R\to[0,1]$ zdefiniowaną następująco:
+$$F(t)={\color{blue}\prawdo{X\leq t}}=\mu{(-\infty,t]}$$
+
+\textbf{Przykład}
+
+\indent 1. Rzut monetą, $\Omega=(O, R)$, $X(O)=1$ i $X(R)=0$. Jeżeli $t<0$, to $F(t)=0$. Jeżeli $t=0$, to $F(t)=\frac12$:
+$$F(t)=\prawdo{X\leq0}=\prawdo{X\leq 0}=\frac12$$
+dla $t\in (0, 1)$ mamy $F(t)=\frac12$ tak jak wyżej, a da $t\geq 1$ jest $F(t)=1$, bo wyżej niż $1$ już nie wejdziemy.
+
+\indent 2. Rzut kostką
+
+{\large\color{orange}ZDJĘCIA!!!}
+
+\indent 3. Odcinek $([0,1], Bor(\R), Leb)$, $X(\omega)=\omega$.
+$$F(t)=\begin{cases}
+    0\quad t<0\\
+    1\quad t>1\\
+    \lambda([0,t])=t \quad t\in[0, 1]
+\end{cases}$$
+
+Dystrybuanty nie są ciągłe, ale są prawostronnie ciągłe, a z lewej strony istnieją granice.
+
+\deff{\large Twierdzenie:} Niech $F$ będzie dystrybuantą pewnej zmiennej losowej. Wtedy
+
+\indent 1. $F$ jest niemalejąca
+
+\indent 2. $\lim\limits_{t\to-\infty}F(t)=0$ i $\lim\limits_{t\to\infty}F(t)=1$
+
+\indent 3. $F$ jest prawostronnie ciągła.
+
+\indent 4. Dla dowolnego $t$ istnieje lewa granica w $t$ taka, że
+$${\color{blue}F(t-)}=\lim\limits_{s\to t^-}F(s)=\prawdo{X<t}$$
+\indent 5. $F$ jest nieciągła w punkcie $t$ tylko wtedy, gdy $\prawdo{X=t}>0$. Wówczas $\prawdo{X=t}=F(t)-F(t-)$
+
+\textbf{Dowód:}
+
+1. Jeżeli $s<t$, to $(-\infty, s]\subseteq(-\infty t]$, czyli $F(s)=\mu((-\infty,s])\leq\mu((-\infty,t])=F(t)$
+
+2. Weźmy dowolny ciąg $t_n\to-\infty$ malejący, wtedy
+$$(-\infty, t_{n+1})\subseteq(-\infty,t_n],$$
+w szczególności
+$$B_k=\bigcap\limits_{n=k}^\infty(-\infty,t_n]$$
+jest zstępująca i $\bigcap B_k=\emptyset$. Zatem z lematu o ciągłości miary:
+$$\lim\limits_{n\to\infty}F(t_n)=\lim\limits_{n\to\infty}\mu(B_n)=\mu(\bigcap B_n)=0$$
+
+3. Niech $t_n\downarrow t$, wtedy rodzina zbiorów $(-\infty, t_n]$ jest zstępująca. 
+$$\bigcap (-\infty, t_n]=(-\infty, t]$$
+Z lematu o ciągłości miary:
+$$\lim F(t_n)=\lim \mu((-\infty, t_n])=\mu(-\infty, t]=F(t)$$
+
+Pozostałe podpunkty pozostawione jako ćwiczenie.
+\medskip
+
+\deff{\large Twierdzenie}: Jeżeli funkcja $F:\R\to[0,1]$ spełnia własności $(1), (2), (3)$, to jest dystrybuantą pewnej zmiennej losowej.
+
+\textbf{Dowód:} Dowód pokarzemy dla $F$, które są odwracalne.
+
+Musimy znaleźć $(\Omega,\set{F},\mathbb{P})$ oraz zmienną losową $X_n$ z $\Omega$ taką, że $F$ jest dystrybuantą $X_n$.
+
+Weźmy $([0,1],Bor([0,1]), Leb)$. Niech 
+$$X(\omega)=F^{-1}(\omega).$$
+
+1. Trzeba pokazać, że to jest faktycznie zmienną losową, to znaczy, że $F$ jest mierzalne [ćwiczenie].
+
+2. $F$ jest dystrybuantą, czyli warunki (4) i (5).
+\begin{align*}
+    \prawdo{X\leq t}=\prawdo{X(\omega)\leq t}=\prawdo{F^{-1}(\omega)\leq t}=\prawdo{\omega\leq F(t)}=F(t)
+\end{align*}

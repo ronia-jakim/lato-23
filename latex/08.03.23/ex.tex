@@ -1,0 +1,85 @@
+\documentclass{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{dsfont}
+
+%\usepackage{parskip}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[svgnames]{xcolor}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+
+\usepackage[capitalise, noabbrev]{cleveref}
+
+\Crefname{equation}{Condition}{Conditions}
+\creflabelformat{equation}{#2\textup{#1}#3}
+\Crefname{subsection}{Subsection}{Subsection}
+
+\title{The real and complex numbers}
+\author{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{The history of real numbers}
+
+\subsection{Precursors of real numbers in antiquity}
+It was already clear to mathematicians in ancient India and later in ancient Greece that certain numbers (or perhaps more historically accurate) length could not be rational (that is measured by fractions of certain other lengths). Examples include $\sqrt2$ or $\sqrt{61}$.
+
+\subsection{Real numbers and algebraic numbers}
+\label{sec:1:2}
+When mathematics became more formalized in the west in the 18th and 19th century, real numbers were still widely conceived as being certain roots of integer polynomials:
+
+\begin{itemize}
+    \item For example $\sqrt2$ is a zero of the polynomial $X^2-2$.
+    \item But $\sqrt{61}$ is a zero of the polynomial $X^2-61$.
+\end{itemize}
+
+However, it quickly became clear that there are be numbers (or lengths) not arising as such roots.
+\bigskip
+
+There exists infinitely many numbers in $\mathbb{R}$ which are not roots of any integer polynomial.
+
+\section{The various constructions of real numbers}
+There is various different ways to define real numbers but the two most common are:
+\begin{enumerate}
+    \item The real numbers $\R$ are the metric completion of the rationals with respect to the absolute value or
+    \item The real numbers are Dedekind cuts, that is subsets $r$ with the following properties
+    \begin{enumerate}
+        \item $\emptyset\neq r\subsetneq\Q$
+        \item $\forall\;a,b\in\Q\;:\;((b\in r,a<b)\implies(a\in r))$.
+        \item The set $r$ does not have a maximal element, that is there is no $x\in r$ with $\forall\;a\in r\;:\;a\leq x$.
+    \end{enumerate}
+\end{enumerate}
+
+Crucially, all constructions of the real numbers need some version of a completeness statement. There are various versions of these that are all equivalent. A common one is the following:
+
+Let $(I_n)_{n\in\N}$  be a sequence of non-empty open intervals in $\R$ with the following two properties:
+
+\begin{align}\label{con:1}
+    \forall\;n\in\N\;:\;I_{n+1}\subseteq I_n&\\
+    \label{con:2}
+    \forall\;k\in\N\;:\;\exists\;n\in\N\;:\;length(I_n)\leq1/k&
+\end{align}
+Then there exists an element $a\in\bigcap\limits_{m\in\N}I_m$.
+
+Here \cref{con:1}. means that subsequent intervals are contained in earlier ones and \cref{con:2} describes that the length of the interval goes to $0$.
+
+Once a formal construction of real numbers is in place one can use completeness to prove results as the one mentioned at the end of \cref{sec:1:2}. Asking about roots of integer polynomials as in \cref{sec:1:2} quickly leads one to considerations about the complex numbers $\C$ but more on that later.
+\bigskip
+
+(Note: Given that this exercise aims to learn cross referencing in \LaTeX among other things, a solution will not be considered to be fully correct if you insert the numbering by hand rather than using the label and ref-function.)
+
+\end{document}

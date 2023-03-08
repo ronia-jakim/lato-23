@@ -78,3 +78,94 @@ Problem pojawia się, kiedy próbujemy konstruować miarę $\mathbb{P}$ która d
 $$\prawdo{A_1\times...\times A_n}=\prawdo{A_1\times\Omega_2\times...\times\Omega_n\cap...\cap\Omega_1\times...\times A_n}=\prod\prawdo{A_i}.$$
 Z teorii miary, wiemy, że takie $\mathbb{P}$ istnieje i jest jedyne. Takie $\prawdo{P}$ jest miarą produktową i oznaczamy je
 $$\mathbb{P}=\mathbb{P}_1\otimes...\otimes\mathbb{P}_n$$
+
+\subsection{Nieskończone doświadczenia niezależne}
+
+Wykonano $n$ niezależnych doświadczeń. Prawdopodobieństwo sukcesu wynosi $p$, a porażki: $(1-p)$. Oblicz prawdopodobieństwo, że uzyskano dokładnie $k$ sukcesów. Definiujemy $\Omega_i=\{0,1\}$, $\set{F}_i=2^{\Omega_i}$ i $\prawdo{\{1\}}=p$, a $\prawdo{\{0\}}=1-p$. Możemy to zapisać w jednym wzorku:
+$$\prawdo{\{\omega_i\}}=p^{\omega_1}(1-\prawdo)^{1-\omega_i}$$
+$$\Omega=\Omega_1\times...\times\Omega_n$$
+$$\set{F}=\set{F}_1\otimes...\otimes \set{F}_n$$
+$$\mathbb{P}=\mathbb{P}_1\otimes...\otimes\mathbb{P}_n$$
+Mamy $\omega=(\omega_1,...,\omega_n)\in\Omega$ i chcemy policzyć $\prawdo{\omega}$
+$$\prawdo{\{\omega\}}=\prod\limits_{i=1}^np^{\omega_i}(1-p)^{1-\omega_i}=p^{\sum\omega_i}(1-p)^{n-\sum\omega_i}$$
+
+Niech $A_k$ będzie zdarzeniem, że zaszło dokładnie $k$ sukcesów.
+\begin{align*}
+    \prawdo{A_k}&=\sum\limits_{\omega\in A_k}\prawdo{\{\omega\}}=\sum\limits_{\omega\in A_k}p^{k}(1-p)^{n-k}=|A_k|p^k(1-p)^{n-k}={n\choose k}p^{k}(1-p)^{n-k}
+\end{align*}
+
+Chcemy rozważać przestrzenie probabilistyczne, które mieszczą nieskończenie wiele wyników niezależnych doświadczeń.
+
+\deff{\large Twierdzenie Kołmogorowa:} załóżmy, że dany jest ciąg miar $\mathbb{P}_i$, gdzie $i\in\N$. na $(\R, Bor(\R^n))$ spełniających dla każdego $n\in\N$
+$$\mathbb{P}_{n+1}\left[A_1\times...\times A_n\times\R\right]= \mathbb{P}_n\left[A_1\times...\times A_n\right].$$
+Wówczas istnieje jedyna miara probabilistyczną na $(\R^\N,Bor(\R))$ generowana przez skończenie wymiarowe prostokąty taka, że
+$$\mathbb{P}\left[{A_1\times...\times A_n\times\R\times\R\times...}\right]=\mathbb{P}_n\left[{A_1\times...\times A_n}\right]$$
+
+\textbf{Przykład:} 
+
+Chcemy skonstruować przestrzeń probabilistyczną $(\Omega,\set{F},\mathbb{P})$, na której zdefiniowany jest nieskończony ciąg niezależnych założeń $A_i$ taka, że $\prawdo{A_i}=\frac12$.
+
+Z zadania 10 z listy 3 wiemy, że $\Omega$ nie może być zbiorem przeliczalnym.
+
+Weźmy $(\Omega,\set{F},\mathbb{P})=([0,1],Bor([0,1]),Leb)$. Dla każdego elementu $\omega\in\Omega$ tej przestrzeni (czyli każdej liczby) rozważmy rozważmy rozwinięcie binarne liczby $\omega$, czyli
+$$\omega=\sum\limits_{i=1}^\infty{\omega_n\over2^n}=(0,\omega_1,\omega_2,...),$$
+ale są liczby, które mają dwa takie rozwinięcia, np $\frac12$. W takim przypadku wybieramy rozwinięcie nieskończone, czyli nieskładający się z samych zer od pewnego momentu.
+
+Niech $A_i=\{\omega\in[0,1]\;:\;\omega_i=0\}$, one wyglądają mniej więcej tak:
+$$A_1=[0,\frac12)$$
+$$A_1=[0,\frac14)\cup[\frac12,\frac34)$$
+{\large\color{red}MOŻNA ZROBIĆ SOBIE RYSUNECZEK}
+
+Zadanie: te zbiory są niezależne. Ponadto, $\prawdo{A_i}=\frac12$. Taka przestrzeń pozwala nam definiować nieskończone rzuty monetą.
+\medskip
+
+Niech $(\Omega,\set{F},\mathbb{P})$ będzie przestrzenią probabilistyczną. Dany jest ciąg zdarzeń $(A_n)_{n\in\N}$. 
+
+\indent \point \deff{Granicą górną ciągu zdarzeń} $A_n$ nazywamy zdarzenie \acc{$\lim\sup_n A_n=\bigcap\limits_{n=1}^\infty\bigcup\limits_{i=1}^\infty A_i$}
+
+\indent \point \deff{Granicą dolną ciągu zdarzeń} $A_n$ nazywamy zdarzenie \acc{$\lim\inf_n A_n=\bigcup\limits_{n=1}^\infty\bigcap\limits_{i=1}^\infty A_i$}
+
+\textbf{Przykład:}
+
+$(\Omega,\set{F},\mathbb{P})$ jest przestrzenią na której zdefiniowano nieskończony ciąg rzutów kostką. Wtedy $A_n$ - w $n$-tym ruchu wypadła $6$. Czym jest $\lim\sup A_n$? jest to zdarzenie "wypadło nieskończenie wiele $6$".
+
+\deff{\large Lemat Boule-Cantalliego.} W przestrzeni probabilistycznej $(\Omega,\set{F},\mathbb{P})$ dane są zdarzenia $A_1,A_2,...\in\set{F}$. Wtedy
+
+\point 1. Jeżeli $\sum\prawdo{A_n}<\infty$, to wtedy 
+$$\prawdo{\lim\sup A_n}=\prawdo{A_n\;i.o.}=0.$$
+
+\point 2. Jeżeli zdarzenia $A_1,...,A_2$ są niezależne oraz $\sum\prawdo{A_i}=\infty$, to prawdopodobieństwo
+$$\prawdo{A_n\;i.o.}=1$$
+
+\textbf{Dowód:} 
+
+\indent 1. Ustalmy $M\in\N$. Wtedy
+\begin{align*}
+    \prawdo{A_n\;i.o.}&=\prawdo{\bigcap\bigcup A_n}\leq\prawdo{\bigcup\limits_{m=M}^\infty A_m}\leq\\
+    &=\leq\sum\limits_{m=M}^\infty \prawdo{A_m}\xrightarrow[]{M\to\infty}0
+\end{align*}
+
+\indent 2. Wystarczy pokazać, że 
+$$0=\prawdo{(\lim\sup A_n)^c}=\prawdo{\left(\bigcap\bigcup A_m\right)^c}=\prawdo{\bigcup\bigcap A_m^c}$$
+czyli chcemy 
+$$(\forall\;m\in\N)\;\prawdo{\bigcap\limits_{m=M}^\infty A_m^c}=0$$
+Skorzystamy z nierówności
+$$1-x\leq e^{-x}.$$
+\begin{align*}
+    \prawdo{\bigcap A_m^c}&=\lim\prawdo{\bigcap\limits_{m=M}^k A_m^c}=\lim_k\prod\limits_{m=M}^k\prawdo{A_m^c}=\\
+    &=\lim_k\prod(1-\prawdo{A_m})\leq \lim_k\prod e^{-\prawdo{A_n}}=\\
+    &=\lim_ke^{-\sum\prawdo{A_m}}=e^{-\lim_k\sum\prawdo{A_n}}=e^{-\infty}=0
+\end{align*}
+
+\textbf{Przykład:}
+
+\indent 1. Rzucamy nieskończenie wiele razy kostką i te rzuty są niezależne. $A_n$ mówi, że w $n$-tym rzucie wypadło $6$. Mamy $\prawdo{A_i}=\frac16$. Dalej $\sum\prawdo{A_i}=\sum\frac16=\infty$, a więc z lematu Borela-Cantalliego 
+$$\prawdo{\text{"wypadło nieskończenie wiele razy"}}=1.$$
+
+\indent 2. Uzasadnij, że jeżeli będziemy rzucać kostką odpoweidnio długo, to z prawdopodobieństwem $1$ otrzymamy ciąg $10$ kolejnych $1$, a następnie bezposrednio po nim ciąg $10$ kolejnych $6$.
+
+Niech $A_n$ to będzie zdarzeniem, że $n$-ty rzut jest początkiem tego ciągu.
+$$\prawdo{A_i}=6^{-20}$$
+$$\sum\prawdo{A_i}=\sum6^{-20}=\infty$$
+Problem pojawia się na kroku niezależności $A_n$. Rozpatrzmy zdarzenia $\overline{A}_n=A_{20n}$, czyli po prostu robimy bardzo duże spacje między tymi ciągami i wtedy te zdarzenia już są niezależne. Prawdopodobieństwa tych zdarzeń są identyczne, więc z lematu B-C. prawdopodobieństwo, że 
+$$\prawdo{\lim\sup \overline{A_n}}=1\leq\prawdo{\lim\sup A_n}$$

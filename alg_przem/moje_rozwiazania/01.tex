@@ -141,6 +141,21 @@ $$V(\phi(ker(\phi)))=V((0))=Y$$
     &=\{x\in X\;:\;\phi(ker(\phi))\subseteq\phi(x)\}=V(ker(\phi))=X
 \end{align*}
 
+\emph{\color{orange}(vi)Niech $\psi:B\to C$ będzie kolejnym homomorfizmem pierścieni. Wtedy $(\psi\circ\phi)^*=\phi^*\circ\phi^*$.}
+
+\begin{center}
+\begin{tikzcd}
+    A\arrow[r, "\phi"] & B\arrow[r, "\psi"] & C\\
+    Spec(a) & Spec(B)\arrow[l,"\phi^*"] & Spec(C) \arrow[l, "\psi^*"]
+\end{tikzcd}
+\end{center}
+
+\begin{align*}
+    \phi^*\circ\psi^*(c)&=\phi^*(\psi^{-1}(c))=\\
+    &=\phi^{-1}(\psi^{-1}(c))=\phi^{-1}\circ\psi^{-1}(c)=\\
+    &=(\psi\circ\phi)^{-1}(c)=(\phi\circ\phi)^*(c)
+\end{align*}
+
 \subsection*{ZADANIE 22.}
 \emph{\color{yellow}Niech $A=\prod\limits_{i=1}^nA_i$ będzie produktem prostym pierścieni $A_i$. Pokaż, że $Spec(A)$ jest rozłączną sumą otwartych (i zamkniętych) podzbiorów $X_i$, gdzie $X_i$ jest kanonicznie homeomorficzna z $Spec(A_i)$}
 
@@ -185,6 +200,40 @@ $$e'+e=1$$
 $$e'e=(1-e)e=e-e^2=0$$
 $$X=V(0)=V(e'e)=V(e')\cup V(e)$$
 $$\emptyset=V(1)=V(e'+e)$$
+
+\subsection*{ZADANIE 23.}
+\emph{\color{pink}Niech $A$ będzie pierścieniem booleowskim i niech $X=Spec(A)$}
+
+\emph{\color{orange}(i) Dla każdego $f\in A$ zbiór $X_f$ jest otwarty i zamknięty w $X$.}
+
+To wynika z poprzedniego zadania punkt (i) i (iii)? Bo wtedy mamy nietrywialny idempotent, a więc $X$ jest niespójne, więc wszystkie zbiory są otwarte i domknięte na raz? Ale spróbuję bez takiego odwołania się do poprzednich zadań?
+
+To, że $X_f$ jest otwarty to mamy z definicji. Sprawdźmy, dlaczego jest domknięty.
+
+1. Każdy skończenie generowany ideał w $A$ jest pierwszy, bo jeśli $x,y$ generowały, to $x+y+xy$ generuje ten ideał, a każdy pierwszy jest maksymalny (bo quotient jest ciałem o dwóch elementach.)
+
+Co mi to daje? To mi daje tyle, że $V(f)$ jest jednym punktem, a ja chce żeby był otwarty i domknięty na raz. Czyli muszę go wyzerować jakoś i wymaksować. Ale to w sumie jest tak jak wyżej, że zbiory otwarte to
+$$V(x)\cap V(1-x)\subseteq V(x+1-x)=V(1)=\emptyset$$
+czyli są otwarte i domknięte i tak samo zbiory otwarte, czyli sumy tych otwartych, to
+$$V(x)\cup V(1-x)=V((x)(1-x))=V(x-x^2)=V(0)=A$$
+czyli tak samo.
+
+
+
+\emph{\color{pink}(ii) Niech $f_1,...,f_n\in A$. Pokaż, że $X_{f_1}\cup...\cup X_{f_n}=X_f$ dla pewnego $f\in A$.}
+\begin{align*}
+    X_{f_1}\cup...\cup X_{f_n}=(V(f_1)\cap...\cap V(f_n))^c=V((f_1,...,f_n))^c=V(f)^c=X_f
+\end{align*}
+
+\emph{\color{yellow}(iii)???}
+
+\emph{\color{yellow}(iv) $X$ jest zwartą przestrzenią Hausdorffa}
+
+Zwarty wychodzi z poprzedniego, a Hausdorffa, czyli chce dwa punkty oddzielić dwoma rozłącznymi zbiorami. 
+
+Zwartą, bo całego tak jak w (ii)?
+
+Hausdorffa, czyli trzeba wziąć dwa punkty, $x,y\in X$. No to wiem, że aaaaaaaaaaaaaaaaaaaaa
 
 \subsection*{ZADANIE 26.}
 \emph{\color{pink}Niech $A$ będzie pierścieniem. Podprzestrzeń $Spec(A)$ zawierająca ideały maksymalne z $A$, razem z indukowaną topologią, jest nazywana}\text{\color{pink} maksymalnym spektrum $A$}\emph{\color{pink} i oznaczamy ją $Max(A)$. Dla dowolnego pierścienia przemiennego nie ma to ładnych funktorowych własności (zad. 21) $Spec(A)$, bo odwrotny obraz ideału maksymalnego przez homomorfizm pierścieni nie musi być maksymalny.}
