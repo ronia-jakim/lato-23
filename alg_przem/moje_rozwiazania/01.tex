@@ -59,15 +59,12 @@ Wtedy $x\in X\setminus V(\pideal_y)$, które jest zbiorem otwartym takim, że $y
 Wtedy $y\notin\overline{\{x\} }$ i $x\notin\overline{\{y\} }$. Czyli $y\in X\setminus\{x\}$ jest otwartym zbiorem zawierającym $y$ ale niezawierającym $x$.
 
 \subsection*{ZADANIE 19.}
-\emph{\color{blue}Przestrzeń topologiczna $X$ jest nieredukowalna, jeśli $X\neq\emptyset$ i jeśli każda para niepustych otwartych podzbiorów $X$ się przecina (równoważnie, każdy niepusty podzbiór otwarty jest gęsty w $X$). Pokaż, że $Spec(A)$ jest nieredukowalny $\iff$ nilradykał $A$ jest ideałem pierwszym.}
+\emph{\color{pink}Przestrzeń topologiczna $X$ jest nieredukowalna, jeśli $X\neq\emptyset$ i jeśli każda para niepustych otwartych podzbiorów $X$ się przecina (równoważnie, każdy niepusty podzbiór otwarty jest gęsty w $X$). Pokaż, że $Spec(A)$ jest nieredukowalny $\iff$ nilradykał $A$ jest ideałem pierwszym.}
 
-$\implies$
+Weźmy $f,g$ takie, że $fg\in\mathfrak{R}$. W tedy $X_{fg}=\emptyset$, ale to jest to samo co $X_f\cap X_g$, ale ponieważ spektrum jest nierozkładalne, to któryś jest pusty. BSO $X_f=\emptyset$, czyli $f\in\mathfrak{R}$. Te wszystkie kroki to równoważności:
+$$fg\in\mathfrak\iff \emptyset=X_{fg}=X_f\cap X_g\iff X_f=\emptyset\iff f\in\mathfrak{R}$$
 
-Chcę mieć punkt, którego dopełnienie jest wszystkim. 
-
-$\impliedby$
-
-Niech $r$ będzie nilradykałem pierścienia $A$ i niech $r$ będzie ideałem pierwszym. Weźmy dowolne $\mathfrak{a}_1,\mathfrak{a}_2\normalsubgroup A$ i rozpatrzmy $U_1=V(\mathfrak{a}_1)^c,U_2=V(\mathfrak{a}_2)^c$.
+Ewentualnie tak jak myślałam, czyli $\mathfrak{R}$ jest elementem minimalnym w $X$.
 
 \subsection*{ZADANIE 20}
 \emph{\color{pink}Niech $X$ będzie przestrzenią topologiczną}
@@ -94,7 +91,11 @@ Dlaczego pokrywają? Bo dla każdego $\{x\}$, $x\in X$ możemy rozpatrzeć zbió
 
 W Hausdorffie możemy każde dwa punkty oddzielić dwoma rozłącznymi otwartymi otoczeniami, więc maksymalne nieredukowalne podprzestrzenie to singletony. I to właśnie przypadek, który mnie natchnął do wytłumaczenia jak pokryć $X$.
 
-\emph{\color{yellow}(iv) Jeśli $A$ jest pierścieniem i $X=Spec(A)$, wtedy składowe nieredukowalne $X$ to zbiory domknięte $V(\pideal)$, gdzie $\pideal$ to najmniejsza zbiory pierwsze $A$.}
+\emph{\color{yellow}(iv) Jeśli $A$ jest pierścieniem i $X=Spec(A)$, wtedy składowe nieredukowalne $X$ to zbiory domknięte $V(\pideal)$, gdzie $\pideal$ to najmniejsze zbiory pierwsze $A$.}
+
+$$V(\pideal)=\{\mathfrak{q}\;:\;\pideal\subseteq\mathfrak{q}\}$$
+
+Bierzemy dwa otwarte, które się przecinają z $V(\pideal)$
 
 \subsection*{ZADANIE 21}
 \emph{\color{pink}Niech $\phi:A\to B$ będzie homomorfizmem pierścieni. Niech $X=Spec(A)$ i $Y=Spec(B)$. Jeśli $\mathfrak{q}\in Y$, to $\phi^{-1}(\mathfrak{q})$ jest ideałem pierwszym w $A$, w szczególności punktem $X$. Z tego powodu $\phi$ indukuje przekształcenie $\phi^*:Y\to X$. Pokaż, że}
