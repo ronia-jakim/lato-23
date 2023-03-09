@@ -1,0 +1,18 @@
+\section{Teoria Galois}
+
+\begin{definicja}[Grupa Galois]
+    Niech $K$ będzie ciałem, $\hat{K}$ jego algebraicznym domknięciem. Niech $K\subseteq L$ będzie rozszerzeniem algebraicznym ciał. \deff{Grupą Galois} rozszerzenia $K\subseteq L$ nazywamy 
+    $$Gal(L/K)=\{f\in Aut(L)\;:\;f\obciete K=id_k\}=Aut(L/K)$$
+    ze składaniem jako działaniem. Jest to jednocześnie podgrupa wszystkich automorfizmów.
+\end{definicja}
+
+\textbf{Przykład:}
+
+\begin{enumerate}
+    \item  Niech $K$ będzie ciałem prostym ($\cong$ z $\Q$ lub z $\Z_p$). Wtedy $Gal(L/K)=Aut(L)$, bo
+    \begin{itemize}
+        \item [\point] Niech $char(K)=char(L)=p>0$ i niech $f\in Aut(L)$. Wtedy $f(1)=1$, $f(\underbrace{1+....+1}_k)=\underbrace{1+....+1}_k$, a ponieważ $K=\{\underbrace{1+...+1}_k\;:\;k\in\{1,...,p\}\}$, zatem $f\obciete K=id_K$, czyli $f\in Gal(L/K)$.
+        \item [\point] Niech $char(K)=char(L)=0$, wtedy $K\cong\Q$. Niech $f\in Aut(L)$. Wtedy $f(0)=0, f(1)=1$, a dla dowolnego $k\in\N$ $f\underbrace{1+....+1}_k=\underbrace{1+....+1}_k$, stąd dostajemy, że $f(n)=n$ dla $n\in\Z$, a z własności $\Q$ dostajemy, że $f(\frac mn)=\frac mn$, zatem $f\obciete K=id_K$.
+    \end{itemize}
+    \item $Gal(\Q(\sqrt2)/\Q)=Aut(\Q(\sqrt2))$.
+\end{enumerate}

@@ -1,0 +1,81 @@
+\section{Rozmaitość z brzegiem}
+
+Lokalnie wygląda jak $\R^n$ albo jak półprzestrzeń $n$-wymiarowa:
+$$H^n=\{(x_1,...,x_n)\in\R^n\;:\;x_n\geq 0\}$$
+\deff{brzegiem} takiej półprzestrzeni nazywamy zbiór:
+$$\partial H^n=\{x\in\R^n\;:\;x_n=0\}$$
+definiuje się też wnętrze takiej półprzestrzeni:
+$$int(H^n)=\{x\in\R^n\;:\;x_n>0\}$$
+
+Dla otwartego zbioru $U\subseteq H^n$ określamy
+
+\begin{itemize}
+    \item[\point] brzeg zbioru: $\partial U=U\cap \partial H^n$
+    \item[\point] wnętrze zbioru: $int(U)=U\cap int(H^n)$ 
+    \item[\point] Jeżeli mamy zadane $f:U\to\R^m$, to jest ono \deff{gładkie}, gdy jest obcięciem do $U$ pewnej gładkiej funkcji $\overline f:\overline U\to \R^m$, gdzie $\overline U$ jest otwartym podzbiorem $\R^n$ taki, że $U\subseteq\overline U$.
+\end{itemize}
+
+Jeśli $f:U\to\R^m$ jest gładka, to wówczas pochodne cząstkowe $f$ są dobrze określone w punktach $int(U)$. Ze względu na ciągłość pochodnych cząstkowych dowolnego rozszerzenia $\overline f$, pochodne cząstkowe $f$ są również dobrze określone w punktach $\partial U$. 
+
+Fakt z analizy: rozszerzenie $\overline f$ istnieje $\iff$ $f$ jest gładka na $int(U)$ oraz pochodne cząstkowe tego $f$ obciętego do $int(U)$ w sposób ciągły rozszerzają się na $\partial U$.
+
+$M$ jest \deff{gładką rozmaitością z brzegiem}, jeśli posiada atlas $\{(U_\alpha,\phi_\alpha)\}$ taki, że $U_\alpha$ jest otwartym podzbiorem $M$ oraz $\phi_{\alpha}:U_\alpha\to H^n$ jest homeomorfizmem na obraz, $\overline U_\alpha=\phi(U_\alpha)\subseteq H^n$ jest otwarty. I dodatkowo odwzorowania przejścia $\phi_\alpha\phi_\beta^{-1}:\phi_\beta(U_\alpha\cap U_\beta)\to\phi_\alpha(U_\alpha\cap U_\beta)$ [$U_\alpha\cap U_\beta\subseteq H^n$ otwarte] są gładkie.
+
+\deff{Fakt:} Jeśli w pewnej mapie $(U_\alpha,\phi_\alpha)$ $\phi_\alpha(p)\in\partial H^n$, to w każdej innej mapie $(U_\beta,\phi_\beta)$ zawierającej punkt $p$ również obraz punktu $p$ należy do brzegu $H^n$.
+
+\textbf{Dowód:}
+
+Odwzorowania przejścia są gładkie, ale gładkie są też odwzorowania odwrotne, czyli $\phi_\alpha\phi_\beta^{-1}$ są gładkie i gładko odwracalne.
+
+Twierdzenie o odwzorowaniu otwartym z analizy wielu zmiennych
+
+Odwzorowania przejścia mają nieosobliwe macierze pierwszych pochodnych cząstkowych we wszystkich punktach.
+
+\deff{Uwaga:} Dla rozmaitości topologicznych z brzegiem (ta sama definicja, tylko odwzorowania przejścia nie muszą być gładkie, a wystarczy homeomorfizmy) dowód wyżej nie śmignie, ale \dyg{analogiczny fakt również zachodzi}, tylko dowód jest trudniejszy i opiera się na twierdzeniu Brouwera o niezmienniczości obszaru (analog twierdzenia o odwzorowaniach otartym dla ciągłych $fLR\to\R^n$)
+
+\deff{Konsekwencja:} następujące definicje mają sens: 
+$$\partial M=\{p\in M\;:\;\text{w pewnej mapie (każdej) }\phi_\alpha(p)\in\partial H^n\}$$ 
+$$int(M)=\{p\in M\;:\;\text{dla pewnej mapy }(U_\alpha,\phi_\alpha),\;\phi_\alpha(p)\in int(H^n)\}$$
+
+\subsection{O brzegu i wnętrzu}
+
+\begin{fakt}
+    Wnętrze $int M$ $n$-rozmaitości gładkiej $M$ jest $n$-rozmaitością gładką bez brzegu.
+\end{fakt}
+
+\textbf{Dowód:} Pokażemy atlas, który nie działa dla $int(M)$. Weźmy $\{(U_\alpha',\phi_\alpha')\}$, gdzie
+$$U_\alpha'=U_\alpha\cap int(M),\quad \phi_\alpha'=\phi_\alpha\obciete U_\alpha$$
+a $(U_\alpha,\phi_\alpha)$ było atlasem na $M$.
+
+\begin{fakt}
+    Brzeg $\partial M$ $n$-rozmaitości $M$ z brzegiem jest $(n-1)$ wymiarową rozmaitością gładką bez brzegu.
+\end{fakt}
+
+\textbf{Dowód:}
+
+Jako atlas na $\partial M$ bierzemy $\{(U_\alpha',\phi_\alpha')\}$, gdzie 
+$$U_\alpha'=U_\alpha\cap\partial U_\partial M$$
+$$\phi_\alpha':U_\alpha'\to\R^{n-1}=\partial H^n\quad \phi_\alpha'=\phi_\alpha\obciete U_\alpha'$$
+
+\textbf{Przykład:} Dysk $D^n=\{x\in\R^n\;:\;|x|\leq 1\}$ jest rozmaitością gładką z brzegiem $\partial D^n=\{x\in\R^n\;:\;|x|=1\}$. Pokażemy mapy, ale uzasadnienie ich gładkiej zgodności pominiemy.
+$$(U_0,\phi_0)\quad:\quad U_0=\{x\;:\;|x|<1\},\quad\phi_0:U_0\to H^n,\;\phi_0(x_1,...,x_n)=(x_1,...,x_{n-1},x_n+2)$$
+$$(U_i^\pm,\phi_i^\pm)\quad:\quad U_i^+=\{x\in D^n\;:\;x_i>0\},\quad\phi_1:U_1\to H^n$$
+
+{\large\color{orange}UWAGA, SĄ WZORKI, PODPIERDOL}
+
+Inny atlas gładki:
+
+Rodzina $\{A_i\}$ podzbiorów przestrzeni topologicznej $X$ jest \deff{lokalnie skończona}, jeśli dla każdego $p\in X$ istnieje otwarte otoczenie $p\in U_p$ w $X$ takie, że $U_p\cap A_\alpha\neq\emptyset$ tylko dla skończenie wielu $\alpha$.
+
+Dla funkcji rzeczywistej $f:X\to\R$ jej \deff{nośnik} $supp(f)=cl(\{x\in X\;:\;f(x)\neq0\})$
+
+\deff{Twierdzenie o rozkładzie jedności:} Dla każdego otwartego pokrycia $\{U_\alpha\}$ rozmaitości gładkiej $M$ (może być z brzegiem) istnieje rodzina $\{f_j\}_{j\in J}$ gładkich funkcji $f_j:M\to\R$ takich, że
+\begin{itemize}
+    \item $f_j\geq0$
+    \item każdy nośnik $supp(f_j)$ zaiwera się w pewnym $U_\alpha$ z pokrycia
+    \item nośniki $\{supp(f_j)\}_{j\in J}$ tworzą lokalnie skończoną rodzinę podzbiorów w $M$
+    \item dla każdego $x\in M$ $\sum\limits_{j\in J}f_j(x)=1$
+\end{itemize}
+Jest to \deff{rozkład jedności wpisany w pokrycie $\{U_\alpha\}$}
+
+Wracamy do pytania o istnienie $f:M\to\R$ takiego, że $f\obciete\partial M\equiv 0$ i $f\obciete int(M)>0$. 

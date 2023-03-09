@@ -25,8 +25,14 @@
 \def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
 \makeatother
 
-\newcommand{\formatsection}{Wykład: \thesection: }
+\newcommand{\formatsection}{Wykład \thesection: }
 
+\tikzset{
+    labl/.style={anchor=north, rotate=45, inner sep=.5mm}
+}
+\tikzset{
+    lablb/.style={anchor=north, rotate=-45, inner sep=.5mm}
+}
 
 \begin{document}
 \maketit
@@ -73,7 +79,12 @@
 \newpage
 
 \input{04_rozszerzenia.tex}
+\newpage
 
-%\input{01_wsted.tex}
+\input{06_galois.tex}
+\newpage
+
+\listoftheorems
+%[ignoreall, show={wniosek,tw}]
 
 \end{document}

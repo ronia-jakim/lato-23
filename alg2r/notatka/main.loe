@@ -1,0 +1,35 @@
+\contentsline {fakt}{\ifthmt@listswap Fakt\nobreakspace {}1.1\else \numberline {1.1}Fakt\fi }{4}{fakt.1.1}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}1.2\else \numberline {1.2}Uwaga\fi }{5}{uwaga.1.2}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}1.3\else \numberline {1.3}Uwaga\fi }{5}{uwaga.1.3}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}1.4\else \numberline {1.4}Uwaga\fi }{6}{uwaga.1.4}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}1.5\else \numberline {1.5}Uwaga\fi }{6}{uwaga.1.5}%
+\contentsline {tw}{\ifthmt@listswap Twierdzenie\nobreakspace {}1.6\else \numberline {1.6}Twierdzenie\fi }{7}{tw.1.6}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}1.7\else \numberline {1.7}Wniosek\fi }{7}{wniosek.1.7}%
+\contentsline {fakt}{\ifthmt@listswap Fakt\nobreakspace {}1.8\else \numberline {1.8}Fakt\fi }{8}{fakt.1.8}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}2.1\else \numberline {2.1}Wniosek\fi }{10}{wniosek.2.1}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}2.2\else \numberline {2.2}Wniosek\fi }{11}{wniosek.2.2}%
+\contentsline {tw}{\ifthmt@listswap Twierdzenie\nobreakspace {}2.3\else \numberline {2.3}Twierdzenie\fi }{11}{tw.2.3}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}3.1\else \numberline {3.1}Uwaga\fi }{13}{uwaga.3.1}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}3.2\else \numberline {3.2}Uwaga\fi }{13}{uwaga.3.2}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}3.3\else \numberline {3.3}Uwaga\fi }{14}{uwaga.3.3}%
+\contentsline {tw}{\ifthmt@listswap Twierdzenie\nobreakspace {}3.4\else \numberline {3.4}Twierdzenie\fi }{14}{tw.3.4}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}3.5\else \numberline {3.5}Wniosek\fi }{15}{wniosek.3.5}%
+\contentsline {tw}{\ifthmt@listswap Twierdzenie\nobreakspace {}3.6\else \numberline {3.6}Twierdzenie\fi }{15}{tw.3.6}%
+\contentsline {definicja}{\ifthmt@listswap Definicja\nobreakspace {}4.1\else \numberline {4.1}Definicja\fi }{17}{definicja.4.1}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}4.2\else \numberline {4.2}Uwaga\fi }{17}{uwaga.4.2}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}4.3\else \numberline {4.3}Uwaga\fi }{17}{uwaga.4.3}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}4.4\else \numberline {4.4}Uwaga\fi \thmtformatoptarg {$I(a/K)=(f)\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Relbar \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}deg(f)=\begin {bmatrix}K(a):K\end {bmatrix}$}}{19}{uwaga.4.4}%
+\contentsline {fakt}{\ifthmt@listswap Fakt\nobreakspace {}4.5\else \numberline {4.5}Fakt\fi \thmtformatoptarg {$dim_K(M)=dim_L(M)\cdot dim_K(L)$}}{19}{fakt.4.5}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}4.6\else \numberline {4.6}Wniosek\fi \thmtformatoptarg {$K^{alg}$ - podciałem}}{20}{wniosek.4.6}%
+\contentsline {definicja}{\ifthmt@listswap Definicja\nobreakspace {}4.7\else \numberline {4.7}Definicja\fi \thmtformatoptarg {(relatywne) algebraiczne domknięcie}}{20}{definicja.4.7}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}4.8\else \numberline {4.8}Wniosek\fi \thmtformatoptarg {algebraiczne rozszerzenia ciał, $K^{alg}$}}{20}{wniosek.4.8}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}4.9\else \numberline {4.9}Uwaga\fi \thmtformatoptarg {$F_m\in \mathbb {Z}\begin {bmatrix}X\end {bmatrix}$}}{21}{uwaga.4.9}%
+\contentsline {uwaga}{\ifthmt@listswap Uwaga\nobreakspace {}4.10\else \numberline {4.10}Uwaga\fi \thmtformatoptarg {$F_m$ nierozkładalny w $\mathbb {Q}$}}{21}{uwaga.4.10}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}4.11\else \numberline {4.11}Wniosek\fi \thmtformatoptarg {pierwiastek pierwotny a $dim_\mathbb {Q}(\mathbb {Q}(b))$}}{23}{wniosek.4.11}%
+\contentsline {lemat}{\ifthmt@listswap Lemat\nobreakspace {}4.12\else \numberline {4.12}Lemat\fi \thmtformatoptarg {twierdzenie Liouville'a o aproksymacji diofantycznej}}{23}{lemat.4.12}%
+\contentsline {definicja}{\ifthmt@listswap Definicja\nobreakspace {}4.13\else \numberline {4.13}Definicja\fi \thmtformatoptarg {algebraiczne domknięcie}}{23}{definicja.4.13}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}4.14\else \numberline {4.14}Wniosek\fi \thmtformatoptarg {istnieje algebraiczne domknięcie}}{23}{wniosek.4.14}%
+\contentsline {tw}{\ifthmt@listswap Twierdzenie\nobreakspace {}4.15\else \numberline {4.15}Twierdzenie\fi \thmtformatoptarg {jedyność domknięcia algebraicznego}}{23}{tw.4.15}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}4.16\else \numberline {4.16}Wniosek\fi \thmtformatoptarg {$K\cong L\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Relbar \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}\cong \setbox \z@ \hbox {\mathsurround \z@ $\textstyle L$}\mathaccent "0362{L}$}}{24}{wniosek.4.16}%
+\contentsline {wniosek}{\ifthmt@listswap Wniosek\nobreakspace {}4.17\else \numberline {4.17}Wniosek\fi \thmtformatoptarg {algebraiczne rozszerzenie $1-1$ $\to $ $\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}$}}{24}{wniosek.4.17}%
+\contentsline {definicja}{\ifthmt@listswap Definicja\nobreakspace {}5.1\else \numberline {5.1}Definicja\fi \thmtformatoptarg {Grupa Galois}}{25}{definicja.5.1}%

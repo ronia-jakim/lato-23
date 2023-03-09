@@ -101,7 +101,7 @@ Niech $a\in L\supseteq K$ będzie algebraicznym pierwiastkiem nad $K$, $I(a/K)=\
 
 \indent 3. $\sqrt[7]{7+\sqrt[3]{3}}-\sqrt[6]{6}\in\R$, czy jest to algebraiczne nad $\Q$? Tak i ma stopień $126$.
 
-\begin{uwaga}
+\begin{uwaga}[$I(a/K)=(f)\implies deg(f)=\begin{bmatrix}K(a):K\end{bmatrix}$]
     Załóżmy, że $I(a/K)=(f)$ i $f$ jest unormowany. Wówczas:
 
     \indent 1. $f$ jest unormowanym wielomianem minimalnego stopnia takim, że $f(a)=0$
@@ -117,7 +117,7 @@ Z tego, że $f(a)=0$ mamy, że
 $$a^n=-\sum\limits_{k<n}b_kx^k\in Lin_K(1,a,...,a^{n-1})\subseteq L.$$
 Czyli $K(a)=Lin_K(1,a,...,a^{n-1})$ i wystarczy zobaczyć, że $\{1,..., a^{n-1}\}$ jest liniowo niezależny nad $K$, to znaczy jest bazą $K(a)$ nad $K$. Jest, bo $f$ jest minimalnego stopnia.
 
-\begin{fakt}
+\begin{fakt}[$dim_K(M)=dim_L(M)\cdot dim_K(L)$]\label{fakt:4:5}
     Niech $K\subseteq L\subseteq M$ będą rozszerzeniami ciał. Wtedy 
     $$[M:K]=[M:L]\cdot [L:K]$$
 \end{fakt}
@@ -153,3 +153,225 @@ $e_i\neq0$, czyli $k_{ij}=0$ i koniec.
 
 3. $X$ generuje $M$ nad $K$, bo dla $m\in M$ mam
 $$m=\sum l_jf_j=\sum\left(\sum a_{ij}e_i\right)f_j=\sum\sum a_{ij}e_if_j=\sum \sum k_{ij}e_if_j$$
+Z tego wynika, że $[M:K]=|X|=|I||J|=[L:K][M:L]$.
+
+\begin{wniosek}[$K^{alg}$ - podciałem]
+    Niech $K\subseteq L$ będzie rozszerzeniem skończonego ciała. Niech 
+    $$K^{alg}(L)=\{a\in L\;:\;a\text{ jest algebraiczny nad }K\}.$$
+    Okazuje się, że $K^{alg}$ jest podciałem.
+\end{wniosek}
+
+\textbf{Dowód:}
+
+Weźmy $a,b\in K^{alg}$. Wiemy, że $[K(a):K]$ i $[K(b):K]$ są skończone. Mamy, że
+$$K\subseteq K(a)\subseteq K(a, b)$$
+Z faktu \ref{fakt:4:5} wiemy, że 
+$$[K(a, b):K]=[K(a,b):K(a)]\cdot[K(a):K]$$
+czyli również $K(a,b)$ jest skończone. Zatem dla $x\in K(a,b)$ mamy
+$$[K(x):K]\leq[K(a,b):K]$$
+też jest skończone, zatem $x$ jest algebraiczny nad $K$.
+\medskip
+
+Dla $x\in K(a, b)$ mamy $[K(x):K]\leq[K(a):K]$, czyli również jest skończone. W takim razie, $x$ jest algebraiczny nad $K$ i należy do $K^{alg}$.
+\medskip
+
+\begin{definicja}[(relatywne) algebraiczne domknięcie]{\color{back}spaaaać}
+    \begin{enumerate}
+        \item $K^{alg}(L)$ nazywamy \deff{algebraicznym domknięciem} $K$ w $L$.
+        \item $K$ jest \deff{relatywnie algebraicznie domknięte} w $L$ $\iff$ $K^{alg}(L)=K$.
+    \end{enumerate}
+\end{definicja}
+
+\begin{wniosek}[algebraiczne rozszerzenia ciał, $K^{alg}$]{\color{back}kot}
+    \begin{itemize}
+        \item Niech $K\subseteq L\subseteq M$ będą rozszerzeniami ciał. $K\subseteq M$ jest algebraiczne $\iff$ $K\subseteq L$ i $L\subseteq M$ są algebraiczne
+        \item $K^{alg}(L)$ jest relatywnie algebraicznie domknięte w $L$, tzn. $K^{alg}(L)=[K^{alg}(L)]^{alg}(L)$ 
+    \end{itemize}
+\end{wniosek}
+
+\subsection{Wielomian rozkładu koła}
+
+Rozważamy wielomian
+$$w_m(x)=x^m-1$$
+dla $m\in\N$. Wiemy, że
+\begin{itemize}
+    \item[\point] pierwiastki $w_m$ w $\C$ są jednokrotne
+    \item[\point] $\mu_m(\C)$ jest grupą cykliczną
+    \item[\point] $a\in\mu_m(\C)$ jest generatorem $\mu_m(\C)=\{a^i\;:\;0\leq i\leq m\}\cong(\Z_m,+)$
+    \item[\point] $a^k$ generuje $\mu_m(\C)$ $\iff$$NWD(k, m)=1$
+\end{itemize}
+Zatem $\mu_m(\C)$ ma $\phi(m)$ generatorów.{\large\color{red}?????}
+
+Niech
+$$\{k\in\N\;:\;0<k<m, NWD(k, m)=1\}=\{m_1,...,m_{\phi(n)}\}$$
+i zdefiniujmy
+$$\color{blue}F_m(x):=(x-a^{m_1})...(x-a^{m_{\phi(n)}})\in\C[X]$$
+
+\begin{uwaga}[$F_m\in\Z\begin{bmatrix}X\end{bmatrix}$]{\color{back}ddd}
+    \begin{enumerate}
+        \item $w_m(x)=x^m-1=F_m(x)\cdot\prod\limits_{\substack{d<m\\d|m}}F_d(x)$
+        \item $F_m(x)\in\Z[X]$
+    \end{enumerate}
+\end{uwaga}
+
+\textbf{Dowód:}
+
+1. Wiemy, że wielomian jest iloczynem dwumianów $x-$\emph{pierwiastek}, te dla $w_m(x)$ są schowane w $\mu_m(\C)$, czyli
+\begin{align*}
+    w_m(x)&=\prod\limits_{b\in\mu_m(\C)}(x-b)=\prod\limits_{d|m}\prod\limits_{\substack{b\in\mu_m(\C)\\ord(b)=d}}(x-b)=\prod\limits_{d|m}F_d(x)=F_m(x)\prod\limits_{\substack{d<m\\d|m}}F_d(m)
+\end{align*}
+
+2. Dowód przez indukcję względem $m$. Dla $m=1$ mamy $F_m(x)=x-1\in\Z[X]$. Teraz zakładamy, że dla $d<m$ jest $F_d(x)\in\Z[X]$. Z punktu (1) wiemy, że
+$$x^m-1=w_m(x)=F_m(x)v_m(x)$$
+z założenia indukcyjnego $v_m(x)\in\Z[X]$, bo każdy z nich ma stopień mniejszy niż $m$ i $v_m(x)$ jest unormowany.
+
+$w_m(x)$ dzielimy z resztą w $\Z[X]$ i dostajemy:
+$$w_m(x)=v_m(x)\cdot L(x)+R(x)$$
+ale w $\C[X]\supseteq\Z[X]$ było
+$$w_m(x)=v_m(x)\cdot F_m(x),$$
+czyli 
+\begin{align*}
+    F_m(x)v_m(x)&=v_m(x)L(x)+R(x)\\
+    R(x)&=v_m(x)[F_m(x)-L(x)]
+\end{align*}
+ale $deg(R)<deg(v)$, czyli $R=0$ i $F_m=L\in\Z[X]$.
+
+\begin{uwaga}[$F_m$ nierozkładalny w $\Q$]
+    $F_m(x)$ jest wielomianem nierozkładalnym w $\Q[X]$.
+\end{uwaga}
+
+\textbf{Dowód:} 
+
+Po pierwsze zauważmy, że $F_m$ jest nierozkładalny w $\Q[X]$ $\iff$ nierozkładalny w $\Z[X]$. 
+
+Załóżmy nie wprost, że
+$$F_m(x)=G_1(x)\cdot G_2(x)$$
+dla $G_1,G_2\in\Z[X]$. Możemy założyć, że $G_1(x)$ jest dalej nierozkładalny w $\Z[X]$ oraz $0<deg(G_1)<deg(F_m)=\phi(m)$
+
+\acc{Lemat:} Istnieje $b$-pierwiastek pierwotny stopnia $n$ oraz liczba pierwsza $p$ taka, że $p\nmid m$ i $G_1(b)=G_2(b^p)=0$.
+
+\textbf{Dowód lematu:}
+
+Z tego, że $0<deg(G_1)$ i $G_1|F_m$, $0<deg(G_2)$ i $G_2|F_m$ mamy, że istnieje pierwiastek pierwotny $b$ stopnia $m$ taki, że $G_1(b)=0$ oraz pierwiastek pierwotny $b'$ stopnia $m$ taki, że $G_2(b')=0$. Zatem istnieje $k\in\N$, $NWD(k, m)=1$ takie, że $b'=b^k$, bo grupa $\mu_m(\C)$ jest cykliczna i $b$ jest jej generatorem.
+
+Niech $k=p_1\cdot...p_s$ będzie rozkładem na liczby pierwsze. Wtedy mamy ciąg różnych liczb
+$$b, b^{p_1},b^{p_1p_2},...,b^{p_1,...,p_s}=b^k$$
+które są pierwiastkami pierwotnymi stopnia $m$. Z tego wynika, że każda z tych liczb jest pierwiastkiem $G_1$ lub $G_2$, czyli istnieje taka pozycja $i$, że
+$$G_1(b^{p_1...p_i})=0,$$
+$$G_2(b^{p_1...p_{i+1}})=0$$
+wtedy $b:=b^{p_1...p_i}$ oraz $p=p_{i+1}$ i lemat jest spełniony.
+\medskip
+
+Wimy już, że $G_1(b)=0$ i $G_1\in\Z[X]$ jest wielomianem nierozkładalnym. Niech $p$ będzie liczbą pierwszą z lematu. Rozważmy
+$$G_3(x)=G_2(x^p).$$
+Wtedy $G_2(b^p)=G_3(b)=0$, ale stąd wynika, że $G_1(x)$ dzieli $G_3(x)$. Niech więc 
+$$G_3(x)=G_1(x)H(x)\in\Z[X].$$
+
+Rozważmy homomorfizm
+$$f:\Z\to\Z_p$$
+i indukowany przez niego
+$$\overline f:\Z[X]\to\Z_p[X].$$
+Z założenia $F_m=G_1G_2$ mamy, że
+$$\overline f(F_m)=\overline f(G_1)\overline f(G_2)$$
+a z rozumowania powyżej ($G_3=G_1H$)
+$$\overline f(G_3)=\overline f(G_1)\overline f(H)$$
+ale
+$$\overline f(G_3(x))=\overline f(G_2(x^p))=\overline f(G_2(x))^p,$$
+bo współczynniki $f(G_2(x^p))$ są w $\Z_p$, a $(\sum c_ix^i)^p=\sum c_ix^{pi}$, bo $c_i^{kp}=c_i^k$ dla $c_i\in\Z_p$.
+
+Stąd wiemy, że
+$$f(G_2(x))^p=\overline f(G_1)\overline f(H).$$
+Pierścień $\Z_p[X]$ jest UFD, więc $\overline f(G_1)$ i $\overline f(G_2)$ mają wspólny dzielnik w $\Z_p[X]$, stopnia co najmniej $1$. Zatem z
+$$\overline f(F_m)=\overline f(G_1)\overline f(G_2)$$
+ma co najmniej pierwiastek wielokrotny. Jest to sprzeczność, bo nie mogą istnieć pierwiastki wielokrotne: $\overline f(F_m)|x^m-1=w_m$, a $x^m-1$ ma pierwiastki jednokrotne w $\Q$.
+
+\begin{wniosek}[pierwiastek pierwotny a $dim_\Q(\Q(b))$]
+    Jeżeli $b\in\C$ jest pierwiastkiem pierwotnym z $1$ stopnia $m$, to $[\Q(b):\Q]=\phi(m)$.
+\end{wniosek}
+
+\textbf{Dowód:} $F_m(x)$ jest wielomianem minimalnym dla $b$ nad $\Q$. Mamy, że $[\Q(b):\Q]=deg F_m=\phi(m)$.
+
+\begin{lemat}[twierdzenie Liouville'a o aproksymacji diofantycznej] \dyg{[twierdzenie Liouville'a o aproksymacji diofantycznej]}: Jeżeli $a\in\R$ jest liczbą algebraiczną stopnia $N>1$, to istnieje $c\in\R_+$ takie, że dla każdego $r=\frac pq\in\Q$ zachodzi
+    $$\left|a-\frac pq\right|\geq{c\over q^N}$$
+\end{lemat}
+
+\begin{definicja}[algebraiczne domknięcie]
+    Ciało $L\supseteq K$ jest \deff{algebraicznym domknięciem} $K$ wtedy i tylko wtedy, gdy:
+    \begin{enumerate}
+        \item $L$ jest algebraicznie domknięte
+        \item $L\supseteq K$ jest rozszerzeniem algebraicznym, to znaczy dla każdego $a\in L$ $a$ jest pierwiastkiem algebraicznym nad $K$
+    \end{enumerate}
+    Takie $L$ oznaczamy przez $\color{blue}\hat{K}$.
+\end{definicja}
+
+\begin{wniosek}[istnieje algebraiczne domknięcie]
+    Dla każdego $K$ istnieje algebraiczne domknięcie $\hat{K}$.
+\end{wniosek}
+
+\textbf{Dowód:} Rozważmy $K_\infty\supseteq K$ - ciało algebraicznie domknięte (twierdzenie z początku wykładu). Pokażemy, że
+$$\hat{K}=K^{alg}(K_\infty)=\{a\in K_\infty\;:\;a\text{ algebraiczny nad }K\}$$
+
+1. $\hat{K}$ jest algebraicznie domknięte:
+
+Jeżeli $f\in\hat{K}[X]$, to $f$ ma pierwiastek w $K$, ale $\hat{K}\subseteq K_\infty$, to znaczy, że $a\in\hat{K}$ jest algebraiczne nad $K$.
+
+2. $K\subseteq\hat{K}$ jest rozszerzeniem algebraicznym:
+
+$K\subseteq\widehat{K}=K^{alg}(K_\infty)$ z definicji jest rozszerzeniem algebraicznym.
+
+\begin{tw}[jedyność domknięcia algebraicznego]\label{tw:4:15}
+    $\hat{K}$ jest jedyne z dokładnością do izomorfizmu nad $K$.
+\end{tw}
+
+\begin{center}
+    \begin{tikzcd}
+        L_1\arrow[rr, "(\exists!\;f)\;f\obciete K=id_K" above, "\cong" below] & & L_2\\
+        & K\arrow[ul, "\supseteq" lablb]\arrow[ur, "\subseteq" labl] &
+    \end{tikzcd}
+\end{center}
+
+\textbf{Dowód:}
+
+Niech 
+$$\mathfrak{K}=\{(k',f')\;:\;K\subseteq K'\subseteq L_1,f':K'\xrightarrow[]{1-1}L_2,\;f'\obciete K=id_k\}$$
+\begin{illustration}
+    \draw (0, 0) ellipse(1.2 and 2);
+    \node at (0, -2.5) {$L_1$};
+    \draw (5, 0) ellipse (1.2 and 2);
+    \draw (0, -1) ellipse (0.8 and 1);
+    \node at (-0.3, -1) {$K$};
+    \draw (0, -0.55) ellipse (1 and 1.4);
+    \node at (-0.3, 0.3) {$K'$}; 
+    \draw (5, -1) ellipse (0.8 and 1);
+    \draw (5, -0.55) ellipse (1 and 1.4); 
+    \node at (5.2, 0.3) {$f'[K']$}; 
+    \node at (5.3, -1) {$K$};
+    \node at (5, -2.5) {$L_2$};
+    \draw[->] (0.5, -1)..controls (1, 0) and (4, 0)..(4.5, -1) node [midway, above] {$id_K$};
+    \draw[->] (0.5, 0.2)..controls (1, 1.2) and (4, 1.2)..(4.5, 0.2) node [midway, above] {$f'$};
+\end{illustration}
+
+W $\mathfrak{K}$ definiujemy relację porządku w naturalny sposób, to znaczy
+$$(K', f')\leq(K'', f'')\iff K'\subseteq K''\;\land\;f''\obciete K'=f''.$$
+Wtedy $(\mathfrak{K},\leq)$ jest zbiorem częściowo uporządkowanym i niepustym (bo jest $(K,id_K)\in\mathfrak{K}$). Ponadto każdy wstępujący łańcuch $(\mathfrak{K},\leq)$ ma ograniczenie górne. Na mocy lematu Kuratowskiego-Zorna w tej rodzinie istnieje element maksymalny, nazwijmy go $(K_1,f_1)$. Pokażemy, że $K_1=L_1$.
+
+Załóżmy nie wprost, że istnieje $a\in L_1\setminus K_1$. Niech $w(x)\in K_1[X]$ będzie wielomianem minimalnym elementu $a$ nad $K_1$. Niech
+$$K_2=f_1[K_1]$$
+$$v(x)=f_1(a_0)+f_1(a_1)x+...+f_1(a_n)x^n\in K_2[X].$$
+$v(x)$ też jest nierozkładalny nad $K_2$, bo $w(x)$ był nierozkładalny nad $K_1$. Niech $b\in L_2$ będzie pierwiastkiem wielomianu $v$.
+
+Zauważmy, że $K_1(a)=K_1[a]$, bo $w(x)$ jest nierozkładalny nad $K_1$, ale
+$$K_1[a]\simeq K_1[X]/(w)\simeq K_2[X]/(v)\simeq K_2[b]\simeq K_2(b).$$
+Czyli $K_1(a)\simeq K_2(b)$ i $f_2:K_1(a)\izo{}K_2(b)$ jest izomorfizmem rozszerzającym $f_1$. Wtedy mamy $(K_1,f_1)\lneq(K_1(a),f_2)$, co daje sprzeczność z maksymalnością $(K_1,f_1)$. Zatem $L_1=K_2$.
+
+Niech $K_2=f[K_1]=f[L_1]$. Pokażemy nie wprost, że $K_2=L_2$. Załóżmy, że istnieje $a\in L_2\setminus K_2$. Niech $w(x)\in K_2[X]$ wielomian minimalny dla $a$ nad $K_2$. Wtedy $w(x)$ nie ma pierwiastka w $K_2$, ale $K_2=f_1[L_1]$ jest algebraicznie domknięte, bo $L_1$ jest algebraicznie domknięte, co daje sprzeczność.
+
+\begin{wniosek}[$K\cong L\implies\hat{K}\cong\hat{L}$]
+    Jeśli $K\cong L$, to $\hat{K}\cong \hat{L}$. Dokładniej, jeżeli $f_0LK\to L$ jest izomorfizmem ciał, to istnieje izomorfizm $f:\hat{K}\to\hat{L}$ taki, że $f\obciete K=f_0$.
+\end{wniosek}
+
+\begin{wniosek}[algebraiczne rozszerzenie $1-1$ $\to$ $\hat{K}$]
+    Jeśli $K\subseteq L$ jest algebraicznym rozszerzeniem ciał, to istnieje monomorfizm $f:L\to \hat{K}$ taki, że $f\obciete K=id_K$.
+\end{wniosek}
+
+\textbf{Dowód:} Mamy dane $K\subseteq L\subseteq\hat{L}$ rozszerzenia algebraiczne, zatem rozszerzenie $K\subseteq\hat{L}$ jest algebraiczne. Stąd $\hat{L}$ jest algebraicznym domknięciem $K$. Z twierdzenia \ref{tw:4:15} istnieje izomorfizm $g:\hat{L}\to\hat{K}$ taki, że $g\obciete K=id_K$. Wtedy $f=g\obciete L$ jest szukanym monomorfizmem.

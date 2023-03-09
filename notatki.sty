@@ -28,10 +28,17 @@
 {}                % Space below
 {\slshape}        % Theorem body font % (default is "\upshape")
 {}                % Indent amount
-{\large\color{yellow}\bfseries}       % Theorem head font % (default is \mdseries)
+{\large\color{yellow}\bfseries} % Theorem head font % (default is \mdseries)
 {.}               % Punctuation after theorem head % default: no punctuation
 { }               % Space after theorem head
-{}                % Theorem head spec
+{\thmname{#1}\thmnumber{ #2}\thmnote{}}              % Theorem head spec
+
+
+
+\RequirePackage{thmtools}
+\renewcommand{\listtheoremname}{Skorowidz twierdzonek}
+\renewcommand{\thmtformatoptarg}[1]{: \emph{#1}}
+
 \theoremstyle{mytheo}
 
 \newtheorem{fakt}{Fakt}[section]
@@ -39,6 +46,7 @@
 \newtheorem{tw}[fakt]{Twierdzenie}
 \newtheorem{wniosek}[fakt]{Wniosek}
 \newtheorem{definicja}[fakt]{Definicja}
+\newtheorem{lemat}[fakt]{Lemat}
 
 \RequirePackage[document]{ragged2e}
 \sloppy
@@ -76,6 +84,8 @@
 \newenvironment{pair}{\langle}{\rangle}
 \newenvironment{floor}{\lfloor}{\rfloor}
 \newenvironment{ceiling}{\lceil}{\rceil}
+
+\renewcommand{\hat}[1]{\widehat{#1}}
 
 \newcommand{\bijection}{\xrightarrow[na]{1-1}}
 \newcommand{\rarrow}[2]{\xrightarrow[#1]{#2}}
@@ -179,6 +189,9 @@
 
 \RequirePackage{xcolor}
 
+% \definecolor{l}{HTML}{ffffff}
+% \definecolor{m}{HTML}{000000}
+
 \definecolor{back}{HTML}{353535}
 \definecolor{back2}{HTML}{303030}
 \definecolor{fore}{HTML}{ffffff}
@@ -194,6 +207,16 @@
 \definecolor{pink}{HTML}{efb5f7}
 \definecolor{dark-cyan}{HTML}{bdd6ff}
 \definecolor{cyan}{HTML}{dbf4ff}
+
+% \def\kolorA{back}
+% \def\kolorB{fore}
+
+% \DeclareOption{light-theme}{
+
+% }
+
+% \ExecuteOptions{light-theme}
+% \ProcessOptions\relax
 
 \color{fore}
 \pagecolor{back}
