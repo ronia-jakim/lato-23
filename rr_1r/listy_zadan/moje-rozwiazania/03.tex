@@ -193,4 +193,22 @@ Bierzemy $\varepsilon>0$ i wtedy istnieje $N$ takie, że dla każdego $i>N$ mam 
     &=\|u_i-v\|+\|u_i'-w\|<\frac\varepsilon2+\frac\varepsilon2=\varepsilon
 \end{align*}
 
+\subsection*{ZADANIE 11.}
+{\color{pink}\emph{Ustal, dla jakich wartości parametru $\lambda\in\R$, operator $F:C[a,b]\to C[a,b]$ zadany wzorem}
+$$F(u)(x)=x+\lambda\int_a^b\sin(u(y)+x)dy$$
+\emph{jest kontrakcją.}
+}
+
+Tylko u mnie to w sumie $[a, b]=[0, 1]$...
+
+$F$ jest kontrakcją, znaczy, że
+$$\|F(x)-F(y)\|\leq k\|x-y\|$$
+\begin{align*}
+    \|F(u)-F(v)\|&=\max\left|x+\lambda\int_a^b\sin(u(y)+x)dy-x-\lambda\int_a^b\sin(v(y)+x)dy\right|=\\
+    &=|\lambda|\max\left|\int_a^b(\sin(u(y))+x)-\sin(v(y)+x)dy\right|\leq\\
+    &\leq|\lambda|\max\int_a^b|\sin(u(y)+x)-\sin(v(y)+x)|dy\\
+    &=|\lambda|\int_a^b\|u-v\|dy=|\lambda|(b-a)\|u-v\|
+\end{align*}
+czyli $\lambda\in[0, {1\over b-a}]$? Znaczy chyba to mi śmiga nawet jeśli $[a, b]\neq[0, 1]$, bo $\sin x$ jest prawie liniowy.
+
 \end{document}
