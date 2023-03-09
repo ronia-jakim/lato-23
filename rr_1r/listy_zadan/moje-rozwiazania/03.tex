@@ -1,0 +1,196 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\begin{document}
+\subsection*{ZADANIE 1.}
+\emph{\color{pink}Wyprowadź wzór na $n$-tą interację Picarda $y_n(x)$ i oblicz jej granicę, gdy $n\to\infty$ dla podanych zagadnień Cauchy'ego}
+
+\emph{\color{pink}(a) $y'=-y$, $y(0)=1$}
+
+Chcemy wyprowadzić wzór na $n$-ty wyraz ciągu
+$$y_{n+1}(t)=y_0+\int_{t_0}^tf(s, y(s))ds$$
+Czyli mamy, że
+\begin{align*}
+    y_1&=y_0+\int_0^t-1ds=1-t\\
+    y_2&=y_0+\int_0^t(s-1)ds=1-t+{t^2\over2}\\
+    y_n(y)&=\sum\limits_{i=0}^n(-1)^i{t^i\over i!}\xrightarrow[]{n\to\infty}e^{-t}
+\end{align*}
+
+\emph{\color{pink}(b) $y'=2yt$, $y(0)=1$}
+
+\begin{align*}
+    y_1&=1+\int_0^t2sds=1+t^2\\
+    y_2&=1+2\int_0^ts(1+s^2)ds=1+t^2+{t^4\over 2}\\
+    y_3&=1+2\int_0^ts(1+s^2+{s^4\over2})ds=1+t^2+{t^4\over 2}+{t^6\over 6}\\
+    y_n(t)&=\sum\limits_{i=0}^n{t^{2i}\over i!}\xrightarrow[]{n\to\infty}e^{2t}
+\end{align*}
+
+\subsection*{ZADANIE 2.}
+\emph{\color{pink}Wyprowadź wzór na $n$-tą iterację Picarda dla zagadnienia początkowego $x'=x^2$, $x_0=1$ na odcinku $[0, 2]$, jeżeli $x_0(t)\equiv 1$. Oblicz granicę tego ciągu. Znajdź rozwiązanie zagadnienia i porównaj rezultaty.}
+
+Zacznijmy od rozwiązania tego rozwiązania:
+\begin{align*}
+    x'=x^2\\
+    {x'\over x^2}&=1\\
+    \int_0^t{x'\over x^2}dx&=\int_0^t1ds\\
+    -\frac1x+1&=t\\
+    1-t&=\frac1x\\
+    {1\over 1-t}&=x
+\end{align*}
+Wiem czego się spodziewać, chociaż nie jest to może najbardziej ciągłym byczkiem w $t=1$. Spróbujmy popatrzeć na Picarda.
+
+\begin{align*}
+    x_0&=1\\
+    x_1&=1-\int_0^t1^2ds=1+t\\
+    x_2&=1+\int_0^t(1+s)^2ds=1+{(1+t)^3\over 3}=1+t+t^2+{t^3\over 3}\\
+    x_3&\overset{wolfram\alpha}{=}1+t+t^2+t^3+{2t^4\over 3}+{t^5\over3}+{t^6\over 9}+{t^7\over 63}
+\end{align*}
+Co teraz zauważamy? Że to początek, czyli tam gdzie współczynniki są równe $1$, będzie się zwijał do $\sum t^i$, czyli ${1\over 1-t}$, ale to tylko na $t\in[0, 1)$. Kiedy $n\to\infty$ to ten ogon, który wydaje się być aż do $2^n-1$ też będzie dla małego $t$ maluczki, bo $t^{2^n-1}$ dla małych $t$ i dużego $n$ jest pomijanie małe.
+
+Pozostaje mi sprawdzić, czy coś się nie psuje przy $t=1$? Chcelibyśmy, żeby $f(t, y),{\partial\over\partial y}f(t, y)$ było ciągłe na prostokątach:
+$$R=\{(t, y)\;:\;0\leq t\leq 2,\;|y-1|\leq b\}$$
+$$M=\max|f(t, y)|=(b+1)^2,$$
+bo $f(y, t)$ zależy tylko od $y$ i jest rosnące dodatnie, czyli to jest $\max y^2$.
+$$\alpha=\min(2, {b\over (b+1)^2})={b\over (b+1)^2},$$ 
+czyli $y$ ma jedyne rozwiązanie na $t\in[0,\alpha]$, ale $\alpha$ w życiu nie dotknie mi nawet $1$, więc jesteśmy ograniczeni do okolicy $0$ z tym rozwiązaniem.
+
+\subsection*{ZADANIE 3.}
+\emph{\color{pink}Stosując twierdzenie Picarda-Lindel\"ofa dla podanych niżej zagadnień Cauchy'egp udowodnij, że rozwiązanie $y=y(t)$ istnieje na zadanym przedziale:}
+
+\emph{\color{pink}(a) $y'=y^2+\cos t^2$, $y_0=0$, $0\leq t\leq\frac12$}
+
+Super, tutaj nie muszę nic liczyć.
+
+Rozważam $b\geq 1$ i prostokąt
+$$R=\{(t, y)\;:\;0\leq t\leq\frac12\;:\;|y|\leq b\}$$
+$$\max|f(t, y)|=b^2+\cos\frac14,$$
+bo znowu mamy, że obie funkcje są rosnące.
+$$\alpha=\min\left(\frac12,{b\over1+\cos\frac14}\right)=\frac12,$$
+bo $1>\cos \frac14>0$. Czyli, jeśli $f(t, y)$ i pochodna są ciągłe, to będzie śmigać. To, że $y^2+\cos t^2$ jest ciągłe to raczej widać. Jak się miewa pochodna?
+$${\partial(y^2+\cos t^2)\over y}=2y$$
+i to jest bardzo ciągłe. Czyli z Picarda mamy dokładnie jedno rozwiązanie, którego liczyć nie liczyłam, bo po co.
+
+\subsection*{ZADANIE 4.}
+\emph{\color{pink}Znajdź rozwiązanie zagadnienia $y'=t\sqrt{1-y^2}$, $y(0)=1$, różne od rozwiązania $y(t)\equiv1$. Które z założeń twierdzenia Picarda-Lindel\"ofa nie jest spełnione?}
+
+Najpierw odpowiem na to, które założenie twierdzenia Picarda nie jest spełnione. Będziemy rozważać prostokąt z $0\leq t\leq a$ i wymagać, żeby pochodna ${\partial\over\partial y}f(t, y)$ była ciągła. Ale no jak wygląda pochodna?
+$${\partial\over\partial y}t\sqrt{1-y^2}\overset{wolfram\alpha}{=}{ty\over\sqrt{1-y^2}}={t\over\sqrt{{1\over y^2}-1}}$$
+i to jest bardzo nieciągłe w $t=0$.
+
+W takim razie szukanie rozwiązania to po prostu liczenie całek:
+\begin{multline*}
+    y'=t\sqrt{1-y^2}\\
+    {y'\over\sqrt{1-y^2}}=t\\
+    \int_0^t{y'\over\sqrt{1-y^2}}ds=\int_0^tsds\\
+    sin^{-1}(y)-\sin^{-1}(1)=\frac12t^2\\
+    \sin^{-1}(y)={t^2+\pi\over2}\\
+    y=\sin\left({t^2+\pi\over2}\right)\\
+\end{multline*}
+
+\subsection*{ZADANIE 5.}
+\emph{\color{pink}Niech $y(t)$ będzie nieujemną ciągłą funkcją spełniającą}
+$$\color{pink}y(t)\leq L\int_{t_0}^ty(s)ds$$
+\emph{\color{pink}na odcinku $t_0\leq t\leq t_0+\alpha$. Udowodnij, że $y(t)=0$ dla $t_0\leq t\leq t_0+\alpha$ (łatwiejsza wersją lematu Gronwalla). Wskazówka: Pokaż indukcyjnie, że $y(t)\leq c{L^n\over n!}(t-t_0)^n$}
+
+Zrobię dokładnie to, co jest we wskazówce. Niech $c=\max\limits_{t\in[t_0,t_0+\alpha]}y(t)$. Dla $n=1$ mam treść zadania i twierdzenie o wartości średniej. Czyli zakładam, że działa dla $n$-tego kroku, weźmy krok numer $n+1$ i popatrzmy co się dzieje
+\begin{align*}
+    y(t)&\leq \int_0^ty(s)ds\leq L\int_0^tc{L^n\over n!}(s-t_0)^nds=\\
+    &=c{L^{n+1}\over n!}\int_{t_0}^t(s-t_0)^nds=c{L^{n+1}\over n!}{(t-t_0)^{n+1}\over n+1}=\\
+    &=c{L^{n+1}\over (n+1)!}(t-t_0)^{n+1}
+\end{align*}
+Czyli mam, że dla dowolnego $n\in\N$
+$$y(t)\leq L^n{c\over n!}(t-t_0)^n$$
+$${y(t)\over L^n}\leq {c(t-t_0)^n\over n!}$$
+Ponieważ $L\neq 0$ (wpp to mamy już dość prosto z treści), a 
+$${c(t-t_0)^n\over n!}\xrightarrow[]{n\to\infty}0,$$
+to $y(t)$ jest ograniczone od góry przez ciąg dążący do $0$, więc koniec dowodu.
+
+\subsection*{ZADANIE 6.}
+\emph{\color{pink}Stosując lemat Gronwalla udowodnij, że $y(t)=-1$ jest jedynym rozwiązaniem zagadnienia $y'=t(1+y)$, $y(0)=-1$.}
+
+Załóżmy, że tych rozwiązań jest więcej niż jedno, czyli mamy jakieś $\overline y\neq y$. Rozważmy wartość bezwzględną ich różnicy
+$$w=|y-\overline y|.$$
+Chcemy skorzystać z lematu Gronwalla, czyli potrzebujemy
+$$w\leq a+b\int_{t_0}^twds$$
+dla $a=1$ i $b\geq1$.
+
+\begin{align*}
+    w=|y-\overline y|&=\left|y_0+\int s(1+y)ds-y_0-\int s(1+\overline y)ds\right|=\\
+    &=\left|\int s(1-1)ds-\int s(1+\overline y)ds\right|=\left|\int s(1+\overline y)ds\right|\leq\\
+    &\leq\int|s(\overline y-y)|ds=\int swds
+\end{align*}
+Jeśli ograniczę się do bliskiej okolicy $0$, to $\int swds\leq \int wds$, czyli mam
+$$w\leq \int swds\leq \int wds$$
+a więc na odcinku $[0, 1]$ $w\equiv 0$ i $y=-1$ jest jedynym rozwiązaniem. Dla $t>1$ też to śmiga, bo wtedy
+$$w\leq\int_{t_0}^tswds\leq \int twds=t\int wds,$$
+bo $s\leq t$, natomiast $t>1$.
+
+\subsection*{ZADANIE 7.}
+\emph{\color{pink}Zbadaj istnienie rozwiązania zagadnienia Cauchy'ego $y'=f(y, t)$ i $y(0)=0$, gdzie}
+$$\color{pink}f(y, t)=\begin{cases}
+    -1\quad t\leq 0\\
+    1
+\end{cases}$$
+
+Na chłopski rozum, to rozwiązanie jest po prostu złożeniem dwóch rozwiązań i wynosi $y=|t|$, ale jeśli popatrzymy na to ze strony Picarda, to dla
+$$R=\{(t, y)\;:\;0\leq t\leq t+a,\;|y|\leq b\}$$
+funkcja $f$ nie jest ciągła, bo od prawej strony dąży do $1$, ale $f(0, 0)=-1$ i nie śmiga.
+
+\subsection*{ZADANIE 8.}
+\emph{\color{blue}Udowodnij, że równanie $y'=f(y)$, $y\in\R$, $f\in C^1$, nie może mieć rozwiązań okresowych różnych od stałej.}
+
+% Powiedzmy, że istnieje okresowe rozwiązanie niestałe. Czyli
+% $$0\neq y'(t_0)=f(y(t_0)),$$
+% więc na okolicy $(t_0, y_0)$ mogę sobie $f$ się nie zeruje i mogę skorzystać z pierwszego wykładu i podzielić sobie
+% \begin{align*}
+%     y'=f(y)\\
+%     {y'\over f(y)}=1
+% \end{align*}
+
+Co by znaczyło, że $y'$ ma rozwiązanie okresowe różne od stałej? Po pierwsze, $0\neq y'(t_0)=f(y_0)$ i co więcej, jeśli $y$ jest rozwiązaniem i $y$ jest okresowe, to dla $T$ - okresu $y$ musi zajść
+$$\int_0^Ty'ds=0,$$
+bo ona rośnie o tyle samo co maleje, więc pochodna jest symetryczna względem $OX$. Czyli również pochodna jest okresowa.
+
+\subsection*{ZADANIE 9.}
+\emph{\color{pink}Udowodnij, że $\R^n$ z normami (a) euklidesową, (b) taksówkową, są przestrzeniami Banacha.}
+
+\emph{\color{pink}(a) euklidesowa}
+
+Wystarczy pokazać, że jest zupełna, czyli bierzemy ciąg Cauchy'ego $\{x_i\}_{i\in\N}$, $x_i=(x_i^1,...,x_i^n)$ i pokazujemy, że on jest zbieżny. 
+
+Wiemy, że $\R$ jest przestrzenią zupełną, a więc po nałożeniu normy jest to też przestrzeń Banacha. Niech więc 
+$$x=(\lim_k x_k^1,...,\lim_kx_k^n)=(x^1,...,x^n).$$
+Dla każdego $\varepsilon>0$ mogę znaleźć takie $N$, że dla każdego $k>N$ mam ${\varepsilon\over \sqrt{n}}>|x_k^i-x^i|$. W takim razie
+\begin{align*}
+    \|x_k-x\|&=\left[\sum\limits_{i=1}^n|x_k^i-x^i|^2\right]^\frac12<\left[\sum\limits_{i=1}^n|{\varepsilon\over \sqrt{n}}|^2\right]^\frac12\leq\\
+    &\leq \left[\sum\limits_{i=1}^n{\varepsilon^2\over n}\right]^\frac12=\varepsilon
+\end{align*}
+
+\emph{\color{pink}(taksówkowa)}
+
+Jedyna zmiana tutaj jest, że metryka to po prostu sumy różnic poszczególnych współrzędnych, reszta tak samo.
+
+\subsection*{ZADANIE 10.}
+{\color{pink}\emph{Udowodnij, że zbiór}
+$$C^1([a, b])=\{u\in C[a, b]\;:\;u'\in C[a, b]$$
+\emph{z normą $\|u\|_{1,\infty}=\max\limits_{x\in [a, b]}|u(x)|+\max\limits_{x\in[a,b]}|u'(x)|$ jest przestrzenią Banacha. }}
+
+% $$\|u\|_{1\infty}=\max\limits_{x\in[a,b]}(|u(x)|+|u'(x)|)\geq\max\limits_{x\in[a,b]}|u(x)+u'(x)|$$
+% i to leci już z tego, że $C[a, b]$ jest przestrzenią zupełną.
+
+Czyli mam ciąg Cauchy'ego $u_1,...,u_n,...\in C^1[a, b]$ i wiem, że $u_i,u_i'\in C[a, b]$. Niech $v\in C[a,b]$ będzie takie, że $\lim\|u_i-v\|=0$, bo wiemy, że $C[a,b]$ jest zupełne, więc $u_i$ mają tam jakąś granicę. Tak samo dla $u_i'$, niech $w\in C[a, b]$ będzie takie, że $\lim\|u_i'-w\|=0$. No dobra, to lecimy z pokazaniem, że $v'=w$:
+$$\lim u_i(x)=\lim \left(u_i(0)+\int_0^tu_i'ds\right)=v(0)+\lim\int_0^tu_i'ds$$
+i teraz dlatego, że $u_i'$ zbiega jednostajnie do $w$, to wsadzamy $\lim$ pod całkę
+$$v(0)+\lim\int_0^tu_i'ds=v(0)+\int_0^t\lim u_i'ds=v(0)+\int_0^twds$$
+czyli
+$$v(t)=v(0)+\int_0^twds$$
+i mamy, że $v'=w$. Super.
+
+Bierzemy $\varepsilon>0$ i wtedy istnieje $N$ takie, że dla każdego $i>N$ mam $\frac\varepsilon2>\|u_i-v\|$ i $\frac\varepsilon2>\|u_i'-w\|$ w $C[a,b]$. Czyyli
+\begin{align*}
+    \|u_i-v\|_{1,\infty}&=\max|u_i(x)-v(x)|+\max|u_i'(x)-v'(x)|=\|u_i-v\|+\max|u_i'(x)-w(x)|=\\
+    &=\|u_i-v\|+\|u_i'-w\|<\frac\varepsilon2+\frac\varepsilon2=\varepsilon
+\end{align*}
+
+\end{document}
