@@ -19,7 +19,16 @@ Let $f$ be an irreducible polynomial $f\in K[x]$ and $n=deg(f)>0$ and let $a_1,.
 For my convenience, I will consider $g=b_n^{-1}f$, where $b_n$ is the leading coefficient in $f$. So now $g$ is a monic polynomial and considering the splitting field of $f$ is the same as considering the splitting field of $g$ - I just multiplied a polynomial by a nonzero constant.
 \smallskip
 
-\acc{Lemacik:}\emph{ The splitting field of $g$ (equivalently, of $f$) is finite.}
+\phantomsection
+\label{lemaczysko}
+\acc{Lemaczysko:} \emph{An irreducible polynomial $g\in K[X]$ is the minimal polynomial for some root $a$, $f(a)=0$}
+
+As $K$ is a field, the ring $K[X]$ is an euclidean domain. Let us suppose that $h\in K[X]$ is the minimal polynomial of $a$ in $K$ such that $deg(h)<deg(g)$. We have that there exists $p,r\in K[X]$ such that
+$$f=hp+r$$
+but notice that $f(a)=0$ and $h(a)=0$, so $r=0$ and we would have $f=hp$ but $f$ was irreducible.
+\medskip
+
+\acc{Lemat:}\emph{ The splitting field of $g$ (equivalently, of $f$) is finite.}
 
 We will construct the splitting field of $K$ as such:
 $$L_1=K(a_1)$$
@@ -27,40 +36,27 @@ $$L_2=L_1(a_2)$$
 $$L_i=L_{i-1}(a_i)$$
 and then $L=L_r$.
 
-Let
-$$f(x)=\prod\limits_{i=1}^r(x-a_i)^{k_i}$$
-and notice that $\sum k_i=n$.
+1. $[L_1:K] = n$. The ideal
+$$I(a_1/K)=\{w\in K[X]\;:\;w(a_1)=0\}=(g)$$
+because $g$ is irreducible. We showed that $g$ is minimal in \hyperref[lemaczysko]{\acc{Lemaczysko}} and so from Remark 4.5. (\hyperref[remark:4:5]{below}) we have that $[L_1:K]=deg(g)=n$.
 
-I will show that $[L_r:K]=\prod\limits_{i=1}^rk_i<\infty$ using finite induction.
-
-1. $[L_1:K]$. We know that $g$ in $L_1$ can be written as
-$$g=(x-a_1)^{k_1}u_1,$$
-where $u_1\in L_1[x]$ is an irreducible polynomial such that $u_1(a)\neq 0$. Then, the ideal
-$$I(a_1/K)=\{w\in K[x]\;:\;w(a_1)=0\}=((x-a_1)^{k_1})$$
-because even though I write $(x-a_1)^{k_1}$, I know that a polynomial of this form is irreducible in $K[x]$ if $a_1\notin K$. Which must be the case because we started from a polynomial that is not a product of linear polynomials.
-
-From Remark 4.4. (\hyperref[remark:4:4]{below}) I know that $[L_1:K]=deg((x-a_1)^{k_1})=k_1$.
-\smallskip
-
-2. $[L_{i+1}:L_i]=q^{k_{i+1}}$
-
-Right now we have that
-$$g=(x-a_{i+1})^{k_{i+1}}u_{i+1}(x)\prod\limits_{j=1}^i(x-a_j)^{k_j}$$
-which looks horrific but I am trying to be formal and so on. I want $u_{i+1}(a_{i+1})\neq 0$. The product part is a linear combination of polynomials from $L_i$ and $(x-a_{i+1})^{k_{i+1}}$ is a linear combination of polynomials from $L_{i+1}$ but not from $L_i$. And so is irreducible over $L_{i}$. So now we have that
-$$I(a_{i+1}/K)=((x-a_{i+1}))^{k_{i+1}}$$
-by the same argument as above. Thus, from remark 4.4. (\hyperref[remark:4:4]{still there}) we have that $[L_{i+1}\;:\;L_i]=k_{i+1}$.
+2. $[L_{i+1}:L_i] = n$. Once again, $g$ is irreducible over $L_{i}$ (because not all roots of $g$ are in $L_i$)
+$$I(a_{i+1}/K)=\{w\in K[X]\subseteq L_i[X]\;:\;w(a_{i+1})=0\}=(g)$$
+and it follows from Remark 4.5. (\hyperref[remark:4:5]{once again}) that $[L_{i+1},L_i]=deg(g)=n$.
 \medskip
 
-Now that we are done, we will use Fact 4.5. (\hyperref[fact:4:5]{even belower}). We see, from condition, that
-$$K\subseteq L_1\subseteq L_2\subseteq...\subseteq L_r=L$$
-and now:
+Now, using Fact 4.6. (\hyperref[fact:4:6]{even belower}) We have that
 \begin{align*}
-    [L_r:K]=[L_r:L_{r-1}][L]
+    [L:K]&=[L_r:L_{r-1}][L_{r-1}:L_{r-2}]=...=\prod\limits_{i=1}^r[L_i:L_{i-1}]=n^r<\infty.
 \end{align*}
 
+Let $m=p^k+1$ such that $m>[L:K]$. It is clear that $p\nmid m$. Now, consider the polynomial
+$$w_m(x)=x^m-1=(x-1)\underbrace{(x^{m-1}+x^{m-2}+...+x+1)}_{v_m(x)}$$
+and we will show that $(x-a_i)|v_m$ for every $i=1,...,r$.
+
 \phantomsection
-\label{remark:4:4}
-{\color{orange}Remark 4.4.}
+\label{remark:4:5}
+{\color{orange}Remark 4.5.}
 \emph{ Suppose that $I(a/K)=(f)$ and $f$ is monic. Then:
 \begin{enumerate}
     \item $f$ is the minimal monic polynomial such that $f(a)=0$
@@ -69,13 +65,9 @@ and now:
 \medskip
 
 \phantomsection
-\label{fact:4:5}
-{\color{orange}Fact 4.5}
+\label{fact:4:6}
+{\color{orange}Fact 4.6}
 \emph{ Let $K\subseteq L\subseteq M$ be extensions of fields. Then
 $$[M:K]=[M:L][L:K]$$}
-
-% The ideal $I(a_1,...,a_2/K)$ satisfies the conditions from the remark and thus
-% $$deg(g)=[K(a_1,...,a_n)\;:\;K]$$
-% and so $[K(a_1,..,a_n)\;:\;K]=n$. We know that $(1, a_1, )$
 
 \end{document}
