@@ -12,9 +12,20 @@
 \tableofcontents
 \newpage
 
-\input{wstep.tex}
+\input{01_definicje.tex}
+\newpage
+
+\input{02_glodkosc.tex}
 \newpage
 
 \input{03_.brzeg.tex}
+\newpage
+
+\renewcommand{\listtheoremname}{Skorowidz definicji}
+\listoftheorems[ignoreall, show={definicja}]
+\newpage
+
+\renewcommand{\listtheoremname}{Twierdzonkowa zabawa}
+\listoftheorems[ignore={definicja}]
 
 \end{document}

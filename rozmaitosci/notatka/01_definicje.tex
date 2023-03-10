@@ -1,0 +1,177 @@
+\section{Definicja rozmaitości}
+
+Zanim podany dokładną definicję, możemy rozważyć kilka przykładów rozmaitości różniczkowalnych:
+
+\indent \point powierzchnia, domknięta lub nie,
+
+\indent \point przestrzeniach opisanych (lokalnie) skończoną liczbą parametrów,
+
+\indent \point podzbiory $\R^n$ lub $\C^n$ zapisywalne równaniami algebraicznymi (np. $z_1^2+z_2^2+z_3^1$ w $\C^3$).
+
+Cały wykład będzie wstępnym słownikiem wokół pojęcia rozmaitości różniczkowalnej.
+
+\subsection{Rozmaitości topologiczne}
+
+\begin{definicja}[rozmaitość topologiczna]
+Przestrzeń topologiczna $M$ jest $n$-wymiarową \deff{rozmaitością topologiczną} [$n$-rozmaitością], jeżeli spełnia:
+\begin{enumerate}
+    \item jest Hausdorffa
+    \item ma przeliczalną bazę
+    \item jest \acc{lokalnie euklidesowa} wymiaru $n$, czyli każdy punkt z $M$ posiada otwarte otoczenie w $M$ homeomorficzne z otwartym podzbiorem w $\R^n$.
+\end{enumerate}
+\end{definicja}
+\medskip
+
+\deff{\large Konsekwencje Hausdorffowości:}
+\smallskip
+
+\indent \point Mamy wykluczone pewne patologie, na przykład przestrzeń
+
+\begin{illustration}
+    \draw[very thick] (-3, 0)--(0, 0);
+    \draw[very thick] (0, 0.5)--(3, 0.5);
+    \draw[very thick] (0, -0.5)--(3, -0.5);
+    \filldraw[color=fore, fill=back, very thick] (0, 0) circle (0.1);
+\end{illustration}
+
+nie jest rozmaitością topologiczną.
+
+\indent \point Pewne własności otoczeń punktów są zachowywane. To znaczy, dla dowolnego zwartego podzbioru otoczenia punktu $x\in U\subseteq \R^n$ $K\subseteq U$ jego odpowiednik $\overline K=\phi^{-1}(K)\subseteq \overline U\subseteq M$ jest domknięty i zwarty w $M$. [ćwiczenia]
+\medskip
+
+\deff{\large Konsekwencje przeliczalności bazy:}
+\smallskip
+
+\indent \point Spełniany jest warunek Lindel\"ofa: każde pokrycie rozmaitości zbiorami otwartymi zawiera przeliczalne podpokrycie. [ćwiczenia]
+
+\indent \point Każda rozmaitość jest wstępującą sumą otwartych podzbiorów
+$$U_1\subseteq U_2\subseteq ...\subseteq U_n\subseteq...$$
+które są po domknięciu w $M$ zwarte. Czyli możemy ją wyczerpać za pomocą zbiorów, które są małe.
+
+\indent \point \acc{Parazwartość}, czyli każde zwarte pokrycie $M$ posiada lokalnie skończone rozdrobnienie.
+
+\indent \point Każdą rozmaitość jesteśmy w stanie zanurzyć w $\R^n$ dla odpowiednio dużego $n$.
+\medskip
+
+\deff{\large Konsekwencje lokalnej euklidesowości:}
+\smallskip
+
+\indent \point \acc{Twierdzenie Brouwer'a}: dla $n\neq m$ niepusty otwarty podzbiór $\R^n$ nie jest homeomorficzny z jakimkolwiek otwartym podzbiorem w $\R^m$. 
+
+\indent \point Czyli liczba $n$ w definicji jest jednoznaczna dla danej rozmaitości. Określamy \deff{wymiar rozmaitości} $\dim M=n$.
+
+\subsection{Mapy, lokalne współrzędne}
+
+\deff{Mapą} na rozmaitości topologicznej $M$ nazywamy parę $(U, \phi)$, gdzie $U$ to otwarty podzbiór w $M$, a $\phi$ to homeomorfizm $\phi:U\to \overline U\subseteq \R^n$. Mapa to jest jakiś homeomorfizm między rozmaitością a pewnym podzbiorem $\R^n$. Zbiór $U$ nazywamy \acc{zbiorem mapowym}. \textbf{Przez lokalną euklidesowość wiemy, że pokrywają one całą rozmaitość.} 
+
+Parę $(U, \phi)$ nazywamy też \deff{lokalnymi współrzędnymi} na $M$ albo \emph{lokalną parametryzacją} $M$.
+\smallskip
+
+\begin{fakt}[$n$-rozmaitość $\iff$ rodzina map pokrywających]
+    Hausdorffowska przestrzeń $X$ o przeliczalnej bazie jest $n$-rozmaitością $\iff$ posiada rodzinę map $n$-wymiarowych dla której zbiory mapowe pokrywają cały $X$.
+\end{fakt}
+
+\textbf{\large Przykład:} 
+
+Rozważmy $S^n=\{(x_1,...,x_n)\in\R^{n+1}\;:\;\sum x_i^2=1\}\subseteq \R^{n+1}$ z dziedziczoną topologią. Z racji, że $\R^{n+1}$ jest Hausdorffa i ma przeliczalną bazę, to $S^n$ tęż spełnia te dwa warunki. Wystarczy teraz wskazać odpowiednią rodzinę map, która pokryje całe $S^n$. Dla $i=1,..., n+1$ określmy otwarte podzbiory w $S^n$
+$$U_i^+=\{x\in S^n\;:\;x_i>0\}$$
+$$U_i^-=\{x\in S^n\;:\;x_i<0\}$$
+
+\emph{\Large\color{red}RYSUNEK DLA $S^3$}
+
+\begin{illustration}
+    \draw (0,0) circle (2cm);
+    \draw (-2,0) arc (180:360:2 and 0.6);
+    \draw[dashed] (2,0) arc (0:180:2 and 0.6);
+\end{illustration}
+
+Określmy odwzorowania $\phi^\pm_i\;:\;U_i^\pm\to\R^n$
+$$\phi_i^\pm(x)=(x_1,...,x_{i-1},\hat{x_i},x_{i+1},...,x_n).$$
+Obraz tego odwzorowania to
+$$\overline U_i^\pm=\phi_i^\pm(U_i^\pm)=\{(x_1,...,x_n)\in \R^n\;:\;\sum x_i^2<1\}.$$
+Odwzorowanie $\phi_i^\pm: U_i^\pm\to\overline U_i^\pm$ jest wzajemnie jednoznaczne [bijekcja], bo
+$$(\phi_i^\pm)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, \pm\sqrt{1-\sum x_j^2}, x_{i+1},...,x_n).$$
+Mamy w obie strony odwzorowanie ciągłe, więc jest to homeomorfizmy z odpowiednimi zbiorami $\R^n$.
+
+\subsection{Atlasy, rozmaitości gładkie [różniczkowalne]}
+
+Na tym wykładzie nie będziemy poświęcać dużej uwagi rozmaitościom różniczkowalnym nie nieskończenie razy, więc pomimo lekkich niuansów między tymi dwoma słowami, dla nas zwykle znaczą one to samo.
+\medskip
+
+Dla funkcji $f:M\to\R$ chcemy określić, co znaczy, że \dyg{$f$ jest różniczkowalna}? Będziemy to robić za pomocą wcześniej zdefiniowanych map:
+\begin{itemize}
+    \item Funkcja $f$ \acc{wyrażona} w mapie $(U, \phi)$ to nic innego jak złożenie $f\circ \phi^{-1}:\overline U\to \R$. Teraz $f\circ\phi^{-1}$ jest funkcją zależącą od $n$ zmiennych rzeczywistych.
+    \item Chciałoby się powiedzieć, że funkcja $f: M\to\R$ jest gładka, jeśli dla każdej mapy $(U, \phi)$ na $M$, ten fragment wyrażony w tej mapie $f\circ\phi^{-1}$ jest gładki. Niestety, tych map może być nieco za dużo.
+    \item \deff{Odwzorowanie przejścia między dwoma mapami} $(U_1,\phi_1)$ i $(U_2,\phi_2)$ to funkcje $\phi_1\phi_2^{-1}$ i $\phi_2\phi_1^{-1}$ określone na $U_1\cap U_2$.
+\end{itemize}
+
+\begin{definicja}[zgodność map]
+\deff{Mapy} $(U, \phi_1)$ oraz $(U, \phi_2)$ są \deff{zgodne} (gładko-zgodne), gdy odwzorowanie przejścia $\phi_1\phi_2^{-1}$ jest gładkie. Dla map \acc{$(U, \phi)$ i $(V, \psi)$} mówimy, że są one zgodne, jeśli 
+\end{definicja}
+\begin{itemize}
+    \item $U\cap V=\emptyset$, albo
+    \item $\phi\psi^{-1}:\psi(U\cap V)\to \phi(U\cap V)$ i $\psi\phi^{-1}(U\cap V)\to \psi(U\cap V)$ są gładkie.
+\end{itemize}
+\medskip
+
+Warto zauważyć, że jeśli $(U, \phi)$ i $(V, \psi)$ są zgodne, to $f\circ\phi^{-1}\obciete (\phi(U\cap V))$ jest gładkie $\iff$
+
+Odwzorowania przejściowe map są automatycznie \dyg{dyfeomorfizmami}.
+\medskip
+
+\begin{definicja}[atlas gładki]
+    \deff{Gładkim atlasem} $\set{A}$ na topologicznej rozmaitości $M$ nazywamy dowolny taki zbiór map $\{(U_\alpha,\phi_\alpha)\}$ taki, że:
+    \begin{enumerate}
+        \item 1. zbiory mapowe $U_\alpha$ pokrywają całe $M$
+        \item 2. każde dwie mapy z tego zbioru są zgodne.
+    \end{enumerate}
+\end{definicja}
+\medskip
+
+\textbf{Przykład:}  Rodzina map $\{(U_i^\pm,\phi_i^\pm)\;:\;i=1,2,...,n+1\}$ jak wcześniej na sferze $S^n\subseteq R^{n+1}$ tworzy gładki atlas. Wystarczy zbadać gładką zgodność tych map. Rozpatrzmy jeden przypadek: $(U_i^+,\phi_i^+),(U_j^+,\phi_j^+),i<j$. Po pierwsze, jak wygląda przekrój tych zbiorów?
+$$U_i\cap U_j=\{x\in S^n\;:\;x_i>0,x_j>0\}$$
+Dalej, jak wyglądają obrazy tego przekroju przez poszczególne mapy?
+$$\phi_i^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1, x_{j-1}>0\}$$
+$$\phi_j^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1,x_i<0\}$$
+Odwzorowania przejścia to:
+\begin{illustration}
+    \node (L) at (0, 0) {$\phi_j^+(U_i^+\cap U_j^+)\ni(x_1,...,x_n)$};
+    \node (C) at (4, -1) {$(x_1,...,x_{j-1},\sqrt{1-|x|^2},x_{j},...x_n)$};
+\end{illustration}
+$$\phi_i^+(\phi_j^+)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$$
+jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejścia.
+
+\begin{definicja}[rozmaitość gładka]
+    \deff{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$ opisanego na $M$.
+\end{definicja}
+
+\acc{Uściślenie:} Często $(M,\set{A}_1)$ i $(M, \set{A}_2)$ będące rozmaitościami gładkimi określają tę samą rozmaitość.
+\medskip
+
+\begin{definicja}[zgodność map, atlasów]
+Niech $\set{A}$ będzie gładkim atlasem na $M$.
+\begin{enumerate}
+    \item Mapa $(U,\phi)$ jest \deff{zgodna z atlasem $\set{A}$}, jeśli jest zgodna z każdą mapą z $\set{A}$.
+    \item Dwa \deff{atlasy $\set{A}_1,\set{A}_2$ na $M$ są zgodne}, jeśli każda mapa z $\set{A}_1$ jest zgodna z atlasem $\set{A}_2$.
+\end{enumerate}
+\end{definicja}
+
+\begin{tw}[zgodność to relacja równoważnośći]
+    Relacja zgodności atlasów jest relacją równoważności.
+\end{tw}
+
+\textbf{Dowód:} Ćwiczenia.
+
+Konwencja jest wtedy taka, że zgodne atlasy zadają tą samą strukturę gładką na $M$. W takim razie, zgodne atlasy można wysumować do jednego większego atlasu.
+
+\begin{definicja}[atlas maksymalny]
+$\set{A}$ jest \deff{atlasem maksymalnym} na $M$, jeśli każda mapa na $M$ z nim zgodna jest w nim zawarta. 
+\end{definicja}
+
+\begin{fakt}[dla każdego atlasu istnieje jedyny atlas maksymalny]
+    Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym na $M$. Zaś ten atlas maksymalny to zbiór wszystkich map na $M$ zgodnych z $\set{A}$.
+\end{fakt}
+
+\textbf{Dowód:} Ćwiczenia.
+
+\dyg{Równoważna definicja rozmaitości gładkiej:} para $(M, \set{A})$, gdzie $M$ to rozmaitość topologiczna, zaś $\set{A}$ to pewien atlas maksymalny.

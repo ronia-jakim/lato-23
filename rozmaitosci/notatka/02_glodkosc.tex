@@ -1,0 +1,89 @@
+
+\section{Funkcje różniczkowalne}
+\subsection{Dopowiedzenie o funkcjach gładkich}
+
+\begin{definicja}[gładkość względem atlasu]
+Funkcja $f:M\to \R$ jest \deff{gładka względem atlasu} $\set{A}$ na $M$, jeśli
+$$(\forall\;(U,\phi)\in\set{A})\;f\circ\phi^{-1}:\overline U\to \R\text{ jest gładka.}$$
+To znaczy po wyrażeniu w dowolnej mapie atlasu jest nadal funkcją gładką.
+\end{definicja}
+
+\begin{fakt}[funkcja gładka względem atlasu]{\color{back}DUPA}
+    \begin{enumerate}
+        \item Jeśli $f:M\to\R$ jest gładka względem $\set{A}$, zaś $(U,\phi)$ jest zgodna z $\set{A}$, to wówczas funkcja $f$ wyrażona w tej nowej mapie (czyli $f\circ\phi^{-1}$) też jest gładka.
+        \item Jeśli $\set{A}_1,\set{A}_2$ są zgodnymi atlasami, wówczas taka funkcja $f:M\to\R$ jest gładka względem $\set{A}_1$ $\iff$ jest gładka względem $\set{A}_2$ $\iff$ jest gładka względem atlasu maksymalnego $\set{A}\supseteq \set{A}_1,\set{A}_2$ zawierającego $\set{A}_1$ (oraz $\set{A_2}$).
+    \end{enumerate}
+\end{fakt}
+
+Niech $M$ będzie gładką rozmaitością. Wówczas $f:M\to\R$ \deff{jest gładka} jeśli $f$ jest gładka względem każdego (dowolnego) atlasu $\set{A}$ wyznaczającego na $M$ daną gładką strukturę.
+
+\subsection{Atlasy $C^k$}
+
+\begin{definicja}[mapa $C^k$-zgodna, $C^k$-atlas]{\color{back}dupaaa}
+    \begin{itemize}
+        \item Dwie mapy $(U,\phi)$ i $(V,\psi)$ są \deff{$C^k$-zgodne}, jeśli $\phi\psi^{-1}$ oraz $\psi\phi^{-1}$ są funkcjami klasy $C^k$.
+        \item \deff{$C^k$-atlas} to atlas składający się z map, które są $C^k$-zgodne. 
+        \begin{itemize}
+            \item Taki atlas określa strukturę $C^k$-rozmaitości na $M$.
+            \item Jest ona słabsza niż struktura rozmaitości gładkiej.
+        \end{itemize}
+    \end{itemize}
+\end{definicja}
+
+$C^0$ w tej konwencji to rozmaitość topologiczna, a $C^\infty$ to często jest rozmaitość gładka.
+
+Na $C^k$-rozmaitości nie da się sensownie określić funkcji klasy $C^m$ dla $m>k$.
+\medskip
+
+Rozmaitość można definiować na różne sposoby niewymagające użycia definicji i własności topologicznych. Przykłady to:
+\begin{itemize}
+    \item[\point] \acc{Rozmaitość analityczna} [$C^\omega$] to rozmaitość, dla której atlas składa się z map analitycznie zgodnych (czyli wyrażają się za pomocą szeregów potęgowych).
+    \item[\point] \acc{Rozmaitość zespolona} ma mapy jako funkcje w $\C^n$ zamiast w $\R^n$.
+    \item[\point] Rozmaitość konforemna - zachowuje kąty.
+    \item[\point] Rozmaitość kawałkami liniowa
+\end{itemize}
+
+\subsection{Rozmaitość gładka bez topologii}
+
+Dychotomia pomiędzy sytuacją $C^0$ a sytuacją $C^k$ dla $k>0$:
+\begin{itemize}
+    \item Z każdego maksymalnego atlasu $C^k$-rozmaitości można wybrać atlas złożony z map $C^\infty$-zgodnych. A zatem, każda $C^k$-rozmaitość posiada $C^k$-zgodną strukturę $C^\infty$-rozmaitości.
+    \item Istnieją $C^0$-rozmaitości niedopuszczające żadnej struktury gładkiej.
+\end{itemize}
+
+\begin{lemat}[rozmaitość gładka bez topologii]
+    Niech $X$ będzie zbiorem (bez topologii). Niech $\{U_\alpha\}$ będzie kolekcją podzbiorów $X$ i dla każdego $\alpha$ mamy $\phi_\alpha:U_\alpha\to\R^n$ różnowartościowe ($n$ jest ustalone dla całego $X$). Ta trójka obiektów ma spełniać następujące warunki:
+    \begin{enumerate}
+        \item  Dla każdego $\alpha$ $\phi_\alpha(U_\alpha)$ jest otwarty w $\R^n$.
+        \item Dla każdych $\alpha,\beta$ $\phi_\alpha(U_\alpha\cap U_\beta)$ oraz $\phi_\beta(U_\alpha\cap U_\beta)$ są otwarte w $\R^n$.
+        \item Gdy $U_\alpha\cap U_\beta\neq\emptyset$, to $\phi_\alpha\circ\phi_\beta^{-1}:\phi(U_\alpha\cap U_\beta)\to\phi(U_\alpha\cap U_\beta)$ jest odwzorowaniem gładkim. Są to dyfeomorfizmy (gładkie i odwracalne).
+        \item Przeliczalnie wiele spośród zbiorów $U_\alpha$ pokrywa całe $X$.
+        \item Dla dowolnych punktów $p,q\in X,p\neq q$ istnieją $\alpha,\beta$ oraz otwarte podzbiory $V_p\subseteq\phi_\alpha(U_\alpha)$, $V_q\subseteq\phi_\beta(U_\beta)$ takie, że $p\in\phi_\alpha^{-1}[V_p]$, $q\in\phi_\beta^{-1}[V_q]$ oraz $\phi_\alpha^{-1}[V_p]\cap\phi_\beta^{-1}[V_q]=\emptyset$. Czyli możemy rozdzielić dwa dowolne różne punkty za pomocą zbiorów otwartych w $\R^n$.
+    \end{enumerate}
+\emph{Wówczas na $X$ istnieje \deff{struktura rozmaitości topologicznej} dla której $U_\alpha$ są otwarte.} Ponadto rodzina $(U_\alpha,\phi_\alpha)$ tworzy \acc{gładki atlas na $X$}.
+\end{lemat}
+
+\textbf{Szkic dowodu:} 
+\begin{itemize}
+    \item Topologię produkujemy jako bazę topologii na $X$: bierzemy przeciwobrazy przez poszczególne $\phi_\alpha$ otwartych podzbiorów w zbiorach $\phi_\alpha(U_\alpha)\subseteq\R^n$.
+    \item Lokalna $n$-euklidesowość $X$ względem takiej topologii jest oczywista.
+    \item Nietrudno jest też wybrać mniejszą bazę przeliczalną [ćwiczenia]. 
+    \item Hausdorffowość tak określonej topologii wynika z warunku 5.
+\end{itemize}
+\proofend
+\medskip
+
+\textbf{Przykład:} Niech $\set{L}$ będzie zbiorem wszystkich prostych na płaszczyźnie. Nie ma na tym zbiorze wygodnej do opisania topologii, ale możemy skorzystać z lematu wyżej.
+
+Zacznijmy od opisania podzbiorów 
+$$U_h=\{\text{proste niepionowe}\}$$
+$$U_v=\{\text{proste niepoziome}\}$$
+Jeśli $U_h\ni L$, to wtedy $L=\{y=ax+b\}$ i wtedy $\phi_h$ będzie przypisywać takiej prostej parę $(a, b)$. Jeśli zaś $U_v\ni L$, to wtedy $L=\{x=yc+d\}$ i wtedy $\phi_v$ przypisze jej $(c, d)$. To, że $\phi_h(U_h)$ i $\phi_v(U_v)$ są różnowartościowe widać. Przyjrzyjmy się teraz przekrojowi naszych zbiorków:
+$$U_h\cap U_v=\{\text{proste niepoziomie i niepionowe}\}=\{y=ax+b\;:\;a\neq 0\}=\{x=cd+d\;:\;c\neq0\}$$
+$$\phi_h(U_h\cap U_v)=\{(a,b)\in\R^2\;:\;a\neq 0\}$$
+$$\phi_v(U_h\cap U_v)=\{(c,d)\in\R^2\;:\;c\neq0\}$$
+i są to zbiory otwarte, więc warunek 3. jest spełniony. Warunek 4. jest tutaj trywialny.
+
+Niech {\large\color{red}COŚ TUTAJ SIĘ URWAŁO}
+
+To jest homeomorficzne z wnętrzem wstęgi Mobiusa.
