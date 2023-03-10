@@ -50,9 +50,11 @@ Now, using Fact 4.6. (\hyperref[fact:4:6]{even belower}) We have that
     [L:K]&=[L_r:L_{r-1}][L_{r-1}:L_{r-2}]=...=\prod\limits_{i=1}^r[L_i:L_{i-1}]=n^r<\infty.
 \end{align*}
 
-Let $m=p^k+1$ such that $m>[L:K]$. It is clear that $p\nmid m$. Now, consider the polynomial
+Let $m=p^k+1$ such that $p^k>[L:K]$. It is clear that $p\nmid m$. Now, consider the polynomial
 $$w_m(x)=x^m-1=(x-1)\underbrace{(x^{m-1}+x^{m-2}+...+x+1)}_{v_m(x)}$$
-and we will show that $(x-a_i)|v_m$ for every $i=1,...,r$.
+and we will show that $(x-a_i)|v_m$ for every $i=1,...,r$ implying that $v_m\in I(a_i/K)=(g)$ and so $g|v_m$ and $g|w_m=(x-1)v_m$.
+
+The observation is quite simple: we took $m$ to be such that $m-1\geq [L:K]$. Thus, 
 
 \phantomsection
 \label{remark:4:5}
