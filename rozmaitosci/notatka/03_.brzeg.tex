@@ -80,11 +80,53 @@ $$\phi_\alpha':U_\alpha'\to\R^{n-1}=\partial H^n\quad \phi_\alpha'=\phi_\alpha\o
 
 \textbf{Przykład:} Dysk $D^n=\{x\in\R^n\;:\;|x|\leq 1\}$ jest rozmaitością gładką z brzegiem $\partial D^n=\{x\in\R^n\;:\;|x|=1\}$. Pokażemy mapy, ale uzasadnienie ich gładkiej zgodności pominiemy.
 $$(U_0,\phi_0)\quad:\quad U_0=\{x\;:\;|x|<1\},\quad\phi_0:U_0\to H^n,\;\phi_0(x_1,...,x_n)=(x_1,...,x_{n-1},x_n+2)$$
-$$(U_i^\pm,\phi_i^\pm)\quad:\quad U_i^+=\{x\in D^n\;:\;x_i>0\},\quad\phi_1:U_1\to H^n$$
 
-{\large\color{orange}UWAGA, SĄ WZORKI, PODPIERDOL}
+\begin{illustration}
+    \filldraw[fill=black!70!green!80] (0, 0) circle (1);
+    \filldraw[fill=black!70!green!80] (5, 1) circle (1);
+    \draw[->] (0, -2)--(0, 3);
+    \draw[->] (-2, 0)--(2.5, 0);
+    \draw[->] (5, -2)--(5, 3);
+    \draw[->] (3, 0)--(7.5, 0);
+    \draw[->] (1, 0.5)..controls (1.5, 1.5) and (3, 1.8)..(3.8, 1) node [midway, above] {$\phi_0$};
+\end{illustration}
 
-Inny atlas gładki:
+$$(U_i^\pm,\phi_i^\pm)\quad:\quad U_i^\pm=\{x\in D^n\;:\;\pm x_i>0\},\quad\phi_1:U_1\to H^n$$
+
+\begin{illustration}
+    \draw[->] (-2, 0)--(3, 0);
+    \draw[->] (0, -3)--(0, 3);
+    \draw (0, 0) circle (1.5); 
+    \draw[very thick] (1.5, -3)--(1.5, 3);
+    \node at (2.1, -1.9) {$\R^{n-1}$};
+    \node at (2.4, -2.5) {$\{x_i=1\}$};
+    \draw (0, 0)--(1.5, 2);
+    \draw[very thick] (0, 0)--(0.5, 0.66) node [midway, left] {$r$};
+    \node at (0.5, 0.66) {$\bullet$};
+    \node at (0.5, 1) {$p$};
+    \node at (1.5, 2) {$\bullet$};
+    \node at (2, 2) {$\pi(p)$};
+\end{illustration}
+Czyli w punkcie opisujemy $n-1$ wymiarową płaszczyznę styczną i rzucamy punkty $p\in D^n$ przez rzut odśrodkowy $\pi$ na tę płaszczyznę. Funkcje $\phi_i^\pm$ opisują się wtedy wzorem:
+$$\phi_i^\pm(p)=(\pi(p), 1-r^2)$$
+lub konkurencyjnie
+$$\phi_i^\pm(x_1,...,x_n)=(\frac {x_1}{x_i},...,\frac {x_{i-1}}{x_i},\frac {x_{i+1}}{x_i},...,\frac {x_n}{x_i}, 1-\sum\limits_{i=1}^nx_i^2)$$
+
+Inny atlas gładki na dysku $D^n$ (zgodny z poprzednim)
+\begin{illustration}
+    \filldraw[color=back, pattern={Lines[distance=5pt,line width=.8pt,angle=40]}, pattern color=black!70!green!80] (-1.5, -3) rectangle (-8, 3);
+    \filldraw[color=back, pattern={Lines[distance=5pt,line width=.8pt,angle=40]}, pattern color=black!70!green!80] (1.5, -3) rectangle (8, 3);
+    \draw (0, 0) circle (1.5);
+    \draw[->](0, 0)--(3.3, 0);
+    \draw[->](0, 0)--(0, 3.3);
+    \filldraw (1.5, 0) circle (1pt) node [above right] {B};
+    \filldraw (-1.5, 0) circle (1pt) node [above left] {A};
+    \node at (3, -2.5) {$\{x_1\geq1\}=H_A^n$};
+    \node at (-3, -2.5) {$\{x_1\leq-1\}=H_B^n$};
+\end{illustration}
+$$U_A=D^n\setminus\{A\}$$
+$$U_B=D^n\setminus\{B\}$$
+$$\phi_A:U_A\to H_A^n\leftarrow\text{inwersja względem sfery o środku A i }r=2$$
 
 \begin{definicja}[lokalna skończoność]
 Rodzina $\{A_i\}$ podzbiorów przestrzeni topologicznej $X$ jest \deff{lokalnie skończona}, jeśli dla każdego $p\in X$ istnieje otwarte otoczenie $p\in U_p$ w $X$ takie, że $U_p\cap A_\alpha\neq\emptyset$ tylko dla skończenie wielu $\alpha$.

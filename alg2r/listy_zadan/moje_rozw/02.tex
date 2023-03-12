@@ -10,10 +10,10 @@
 \maketitle\thispagestyle{empty}
 
 \subsection*{EXERCISE 3.}
-{\color{pink}Assume that $f:K\to K$ is a non-zero endomorphism (e.g. the Frobenius function)/ Prove that $Fix(f)=\{x\in K\;:\;f(x)=x\}$ is a subfield of the field $K$}
+{\color{pink}Assume that $f:K\to K$ is a non-zero endomorphism (e.g. the Frobenius function). Prove that $Fix(f)=\{x\in K\;:\;f(x)=x\}$ is a subfield of the field $K$}
 \smallskip
 
-
+Is it really that trivial?
 
 \subsection*{EXERCISE 4.}
 {\color{pink}Assume that $K$ is a finite field, characteristic $p$.
@@ -39,7 +39,7 @@ Let $f$ be an irreducible polynomial $f\in K[x]$ of degree $n=deg(f)>0$. Without
 \label{lemaczysko}
 \acc{Lemaczysko:} \emph{An irreducible monic polynomial $f\in K[X]$ is the minimal polynomial for some root $a$, $f(a)=0$}
 
-$$w_m(x)=x^m-1=(x-1)\underbrace{(x^{m-1}+x^{m-2}+...+x+1)}_{v_m(x)}$$
+%$$w_m(x)=x^m-1=(x-1)\underbrace{(x^{m-1}+x^{m-2}+...+x+1)}_{v_m(x)}$$
 
 As $K$ is a field, the ring $K[X]$ is an euclidean domain. Let us suppose that $h\in K[X]$ is the minimal polynomial of $a$ in $K$ such that $deg(h)<deg(f)$. We have that there exists $p,r\in K[X]$ such that
 $$f=hp+r$$
@@ -66,7 +66,8 @@ with $p\nmid p^{l}-1$.
 
 What remains now is to show that $f|w_m$. Suppose that this is untrue and that their "gcd" is equal to 1. Then by Bezout's identity we have that there exist $c,d\in K[X]$ such that
 $$f(x)c(x)+w_m(x)d(x)=1$$
-but for $x=a$ we would have $0=1$ which is a contradiction. Hence, one has to divide the other. It is quite logical that the minimal polynomial cannot have degree higher than the number of elements in a field and so $n\leq p^k<p^{kn}-1$ and so $deg(f)<deg(w_m)$ implying that $f|w_m$.
+but for $x=a$ we would have $0=1$ which is a contradiction. Hence, one has to divide the other. $f$ is irreducible so it cannot be divided by anything but itself and so $f|w_m$.
+\bigskip
 
 \phantomsection
 \label{remark:4:5}
@@ -77,5 +78,71 @@ but for $x=a$ we would have $0=1$ which is a contradiction. Hence, one has to di
     \item $deg(f)=[K(a):K]$, thus the degree of the minimal polynomial is equal to the dimension of the linear space $K(a)$ over $K$.
 \end{enumerate}}
 \medskip
+
+\subsection*{EXERCISE 5.}
+\emph{\color{pink}(a) Prove that if $K\subseteq L$ are finite fields, $|K|=p^m,|L|=p^n$, then $m|n$.}
+\smallskip
+
+Let $[L:K]=d$. Then we have that the basis of $L$ over $K$ has $d$ elements. Every element of $L$ can be expressed as a linear combination of elements from the basis with coefficients from $K$. There are
+$$|K|^d=p^{md}$$
+such combinations. Hence $|L|=p^{md}=p^n\implies n=md\implies m|n$.
+\medskip
+
+\emph{\color{pink}(b) Prove that every field with $p^n$ elements contains a unique subfield with $p^m$ elements, where $m|n$.}
+\smallskip
+
+"Proof graph" of existence
+\begin{illustration}
+    \node (1) at (0, 0) {$x\in\mu_{p^n-1}(L)\implies x\in\mu_{p^m-1}(L)$};
+    \node (2) at (0, -1.5) {$x^{p^n-1}=1\implies x^{p^m-1}=1\implies x^{p^m}=x$};
+    \node (3) at (0, -3) {$x\in Fix(x^{p^m})\subseteq L$};
+    \node (4) at (0, -4.5) {$|Fix(x^{p^m})^*|=|\mu_{p^m-1}|=p^m-1\implies|Fix(x^{p^m})|=p^m$};
+    \draw[->] (1)--(2);
+    \draw[->] (2)--(3);
+    \draw[->] (3)--(4);
+\end{illustration}
+
+Let $n=md$ for some $m,d\in\N$. Notice that $\mu_{p^m-1}(L)\subseteq\mu_{p^n-1}(L)$ because if $x\in\mu_{p^m-1}$ then
+$$x^{p^n-1}-1=(x^{p^m-1}-1)(x^{p^{n-m}}+x^{p^{n-m-1}}+...+1)$$
+and so $x^{p^m-1}-1$ must be equal to zero. Setting an $x\in\mu_{p^m-1}(L)$ allows us to do the following computation:
+$$x^{p^m-1}-1=0$$
+$$x^{p^m-1}=1$$
+$$x^{p^m}=x$$
+which gives us an endomorphism $f(x)=x^{p^m}$. From ex. 3. we know that $Fix(f)$ is a subfield of $L$ and from the reasoning above we know that $Fix(L)$ contains the elements from $\mu_{p}(L)$ (which according to Theorem 3.4. has cardinality $p^{m}-1$) and $\{0\}$. Thus, $|Fix(f)|=p^m$.
+\smallskip
+
+"Proof graph" of uniqueness:
+\begin{illustration}
+    \node (1) at (0,0) {suppose that $K_1,K_2\subseteq L, |K_1|=|K_2|=p^m$};
+    \node (2) at (0, -1.5) {$|K_1^*|=p^m-1=|K_2^*|$};
+    \node (3) at (0, -3) {$K_1^*=\mu_{p^m}(L)=K_2^*$};
+    \draw[->] (1)--(2);
+    \draw[->](2)--(3);
+    \node at (1.8, -3.5) {{\large\lightning}};
+\end{illustration}
+
+Suppose that there exist two subfields $K_1, K_2\subseteq L$ with $|K_1|=p^m=|K_2|$. Then $|K_1^*|=p^m-1$ and $|K_2^*|=p^m-1$, which from Theorem 3.4. means that
+$$K_1^*=\mu_{p^m-1}(L)$$
+$$K_2^*=\mu_{p^m-1}(L).$$
+From the fact that $K_1^*=K_2^*$ follows that $K_1=K_2$, which is a contradiction.
+\smallskip
+
+{\color{orange}Theorem 3.4.} Let $G<\mu(K)$ and $G$ is finite with $|G|=n$. Then:
+\begin{enumerate}
+    \item $G=\mu_n(K)$
+    \item $G$ is cyclic
+    \item if $char(K)=p>0$ then $p\nmid n$.
+\end{enumerate}
+
+\subsection*{EXERCISE 6.}
+{\color{pink}\emph{Let $F(p^n)$ be a field with $p^n$ elements. From Problem $5$ it follows from that}
+$$F(p)\subseteq F(p^2)\subseteq F(p^{3!})\subseteq...\subseteq F(p^{n!})\subseteq...$$
+\emph{(after suitable identifications of isomorphic fields). Let}
+$$F=\bigcup\limits_{n>0}F(p^{n!})$$
+\emph{Prove that the field $F$ is algebraically closed. (hint: use Problem 4.)}
+}
+\smallskip
+
+A field is algebraically closed if every non-constant polynomial $f\in F[X]$ has a root in $F$.
 
 \end{document}
