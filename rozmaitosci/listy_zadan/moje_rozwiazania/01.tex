@@ -251,5 +251,17 @@ Rysuneczek się przydałby i powiedzieć, że złożenie funkcji gładkich jest 
 
 \subsection*{ZADANIE 17.}
 \emph{\color{pink}Mówimy, że funkcja wielu zmiennych ma w pewnym punkcie pochodną zerową, gdy odpowiedni funkcjonał liniowy przybliżający funkcję na otoczeniu tego punktu zadany przez pochodne cząstkowe jest zerowy. Pokaż, że zerowość i niezerowość pochodnej funkcji $f:M\to\R$ w punkcie $p\in M$ nie zależy od wyboru mapy. Pokaż też, że w każdym punkcie $p$ rozmaitości $M$, w którym funkcja gładka $f:M\to\R$ osiąga ekstremum lokalne, pochodna tej funkcji jest zerowa.}
+\smallskip
+
+Weźmy sobie dowolny punkt $p\in M$ i niech $(U_1,\phi_1),(U_2,\phi_2)$ będą dwoma mapami zawierającymi $p$. Niech $f'$ będzie funkcjonałem liniowym zawierającym pochodne cząstkowe $f$. 
+
+\subsection*{ZADANIE 20.}
+\emph{\color{pink}Pokaż, że brzeg $\partial M$ jest domknięty w $M$.}
+\smallskip
+
+$$\partial M=\{p\in M\;:\;(\forall\;(U_\alpha, \phi_\alpha))\;\phi_\alpha(p)\in\partial H^n\}$$
+Może odwrotnie? Pokażę, że $Int(M)=M\setminus\partial M$ jest otwarte?
+
+Definicja $Int(M)$ to jest, że każdy punkt z $Int(M)$ przechodzi na punkt w $Int(H^n)$, czyli na górną półpłaszczyznę $\R^n$. Ale to jest zbiór otwarty, to znaczy dla $p\in Int(M)$ $\phi(p)$ ma otwarte otoczenie, czyli z faktu, że $\phi$ jest homeomorfizmem, $p$ musi mieć otwarte otoczenie $p\in U_p\subseteq M$. Czyli każdy punkt z $Int(M)$ ma otwarte otoczenie. Dlaczego to tnie się pusto z $\partial M$? Bo dowolny inny punkt z $U_p$ też jest homeomorficzne z czymś z $Int(H^n)$ (obcięcie homeo.), więc należy do $Int(M)$ a nie do brzegu.
 
 \end{document}

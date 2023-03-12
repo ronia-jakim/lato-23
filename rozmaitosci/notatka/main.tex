@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{../../notatki}
+\usepackage{longtable}
 
 \title{Rozmaitości różniczkowalne}
 \author{elo}
@@ -21,11 +22,14 @@
 \input{03_.brzeg.tex}
 \newpage
 
-\renewcommand{\listtheoremname}{Skorowidz definicji}
-\listoftheorems[ignoreall, show={definicja}]
-\newpage
-
-\renewcommand{\listtheoremname}{Twierdzonkowa zabawa}
-\listoftheorems[ignore={definicja}]
-
+\section{Pomocnik idiotów:}
+\begin{longtable}{ p{8cm} p{8cm} }
+    \renewcommand{\listtheoremname}{Skorowidz definicji}
+    \listoftheorems[ignoreall, show={definicja}]
+    
+    &
+    
+    \renewcommand{\listtheoremname}{Twierdzonkowa zabawa}
+    \listoftheorems[ignore={definicja}]
+\end{longtable}
 \end{document}
