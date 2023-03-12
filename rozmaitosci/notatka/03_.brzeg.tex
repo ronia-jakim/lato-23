@@ -116,6 +116,8 @@ Inny atlas gładki na dysku $D^n$ (zgodny z poprzednim)
 \begin{illustration}
     \filldraw[color=back, pattern={Lines[distance=5pt,line width=.8pt,angle=40]}, pattern color=black!70!green!80] (-1.5, -3) rectangle (-8, 3);
     \filldraw[color=back, pattern={Lines[distance=5pt,line width=.8pt,angle=40]}, pattern color=black!70!green!80] (1.5, -3) rectangle (8, 3);
+    \draw[black!70!green!80](-1.5, -3)--(-1.5, 3);
+    \draw[black!70!green!80](1.5, -3)--(1.5, 3);
     \draw (0, 0) circle (1.5);
     \draw[->](0, 0)--(3.3, 0);
     \draw[->](0, 0)--(0, 3.3);
@@ -128,7 +130,28 @@ $$U_A=D^n\setminus\{A\}$$
 $$U_B=D^n\setminus\{B\}$$
 $$\phi_A:U_A\to H_A^n\leftarrow\text{inwersja względem sfery o środku A i }r=2$$
 
-\begin{definicja}[lokalna skończoność]
+\subsection{Rozkłady jedności}
+
+\emph{Motywacja: jak uzasadnić, że na każdej rozmaitości z brzegiem $M$ istnieje gładka funkcja $f$ taka, że $f:M\to\R^n$ taka, że}
+$$\begin{matrix}
+    f(p)=0&p\in \partial M\\
+    f(p)>0&p\in Int(M)?
+\end{matrix}$$
+
+Na zbiorze mapowym możemy taką funkcję zadać przez:
+$$\overline f_\alpha:\overline U_\alpha\to\R$$
+$$\overline f_\alpha(x_1,...,x_n)=x_n$$
+$$f_\alpha:U_\alpha\to\R$$
+$$f_\alpha=\overline f_\alpha\circ \phi_\alpha$$
+Czyli zmuszamy funkcję do bycia gładką.
+
+{\large\color{orange}TU PEWNIE JAKIŚ BULLSHIT PISZĘ, DOCZYTAĆ I POPRAWIĆ.}
+
+% \begin{definicja}[rodzina lokalnie skończona]
+%     Rodzina $\{A_\alpha\}$ podzbiorów przestrzeni topologicznej $X$ jest \deff{lokalnie skończona}, jeśli dla każdego $p\in X$ istnieje otwarte otocznie $p\in U_p\subseteq X$ takie, że $U_p\cap A_\alpha\neq\emptyset$ tylko dla skończenie wielu zbiorów. 
+% \end{definicja}
+
+\begin{definicja}[rodzina lokalnie skończona]
 Rodzina $\{A_i\}$ podzbiorów przestrzeni topologicznej $X$ jest \deff{lokalnie skończona}, jeśli dla każdego $p\in X$ istnieje otwarte otoczenie $p\in U_p$ w $X$ takie, że $U_p\cap A_\alpha\neq\emptyset$ tylko dla skończenie wielu $\alpha$.
 \end{definicja}
 
@@ -148,3 +171,15 @@ Jest to \deff{rozkład jedności wpisany w pokrycie $\{U_\alpha\}$}
 \end{tw}
 
 Wracamy do pytania o istnienie $f:M\to\R$ takiego, że $f\obciete\partial M\equiv 0$ i $f\obciete int(M)>0$. 
+
+Niech $\{U_\alpha\}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami mapowymi. Wtedy $f_\alpha:U_\alpha\to\R$ jest gładka, jeśli
+\begin{itemize}
+    \item $U_\alpha\cap\partial M\neq\emptyset\implies f_\alpha=\overline f_\alpha\phi_\alpha$, gdzie $\overline f_\alpha:\overline U_\alpha\to\R,\; \overline f_\alpha(x_1,...,x_n)=x_n$
+    \item $U_\alpha\cap\partial M=\emptyset\implies f_\alpha=1$
+\end{itemize}
+Niech $\{h_j\}$ będzie rozkładem jedności wpisanym w $\{U_\alpha\}$. Dla każdego $j\in J$ wybieramy $\alpha(j)$ takie, że $supp(h_j)\subseteq U_{\alpha(j)}$. Definiujemy wtedy $h_j'=h_j\cdot f_{\alpha(j)}:M\to \R$ takie, że
+$$h_j'(p)=\begin{cases}
+    h(p)f_{\alpha(j)}(p)\quad p\in U_{\alpha(j)}\\
+    0
+\end{cases}$$
+taka funkcja jest gładka, bo $supp(h_j)\subseteq U_{\alpha(j)}$.
