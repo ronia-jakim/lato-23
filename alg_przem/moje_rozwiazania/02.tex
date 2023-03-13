@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\usepackage{../../notatki}
+
+\begin{document}
+
+\subsection*{ZADANIE 1.}
+\emph{\color{pink}Pokaż, że $(\Z/m\Z)\otimes_{\Z}(\Z/n\Z)=0$ jeśli $m,n$ są względnie
+pierwsze.}
+\smallskip
+
+Załóżmy, że $m,n$ są względnie pierwsze, czyli z równości Bezout'a:
+$$am+bn=1$$
+teraz popatrzmy na dowolny element produkciku:
+$$x\otimes y=(xy)\otimes (am+bn)=(xy)\otimes(am)+(xy)\otimes(bn)=(amx)\otimes y+(xy)\otimes
+0=0\otimes y+(xy)\otimes 0=0+0=0$$
+Czyli każdy element jest $0$, więc całość też jest $0$.
+
+\subsection*{ZADANIE 2.}
+\emph{\color{pink}Niech $A$ będzie pierścieniem, $\mathfrak{a}$ ideałem, a $M$
+$A$-modułem. Pokaż, że $(A/\mathfrak{a})\otimes_A M$ jest izomorficzne do
+$M/\mathfrak{a}M$.}
+\emph{[Stensoruj ciąg dokładny $0\to\mathfrak{a}\to A\to A/\mathfrak{a}\to0$ z $M$}
+\smallskip
+
+To jest tak, że jak miałam sobie
+$$\mathfrak{a}\to A\to A/\mathfrak{a}\to 0$$
+i jakiś losowy $A$-moduł $M$, to
+$$\mathfrak{a}\otimes M\to A\otimes M\to A/\mathfrak{a}\otimes M\to 0$$
+też jest ciągiem dokładnym!
+
+Zajebiście, to teraz jak te pyśki szły? Pierwszy jest iniekcją, drugi jest suriekcją i ten drugi indukuje izomorfizm $Coker(f)=M/f(M')$ na $M''$ ($f$ to pierwsza funkcja, a myśki lecą $M'\to M\to M''$.) 
+
+Czyli co? Jak wygląda ta iniekcja $\mathfrak{a}\to A$? To jest identyczność na $\mathfrak{a}$ lol.
+
+Jak na razie mam, że
+$$A/\mathfrak{a}\otimes M\cong (A\otimes M)/(\mathfrak{a}\otimes M)\cong AM/\mathfrak{a}M=M/\mathfrak{a}M$$
+
+\subsection*{ZADANIE 3.}
+\emph{\color{yellow}Niech $A$ będzie pierścieniem lokalnym, $M,N$ skończenie generowanymi $A$-modułami. Udowodnij, że $M\otimes N=0$ wtedy $M=0$ lub $N=0$.}
+
+\emph{\color{yellow}[Niech $\mathfrak{m}$ będzie ideałem maksymalnym, $k=A/\mathfrak{m}$ będzie residue filed (to jest ciało zrobione przez wytentegowanie z tym tym). Niech $M_k=k\otimes_AM\cong M/\mathfrak{m}M$ na mocy zadania 2. Z lematu Nakayamy mamy, że $M_k=0\implies M=0$. Ale $M\otimes_AN=0\implies (M\otimes_AN)_k=0\implies M_k\otimes_kN_k=0\implies M_k=0$ or $N_k=0$, since $M_k,N_k$ są przestrzeniami wektorowymi nad ciałem.]}
+\smallskip
+
+Czyli co, ja mam uzasadnić po prostu przejścia w tym łańcuszku?
+$$M\otimes_AN=0\implies(M\otimes_AN)_k=0\overset{(\star)}{\implies} M_k\otimes_kN_k=0\overset{(\heartsuit)}{\implies} M_k=0\;\lor\;N_k=0$$
+Bo cała reszta wydaje się mieć sens?
+
+($\star$) $k\otimes_A (M\otimes_AN)=0\implies(k\otimes_AM)\otimes_A(k\otimes_AN)=0$
+
+A to to jest raczej proste, bo jeśli $k\otimes_A(M\otimes_AN)=0$, to tym bardziej $k\otimes_k(k\otimes_A(M\otimes_AN))=0$ a jak się poprzestawia, bo to raczej jest izomorficzne, chyba że nagle świat staną na głowie, to dostaję $k\otimes_AM\otimes_kk\otimes_AN$.
+
+($\heartsuit$) $M_k\otimes_kN_k=0\implies M_k=0\;\lor\;N_k=0$? Nie no, to jest raczej oczywiste z tego ten ten na N.
+
+{\color{orange}POKOPAŁAM TE RÓWNOŚCI I CO JEST CZYM AAAAAAAAAAA}
+
+\subsection*{ZADANIE 4.}
+\emph{\color{yellow}Niech $M_i\;(i\in I)$ będzie dowolną rodziną $A$-modułów i niech $M$ będzie ich sumą prostą. Pokaż, że $M$ jest płaski $\iff$ każdy $M_i$ jest płaski}
+\smallskip
+
+Mamy funktor $T_N:M\mapsto M\otimes_A N$ i on jest na kategorii $A$-modułów i homomorfizmów. Jeśli $T_N$ jest dokładny, czyli tensorowanie z $N$ przekształca wszystkie ciągi dokładne na ciągi dokładne, wtedy $N$ jest {\color{blue}flat} $A$-modułem.
+
+$\impliedby$ pójdzie chyba z faktu, że $(M\oplus N)\otimes P\cong (M\otimes P)\oplus(N\otimes P)$
+
+$\implies$ czyli wiem, że tensorowanie przez sumę $\bigoplus M_i$ daje nam dalej ciąg dokładny i z tego chce dostać, że tensorowanie przez każdy z kolei też daje nam ciąg dokładny. A to nie jest jakoś z tego, że mogę sobie obcinać te funkcje do współrzędnych i na tych współrzędnych one muszą mieć te same własności, czyli w szczególności będą na każdej współrzędnej dokładne?
+
+\subsection*{ZADANIE 5.}
+\emph{\color{yellow}Niech $A[X]$ będzie pierścieniem wielomianów jednej zmiennej nad pierścieniem $A$. Pokaż, że $A[X]$ jest płaską $A$-algebrą.}
+\smallskip
+
+No jak dla mnie to taki $A[X]$ mogę przedstawić jako sumą prostą przeliczalnie wielu $A$. No i teraz wystarczyłoby, żeby $A$ było płaskie, ale co to jest $A$-algebra?No to jest pierścień wyposażony w strukturę $A$-modułu. Dlaczego ja nic nie formalizuję?
+
+\end{document}

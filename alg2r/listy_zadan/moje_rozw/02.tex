@@ -6,6 +6,12 @@
 \author{\normalsize Weronika Jakimowicz}
 \date{~~~}
 
+\color{black}
+\pagecolor{white}
+\definecolor{pink}{HTML}{000000}
+\definecolor{blue}{HTML}{1520A6}
+\definecolor{orange}{HTML}{CC5801}
+
 \begin{document}
 \maketitle\thispagestyle{empty}
 
@@ -36,7 +42,9 @@
     and so $x^{-1}\in Fix(f)$.
 \end{enumerate}
 
-I think that closure under addition could also be tackled with 
+I think that closure under addition could also be tackled with using a function $\phi:K\to
+K$ $\phi(x)=f(x)-x$ as $Fix(f)=ker(\phi)$, kernel of any homomorphism is an ideal, thus
+$Fix(f)$ is closed under addition and multiplication.
 
 \subsection*{EXERCISE 4.}
 {\color{pink}Assume that $K$ is a finite field, characteristic $p$.
@@ -156,6 +164,9 @@ From the fact that $K_1^*=K_2^*$ follows that $K_1=K_2$, which is a contradictio
     \item $G$ is cyclic
     \item if $char(K)=p>0$ then $p\nmid n$.
 \end{enumerate}
+
+
+\newpage
 
 \subsection*{EXERCISE 6.}
 {\color{pink}\emph{Let $F(p^n)$ be a field with $p^n$ elements. From Problem $5$ it follows from that}
