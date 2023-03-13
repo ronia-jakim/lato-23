@@ -13,7 +13,30 @@
 {\color{pink}Assume that $f:K\to K$ is a non-zero endomorphism (e.g. the Frobenius function). Prove that $Fix(f)=\{x\in K\;:\;f(x)=x\}$ is a subfield of the field $K$}
 \smallskip
 
+\begin{enumerate}
+    \item Closure under addition:
 
+    Let $x,y\in Fix(f)$. Then
+    $$f(x+y)=f(x)+f(y)=x+y$$
+    and so $x+y\in Fix(f)$
+
+    \item Closure under multiplication:
+
+    Let $x,y\in Fix(f)$. Then
+    $$f(xy)=f(x)f(y)=xy$$
+    and $xy\in Fix(f)$.
+
+    \item Identity element, zero: in every homomorphism $0\mapsto 0$ and $1\mapsto 1$ and
+    so $0,1\in Fix(f)$.
+
+    \item Multiplicative inverse:
+    
+    Let $x\in Fix(f)$. Then
+    $$f(x^{-1})=f(x)^{-1}=x^{-1}$$
+    and so $x^{-1}\in Fix(f)$.
+\end{enumerate}
+
+I think that closure under addition could also be tackled with 
 
 \subsection*{EXERCISE 4.}
 {\color{pink}Assume that $K$ is a finite field, characteristic $p$.
