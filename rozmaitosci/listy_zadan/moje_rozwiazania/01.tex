@@ -242,6 +242,9 @@ stąd $m\geq n$
 $$f\circ f^{-1}=id_{\R^m}$$
 a tutaj $n\geq m$.
 
+\subsection*{ZADANIE 14.}
+\emph{\color{yellow}Duuupa}
+
 \subsection*{ZADANIE 15.}
 \emph{\color{yellow}Niech $M$ będzie rozmaitością gładką, $p\in M$ ustalonym punktem zaś $f:M\to\R$ funkcją rzeczywistą na $M$. Uzasadnij, że jednokrotna różniczkowalność funkcji $f\circ\phi^{-1}$ w punkcie $\phi(p)$ nie zależy od wyboru mapy $(U, \phi)$ zawierającej $p$ (tzn. takiej, że $p\in U$). Oznacza to, że jednokrotna różniczkowalność w punkcie jest dobrze określonym pojęciem dla funkcji rzeczywistych na rozmaitości gładkiej.}
 
@@ -249,11 +252,53 @@ $$\lim\limits_{h\to0}{f\phi_1^{-1}(\phi_1(p)+h)-f\phi_1^{-1}(p)\over h}=c\text{ 
 
 Rysuneczek się przydałby i powiedzieć, że złożenie funkcji gładkich jest różniczkowalne.
 
+\subsection*{ZADANIE 16.}
+Nieróżniczkowalność jest dobrze określona
+
 \subsection*{ZADANIE 17.}
 \emph{\color{pink}Mówimy, że funkcja wielu zmiennych ma w pewnym punkcie pochodną zerową, gdy odpowiedni funkcjonał liniowy przybliżający funkcję na otoczeniu tego punktu zadany przez pochodne cząstkowe jest zerowy. Pokaż, że zerowość i niezerowość pochodnej funkcji $f:M\to\R$ w punkcie $p\in M$ nie zależy od wyboru mapy. Pokaż też, że w każdym punkcie $p$ rozmaitości $M$, w którym funkcja gładka $f:M\to\R$ osiąga ekstremum lokalne, pochodna tej funkcji jest zerowa.}
 \smallskip
 
-Weźmy sobie dowolny punkt $p\in M$ i niech $(U_1,\phi_1),(U_2,\phi_2)$ będą dwoma mapami zawierającymi $p$. Niech $f'$ będzie funkcjonałem liniowym zawierającym pochodne cząstkowe $f$. 
+Weźmy sobie dwie mapy $(U_1,\phi_1),(U_2,\phi_2)$ i niech $p\in U_1\cap U_2$.
+\begin{align*}
+    (\phi_1\circ f\circ\phi_2^{-1})'(\phi_2(p))&=(\phi_1\circ f\circ\phi_1^{-1}\circ \phi_1\circ\phi_2^{-1})'(\phi_2(p))=\\
+    &=(\phi_1\circ f\circ\phi_1^{-1}\circ\phi_1)'(p)(\phi_2^{-1})'(\phi_2(p))=\\
+    &=(\phi_1\circ f\circ\phi_1^{-1})'(\phi_1(p))(\phi_1)'(\phi_2(p))=\\
+    (\phi_1\circ f\circ\phi_1^{-1})'(\phi_1(p))\cdot k
+\end{align*}
+gdzie $k$ to jest $(\phi_1)'(\phi_2(p))$ to jakaś niezerowa stała, bo skakanie między różnymi układami współrzędnych nie popsuje mi niezerowości punktu.
+
+Weźmy sobie $p\in M$ takie, że $f(p)$ osiąga ekstremum i $q$ w tym przybliżeniu liniowym (płaszczyźnie stycznej w $p$). Rozważmy funkcję
+$$g:\R\to\R$$
+$$g(t)=f(p+tq)$$
+wtedy
+$$g'(t)=f'(p+tq)\cdot q$$
+i teraz zauważmy, że $g(0)$ to ekstremum $g$ bo tak było w $f$ a $g$ kradnie wartości z $f$. W $g$ działamy jak normalnie na $\R$, czyli
+$$0=g'(0)=f'(p)\cdot q\implies f'(p)=0$$
+
+\emph{Na tabilcy nie robili tego $\phi_1\circ f...$ tylko po prostu zaczynali od $f$ - to samo w sumie.}
+
+\subsection*{ZADANIE 18.}
+\emph{\color{pink}Niech $F:\R^2\to\R$ będzie funkcją głaską i niech $W(F)=\{(x, y,z)\;:\;z=F(x,y)\}$ będzie wykresem tej funkcji. Zadaj na wykrese $W(F)$ strukturę gładkiej rozmaitości (za pomocą rzutu na płaszczyznę $Oxy$), a następnie udowodnij, że funkcja odległości od dowolnego ustalonego punkt $A\in\R^3$ nie należącego do $W(F)$ po obcięciu do tego wykresu jest gładka.}
+\smallskip
+
+Mamy jedną mapę: $(W(F),\phi)$, $\phi(x,y,z)=(x,y)$. Oczywiście wiemy, że rzut jest homeomorfizmem.
+$$\phi^{-1}:\R^2\to \R^3$$
+$$\phi^{-1}(x,y)=(x,y,F(x,y))$$
+Funkcja odległości to
+$$g:W(F)\to\R$$
+$$g(\overline x)=\|\overline x-A\|$$
+Chcemy pokazać, że funkcja $g$ jest gładka, czyli potrzebujemy gładkości tego cudeńka:
+$$g\circ \phi^{-1}=\sqrt{(x-x_A)^2+(y-y_A)^2+(F(x,y)-z_A)^2}$$
+ale to widać.
+
+\subsection*{ZADANIE 19.}
+\emph{\color{pink}Rozważmy $S^2=\{x\in\R^3\;:\;|x|=1\}$ i niech...}
+\smallskip
+
+Będziemy liczyć na górnej półsferze $(U_3,\phi)$. Mamy $f(x)=|x-N|^2$ i wtedy
+$$f\circ\phi^{-1}(x, y)=f(x, y, \sqrt{1-x^2-y^2})=x^2+y^2+(\sqrt{1-x^2-y^2}-1)^2=2(1-\sqrt{1-x^2-y^2})$$
+dlaczego to jest gładkie? Bo jesteśmy dodatni, więc napis pod pierwiastkiem zawsze będzie czymś dodatnim.
 
 \subsection*{ZADANIE 20.}
 \emph{\color{pink}Pokaż, że brzeg $\partial M$ jest domknięty w $M$.}
@@ -264,4 +309,105 @@ Może odwrotnie? Pokażę, że $Int(M)=M\setminus\partial M$ jest otwarte?
 
 Definicja $Int(M)$ to jest, że każdy punkt z $Int(M)$ przechodzi na punkt w $Int(H^n)$, czyli na górną półpłaszczyznę $\R^n$. Ale to jest zbiór otwarty, to znaczy dla $p\in Int(M)$ $\phi(p)$ ma otwarte otoczenie, czyli z faktu, że $\phi$ jest homeomorfizmem, $p$ musi mieć otwarte otoczenie $p\in U_p\subseteq M$. Czyli każdy punkt z $Int(M)$ ma otwarte otoczenie. Dlaczego to tnie się pusto z $\partial M$? Bo dowolny inny punkt z $U_p$ też jest homeomorficzne z czymś z $Int(H^n)$ (obcięcie homeo.), więc należy do $Int(M)$ a nie do brzegu.
 
+\emph{Nie trzeba brać drugiego punktu, ale warto powiedzieć, że $\partial M\cap U=\psi^{-1}(\partial H^n)$.}
+
+\subsection*{ZADANIE 21.}
+\emph{\color{yellow}Uzasadnij, że dla dowolnej gładkiej funkcji $f:M\to\R$ obcięcie $f\obciete \partial M:\partial M\to\R$ jest funkcją gładką.}
+\smallskip
+
+Niech $M$ będzie rozmaitością i weźmy sobie punkt $p\in\partial M$. Niech $(U, \phi)$ będzie mapą zawierającą $p$. Mam pokazać, że $f\obciete \partial M$ jest gładkie. Czyli dobrze czytam w internecie, że wystarczy, aby każdy punkt z $\partial M$ miał otocznie na którym $f$ jest gładkie? Ale $\partial M$ ma puste wnętrze?
+
+Czy ja $f$ mogę sobie przepuścić jeszcze przez coś zwężającego do $\R^{n-1}$ i powiedzieć, że w okolicy brzegu i na nim samym ta funkcja zachowuje się normalnie, jak gdyby nigdy nic?
+
+\emph{CO SIĘ DZIAŁO NA ĆWICZENIACH?}
+
+Po pierwsze, co to jest funkcja gładka na domkniętym zbiorze? No i kurwa nic nie
+zrozumiałam XD
+
+Bierzemy sobie punkt należący do $p\in\partial M$ i $(U,\phi)$ takie, że $p\in U$. Jeśli
+teraz weźmiemy sobie $\phi(p)=(...,0)$, bo ten pysio leży na brzegu. Teraz oznaczmy sobie
+$$\partial\phi:\partial U\to\overline{\partial U}\subseteq\R^{n-1}.$$
+
+$\partial U=U\cap\partial M$
+
+$$f\obciete\partial M\circ\partial\phi^{-1}=(f\circ\phi^{-1})\obciete\partial H^n$$
+
+\emph{Robi Patryk}
+
+Zaczynamy od mapy $(V,\psi)$  na $\partial M$ i wtedy $V=U\cap\partial M$,
+$\psi=\pi\circ\phi\obciete U\cap\partial M$. Wtedy 
+$$f\obciete\partial M\circ\psi^{-1}=f\obciete\partial M\circ\phi^{-1}\circ i,$$
+gdzie $i$ to było włożenie $(x_1,...,x_{n-1})\mapsto (x_1,...,x_{n-1},0)$.
+
+
+\subsection*{ZADANIE 22.}
+\emph{\color{yellow}Niech $F:\R^n\to\R$ będzie gładką funkcją. Uzasadnij, że obszar pod wykresem funkcji $F$ określony przez $\Omega_F=\{(x,y)\in\R^n\times\R\;:\;y\leq F(x)\}$ jest rozmaitością z brzegiem o strukturze gładkiej, która na wnętrzu $Int(\Omega_F)=\{(x,y)\in\R^n\times\R\;:\;y<F(x)\}$ pokrywa się ze zwykłą strukturą otwartego podzbioru w $\R^{n+1}$}
+\smallskip
+
+Za trywialne uznam:
+\begin{itemize}
+    \item Przeliczalność bazy
+    \item Hausdorffowość
+\end{itemize}
+Atlas na tym pysiu to np. kule z $\R^{n+1}$ cięte z nim samym, a homeomorfizm na $H^{n+1}$ to może być przesunięcie do góry tak, żeby wszystko było nieujemne, co można zrobić, bo $F$ jest ograniczony. Wtedy te $\phi_{\alpha}$ to takie identyczności with a twist, czyli homeomorfizmy. Odwzorowania przejścia też są gładkie, jeżeli podniosę wszystko o tyle samo do góry, bo to jest składanie identyczności.
+
+To o wnętrzu to w sumie widać z tego co napisałam wyżej XD
+
+\emph{CO SIĘ DZIAŁO NA ZAJĘCIACH?}
+
+Mamy funkcję gładką i mamy obszar pod wykresem. Jako jedną mapę z atlasu weźmy
+$(Int(\Omega_F),id_{Int(\Omega_F)})$ i jak weźmiemy mapę na brzegu, która będzie się
+zgadzać, to mamy od razu drugi podpunkt załatwiony. Cały brzeg można śmignąć paseczkiem
+odległym o $1$ od funkcji $F$. Weźmy $U=\{(x,y)\;:\;F(x)-1<y\leq F(x)\}$ i to jest otwarte
+w $\Omega_F$. Jak to zmapować? Bierzemy funkcję
+$\phi(x,y)=(x,F(x,y)):U\to\R^n\times[0,1)\subseteq H^{n+1}$.
+$$\phi^{-1}(x,y)=(x,F(x)-y)$$
+
+
+\subsection*{ZADANIE 23.}
+\emph{\color{pink}Uzasadnij, że $\R^n\setminus Int(D^n)=\{x\in\R^n\;:\;|x|\geq1\}$ jest
+rozmaitością z brzegiem}
+
+Chcę napisać dyffeomorfizm $f:\R^n\setminus Int(D^n)\to D^n\setminus\{0\}$.
+$$f(x_1,...,x_n)={1\over|x|^2}(x_1,...,x_n)$$
+Wiemy jak wygląda atlas na $D^n\setminus\{0\}$, bo to było na wykładzie, czyli niech to
+będą jakieś $(U_\alpha,\phi_\alpha)$. Teraz na $\R^n\setminus Int(D^n)$ indukujemy atlas
+przez $(f^{-1}(U_\alpha,\phi_\alpha\circ f)$. Jedyne co musimy sprawdzić to gładkość tego
+atlasu. Trzeba sprawdzić, co się dzieje na
+$$f^{-1}(U_\alpha)\cap f^{-1}(U_\beta).$$
+Chcę sprawdzić, czy złożenie $(\phi_\alpha\circ f)(\phi_\beta\circ
+f)^{-1}=\phi_\alpha\circ\phi_\beta^{-1}$ jest gładkie?
+
+\subsection*{ZADANIE 24.}
+\emph{\color{yellow}$B$ jest domkniętą kulą w pewnym lokalnym układzie współrzędnych na
+gładkiej rozmaitości $M$. Uzasadnij, że $M\setminus Int(B)$ jest rozmaitością z brzegiem.}
+
+Mamy sobie $M$ i mapę $(U, \phi)$. Dalej $B\subseteq U$ jest kulką taką, że
+$\phi(B)=\overline{B_r(x)}$. Ta kulka się lokalnie przenosi na kulkę w $\R^n$. Możemy
+sobie zapisać:
+
+Na $M\setminus Int(B)$ określamy strukturę:
+\begin{itemize}
+    \item Na $M\setminus B$, co jest otwartym podzbiorem $M$, wybieramy mapy z atlasu
+    maksymalnego, których dziedziny są zawarte w $M\setminus B$ (nie dotykają $B$).
+    \item Nie mamy jeszcze pełnego pokrycia, bo jest jeszcze brzeg.
+    \item Na $U\setminus Int(B)$ czyli zbiorze otwartym gdzie mieliśmy kulkę bez kulki,
+    podmieniamy jedną mapę $(U,\phi)$ na zestaw map tak, żeby nam pasowało. Określamy mapy
+    $\psi_\alpha\circ\phi$, gdzie $(V_\alpha,\psi_\alpha)$ jest atlasem na
+    $\phi(U\setminus Int(B))${\color{red}NIEPRECYZYJNE, BO NA ZBIORZE NIE MOŻEMY
+    ATLASOWAĆ, ale jakiś atlas odziedziczony chuju muju}, co jest podzbiorem otwartym na
+    przestrzeni podobnej do tego co było w zadaniu wyżej.
+    \item Atlas $\{(V_\alpha,\psi_\alpha)\}$ jak z poprzedniego zadania, to znaczy, że
+    struktura $(V_\alpha,\psi_\alpha)$ na $\R^n\setminus D^n$ jest zgodna ze standardową
+    zadaną przez $id$. 
+
+\end{itemize}
+
+Pozostaje nam złożyć te mapy i pokazać, że cośtam tam zostaje.
+
+Dla $(U_\alpha,\phi_\alpha)$ z początkowego punktu oraz $(V_\beta,\psi_\beta)$ z
+ostatniego punktu mamy
+\begin{align*}
+\phi_\alpha\circ(\psi_\beta\circ\phi)^{-1}&=\phi_\alpha\circ\phi^{-1}\circ id\circ\psi_\beta^{-1}
+\end{align*}
 \end{document}

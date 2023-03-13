@@ -13,7 +13,7 @@
 {\color{pink}Assume that $f:K\to K$ is a non-zero endomorphism (e.g. the Frobenius function). Prove that $Fix(f)=\{x\in K\;:\;f(x)=x\}$ is a subfield of the field $K$}
 \smallskip
 
-Is it really that trivial?
+
 
 \subsection*{EXERCISE 4.}
 {\color{pink}Assume that $K$ is a finite field, characteristic $p$.
@@ -145,4 +145,44 @@ $$F=\bigcup\limits_{n>0}F(p^{n!})$$
 
 A field is algebraically closed if every non-constant polynomial $f\in F[X]$ has a root in $F$.
 
+
+%From exercise 4 we know that every irreducible polynomial must divide $x^n-1$ for some
+%$n$. Thus, it has to have a common root with $x^n-1$. If we show that for every $n$, the
+%field $F$ contains a root of $w_m(x)$ this would imply that it contains the root of every
+%irreducible polynomial. Hence, every polynomial has a root in $F$ and $F$ is algebraically
+%closed.
+
+"Proof graph"
+\begin{illustration}
+    \node (1) at (0, 0) {Ex. 4: $(\forall\;f\in F[X])$ $f$-irreducible $\implies f|w_m$};
+    \node (2) at (0, -1.5) {$(\forall\;n\in\N)(\exists\;a_1,...,a_n\in F)\;w_n(a_i)=0$.
+    $i=1,...,n$};
+    \node (3) at (0, -3) {$w_n(a_i)=0\implies f(a_i)=0$ for some $i\in\{1,...,n\}$};
+    \draw[->](1)--(2);
+    \draw[->](2)--(3);
+\end{illustration}
+
+Because all polynomials in $F[X]$ are either irreducible or a product of irreducible
+polynomials, it is sufficient to show that every irreducible polynomial in $F[X]$ has a
+root in $F$. Let $f\in F[X]$ be irreducible and $n=deg(f)$. From Ex. 4 we know that
+$f|w_{p^{nk}-1}$ for some $k\in\N$ and so they must have a common root. Thus, it will be
+sufficient to show that all roots of $w_{p^{nk}-1}$ are within $F$.
+
+Take $n\in\N$ and consider $w_n(x)\in F[X]$. The field $F(p^k)$ such that
+$n<p^k$ will have all roots of $w_n(x)$. But $F(p^k)\subseteq F$ so we have that $F$ also
+contains all roots of $w_n(x)$.
+
+The above reasoning was conducted for arbitrary chosen $n$, so it will be true for
+$p^{nk}-1$ and so $F$ contains all roots of $p^{nk}-1$, meaning that $f$ contains at least
+one root in $F$ and so $F$ is algebraically closed.
+
+
+%Let us take an irreducible polynomial (because other polynomials are products of irreducible
+%polynomials) $f\in F[X]$ with $deg(f)=n$. Since $F[X]$ is also a sum of $F(p^k)[X]$, then
+%$f\in F(p^k)[X]$, with $k$ being the least number for which this is true. From Ex. 4 we
+%know that $f|w_{p^{kn}-1}$. 
+%
+%Let $m\in\N$ be any natural number. We will show that all roots of $w_m$ are within
+%$F$. As above, because $w_m\in F[X]$ then there exists $k$ for which $w_m\in F(p^k)[X]$. 
+%
 \end{document}
