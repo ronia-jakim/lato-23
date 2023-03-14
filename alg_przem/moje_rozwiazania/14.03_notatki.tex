@@ -1,0 +1,192 @@
+\documentclass{article}
+
+\usepackage{../../notatki}
+
+\title{Algebra przemienna\medskip\\{\normalsize notatki}}
+\author{}
+
+\begin{document}
+\maketitle
+
+\dyg{Dygresja, która ma się przydać na zajęciach 15.03}
+
+Jak mamy pierścień $R$ i na nim mamy $Spec(R)$, to bierzemy element $f\in R$
+$$\hat{f}(\pideal):=[f]_\pideal\in R/\pideal$$
+i to ma przypominać wiązkę wektorową. Ewaluacja funkcji w punkcie.
+
+Można też powiedzieć, że dla dowolnego ideału $\mathfrak{a}$ mamy  $f(\mathfrak{a})=[f]_\mathfrak{a}\in R/\mathfrak{a}$, ale ten ideał $\mathfrak{a}$ daje $V(\mathfrak{a})$ i to wygląda tak, jakbyśmy jaką funkcję na spektrum chcieli obciąć do $V(\mathfrak{a})$.
+\medskip
+
+Jeśli $M$ jest $R$ modułem, to konstrukcję wyżej możemy powtórzyć. To znaczy jeśli $\pideal$ jest ideałem pierwszym i jeśli weźmiemy 
+$$M\otimes_R R/\pideal$$
+to to jest naturalny $R/\pideal$ moduł.
+
+\begin{illustration}
+\draw(0,0)--(7,0);
+\filldraw (5, 0) circle (2pt) node [below] {$\pideal$};
+\draw (5.3, 0.3)--(5.3, 4) node [right] {$R/\pideal$};
+\draw (4.7, 2)--(4.7, 4) node [left] {$M/\pideal$};
+\filldraw (3, 0) circle (2pt);
+\filldraw (1, 0) circle (2pt);
+\filldraw (6, 0) circle (2pt);
+\node at (7, -0.5) {$R$};
+\end{illustration}
+\medskip
+
+\podz{dark-green}
+\medskip
+
+Ponoć nie będą nam Boole potrzebne i Januszkiewicz uważa, że to jest szczególnie nudne.
+
+Niech $X$ będzie przestrzenią zwartą. Weźmy zbiór wszystkich ciągłych funkcji z $X$ w pierścień $\Z_2$ [$F(X, \Z_2$]. Czy są fajne własności? $f\circ f=f$ i $f+f=0$, czyli to jest pierścień Boole'a.
+
+Jakie ten pierścień ma ideały? Wszystkie ideały pierwsze są maksymalne (to jakieś zadanie było).
+Jeśli weźmiemy spójny podzbiór $X$, to wtedy $F(X, \Z_2)$ musi być stały w pewnym miejscu. Czyli $Spec(F)$ to zbiór składowych spójnych $X$.
+
+Weźmy wszystkie funkcje ciągłe w $\Z_2$ i zamieńmy te funkcje na jedną, solidną funkcję w $\Z_2^R$. Taka funkcja to nie jest włożenie, ale idzie na $Im(X)\subseteq \Z_2^R$
+\begin{illustration}
+\node (1) at (0, 0) {X};
+\node (2) at (2, 0) {$\Z_2$};
+\node (3) at (4, 0) {$X$};
+\node (4) at (6, 0) {$\Z_2^R$};
+\node (5)  at (6, -2) {$Im(X)$};
+\draw[->] (1)--(2);
+\draw[->](0.25, 0.3)--(1.7, 0.3) node [midway, above] {$\psi_1$};
+\draw[->](0.25, -0.3)--(1.7, -0.3) node [midway, below] {$\psi_2$};
+%\draw[dashed, ->] (2)--(3);
+\draw[->] (3)--(4) node [midway, above] {$\phi$};
+\draw[->] (3)--(5);
+\node[rotate=90] at (6, -1) {$\subseteq$};
+
+\node at (10, -2) {$F(X,\Z_2)=F(Im\phi,\Z_2)$};
+\node at (5, -4) {$\phi(x)=(\psi_1(x),\psi_2(x)$};
+\end{illustration}
+
+Czyli $Spec(F(X, \Z_2))=Im\phi$.
+
+\subsection*{ZADANIE 23}
+(i)
+
+Otwarte są z definicji, a dla domkniętości mówimy, że $V(f)\sqcup V(1-f)=X$.
+
+(ii)
+
+\begin{align*}
+X_{f_1}\cup...\cup X_{f_n}&=\left(\bigcap V(f_i)\right)^c=V(f_1,...,f_n)^c=V(f)^c=X_f
+\end{align*}
+
+(iii)
+
+Wskazówka to rozwiązuje.
+
+(iv)
+
+Kwasi-zwartość mamy, bo każde spektrum takie jest, więc pozostaje Hausdorff.
+
+Bierzemy dwa punkty ze spektrum $p_1,p_2\in Spec(A)$. Ideały pierwsze są maksymalne, czyli mamy $f\in p_1\setminus p_2$ i na odwrót, czyli $g\in p_2\setminus p_1$. Weźmy 
+$$p_1\in V(f)=\{\pideal\;:\;f\in\pideal\}\not\ni p_2.$$ 
+I to jest zbiór otwarto domknięty, czyli jego dopełnienie jest otwartym otoczeniem $p_2$.
+
+\subsection*{ZADANIE 24}
+80$\%$ tego zadania to definicje, a potem jest część tego zadania gdzie przestajemy definiować i zaczynamy to robić.
+
+\subsection*{ZADANIE 25.}
+Że bijekcja $f\mapsto V(f)$ zachowuje operacje mnogościowe $\cup,\cap$.
+
+Generalnie zadanie jest nudne, ale fajnym wyzwaniem jest rozróżnic algebraicznie $(\frac1n,0)$ i $(0, \frac1n+\frac1m)$.
+
+\subsection*{ZADANIE 26}
+Jest zrobione w tych zadaniach i cała zabawa została nam zabrana.
+
+\subsection*{ZADANIE 27}
+Prawdopodobnie chodzi o to, że jeden zbiór może mieć bardzo dużo definiujących równań.
+
+Jak mam wielomiany $(f_1,...,f_k)$ $f\in K[x_1,...,x_m]$. Zbiór $Zer(f_1,...,f_k)$ to jest zbiór tych punktów $K^m$ takich, że $f$ ewaluwane w nich daje $0$. To daje ideał $I(Zer)$, czyli wszystkie funkcje $g$ takie, że $g(z)=0$ dla $z\in Zer$ (czyli to co na algebrze 2R).
+
+I to nawet chyba jest tak, że $I(Zer)\supseteq \sqrt{\begin{pair}f_1,...,f_k\end{pair}}$. Tutaj jest równość i to jest kwestia geometrii algebraicznej.
+
+$P(X)$ to jest jedna z dwoch rzeczy:
+\begin{enumerate}
+    \item $k[x_1,...,x_m]/\begin{pair}f_1,...,f_k\end{pair}$
+    \item $k[x_1,...,x_m]/I(Zer)$
+\end{enumerate}
+
+$P(X)$ to funkcje wielomianowe na $Zer$. $(1)=(2)$.
+
+Jest jeszcze mała uwaga, że klasy abstrakcji $[x_1],[x_2],...,[x_m]$ generują $P(X)$ jak $k$-algebrę.
+
+\dyg{Co się stanie, jeśli weźmiemy $\mathfrak{m}\subseteq P(X)$?} Jeśli mamy $x\in Zer$, to mamy $\mathfrak{m}_x<P(X)$. Jeśli weźmiemy punkt, w którym wszystkie $f$ znikają, to dostajemy homomorfizm ewaluacji, którego jądro to $ker(ev_x)$.
+
+\acc{Oni mówią, że odwzorowanie $Zer\ni x\mapsto \mathfrak{m}_x$ jest iniekcją.} Jeśli $x=[a_1,...,a_m]$ i $y=[b_1,...,b_m]$ i one są różne na którejś współrzędnej, to chcemy znaleźć funkcję, która w $x$ znika, a w $y$ nie znika i odwrotnie.
+
+\acc{Suriektywnośc tego odworowania} natomiast jest tym samym co równość $I(Zer)=\sqrt{\begin{pair}f_1,...,f_k\end{pair}}$. To jest etap, na którym potrzebujemy algebraicznej domkniętości $k$.
+
+\subsection*{ZADANIE 28}
+Czytanie ze zrozumieniem.
+
+\deff{Praca domowa: przegooglować Jacobian Conjecture}.
+
+Wiemy co to są odwzorowania $k^m\to k^n$. Jeżeli $n$ to jest $1$, to są wielomiany.
+Teraz chcemy o $k^m\supseteq V\to W\subseteq k^n$ i taki odwzorowanie jest affiniczne, jeśli znajdę fajne $k^m\to k^n$. Jeśli funkcja znika na $W$, to chcę, żeby ona po przeprowadzeniu z powrotem znikała na $V$. Te strzałki $k^m\to k^n$ to $n$ wielomianów $m$ zmiennych.
+
+I w sumie to tutaj zgubiłam uwagę.
+
+
+\section*{COŚ O FUNKTORACH POCHODNYCH}
+
+Mamy moduł $M$ i możemy założyć, że jest on skończenie generowany i jest on Noetherowski. Jeśli tak jest, to on ma rezorwenta, a ten rezorwenta ma jadro:
+\begin{tikzcd}
+0 & M\arrow[l] & R^{k_1}\arrow[l] & R^{k_2}\arrow[l] & R^{k_3}\arrow[l] &...\arrow[l] & \text{<- dokładna rezolwenta wolna}
+\end{tikzcd}
+
+Powiedzmy, że mamy jakiś funktor, to wtedy
+
+\begin{tikzcd}
+0 & F(M)\arrow[l] & F(R^{k_1})\arrow[l] & F(R^{k_2})\arrow[l] &...\arrow[l]& \text{<- kompleks zależny od rezolwenty}
+\end{tikzcd}
+
+Coś, co nie zależy od rezolwenty to jest funktor pochodny i to, czy to są homologie czy nie to nie jest ważne, ważne żeby było rezolwenty w to nie involve.
+
+Popatrzmy na konretne funktory. Weźmy sobie $k$-moduł $M$, na który działa grupa $G$. Innymi słowy, mamy $G\to Aut_k(M)$, czyli $k[G]$.
+Jak już coś takiego mamy, to możemy przypisać
+$M\xrightarrow[]{\phi} M_G$, gdzie $M_G$ to jest największy taki obiekt, że $G$ działa na niego trywialnie. i $\phi(gm)=g\phi(m)=\phi(m)$
+
+Szukamy jądra w $M$, które przez $\phi$ przejdzie na zero: $m-gm=0$ dla wszystkich $g$. Czyli bierzemy podmoduł $(m-gm)$ i koniec:
+$$M_G=M/\begin{pair}m-mg\end{pair}$$
+Ta konstrukcja nazywa się \deff{koniezmiennikami}.
+
+Jest też inna konstrukcja, która nazywa się niezmiennikami. Bierzemy $M$ i szukamy modułu 
+$$M^G\xrightarrow[]{\phi}M$$ 
+takiego, że $G$ działa trywialnie. 
+$$M^G=(Im\phi)=\{m\;:\;gm=m\}$$
+Czyli tutaj mamy niezmienniki i to jest istotnie dualne do koniezmienników.
+\medskip
+
+Teraz chcemy zrobić funktory pochodne, pytanie jak?
+
+Chcemy wybudować rezolwentę w kategorii $k$-$G$-modułów (jak to się pisze xd)
+$$H^0*G, M)=M^G$$
+$$H_0(G, M)=M_G$$
+i pierwszy funktor pochodny
+$$H'(G, M)$$
+homologie $G$ o współczynnikach w $M$.
+
+$H^0(G, M)$ jest dwufunktorialny, czyli z jednej strony mówi coś o $G$, a z drugiej mówi coś o $M$.
+
+
+$N$, $M$ sa skończenie generowane
+
+\begin{tikzcd}
+N\arrow[d, "f" right] & R^N\arrow[l]\arrow[d] & ker\arrow[l]\arrow[d,"no\; tak"]\\
+M & R^n\oplus R^m\arrow[l]&ker\arrow[l]
+\end{tikzcd}
+\begin{center}$\star\star\star\star$ I ŻYLI DŁUGO I SZCZEŚLIWIE I WSZYSTKO IM KOMUTOWAŁO $\star\star\star\star$\end{center}
+
+
+
+
+
+
+
+
+\end{document}

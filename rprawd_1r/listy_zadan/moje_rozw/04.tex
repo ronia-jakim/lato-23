@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage{../../../notatki}
+
+\begin{document}
+
+\subsection*{ZADANIE 2.}
+\emph{\color{pink}Ola poszła do kasyna mając 100 złotych. Postanowiła grać tak długo aż albo zbankrutuje, albo osiągnie 500 złotych. W każdej pojedynczej grze może wygrać 10 zł z prawdopodobieństwem $\frac13$, przegrać 10 złotych z prawdopodobieństwem $\frac12$ lub utrzymać swój stan posiadania z prawdopodobieństwem $\frac16$. Pokaż, że z prawdopodobieństwem 1 Ola skończy grę w skończonym czasie}
+\smallskip
+
+Zadanie zrobimy jakbyśmy rozważali pijaka próbującego usilnie wrócić do domu na prostej drodze: każdy krok to początek nowej, wspaniałej przygody.
+
+Jako, że przyrównamy fortunę Oli do pijaka, a jej odległość od $50$ do odległości pijaka od ukochanej szklanki soku po ogórkach kiszonych, to oznaczymy przez $A_i$ prawdopodobieństwo, że startując w punkcie $i$ pijak dopadnie źródła domowych elektrolitów. 
+Tutaj dokonam jeszcze podmianki, żeby było mi wygodniej: ponieważ fortuna Oli będzie skakać po wartościach z $0$ na końcu (tzn. podzielnych przez $10$), to każdy krok pijaka będzie krokiem długości $10$. 
+To znaczy Ola zdobywa banknoty $10$zł i liczy ich ilość żeby zdecydować czy gra dalej czy nie, a nie dokładną wartość swojego portfela.
+
+Problem z zadania startuje w $i=10$ i wygrana będzie przybliżać nas do $50$ - bar był $10$ metrów od posterunku policji, a dom aż $50$ metrów. 
+
+Liczy się, aby pijak dotarł gdzieś, gdzie ma wodę, więc $A_{50}=1$ i $A_0=1$, bo czy to w domu, czy w więzieniu, jakieś elektrolity się znajdą.
+\medskip
+
+Zastanówmy się jak opisać, że pijak startując w $i$-tym kroku dojdzie do domu? 
+Możemy to zrobić korzystając z rekurencji. Jeżeli z prawdopodobieństwem $\frac13$ ruszy się w stronę domu, to zrzucamy całą robotę na $A_{i+1}$, jeśli się oddali od domu z prawdopodobieństwem $\frac12$, to będziemy liczyć $A_{i-1}$, a pozostanie w miejscu z prawdopodobieńśtwem $\frac16$, czyli dostajemy:
+$$A_i=\frac13A_{i+1}+\frac12A_{i-1}+\frac16A_i$$
+$$3A_i=A_{i+1}+\frac32A_{i-1}+\frac12A_i$$
+$$\frac52A_i-\frac32A_{i-1}=A_{i+1}$$
+i to jest już rekurencja, którą w teorii potrafię rozwiązać, a w praktyce zrobi to za mnie wolframalpha:
+$$A_i=c_1\left(\frac32\right)^i+c_2$$
+$$\begin{cases}A_0=1=c_1+c_2\\A_{50}=1=c_1{3^{50}\over 2^{50}}+c_2\end{cases}$$
+To również rozwiązuje za mnie wolframalpha i mówi, że $c_1=0$ i $c_2=1$, czyli prawdopodobieństwo dojścia do elektrolitów (tudzież zakończenia gry) wynosi $A_{10}=1$.
+
+
+\subsection*{ZADANIE 3.}
+\emph{\color{yellow}Losujemy niezależnie nieskończenie wiele punktów z koła o promieniu $1$ i środku $(0, 0)$. Dla jakich wartości $\varepsilon$ z prawdopodobieństwem $1$ w kole o promieniu $\varepsilon$ i środku $(0, 0)$ znajdzie się nieskończenie wiele punktów?}
+\smallskip
+
+Zgaduję że dla $\varepsilon\geq\frac1{\sqrt2}$, bo wtedy te koła to będzie przynajmniej połowa całości.
+
+No boże no, to widać że dla tych na pewno śmignie.
+
+$A_n$ - w $n$-tym ruchu punkt wpada w moje koło. Prawdopodobieństwo wpadnięcia w kółko o promieniu $\varepsilon$ wynosi $\varepsilon^2$.
+Coś pojebałam, albo to jest trywialne.
+
+
+\subsection*{ZADANIE 4.}
+\emph{\color{yellow}Zdarzenia $A_1,A_2,...$ są niezależne i $\prawdo{A_n}=p_n\in(0,1)$. Wykaż, że z prawdopodobieństwem $1$ zachodzi co najmniej jedno ze zdarzeń $A_n$ $\iff$ z prawdopodobieństwem $1$ zachodzi nieskończenie wiele zdarzeń $A_n$.}
+\smallskip
+
+
+{\large\color{orange}NIE ROZUMIEM TREŚCI?? ALBO NIE MYŚLĘ JUŻ???}
+
+
+\subsection*{ZADANIE 5.}
+\emph{\color{yellow}Rzucamy nieskończenie wiele razy monetą, w której orzeł wypada z prawdopodobieństwem $p\geq\frac12$. Niech $A_n$ oznacza zdarzenie, że pomiędzy rzutem $2^n$ a $2^{n+1}$ otrzymano ciąg $n$ kolejnych orłów. Pokaż, że zdarzenia $A_n$ z prawdopodobieństwem $1$ zachodzą nieskończenie wiele razy.}
+\smallskip
+
+Najpierw powinnam znaleźć sobie wzorek na prawdopodobieństwo wyrzucienie orła, pokazać, że to w nieskończoności nie zbiega do $0$, czyli suma jest nieskończona. Wypadałoby powiedzieć o niezależności i reszta to śmiga.
+
+
+
+
+\end{document}
