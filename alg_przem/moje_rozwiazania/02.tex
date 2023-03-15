@@ -103,12 +103,32 @@ Zdefiniuj iloczyn elementu $A[X]$ z elementem $M[X]$ w oczywisty sposób, pokaż
 \smallskip
 
 Jak to leciało dla $A$-modułu? $a,b\in A, x,y\in M$
-\begin{multline*}
+\begin{multline*}\\
     a(x+y)=ax+ay\\
     (a+b)x=ax+by\\
     (ab)x=a(bx)\\
     1x=x\\
 \end{multline*}
+
+Czy ja chce brać sobie $w,v\in M[X]$ oraz $p,r\in A[X]$ i robić zwykłe mnożenie wielomianów? Chyba tak XD
+\begin{align*}
+    p(w+v)&=\left(\sum p_ix^i\right)\left(\sum w_ix^i+\sum v_ix^i\right)=\left(\sum p_ix^i\right)\left(\sum(w_i+v_i)x^i\right)=\\
+    &=\sum\limits_{k=0}^n\left(\sum\limits_{i+j=k} p_i(w_j+v_j)x^k\right)=\sum\left(\sum p_iw_jx^k+\sum p_iv_jx^k\right)=\\
+    &=\sum\sum p_iw_jx^k+\sum\sum p_iv_jx^k=pw+pv
+\end{align*}
+I reszty sprawdzania to mi się nie chce.
+
+Homomorfizm na
+$$f:M[X]\to A[X]\otimes_AM$$
+$$f(\sum m_jx^j)=\sum(x^j\otimes m_j)$$
+jest $1-1$, bo każdy wielomian jest unikalny ze względu na współczynniki przy kolejnych potęgach, bla bla bla. Widać. Nawet mi się nie chce tego pisać ładnie
+
+To teraz w drugą stronę jest też dość prosty
+$$g:A[X]\otimes_AM\to M[X]$$
+$$g(\left(\sum a_ix^i\right)\otimes m)=\sum a_imx^i$$
+
+
+
 
 
 
