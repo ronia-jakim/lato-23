@@ -97,7 +97,7 @@ Ah, no i teraz korzystam z tego, że $A\otimes M=M$ i śmiga.
 
 
 \subsection*{ZADANIE 6.}
-{\color{yellow}\emph{Dla dowolnego $A$-moduły, niech $M[X]$ będzie oznaczało zbiór wszystkich wielomianów w $x$ o współczynnikach z $M$, to znaczy wyrażenia formy}
+{\color{pink}\emph{Dla dowolnego $A$-moduły, niech $M[X]$ będzie oznaczało zbiór wszystkich wielomianów w $x$ o współczynnikach z $M$, to znaczy wyrażenia formy}
 $$m_0+m_1x+...+x_rx^r$$
 Zdefiniuj iloczyn elementu $A[X]$ z elementem $M[X]$ w oczywisty sposób, pokaż że $M[X]$ jest $A[X]$-modułem. Pokaż, że $M[X]\cong A[X]\otimes_AM$.}
 \smallskip
@@ -126,6 +126,24 @@ jest $1-1$, bo każdy wielomian jest unikalny ze względu na współczynniki prz
 To teraz w drugą stronę jest też dość prosty
 $$g:A[X]\otimes_AM\to M[X]$$
 $$g(\left(\sum a_ix^i\right)\otimes m)=\sum a_imx^i$$
+
+\subsection*{ZADANIE 7.}
+{\color{yellow}\emph{Niech $\pideal$ będzie ideałem pierwszym w $A$. Pokaż, że $\pideal[X]$ jest ideałem pierwszym w $A[X]$. Czy jeśli $\mathfrak{m}$ jest ideałem pierwszym w $A$, to $\mathfrak{m}[X]$ jest ideałem maksymalnym w $A[X]$?}}
+\smallskip
+
+Z poprzedniego zadania wiem, że $\pideal[X]\cong A[X]\otimes_A\pideal$, bo każdy ideał jest $A$-modułem.
+
+Czy mogę określić sobie homomorfizm (ewualuację w $x=1$)
+$$f:A[X]\to A$$
+$$f(\sum a_ix^i)=\sum a_i$$
+i wtedy $f^{-1}[\pideal]$ jest całością $\pideal[X]$ jest ideałem pierwszym jako przeciwobraz ideału pierwszego przez homomorfizm. 
+
+Alternatywnie
+$$(A[X])/(\pideal[X])\cong (A/\pideal)[X]$$
+w pierwszym zadaniu z poprzedniego rozdziału pokazywaliśmy, że $f\in A[X]$ jest dzielnikiem zera $\iff$ $af=0$ dla pewnego $a\in A\setminus\{0\}$,
+czyli $\iff$ w $A$ są dzielniki zera.
+Ale w $(A/\pideal)$ dzielników zera nie ma, bo wszystkie są w $\pideal$ który to wyrzuciliśmy, więc śmiga.
+
 
 
 

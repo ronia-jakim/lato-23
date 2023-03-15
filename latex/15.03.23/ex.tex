@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+
+\title{Linear algebra stuff}
+\author{Weronika Jakimowicz}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{df}[proposition]{Definition}
+\newtheorem{fct}[proposition]{Fact}
+\newtheorem{tm}[proposition]{Theorem}
+
+\newcommand{\tbt}[1]{\textbf{\emph{#1}}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We do cool stuff in linear algebra
+\end{abstract}
+
+\section{Matrices and linear equations}
+\subsection{Elementary definitions and results}
+Let $A=[a_{i,j}]$ where $a_{i,j}$ are the entries of $A$. The matrix $A$ can be explicitly written as:
+$$
+A=\begin{bmatrix}a_{1,1}&a_{1,2}&\dots&a_{1,n}\\
+a_{2,1}&a_{2,2}&\dots&a_{2,n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n,1}&a_{n,2}&\dots&a_{n,n}
+\end{bmatrix}
+$$
+and consider the following system of linear equations:
+%\begin{equation}
+%\label{eq:1}
+%\begin{cases}
+%    a_{1,1}x_1\;+\;a_{1,2}x_2\;+\;\dots\;+\;a_{1,n}x_n&=\;0\\
+%    a_{2,1}x_1\;+\;a_{2,2}x_2\;+\;\dots\;+\;a_{2,n}x_n&=\;0\\
+%    \quad\vdots\\
+%    a_{n,1}x_1\;+\;a_{n,2}x_2\;+\;\dots\;+\;a_{n,n}x_n&=\;0
+%\end{cases}
+%\end{equation}
+
+\begin{equation}\label{eq:1}
+\left\{\begin{matrix}
+a_{1,1}x_1&+&a_{1,2}x_2&+&\dots&+&a_{1,n}x_n&=&0\\
+a_{2,1}x_1&+&a_{2,2}x_2&+&\dots&+&a_{2,n}x_n&=&0\\
+\vdots &\\
+a_{n,1}x_1&+&a_{n,2}x_2&+&\dots&+&a_{n,n}x_n&=&0
+\end{matrix}\right.
+\end{equation}
+
+\begin{proposition}\label{prop:1}
+The equations in \Cref{eq:1} have a unique solution $\iff$ $A$ is row equivalent to the identity matrix $I_n$.
+\end{proposition}
+
+\section{Invertible matrices}
+\begin{df} 
+An $n\times n$ matrix $B$ is invertible if there is some matrix $C$ such that $B\cdot C=I$, where $I$ is the identity matrix.
+\end{df}
+
+\begin{fct}\label{fact:2}
+Let $A$ be an $n\times n$ matrix. Then the following statements are equivalent:
+\begin{enumerate}
+    \item $A$ is invertible
+    \item $A$ is row equivalent to the identity matrix $I_n$
+\end{enumerate}
+\end{fct}
+
+\section{Conclusion}
+\begin{tm}
+$A$ is row equivalent to the identity matrix $I_n$  $\iff$ The equations in \ref{eq:1} have a unique solution.
+\end{tm}
+\begin{proof}
+    The theorem follows from \Cref{prop:1} and \cref{fact:2}.
+\end{proof}
+
+\tableofcontents
+
+\Huge
+\begin{flushleft}\tbt{That's}\end{flushleft}
+\begin{center}\tbt{all,}\end{center}
+\begin{flushright}\tbt{folks!}\end{flushright}
+
+
+
+
+
+\end{document}

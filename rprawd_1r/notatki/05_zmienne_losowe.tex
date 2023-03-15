@@ -96,3 +96,156 @@ $$X(\omega)=F^{-1}(\omega).$$
 \begin{align*}
     \prawdo{X\leq t}=\prawdo{X(\omega)\leq t}=\prawdo{F^{-1}(\omega)\leq t}=\prawdo{\omega\leq F(t)}=F(t)
 \end{align*}
+
+\begin{definicja}[$\pi$-układ]
+Niech $\set{K}$ będzie niepustą rodziną podzbiorów zbioru $\Omega$. Wtedy $\set{K}$ nazywamy \deff{$\pi$-układem}, jeżeli $(\forall\;A,B\in\set{K})\;A\cap B\in\set{K}$.
+\end{definicja}
+
+\begin{definicja}
+Niepustą rodzinę $\set{L}$ nazywamy \deff{$\lambda$-układem}, jeżeli
+\begin{itemize}
+    \item $\Omega\in\set{L}$
+    \item $A,B\in\set{L}, A\subseteq B$ to $B\setminus A\in\set{L}$
+    \item $\{A_n\}_{n\in\N}$ jest zstępującą rodziną zbiorów z $\set{L}$, to $\bigcup A_n\in\set{L}$
+\end{itemize}
+\end{definicja}
+
+\begin{lemat}[lemat o $\pi-\lambda$-układach, tw. Dynkina]
+Jeżeli $\set{L}$ jest $\lambda$-układem zawierającym $\pi$-układ $\set{K}$, to $\set{L}$ zawiera $\sigma$-ciało generowane przez $\set{K}$.
+\end{lemat}
+
+\textbf{Dowód:}
+
+\begin{enumerate}
+    \item Jeżeli $\set{L}$ jest jednocześnie $\lambda$-układem i $\pi$-układem, to $\set{L}$ jest $\sigma$-ciałem.
+        \begin{itemize}
+            \item Jeżeli $A,B\in\set{L}$, to $A\cup B\in\set{L}$, bo
+            $$A\cup B=
+            A\cup(B\setminus A\cap B)=
+            \left[A^c\setminus
+            (\underbrace{B\setminus A\cap B}_{\substack{\in\set{L}\\bo\;A\cap B\subseteq B}})\right]^c$$
+            \item Przez indukcję pokazujemy, że $A_1,...,A_n\in\set{L}$, to $\bigcup\limits_{i\leq n} A_i\in\set{L}$
+            \item Pozostaje pokazać, że $\bigcup\limits_{n\in\N}A_n\in\set{L}$ jeżeli $A_1,...,A_n,...\in\set{L}$. Nazywamy $B_k=\bigcup\limits_{i\leq k}A_k$, ciąg $B_k$ jest wstępujący więc z definicji $\lambda$-układu jest w $\set{L}$.
+        \end{itemize}
+    \item Niech $\set{L}_0$ będzie przekrojem wszystkich $\lambda$-układów zawierających $\set{K}$. Łatwo zobaczyć, że $\set{L}_0$ jest $\lambda$-układem. Chcemy pokazać, że $\set{L}_0$ jest $\pi$-układem, bo wtedy $\lambda_0$ jest $\sigma$-ciałem zawierającym $\set{K}$.
+    
+    W szczególności musi zawierać $\sigma$-ciało generowane przez $\set{K}$.
+
+        \begin{itemize}
+            \item Ustalmy $A\in K$ i niech
+            $$K^A_1=\{B\subseteq\Omega\;:\;A\cap B\in\set{L}_0\}$$
+            \item Zauważmy, że $K\subseteq K_1^A$, bo $K\subseteq\set{L}_0$. Ponadto $K_1^A$ jest $\lambda$-układem.
+            \item $\Omega\in K_1^A$, bo $\Omega\cap A=A\in K\subseteq\set{L}_0$
+            \item Niech $B_1,B_2\in K_1^A$ i $B_1\subseteq B_2$. Wtedy $(B_2\setminus B_1)\cap A=(B_2\cap A)\setminus(B_1\cap A)\in\set{L}_0$, bo $\set{L}_0$ jest $\lambda$-układem.
+            \item Stąd $B_2\setminus B_1\in K_1^A$
+            \item Niech $\{B_n\}_{n\in\N}$ będzie wstępującym ciągiem elementów z $K_1^A$.
+            $$A\cap \bigcup B_n=\bigcup(B_n\cap A)\in\set{L}_0$$
+            bo przekroje też są wstępujące, stąd $B_n\cap A$ jest wstępującym ciągiem z $\set{L}_0$ 
+        \end{itemize}
+    Mamy więc, że $K_1^A$ jest $\lambda$-układem, zatem $\set{L}_0\subseteq K_1^A$. Pokazaliśmy, że $(\forall\;B\in\set{L}_0)\;A\cap B\in\set{L}_0$.
+    \item $A$ wyżej był dowolny. W takim razie pokazaliśmy, że
+    $$(\forall\;A\in K)(\forall\;B\in\set{L}_0)\;A\cap B\in\set{L}_0$$
+    Ustalmy $B\in \set{L}_0$ taki, że
+\end{enumerate}
+
+{\large\color{orange}UKRAŚĆ NOTATKI ZE SKRYPTU, BO NIE CHCE MI SIĘ TERAZ PISAĆ}
+
+
+\subsection{KONIEC TEORII MIARY NA DZISIAJ}
+
+\begin{tw}[twierdzenie o jednoznaczności]
+Dystrybuanta zmiennej losowej $X$ jednoznacznie wyznacza jej rozkład. To znaczy, jeśli dwie zmienne losowe mają różny rozkład, to mają też różne dystrybuanty.
+\end{tw}
+
+\textbf{Dowód:} Załóżmy nie wprost, że mamy dwie zmienne losowe: $X$ o rozkładzie $\mu_X$ i dystrybuantę $F$ oraz $Y$ o rozkładzie $\mu_Y$ i tej samej dystrybuancie. 
+
+Skorzystamy z twierdzenia Dynkina, czyli musimy wskazać $\pi$-układ i $\lambda$-układ. Niech $\set{K}$ będzie rodziną zbiorów postaci $(-\infty, t]$. Łatwo zobaczyć, że tak zdefiniowane $\set{K}$ jest $\pi$-układem.
+
+Niech $\set{L}$ będzie rodziną zbiorów $A$ takich, że $\mu_X(A)=\mu_Y(A)$. Czyli $\set{L}$ jest $\lambda$-układem.
+
+Dla każdego $t\in\R$ mamy, że $\mu_X(-\infty,t]=F(t)$.
+Zatem $\set{K}\subseteq\set{L}$, czyli z twierdzenia Dynkina $\sigma(\set{K})=Bor(\R)\subseteq\R$, czyli ta równość $\mu_X(A)=\mu_Y(A)$ zachodzi dla wszystkich zbiorów borelowskich $A$.
+
+
+\subsection{PRZYKŁADY DYSKRETNE}
+\begin{definicja}[rozkład dyskretny]
+Zmienna losowa $X$ o rozkładzie $\mu$ ma \deff{rozkład dyskretny}, jeżeli istnieje przeliczalny zbiór $S$ taki, że $\mu(S)=1$. Wtedy
+$$S=\{x\;:\;\mu(\{x\})>0\}$$
+nazywamy \acc{zbiorem atomów}
+\end{definicja}
+
+\textbf{PRZYKŁAD:}
+\begin{enumerate}
+    \item $\mu=\delta_a,a\in\R$ i $\mu(\{a\})=1$
+    \item Rzut kostką
+    \item Rozkład dwumianowy (rozkład Bernoulliego, liczba sukcesów w $n$ doświadzczeniach). Ten rozkład ma dwa parametry: liczbę doświadczeń i prawdopodobieństwo sukcesu. Oznaczamy $\color{blue}Bin(n,p)$. Zmienna losowa ma rozkład $Bin(n,p)$ [ozn. $X\sim Bin(n,p)$], jeżeli
+    $$\prawdo{X=k}={n\choose k}p^k(1-p)^{n-k}$$
+    \item Rozkład Poissona z parametrem $\lambda>0$ [ozn. $\color{blue} Poiss(\lambda)$]. $X$ ma taki rozkład, jeżeli
+    $$\prawdo{X=k}=\lambda^kk!e^{-\lambda}$$
+    \item Ogólnie to mamy pewien rozkład $S=\{x_1,...,x_n,...\}$ i wagi $\{p_1,...,p_n,...,\}$ takie, że $\sum p_i=1$ i możemy patrzeć na to tak, że $x_i$ to jest atom, a $p_i$ to jest jego waga.
+\end{enumerate}
+
+\subsection{Rozkłady absolutnie ciągłe}
+
+\begin{definicja}[rozkład absolutnie ciągły]
+Zmienna losowa $X$ o rozkłądzie $\mu$ ma rozkład \deff{absolutnie ciągły} względem miary Lesbegue'a, jeżeli istnieje \acc{gęstość}, t.j. funkcja borelowska $f:\R\to[0,\infty)$ taka, że dla każdego zbioru Borelowskiego $B\in Bor(\R)$ $\mu(B)=\int_Bf(x)dx$
+\end{definicja}
+
+\begin{itemize}
+    \item $\int_\R f(x)dx=1$
+    \item $F(t)=\mu(-\infty,t]=\int_{-\infty}^tf(x)dx$
+    \item $f$ ciągła $\implies$ $F'(t)=f(t)$
+    \item każda funkcja $f$, która jest nieujemna, mierzalna i $\int_\R f(x)dx=1$ definiuje rozkład pewnej zmiennej losowej.
+\end{itemize}
+
+\textbf{Przykład:}
+\begin{itemize}
+    \item Rozkład jednostajny na $[0,1]$, $X\sim U([0,1])$
+    \item Rozkład wykłądniczy z parametrem $\lambda>0$. $X\sim Exp(\lambda)$. 
+    $$f(x)=\lambda e^{-\lambda x}\mathbb{1}_{[0,\infty)}$$
+    $$F(t)=\begin{cases}0\quad t<0\\1-e^{-\lambda t}\end{cases}$$
+    \item Rozkład Gaussa (normalny) $X\sim N(0, 1)$
+    $$f(x)={1\over\sqrt{2\pi}}e^{-\frac{x^2}{2}}$$
+    $$F(t)=\int_{-\infty}^tf(x)dx$$
+\end{itemize}
+
+Ogólnie: Każdą miarę probabilistyczną $\mu$ na $\R$ można przedstawić wpostaci
+$$\mu=\mu_{sing}+\mu_{abs},$$
+gdize $\mu_{abs}$ jest absolutnie ciągła względem miary Lesbegue'a, a $\mu_{sing}$ jest singularna (tzn. żyje tam, gdzie miara Lesbegue'a jest zerem).
+
+\section{Wielowymiarowe zmienne losowe}
+\begin{definicja}
+Mamy przestrzeń probabilistyczną $(\Omega,\set{F},\mathbb{P})$. Zmienna losowa o wartościach w $\R^d$ jest to funkcja mierzalna $X:\Omega\to(\R^d,Bor(\R^d)$.
+\end{definicja}
+
+\textbf{Przykład:}
+Losujemy z talii $5$ kart.
+
+
+AAAAAAAAAAA
+
+
+\begin{definicja}
+Rozkładem $d$-wymiarowej zmiennej losowej $X$ nazywamy miarę probabilistyczną $\mu$ na $\R^d$
+$$\mu(B)=\prawdo{X\in B}=\prawdo{\{\omega\;:\;X(\omega)\in B\}}=\prawdo{X^d(B)}$$
+Wtedy $(\R^d,Bor(\R^d),\mu)$ jest przestrzenią probabilistyczną.
+\end{definicja}
+
+\begin{definicja}
+Dystrybuanta $d$-wymiarowej zmiennej losowej $X=(x_1,...,x_n)$ to funkcja $F:\R^d\to[0,1]$ taka, że
+$$F(t_1,...,t_n)=\prawdo{X_1\leq t_1,X_2\leq t_2,...,X_d\leq t_d}$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

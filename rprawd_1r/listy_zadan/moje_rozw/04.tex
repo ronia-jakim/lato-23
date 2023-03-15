@@ -65,21 +65,25 @@ i tu już z twerdzenia B-C.
 \emph{\color{yellow}Rzucamy nieskończenie wiele razy monetą, w której orzeł wypada z prawdopodobieństwem $p\geq\frac12$. Niech $A_n$ oznacza zdarzenie, że pomiędzy rzutem $2^n$ a $2^{n+1}$ otrzymano ciąg $n$ kolejnych orłów. Pokaż, że zdarzenia $A_n$ z prawdopodobieństwem $1$ zachodzą nieskończenie wiele razy.}
 \smallskip
 
-Najpierw powinnam znaleźć sobie wzorek na prawdopodobieństwo wyrzucienie orła, pokazać, że to w nieskończoności nie zbiega do $0$, czyli suma jest nieskończona. Wypadałoby powiedzieć o niezależności i reszta to śmiga.
+%Najpierw powinnam znaleźć sobie wzorek na prawdopodobieństwo wyrzucienie orła, pokazać, że to w nieskończoności nie zbiega do $0$, czyli suma jest nieskończona. Wypadałoby powiedzieć o niezależności i reszta to śmiga.
+%
+%Jakie jest prawdopodobieństwo, że na $2^n$-tym miejscu wypadnie $n$ kolejnych orłów? $p^n$. Jaka jest suma czegoś takiego?
+%$$\sum\limits_{n=1}^\infty p^n\geq\sum\limits_{n=1}\left(\frac12\right)^n$$
+%
+%
+%Bardzo nieeleganckie szacowanie, ale co jeśli policzę prawdopodobieństwo, że orzeł wogóle $n$ razy nie wypadnie między $[2^n,2^{n+1})$?
+%\begin{align*}
+%    A_n^c&=\sum\limits_{i=0}^{n-1}p^i(1-p)^{2^n-i}=(1-p)^{2^n+1}\left({1-{p\over 1-p}^n\over1-2p}\right)
+%\end{align*}
+%W takim razie suma prawdopodobieństw, że wogóle będzie miało szansę wypaść $n$ razy pod rząd, to znaczy orzeł wypadnie co najmniej $n$ razy, wynosi
+%\begin{align*}
+%    \sum A_n&=\sum\left[1-(1-p)^{2^n+1}\left({1-{p^n\over(1-p)^n}\over1-2p}\right)\right]=\sum1-\sum(1-p)^{2^n-i}=1-c
+%\end{align*}
+%gdzie $c$ to jakaś stała wynikająca z tego, że ciąg w tej drugiej sumie zbiega do $0$, więc szereg jest zbieżny?
+%
 
-Jakie jest prawdopodobieństwo, że na $2^n$-tym miejscu wypadnie $n$ kolejnych orłów? $p^n$. Jaka jest suma czegoś takiego?
-$$\sum\limits_{n=1}^\infty p^n\geq\sum\limits_{n=1}\left(\frac12\right)^n$$
 
 
-Bardzo nieeleganckie szacowanie, ale co jeśli policzę prawdopodobieństwo, że orzeł wogóle $n$ razy nie wypadnie między $[2^n,2^{n+1})$?
-\begin{align*}
-    A_n^c&=\sum\limits_{i=0}^{n-1}p^i(1-p)^{2^n-i}=(1-p)^{2^n+1}\left({1-{p\over 1-p}^n\over1-2p}\right)
-\end{align*}
-W takim razie suma prawdopodobieństw, że wogóle będzie miało szansę wypaść $n$ razy pod rząd, to znaczy orzeł wypadnie co najmniej $n$ razy, wynosi
-\begin{align*}
-    \sum A_n&=\sum\left[1-(1-p)^{2^n+1}\left({1-{p^n\over(1-p)^n}\over1-2p}\right)\right]=\sum1-\sum(1-p)^{2^n-i}=1-c
-\end{align*}
-gdzie $c$ to jakaś stała wynikająca z tego, że ciąg w tej drugiej sumie zbiega do $0$, więc szereg jest zbieżny?
 
 
 
