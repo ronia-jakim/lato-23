@@ -46,13 +46,17 @@ Czyli co, ja mam uzasadnić po prostu przejścia w tym łańcuszku?
 $$M\otimes_AN=0\implies(M\otimes_AN)_k=0\overset{(\star)}{\implies} M_k\otimes_kN_k=0\overset{(\heartsuit)}{\implies} M_k=0\;\lor\;N_k=0$$
 Bo cała reszta wydaje się mieć sens?
 
-($\star$) $k\otimes_A (M\otimes_AN)=0\implies(k\otimes_AM)\otimes_A(k\otimes_AN)=0$
+($\star$) $k\otimes_A (M\otimes_AN)=0\implies(k\otimes_AM)\otimes_k(k\otimes_AN)=0$
+
+Jeśli $k\otimes_A(M\otimes_AN)=0$, to $(k\otimes_AM)\otimes_AN)=0$, czyli $k\otimes_AM$
 
 A to to jest raczej proste, bo jeśli $k\otimes_A(M\otimes_AN)=0$, to tym bardziej $k\otimes_k(k\otimes_A(M\otimes_AN))=0$ a jak się poprzestawia, bo to raczej jest izomorficzne, chyba że nagle świat staną na głowie, to dostaję $k\otimes_AM\otimes_kk\otimes_AN$.
 
 ($\heartsuit$) $M_k\otimes_kN_k=0\implies M_k=0\;\lor\;N_k=0$? Nie no, to jest raczej oczywiste z tego ten ten na N.
 
-{\color{orange}POKOPAŁAM TE RÓWNOŚCI I CO JEST CZYM AAAAAAAAAAA}
+{\color{orange}POKOPAŁAM TE RÓWNOŚCI I CO JEST CZYM AAAAAAAAAAA -- zapytać jak się zmienia to nad czym tensorujemy}
+
+Chwila, bo $0=k\otimes_A(M\otimes_AN)=(k\otimes_AM)\otimes_AN$
 
 \subsection*{ZADANIE 4.}
 \emph{\color{yellow}Niech $M_i\;(i\in I)$ będzie dowolną rodziną $A$-modułów i niech $M$ będzie ich sumą prostą. Pokaż, że $M$ jest płaski $\iff$ każdy $M_i$ jest płaski}
@@ -62,12 +66,55 @@ Mamy funktor $T_N:M\mapsto M\otimes_A N$ i on jest na kategorii $A$-modułów i 
 
 $\impliedby$ pójdzie chyba z faktu, że $(M\oplus N)\otimes P\cong (M\otimes P)\oplus(N\otimes P)$
 
-$\implies$ czyli wiem, że tensorowanie przez sumę $\bigoplus M_i$ daje nam dalej ciąg dokładny i z tego chce dostać, że tensorowanie przez każdy z kolei też daje nam ciąg dokładny. A to nie jest jakoś z tego, że mogę sobie obcinać te funkcje do współrzędnych i na tych współrzędnych one muszą mieć te same własności, czyli w szczególności będą na każdej współrzędnej dokładne?
+$\implies$ 
+
+Wiem, że jeśli mam ciąg dokładny
+$$0\to N_1\to N_2\to N_3\to 0$$
+dla dowolnych $N_i$, to wtedy tensorowanie przez $M$ zachowuje dokładność, tzn ciąg
+$$0\to N_1\otimes M\to N_2\otimes M\to N_3\otimes M\to 0$$
+jest nadal dokładny.
+
+Co by się stało, jeśli któraś współrzędna $M$ nie jest flat? Wtedy mogłam $N$ wybrać tak, żeby
+$$0\to N_1\otimes M_i\to N_2\otimes M_i\to N_3\otimes M_i\to 0$$
+nie było dokładne, czyli tutaj psuje się iniekcja
+$$f_1:N_1\otimes M_i\to N_2\otimes M_i$$
+No dobra, ale ja mogę zapisać sobie
+$$M=M_i\bigoplus\limits_{j\neq i}M_j$$
+i zrobić
+$$F_1:N_1\otimes(M_i\bigoplus M_j)\to N_2\otimes(M_i\bigoplus M_j)$$
+czyli coś typu $n_1\otimes (m_i, m)\mapsto n_2\otimes (m_i, m)$, ale mam też izomorfizmy
+$$n_1\otimes (m_i, m)\mapsto (n_1, m_i)\otimes (n_1,m)$$
+$$n_2\otimes (m_i, m)\mapsto(n_2,m_i)\otimes (n_2, m)$$
+no i tak jakby iniekcyjność $F_1$ jest psuta przez brak inikcyjności w $f_1$, czyli sprzeczność?
+Bo przecież $F_1=f_1\otimes F'$ dla jakiejś ładnej iniekcji $F'$.
 
 \subsection*{ZADANIE 5.}
-\emph{\color{yellow}Niech $A[X]$ będzie pierścieniem wielomianów jednej zmiennej nad pierścieniem $A$. Pokaż, że $A[X]$ jest płaską $A$-algebrą.}
+\emph{\color{pink}Niech $A[X]$ będzie pierścieniem wielomianów jednej zmiennej nad pierścieniem $A$. Pokaż, że $A[X]$ jest płaską $A$-algebrą.}
 \smallskip
 
-No jak dla mnie to taki $A[X]$ mogę przedstawić jako sumą prostą przeliczalnie wielu $A$. No i teraz wystarczyłoby, żeby $A$ było płaskie, ale co to jest $A$-algebra?No to jest pierścień wyposażony w strukturę $A$-modułu. Dlaczego ja nic nie formalizuję
+No jak dla mnie to $A[X]$ to jest suma prosta $\bigoplus_{n\in\N}Ax^n\cong \bigoplus_{n\in\N}A$ i $A[X]$ to moduł wolny.
+Ah, no i teraz korzystam z tego, że $A\otimes M=M$ i śmiga.
+
+
+\subsection*{ZADANIE 6.}
+{\color{yellow}\emph{Dla dowolnego $A$-moduły, niech $M[X]$ będzie oznaczało zbiór wszystkich wielomianów w $x$ o współczynnikach z $M$, to znaczy wyrażenia formy}
+$$m_0+m_1x+...+x_rx^r$$
+Zdefiniuj iloczyn elementu $A[X]$ z elementem $M[X]$ w oczywisty sposób, pokaż że $M[X]$ jest $A[X]$-modułem. Pokaż, że $M[X]\cong A[X]\otimes_AM$.}
+\smallskip
+
+Jak to leciało dla $A$-modułu? $a,b\in A, x,y\in M$
+\begin{multline*}
+    a(x+y)=ax+ay\\
+    (a+b)x=ax+by\\
+    (ab)x=a(bx)\\
+    1x=x\\
+\end{multline*}
+
+
+
+
+
+
+
 
 \end{document}

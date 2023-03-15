@@ -46,8 +46,19 @@ Coś pojebałam, albo to jest trywialne.
 \emph{\color{yellow}Zdarzenia $A_1,A_2,...$ są niezależne i $\prawdo{A_n}=p_n\in(0,1)$. Wykaż, że z prawdopodobieństwem $1$ zachodzi co najmniej jedno ze zdarzeń $A_n$ $\iff$ z prawdopodobieństwem $1$ zachodzi nieskończenie wiele zdarzeń $A_n$.}
 \smallskip
 
+$$\prawdo{\bigcup\limits_{n=1}A_n}=1\iff\prawdo{\bigcap\limits_{m=1}\bigcup\limits_{n=m}A_n}=1$$
 
-{\large\color{orange}NIE ROZUMIEM TREŚCI?? ALBO NIE MYŚLĘ JUŻ???}
+$\impliedby$
+dość trywialne, bo
+$$\bigcap\bigcup A_n\subseteq\bigcup A_n\implies 1=\prawdo{\bigcap\bigcup A_n}\leq \prawdo{\bigcup A_n}\leq1$$
+
+$\implies$
+\begin{align*}
+    1=\prawdo{\bigcup\limits_{n=1}^\infty A_n}&=\lim\limits_{N\to\infty}\prawdo{\bigcup\limits_{n=1}^N\prawdo{A_n}}=\lim\limits_{N\to \infty}\left(1-\prod\limits_{n=1}^N(1-\prawdo{A_n})\right)\geq\\
+    &\geq\lim\limits_{N\to\infty}1-\prod\limits_{n=1}^Ne^{-\prawdo{A_n}}=\lim\limits_{N\to\infty}1-e^{-\sum\prawdo{A_n}}
+\end{align*}
+$$1=1-\lim e^{-\sum\prawdo{A_n}}\implies 0=\lim e^{-\sum\prawdo{A_n}}\implies \lim\sum\prawdo{A_n}=\infty$$
+i tu już z twerdzenia B-C.
 
 
 \subsection*{ZADANIE 5.}
@@ -56,6 +67,19 @@ Coś pojebałam, albo to jest trywialne.
 
 Najpierw powinnam znaleźć sobie wzorek na prawdopodobieństwo wyrzucienie orła, pokazać, że to w nieskończoności nie zbiega do $0$, czyli suma jest nieskończona. Wypadałoby powiedzieć o niezależności i reszta to śmiga.
 
+Jakie jest prawdopodobieństwo, że na $2^n$-tym miejscu wypadnie $n$ kolejnych orłów? $p^n$. Jaka jest suma czegoś takiego?
+$$\sum\limits_{n=1}^\infty p^n\geq\sum\limits_{n=1}\left(\frac12\right)^n$$
+
+
+Bardzo nieeleganckie szacowanie, ale co jeśli policzę prawdopodobieństwo, że orzeł wogóle $n$ razy nie wypadnie między $[2^n,2^{n+1})$?
+\begin{align*}
+    A_n^c&=\sum\limits_{i=0}^{n-1}p^i(1-p)^{2^n-i}=(1-p)^{2^n+1}\left({1-{p\over 1-p}^n\over1-2p}\right)
+\end{align*}
+W takim razie suma prawdopodobieństw, że wogóle będzie miało szansę wypaść $n$ razy pod rząd, to znaczy orzeł wypadnie co najmniej $n$ razy, wynosi
+\begin{align*}
+    \sum A_n&=\sum\left[1-(1-p)^{2^n+1}\left({1-{p^n\over(1-p)^n}\over1-2p}\right)\right]=\sum1-\sum(1-p)^{2^n-i}=1-c
+\end{align*}
+gdzie $c$ to jakaś stała wynikająca z tego, że ciąg w tej drugiej sumie zbiega do $0$, więc szereg jest zbieżny?
 
 
 
