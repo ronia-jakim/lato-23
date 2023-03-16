@@ -1,12 +1,12 @@
 \documentclass{article}
 
-\usepackage{../../../notatki}
+\usepackage{../../../lecture_notes}
 
 \begin{document}
 \subsection*{ZADANIE 1.}
-\emph{\color{pink}Wyprowadź wzór na $n$-tą interację Picarda $y_n(x)$ i oblicz jej granicę, gdy $n\to\infty$ dla podanych zagadnień Cauchy'ego}
+\emph{\color{purple}Wyprowadź wzór na $n$-tą interację Picarda $y_n(x)$ i oblicz jej granicę, gdy $n\to\infty$ dla podanych zagadnień Cauchy'ego}
 
-\emph{\color{pink}(a) $y'=-y$, $y(0)=1$}
+\emph{\color{purple}(a) $y'=-y$, $y(0)=1$}
 
 Chcemy wyprowadzić wzór na $n$-ty wyraz ciągu
 $$y_{n+1}(t)=y_0+\int_{t_0}^tf(s, y(s))ds$$
@@ -17,7 +17,7 @@ Czyli mamy, że
     y_n(y)&=\sum\limits_{i=0}^n(-1)^i{t^i\over i!}\xrightarrow[]{n\to\infty}e^{-t}
 \end{align*}
 
-\emph{\color{pink}(b) $y'=2yt$, $y(0)=1$}
+\emph{\color{purple}(b) $y'=2yt$, $y(0)=1$}
 
 \begin{align*}
     y_1&=1+\int_0^t2sds=1+t^2\\
@@ -27,7 +27,7 @@ Czyli mamy, że
 \end{align*}
 
 \subsection*{ZADANIE 2.}
-\emph{\color{pink}Wyprowadź wzór na $n$-tą iterację Picarda dla zagadnienia początkowego $x'=x^2$, $x_0=1$ na odcinku $[0, 2]$, jeżeli $x_0(t)\equiv 1$. Oblicz granicę tego ciągu. Znajdź rozwiązanie zagadnienia i porównaj rezultaty.}
+\emph{\color{purple}Wyprowadź wzór na $n$-tą iterację Picarda dla zagadnienia początkowego $x'=x^2$, $x_0=1$ na odcinku $[0, 2]$, jeżeli $x_0(t)\equiv 1$. Oblicz granicę tego ciągu. Znajdź rozwiązanie zagadnienia i porównaj rezultaty.}
 
 Zacznijmy od rozwiązania tego rozwiązania:
 \begin{align*}
@@ -48,31 +48,57 @@ Wiem czego się spodziewać, chociaż nie jest to może najbardziej ciągłym by
 \end{align*}
 Co teraz zauważamy? Że to początek, czyli tam gdzie współczynniki są równe $1$, będzie się zwijał do $\sum t^i$, czyli ${1\over 1-t}$, ale to tylko na $t\in[0, 1)$. Kiedy $n\to\infty$ to ten ogon, który wydaje się być aż do $2^n-1$ też będzie dla małego $t$ maluczki, bo $t^{2^n-1}$ dla małych $t$ i dużego $n$ jest pomijanie małe.
 
-Pozostaje mi sprawdzić, czy coś się nie psuje przy $t=1$? Chcelibyśmy, żeby $f(t, y),{\partial\over\partial y}f(t, y)$ było ciągłe na prostokątach:
-$$R=\{(t, y)\;:\;0\leq t\leq 2,\;|y-1|\leq b\}$$
-$$M=\max|f(t, y)|=(b+1)^2,$$
-bo $f(y, t)$ zależy tylko od $y$ i jest rosnące dodatnie, czyli to jest $\max y^2$.
-$$\alpha=\min(2, {b\over (b+1)^2})={b\over (b+1)^2},$$ 
-czyli $y$ ma jedyne rozwiązanie na $t\in[0,\alpha]$, ale $\alpha$ w życiu nie dotknie mi nawet $1$, więc jesteśmy ograniczeni do okolicy $0$ z tym rozwiązaniem.
+Czyli ogon jest $O(t^{2^n-1})$, na ćwiczeniach powiedzieliśmy, że to jest nawet $O({t^{2^n-1}\over n})\subseteq O(\frac1n)$ i ogon zbiega do $0$, a całość do $\sum t^i$, co wynosi $\frac1{1-t}$.
+
+%Pozostaje mi sprawdzić, czy coś się nie psuje przy $t=1$? Chcelibyśmy, żeby $f(t, y),{\partial\over\partial y}f(t, y)$ było ciągłe na prostokątach:
+%$$R=\{(t, y)\;:\;0\leq t\leq 2,\;|y-1|\leq b\}$$
+%$$M=\max|f(t, y)|=(b+1)^2,$$
+%bo $f(y, t)$ zależy tylko od $y$ i jest rosnące dodatnie, czyli to jest $\max y^2$.
+%$$\alpha=\min(2, {b\over (b+1)^2})={b\over (b+1)^2},$$ 
+%czyli $y$ ma jedyne rozwiązanie na $t\in[0,\alpha]$, ale $\alpha$ w życiu nie dotknie mi nawet $1$, więc jesteśmy ograniczeni do okolicy $0$ z tym rozwiązaniem.
 
 \subsection*{ZADANIE 3.}
-\emph{\color{pink}Stosując twierdzenie Picarda-Lindel\"ofa dla podanych niżej zagadnień Cauchy'egp udowodnij, że rozwiązanie $y=y(t)$ istnieje na zadanym przedziale:}
+\emph{\color{purple}Stosując twierdzenie Picarda-Lindel\"ofa dla podanych niżej zagadnień Cauchy'egp udowodnij, że rozwiązanie $y=y(t)$ istnieje na zadanym przedziale:}
 
-\emph{\color{pink}(a) $y'=y^2+\cos t^2$, $y_0=0$, $0\leq t\leq\frac12$}
+\emph{\color{purple}(a) $y'=y^2+\cos t^2$, $y_0=0$, $0\leq t\leq\frac12$}
 
 Super, tutaj nie muszę nic liczyć.
 
-Rozważam $b\geq 1$ i prostokąt
-$$R=\{(t, y)\;:\;0\leq t\leq\frac12\;:\;|y|\leq b\}$$
-$$\max|f(t, y)|=b^2+\cos\frac14,$$
-bo znowu mamy, że obie funkcje są rosnące.
-$$\alpha=\min\left(\frac12,{b\over1+\cos\frac14}\right)=\frac12,$$
-bo $1>\cos \frac14>0$. Czyli, jeśli $f(t, y)$ i pochodna są ciągłe, to będzie śmigać. To, że $y^2+\cos t^2$ jest ciągłe to raczej widać. Jak się miewa pochodna?
-$${\partial(y^2+\cos t^2)\over y}=2y$$
-i to jest bardzo ciągłe. Czyli z Picarda mamy dokładnie jedno rozwiązanie, którego liczyć nie liczyłam, bo po co.
+Rozważamy
+$$R=\{(t,y)\;:\;t_0\leq t\leq t_0+a,|y-y_0|\leq b\}$$
+i wiemy, że $a=\frac12$.
+
+\begin{enumerate}
+    \item $f$ ciągłe wokół $(t_0, y_0)=(0, 0)$. Widać, bo suma ciągłych funkcji.
+    \item ${\partial f\over\partial y}=2y$ ciągłe.
+    \item $M=b^2+1$, $L=2b$, czyli $h<\min(\frac12, {b\over b^2+1})$. Jeżeli $b=1$, to wtedy $h<\frac12$, a $b$ możemy wybierać dowolnie, więc możemy wybierać tak, żeby nam pasowało.
+\end{enumerate}
+
+Za pomocą stałej $a$ mówimy dokąd chcemy przedłużać. Potem dopiero chcemy dobierać $b$ żeby sprawdzać, czy da się do tego co chcemy przedłużać. Czy coś takiego, wyłączyłam się. 
+
+\emph{\color{purple}(b) $y'=1+y+y^2\cos{t},y(0)=0,0\leq t\leq\frac13$}
+
+\begin{enumerate}
+    \item $f$, $\frac{\partial f}{\partial y}$ są ciągłe.
+    \item $M=\max|f(y, t)|=1+b+b^2$
+    \item $\min(\frac13,\frac{b}{1+b+b^2})$ i $b=1$.
+\end{enumerate}
+
+\newpage
+
+
+%Rozważam $b\geq 1$ i prostokąt
+%$$R=\{(t, y)\;:\;0\leq t\leq\frac12\;:\;|y|\leq b\}$$
+%$$\max|f(t, y)|=b^2+\cos\frac14,$$
+%bo znowu mamy, że obie funkcje są rosnące.
+%$$\alpha=\min\left(\frac12,{b\over1+\cos\frac14}\right)=\frac12,$$
+%bo $1>\cos \frac14>0$. Czyli, jeśli $f(t, y)$ i pochodna są ciągłe, to będzie śmigać. To,
+%że %$y^2+\cos t^2$ jest ciągłe to raczej widać. Jak się miewa pochodna?
+%$${\partial(y^2+\cos t^2)\over y}=2y$$
+%i to jest bardzo ciągłe. Czyli z Picarda mamy dokładnie jedno rozwiązanie, którego liczyć nie liczyłam, bo po co.
 
 \subsection*{ZADANIE 4.}
-\emph{\color{pink}Znajdź rozwiązanie zagadnienia $y'=t\sqrt{1-y^2}$, $y(0)=1$, różne od rozwiązania $y(t)\equiv1$. Które z założeń twierdzenia Picarda-Lindel\"ofa nie jest spełnione?}
+\emph{\color{purple}Znajdź rozwiązanie zagadnienia $y'=t\sqrt{1-y^2}$, $y(0)=1$, różne od rozwiązania $y(t)\equiv1$. Które z założeń twierdzenia Picarda-Lindel\"ofa nie jest spełnione?}
 
 Najpierw odpowiem na to, które założenie twierdzenia Picarda nie jest spełnione. Będziemy rozważać prostokąt z $0\leq t\leq a$ i wymagać, żeby pochodna ${\partial\over\partial y}f(t, y)$ była ciągła. Ale no jak wygląda pochodna?
 $${\partial\over\partial y}t\sqrt{1-y^2}\overset{wolfram\alpha}{=}{ty\over\sqrt{1-y^2}}={t\over\sqrt{{1\over y^2}-1}}$$
@@ -89,9 +115,9 @@ W takim razie szukanie rozwiązania to po prostu liczenie całek:
 \end{multline*}
 
 \subsection*{ZADANIE 5.}
-\emph{\color{pink}Niech $y(t)$ będzie nieujemną ciągłą funkcją spełniającą}
-$$\color{pink}y(t)\leq L\int_{t_0}^ty(s)ds$$
-\emph{\color{pink}na odcinku $t_0\leq t\leq t_0+\alpha$. Udowodnij, że $y(t)=0$ dla $t_0\leq t\leq t_0+\alpha$ (łatwiejsza wersją lematu Gronwalla). Wskazówka: Pokaż indukcyjnie, że $y(t)\leq c{L^n\over n!}(t-t_0)^n$}
+\emph{\color{purple}Niech $y(t)$ będzie nieujemną ciągłą funkcją spełniającą}
+$$\color{purple}y(t)\leq L\int_{t_0}^ty(s)ds$$
+\emph{\color{purple}na odcinku $t_0\leq t\leq t_0+\alpha$. Udowodnij, że $y(t)=0$ dla $t_0\leq t\leq t_0+\alpha$ (łatwiejsza wersją lematu Gronwalla). Wskazówka: Pokaż indukcyjnie, że $y(t)\leq c{L^n\over n!}(t-t_0)^n$}
 
 Zrobię dokładnie to, co jest we wskazówce. Niech $c=\max\limits_{t\in[t_0,t_0+\alpha]}y(t)$. Dla $n=1$ mam treść zadania i twierdzenie o wartości średniej. Czyli zakładam, że działa dla $n$-tego kroku, weźmy krok numer $n+1$ i popatrzmy co się dzieje
 \begin{align*}
@@ -107,7 +133,7 @@ $${c(t-t_0)^n\over n!}\xrightarrow[]{n\to\infty}0,$$
 to $y(t)$ jest ograniczone od góry przez ciąg dążący do $0$, więc koniec dowodu.
 
 \subsection*{ZADANIE 6.}
-\emph{\color{pink}Stosując lemat Gronwalla udowodnij, że $y(t)=-1$ jest jedynym rozwiązaniem zagadnienia $y'=t(1+y)$, $y(0)=-1$.}
+\emph{\color{purple}Stosując lemat Gronwalla udowodnij, że $y(t)=-1$ jest jedynym rozwiązaniem zagadnienia $y'=t(1+y)$, $y(0)=-1$.}
 
 Załóżmy, że tych rozwiązań jest więcej niż jedno, czyli mamy jakieś $\overline y\neq y$. Rozważmy wartość bezwzględną ich różnicy
 $$w=|y-\overline y|.$$
@@ -127,8 +153,8 @@ $$w\leq\int_{t_0}^tswds\leq \int twds=t\int wds,$$
 bo $s\leq t$, natomiast $t>1$.
 
 \subsection*{ZADANIE 7.}
-\emph{\color{pink}Zbadaj istnienie rozwiązania zagadnienia Cauchy'ego $y'=f(y, t)$ i $y(0)=0$, gdzie}
-$$\color{pink}f(y, t)=\begin{cases}
+\emph{\color{purple}Zbadaj istnienie rozwiązania zagadnienia Cauchy'ego $y'=f(y, t)$ i $y(0)=0$, gdzie}
+$$\color{purple}f(y, t)=\begin{cases}
     -1\quad t\leq 0\\
     1
 \end{cases}$$
@@ -153,9 +179,9 @@ $$\int_0^Ty'ds=0,$$
 bo ona rośnie o tyle samo co maleje, więc pochodna jest symetryczna względem $OX$. Czyli również pochodna jest okresowa.
 
 \subsection*{ZADANIE 9.}
-\emph{\color{pink}Udowodnij, że $\R^n$ z normami (a) euklidesową, (b) taksówkową, są przestrzeniami Banacha.}
+\emph{\color{purple}Udowodnij, że $\R^n$ z normami (a) euklidesową, (b) taksówkową, są przestrzeniami Banacha.}
 
-\emph{\color{pink}(a) euklidesowa}
+\emph{\color{purple}(a) euklidesowa}
 
 Wystarczy pokazać, że jest zupełna, czyli bierzemy ciąg Cauchy'ego $\{x_i\}_{i\in\N}$, $x_i=(x_i^1,...,x_i^n)$ i pokazujemy, że on jest zbieżny. 
 
@@ -167,12 +193,12 @@ Dla każdego $\varepsilon>0$ mogę znaleźć takie $N$, że dla każdego $k>N$ m
     &\leq \left[\sum\limits_{i=1}^n{\varepsilon^2\over n}\right]^\frac12=\varepsilon
 \end{align*}
 
-\emph{\color{pink}(taksówkowa)}
+\emph{\color{purple}(taksówkowa)}
 
 Jedyna zmiana tutaj jest, że metryka to po prostu sumy różnic poszczególnych współrzędnych, reszta tak samo.
 
 \subsection*{ZADANIE 10.}
-{\color{pink}\emph{Udowodnij, że zbiór}
+{\color{purple}\emph{Udowodnij, że zbiór}
 $$C^1([a, b])=\{u\in C[a, b]\;:\;u'\in C[a, b]$$
 \emph{z normą $\|u\|_{1,\infty}=\max\limits_{x\in [a, b]}|u(x)|+\max\limits_{x\in[a,b]}|u'(x)|$ jest przestrzenią Banacha. }}
 
@@ -194,7 +220,7 @@ Bierzemy $\varepsilon>0$ i wtedy istnieje $N$ takie, że dla każdego $i>N$ mam 
 \end{align*}
 
 \subsection*{ZADANIE 11.}
-{\color{pink}\emph{Ustal, dla jakich wartości parametru $\lambda\in\R$, operator $F:C[a,b]\to C[a,b]$ zadany wzorem}
+{\color{purple}\emph{Ustal, dla jakich wartości parametru $\lambda\in\R$, operator $F:C[a,b]\to C[a,b]$ zadany wzorem}
 $$F(u)(x)=x+\lambda\int_a^b\sin(u(y)+x)dy$$
 \emph{jest kontrakcją.}
 }
