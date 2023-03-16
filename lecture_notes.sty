@@ -205,7 +205,10 @@
 \RequirePackage{thmtools}
 
 \RequirePackage{wasysym} % nice emojis
+\RequirePackage{marvosym}
 
+\RequirePackage{phaistos}
+\renewcommand\qedsymbol{$\text{\large\Coffeecup}$}
 
 \RequirePackage{cleveref}
 
@@ -278,7 +281,12 @@
   \renewcommand{\listtheoremname}{Spis twierdzeń}
   \renewcommand{\onto}{na}
   \renewcommand{\contentsname}{Spis treści}
+  \renewcommand{\proofname}{\rm\bf{Dowód}}
 }
+
+
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{\rm\bf{\oldproofname}}
 
 
 %\ExecuteOptions{polski,light-theme}

@@ -1,0 +1,107 @@
+\section{Rozmaitości gładkie}
+%Na tym wykładzie nie będziemy poświęcać dużej uwagi rozmaitościom różniczkowalnym nie nieskończenie razy, więc pomimo lekkich niuansów między tymi dwoma słowami, dla nas zwykle znaczą one to samo.
+%\medskip
+
+Na wykładzie nie będą nas zbytnio interesować rzeczy różniczkowalne tylko skończenie wiele razy. Z tego też powodu lekkie niuanse między słowami gładkie a różniczkowalne będą często pomijalne, a słowa te staną się izomorficzne. Teraz postaramy się określić, \emph{co to znaczy, że funkcja $f:M\to\R$ jest różniczkowalna?}
+
+%
+%Dla funkcji $f:M\to\R$ chcemy określić, co znaczy, że \emph{$f$ jest różniczkowalna}? Będziemy to robić za pomocą wcześniej zdefiniowanych map:
+%\begin{itemize}
+%    \item Funkcja $f$ \acc{wyrażona} w mapie $(U, \phi)$ to nic innego jak złożenie $f\circ \phi^{-1}:\overline U\to \R$. Teraz $f\circ\phi^{-1}$ jest funkcją zależącą od $n$ zmiennych rzeczywistych.
+%    \item Chciałoby się powiedzieć, że funkcja $f: M\to\R$ jest gładka, jeśli dla każdej mapy $(U, \phi)$ na $M$, ten fragment wyrażony w tej mapie $f\circ\phi^{-1}$ jest gładki. Niestety, tych map może być nieco za dużo.
+%    \item \important{Odwzorowanie przejścia między dwoma mapami} $(U_1,\phi_1)$ i $(U_2,\phi_2)$ to funkcje $\phi_1\phi_2^{-1}$ i $\phi_2\phi_1^{-1}$ określone na $U_1\cap U_2$.
+%\end{itemize}
+
+\subsection{Atlas rozmaitości}
+Pojęcie różniczkowalności funkcji $f:M\to\R$ będziemy określać za pomocą \emph{map}:
+\begin{itemize}
+    \item Funkcja $f$ wyrażona w mapie $(U,\phi)$ to nic innego jak \acc{$f\circ\phi^{-1}:\overline{U}\to\R$}. W ten sposób dostajemy funkcję wyrażoną w zmiennych rzeczywistych.
+    \item W pierwszym instynkcie możemy chcieć powiedzieć, że $f:M\to\R$ jest gładka, jeśli dla każdej mapy taka jest. Niestety, map może być bardzo dużo i może się okazać, że żadna funkcja nie jest gładka.
+    \item \important{Odwzorowanie przejścia} między dwoma mapami $(U_1,\phi_1),(U_2,\phi_2)$ to funkcje $\phi_1\phi_2^{-1}$ i $\phi_2\phi_1^{-1}$ określone na $U_1\cap U_2$.
+\end{itemize}
+
+
+\begin{definition}[zgodność map]
+Mapy $(U, \phi_1)$ oraz $(U, \phi_2)$ są \important{zgodne} (gładko-zgodne), gdy odwzorowanie przejścia $\phi_1\phi_2^{-1}$ jest gładkie. Dla map \acc{$(U, \phi)$ i $(V, \psi)$} mówimy, że są one zgodne, jeśli 
+\begin{itemize}
+    \item $U\cap V=\emptyset$, albo
+    \item $\phi\psi^{-1}:\psi(U\cap V)\to \phi(U\cap V)$ i $\psi\phi^{-1}(U\cap V)\to \psi(U\cap V)$ są gładkie.
+\end{itemize}
+\end{definition}
+%
+%Warto zauważyć, że jeśli $(U, \phi)$ i $(V, \psi)$ są zgodne, to $f\circ\phi^{-1}\obciete (\phi(U\cap V))$ jest gładkie $\iff$
+%
+%Odwzorowania przejściowe map są automatycznie \emph{dyfeomorfizmami}.
+%\medskip
+
+\begin{definition}[dyfeomorfizm]
+Mając dane dwie rozmaitości, $M$ i $N$, mówimy, że funkcja $f:M\to N$ jest \important{dyfeomorfizmem}, jeżeli
+\begin{itemize}
+    \item jest różniczkowalna
+    \item jest bijekcją
+    \item funkcja odwrotna $f^{-1}$ też jest różniczkowalna
+\end{itemize}
+\end{definition}
+
+
+\begin{definition}[atlas gładki]
+    \acc{Gładkim atlasem} $\set{A}$ na topologicznej rozmaitości $M$ nazywamy dowolny taki zbiór map $\{(U_\alpha,\phi_\alpha)\}$ taki, że:
+    \begin{enumerate}
+        \item 1. zbiory mapowe $U_\alpha$ pokrywają całe $M$
+        \item 2. każde dwie mapy z tego zbioru są zgodne.
+    \end{enumerate}
+\end{definition}
+
+
+\textbf{Przykład:}  Rodzina map $\{(U_i^\pm,\phi_i^\pm)\;:\;i=1,2,...,n+1\}$ jak wcześniej na sferze $S^n\subseteq R^{n+1}$ tworzy gładki atlas. Wystarczy zbadać gładką zgodność tych map. Rozpatrzmy jeden przypadek: $(U_i^+,\phi_i^+),(U_j^+,\phi_j^+),i<j$. Po pierwsze, jak wygląda przekrój tych zbiorów?
+$$U_i\cap U_j=\{x\in S^n\;:\;x_i>0,x_j>0\}$$
+Dalej, jak wyglądają obrazy tego przekroju przez poszczególne mapy?
+$$\phi_i^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1, x_{j-1}>0\}$$
+$$\phi_j^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1,x_i<0\}$$
+Odwzorowania przejścia to:
+\begin{illustration}
+    \node (L) at (0, 0) {$\phi_j^+(U_i^+\cap U_j^+)\ni(x_1,...,x_n)$};
+    \node (C) at (8, 0) {$(x_1,...,x_{j-1},\sqrt{1-|x|^2},x_{j},...x_n)$};
+    \node (DL) at (8, -2) {$(x_1,...,x_{i-1},x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$};
+    \draw[->] (L)--(C) node [midway, above] {$(\phi_j^+)^{-1}$};
+    \draw[->] (C)--(DL) node [midway, right] {$\phi_i^+$};
+\end{illustration}
+$$\phi_i^+(\phi_j^+)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$$
+jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejścia.
+
+\subsection{Rozmaitość gładka}
+
+\begin{definition}[rozmaitość gładka]
+    \acc{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$ opisanego na $M$.
+\end{definition}
+%
+%\acc{Uściślenie:} Często $(M,\set{A}_1)$ i $(M, \set{A}_2)$ będące rozmaitościami gładkimi określają tę samą rozmaitość.
+%\medskip
+%
+%\begin{definicja}[zgodność map, atlasów]
+%Niech $\set{A}$ będzie gładkim atlasem na $M$.
+%\begin{enumerate}
+%    \item Mapa $(U,\phi)$ jest \deff{zgodna z atlasem $\set{A}$}, jeśli jest zgodna z każdą mapą z $\set{A}$.
+%    \item Dwa \deff{atlasy $\set{A}_1,\set{A}_2$ na $M$ są zgodne}, jeśli każda mapa z $\set{A}_1$ jest zgodna z atlasem $\set{A}_2$.
+%\end{enumerate}
+%\end{definicja}
+%
+%\begin{tw}[zgodność to relacja równoważnośći]
+%    Relacja zgodności atlasów jest relacją równoważności.
+%\end{tw}
+%
+%\textbf{Dowód:} Ćwiczenia.
+%
+%Konwencja jest wtedy taka, że zgodne atlasy zadają tą samą strukturę gładką na $M$. W takim razie, zgodne atlasy można wysumować do jednego większego atlasu.
+%
+%\begin{definicja}[atlas maksymalny]
+%$\set{A}$ jest \deff{atlasem maksymalnym} na $M$, jeśli każda mapa na $M$ z nim zgodna jest w nim zawarta. 
+%\end{definicja}
+%
+%\begin{fakt}[dla każdego atlasu istnieje jedyny atlas maksymalny]
+%    Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym na $M$. Zaś ten atlas maksymalny to zbiór wszystkich map na $M$ zgodnych z $\set{A}$.
+%\end{fakt}
+%
+%\textbf{Dowód:} Ćwiczenia.
+%
+%\dyg{Równoważna definicja rozmaitości gładkiej:} para $(M, \set{A})$, gdzie $M$ to rozmaitość topologiczna, zaś $\set{A}$ to pewien atlas maksymalny.

@@ -55,6 +55,10 @@ nie jest rozmaitością topologiczną.
     $$U_1\subseteq U_2\subseteq...\subseteq U_n\subseteq...$$
     które są po domknięciu zawarte w $M$.
     \item \acc{Parazwartość}, czyli każde pokrycie $M$ posiada lokalnie skończone rozdrobnienie.
+    \begin{itemize}
+        \item Rodzina $\set{X}$ podzbiorów $M$ jest \emph{lokalnie skończona} [locally finite], jeżeli każdy punkt $p\in M$ ma otoczenie, które przecina się co najwyżej ze skończenie wieloma elementami $\set{X}$.
+        \item Jeśli mamy pokrycie $M$ zbiorami $\set{U}$ i bierzemy drugie pokrycie $\set{V}$ takie, że dla każdego $V\in\set{V}$ znajdziemy $U\in\set{U}$ takie, że $V\subseteq U$, to $\set{U}$ jest \acc{pokryciem włożonym/rozdrobnieniem}
+    \end{itemize}
     \item Każdą rozmaitość jesteśmy w stanie zanurzyć w $\R^n$ dla odpowiednio dużego $n$.
 \end{itemize}
 
@@ -94,7 +98,8 @@ $$U_i^-=\{x\in S^n\;:\;x_i<0\}$$
     \shade[ball color=yellow, opacity=0.3] (2.3,0.3) arc (0:-180:2.3 and 0.6) arc (180:0:2.3 and 2.3);
     \shade[ball color=green, opacity=0.3] (2.3, -0.3) arc (0:-180:2.3 and 2) arc (180:0:2.3 and 0.6);
     \draw[color=yellow, opacity=0.5] (2.3,0.3) arc (0:-180:2.3 and 0.6) arc (180:0:2.3 and 2.3);
-    \draw[color=green, opacity=0.5] (2.3, -0.3) arc (0:-180:2.3 and 2) arc (180:0:2.3 and 0.6);
+    \draw[color=green, opacity=0.5] (2.3, -0.3) arc (0:-180:2.3 and 2);
+    \draw[color=green, opacity=0.5] (2.3, -0.3) arc (0:-180:2.3 and 0.6);
     \draw (0,0) circle (2);
     \draw (-2,0) arc (180:360:2 and 0.6);
     \draw[dashed] (2,0) arc (0:180:2 and 0.6);
@@ -120,85 +125,34 @@ Mamy w obie strony odwzorowanie ciągłe, więc jest to homeomorfizmy z odpowied
 
 \subsection{Własności rozmaitości topologicznych}
 
-\subsection{Atlasy, rozmaitości gładkie [różniczkowalne]}
-
-Na tym wykładzie nie będziemy poświęcać dużej uwagi rozmaitościom różniczkowalnym nie nieskończenie razy, więc pomimo lekkich niuansów między tymi dwoma słowami, dla nas zwykle znaczą one to samo.
-\medskip
-
-Dla funkcji $f:M\to\R$ chcemy określić, co znaczy, że \dyg{$f$ jest różniczkowalna}? Będziemy to robić za pomocą wcześniej zdefiniowanych map:
+Przypomnijmy najpierw kilka definicji z topologii i je poszerzmy. Mówimy, że przestrzeń topologiczna $X$ jest
 \begin{itemize}
-    \item Funkcja $f$ \acc{wyrażona} w mapie $(U, \phi)$ to nic innego jak złożenie $f\circ \phi^{-1}:\overline U\to \R$. Teraz $f\circ\phi^{-1}$ jest funkcją zależącą od $n$ zmiennych rzeczywistych.
-    \item Chciałoby się powiedzieć, że funkcja $f: M\to\R$ jest gładka, jeśli dla każdej mapy $(U, \phi)$ na $M$, ten fragment wyrażony w tej mapie $f\circ\phi^{-1}$ jest gładki. Niestety, tych map może być nieco za dużo.
-    \item \deff{Odwzorowanie przejścia między dwoma mapami} $(U_1,\phi_1)$ i $(U_2,\phi_2)$ to funkcje $\phi_1\phi_2^{-1}$ i $\phi_2\phi_1^{-1}$ określone na $U_1\cap U_2$.
+    \item \acc{spójna}, gdy nie można jej rozłożyć na sumę dwóch rozłącznych, otwartych i niepustych podzbiorów,
+    \item \acc{drogowo spójna}, gdy każde dwa punkty można połączyć ciągłą ścieżką,
+    \item \acc{lokalnie drogowo spójna}, gdy ma bazę zbiorów spójnych drogowo.
 \end{itemize}
 
-\begin{definicja}[zgodność map]
-\deff{Mapy} $(U, \phi_1)$ oraz $(U, \phi_2)$ są \deff{zgodne} (gładko-zgodne), gdy odwzorowanie przejścia $\phi_1\phi_2^{-1}$ jest gładkie. Dla map \acc{$(U, \phi)$ i $(V, \psi)$} mówimy, że są one zgodne, jeśli 
-\end{definicja}
-\begin{itemize}
-    \item $U\cap V=\emptyset$, albo
-    \item $\phi\psi^{-1}:\psi(U\cap V)\to \phi(U\cap V)$ i $\psi\phi^{-1}(U\cap V)\to \psi(U\cap V)$ są gładkie.
-\end{itemize}
-\medskip
-
-Warto zauważyć, że jeśli $(U, \phi)$ i $(V, \psi)$ są zgodne, to $f\circ\phi^{-1}\obciete (\phi(U\cap V))$ jest gładkie $\iff$
-
-Odwzorowania przejściowe map są automatycznie \dyg{dyfeomorfizmami}.
-\medskip
-
-\begin{definicja}[atlas gładki]
-    \deff{Gładkim atlasem} $\set{A}$ na topologicznej rozmaitości $M$ nazywamy dowolny taki zbiór map $\{(U_\alpha,\phi_\alpha)\}$ taki, że:
-    \begin{enumerate}
-        \item 1. zbiory mapowe $U_\alpha$ pokrywają całe $M$
-        \item 2. każde dwie mapy z tego zbioru są zgodne.
-    \end{enumerate}
-\end{definicja}
-\medskip
-
-\textbf{Przykład:}  Rodzina map $\{(U_i^\pm,\phi_i^\pm)\;:\;i=1,2,...,n+1\}$ jak wcześniej na sferze $S^n\subseteq R^{n+1}$ tworzy gładki atlas. Wystarczy zbadać gładką zgodność tych map. Rozpatrzmy jeden przypadek: $(U_i^+,\phi_i^+),(U_j^+,\phi_j^+),i<j$. Po pierwsze, jak wygląda przekrój tych zbiorów?
-$$U_i\cap U_j=\{x\in S^n\;:\;x_i>0,x_j>0\}$$
-Dalej, jak wyglądają obrazy tego przekroju przez poszczególne mapy?
-$$\phi_i^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1, x_{j-1}>0\}$$
-$$\phi_j^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1,x_i<0\}$$
-Odwzorowania przejścia to:
-\begin{illustration}
-    \node (L) at (0, 0) {$\phi_j^+(U_i^+\cap U_j^+)\ni(x_1,...,x_n)$};
-    \node (C) at (4, -1) {$(x_1,...,x_{j-1},\sqrt{1-|x|^2},x_{j},...x_n)$};
-\end{illustration}
-$$\phi_i^+(\phi_j^+)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$$
-jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejścia.
-
-\begin{definicja}[rozmaitość gładka]
-    \deff{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$ opisanego na $M$.
-\end{definicja}
-
-\acc{Uściślenie:} Często $(M,\set{A}_1)$ i $(M, \set{A}_2)$ będące rozmaitościami gładkimi określają tę samą rozmaitość.
-\medskip
-
-\begin{definicja}[zgodność map, atlasów]
-Niech $\set{A}$ będzie gładkim atlasem na $M$.
+\begin{remark}[spójność rozmaitości topologicznych]
+Jeśli przestrzeń $M$ jest rozmaitością topologiczną, to
 \begin{enumerate}
-    \item Mapa $(U,\phi)$ jest \deff{zgodna z atlasem $\set{A}$}, jeśli jest zgodna z każdą mapą z $\set{A}$.
-    \item Dwa \deff{atlasy $\set{A}_1,\set{A}_2$ na $M$ są zgodne}, jeśli każda mapa z $\set{A}_1$ jest zgodna z atlasem $\set{A}_2$.
+    \item $M$ jest lokalnie spójna drogowo,
+    \item $M$ jest spójna $\iff$ jest drogowo spójna,
+    \item spójne składowe $M$ są takie same jak dorogowe spójne składowe,
+    \item $M$ ma przeliczalnie wiele składowych, każda będąca otwartym podbiorem $M$ (a więc i spójną rozmaitością)
 \end{enumerate}
-\end{definicja}
+\begin{proof}
+    Punkt (1) jest prostą konsekwencją tego, że otwarte kule są spójne łukowo w $\R^n$ [ćwiczenia]. Punkty (2) i (3) wynikają w prosty sposób z (1). Punkt (4) jest powodowany punktami poprzednimi i tym, że baza $M$ jest przeliczalna. 
+\end{proof}
+\end{remark}
 
-\begin{tw}[zgodność to relacja równoważnośći]
-    Relacja zgodności atlasów jest relacją równoważności.
-\end{tw}
+Przestrzeń topologiczna $X$ jest \important{lokalnie zwarta}, jeżeli każdy punkt ma bazę otoczeń których domknięcia są zwarte.
 
-\textbf{Dowód:} Ćwiczenia.
+\begin{remark}[rozmaitości są lokalnie zwarte]
+Każda rozmaitość topologiczna jest lokalnie zwarta.
+\begin{proof}
+    Zadanie na liście 1.
+\end{proof}
+\end{remark}
 
-Konwencja jest wtedy taka, że zgodne atlasy zadają tą samą strukturę gładką na $M$. W takim razie, zgodne atlasy można wysumować do jednego większego atlasu.
+Przestrzeń zawierająca wszystkie homotopijne pętle zaczepione w $q\in X$ jest nazywana \acc{fundamentalną grupą} $X$ w $q$. Elementem neutralnym tej grupy jest funkcja stała $c_q(s)=q$. Dla rozmaitości topologicznych \emph{fundamentalne grupy} są przeliczalne.
 
-\begin{definicja}[atlas maksymalny]
-$\set{A}$ jest \deff{atlasem maksymalnym} na $M$, jeśli każda mapa na $M$ z nim zgodna jest w nim zawarta. 
-\end{definicja}
-
-\begin{fakt}[dla każdego atlasu istnieje jedyny atlas maksymalny]
-    Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym na $M$. Zaś ten atlas maksymalny to zbiór wszystkich map na $M$ zgodnych z $\set{A}$.
-\end{fakt}
-
-\textbf{Dowód:} Ćwiczenia.
-
-\dyg{Równoważna definicja rozmaitości gładkiej:} para $(M, \set{A})$, gdzie $M$ to rozmaitość topologiczna, zaś $\set{A}$ to pewien atlas maksymalny.
