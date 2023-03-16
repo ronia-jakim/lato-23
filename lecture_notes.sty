@@ -140,13 +140,13 @@
 % highlighting text
 \newcommand{\highdepth}{90}
 \newcommand{\important}[1]{\textbf{\color{green}#1}}
-\newcommand{\acc}[1]{{
-    \colorlet{d-blue}{blue!40!black!\highdepth}
-    \sethlcolor{d-blue}
-    {\color{white}
-    \hl{#1}
-    }
-}}
+
+\colorlet{d-blue}{blue!40!black!\highdepth}
+
+\setulcolor{d-blue}
+\setul{2pt}{2pt}
+
+\newcommand{\acc}[1]{{\color{blue}#1}}
 
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
@@ -277,6 +277,7 @@
   \renewcommand{\remarkname}{Uwaga}
   \renewcommand{\listtheoremname}{Spis twierdzeń}
   \renewcommand{\onto}{na}
+  \renewcommand{\contentsname}{Spis treści}
 }
 
 

@@ -1,88 +1,111 @@
 \section{Definicja rozmaitości}
 
-Zanim podany dokładną definicję, możemy rozważyć kilka przykładów rozmaitości różniczkowalnych:
+%Zanim podany dokładną definicję, możemy rozważyć kilka przykładów rozmaitości różniczkowalnych:
+%
+%\indent \point powierzchnia, domknięta lub nie,
+%
+%\indent \point przestrzeniach opisanych (lokalnie) skończoną liczbą parametrów,
+%
+%\indent \point podzbiory $\R^n$ lub $\C^n$ zapisywalne równaniami algebraicznymi (np. $z_1^2+z_2^2+z_3^1$ w $\C^3$).
+%
+%Cały wykład będzie wstępnym słownikiem wokół pojęcia rozmaitości różniczkowalnej.
+%
 
-\indent \point powierzchnia, domknięta lub nie,
+Definicję rozmaitości będziemy budowali warstwami: najpierw położymy fundamenty topologiczne, potem naniesiemy na to strukturę gładką, a na koniec rozszerzymy do pojęcia rozmaitości z brzegiem.
 
-\indent \point przestrzeniach opisanych (lokalnie) skończoną liczbą parametrów,
-
-\indent \point podzbiory $\R^n$ lub $\C^n$ zapisywalne równaniami algebraicznymi (np. $z_1^2+z_2^2+z_3^1$ w $\C^3$).
-
-Cały wykład będzie wstępnym słownikiem wokół pojęcia rozmaitości różniczkowalnej.
+Zanim zajmiemy się konkretnymi definicjami, popatrzmy na kilka prostych przykładów rozmaitości:
+\begin{itemize}
+  \item powierzchnia, domknięta lub nie,
+  \item przestrzenie opisane (lokalnie) skończoną liczbą parametrów,
+  \item podzbiory $\R^n$ lub $\C^n$ zapisywane równaniami algebraicznymi (np. $z_1^2+z_2^2+z_3^2$ w $\C^3$).
+\end{itemize}
 
 \subsection{Rozmaitości topologiczne}
 
-\begin{definicja}[rozmaitość topologiczna]
-Przestrzeń topologiczna $M$ jest $n$-wymiarową \deff{rozmaitością topologiczną} [$n$-rozmaitością], jeżeli spełnia:
+\begin{definition}[rozmaitość topologiczna]
+Przestrzeń topologiczna $M$ jest $n$-wymiarową \important{rozmaitością topologiczną} [$n$-rozmaitością], jeżeli spełnia:
 \begin{enumerate}
     \item jest Hausdorffa
     \item ma przeliczalną bazę
     \item jest \acc{lokalnie euklidesowa} wymiaru $n$, czyli każdy punkt z $M$ posiada otwarte otoczenie w $M$ homeomorficzne z otwartym podzbiorem w $\R^n$.
 \end{enumerate}
-\end{definicja}
+\end{definition}
+
+Warunkiem równoważnym do lokalnej euklidesowości jest istnienie otwartego otoczenia dla każdego punktu $p\in U\subseteq M$ takiego, że istnieje homeomorfizm $U\isomorphism B_r\subseteq\R^n$ [ćwiczenia].
 \medskip
 
-\deff{\large Konsekwencje Hausdorffowości:}
-\smallskip
-
-\indent \point Mamy wykluczone pewne patologie, na przykład przestrzeń
-
+{\acc{\large Konsekwencje Hausdorffowości:}}
+\begin{itemize}
+    \item Mamy wykluczone pewne patologie, na przykład przestrzeń
 \begin{illustration}
     \draw[very thick] (-3, 0)--(0, 0);
     \draw[very thick] (0, 0.5)--(3, 0.5);
     \draw[very thick] (0, -0.5)--(3, -0.5);
-    \filldraw[color=fore, fill=back, very thick] (0, 0) circle (0.1);
+    \filldraw[very thick] (0, 0) circle (2pt);
 \end{illustration}
-
 nie jest rozmaitością topologiczną.
+    \item Dla dowolnego punktu $p\in U\subseteq M$ i homeomorfizmu $\phi:U\to\overline U\subseteq\R^n$, jeśli $\overline{K}\subseteq\overline{U}$ jest zwartym podzbiorem $\R^n$, to $K=\phi^{-1}[\overline{K}]\subseteq M$ jest domknięty i zawarty w $M$ [ćwiczenia].
+    \item Skończone podzbiory są zamknięte, a granice zbieżnych ciągów są jednoznacznie określone.
+\end{itemize}
 
-\indent \point Pewne własności otoczeń punktów są zachowywane. To znaczy, dla dowolnego zwartego podzbioru otoczenia punktu $x\in U\subseteq \R^n$ $K\subseteq U$ jego odpowiednik $\overline K=\phi^{-1}(K)\subseteq \overline U\subseteq M$ jest domknięty i zwarty w $M$. [ćwiczenia]
-\medskip
+{\acc{\large Konsekwencje przeliczalności bazy:}}
+\begin{itemize}
+    \item \important{Warunek Lindel\"ofa:} każde pokrycie rozmaitości zbiorami otwartymi zawiera przeliczalne podpokrycie [ćwiczenia].
+    \item Każda rozmaitość jest wstępującą sumą otwartych podzbiorów
+    $$U_1\subseteq U_2\subseteq...\subseteq U_n\subseteq...$$
+    które są po domknięciu zawarte w $M$.
+    \item \acc{Parazwartość}, czyli każde pokrycie $M$ posiada lokalnie skończone rozdrobnienie.
+    \item Każdą rozmaitość jesteśmy w stanie zanurzyć w $\R^n$ dla odpowiednio dużego $n$.
+\end{itemize}
 
-\deff{\large Konsekwencje przeliczalności bazy:}
-\smallskip
+{\acc{\large Konsekwencje lokalnej euklidesowości:}}
+\begin{itemize}
+    \item \ul{Twierdzenie Brouwer'a}: niepusta $n$ wymiarowa rozmaitość topologiczna nie może być homeomorficzna z żadną $m$ wymiarową rozmaitością gdy $m\neq n$.
+    \item Liczba $n$ w definicji jest jednoznaczna, możemy więc określić \important{wymiar rozmaitości} jako $\dim M=n$.
+\end{itemize}
 
-\indent \point Spełniany jest warunek Lindel\"ofa: każde pokrycie rozmaitości zbiorami otwartymi zawiera przeliczalne podpokrycie. [ćwiczenia]
+Tutaj warto zaznaczyć, że zbiór pusty zaspokaja definicję rozmaitości topologicznej dla dowolnego $n$. Wygodnie jest jednak móc go czasem użyć, więc w definicji niepustość $M$ nie jest przez nas wymagana.
 
-\indent \point Każda rozmaitość jest wstępującą sumą otwartych podzbiorów
-$$U_1\subseteq U_2\subseteq ...\subseteq U_n\subseteq...$$
-które są po domknięciu w $M$ zwarte. Czyli możemy ją wyczerpać za pomocą zbiorów, które są małe.
-
-\indent \point \acc{Parazwartość}, czyli każde zwarte pokrycie $M$ posiada lokalnie skończone rozdrobnienie.
-
-\indent \point Każdą rozmaitość jesteśmy w stanie zanurzyć w $\R^n$ dla odpowiednio dużego $n$.
-\medskip
-
-\deff{\large Konsekwencje lokalnej euklidesowości:}
-\smallskip
-
-\indent \point \acc{Twierdzenie Brouwer'a}: dla $n\neq m$ niepusty otwarty podzbiór $\R^n$ nie jest homeomorficzny z jakimkolwiek otwartym podzbiorem w $\R^m$. 
-
-\indent \point Czyli liczba $n$ w definicji jest jednoznaczna dla danej rozmaitości. Określamy \deff{wymiar rozmaitości} $\dim M=n$.
+\begin{remark}[podzbiory to też rozmaitości]
+    Każdy otwarty podzbiór $n$-rozmaitości topologicznej jest $n$-rozmaitością topologiczną [ćwiczenia].
+\end{remark}
 
 \subsection{Mapy, lokalne współrzędne}
 
-\deff{Mapą} na rozmaitości topologicznej $M$ nazywamy parę $(U, \phi)$, gdzie $U$ to otwarty podzbiór w $M$, a $\phi$ to homeomorfizm $\phi:U\to \overline U\subseteq \R^n$. Mapa to jest jakiś homeomorfizm między rozmaitością a pewnym podzbiorem $\R^n$. Zbiór $U$ nazywamy \acc{zbiorem mapowym}. \textbf{Przez lokalną euklidesowość wiemy, że pokrywają one całą rozmaitość.} 
+\begin{definition}[mapa]
+    Parę $(U,\phi)$, gdzie $U$ jest otwartym podzbiorem $M$, a $\phi$ to homeomorfizm
+    $$\phi:U\to\overline{U}\subseteq\R^n.$$
+    nazywamy \important{mapą} lub \important{lokalną parametryzacją} [coordinate chart] na rozmaitości $M$. Zbiór $U$ taki jak wyżej nazywamy \acc{zbiorem mapowym} [coordinate domain/neighborhood]. Z lokalnej euklidesowości wiemy, że \textbf{zbiory mapowe pokrywają całą rozmaitość}.
+\end{definition}
 
-Parę $(U, \phi)$ nazywamy też \deff{lokalnymi współrzędnymi} na $M$ albo \emph{lokalną parametryzacją} $M$.
-\smallskip
+Jeżeli $(U,\phi)$ jest mapą i dla $p\in M$ mamy $\phi(p)=0$, to mówimy, że mapa jest \emph{wyśrodkowana na $p$} [centered at $p$].
 
-\begin{fakt}[$n$-rozmaitość $\iff$ rodzina map pokrywających]
+\begin{fact}[$n$-rozmaitość $\iff$ rodzina map pokrywających]
     Hausdorffowska przestrzeń $X$ o przeliczalnej bazie jest $n$-rozmaitością $\iff$ posiada rodzinę map $n$-wymiarowych dla której zbiory mapowe pokrywają cały $X$.
-\end{fakt}
+\end{fact}
 
-\textbf{\large Przykład:} 
+\textbf{Przykład:} 
 
 Rozważmy $S^n=\{(x_1,...,x_n)\in\R^{n+1}\;:\;\sum x_i^2=1\}\subseteq \R^{n+1}$ z dziedziczoną topologią. Z racji, że $\R^{n+1}$ jest Hausdorffa i ma przeliczalną bazę, to $S^n$ tęż spełnia te dwa warunki. Wystarczy teraz wskazać odpowiednią rodzinę map, która pokryje całe $S^n$. Dla $i=1,..., n+1$ określmy otwarte podzbiory w $S^n$
 $$U_i^+=\{x\in S^n\;:\;x_i>0\}$$
 $$U_i^-=\{x\in S^n\;:\;x_i<0\}$$
 
-\emph{\Large\color{red}RYSUNEK DLA $S^3$}
-
 \begin{illustration}
-    \draw (0,0) circle (2cm);
+    \shade[ball color=yellow, opacity=0.3] (2.3,0.3) arc (0:-180:2.3 and 0.6) arc (180:0:2.3 and 2.3);
+    \shade[ball color=green, opacity=0.3] (2.3, -0.3) arc (0:-180:2.3 and 2) arc (180:0:2.3 and 0.6);
+    \draw[color=yellow, opacity=0.5] (2.3,0.3) arc (0:-180:2.3 and 0.6) arc (180:0:2.3 and 2.3);
+    \draw[color=green, opacity=0.5] (2.3, -0.3) arc (0:-180:2.3 and 2) arc (180:0:2.3 and 0.6);
+    \draw (0,0) circle (2);
     \draw (-2,0) arc (180:360:2 and 0.6);
     \draw[dashed] (2,0) arc (0:180:2 and 0.6);
+    \node at (2.5, 2) {$\color{yellow}U_i^+\cap S^n$};
+    \node at (2.5, -2) {$\color{green}U_i^-\cap S^n$};
+
+    \draw (-2,-4) arc (180:360:2 and 0.6);
+    \draw[dashed] (2,-4) arc (0:180:2 and 0.6);
+    %\draw (-3, -5)--(3, -3);
+    %\draw (-3, -4)--(3, -4);
+    \draw[->] (0, -2.5)--(0, -3) node [midway, left] {$\phi_i^\pm$};
 \end{illustration}
 
 Określmy odwzorowania $\phi^\pm_i\;:\;U_i^\pm\to\R^n$
@@ -92,6 +115,10 @@ $$\overline U_i^\pm=\phi_i^\pm(U_i^\pm)=\{(x_1,...,x_n)\in \R^n\;:\;\sum x_i^2<1
 Odwzorowanie $\phi_i^\pm: U_i^\pm\to\overline U_i^\pm$ jest wzajemnie jednoznaczne [bijekcja], bo
 $$(\phi_i^\pm)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, \pm\sqrt{1-\sum x_j^2}, x_{i+1},...,x_n).$$
 Mamy w obie strony odwzorowanie ciągłe, więc jest to homeomorfizmy z odpowiednimi zbiorami $\R^n$.
+
+{\Large\color{orange} PRZYKŁADY Z LEE}
+
+\subsection{Własności rozmaitości topologicznych}
 
 \subsection{Atlasy, rozmaitości gładkie [różniczkowalne]}
 

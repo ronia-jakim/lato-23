@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{../../notatki}
+\usepackage[polish]{../../lecture_notes}
 \usepackage{longtable}
 
 \title{Rozmaitości różniczkowalne}
@@ -8,7 +8,9 @@
 \date{---}
 
 \begin{document}
-\maketit
+\maketitle
+\thispagestyle{empty}
+\newpage
 
 \tableofcontents
 \newpage
@@ -16,20 +18,20 @@
 \input{01_definicje.tex}
 \newpage
 
-\input{02_glodkosc.tex}
-\newpage
+%\input{02_glodkosc.tex}
+%\newpage
 
-\input{03_.brzeg.tex}
-\newpage
+%\input{03_.brzeg.tex}
+%\newpage
 
 \section{Pomocnik idiotów:}
 \begin{longtable}{ p{8cm} p{8cm} }
     \renewcommand{\listtheoremname}{Skorowidz definicji}
-    \listoftheorems[ignoreall, show={definicja}]
+    \listoftheorems[ignoreall, show={definition}]
     
     &
     
     \renewcommand{\listtheoremname}{Twierdzonkowa zabawa}
-    \listoftheorems[ignore={definicja}]
+    \listoftheorems[ignore={definition}]
 \end{longtable}
 \end{document}
