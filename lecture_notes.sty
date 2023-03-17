@@ -250,6 +250,7 @@
 \newcommand{\lemmaname}{Lemma}
 \newcommand{\factname}{Fact}
 \newcommand{\remarkname}{Remark}
+\newcommand{\conclusionname}{Corollary}
 
 \renewcommand{\thmtformatoptarg}[1]{: \emph{#1}}
 
@@ -282,6 +283,7 @@
   \renewcommand{\onto}{na}
   \renewcommand{\contentsname}{Spis treści}
   \renewcommand{\proofname}{\rm\bf{Dowód}}
+  \renewcommand{\conclusionname}{Wniosek}
 }
 
 
@@ -299,6 +301,12 @@
   style=theoremStyle,
   numberwithin=section
 ]{theorem}
+
+\declaretheorem[
+  name={\conclusionname},
+  style=remarkStyle,
+  numberlike=theorem
+]{conclusion}
 
 \declaretheorem[
   title={\lemmaname},

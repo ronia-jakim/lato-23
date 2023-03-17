@@ -1,15 +1,16 @@
 
-\section{Coś}
+\section{Wielomiany koła, domknięcia algebraiczne}
 
-\begin{wniosek}[algebraiczne rozszerzenia ciał]
+\begin{remark}[algebraiczne rozszerzenia ciał]
     %\begin{enumerate}
         %\item 
         Niech $K\subseteq L\subseteq M$ będą rozszerzeniami ciał. $K\subseteq M$ jest algebraiczne $\iff$ $K\subseteq L$ i $L\subseteq M$ są algebraiczne
         %\item $K_{alg}(L)$ jest relatywnie algebraicznie domknięte w $L$, tzn. $K_{alg}(L)=[K_{alg}(L)]_{alg}(L)$ 
     %\end{enumerate}
-\end{wniosek}
+\end{remark}
 
-\textbf{Dowód:}
+\begin{proof}
+$ $\newline
 
 $\implies$ OK
 
@@ -18,18 +19,18 @@ $\impliedby$
 Weźmy dowolny $m\in M$. $L\subseteq M$ jest algebraiczny, co oznacza $f(m)=0$, gdzie $f\in L[X]$
 $$f=\sum\limits_{i=0}^na_nx^i,\quad a_n\neq 0$$
 W takim razie $m$ jest algebraiczne nad ciałek $K(a_0,....,a_n)$. Ale teraz
-$$[K(m)\;:\;K]\leq [K(a_0,...,a_m,m)\;:;K]\overset{fakt:4:6}{=}[K(a_0,...,a_n,m):K(a_0,...,a_n)][K(a_0,...,a_n):K]<\infty$$
+$$[K(m)\;:\;K]\leq [K(a_0,...,a_m,m)\;:;K]\overset{\ref{fakt:4:6}}{=}[K(a_0,...,a_n,m):K(a_0,...,a_n)][K(a_0,...,a_n):K]<\infty$$
 bo $m$ jest algebraiczny $K(\overline a)$. Czyli
 $$[K(m):K]<\infty$$
-więc $m$ jest algebraiczny nad $K$ (fakt 4.3).
-
-\begin{wniosek}[$(K_{alg}(L))_{alg}(L)=K_{alg}(L)$]
+więc $m$ jest algebraiczny nad $K$ (uwaga \ref{uwaga:4:3}). 
+\end{proof}
+\begin{remark}[$(K_{alg}(L))_{alg}(L)=K_{alg}(L)$]
     $K_{alg}(L)$ jest relatywnie algebraicznie domknięty w $L$. To znaczy $(K_{alg}(L))_{alg}(L)=K_{alg}(L)$. 
-\end{wniosek}
+\end{remark}
 
-\textbf{Dowód:}
-
+\begin{proof}
 Ćwiczenia.
+\end{proof}
 
 \subsection{Wielomian rozkładu koła [cyclotomic polynomials]}
 
@@ -37,13 +38,13 @@ Rozważamy wielomian
 $$w_m(x)=x^m-1$$
 dla $m\in\N$. Wiemy, że
 \begin{itemize}
-    \item[\point] pierwiastki $w_m$ w $\C$ są jednokrotne
-    \item[\point] $\mu_m(\C)$ jest grupą cykliczną
-    \item[\point] $a\in\mu_m(\C)$ jest generatorem $\mu_m(\C)=\{a^i\;:\;0\leq i\leq m\}\cong(\Z_m,+)$
-    \item[\point] $a^k$ generuje $\mu_m(\C)$ $\iff NWD(k, m)=1$
+    \item pierwiastki $w_m$ w $\C$ są jednokrotne
+    \item $\mu_m(\C)$ jest grupą cykliczną
+    \item $a\in\mu_m(\C)$ jest generatorem $\mu_m(\C)=\{a^i\;:\;0\leq i\leq m\}\cong(\Z_m,+)$
+    \item $a^k$ generuje $\mu_m(\C)$ $\iff NWD(k, m)=1$
 \end{itemize}
 
-\deff{Funkcja Eulera:} 
+\important{Funkcja Eulera:} 
 $$\phi(m)=|\{k\in\N\;:\;0\leq k<m.\;NWD(k,m)=1\}|$$
 $\mu_m(\C)$ ma $\phi(m)$ generatorów.
 
@@ -51,14 +52,14 @@ Niech
 $$\{k\in\N\;:\;0<k<m, NWD(k, m)=1\}=\{m_1,...,m_{\phi(n)}\}$$
 i zdefiniujmy
 $$\color{blue}F_m(x):=(x-a^{m_1})...(x-a^{m_{\phi(n)}})\in\C[X]$$
-$F_m$ to \dyg{$m$-ty wielomian cyklotoniczny.}
+$F_m$ to \emph{$m$-ty wielomian cyklotoniczny.}
 
-\begin{uwaga}[$F_m\in\Z\begin{bmatrix}X\end{bmatrix}$]{\color{back}ddd}
+\begin{remark}[$F_m\in\Z\begin{bmatrix}X\end{bmatrix}$]{\color{pagColor}ddd}
     \begin{enumerate}
         \item $w_m(x)=x^m-1=F_m(x)\cdot v_m(x)=F_m(x)\cdot\prod\limits_{\substack{d<m\\d|m}}F_d(x)$
         \item $F_m(x)\in\Z[X]$
     \end{enumerate}
-\end{uwaga}
+\end{remark}
 
 \textbf{Dowód:}
  
@@ -85,9 +86,9 @@ ale w $\C[X]\supseteq\Z[X]$ było
 $$w_m(x)=v_m(x)\cdot F_m(x),$$
 czyli $F_m=L\in\Z[X]$.
 
-\begin{uwaga}[lemat Gaussa: $F_m$ nierozkładalny w $\Q$]
-    [\dyg{Lemat Gaussa}] $F_m(x)$ jest wielomianem nierozkładalnym w $\Q[X]$ (równoważnie w $\Z[X]$).
-\end{uwaga}
+\begin{remark}[lemat Gaussa: $F_m$ nierozkładalny w $\Q$]
+    [\emph{Lemat Gaussa}] $F_m(x)$ jest wielomianem nierozkładalnym w $\Q[X]$ (równoważnie w $\Z[X]$).
+\end{remark}
 
 \textbf{Dowód:} 
 
@@ -98,7 +99,7 @@ $$F_m(x)=G_1(x)\cdot G_2(x)$$
 dla $G_1,G_2\in\Z[X]$. Możemy założyć, że $G_1(x)$ jest dalej nierozkładalny w $\Z[X]$ oraz $0<deg(G_1)<deg(F_m)=\phi(m)$
 \medskip
 
-\podz{fore}
+\sep{txtColor}
 \medskip
 
 \acc{Lemat:} Istnieje $\varepsilon'$-pierwiastek $G_1$ oraz liczba pierwsza $p$ taka, że $p\nmid m$ i $G_1(b)=G_2(b^p)=0$.
@@ -120,7 +121,7 @@ $$G_2(\varepsilon^{p_1...p_{i+1}})=0$$
 wtedy $\varepsilon':=\varepsilon^{p_1...p_i}$ oraz $p=p_{i+1}$ i lemat jest spełniony.
 \medskip
 
-\podz{fore}
+\sep{txtColor}
 \medskip
 
 Wimy już, że $G_1(\varepsilon)=0$ i $G_1\in\Z[X]$ jest wielomianem nierozkładalnym. Niech $p$ będzie liczbą pierwszą z lematu. Rozważmy
@@ -148,24 +149,22 @@ $$\overline f(F_m)|\overline f(w_m)=x^m-1.$$
 Zatem w pewnym rozszerzeniu $L\supseteq\Z_p$ $w_m$ ma pierwiastek wielokrotny co daje sprzeczność.
 %. Jest to sprzeczność, bo nie mogą istnieć pierwiastki wielokrotne: $\overline f(F_m)|x^m-1=w_m$, a $x^m-1$ ma pierwiastki jednokrotne w $\Q$.
 
-{\large\color{orange}TUTAJ BYŁ KONIEC}
-
-\begin{wniosek}[pierwiastek pierwotny a $dim_\Q(\Q(b))$]
+\begin{remark}[pierwiastek pierwotny a $dim_\Q(\Q(b))$]
     Jeżeli $\varepsilon\in\C$ jest pierwiastkiem pierwotnym z $1$ stopnia $m$, to $[\Q(\varepsilon):\Q]=\phi(m)$.
-\end{wniosek}
+\end{remark}
 
 \textbf{Dowód:} $F_m(x)\in\Q[X]$ jest nierozkładalny, a $\varepsilon$ jest jego pierwiastkiem. To znaczy, że $F_,(x)$ jest wielomianem minimalnym dla $\varepsilon$ nad $\Q$. Mamy, że $[\Q(b):\Q]=deg F_m=\phi(m)$.
 
-\begin{lemat}[lemat Liouville'a o aproksymacji diofatycznej] \dyg{[lemat Liouville'a o aproksymacji diofantycznej]}: Jeżeli $a\in\R$ jest liczbą algebraiczną stopnia $N>1$, to istnieje $c=c(a)\in\R_+$ takie, że dla każdego $r=\frac pq\in\Q$ zachodzi
+\begin{lemma}[lemat Liouville'a o aproksymacji diofatycznej] \emph{[lemat Liouville'a o aproksymacji diofantycznej]}: Jeżeli $a\in\R$ jest liczbą algebraiczną stopnia $N>1$, to istnieje $c=c(a)\in\R_+$ takie, że dla każdego $r=\frac pq\in\Q$ zachodzi
     $$\left|a-\frac pq\right|\geq{c\over q^N}$$
-\end{lemat}
+\end{lemma}
 
 Lemat Liouville'a mówi o cesze. Jeżeli liczba nie spełnia tego lematu, to jest \acc{liczbą przestępną}.
 
 \begin{proof}
 Niech $N>1$ i $a\in\Q$. Niech $f\in\Z[X]$ taki, że $f(a)=0$ i $deg(f)=deg(a/\Q)$. Teraz zauważmy, że na $f$ patrzymy jako na funkcję wielomianową. To znaczy, dla każdego $x\in\R$ patrząc na
 $$\hat{f}(x)=\hat{f}(x)-\underbrace{\hat{f}(a)}_{=0}$$
-ale funkcje wielomianowe są różniczkowalne. Dlatego możemy skorzystać z twierdzenia o wartości średniej. To znaczy
+ale funkcje wielomianowe są różniczkowalne. Dlatego możemy skorzystać z theoremierdzenia o wartości średniej. To znaczy
 $$\hat{f}(x)-\hat{f}(a)=\hat{f}'(x-a)$$
 My wiemy, że $a$ jest pierwiastkiem jednokrotnym wielomianu $f(x)$. Niech $\varepsilon>0$ takie, że $a\in(a-\varepsilon,a+\varepsilon)$ jest jedynym pierwiastkiem $f(x)$ w tym przedziale. Oczywiście, 
 $$deg(\hat{f}'(x))<deg(\hat{f}(x))\implies\hat{f}'(a)\neq 0.$$ 
@@ -183,22 +182,23 @@ Rozważamy przypadki:
 \end{enumerate}
 \end{proof}
 
+\subsection{Domknięcia algebraiczne}
 
-\begin{definicja}[algebraiczne domknięcie]
-    Ciało $L\supseteq K$ jest \deff{algebraicznym domknięciem} $K$ wtedy i tylko wtedy, gdy:
+\begin{definition}[algebraiczne domknięcie]
+    Ciało $L\supseteq K$ jest \important{algebraicznym domknięciem} $K$ wtedy i tylko wtedy, gdy:
     \begin{enumerate}
         \item $L$ jest algebraicznie domknięte
         \item $L\supseteq K$ jest rozszerzeniem algebraicznym, to znaczy dla każdego $a\in L$ $a$ jest pierwiastkiem algebraicznym nad $K$
     \end{enumerate}
     Takie $L$ oznaczamy przez $\color{blue}\hat{K},K^{alg}$.
-\end{definicja}
+\end{definition}
 
-\begin{wniosek}[istnieje algebraiczne domknięcie]
+\begin{remark}[istnieje algebraiczne domknięcie]
     Dla każdego $K$ istnieje algebraiczne domknięcie $\hat{K}$.
-\end{wniosek}
+\end{remark}
 
 \begin{proof}
-Rozważmy $K_\infty\supseteq K$ - ciało algebraicznie domknięte (twierdzenie z początku wykładu). Pokażemy, że
+Rozważmy $K_\infty\supseteq K$ - ciało algebraicznie domknięte (theoremierdzenie z początku wykładu). Pokażemy, że
 $$\hat{K}=K_{alg}(K_\infty)=\{a\in K_\infty\;:\;a\text{ algebraiczny nad }K\}$$
 \begin{enumerate}
     \item $\hat{K}$ jest algebraicznie domknięte:
@@ -211,9 +211,9 @@ $$\hat{K}=K_{alg}(K_\infty)=\{a\in K_\infty\;:\;a\text{ algebraiczny nad }K\}$$
 \end{enumerate}
 \end{proof}
 
-\begin{tw}[jedyność domknięcia algebraicznego]\label{tw:4:15}
+\begin{theorem}[jedyność domknięcia algebraicznego]\label{tw:4:15}
     $\hat{K}$ jest jedyne z dokładnością do izomorfizmu nad $K$.
-\end{tw}
+\end{theorem}
 
 \begin{center}
     \begin{tikzcd}
@@ -255,26 +255,26 @@ $v(x)$ też jest nierozkładalny nad $K_2$, bo $w(x)$ był nierozkładalny nad $
 
 Zauważmy, że $K_1(a)=K_1[a]$, bo $w(x)$ jest nierozkładalny nad $K_1$, ale
 $$K_1[a]\simeq K_1[X]/(w)\simeq K_2[X]/(v)\simeq K_2[b]\simeq K_2(b).$$
-Czyli $K_1(a)\simeq K_2(b)$ i $f_2:K_1(a)\izo{}K_2(b)$ jest izomorfizmem rozszerzającym $f_1$. Wtedy mamy $(K_1,f_1)\lneq(K_1(a),f_2)$, co daje sprzeczność z maksymalnością $(K_1,f_1)$. Zatem $L_1=K_2$.
+Czyli $K_1(a)\simeq K_2(b)$ i $f_2:K_1(a)\isomorphism K_2(b)$ jest izomorfizmem rozszerzającym $f_1$. Wtedy mamy $(K_1,f_1)\lneq(K_1(a),f_2)$, co daje sprzeczność z maksymalnością $(K_1,f_1)$. Zatem $L_1=K_2$.
 
 Zrobimy sprytnie wprost: $K_1=L_1$, $K\subseteq K_2\subseteq L_2$ i $K_1\cong_K K_2$. $K_1$ jest aglebraicznie domknięte, więc $K_2$ też takie musi być. Czyli $K\subseteq K_2\subseteq L_2$ jest algebraiczne, więc $K_2=L_2$, bo założyliśmy, że $b\in L_2\setminus K_2$ i wtedy wielomina minimalny $f_b(x)\in K_2[X]$ ma pierwiastek $c\in K_2$, czyli $(x-c)|f_n(x)$ a więc $x-c=f_b(x)$ jest nierozkładalny i $b=c$.
 
 %Niech $K_2=f[K_1]=f[L_1]$. Pokażemy nie wprost, że $K_2=L_2$. Załóżmy, że istnieje $a\in L_2\setminus K_2$. Niech $w(x)\in K_2[X]$ wielomian minimalny dla $a$ nad $K_2$. Wtedy $w(x)$ nie ma pierwiastka w $K_2$, ale $K_2=f_1[L_1]$ jest algebraicznie domknięte, bo $L_1$ jest algebraicznie domknięte, co daje sprzeczność.
 \end{proof}
 
-\begin{wniosek}[$K\cong L\implies\hat{K}\cong\hat{L}$]
+\begin{conclusion}[$K\cong L\implies\hat{K}\cong\hat{L}$]\label{wniosek:5:10}
     Jeśli $K\cong L$, to $\hat{K}\cong \hat{L}$. Dokładniej, jeżeli $f_0:LK\to L$ jest izomorfizmem ciał, to istnieje izomorfizm $f:\hat{K}\to\hat{L}$ taki, że $f\restriction K=f_0$.
-\end{wniosek}
+\end{conclusion}
 \begin{proof}
 Ćwiczenia
 \end{proof}
 
-\begin{wniosek}[algebraiczne rozszerzenie $1-1$ $\to$ $\hat{K}$]
+\begin{remark}[algebraiczne rozszerzenie $1-1$ $\to$ $\hat{K}$]
     Jeśli $K\subseteq L$ jest algebraicznym rozszerzeniem ciał, to istnieje monomorfizm $f:L\to \hat{K}$ taki, że $f\restriction K=id_K$.
-\end{wniosek}
+\end{remark}
 
 \begin{proof}
 Ćwiczenie
 \end{proof}
 
-%\textbf{Dowód:} Mamy dane $K\subseteq L\subseteq\hat{L}$ rozszerzenia algebraiczne, zatem rozszerzenie $K\subseteq\hat{L}$ jest algebraiczne. Stąd $\hat{L}$ jest algebraicznym domknięciem $K$. Z twierdzenia \ref{tw:4:15} istnieje izomorfizm $g:\hat{L}\to\hat{K}$ taki, że $g\restriction K=id_K$. Wtedy $f=g\restriction L$ jest szukanym monomorfizmem.
+%\textbf{Dowód:} Mamy dane $K\subseteq L\subseteq\hat{L}$ rozszerzenia algebraiczne, zatem rozszerzenie $K\subseteq\hat{L}$ jest algebraiczne. Stąd $\hat{L}$ jest algebraicznym domknięciem $K$. Z theoremierdzenia \ref{tw:4:15} istnieje izomorfizm $g:\hat{L}\to\hat{K}$ taki, że $g\restriction K=id_K$. Wtedy $f=g\restriction L$ jest szukanym monomorfizmem.

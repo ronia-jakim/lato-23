@@ -1,27 +1,28 @@
 \section{Ciała skończone i pierwiastki z jedności}
 
-\begin{important}
-Ciało $L\supseteq K$ nazywamy \deff{ciałem rozkładu nad $K$} wielomianu $f\in K[X]$, gdy spełnione są warunki:
+\begin{bbox}
+Ciało $L\supseteq K$ nazywamy \important{ciałem rozkładu nad $K$} wielomianu $f\in K[X]$, gdy spełnione są warunki:
 
 \indent 1. $f$ rozkłada się w pierścieniu $L[X]$ na czynniki liniowe (stopnia $1$)
 
 \indent 2. Ciało $L$ jest rozszerzeniem ciała $K$ o elementy $a_1,...,a_n$, gdzie $a_1,...,a_n$ to wszystkie pierwiastki $f$ w $L$.
-\end{important}
+\end{bbox}
 
 \textbf{Przykład:} Jeżeli $deg(f)=0$, to nie istnieje ciało rozkładu $f$.
 
-\begin{wniosek}
+\begin{conclusion}
     \label{wniosek:2.1}
     Załóżmy, że $f\in K[X]$ jest wielomianem stopnia $>0$. Wtedy
 
 \indent 1. istnieje $L$: ciało rozkładu $f$ nad $K$,
 
 \indent 2. to ciało jest jedyne z dokładnością do izomorfizmy nad $K$.
-\end{wniosek}
+\end{conclusion}
 
-\textbf{Dowód:}
+\begin{proof}{\color{pagColor}dupa}
 
-\indent 1. Dowód przez indukcje względem stopnia $f$
+\begin{enumerate}
+\item Dowód przez indukcje względem stopnia $f$
 
 Jako przypadek bazowy rozważmy $f$ takie, że $deg(f)=1$. Wtedy $L=K$ i wszystko wniosek jest spełniony.
 
@@ -33,11 +34,11 @@ dla pewnego $f_1\in K'[X]$ i $deg(f_1)<deg(f)$. Z założenia indukcyjnego dla $
 $$L=K(a_0,...,a_r)$$
 jest ciałem rozkładu $f$ nad $K$.
 
-\indent 2. Udowodnimy wersję ogólniejszą: 
+\item Udowodnimy wersję ogólniejszą: 
 \phantomsection
 \label{stwierdzenie:wniosek}
 
-\emph{(\bat) Jeśli $\phi:K_1\izo{} K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $ \psi:L_1\izo{} L_2$ izomorfizm nad ciałami rozkładu $f_i$ w $K_i$ rozszerzający izomorfizm $\phi$ (to znaczy $\phi\subseteq \psi$).}
+\emph{{\color{yellow}(\Bat)} Jeśli $\phi:K_1\isomorphism{} K_2$ jest izomorfizmem nad ciałem i $f_i\in K_i[X]$ jest wielomianem stopnia $>0$, $\phi(f_1)=f_2$, to wtedy istnieje $ \psi:L_1\isomorphism{} L_2$ izomorfizm nad ciałami rozkładu $f_i$ w $K_i$ rozszerzający izomorfizm $\phi$ (to znaczy $\phi\subseteq \psi$).}
 
 Wykorzystamy indukcję po $deg(f)$. W przypadku bazowym mamy $deg(f)=1$, czyli $L_1=K_1,L_2=K_2$ i $\phi=\psi$.
 
@@ -46,9 +47,9 @@ $$f_i=f_i'\cdot g_i,$$
 gdzie $f_i',g_i\in K_i[X]$ i $g_i$ jest wielomianem nierozkładalnym w $K$. Wiemy już, że istnieje $a_i\in L_i$ będące pierwiastkiem wielomianu $g_i$.
 
 Z faktu \ref{fakt:1:2:5}:(2), wiemy, że istnieje wtedy izomorfizm
-$$\psi_0:K_1(a_1)\izo{}K_2(a_2)$$
+$$\psi_0:K_1(a_1)\isomorphism{}K_2(a_2)$$
 taki, że $\psi_0(a_1)=a_2$ i $\phi\subseteq\psi_0$.
-
+\end{enumerate}
 \begin{illustration}
     \node (K1) at (0, 0) {$K_1(a_1)$};
     \node (K2) at (4, 0) {$K_2(a_2)$};
@@ -65,34 +66,34 @@ taki, że $\psi_0(a_1)=a_2$ i $\phi\subseteq\psi_0$.
 \end{illustration}
 
 Z założenia wiemy, że {$L_i$ to ciało rozkładu $f_i'$ nad $K_i$}. W takim razie z założenia indukcyjnego istnieje izomorfizm
-$$\psi_1:L_1\izo{}L_2$$
+$$\psi_1:L_1\isomorphism{}L_2$$
 taki, że $\psi\subseteq\psi_0$ i to już jest koniec.
+\end{proof}
 
-\begin{wniosek}
-    Jeśli $f_1\in K_1[X]$ i $f_2\in K_2[X]$ są nierozkładalnymi wielomianami, $\phi:K_1\izo{}K_2$ izomorfizmem i $\phi(f_1)=f_2$, a $L_1,L_2$ to ciała rozkładu $f_1,f_2$ odpowiednio nad $K_1$ i $K_2$, $a_i\in L_i$ to pierwiastek $f_i$, to wtedy istnieje $\psi:L_1\izo{}L_2$ takie, że $\psi(a_1)=a_2$.
-\end{wniosek}
+\begin{conclusion}
+    Jeśli $f_1\in K_1[X]$ i $f_2\in K_2[X]$ są nierozkładalnymi wielomianami, $\phi:K_1\isomorphism{}K_2$ izomorfizmem i $\phi(f_1)=f_2$, a $L_1,L_2$ to ciała rozkładu $f_1,f_2$ odpowiednio nad $K_1$ i $K_2$, $a_i\in L_i$ to pierwiastek $f_i$, to wtedy istnieje $\psi:L_1\isomorphism{}L_2$ takie, że $\psi(a_1)=a_2$.
+\end{conclusion}
 
-\textbf{Dowód:} Wynika z dowodu stwierdzenia \hyperref[stwierdzenie:wniosek]{\bat}.
+\begin{proof}
+Wynika z dowodu stwierdzenia \hyperref[stwierdzenie:wniosek]{{\color{yellow}(\Bat)}}.
+\end{proof}
 
 \subsection{Algebraiczne domknięcie ciała}
 
-Ciało $L$ jest \deff{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ o stopniu $>0$ istnieje pierwiastek $f$ w $L$. To znaczy każdy wielomian rozkłada się na czynniki liniowe nad $L$.
+Ciało $L$ jest \important{algebraicznie domknięte} $\iff$ dla każdego $f\in L[X]$ o stopniu $>0$ istnieje pierwiastek $f$ w $L$. To znaczy każdy wielomian rozkłada się na czynniki liniowe nad $L$.
 
 \textbf{Przykład:}
-
-\indent \point $\C$ jest algebraicznie domknięte.
-
-\indent \point $\R$ nie jest algebraicznie domknięte, gdyż $x^2+1$ nie ma pierwiastka rzeczywistego.
-
-\indent \point $\Q[i]$ nie jest algebraicznie domknięte, bo $x^2-2$ nie ma pierwiastka.
-
-\begin{tw}
+\begin{itemize}
+\item$\C$ jest algebraicznie domknięte.
+\item $\R$ nie jest algebraicznie domknięte, gdyż $x^2+1$ nie ma pierwiastka rzeczywistego.
+\item  $\Q[i]$ nie jest algebraicznie domknięte, bo $x^2-2$ nie ma pierwiastka.
+\end{itemize}
+\begin{theorem}
     \label{tw:2.3}
     Każde ciało $K$ zawiera się w pewnym ciele algebraicznie domkniętym.
-\end{tw}
+\end{theorem}
 
-\textbf{Dowód:}
-
+\begin{proof}
 Jak mamy wielomian nad ciałem, to istnieje rozszerzenie ciała do tego wielomianu. I dalej leci kombinatoryka.
 
 \acc{Lemat:} Dla każdego ciała $K$ istnieje $L\supseteq K$ takie, że $(\forall\;f\in K[X])$ stopnia $>0$, $f$ ma pierwiastek w $L$.
@@ -100,38 +101,39 @@ Jak mamy wielomian nad ciałem, to istnieje rozszerzenie ciała do tego wielomia
 Rozważmy dobry porządek na zbiorze wielomianów z $K[X]$ stopnia $>0$
 $$\{f\in K[X]\;:\;deg(f)>0\}=\{f_\alpha\;:\;\alpha< \kappa\}.$$
 Tutaj $\alpha,\kappa$ to liczby porządkowe, niekoniecznie skończone. Skonstruujmy rosnący ciąg rozszerzeń  ciał $\{K_\alpha\;:\;\alpha< \kappa\}$ taki, że 
-
-\indent \point $K\subseteq K_\alpha\subseteq K_\beta$ dla $\alpha<\beta< \kappa$
-
-\indent \point $f_\alpha$ ma pierwiastek w $K_{\alpha+1}$.
-
+\begin{itemize}
+\item $K\subseteq K_\alpha\subseteq K_\beta$ dla $\alpha<\beta< \kappa$
+\item $f_\alpha$ ma pierwiastek w $K_{\alpha+1}$.
+\end{itemize}
 Dowód przez indukcję pozaskończoną. Dla $K_0=K$. 
 
-Załóżmy, że $\alpha<\kappa$ i mamy $\{K_\beta\;:\;\beta<\alpha\}$ spełniają warunki powyżej.  Niech $K'=\ubigcup\limits_{\beta<\alpha}K_\beta$. Musimy pokazać, że $K'$ jest ciałem.
-
-\indent 1. $\alpha$ to liczba graniczna. Definiujemy $K'=\ubigcup\limits_{\beta<\alpha}K_\beta$ jako zbiór. 
+Załóżmy, że $\alpha<\kappa$ i mamy $\{K_\beta\;:\;\beta<\alpha\}$ spełniają warunki powyżej.  Niech $K'=\abigcup\limits_{\beta<\alpha}K_\beta$. Musimy pokazać, że $K'$ jest ciałem.
+\begin{enumerate}
+\item 1. $\alpha$ to liczba graniczna. Definiujemy $K'=\abigcup\limits_{\beta<\alpha}K_\beta$ jako zbiór. 
 
 Musimy określić działania w $K'$. Niech $x,y\in K'$, wtedy istnieje $\beta<\alpha$ takie, że $x,y\in K_\beta$. Czyli $x+y\in K_\beta\subseteq K'$ i $xy\in K_\beta\subseteq K'$. W takim razie $K'$ jest rozszerzeniem ciała $K_\beta$.
 
 Teraz definiujemy $K_\alpha=K'$ i otrzymujemy pożądane rozszerzenie ciała.
 
-\indent 2. $\alpha=\beta+1$ to następnik, wtedy $K'=K_\beta$. 
+\item 2. $\alpha=\beta+1$ to następnik, wtedy $K'=K_\beta$. 
 
 Wielomian $f_\alpha$ jest wielomianem nad $K\subseteq K'$. Z wniosku \ref{wniosek1:2:4} wiemy, że istnieje rozszerzenie $K_\alpha\supseteq K$ takie, że $f_\alpha$ ma pierwiastek w $K_\alpha$.
 
 $L$ definiujemy jako sumę po wyżej udowodnionej konstrukcji:
-$$L=\ubigcup\limits_{\alpha<\kappa}K_\alpha$$
+$$L=\abigcup\limits_{\alpha<\kappa}K_\alpha$$
 i to ciało spełnia nasz lemat.
-\smallskip
+\end{enumerate}
 
 Wracamy teraz do dowodu twierdzenia \ref{tw:2.3} i niech $(L_n,n<\omega)$ będzie rosnącym ciągiem ciał takim, że
-
-\indent \point $L_0=K$
-
-\indent \point $L_{n+1}\supseteq L_n$, gdzie $L_{n+1}$ dane jest przez lemat, to znaczy $(\forall\;f\in L_n[X])$ $f$ ma pierwiastek w $L_{n+1}$.
+\begin{itemize}
+\item $L_0=K$
+\item $L_{n+1}\supseteq L_n$, gdzie $L_{n+1}$ dane jest przez lemat, to znaczy $(\forall\;f\in L_n[X])$ $f$ ma pierwiastek w $L_{n+1}$.
+\end{itemize}
 
 Niech
-$$L_\infty=\ubigcup\limits_{n<\omega}L_n\supseteq K.$$
+$$L_\infty=\abigcup\limits_{n<\omega}L_n\supseteq K.$$
 Jest to ciało, ponieważ suma rosnącego ciągu ciał jest ciałem. Dalej mamy, że jest to ciało algebraicznie domknięte, gdy dowolny $f\in L_\infty [X]$ ma stopień skończony $>0$, czyli istnieje $n$ takie, że $f\in L_n[X]$. A więc $f$ ma wszystkie pierwiastki w $L_{n+1}\subseteq L_\infty$.
+\end{proof}
+
 % $$L[X]=\ubigcup\limits_{n<\omega}L_n[X]$$
 % i $L[X]$ jest algebraicznie domknięte.

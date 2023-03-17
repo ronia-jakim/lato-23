@@ -1,19 +1,15 @@
 \section{Rozszerzenia ciał}
 
-\begin{definicja}
+\begin{definition}
 Niech $K\subseteq L$ będą ciałami i $a\in L\setminus K$.
-
-\indent \point Jeżeli \acc{$a$ jest algebraiczny nad $K$}, to istnieje $f\in K[X]$ stopnia $>0$ i $f(a)=0$
-
-\indent \point $a$ jest \acc{przestępny nad $K$} [transcendental] $\iff$ $a$ nie jest algebraiczny.
-
-\indent \point \deff{Rozszerzenie} $L\supseteq K$ jest \deff{algebraiczne} $\iff$ dla każdego $a\in L$ $a$ jest algebraiczny nad $K$.
-
-\indent \point \deff{Rozszerzenie jest przestępne} $\iff$ nie jest algebraiczne.
-
-\indent \point Niech $a\in \C$. Wtedy $a$ jest algebraiczna, gdy $a$ jest algebraiczna nad $\Q$.
-
-\end{definicja}
+\begin{itemize}
+\item Jeżeli \acc{$a$ jest algebraiczny nad $K$}, to istnieje $f\in K[X]$ stopnia $>0$ i $f(a)=0$
+\item $a$ jest \acc{przestępny nad $K$} [transcendental] $\iff$ $a$ nie jest algebraiczny.
+\item \important{Rozszerzenie} $L\supseteq K$ jest \important{algebraiczne} $\iff$ dla każdego $a\in L$ $a$ jest algebraiczny nad $K$.
+\item \important{Rozszerzenie jest przestępne} $\iff$ nie jest algebraiczne.
+\item Niech $a\in \C$. Wtedy $a$ jest algebraiczna, gdy $a$ jest algebraiczna nad $\Q$.
+\end{itemize}
+\end{definition}
 
 \textbf{Przykłady}:
 
@@ -28,17 +24,17 @@ $$0=\hat{f}(X)=f\neq0$$
 i jest to sprzeczność.
 
 
-\begin{uwaga}
+\begin{remark}
     Niech $a$ jak wyżej. Wtedy $a$ jest algebraiczny nad $K$ $\iff$ $I(a/K)\neq\{0\}$ jako ideał $K[X]$.
-\end{uwaga}
+\end{remark}
 
 \subsection{Wymiar przestrzeni liniowej}
 
-Niech $K\subseteq L$ będzie rozszerzeniem ciała $K$. Wtedy $L$ jest \deff{przestrzenią liniową nad $K$}. Definiujemy stopień rozszerzenia [coś innego jak indeks przy grupach]
+Niech $K\subseteq L$ będzie rozszerzeniem ciała $K$. Wtedy $L$ jest \important{przestrzenią liniową nad $K$}. Definiujemy stopień rozszerzenia [coś innego jak indeks przy grupach]
 $$[L:K]:=\dim_K(L)$$
 jako \acc{wymiar przestrzeni liniowej} nad $K$.
 
-\begin{uwaga}
+\begin{remark}\label{uwaga:4:3}
     Niech $a\in L\setminus K$. Następujące warunki są równoważne:
 
 \indent 1. $a$ jest algebraiczny nad $K$
@@ -46,13 +42,12 @@ jako \acc{wymiar przestrzeni liniowej} nad $K$.
 \indent 2. $K[a]=K(a)$, to znaczy $K[a]$ jest ciałem (usuwanie niewymierności z mianownika)
 
 \indent 3. $[K(a):K]=\dim_K(a)<\infty$
-\end{uwaga}
+\end{remark}
 
-\textbf{Dowód:}
-
+\begin{proof}
 $1\implies2$
 
-Wystarczy pokazać, że $K[a]$ jest ciałem. Rozważamy $I(a/K)\normalsubgroup K[X]$. Wiemy, że $K[X]$ jest PID, więc potrzebujemy, aby $I(a/K)$ było ideałem pierwszym.
+Wystarczy pokazać, że $K[a]$ jest ciałem. Rozważamy $I(a/K)\triangleleft K[X]$. Wiemy, że $K[X]$ jest PID, więc potrzebujemy, aby $I(a/K)$ było ideałem pierwszym.
 $$f\cdot g\in I(a/K)\iff0=\hat{f\cdot g}(a)$$
 gdzie daszek oznacza homomorfizm ewaluacji, który jest również homomorfizmem w punkcie. Czyli
 $$\hat{f\cdot g}(a)=\hat{f}(a)\hat{g}(a)=0\iff\hat{f}(a)=0\;\lor\;\hat{g}(a)=0.$$
@@ -95,37 +90,40 @@ $$(\exists\;n\in\N)(\exists\;b_{n-1},...,b_0)\;a^{n}=b_{n-1}a^{n-1}+...+b_1a+b_0
 Stąd dla $f\in K[X]$ zadanego wzorem
 $$f(x)=b_{n-1}x^{n-1}+...+b_0-x^n$$
 mamy $f(a)=0$, zatem $a$ jest algebraiczny nad $K$.
-\medskip
+\end{proof}
 
-\begin{definicja}[wielomian minimalny, stopień pierwiastka]
+\begin{definition}[wielomian minimalny, stopień pierwiastka]
 Niech $a\in L\supseteq K$ będzie algebraicznym pierwiastkiem nad $K$, $I(a/K)=\{w\in K[X]\;:\;w(a)=0\}=(f)$, $f\neq 0$, $f\in K[X]$, $f$ unormowany (ang. monic)
 \begin{itemize}
-    \item[\point] $f$ jest nazywany wielomianem \deff{minimalnym} $a$ nad $K$ (wyznaczony jednoznacznie)
-    \item[\point] \acc{stopień $a$} nad $K$ jest definiowany jako $deg(f)$.
+    \item $f$ jest nazywany wielomianem \important{minimalnym} $a$ nad $K$ (wyznaczony jednoznacznie)
+    \item \acc{stopień $a$} nad $K$ jest definiowany jako $deg(f)$.
 \end{itemize}
-\end{definicja}
+\end{definition}
 
 
-\begin{uwaga}[$I(a/K)=(f)\implies deg(f)=\begin{bmatrix}K(a):K\end{bmatrix}$]
+\begin{remark}[$I(a/K)=(f)\implies deg(f)=\begin{bmatrix}K(a):K\end{bmatrix}$]
     Załóżmy, że $I(a/K)=(f)$ i $f$ jest unormowany. Wówczas:
+    \begin{enumerate}
+    \item $f$ jest unormowanym wielomianem minimalnego stopnia takim, że $f(a)=0$
 
-    \indent 1. $f$ jest unormowanym wielomianem minimalnego stopnia takim, że $f(a)=0$
+    \item $deg(f)=[K(a):K]$, czyli stopień tego wielomianu jest równy stopniu przestrzeni liniowej $K(a)$ nad $K$.
+    \end{enumerate}
+\end{remark}
 
-    \indent 2. $deg(f)=[K(a):K]$, czyli stopień tego wielomianu jest równy stopniu przestrzeni liniowej $K(a)$ nad $K$.
-\end{uwaga}
+\begin{proof}{\color{pagColor}dupa}
 
-\textbf{Dowód:}
+\begin{enumerate}
+\item Oczywiste {\large\color{orange}DOWODZIK, ZE IRREDUCIBLE JEST MINIMAL}
 
-1. Oczywiste {\large\color{orange}DOWODZIK, ZE IRREDUCIBLE JEST MINIMAL}
-
-2. Niech $n=deg(f)$, 
+\item Niech $n=deg(f)$, 
 $$f(x)=x^n+\sum\limits_{k<n}b_kx^k$$
 Z tego, że $f(a)=0$ mamy, że 
 $$a^n=-\sum\limits_{k<n}b_kx^k\in Lin_K(1,a,...,a^{n-1})\subseteq L.$$
 Czyli $K(a)=Lin_K(1,a,...,a^{n-1})$ i wystarczy zobaczyć, że $\{1,..., a^{n-1}\}$ jest liniowo niezależny. W przeciwnym przypadku dla pewnego $0<r<m$ $a^r\in Lim_K(1,a,...,a^{t-1})$, czyli istnieje wielomian taki, że $a$ jest jego pierwiastkiem, a stopień jest nie większy niż $r<n$ i to daje sprzeczność.
 
 Czyli $Lim_K(1,a,...,a^n)$ jest bazą $K(a)$ nad $K$ i koniec.
-
+\end{enumerate}
+\end{proof}
 \textbf{Przykład:}
 \begin{enumerate}
     \item $\sqrt{2}\in\R\supseteq\Q$, wtedy $f(x)=x^2-2$ jest wielomianem minimalnym $\sqrt2$ nad $\Q$ i stopień $\sqrt{2}$ nad $\Q$ jest równy $2$.
@@ -136,12 +134,12 @@ Czyli $Lim_K(1,a,...,a^n)$ jest bazą $K(a)$ nad $K$ i koniec.
 Jeśli $K\subseteq L\ni a$ jest algebraiczny, to $deg(a/K)=n$, to 
 $$K(a)=K[a]=\{\sum\limits_{i=0}^{n-1}b_ia^i\;:\;b_i\in K\}$$
 
-\begin{fakt}[$dim_K(M)=dim_L(M)\cdot dim_K(L)$]\label{fakt:4:5}
+\begin{fact}[$dim_K(M)=dim_L(M)\cdot dim_K(L)$]\label{fakt:4:6}
     Niech $K\subseteq L\subseteq M$ będą rozszerzeniami ciał. Wtedy 
     $$[M:K]=[M:L]\cdot [L:K]$$
-\end{fakt}
+\end{fact}
 
-\textbf{Dowód:}
+\begin{proof}
 
 Niech $\{e_i\;:\;i\in I\}$ będzie bazą $L$ nad $K$, a $\{f_j\;:\;j\in J\}$ będzie bazą $M$ nad $L$. Stąd $|I|=[L:K]$ i $|J|=[M:L]$.
 
@@ -172,14 +170,14 @@ $$e_if_j-e_{i'}f_{j'}=0,$$
 czyli $f_j,f_{j'}$ są liniowo zależne nad $L$, czyli mamy, że $f_j=f_{j'}$ i
 $$0=e_if_j-e_{i'}f_{j}=(e_i-e_{i'})f_j\implies e_i-e_{i'}=0\implies i=i'$$
 Z tego wynika, że $[M:K]=|X|=|I||J|=[L:K][M:L]$.
-
-\begin{wniosek}[$K_{alg}$ - podciałem]
+\end{proof}
+\begin{conclusion}[$K_{alg}$ - podciałem]
     Niech $K\subseteq L$ będzie rozszerzeniem skończonego ciała. Niech 
     $$K_{alg}(L)=\{a\in L\;:\;a\text{ jest algebraiczny nad }K\}.$$
     Okazuje się, że $K_{alg}$ jest podciałem.
-\end{wniosek}
+\end{conclusion}
 
-\textbf{Dowód:}
+\begin{proof}
 
 Weźmy $a,b\in K_{alg}$. Wiemy, że $[K(a):K]$ i $[K(b):K]$ są skończone. Mamy, że
 $$K\subseteq K(a)\subseteq K(a, b)$$
@@ -191,14 +189,14 @@ też jest skończone, zatem $x$ jest algebraiczny nad $K$.
 \medskip
 
 Dla $x\in K(a, b)$ mamy $[K(x):K]\leq[K(a):K]$, czyli również jest skończone. W takim razie, $x$ jest algebraiczny nad $K$ i należy do $K_{alg}$.
-\medskip
+\end{proof}
 
-\begin{definicja}[(relatywne) algebraiczne domknięcie]{\color{back}spaaaać}
+\begin{definition}[(relatywne) algebraiczne domknięcie]{\color{pagColor}spaaaać}
     \begin{enumerate}
-        \item $K_{alg}(L)$ nazywamy \deff{algebraicznym domknięciem} $K$ w $L$.
-        \item $K$ jest \deff{relatywnie algebraicznie domknięte} w $L$ $\iff$ $K_{alg}(L)=K$.
+        \item $K_{alg}(L)$ nazywamy \important{algebraicznym domknięciem} $K$ w $L$.
+        \item $K$ jest \important{relatywnie algebraicznie domknięte} w $L$ $\iff$ $K_{alg}(L)=K$.
     \end{enumerate}
-\end{definicja}
+\end{definition}
 
 \textbf{Przykłady:} 
 \begin{enumerate}

@@ -1,7 +1,8 @@
-\section{Rozszerzenie algebraiczne}
+\section{Wstęp do teorii Galois}
 
-    Niech $K$ będzie ciałem, $\hat{K}$ jego algebraicznym domknięciem. Niech $K\subseteq L$ będzie rozszerzeniem algebraicznym ciał [BSO: $L\subseteq\hat{K}$]. \deff{Grupą Galois} rozszerzenia $K\subseteq L$ nazywamy 
-    $$G(L/K)=Gal(L/K)=\{f\in Aut(L)\;:\;f\obciete K=id_k\}=Aut(L/K)$$
+\subsection{Grupy Galois}
+    Niech $K$ będzie ciałem, $\hat{K}$ jego algebraicznym domknięciem. Niech $K\subseteq L$ będzie rozszerzeniem algebraicznym ciał [BSO: $L\subseteq\hat{K}$]. \important{Grupą Galois} rozszerzenia $K\subseteq L$ nazywamy 
+    $$G(L/K)=Gal(L/K)=\{f\in Aut(L)\;:\;f\restriction K=id_k\}=Aut(L/K)$$
     ze składaniem jako działaniem. Jest to jednocześnie podgrupa wszystkich automorfizmów.
 
 \textbf{Przykład:}
@@ -9,22 +10,22 @@
 \begin{enumerate}
     \item  Niech $K$ będzie ciałem prostym ($\cong$ z $\Q$ lub z $\Z_p$). Wtedy $Gal(L/K)=Aut(L)$, bo
     \begin{itemize}
-        \item [\point] Niech $char(K)=char(L)=p>0$ i niech $f\in Aut(L)$. Wtedy $f(1)=1$, $f(\underbrace{1+....+1}_k)=\underbrace{1+....+1}_k$, a ponieważ $K=\{\underbrace{1+...+1}_k\;:\;k\in\{1,...,p\}\}$, zatem $f\obciete K=id_K$, czyli $f\in Gal(L/K)$.
-        \item [\point] Niech $char(K)=char(L)=0$, wtedy $K\cong\Q$. Niech $f\in Aut(L)$. Wtedy $f(0)=0, f(1)=1$, a dla dowolnego $k\in\N$ $f\underbrace{1+....+1}_k=\underbrace{1+....+1}_k$, stąd dostajemy, że $f(n)=n$ dla $n\in\Z$, a z własności $\Q$ dostajemy, że $f(\frac mn)=\frac mn$, zatem $f\obciete K=id_K$.
+        \item  Niech $char(K)=char(L)=p>0$ i niech $f\in Aut(L)$. Wtedy $f(1)=1$, $f(\underbrace{1+....+1}_k)=\underbrace{1+....+1}_k$, a ponieważ $K=\{\underbrace{1+...+1}_k\;:\;k\in\{1,...,p\}\}$, zatem $f\restriction K=id_K$, czyli $f\in Gal(L/K)$.
+        \item Niech $char(K)=char(L)=0$, wtedy $K\cong\Q$. Niech $f\in Aut(L)$. Wtedy $f(0)=0, f(1)=1$, a dla dowolnego $k\in\N$ $f\underbrace{1+....+1}_k=\underbrace{1+....+1}_k$, stąd dostajemy, że $f(n)=n$ dla $n\in\Z$, a z własności $\Q$ dostajemy, że $f(\frac mn)=\frac mn$, zatem $f\restriction K=id_K$.
     \end{itemize}
     \item $Gal(\Q(\sqrt2)/\Q)=Aut(\Q(\sqrt2))=\{f_0,f_1\}\cong\Z$, bo $\sqrt{2}$ może przejść na siebie albo na $-\sqrt{2}$. Wtedy $f_0=id$, a $f_1(-\sqrt{2})$ 
 \end{enumerate}
 
-    Grupę Galois $Gal(\hat{K}/K)$ nazywamy \deff{absolutną grupą Galois} ciała $K$.
+    Grupę Galois $Gal(\hat{K}/K)$ nazywamy \important{absolutną grupą Galois} ciała $K$.
 
 \emph{Czy każda grupa skończona jest izomorficzna z $Gal(L/\Q)$ dla pewnego $\Q\subseteq L$?} Jest to otwarty problem teorii Galois.
 
 
-\begin{uwaga}[jednorodność $\hat{K}$]
+\begin{remark}[jednorodność $\hat{K}$]\label{uwaga:6:1}
     $a,b\in\hat{K}$, takie, że $I(a/K)=I(b/K)$, to wtedy istnieje $f\in Gal(\hat{K}/K)$ takie, że $f(a)=b$.
-\end{uwaga}
+\end{remark}
 
-\begin{proof}
+\begin{proof}{\color{pagColor}dupa}
 
 \begin{center}
 \begin{tikzcd}
@@ -33,44 +34,48 @@
 \end{tikzcd}
 \end{center}
 
-Co jest wnioskiem z wniosku 5.10.
+Co jest wnioskiem z wniosku \ref{wniosek:5:10}.
 \end{proof}
 
-$\hat{K}$ jest największym algebraicznym rozszerzeniem $K$ tzn. $K\subseteq L$ oznacza, że istnieje $f:L\to\hat{K}$ monomorfizm ciał taki, że $f\restriction K=id_K$. $(\kawa)$
+\subsection{Rozszerzenia algebraiczne normalne}
+
+\phantomsection
+\label{aaaa}
+$\hat{K}$ jest największym algebraicznym rozszerzeniem $K$ tzn. $K\subseteq L$ oznacza, że istnieje $f:L\to\hat{K}$ monomorfizm ciał taki, że $f\restriction K=id_K$. \hyperref[aaaa]{{\color{yellow}(\Coffeecup)}}
 \medskip
 
-Mówmy, że rozszerzenie algebraiczne $K\subseteq L$ jest \deff{normalne}, gdy w $(\kawa)$ $f[L]\subseteq\hat{K}$ dla wszystkich $f:L\to K$.
+Mówmy, że rozszerzenie algebraiczne $K\subseteq L$ jest \important{normalne}, gdy w \hyperref[aaaa]{{\color{yellow}(\Coffeecup)} }$f[L]\subseteq\hat{K}$ dla wszystkich $f:L\to K$.
 
 \textbf{Przykład} Rozszerzenie $K\subseteq\hat{K}$ jest normalne.
 
-\begin{uwaga}
+\begin{remark}\label{uwaga:6:2}
 Załóżmy, że $K\subseteq L\subseteq\hat{K}$. Wtedy rozszerzenie $K\subseteq L$ jest normalne $\iff$ dla każdego $f\in Gal(\hat{K}/K)$ $f[L]=L$.
-\end{uwaga}
+\end{remark}
 
 \begin{proof}
 $\implies$ z definicji, bo $id_K[L]=L$.
 
-$\impliedby$ z definicji XDDDD
+$\impliedby$ z definicji.
 
 \end{proof}
 
 Czyli $K\subseteq L_1\subseteq L$ i $K\subseteq L$ jest normalna, to $L_1\subseteq L(\subseteq \hat{K})$, więc $Gal(\hat{L_1}/L_1)\leq Gal(\hat{K}/K)$.
 
-\begin{tw}[rozszerzenie jest normalne]
+\begin{theorem}[rozszerzenie jest normalne]
 Dla $K\subseteq L$ algebraicznego rozszerzenia jest normalne $\iff$ dla każdego $b\in L$ wielomian minimalny $f\in K[X]$ rozkłada się w $L[X]$ na iloczyn czynników liniowych.
-\end{tw}
+\end{theorem}
 \begin{proof}
 Bez straty ogólności rozważamy $L\subseteq\hat{K}$. 
 
 $\implies$ 
 
-Dowód nie wprost, to znaczy załóżmy, że istnieje $b\in L$ takie, że $w_b(x)$ ma pierwiastek $a\in \hat{K}\setminus L$. Ale wtedy z Uwagi 6.1. na jednorodność $\hat{K}$ istnieje $f\in Gal(\hat{K}/K)$ takie, że $f(b)=a$, więc $f[L]=L$ co jest sprzeczne z 6.2.
+Dowód nie wprost, to znaczy załóżmy, że istnieje $b\in L$ takie, że $w_b(x)$ ma pierwiastek $a\in \hat{K}\setminus L$. Ale wtedy z Uwagi \ref{uwaga:6:1}. na jednorodność $\hat{K}$ istnieje $f\in Gal(\hat{K}/K)$ takie, że $f(b)=a$, więc $f[L]=L$ co jest sprzeczne z \ref{uwaga:6:2}.
 
 $\impliedby$
 
-Załóżmy nie wprost, że na mocy 6.2. istnieje $f\in Gal(\hat{K}/K)$ takie, że $f[L]\neq L$. Ale $L$ i $f[L]$ są wzajemnie sprzężone, więc wybieżmy $a\in L\setminus f[L]$. Symetrycznie, $a'\in f[L]\setminus L$, $f':f[L]\izo{}L$ spełnia warunek (\kawa).
+Załóżmy nie wprost, że na mocy \ref{uwaga:6:2}. istnieje $f\in Gal(\hat{K}/K)$ takie, że $f[L]\neq L$. Ale $L$ i $f[L]$ są wzajemnie sprzężone, więc wybierzmy $a\in L\setminus f[L]$. Symetrycznie, $a'\in f[L]\setminus L$, $f':f[L]\isomorphism L$ spełnia warunek \hyperref[aaaa]{{\color{yellow}(\Coffeecup)}}.
 
-Niech $w_a(x)$ jest wielomianem minimalnym $a$ nad $K$. Wtedy $w_a(X)=f(w_a(x))$, bo $f\restriction K=id_K$. Czyli $w_a$ jest wielomianem minimalnym dla $b=f(a)/K$. Czyli $L\overset{f}{\cong}_Kf[L]$. Z (\kawa) wiemy, że $w_a(x)$ rozkłada się nad $L$ na czynniki liniowe. Czyli $w_a(x)....f[L]...$, co daje nam sprzeczność, bo $a$ jest wierwiastkiem $w_a(X)$, ale $a\notin f[L]$.
+Niech $w_a(x)$ jest wielomianem minimalnym $a$ nad $K$. Wtedy $w_a(X)=f(w_a(x))$, bo $f\restriction K=id_K$. Czyli $w_a$ jest wielomianem minimalnym dla $b=f(a)/K$. Czyli $L\overset{f}{\cong}_Kf[L]$. Z \hyperref[aaaa]{{\color{yellow}(\Coffeecup)}} wiemy, że $w_a(x)$ rozkłada się nad $L$ na czynniki liniowe. Czyli $w_a(x)....f[L]...$, co daje nam sprzeczność, bo $a$ jest pierwiastkiem $w_a(X)$, ale $a\notin f[L]$.
 
 \end{proof}
 
