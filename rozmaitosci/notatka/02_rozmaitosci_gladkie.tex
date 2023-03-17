@@ -59,13 +59,12 @@ Dalej, jak wyglądają obrazy tego przekroju przez poszczególne mapy?
 $$\phi_i^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1, x_{j-1}>0\}$$
 $$\phi_j^+(U_i\cap U_j)=\{x\in\R^n\;:\;|x|<1,x_i<0\}$$
 Odwzorowania przejścia to:
-\begin{illustration}
-    \node (L) at (0, 0) {$\phi_j^+(U_i^+\cap U_j^+)\ni(x_1,...,x_n)$};
-    \node (C) at (8, 0) {$(x_1,...,x_{j-1},\sqrt{1-|x|^2},x_{j},...x_n)$};
-    \node (DL) at (8, -2) {$(x_1,...,x_{i-1},x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$};
-    \draw[->] (L)--(C) node [midway, above] {$(\phi_j^+)^{-1}$};
-    \draw[->] (C)--(DL) node [midway, right] {$\phi_i^+$};
-\end{illustration}
+
+\begin{center}\begin{tikzcd}
+    \phi_j^+(U_i^+\cap U_j^+)\ni(x_1,...,x_n) \arrow[r, "\phi_j^+)^{-1}"] & (x_1,...,x_{j-1},\sqrt{1-|x|^2},x_{j},...x_n)\arrow[d,"\phi_i^+"]\\
+    & (x_1,...,x_{i-1},x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)
+\end{tikzcd}\end{center}
+
 $$\phi_i^+(\phi_j^+)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$$
 jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejścia.
 
@@ -74,6 +73,12 @@ jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejśc
 \begin{definition}[rozmaitość gładka]
     \acc{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$ opisanego na $M$.
 \end{definition}
+
+\begin{definition}[zgodność map, atlasów]
+    Niech $\set{A}_1,\set{A}_2$ będą gładkimi atlasami na $M$.
+    Mówimy, że mapa $(U, \phi)$ jest zgodna z atlasem $\set{A}$, jeżeli jest zgodna z każdą mapą z $\set{A}_1$. Dalej, mówimy, że atlas $\set{A}_2$ jest zgodny z altasem $\set{A}_1$, jeżeli każda mapa z $\set{A}_1$ jest zgodna z każdą mapą z atlasu $\set{A}_2$.
+\end{definition}
+
 %
 %\acc{Uściślenie:} Często $(M,\set{A}_1)$ i $(M, \set{A}_2)$ będące rozmaitościami gładkimi określają tę samą rozmaitość.
 %\medskip
@@ -85,7 +90,19 @@ jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejśc
 %    \item Dwa \deff{atlasy $\set{A}_1,\set{A}_2$ na $M$ są zgodne}, jeśli każda mapa z $\set{A}_1$ jest zgodna z atlasem $\set{A}_2$.
 %\end{enumerate}
 %\end{definicja}
-%
+
+\begin{theorem}[zgodność to relacja równoważności]
+    Relacja zgodnośc atlasów jest relacją równoważności.
+\begin{proof}
+Ćwiczenia
+\end{proof}
+\end{theorem}
+
+Zgodne atlasy określają tę samą strukturę gładką na $M$. W takim razie, wygodnym będzie móc zawerzeć wszystkie zgodne atlasy w czymś większym. Z pomocą przychodzi nam pojęcie \acc{atlasu maksymalnego}.
+\begin{definition}[atlas maksymalny]
+    Atlas $\set{A}$ jest \important{atlasem maksymalnym}, jeżeli każda mapa $(U,\phi)$ z nim zgodna jest w nim zawarta.
+\end{definition}
+
 %\begin{tw}[zgodność to relacja równoważnośći]
 %    Relacja zgodności atlasów jest relacją równoważności.
 %\end{tw}
@@ -101,6 +118,15 @@ jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejśc
 %\begin{fakt}[dla każdego atlasu istnieje jedyny atlas maksymalny]
 %    Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym na $M$. Zaś ten atlas maksymalny to zbiór wszystkich map na $M$ zgodnych z $\set{A}$.
 %\end{fakt}
+
+\begin{fact}[każdy atlas jest zawarty w unikalnym atlasie maksymalnym]
+    Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym na $M$, który jest zbiorem wszystkich map na $M$ zgodnych z $\set{A}$.
+\begin{proof}
+Ćwiczenia. Korzystamy z lematu Zorna.
+\end{proof}
+\end{fact}
+
+
 %
 %\textbf{Dowód:} Ćwiczenia.
 %
