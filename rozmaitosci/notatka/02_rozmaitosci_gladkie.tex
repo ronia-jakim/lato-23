@@ -141,11 +141,68 @@ W takim razie, równoważnie do pary $(M, \set{A})$, gdzie $\set{A}$ jest dowoln
     Niech $(M,\set{A})$ będzie rozmaitością gładką, a $f:M\to\R$ będzie funkcją gładką na $M$.
     \begin{enumerate}
         \item Jeżeli $(U, \phi)$ jest mapą zgodną z $\set{A}$, to $f$ wyrażone w $(U, \phi)$, czyli $f\circ\phi^{-1}$ też jest funkcją gładką.
-        \item Jeżeli $\set{A}'$ jest atlasem zgodnym z $\set{A}$, to 
+        \item Niech $\set{A}'$ będzie atlasem zgodnym z $\set{A}$. Wówczas funkcja $f$ jest zgodna względem $\set{A}'$ $\iff$ jest gładka względem $\set{A}'$ $\iff$ jest zgodna względem atlasu maksymalnego zawierającego oba te atlasy. 
     \end{enumerate}
 \end{fact}
 
-%
-%\textbf{Dowód:} Ćwiczenia.
-%
-%\dyg{Równoważna definicja rozmaitości gładkiej:} para $(M, \set{A})$, gdzie $M$ to rozmaitość topologiczna, zaś $\set{A}$ to pewien atlas maksymalny.
+Co więcej, możemy powiedzieć, że $f:M\to\R$ jest gładka $\iff$ jest gładka względem każdego atlasu $\set{A}$ wyznaczającego na $M$ gładką strukturę. [Ćwiczenia]
+
+\begin{definition}[mapa $C^k$-zgodna, $C^k$-atlas]
+$ $\newline
+\begin{itemize}
+    \item Dwie mapy $(U, \phi)$ i $(V,\psi)$ są \important{$C^k$-zgodne}, jeżeli $\phi\psi^{-1}$ oraz $\psi\phi^{-1}$ są funkcjami klasy $C^k$.
+    \item \important{$C^k$-atlas} to atlas składający się z map, które są $C^k$-zgodne
+    \begin{itemize}
+        \item Taki atlas określa strukturę $C^k$-rozmaitości na $M$
+        \item Jest to struktura słabsza niż struktura rozmaitości gdładkiej
+    \end{itemize}
+\end{itemize}
+\end{definition}
+
+$C^0$ zwykle oznacza rozmaitość topologiczną, a $C^\infty$ to rozmaitość gładka.
+
+\begin{fact}[nie można skakać $C^m\to C^k$]
+Na $C^k$ rozmaitości nie można sensownie określić funkcji klasy $C^m$ dla $m>k$.
+\end{fact}
+
+Rozmaitość można definiować na różne sposoby niewymagające użycia definicji i własności topologicznych, na przykład:
+\begin{itemize}
+    \item \important{Rozmaitość analityczna} [$C^\omega$] to rozmaitość, dla której atlas składa się z map analitycznie zgodnych (czyli wyrażają się za pomocą szeregów potęgowych).
+    \item \important{Rozmaitość zespolona} ma mapy jako funkcje w $\C^n$ zamiast w $\R^n$
+    \item Rozmaitość konforemna - zachowuje kąty
+    \item Rozmaitość kawałkami liniowa
+\end{itemize}
+
+Istnieją rozmaitości topologiczne, które nie dopuszczają żadnej struktury gładkiej (pierwszym takim przykładem była zwarta $10$-rozmaitość odkryta przez M. Kervaire). Z drugiej strony, z każdego maksymalnego atlasu $C^k$ rozmaitości można wybrać atlas złożony z map $C^\infty$-zgodnych, czyli na każdej $C^k$ istnieje struktura $C^\infty$ rozmaitości.
+
+\begin{lemma}[rozmaitość gładka bez topologii]
+    Niech $X$ będzie zbiorem (bez topologii). Niech $\{U_\alpha\}$ będzie kolekcją podzbiorów $X$ takich, że istnieje $n\in\N$ takie, że dla każdego $\alpha$ istnieje $\phi_\alpha:U_\alpha\to\R^n$ które jest różnowartościowe. Załóżmy, że takie $M,\{U_\alpha\},\{\phi_\alpha\}$ spełniają:
+    \begin{enumerate}
+        \item Dla każdego $\alpha$ $\phi_\alpha(U_\alpha)$ jest otwartym podzbiorem $\R^n$
+        \item Dla każdych $\alpha,\beta$ $\phi_\alpha(U_\alpha\cap U_\beta)$ oraz $\phi_\beta(U_\alpha\cap U_\beta)$ są otwarte w $\R^n$
+        \item Gdy $U_\alpha\cap U_\beta\neq\emptyset$, to 
+        $$\phi_\alpha\circ\phi_\beta^{-1}:\phi_\beta(U_\alpha\cap U_\beta)\to\phi_\alpha(U_\alpha\cap U_\beta)$$
+        jest gładkim \acc{dyfeomorfizmem} (gładkie i odwracalne)
+        \item Przeliczalnie wiele spośród $U_\alpha$ pokrywa $X$
+        \item Dla dowolnych $p,q\in X,p\neq q$ istnieją $\alpha,\beta$ oraz otwarte podzbiory $V_p\subseteq\phi_\alpha(U_\alpha), V_q\subseteq\phi_\beta(U_\beta)$ takie, że $p\in\phi_\alpha^{-1}(V_p),q\in\phi_\beta^{-1}(V_q)$ oraz $\phi_\alpha^{-1}(V_p)\cap\phi_\beta^{-1}(V_q)\emptyset$, czyli możemy \emph{rozdzielić dwa dowolne różne punkty za pomocą zbiorów otwartych w $\R^n$}.
+    \end{enumerate}
+    Wówczas na $X$ istnieje \important{struktura rozmaitości topologicznej na $X$}, dla której $U_\alpha$ są zbiorami otwartymi. Ponadtwo, $(U_\alpha,\phi_\alpha)$ tworzy \acc{gładki atlas na $X$}.
+\end{lemma}
+\begin{proof}Prezentujemy szkic dowodu:
+\begin{itemize}
+    \item Topologia jest produkowana jako przeciwobrazy przez poszczeglne $\phi_\alpha$
+    \item Lokalna euklidesowość jest oczywista
+    \item Mniejsza baza przeliczalna też śmignie [ćwiczenia]
+    \item Hausdorffowość wynika z warunku 5.
+\end{itemize}
+\end{proof}
+
+\textbf{PRZYKŁAD} - linie na prostej, ale nie chce już dzisiaj
+
+
+
+
+
+
+
+
