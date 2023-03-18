@@ -68,7 +68,7 @@ Odwzorowania przejścia to:
 $$\phi_i^+(\phi_j^+)^{-1}(x_1,...,x_n)=(x_1,...,x_{i-1}, x_{i+1},...,x_{j-1},\sqrt{1-|x|^2},x_j,...,x_n)$$
 jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejścia.
 
-\subsection{Rozmaitość gładka}
+\subsection{Zgodność map}
 
 \begin{definition}[rozmaitość gładka]
     \acc{Rozmaitość gładka} to para $(M, \set{A})$ złożona z rozmaitości $M$ i gładkiego atlasu $\set{A}$ opisanego na $M$.
@@ -97,6 +97,8 @@ jest przekształceniem gładkim. Analogicznie dla drugiego odwzorowania przejśc
 Ćwiczenia
 \end{proof}
 \end{theorem}
+
+\subsection{Atlas [maksymalny]}
 
 Zgodne atlasy określają tę samą strukturę gładką na $M$. W takim razie, wygodnym będzie móc zawerzeć wszystkie zgodne atlasy w czymś większym. Z pomocą przychodzi nam pojęcie \acc{atlasu maksymalnego}.
 \begin{definition}[atlas maksymalny]
@@ -127,6 +129,21 @@ Zgodne atlasy określają tę samą strukturę gładką na $M$. W takim razie, w
 \end{fact}
 
 W takim razie, równoważnie do pary $(M, \set{A})$, gdzie $\set{A}$ jest dowolnym zgodnym atlasem na $M$, możemy wymóc w definicji, aby \important{$\set{A}$ był atlasem maksymalnym}.
+
+\subsection{Funkcje gładkie}
+
+\begin{definition}[gładkość względem atlasu]
+   Funkcja $f:M\to\R$ określona na rozmaitości gładkiej $(M, \set{A})$ jest gładka, jeżeli po wyrażeniu w każdej mapie z tego atlasu jest gładka:
+   $$(\forall\;(U,\phi)\in\set{A})\quad f\circ\phi^{-1}\text{ jest gładka}$$
+\end{definition}
+
+\begin{fact}
+    Niech $(M,\set{A})$ będzie rozmaitością gładką, a $f:M\to\R$ będzie funkcją gładką na $M$.
+    \begin{enumerate}
+        \item Jeżeli $(U, \phi)$ jest mapą zgodną z $\set{A}$, to $f$ wyrażone w $(U, \phi)$, czyli $f\circ\phi^{-1}$ też jest funkcją gładką.
+        \item Jeżeli $\set{A}'$ jest atlasem zgodnym z $\set{A}$, to 
+    \end{enumerate}
+\end{fact}
 
 %
 %\textbf{Dowód:} Ćwiczenia.
