@@ -18,6 +18,8 @@ Daną mam ciągłą funkcję $F:M\to\R$. Wiem, że każdą funkcję mogę dowoln
 
 Weźmy sobie jakiś atlas na $M$ zawierający mapy $(U_\alpha,\phi_\alpha)$. Wiem, że skoro $f$ było ciągłe, a $\phi$ nic nie psuje, to pewnie i $f\circ\phi^{-1}$ jest ciągłe. Czyli w ten sposób dostaję funkcję $\R\to\R$ i na tym już chyba umiem pracować jakoś po ludzku.
 
+Ten obrazek średnio cokolwiek daje, ale zrobiłam go i nie zamierzam usuwać, bo wygląda zajebiście.
+
 \begin{illustration}
     \draw[very thick] (0, 0) ellipse (2 and 1);
     \draw (0.9, 0) arc (60:120:1.8);
@@ -63,13 +65,15 @@ $$g(x)=\begin{cases}
 \end{cases}$$
 
 \subsection*{ZADANIE 2.}
-\excercise{Dla niezwartej rozmaitości gładkiej $M$ skonstruuj gładką funkcję $f:M\to\R$ taką, że dla każdego naturalnego $n$ przeciwobraz $f^{-1}([-n,n])$ jest zwartym podzbiorem w $M$. Funkcje o tej własności nazywają się funkcjami właściwymi. Wskazówka: wykorzystaj zadanie $6$ z listy $1$: uzasadnij też najpierw następujący fakt pomocniczy: istnieje ciąg otwartych zbiorów $V_i$ takich, że $\bigcup\limits_{i\in\N}V_i=M$, oraz dla każdego $i$ domknięcie $cl(V_i)$ w $M$ jest zwarte i zawarte w $V_{i+1}$.}
+\excercise[u]{Dla niezwartej rozmaitości gładkiej $M$ skonstruuj gładką funkcję $f:M\to\R$ taką, że dla każdego naturalnego $n$ przeciwobraz $f^{-1}([-n,n])$ jest zwartym podzbiorem w $M$. Funkcje o tej własności nazywają się funkcjami właściwymi. Wskazówka: wykorzystaj zadanie $6$ z listy $1$: uzasadnij też najpierw następujący fakt pomocniczy: istnieje ciąg otwartych zbiorów $V_i$ takich, że $\bigcup\limits_{i\in\N}V_i=M$, oraz dla każdego $i$ domknięcie $cl(V_i)$ w $M$ jest zwarte i zawarte w $V_{i+1}$.}
 
 Zadanie $6$ w liście $1$ mówi, że każda rozmaitość $M$ jest przeliczalną sumą otwartych podzbiorów homeomorficznych z otwartymi kulami w $\R^n$, których domknięcia w $M$ sa homeomorficzne z domkniętymi kulami w $\R^n$.
 
+Myślę, że wystarczy wziąć ten ciąg jak z faktu pomocniczego i troszkę go podciąć tak, żeby był homeomorficzny z otwartymi kulami. To już robiliśmy. Potem wiem, że domknięcie otwartej kuli jest zbiorem zwartym w $\R^n$, czyli jego przeciwobraz przez funkcje z atlasu też jest zbiorem zwartym. Mogę więc funkcją $f$ skalować promień na kolejne liczby naturalne, a odległość od kuli i położenie w odpowiedniej półkuli skalować na cały taki odcinek. Taki mam chwilowo pomysł.
 
-
-
+To może teraz uzasadnienie faktu pomocniczego?
+Niech $\bigcup U_i=M$ będzie przeliczalnym pokryciem $M$.
+To suniemy z tworzeniem ciągu $V_i$? Niech $V_0=U_0$. Czy mogę powiedzieć, że jeśli zrobię $V_1=U_1\cup cl(V_0)$ to jeśli rzucę to na $\R^n$ i znajdę tam otwarty podzbiór niebędący całym obrazem $M$, który to zawiera, to jestem w domu? Raczej tak. Czyli takie coś powtarzam dla każdego $i$ i jestem w domu.
 
 
 

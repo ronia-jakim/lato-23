@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage{../../../../lecture_notes}
+
+\begin{document}
+\subsection*{ZADANIE 2.}
+\excercise[d]{Udowodnij, że algorytm Kruskala znajduje minimalne drzewa spinające poprzez przyrównanie tych drzew do drzew optymalnych}
+
+Po pierwsze, rozpiszmy co robi ten algorytm:
+
+
+\begin{lstlisting}
+E' <- [] pusty zbior
+C <- E
+
+while |E'|<n+1
+    e <- min(C)
+    if (E' + e nie ma cyklu)
+        E' <- E' + e
+    C <- C - e
+\end{lstlisting}
+
+Niech $T$ będzie drzewem minimalnym, a $E'$ będzie wynikiem algorytmu. Chcę pokazać, że $E'$ jest minimalnym spinning tree. To że jest wogóle tree, to widać, elo.
+
+Co, jeśli istnieje $e\in E'\setminus T$? Wtedy $e\cup T$ będzie miało cykle, bo $T$ zachaczało o wszystkie krawędzie, jara jara jara. Czyli w ten sposób tworzymy sobie pewien cykl. Super. To teraz w $T$ musiałam mieć jakieś inne przejście w tym cyklu, niech to będzie $f$. No ale miara $e$ była mniejsza, bo inaczej to był $f$ próbowała dołączyć przed $e$ do $E'$ i by nie stwierdziło, że się zacykli. Czyli graf $E'\setminus e\cup f$ będzie miał troszkę większą sumę niż $E'$. 
+
+Robiąc tak indukcyjnie aż nam się wszystkie wierzchołki pokryją, dojdziemy do grafu pokrywającego się z $T$, ale o większej mocy niż $E'$. Czyli to nie mogło być tak, że takie usuwanie krawędzi faktycznie zwiększało sumę, tylko to wszystko musiało zostawać tak samo, więc suma z $E'$ to to samo co te sumy w międzyczasie, a one z kolei równały się sumie $T$.
+
+\subsection*{ZADANIE 3.}
+\excercise{Danych jest $n$ odcinków $I_j=[p_j,k_j]$ leżących na osi $OX$, $j=1,...,n$. Ułóż algorytm znajdujący zbiór $S\subseteq \{I_1,...,I_n\}$ nieprzecinających się przecinków, o największej mocy.}
+
+Mam listę $P$ i $K$, odpowiednio początków i końców tych pyśków. Może jakoś od razu sobie założę, że mam dwójkę? Indeks i wartość początku/końca? wtedy mogę łatwo posortować sobie 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
