@@ -7,6 +7,8 @@ f(p)>0 & p\in Int(M)?
 \end{matrix}
 $$
 
+\subsection{Nośnik funkcji}
+
 \begin{definition}[rodzina lokalnie skończona]
 Rodzina $\{A_i\}$ podzbiorów przestrzeni topologicznej $X$ jest \important{lokalnie skończona}, jeżeli dla każdego $p\in X$ istnieje otwarte otoczenie $p\in U_p$ w $X$ takie, że $U_p\cap A_\alpha\neq\emptyset$ tylko dla skończenie wielu $\alpha$.
 \end{definition}
@@ -15,3 +17,15 @@ Rodzina $\{A_i\}$ podzbiorów przestrzeni topologicznej $X$ jest \important{loka
 Dla funkcji rzeczywistej $f:X\to\R$ jej \important{nośnik} to
 $$supp(f)=cl(\{x\in X\;:\;f(x)\neq0\})$$
 \end{definition}
+
+
+\begin{theorem}[o rozkładzie jedności]
+\emph{[Twierdzenie o rozkładzie jedności]} Dla każdego otwartego pokrycia $\{U_\alpha\}$ rozmaitości gładkiej $M$ istnieje rodzina $\{f_j\}_{j\in J}$ gładkich funkcji $f_j:M\to\R$ takich, że
+\begin{itemize}
+    \item $f_j\geq0$
+    \item każdy nośnik $supp(f_j)$ zawiera się w pewnym $U_\alpha$ z pokrycia
+    \item nośniki $\{supp(f_j)\}_{j\in J}$ tworzą lokalnie skończoną rodzinę podzbiorów w $M$.
+    \item dla każdego $x\in M\;\sum\limits_{j\in J}f_j(x)=1$
+\end{itemize}
+Jest to \important{rozkład jedności wpisany w pokrycie $\{U_\alpha\}$}
+\end{theorem}
