@@ -1,8 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{lecturenotes}
 
-\RequirePackage{sectsty}
-
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
@@ -34,8 +32,6 @@
 \RequirePackage{amssymb}
 \RequirePackage{amsmath}
 \RequirePackage{mathtools}
-
-\RequirePackage{enumitem}
 
 \RequirePackage{mathastext}
 \RequirePackage{calrsfs}
@@ -194,6 +190,7 @@
         {{\color{#1}\hdashrule[0.5ex]{\textwidth}{2pt}{2mm}}}
 }}
 
+\RequirePackage{sectsty}
 \RequirePackage{titlesec}
 \titlelabel{\thetitle. }
 

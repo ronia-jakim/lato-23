@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage[polish]{../../../lecture_notes}
+
+\begin{document}
+\subsection*{ZADANIE 1.}
+\excercise[d]{Dla ciągłych funkcji rzeczywistych $f,g:M\to\R$ na rozmaitości gładkiej $M$, oraz dla $\varepsilon > 0$ mówimy, że $g$ jest $\varepsilon$-aproskymacją $f$, jeśli $\|f-g\|<\varepsilon$ (tzn. dla każdego $x\in M$ mamy $|f(x)-g(x)|<\varepsilon$).
+\begin{enumerate}[label=(\alph*)]
+    \item Uzasadnij, że dla każdego $\varepsilon>0$ każda ciągła funkcja $F:M\to\R$ posiada gładką $\varepsilon$-aproksymację.
+    \item Rozszerz ten wynik do sytuacji, gdy $\varepsilon:M\to\R$ jest dowolną ciągłą dodatnią funkcją rzeczywistą, zaś $\varepsilon$-aproksymacja funkcji $f$ to dowolna taka funkcja $g$, że dla każdego $x\in M$ mamy $|f(x)-g(x)|<\varepsilon(x)$.
+    \item Niech $D\subseteq M$ będzie dowolnym domkniętym podzbiorem. Dla dowolnego $\varepsilon$ jak w punkcie (b) uzasadnij, że dowolna funkcja ciągła $f:M\to\R$, która jest gładka na pewnym otwartym otoczeniu zbioru $D$, posiada gładką $\varepsilon$-aproksymację $g:M\to\R$ taką, że $g\restriction D=f\restriction D$.
+\end{enumerate}
+} 
+
+\emph{(a)}
+
+Daną mam ciągłą funkcję $F:M\to\R$. Wiem, że każdą funkcję mogę dowolnie dokładnie aproksymować za pomocą wielomianu o współczynnikach wymiernych.
+
+Weźmy sobie jakiś atlas na $M$ zawierający mapy $(U_\alpha,\phi_\alpha)$. Wiem, że skoro $f$ było ciągłe, a $\phi$ nic nie psuje, to pewnie i $f\circ\phi^{-1}$ jest ciągłe. Czyli w ten sposób dostaję funkcję $\R\to\R$ i na tym już chyba umiem pracować jakoś po ludzku.
+
+\begin{illustration}
+    \draw[very thick] (0, 0) ellipse (2 and 1);
+    \draw (0.9, 0) arc (60:120:1.8);
+    \draw[thick] (1.15, 0.18) arc (-50:-130:1.8);
+    \filldraw (-1.5, -0.3) circle (1pt) node [above] {$p$};
+    \draw[thick] (2, -4) rectangle (5, -1.5);
+    \draw[thick] (-2, -4) rectangle (-5, -1.5);
+    \draw[thick, ->, green] (2, -0.5)..controls(2.5, -0.1) and (3.5, -1)..(3.5,-1.4) node [midway, right] {$f$};
+    \draw[green, dashed] (2, -2.6)..controls(2.5, -1.6) and(4, -4.6)..(5, -1.6) node [right] {$f+\varepsilon$};
+    \draw[green, dashed] (2, -3.4)..controls(2.5, -2.4) and(4, -5.4)..(5, -2.4) node [right] {$f-\varepsilon$};
+    \draw[green] (2, -3)..controls(2.5, -2) and(4, -5)..(5, -2) node [right] {$f$};
+    \draw[purple] (2, -3.2)..controls(2.7, -1) and (4, -6)..(5, -2);
+    \node at (1.5, -3.2) {$\color{purple}w(x)$};
+    \draw[thick, <-, yellow] (-2, -0.5)..controls(-2.5, -0.1) and (-3.5, -1)..(-3.5,-1.4) node [midway, left] {$\phi^{-1}$};
+    \filldraw (-4, -2.5) circle (1pt) node [right] {$\phi_\alpha(p)$};
+    \draw[->] (-1.7, -3)..controls(-1.2, -2)and(1.2, -2)..(1.7, -3) node [midway, above] {$f\circ\phi_\alpha^{-1}(\phi_\alpha(p))$};
+\end{illustration}
+
+Chyba mogę znaleźć sobie wielomian $w\in\R[X^n]$ taki, że siedzi w kulce nałożonej na $f$ w przestrzeni funkcji ciągłych. Ewentualnie mogę powiedzieć, że $w$ to jest po prostu gładka funkcja blisko $f$ określona na $\phi_\alpha(U_\alpha)$, bo chyba funkcje gładkie są gęste w zbiorze funkcji ciągłych czy jakoś tak. Teraz chcę sobie produkować $g=w(\phi(p))$, ale wtedy to nie wyśmignie się chyba tak od razu?
+
+Może wyprodukujmy sobie rozkład jedności $\psi_\alpha$ taki, że $\psi_\alpha\equiv0$ poza $U_\alpha$ i dowolny punkt $p\in M$ jest $\psi_\alpha(p)>0$ dla skończenie wielu $\alpha$. No i jeszcze ten $\sum\psi_\alpha(p)=1$ dla każdego $p\in M$. Czyli mam pysia będącego rozkładem jedności. Czyli mogę go chyba użyć do wytworzenia w końcu tego $g$? Bo jak $\psi_\alpha$ jest gładkie, to ten
+$$g(p)=\sum w(\phi_\alpha(p))\psi_\alpha(p)$$
+jest nadal gładkie? Znaczy tutaj jest nieścisłość, bo powinnam pisać, że tak jest dla $p\in U_\alpha$, a jeśli $p\notin U_\alpha$, to po prostu $0$, ale to i tak na jedno wychodzi, bo wtedy $\psi_\alpha(p)$ się zeruje. No i jakaś suma skończenie lokalnych gładkich funkcji bla bla bla bla bla
+
+Teraz muszę się upewnić, że to faktycznie jest ograniczeniem moim?
+\begin{align*}
+   \left\|f(x)-g(x)\right\|&=\left\|f(x)-\sum w(\phi_\alpha(x))\psi_\alpha(x)\right\|\leq\\
+   &\leq\left\|\sum(\psi_\alpha(x))[f(x)-w(\phi_\alpha(x))]\right\|<\\
+   &<\left|\sum(\psi_\alpha(x))\varepsilon\right|=1\cdot\varepsilon=\varepsilon
+\end{align*}
+
+\emph{(b)}
+
+Teraz zamiast ładnej kulki mam troszkę brzydszą kulkę bo $\{w\;:\;f(x)-\varepsilon(x)<w(x)<f(x)+\varepsilon(x)\}$, ale nadal mogę znaleźć jakieś gładkie $w$ i postąpić analogicznie jak wyżej.
+
+\emph{(c)}
+
+Czyli robię jakieś bump function?
+Czyli biorę sobie atlas $(U_1,\phi_1),(U_2,\phi_2)$ taki, że $U_1=M\setminus D$, a $U_2$ jest otwartym podzbiorem zawierającym $D\subseteq U_2$. Niech wtedy $\psi_1,\psi_2$ będzie gładkim rozkładem jedności takim, że $\psi_1\equiv 0$ na $D$. Wtedy $\phi_2$ na $D$ się nie zeruje, a sumuje do $1$, a na okolicy $D$ musi stopniowo schodzić do $0$, czyli wyśmignie. To teraz wystarczy znaleźć funkcję, która na $f(\phi_2(D))$ jest identyczna, a na pozostałej części troszkę odbiega, ale to też się da zrobić, taka funkcja to może być $w$ i wtedy
+$$g(x)=\begin{cases}
+    w(\phi_2(x)) & x\in D\\
+    \sum w(\phi_\alpha(x))\psi_\alpha(x)&wpp
+\end{cases}$$
+
+\subsection*{ZADANIE 2.}
+\excercise{Dla niezwartej rozmaitości gładkiej $M$ skonstruuj gładką funkcję $f:M\to\R$ taką, że dla każdego naturalnego $n$ przeciwobraz $f^{-1}([-n,n])$ jest zwartym podzbiorem w $M$. Funkcje o tej własności nazywają się funkcjami właściwymi. Wskazówka: wykorzystaj zadanie $6$ z listy $1$: uzasadnij też najpierw następujący fakt pomocniczy: istnieje ciąg otwartych zbiorów $V_i$ takich, że $\bigcup\limits_{i\in\N}V_i=M$, oraz dla każdego $i$ domknięcie $cl(V_i)$ w $M$ jest zwarte i zawarte w $V_{i+1}$.}
+
+Zadanie $6$ w liście $1$ mówi, że każda rozmaitość $M$ jest przeliczalną sumą otwartych podzbiorów homeomorficznych z otwartymi kulami w $\R^n$, których domknięcia w $M$ sa homeomorficzne z domkniętymi kulami w $\R^n$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

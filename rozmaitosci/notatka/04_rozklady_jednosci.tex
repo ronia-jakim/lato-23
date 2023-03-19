@@ -33,12 +33,37 @@ Jest to \important{rozkład jedności wpisany w pokrycie $\{U_\alpha\}$}
 Dla ułatwienia sprawy pokażemy prawdziwość tego twierdzenia dla rozmaitości gładkich bez brzegu. Ale to dopiero w przyszłości, bo aktualnie mi się nie chc
 \end{proof}
 
+\subsection{Rozkłady jedności w akcji}
+
 \emph{Czy istnieje $f:M\to\R$ takie, że $f\restriction\partial M\equiv 0$ oraz $f\restriction Int(M)>0$?}
 
 Niech $\{U_\alpha\}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami mapowymi. Wtedy $f_\alpha:U_\alpha\to\R$ jest funkcją gładką, jeżeli
 \begin{itemize}
     \item $U_\alpha\cap\partial M\neq\emptyset\implies$ $f_\alpha=\hat{f}_\alpha\phi_\alpha$, gdzie $\hat{f}_\alpha:\overline U_\alpha\to \R$ i $\hat{f}_\alpha(x_1,...,x_n)=x_n$.
+    \item $U_\alpha\cap\partial M=\emptyset\implies f_\alpha=1$
 \end{itemize}
+Niech $\{h_j\}$ będzie rozkładem jedności wpisanym w $\{U_\alpha\}$. Dla każdego $j\in J$ wybieramy $\alpha(j)$ takie, że $supp(h_j)\subseteq U_{\alpha(j)}$. Definiujemy wtedy $h_j'=h_j\circ f_{\alpha(j)}:M\to\R$ takie, że
+$$h_j'(p)=
+\left\{\begin{matrix}
+h(p)f_{\alpha(j)}(p) & p\in U_{\alpha(j)}\\
+0 & p\notin U_{\alpha(j)}
+\end{matrix}\right.
+$$
+Taka funkcja jest gładka, bo $supp(h_j)\subseteq U_{\alpha(j)}$.
+
+\emph{Bump function} dla domkniętego $A\subseteq M$ z nośnikiem w otwartym $U\subseteq M$ to ciągła funkcja $\psi:M\to\R$ taka, że $0\leq\psi\leq1$ na $M$ i $\psi\equiv 1$ w $A$ oraz $supp(\psi)\subseteq U$.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
