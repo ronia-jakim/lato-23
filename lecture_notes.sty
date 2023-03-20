@@ -154,7 +154,15 @@
 \setulcolor{d-blue}
 \setul{2pt}{2pt}
 
-\newcommand{\acc}[1]{{\color{blue}#1}}
+%\newcommand{\acc}[1]{{\color{blue}#1}}
+
+\newcommand\acc[2][r]{
+        {\color{blue}
+            \ifx i#1 \slshape\else
+            \ifx b#1 \bfseries
+        \fi\fi
+        #2}
+}
 
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
@@ -197,6 +205,7 @@
         {{\color{txtColor}\hdashrule[0.5ex]{\textwidth}{2pt}{2mm}}}
         {{\color{#1}\hdashrule[0.5ex]{\textwidth}{2pt}{2mm}}}
 }}
+
 
 \RequirePackage{titlesec}
 \titlelabel{\thetitle. }

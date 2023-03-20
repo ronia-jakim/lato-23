@@ -7,17 +7,75 @@ f(p)>0 & p\in Int(M)?
 \end{matrix}
 $$
 
-\subsection{Nośnik funkcji}
+\subsection{Parazwartość i kumple}
 
 \begin{definition}[rodzina lokalnie skończona]
 Rodzina $\{A_i\}$ podzbiorów przestrzeni topologicznej $X$ jest \important{lokalnie skończona}, jeżeli dla każdego $p\in X$ istnieje otwarte otoczenie $p\in U_p$ w $X$ takie, że $U_p\cap A_\alpha\neq\emptyset$ tylko dla skończenie wielu $\alpha$.
 \end{definition}
+
+\begin{definition}[rozdrobnienie]
+Pokrycie $\{V_\beta\}$ zbiorami otwartymi nazywamy \important{rozdrobnieniem} pokrycia $\{U_\alpha\}$ zbiorami otwartymi, jeśli każdy $V_\beta$ zawiera się w pewnym $U_\alpha$.
+\end{definition}
+
+Relacja bycia rozdrobnieniem jest relacją przechodnią.
+\medskip
+
+\begin{definition}[parazwartość]
+Przestrzeń topologiczna jest \important{parazwarta}, jeśli każde pokrycie $\{U_\alpha\}$ zbiorami otwartymi posiada lokalnie skończone rozdrobnienie $\{V_\beta\}$.
+\end{definition}
+
+\begin{lemma}[każda rozmaitość jest parazwarta]\label{lemat:kazda-parazwarta}
+Każda rozmaitość topologiczna jest parazwarta.
+\end{lemma}
+\begin{proof} Dowód pojawiamy, ale jest w Lee i ja popatrze kiedyś
+\end{proof}
+
+\begin{remark}[rozdrobnienie może zadawać nam prezwarty atlas]
+W rozdrobnieniu o którym mowa w lemacie \ref{lemat:kazda-parazwarta} można założyć, że składa się ze zbiorów mapowych i prezwartych [domknięcie jest zwarte].
+\end{remark}
+\begin{proof}
+Niech $\{U_\alpha\}$ będzie wyjściowym pokryciem $M$. Łatwo znaleźć rozdrobnienie $\{U_\gamma'\}\prec\{U_\alpha\}$ złożone ze zbiorów prezwartych mapowych [chyba lista 1]. Stosując lemat \ref{lemat:kazda-parazwarta} do $\{U_\gamma'\}$ dostajemy lokalnie skończone rozdrobnienie $\{V_\beta\}\prec\{U_\gamma'\}$, które jest też rozdrobnieniem $\{U_\alpha\}$. Ponadto, każdy $V_\beta$ zawiera się w pewnym $U_\gamma'$, więc jest mapowy i prezwarty.
+\end{proof}
+
+\begin{remark}[pokrywanie zbiorami prezwartymi]
+Niech $\{A_\alpha\}$ będzie dowolną lokalnie skończoną rodziną podzbiorów prezwartych. Wówczas dla każdego $A_{\alpha_0}$ podrodzina $\{A_\alpha\;:\;A_\alpha\cap A_{\alpha_0}\neq\emptyset\}$ jest skończona.
+\end{remark}
+\begin{proof}
+Załóżmy nie wprost, że rodzina ta jest nieskończona. Czyli możemy wybrać ciąg $A_{\alpha_i}$ z tej rodziny oraz punkt $x_i\in A_{\alpha_i}\cap A_{\alpha_0}$. 
+Ciąg $x_i$ ma punkt skupienia w zwartym $cl(A_{\alpha_0}$ i oznaczmy go $p$. Dowolne otoczenie otwarte $U_p$ punktu $p$ zawiera nieskończenie wiele $x_i$, więc przecina niepusto nieskończenie wiele $A_{\alpha_i}$, co daje sprzeczność z lokalną skończonością $\{A_\alpha\}$.
+\end{proof}
+
+\begin{remark}[sumowanie zwartymi]
+Istnieją zwarte zbiory $D_\beta\subseteq M$ takie, że $\bigcup D_\beta=M$. To znaczy możemy pokryć $M$ zbiorami zwartymi.
+\end{remark}
+\begin{proof}
+Wiemy już, że każdą rozmaitość możemy pokryć zbiorami prezwartymi. Niech więc $V_\beta$ będzie takim pokryciem. O każdy zbiorze $V_\beta$ możemy myśleć jak o otwartym podzbiorze w $\R^n$ poprzez utożsamienie go z $\phi_\beta(V_\beta)$, gdzie $(V_\beta,\phi_\beta)$ jest mapą.
+
+Każde $V_\beta$ jest wstępującą sumą mniejszych zbiorów $V_{\beta_k}$ otwartych, których zwarte domknięcią zawierają się w $V_{\beta_0}\supseteq cl(V_{\beta_k})$. Niech {\large\color{orange}CO TU SIĘ STAŁO Z INDEKSAMI OH BOOOOI}
+\end{proof}
+
+\begin{bbox}
+Podsumowując, dla dowolnego pokrycia otwartego $U_\alpha$ rozmaitości topologicznej $M$ istnieje lokalnie skończone rozdrobnienie $V_\beta$ składające się ze zbiorów mapowych i prezwartych, oraz rodzina $D_\beta$ zwartych podzbiorów $D_\beta\subseteq U_\beta$, która dalej jest pokryciem $M$.
+
+To samo dotyczy się rozmaitości z brzegiem.
+\end{bbox}
+
+
+\subsection{Twierdzenie o rozkładzie jedności}
 
 \begin{definition}[nośnik funkcji]
 Dla funkcji rzeczywistej $f:X\to\R$ jej \important{nośnik} to
 $$supp(f)=cl(\{x\in X\;:\;f(x)\neq0\})$$
 \end{definition}
 
+\begin{fact}[nośnikowanie dla $\R^n$]
+Dla dowolnego otwartego $\Omega\subseteq\R^n$ i dowolnego zwartego $D\subseteq\Omega$ istnieje gładka funkcja $f:\R^n\to\R$ taka, że 
+\begin{itemize}
+    \item $f\geq0$
+    \item $supp(f)\subseteq\Omega$
+    \item $f(x)>0$
+\end{itemize}
+\end{fact}
 
 \begin{theorem}[o rozkładzie jedności]
 \emph{[Twierdzenie o rozkładzie jedności]} Dla każdego otwartego pokrycia $\{U_\alpha\}$ rozmaitości gładkiej $M$ istnieje rodzina $\{f_j\}_{j\in J}$ gładkich funkcji $f_j:M\to\R$ takich, że
@@ -33,9 +91,24 @@ Jest to \important{rozkład jedności wpisany w pokrycie $\{U_\alpha\}$}
 Dla ułatwienia sprawy pokażemy prawdziwość tego twierdzenia dla rozmaitości gładkich bez brzegu. Ale to dopiero w przyszłości, bo aktualnie mi się nie chc
 \end{proof}
 
-\subsection{Rozkłady jedności w akcji}
+\subsection{Zastosowania rozkładu jedności}
 
-\emph{Czy istnieje $f:M\to\R$ takie, że $f\restriction\partial M\equiv 0$ oraz $f\restriction Int(M)>0$?}
+\emph{Ogólnie, dzięki rozkładowi jedności możemy konstruować funkcje gładkie określone na całym $M$, które spełniają pewne wymagania, z lokalnie określonych (w mapach) fragmentów takich funkcji.} Jest to narzędzie pozwalające nam sklejać funkcje i zachowywać ich gładkość/ciągłość. Za pomocą rozkładów jedności będziemy też mogli definiować inne obiekty na rozmaitościach, na przykład:
+\begin{itemize}
+    \item pola wektorowe,
+    \item metryki Riemanna,
+    \item formy różniczkowe
+\end{itemize}
+
+\textbf{Przykład:} Niech $F_1,F_2$ to będą domknięte i rozłączne podzbiory rozmaitości gładkiej $M$. Wówczas możemy skonstruować funkcję gładką $f:M\to[0,1]$ taką, że $f\restriction F_1\equiv 1$ i $f\restriction F_2\equiv 0$. Niech $U_1,U_2$ będą pokryciem $M$ takie, że $U_i=M\setminus F_i$. Niech $\{f_1,f_2\}$ będą rozkładem jedności wpisanym w $\{U_1,U_2\}$. Określmy funkcję $f:M\to\R$
+$$f(x)=\sum\limits_{supp(f_i)\subseteq U_2}f_i(x)$$
+Dla $x\in F_1$ wszystkie nośniki $supp(f_i)$ zawierające $x$ znajdują się w $U_2$, czyli dla takich $x$ $f(x)=\sum f_i(x)=1$. Dla $x\in F_2$ z kolei, nośniki $supp(f_i)$ zawierające $x$ nie zawierają się w $U_2$, czyli nic w tej sumie nie ma, więc $f(x)=0$.
+\medskip
+
+\sep
+\medskip
+
+\textbf{Przykład:}\emph{Czy istnieje $f:M\to\R$ takie, że $f\restriction\partial M\equiv 0$ oraz $f\restriction Int(M)>0$?}
 
 Niech $\{U_\alpha\}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami mapowymi. Wtedy $f_\alpha:U_\alpha\to\R$ jest funkcją gładką, jeżeli
 \begin{itemize}
@@ -43,20 +116,28 @@ Niech $\{U_\alpha\}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami mapowy
     \item $U_\alpha\cap\partial M=\emptyset\implies f_\alpha=1$
 \end{itemize}
 Niech $\{h_j\}$ będzie rozkładem jedności wpisanym w $\{U_\alpha\}$. Dla każdego $j\in J$ wybieramy $\alpha(j)$ takie, że $supp(h_j)\subseteq U_{\alpha(j)}$. Definiujemy wtedy $h_j'=h_j\circ f_{\alpha(j)}:M\to\R$ takie, że
-$$h_j'(p)=
-\left\{\begin{matrix}
-h(p)f_{\alpha(j)}(p) & p\in U_{\alpha(j)}\\
-0 & p\notin U_{\alpha(j)}
-\end{matrix}\right.
-$$
-Taka funkcja jest gładka, bo $supp(h_j)\subseteq U_{\alpha(j)}$.
+%$$h_j'(p)=
+%\left\{\begin{matrix}
+%h(p)f_{\alpha(j)}(p) & p\in U_{\alpha(j)}\\
+%0 & p\notin U_{\alpha(j)}
+%\end{matrix}\right.
+%$$
+%Taka funkcja jest gładka, bo $supp(h_j)\subseteq U_{\alpha(j)}$.
+Mamy, że $supp(h_j')\subseteq supp(h_j)\suseteq U_{\alpha(j)}$.
+Definiujemy $f(x)=\sum h_j'(x)$.
+Z loklanej skończoności nośników $h_j'$ jest dobrze określone i gładkie. 
 
-\emph{Bump function} dla domkniętego $A\subseteq M$ z nośnikiem w otwartym $U\subseteq M$ to ciągła funkcja $\psi:M\to\R$ taka, że $0\leq\psi\leq1$ na $M$ i $\psi\equiv 1$ w $A$ oraz $supp(\psi)\subseteq U$.
+Dla $p\in\partial M$ mamy, że dla każdego $j$ $h_j'(p)=p$, więc i $f(p)=0$, natomiast dla $p\in Int(M)$ dla pewnego $j$ jest $h_j'(p)>0$, a dla $k\neq j$ mamy $h_k'(p)\geq0$, czyli $f(p)>0$.
 
 
 
 
 
+%\emph{Bump function} dla domkniętego $A\subseteq M$ z nośnikiem w otwartym $U\subseteq M$ to ciągła funkcja $\psi:M\to\R$ taka, że $0\leq\psi\leq1$ na $M$ i $\psi\equiv 1$ w $A$ oraz $supp(\psi)\subseteq U$.
+
+\textbf{Przykład:} Funkcja $f:M\to\R$ jest nazywana \acc[i]{bump function} dla domkniętego zbioru $A\subseteq M$ z nośnikiem otwartym w $U\subseteq M$, jeżeli $0\leq\ f\leq 1$ na $M$, $f\equiv 1$ w $A$ oraz $supp(f)\subseteq U$.
+
+Rozważmy pokrycie $M$ zbiorami otwartymi $\{U,M\setminus D\}$. Niech
 
 
 

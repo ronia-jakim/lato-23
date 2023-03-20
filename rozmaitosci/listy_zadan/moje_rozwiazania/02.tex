@@ -55,6 +55,27 @@ Teraz muszę się upewnić, że to faktycznie jest ograniczeniem moim?
 
 Teraz zamiast ładnej kulki mam troszkę brzydszą kulkę bo $\{w\;:\;f(x)-\varepsilon(x)<w(x)<f(x)+\varepsilon(x)\}$, ale nadal mogę znaleźć jakieś gładkie $w$ i postąpić analogicznie jak wyżej.
 
+Mamy $\{(U_\alpha,\phi_\alpha)\}$ - atlas złożony z prezwartych $U_\alpha$. Niech $\{\psi_\alpha\}$ będzie rozkładem jedności wpisanym w $U_\alpha$. Ustalmy $\alpha$. Wtedy $\varepsilon\circ\phi_\alpha^{-1}$ przyjmuje na $\overline{\phi_\alpha(U_\alpha)}$ minimum $m_\alpha>0$. Istnieje gładka $g_\alpha:U_\alpha\to\R$ takie, że $\|F\restriction U_\alpha-g_\alpha\|<m_{\alpha}$. Niech 
+$$\overline {g_\alpha}(p)=\begin{cases}g_\alpha(p)&\in U_\alpha\\
+0&p\notin U_\alpha\end{cases},$$
+wtedy $m_\alpha\circ \psi_\alpha(p)\leq\varepsilon(p)$. Niech $G=\sum_\alpha\psi_\alpha\overline{g_\alpha}$.
+\begin{illustration}
+    \draw (-3, 0)--(3, 0);
+    \draw[ultra thick] (-3, 0)--(-1, 0);
+    \draw[ultra thick] (1, 0)--(3, 0);
+    \draw (-2, 1)..controls (-0.5,2)and(1, 0)..(2, 1.5) node [above] {$\overline{g_\alpha}$};
+    \draw[thin, blue](-3, -0.3)--(-0.8, -0.3);
+    \draw[thin, blue](-0.8, -0.3)..controls (-0.5, 0.4)and (0.5,0.4)..(0.8, -0.3);
+    \draw[thin, blue](0.8, -0.3)--(3, -0.3);
+    \node at (0, -0.5) {\color{blue}$U_\alpha$};
+    \node at (0, 0.5) {$\color{blue}supp(\psi_\alpha)$};
+\end{illustration}
+
+\begin{align*}
+    G(p)&\leq\sum\psi_\alpha(F(p)+\varepsilon(p))=F(p)+\varepsilon(p)\\
+    G(p)&\geq\sum\psi_\alpha(f(p)-\varepsilon(p))=F(p)-\varepsilon(p)
+\end{align*}
+
 \emph{(c)}
 
 Czyli robię jakieś bump function?
@@ -63,6 +84,27 @@ $$g(x)=\begin{cases}
     w(\phi_2(x)) & x\in D\\
     \sum w(\phi_\alpha(x))\psi_\alpha(x)&wpp
 \end{cases}$$
+
+Niech $\{\psi_1,\psi_2\}$ będzie rozkładem jedności wpisanym w $\{U, M\setminus D\}$, gdzie $U$ jest otoczeniem otwartym $D$, na którym $f$ jest gładka. Niech 
+$$G=f\circ \phi_1+g\circ \phi_2,$$
+gdzie $g$ to jest $\varepsilon$-aproksymacja $f$ z punktu $(b)$.
+
+\begin{illustration}
+    \node at (0, 0) {$D$};
+    \node at (1.5, 1.3) {$U$};
+    \node at (3, -2.5) {$\color{yellow}M\setminus D$};
+    \draw[thick] (0, 0) circle (1.5);
+    \node at (0, -1.75) {$\color{blue}U$};
+    \draw[rotate=30, thick] (-0.8, -0.8) rectangle (0.8, 0.8);
+    \draw (-4, -3)--(4, -3);
+    \draw[very thick, blue] (-4, -3)--(-1.2, -3);
+    \draw[very thick, blue] (1.2, -3)--(4,-3);
+    %\draw[very thick, blue] (-1.2, -3)..controls(-0.8, -2)and(0.8, -2)..(1.2, -3);
+    \draw[very thick, blue] (1.2, -3)--(0.9,-2)--(-0.9, -2)--(-1.2,-3); 
+    \draw[very thick, yellow] (-4, -2)--(-1.2, -2);
+    \draw[very thick, yellow] (1.2, -2)--(4, -2);
+    \draw[very thick, yellow] (1.2, -2)--(0.8,-3)--(-0.8, -3)--(-1.2,-2);
+\end{illustration}
 
 \subsection*{ZADANIE 2.}
 \excercise[u]{Dla niezwartej rozmaitości gładkiej $M$ skonstruuj gładką funkcję $f:M\to\R$ taką, że dla każdego naturalnego $n$ przeciwobraz $f^{-1}([-n,n])$ jest zwartym podzbiorem w $M$. Funkcje o tej własności nazywają się funkcjami właściwymi. Wskazówka: wykorzystaj zadanie $6$ z listy $1$: uzasadnij też najpierw następujący fakt pomocniczy: istnieje ciąg otwartych zbiorów $V_i$ takich, że $\bigcup\limits_{i\in\N}V_i=M$, oraz dla każdego $i$ domknięcie $cl(V_i)$ w $M$ jest zwarte i zawarte w $V_{i+1}$.}
@@ -75,6 +117,26 @@ To może teraz uzasadnienie faktu pomocniczego?
 Niech $\bigcup U_i=M$ będzie przeliczalnym pokryciem $M$.
 To suniemy z tworzeniem ciągu $V_i$? Niech $V_0=U_0$. Czy mogę powiedzieć, że jeśli zrobię $V_1=U_1\cup cl(V_0)$ to jeśli rzucę to na $\R^n$ i znajdę tam otwarty podzbiór niebędący całym obrazem $M$, który to zawiera, to jestem w domu? Raczej tak. Czyli takie coś powtarzam dla każdego $i$ i jestem w domu.
 
+\sep{yellow}
+
+Robimy zadanie 3 w inny sposób XD
+
+Istnieją $V_i$ - otwarte prezwarte takie, że $cl(V_i)\subseteq V_{i+1}$ i $\abigcup V_i=M$. Z zadania 6 z poprzedniej listy wiemy, że istnieją $B_k$ takie, że $M=\bigcup B_k$ i $B_k\cong B(0,1)$, wtedy $cl(B_k)\cong cl(B(0,1))$. 
+
+Możemy więc robić, żeby
+$$B\cong B(0,1)=\abigcup B(0,1-\frac1{s})$$
+To teraz niech $B_k=\abigcup B_{k,s}$ i wtedy mamy to z domknięciem. Teraz możemy zdefiniować $V_i$ jako:
+$$V_i=\bigcup\limits_{k=1}^i\abigcup\limits_{s=1}^iB_{k,i}=\bigcup\limits_{k=1}^iB_{k,i}$$
+
+Wtedy 
+$$cl(V_i)=\bigcup cl(B_{k,i})\subseteq \bigcup B_{k,i+1}\subseteq V_{i+1}$$
+Będziemy mieli pary $\{V_{i+1},M\setminus cl(V_i)\}$, czyli to jest takie dwuelementowe pokrycie rozmaitości. Teraz chcemy funkcję, która jest $1$ na $cl(V_{i+1})$, a zerem na tym drugim. Rozważmy rozkład jedności $\{\psi_1,1-\psi_i\}$ taki, że $\psi_i(M\setminus V_{i+1})\equiv 1$ i $\psi_i(V_i)\equiv 0$.
+
+Niech $f(x)=\sum\psi_i(x)$. Wystarczy pokazać, że jest to funkcja właściwa. Support to dopełnienie $cl(V_i)$ i dla dużych $i$ będzie zerem? Nieee wiem, chce spać.
+
+Jeśli $x\in V_i$, to $f(x)\leq i-1$. Z drugiej strony, jeśli $x\in M\setminus V_i$, to $f(x)\geq i$.
+
+Teraz potrzebujemy, żeby $f^{-1}[-n,n]$ było zwarte. Jak to się ma dla $f^{-1}[0,n]$? jest on zawarty w $cl(V_{n+1})$
 
 
 
@@ -86,8 +148,41 @@ To suniemy z tworzeniem ciągu $V_i$? Niech $V_0=U_0$. Czy mogę powiedzieć, ż
 
 
 
+\subsection*{ZADANIE 3.}
+\excercise{Niech $\set{U}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami prezwartymi i niech $\{f_j\}$ będzie gładkim rozkładem jedności wpisanym w $\set{U}$. Uzasadnij, że funkcja $h=\sum j\circ f_j$ jest gładką funkcją właściwą o dodatnich wartościach. Uzasadnij, że funkcja ta, jak każda rzeczywista funkcja właściwa ograniczona od dołu, posiada globalne minimum (czyli taki punkt $p\in M$ że dla każdego $x\in M$ zachodzi $f(x)\geq f(p)$.}
 
+Mamy funkcję $h=\sum j\circ f_j$. Jest gładka i tnie się niepusto tylko ze skończenie wieloma zbiorami z pokrycia. Chcemy pokazać, że to jest ograniczone od dołu. Jest właściwa, bo wiemy, że poza sumą zbiorów $U_1,...,U_n$ to jest suma większa niż $n$. Zbiory te są prezwarte, suma skończenie wielu zbiorów prezwartych jest prezwarty. Czyli 
+$$h^{-1}[-n,n]\subseteq\bigcup\limits_{i\leq n}U_i.$$
+Mamy pokazać, że istnieje minimum, czyli cośtam gdzie cośtam jest realizowane.
 
+Weźmy sobie punkt $p$ taki, że $n\leq h(p)< n+1$. Teraz chcemy dzielić sobie rozmaitość na sumę od $U_1,...,U_{n+1}$ i na resztę. I teraz na dopełnienu sumy $U_1,...,U_{n+1}$ na pewno nie znajdę minimum, bo na tym dopełnieniu ta suma jest większa niż $n+1$. Ni cholery nie zrozumiałam.
+
+\subsection*{ZADANIE 4.}
+\excercise{Dla rozmaitości $M$ z brzegiem skonstruuj taką gładką funkcję $f:M\to[0,\infty)$ taką, że $\partial M=f^{-1}(0)$ oraz rząd $f$ w dowolnym punkcie brzegowym wynosi $1$.}
+
+Rząd funkcji 
+
+Idea:
+Ustalmy rozkład jedności dla zbiorów mapowych $\{h_i\}$. Nie rozumiem tego, co szachu mówi.
+
+$$f(\underset{\in M}{x})=\sum g_j(\psi_j(x))\cdot h_j(x)$$
+
+Teraz wypadałoby sprawdzić, że $h_j(x)$ śmiga. Skoro cośtam zeruje się na brzegu, to ma rząd $1$. Teraz trzeba policzyć pochodną. Kurwa zgubiłam się. Ale to, że rząd jest co najwyżej $1$ to też wynika z tego, że idziemy w $\R$. Teraz chcemy liczyć pochodną i policzyć, że się nie zeruje.
+
+Pochodna to będzie suma pochodnych czyli będą kontrybucje z różnych map. Teraz musimy wziąc jedną konkretną mapę i policzyć jej pochodną i pokazać, że ta pochodna jest dodatnia, czyli i cała suma też będzie sumą dodatnich i będzie dodatnia.
+
+Ustalmy dowolne $p\in\partial M$. Zauwazmy, że $f(p)$ jest skończenie wielu obrazów i skupmy się na jednym, nazwijmy go indeksem $\beta$.
+$$g_\beta(\psi_\beta(p))\circ h_\beta(p)=\xi(p)$$
+i chcemy pokazać, że ${\partial \xi(p)}> 0$
+
+{\large\color{orange}DUUUŻO DZIWNYCH RZECZY }
+
+Trzeba udwodonić lemacik, że $f:M\to\R$ i nie wiem co sie dzieje hyhy
+
+Idea jest taka, że patrzymy na pochodną funkcji $D(f\circ\psi^{-1})$ to gradient. To jest macierz $1\times n$. Wiemy, że jest to coś dodatniego i potem coś. 
+AAAAA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA
+
+Ten lemat to w sumie trzeba zmienic, ale to i tak zdjęcia zrobię
 
 
 
