@@ -37,20 +37,35 @@ W następnej kolejności idę dalej przez $K$ aż znajdę pierwszy koniec, któr
 
 
 \subsection*{ZADANIE 4.}
-\excercise[u]{Rozważ następująca wersję problemu wydawania reszty: dla danych liczb naturalnych $a,b, (a\leq b)$ chcemy przedstawić ułamek $\frac{a}{b}$ jako sumę różnych ułamków o licznikach równych $1$. Udowodnij, że algorytm zachłanny zawsze daje rozwiązanie. Czy zawsze jest to rozwiązanie optymalne (tj. o najmniejszej liczbie składników?)}
+\excercise[d]{Rozważ następująca wersję problemu wydawania reszty: dla danych liczb naturalnych $a,b, (a\leq b)$ chcemy przedstawić ułamek $\frac{a}{b}$ jako sumę różnych ułamków o licznikach równych $1$. Udowodnij, że algorytm zachłanny zawsze daje rozwiązanie. Czy zawsze jest to rozwiązanie optymalne (tj. o najmniejszej liczbie składników?)}
 
 Rozumiem, że algorytm zachłanny po prostu leci przez kolejne liczby naturalne i sprawdza, czy dodając je dostaję coś większego, czy się mieszczę? I jeszcze sprawdzam, czy jest sens iść dalej, to znaczy czy mam już dokładnie ten ułamek który chciałam.
 
-Chyba daje to najlepsze, bo na pewno mogę każdy ten ułamek $\frac1p$ rozbić dalej, ale to wtedy zwiększam $p$ niepotrzebnie i najpierw te mniejsze zaliczę w pierwszej kolejności. Jeżeli istniałaby reprezentacja bardziej optymalna, to miałaby jeden ułamek z mniejszym mianownikiem, ale my szliśmy od największych mianowników, czyli sprzeczność?
+%Chyba daje to najlepsze, bo na pewno mogę każdy ten ułamek $\frac1p$ rozbić dalej, ale to wtedy zwiększam $p$ niepotrzebnie i najpierw te mniejsze zaliczę w pierwszej kolejności. Jeżeli istniałaby reprezentacja bardziej optymalna, to miałaby jeden ułamek z mniejszym mianownikiem, ale my szliśmy od największych mianowników, czyli sprzeczność?
+
+Otóż nie daje najlepszego, bo mi podusia powiedziała, że istnieje
+$$\frac{9}{20}=\frac13+\frac19+\frac1{180}$$
+według zachłana, a można też zrobić
+$$\frac9{20}=\frac14+\frac15$$
+
+Niech $k$ będzie najmniejszą taką liczbą naturalną, że
+$$\frac{a}{b}-\frac1k=\frac{ak-b}{bk}>0.$$
+Chcę pokazać, że $a>ak-b$. Wtedy zakończenie algorytmu wynika z nieistnienia nieskończonego, malejącego ciągu liczb naturalnych.
+$$a>ak-b$$
+$$b>ak-a=a(k-1)$$
+$$\frac{b}{a}>k-1$$
+$$\frac{1}{k-1}>\frac{a}{b}$$
+co jest prawdą, bo $k$ było najmniejsze takie, że $\frac{a}{b}\geq\frac{1}{k}$
+
+
 
 \subsection*{ZADANIE 5.}
-\excercise{Ułóż algorytm, który dla danego $n$-wierzchołkowego drzewa i liczby $k$, pokoloruje jak najwięcej wierzchołków tak, ba na każdej ścieżce prostej było nie więcej niż $k$ pokolorowanych wierzchołków.}
+\excercise[u]{Ułóż algorytm, który dla danego $n$-wierzchołkowego drzewa i liczby $k$, pokoloruje jak najwięcej wierzchołków tak, ba na każdej ścieżce prostej było nie więcej niż $k$ pokolorowanych wierzchołków.}
 
-Czy ja chcę to robić, idąc od liści i pałując te ścieżki od liści na siłę?
+Czy ja chcę pokolorować wszystkie wierzchołki, uciąć je i powtórzyć to samo dla $k-2$ na tym nowym drzewie? A jeśli $k=1$, to wtedy chyba losowy jeden mogę pomalować.
 
-
-
-
+\subsection*{ZADANIE 6.}
+\excercise{Ułóż algorytm, który dla danego spójnego grafu $G$ oraz krawędzi $e$ sprawdza w czasie $O(n+m)$, czy krawędź $e$ należy do jakiegoś minimalnego drzewa spinającego grafu $G$. Możesz założyć, że wszystkie wagi krawędzi są różne.}
 
 
 
