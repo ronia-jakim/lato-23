@@ -228,12 +228,12 @@
 
 \RequirePackage{cleveref}
 
-\newcommand\excercise[2][r]{
+\newcommand\excercise[2][r]{\begin{exc}%
     \ifx d#1{\slshape\color{purple}#2}\else
     \ifx u#1{\slshape\color{blue}#2}\else
-    {\slshape\color{yellow}#2}
-    \fi\fi
-}
+    {\slshape\color{yellow}#2}%
+    \fi\fi%
+\end{exc}}
 
 %%= = = = = = = = = = = = = = = = = = = = = = = = = = = =%%
 
@@ -268,12 +268,24 @@
 { }
 {\thmname{#1}\thmnumber{ #2}\thmnote{}}
 
+%\newtheoremstyle{excStyle}
+%{5pt}
+%{5pt}
+%{}
+%{}
+%{\bfseries}
+%{.}
+%{}
+%{\thmname{#1}\thmnumber{ #2}\thmnote{}}
+
 \newcommand{\theoname}{Theorem}
 \newcommand{\defname}{Definition}
 \newcommand{\lemmaname}{Lemma}
 \newcommand{\factname}{Fact}
 \newcommand{\remarkname}{Remark}
 \newcommand{\conclusionname}{Corollary}
+
+\newcommand{\excname}{Exercise}
 
 \renewcommand{\thmtformatoptarg}[1]{: \emph{#1}}
 
@@ -297,6 +309,8 @@
 
 
 \DeclareOption{polish}{
+  \renewcommand{\excname}{Zadanie}
+
   \renewcommand{\theoname}{Twierdzenie}
   \renewcommand{\defname}{Definicja}
   \renewcommand{\lemmaname}{Lemat}
@@ -324,6 +338,12 @@
   style=theoremStyle,
   numberwithin=section
 ]{theorem}
+
+\declaretheorem[
+  title={\excname}%,
+%  style=excStyle
+]{exc}
+
 
 \declaretheorem[
   name={\conclusionname},

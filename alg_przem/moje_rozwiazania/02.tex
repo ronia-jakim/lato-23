@@ -144,6 +144,118 @@ w pierwszym zadaniu z poprzedniego rozdziału pokazywaliśmy, że $f\in A[X]$ je
 czyli $\iff$ w $A$ są dzielniki zera.
 Ale w $(A/\pideal)$ dzielników zera nie ma, bo wszystkie są w $\pideal$ który to wyrzuciliśmy, więc śmiga.
 
+\subsection*{ZADANIE 9.}
+\emph{\color{yellow}TO WYPADAŁOBY ZROBIĆ, ALE NIEEE CHCEEE MIII SIEEEE}
+
+
+
+\subsection*{ZADANIE 10.}
+\emph{\color{blue}Niech $A$ będzie pierścieniem i $\mathfrak{a}$ ideałem zawartym w radykalne Jacobsona. Niech $M$ będzie $A$-modułem, a $N$ niech będzie skończenie generowanym $A$-modułem. Niech $u:M\to N$ będzie homomorfizmem. Pokaż, że jeżeli indukowany homomorfizm $\overline:M/\mathfrak{a}M\to N/\mathfrak{a}N$ jest surjektywny, to również $u$ taki jest.}
+
+Najpierw rysuneczek:
+
+\begin{center}
+\begin{tikzcd}
+    M/\mathfrak{a}M\arrow[r,"\overline{u}"]\arrow[d, "\cong"] & N/\mathfrak{a}N \arrow[r]\arrow[d, "\cong"] & Coker(\overline{u})=0\arrow[d, "\cong"]\\
+    M\otimes A/\mathfrak{a}\arrow[r, "u\otimes 1"] & N\otimes A/\mathfrak{a}\arrow[r] & 0=???=Coker(u)\otimes A/\mathfrak{a}\\
+    M\arrow[r, "u"] & N\arrow[r] & Coker(u)
+\end{tikzcd}
+\end{center}
+
+No i to jest tak, że to co jest w ??? jest izomorficzne z $Coker(\overline{u})$, bo no izomorfizm w dół mi nie popsuje $Coker(\overline{u})$, które było równe $0$. Czyli $???=0$. Z drugiej strony, to co jest w $???$ jest równe $Coker(u)\otimes A/\mathfrak{a}$. Skoro $N$ było skończenie generowane, to takie jest też $Coker(u)$, bo przecież wychodzi z $N$. Czyli mam, że
+$$0=Coker(u)\otimes A/\mathfrak{a}\;\cong\; Coker(u)/\mathfrak{a}Coker(u)$$
+i z tego wynika, że $Coker(u)=\mathfrak{a}Coker(u)$ i z lematu Nakayamy wiem, że $Coker(u)=0$.
+
+
+\emph{\color{orange}Nieskończenie generowany moduł, który nie spełnia lematu Nakayamy. Wyzwanie: znaleźć pierścień $R$, moduł $M$ i ideał $\mathfrak{a}$ taki, że $M=\mathfrak{a}M$ i $M\neq 0$}
+
+Mam pierścień $k[x_1,...,x_n,...]$
+
+\subsection*{ZADANIE 11.}
+{\slshape\color{yellow}Niech $A$ będzie pierścieniem $\neq0$. Pokaż, że $A^n\cong A^m\implies m=n$.
+
+[Niech $\mathfrak{m}$ będzie ideałem maksymalnym w $A$ i niech $\phi:A^n\to A^m$ będzie izomorfizmem. Wtedy $1\otimes\phi:(A/\mathfrak{m})\otimes A^n\to (A/\mathfrak{m})\otimes A^m$ jest izomorfizmem pomiędzy przestrzeniami liniowymi wymiaru $m$ i $n$ nad ciałem $k=A/\mathfrak{m}$. Czyli $m-n$.]
+
+\begin{itemize}
+    \item Jeżeli $\phi:A^m\to A^n$ jest surjekcją, to $m\geq n$
+    \item Czy jeżeli $\phi:A^m\to A^n$ jest iniekcją, to $m\leq n$?
+\end{itemize}}
+
+Mamy $A^m\cong A^n$ i $\mathfrak{m}\triangleleft A$. 
+
+\begin{center}
+\begin{tikzcd}
+    A^n\arrow[r, "\cong"]\arrow[d]  &A^m\arrow[d]\\ 
+    (A/\mathfrak{m})^n\arrow[r, "\cong"]&(A/\mathfrak{m})^m
+\end{tikzcd}
+\end{center}
+
+i to niżej to jest przestrzeń liniowa, korzystamy z fakty dobrej określonowości wymiaru takich przestrzeni.
+
+
+Na surjekcję to działa, ale przy iniekcji niekoniecznie to się przenosi.
+
+Zakładamy nie wprost, że $m>n$ i mamy strzałkę $\phi:A^m\to A^n$. Będziemy uzasadniać, że ona ma nietrywialne jądro.
+
+\begin{center}
+\begin{tikzcd}
+    A^m\arrow[r]\arrow[rr, bend right=30, "\psi" below] &A^n\arrow[r, hookrightarrow] & A^m
+\end{tikzcd}
+\end{center}
+Niech $M$ będzie modułem z $A^k$.
+i $\psi\in End(A^m)$. Mamy, że dla $a_i\in A$
+$$\psi^k+...+a_1\psi^{k-1}+...+a_kid_{a^m}=0$$
+
+\begin{center}\begin{tikzcd}
+    A^k\arrow[r]\arrow[d]\arrow[dr, to path=|- (\tikztotarget)] & A^k\arrow[d]\\
+    M\arrow[r, "\psi" below] & M
+\end{tikzcd}\end{center}
+
+\subsection*{ZADANIE 12.}
+{\slshape\color{blue}Niech $M$ będzie skończenie generowanym $A$-modułem i $\phi:M]to A^n$ będzie surjektywnym homomorfizmem. Pokaż, że $ker(\phi)$ jest skończenie generowany.
+
+[Niech $e_1,...,e_n$ będzie bazą $A^n$ i wybierzmy $u_i\in M$ takie, że $\phi(u_i)=e_i$. Pokaż, że $M$ jest sumą prostą $ker(\phi)$ i podmodułów generowanych przez $u_1,...,u_n$.}
+
+%\begin{center}
+%\begin{tikzcd}
+%    M\arrow[r, "\phi"]\arrow[d, leftrightarrow] & A^n\\
+%    \bigoplus\limits_{i\leq n}M_i\oplus ker(\phi)\arrow[ru, "\psi" below]
+%\end{tikzcd}
+%\end{center}
+%
+%$$\psi\begin{pmatrix}x\\a_1u_1\\...\\a_nu_n\end{pmatrix}=\begin{pmatrix}a_1e_1\\...\\a_ne_n\end{pmatrix}$$
+%
+%\podz{fore}
+
+Korzystamy ze wskazówki, czyli te $u_i$ istnieją tak jak chcemy. Niech $m\in M$, wtedy
+$$\phi(m)=\sum a_ie_i\implies m-\sum a_iu_i\in ker(\phi)$$
+Czyli $m\in M$ to jest suma czegoś z $\langle u_i\rangle$ i czegoś z $ker(\phi)$.
+
+Z tego wnioskujemy, że $ker(\phi)\cong M/\langle u_i\rangle$ i my mówimy, że to jest skończenie generowane, bo jest suriekcja z $M$ w to cóś.
+
+\subsection*{ZADANIE 13}
+{\slshape\color{yellow}Niech $f:A\to B$ będzie homomorfizmem pierścieni i niech $N$ będzie $B$-modułem. Patrzenie na $N$ jako na $A$-moduł poprzez restrykcję skalarów daje nam $B$-moduł $N_B=B\otimes_AN$. Pokaż, że homomorfizm $g:N\to N_B$ taki, że $y\mapsto1\otimes y$ jest iniekcją i że $g(N)$ jest składnikiem sumy $N_B$ (czyli $N_B=g(N)\oplus C$ dla pewnego $C$).
+
+[Zdefiniuje $p:N_B\to N$ przez $p(b\otimes y)=by$ i pokaż, że $N_B=Im(g)\oplus ker(p)$.]}
+
+To, że $g$ jest iniekcją to raczej widać. Bo wpp. 
+$$g(y)=1\otimes y=1\otimes y'=g(y')$$
+ale $y\neq y'$, czyli $1\otimes y\neq 1\otimes y'$.
+
+Definiuję $p$ tak jak mi każą. Po pierwsze, czym jest $ker(p)$? Na pewno będzie się w tym zawierać $ker(\phi)$ i jeszcze te $b$, dla których $by=0$.
+
+Weźmy sobie dowolny element $n\in N_B$, wtedy $n=b\otimes n'$. 
+
+Jeżeli $bn'\neq 0$
+
+Jeżeli $bn'\neq 0$, to mogę powiedzieć, że to jest $b(1n')=bp(g(n'))$. Wpp. $b\otimes n'\in ker(p)$.
+
+
+
+
+
+
+
 
 
 

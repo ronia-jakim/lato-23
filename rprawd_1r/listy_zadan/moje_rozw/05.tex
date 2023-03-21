@@ -1,0 +1,174 @@
+\documentclass{article}
+
+\usepackage[polish, light-theme]{../../../lecture_notes}
+
+\title{Lista 5\smallskip\\{\normalsize Rachunek Prawdopodobieństwa}}
+\author{Weronika Jakimowicz}
+\date{23.03.2023}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\excercise[u]{Czy $\lambda$-układ jest zawsze $\sigma$-ciałem?}
+
+Definicja $\lambda$-układu to rodzina $\mathfrak{L}$ podzbiorów $\Omega$ taka, że
+\begin{itemize}
+  \item $\Omega\in\mathfrak{L}$
+  \item $A,B\in\mathfrak{L}$ i $A\subseteq B\implies B\setminus A\in\mathfrak{L}$
+  \item $A_1\subseteq A_2\subseteq...\in \mathfrak{L}\implies\bigcup A_i\in\mathfrak{L}$
+\end{itemize}
+
+Rozważam sobie teraz zdarzenia niezależne. I ja mówię, że one tworzą taki system, ale nie ma to szansy być sigma ciałem? Może kiedyś to zrobię.
+
+\excercise{Niech $X$ i $Y$ będą zmiennymi losowymi. Oznaczmy przez $\mu_X$ i $\mu_Y$ ich rozkłady. Pokaż, że rodzina
+$$\mathfrak{L}=\{A\in Bor(\R)\;:\;\mu_X(A)=\mu_Y(A)\}$$
+jest $\lambda$-układem.}
+
+Najpierw zajebiście by było poznać definicje tych rozkładów. XD
+
+\excercise[u]{Dane są miary probabilistyczne $\mu$ na $\R$ oraz $\nu$ na $\R^2$ takie, że dla dowolnych $s,t$
+$$\mu((-\infty,s])\cdot\mu([t,\infty))=\nu((-\infty,s]\times[t,\infty)).$$
+Pokaż, że $\nu=\mu\otimes\mu$.}
+
+Z wykładu Miara i Całka wiemy, że $Bor(\R\times\R)=Bor(\R)\otimes Bor(\R)$, czyli każdy zbiór z $Bor(\R^2)$ zapisuje się jako $A\times B$ dla $A,B\in Bor(\R)$.
+
+Co więcej wiem, że $Bor(\R)=\sigma(\{(-\infty,s]\;:\;s\in\R\})=\sigma(\{[t,\infty)\;:\;t\in\R\})$, czyli
+$$Bor(\R^2)=\sigma(\{(-\infty,s]\times[t,\infty)\})$$
+Nasza miara $\nu$ zachowuje się jak miara produktowa na zbiorze generujących $\sigma$-ciało $Bor(\R^2)$, czyli zachowuje się tak na całym $Bor(\R^2)$ i to kończy dowód?
+
+%$$Bor(\R)\otimes Bor(\R)=Bor(\R\times\R),$$
+%równość z Miary i Całki. Wystarczy pokazać dwie inkluzje:
+%
+%$\subseteq $
+%
+%Dla $U\subseteq\R$ otwartego mamy, że $U\times\R$ jest otwarte, czyli rodzina $\{U\in Bor(\R)\;:\;U\times\R\in Bor(\R\times \R)\}$ jest równa $Bor(\R)$. 
+%
+%
+%Niech $A,B\in Bor(\R)$.
+%$$A\times B=(A\times \R)\cap (\R\times B)\in Bor(\R\times \R)$$
+%
+%
+%
+%Po pierwsze wiemy, że 
+%$$\sigma(\{(-\infty,s]\;:\;s\in\R\})=Bor(\R)$$
+%$$\sigma(\{[t,\infty)\;:\;t\in\R\})=Bor(\R).$$
+%
+%Skorzystam z wiedzy z Miary i całki. Niech $F=(\infty, s]\times [t,\infty)$ i oznaczmy przez
+%$$F_x=\{y\;:\;(x,y)\in F\}$$
+
+\newpage
+
+\excercise[d]{Dane są dwie miary probabilistyczne $\mu$ i $\nu$ na $(\R,Bor(\R))$ takie, że dla dowolnego $t>0$ mamy $\nu([-t,t])=\mu([-t,t])$. Uzasadnić, że $\mu(A)=\nu(A)$ dla dowolnego symetrycznego zbioru $A\in Bor(\R)$.}
+
+Rozważmy zbiór $A\cap [-n,n]$, bo $A=\bigcup\limits_{n\in\N}(A\cap[-n,n])$ i $\mu(A)=\lim\limits_{n\to\infty}\mu(A\cap [-n,n])$, tak samo dla $\nu$. 
+
+Zauważmy, że $A\cap[-n,n]$ można zapisać jako przeliczalne operacje na zbiorach postaci
+$$[-p,-q)\cup(q, p],$$
+więc wystarczy, że ograniczę się do zbiorów takiej postaci. Mamy
+\begin{align*}
+    \mu([-p,-q)\cup(q,p])&=\mu([-p,p]\setminus[-q,q])=\mu([-p,p])-\mu([-q,q])=\\
+    &=\nu([-p,p])-\nu([-q,q])=\nu([-p,p]\setminus[-q,q])=\nu([-p,-q)\cup(q,p])
+\end{align*}
+
+\excercise[d]{Wykonujemy niezależnie ciąg identycznych doświadczeń, w których prawdopodobieństwo pojedynczego sukcesu wynosi $p$. Niech $X$ będzie momentem otrzymania pierwszego sukcesu. Wyznacz rozkład zmiennej losowej $X$.}
+
+Czyli mam zdarzenie $\omega$, które jest ciągiem $(P, P, P, ..., P, S, P, S,...)$ kodującym czy na $i$-tym miejscu był sukces czy porażka. Wtedy $X(\omega)=i$ takie, że $\omega_i=S$ i dla każdego $k<i$ $\omega_k=P$.
+
+Czyli to jest rozkład dyskretny i $\prob{X=k}=(1-p)^{k-1}p$?
+
+\excercise[u]{Wykonujemy niezależnie ciąg identycznych doświadczeń, w których prawdopodobieństwo pojedynczego sukcesu wynosi $p_n=\frac{\lambda}{n},\lambda>0$. W ciągu jednej sekundy wykonujemy $n$ doświadczeń. Niech $X_n$ będzie momentem otrzymania pierwszego sukcesu. Wyznacz rozkład zmiennej losowej $X_n$. Zbadaj zachowanie tego rozkładu, gdy $n\to\infty$.}
+
+Tutaj jest rozkład Poisson'a, ale dlaczego?
+
+Przy nieskończoności można de l'Hopitalem to zrobić, ale uuuu
+
+\newpage
+
+\excercise[u]{Dane są miary probabilistyczne $\mu$ na $\R$ oraz $\nu$ na $\R^2$ takie, że dla dowolnych $s,t$
+$$\mu((-\infty,s])\cdot\mu([t,\infty))=\nu((-\infty,s]\times[t,\infty)).$$
+Pokaż, że $\nu=\mu\otimes\mu$.}
+
+Z wykładu Miara i Całka wiemy, że $Bor(\R\times\R)=Bor(\R)\otimes Bor(\R)$, czyli każdy zbiór z $Bor(\R^2)$ zapisuje się jako $A\times B$ dla $A,B\in Bor(\R)$.
+
+Co więcej wiem, że $Bor(\R)=\sigma(\{(-\infty,s]\;:\;s\in\R\})=\sigma(\{[t,\infty)\;:\;t\in\R\})$, czyli
+$$Bor(\R^2)=\sigma(\{(-\infty,s]\times[t,\infty)\})$$
+Nasza miara $\nu$ zachowuje się jak miara produktowa na zbiorze generujących $\sigma$-ciało $Bor(\R^2)$, czyli zachowuje się tak na całym $Bor(\R^2)$ i to kończy dowód?
+
+\excercise[d]{Wykaż, że rozkłady z dwóch poprzednich zadań mają tzw. własność braku pamięci: jeśli $X$ ma rozkład geometryczny bądź wykładniczy, to
+$$\prob{X>t+s|X> t}=\prob{X>s}$$
+%$$\text{\scriptsize\color{blue}chyba słaba nierówność, bo inaczej nie działało}$$
+gdzie $s,t\in\N$ dla rozkładu geometrycznego oraz $s,t\in\R^+$ w przypadku rozkładu wykładniczego. (*) Udowodnij, że są to jedyne procesy z własnością braku pamięci: geometryczny na $\N$, wykładniczy jest jedynym bezatomowym rozkładem z brakiem pamięci na $\R^+$.}
+
+Rozkład geometryczny to
+$$\prob{X=k}=(1-p)^{k-1}p$$
+Mi jest potrzebne prawdopodobieństwo, ze pierwsze zwycięstwo będzie powyżej $t+s$, jeżeli pierwsze zwycięstwo jest powyżej $t$?
+\begin{align*}
+    \prob{X>t+s|X> t}=\frac{\prob{X>t+s\text{ i }X> t}}{\prob{X>t}}=\frac{(1-p)^{t+s-1}}{(1-p)^{t-1}}=(1-p)^{s}=\prob{X>s}
+\end{align*}
+
+Analogicznie dla rozkładu wykładniczego $\prob{X>k}=\int_k^\infty\lambda e^{-\lambda x}dx=e^{-\lambda k}$:
+\begin{align*}
+    \prob{X>t+s|X> t}=\frac{\prob{X>t+s\text{ i }X> t}}{\prob{X>t}}=\frac{e^{-\lambda(t+s)}}{ e^{-\lambda t}}=e^{-\lambda s}
+\end{align*}
+
+\sep{txtColor}
+
+Przed udowodnieniem, że są to jedyne rozkłady z amnezją, przyjżyjmy się co konkretnie mówi mi warunek z zadania:
+$$\prob{X>t+s|X\geq t}=\frac{\prob{X>t+s}}{\prob{X\geq t}}=\prob{X>s}$$
+czyli
+$$\prob{X>t+s}=\prob{X>s}\prob{X> t}.$$
+Zacznijmy od rozkładu geometrycznego, tzn. $t,s\in\N$. Będę chciała potęgować, co się stanie, gdy $t=s$. Popatrzmy, co się wtedy dzieje:
+$$\prob{X>t+t}=\prob{X>t}\prob{X> t}=\prob{X>t}^2$$
+$$\prob{X>2t+t}=\prob{X>2t}\prob{X>t}=\prob{X>t}^2\prob{X>t}=\prob{X>t}^3$$
+i indukcyjnie,
+$$\prob{X>(n+1)t}=\prob{X>nt+n}=\prob{X>nt}\prob{X>t}=\prob{X>t}^{n+1}.$$
+W takim razie:
+$$\prob{X>t}=\prob{X>t\cdot1}=\prob{X>1}^t.$$
+
+Dalej, wiemy, że albo $\prob{X>t}$ albo $\prob{X\leq t}$, czyli
+$$\prob{X>t}+\prob{X\leq t}=1$$
+a z kolei $\prob{X\leq t}$ to $\prob{X=t}$ lub $\prob{X\leq t-1}$. Czyli
+$$\prob{X=t}=1-\prob{X>t}-\prob{X\leq t-1}.$$
+Z kolei $\prob{X\leq t-1}$ mogę rozpisać korzystając z 
+$$\prob{X>t}=\prob{X>(t-1)+1}=\prob{X>(t-1)}\prob{X>1}$$
+$$\prob{X>(t-1)}=\frac{\prob{X>t}}{\prob{X>1}}$$
+$$\prob{X\leq t-1}=1-\frac{\prob{X>t}}{\prob{X>1}}$$
+Czyli dostaję, że
+$$\prob{X=t}=1-\prob{X>t}-1+\frac{\prob{X>t}}{\prob{X>1}}$$
+nazwijmy $p=\prob{X=1}$, wtedy 
+$$\prob{X>1}=1-\prob{X\leq 1}=1-\prob{X=1}=1-p.$$
+Ostatecznie:
+$$\prob{X=t}=\frac{\prob{X>t}}{1-p}-\prob{X>t}=\frac{(1-p)^t}{1-p}-(1-p)^t=(1-p)^{t-1}(1-(1-p))=p(1-p)^{t-1}$$
+a to jest już nasz znajomy rozkład geometryczny.
+\medskip
+
+%Rozważamy teraz rozkład eksponencjalny
+%i od razu skorzystam z tego, co pokazałam wyżej, że
+%$$\prob{X>t}=\prob{X>1}^t.$$
+Rozważam teraz rozkład eksponencjalny, który tym na przykład różni od geometrycznego, że przyjmuje argumenty nienaturalne. Zwykle jeśli mamy dane argumenty naturalne to chcemy przejść do wymiernych i dalej do rzeczywistych, to korzystamy najpierw z ułamków, a potem z granic ciągów tychże ułamków. Spróbujmy więc jakoś uzyskać $\prob{X>\frac{p}{q}}$, wtedy zmieniając $p,q$ będę miała wszystkie liczby wymierne
+$$\prob{X>p}=\prob{X>\frac{p}{2}+\frac{p}{2}}=\prob{X>\frac{p}{2}}^2$$
+$$\prob{X>1}^{\frac{p}{2}}=\prob{X>\frac{p}{2}}$$
+%$$\prob{X>p}=\prob{X>\frac{2p}{3}+\frac{p}{3}}=\prob{X>\frac{p}{3}+\frac{p}{3}}\prob{X>\frac{p}{3}}=\prob{X>\frac{p}{3}}^3$$
+%$$\prob{X>1}^{\frac{p}{3}}=\prob{X>\frac{p}{3}}$$
+i podobnie jak wcześniej
+$$\prob{X>1}^p=\prob{X>\frac{p(q-1)}{q}+\frac{p}{q}}=\prob{X>\frac{p(q-2)}{q}}\prob{X>\frac{p}{q}}=\prob{X>\frac{p}{q}}^q$$
+$$\prob{X>1}^{\frac{p}{q}}=\prob{X>\frac{p}{q}}.$$
+%Chcę dojść teraz do $\prob{X=\frac{p}{q}}$, a potem przejść do liczb rzeczywistych.
+%$$\prob{X=\frac{p}{q}}=1-\prob{X>\frac{p}{q}}-\prob{X<\frac{p}{q}}$$
+W tym przypadku bardzo ciężko będzie mi przechodzić do równości, ale mogę za to powiedzieć, że dla każdej liczby niewymiernej $x$ znajdę ciąg liczb wymiernych taki, że $x=\lim q_n$. Jeśli będziemy teraz brać ten ciąg podchodzący od dołu, to dostaniemy ciąg wstępujących prawdopodobonieństw, bo $X>q_n\implies X>q_{n+1}$ gdy $q_{n+1}>q_n$. Czyli będziemy mogli przejść z prawą stroną do granicy i dostać
+$$\prob{X>x}=\prob{X>1}^x$$
+nazwijmy teraz $\prob{X>1}=e^{-\lambda}$, żeby otrzymać
+$$\prob{X>x}=\left(e^{-\lambda}\right)^x=e^{\ln(e^{-\lambda})^x}=e^{x\ln e^{-\lambda}}=e^{-x\lambda}$$
+co jest dokładnie postacią rozkładu geometrycznego.
+
+
+
+
+
+
+
+
+
+
+\end{document}
