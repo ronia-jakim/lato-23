@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+\newtheoremstyle{qqStyle}
+    {\topskip}
+    {\topskip}
+    {}
+    {}
+    {\bfseries}
+    {.}
+    {3pt}
+    {}
+
+
+\newtheoremstyle{itStyle}
+    {\topskip}
+    {\topskip}
+    {\slshape}
+    {}
+    {\bfseries}
+    {.}
+    {3pt}
+    {}
+
+\theoremstyle{qqStyle}
+
+\graphicspath{{./}}
+
+\title{Functions}
+\author{Weronika Jakimowicz}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\declaretheorem[title={Question}]{qq}
+%\newtheorem{qq}{Question}
+%\newtheorem{th}{Theorem}
+\declaretheorem[title={Theorem}, numberlike=qq, style=itStyle]{theorem}
+\declaretheorem[title={Question}, numberlike=qq, style=itStyle]{qq2}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\newcommand{\Y}{YES}
+
+\begin{document}
+\maketitle
+
+The modern concept of functions $f:\R\to\R$ has a surprisingly complicated history and grew mostly out of an attempt to solve various problems arising from earlier concepts.
+
+One such problem is the following related to differentiability:
+
+\begin{qq}\label{q1}
+Are all functions $f:\R\to\R$ differentiable?
+\end{qq}
+
+The answer here is obviously no, as seen by the following example:
+$$
+f(x):=|x|:=\Bigg\{\begin{array}{ll}&x+1\text{, if }x\leq 0\\&x\text{, if }x<0\end{array}
+$$
+
+Obviously, the only problem here is the point $x=0$. So one might ask the following question:
+\begin{qq}\label{q2}
+Are all functions $f$ differentiable at all but finitely many points?
+\end{qq}
+
+Again, the answer is no, as seen by the following example:
+$$
+f(x):=\chi_\Q(x):=\left\{\begin{array}{ll}&1,\text{ if }x\in\Q\\&0,\text{ if }x\notin\Q\end{array}\right.
+$$
+
+Clearly, this function is discountinuous at all points though and hence one can ask the following even more precise question:
+
+\begin{qq2}\label{q3}
+Are all continuous functions differentiable everywhere but a countable number of points?
+\end{qq2}
+
+This however is also wrong:
+
+\begin{theorem}\label{thm4}
+There are functions $f:\R\to\R$ which are everywhere continuous but nowhere differentiable.
+\end{theorem}
+
+Examples like the one in \Cref{thm4} were found by Karl Weierstraß pictured in \Cref{fig1} contemplating how to destroy $19$th century real Analysis.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=4]{./kotecek.png}
+\caption{An utter madman!}\label{fig1}
+\end{center}
+\end{figure}
+
+\begin{equation}
+\begin{array}{|| c | c | c ||}
+\hline \hline
+f(x):= & f'(x) & \int f(t)dt\\
+\hline
+
+x & 1 & \frac{x^2}{2}\\
+\hline
+e^x & e^x & e^x\\
+\hline
+\sin(x) & \cos(x) & -\cos(x)\\
+\hline
+x^{-1} & -x^{-2} & \log(x)\\
+\hline \hline
+\end{array}\label{tab1}
+\end{equation}
+\medskip
+
+We want to note differentials and integral of some well-known functions in \labelcref{tab1}. Summarising some of the examples above we obtain in \Cref{tab2} below. One can reasonably ask what the issue with the integrability of $\chi_\Q$ is. We shall return to this later.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline
+$f(x):=$ & continuous & differentiable & integrable\\
+\hline \hline
+$x$ & \Y&\Y&\Y\\
+\hline
+$|x|$&\Y&Everywhere but $0$&\Y\\
+\hline
+$\chi_\Q(x)$&\multicolumn{2}{|c|}{Nowhere continuous or differentiable}&Ehhh...\\
+\hline
+
+Weierstraß functions&\Y&NO&\Y\\
+\hline
+\end{tabular}
+
+\caption{This whole mess!}\label{tab2}
+\end{table}
+
+(Remark: Question 3 must not be italicised by using a font-environment like \emph{emph}.)
+
+\end{document}

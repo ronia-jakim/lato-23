@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{../../notatki}
+\usepackage{../../lecture_notes}
 
 \begin{document}
 
@@ -128,21 +128,21 @@ $$g:A[X]\otimes_AM\to M[X]$$
 $$g(\left(\sum a_ix^i\right)\otimes m)=\sum a_imx^i$$
 
 \subsection*{ZADANIE 7.}
-{\color{yellow}\emph{Niech $\pideal$ będzie ideałem pierwszym w $A$. Pokaż, że $\pideal[X]$ jest ideałem pierwszym w $A[X]$. Czy jeśli $\mathfrak{m}$ jest ideałem pierwszym w $A$, to $\mathfrak{m}[X]$ jest ideałem maksymalnym w $A[X]$?}}
+{\color{yellow}\emph{Niech $\mathfrak{p}$ będzie ideałem pierwszym w $A$. Pokaż, że $\mathfrak{p}[X]$ jest ideałem pierwszym w $A[X]$. Czy jeśli $\mathfrak{m}$ jest ideałem pierwszym w $A$, to $\mathfrak{m}[X]$ jest ideałem maksymalnym w $A[X]$?}}
 \smallskip
 
-Z poprzedniego zadania wiem, że $\pideal[X]\cong A[X]\otimes_A\pideal$, bo każdy ideał jest $A$-modułem.
+Z poprzedniego zadania wiem, że $\mathfrak{p}[X]\cong A[X]\otimes_A\mathfrak{p}$, bo każdy ideał jest $A$-modułem.
 
 Czy mogę określić sobie homomorfizm (ewualuację w $x=1$)
 $$f:A[X]\to A$$
 $$f(\sum a_ix^i)=\sum a_i$$
-i wtedy $f^{-1}[\pideal]$ jest całością $\pideal[X]$ jest ideałem pierwszym jako przeciwobraz ideału pierwszego przez homomorfizm. 
+i wtedy $f^{-1}[\mathfrak{p}]$ jest całością $\mathfrak{p}[X]$ jest ideałem pierwszym jako przeciwobraz ideału pierwszego przez homomorfizm. 
 
 Alternatywnie
-$$(A[X])/(\pideal[X])\cong (A/\pideal)[X]$$
+$$(A[X])/(\mathfrak{p}[X])\cong (A/\mathfrak{p})[X]$$
 w pierwszym zadaniu z poprzedniego rozdziału pokazywaliśmy, że $f\in A[X]$ jest dzielnikiem zera $\iff$ $af=0$ dla pewnego $a\in A\setminus\{0\}$,
 czyli $\iff$ w $A$ są dzielniki zera.
-Ale w $(A/\pideal)$ dzielników zera nie ma, bo wszystkie są w $\pideal$ który to wyrzuciliśmy, więc śmiga.
+Ale w $(A/\mathfrak{p})$ dzielników zera nie ma, bo wszystkie są w $\mathfrak{p}$ który to wyrzuciliśmy, więc śmiga.
 
 \subsection*{ZADANIE 9.}
 \emph{\color{yellow}TO WYPADAŁOBY ZROBIĆ, ALE NIEEE CHCEEE MIII SIEEEE}
@@ -172,7 +172,7 @@ i z tego wynika, że $Coker(u)=\mathfrak{a}Coker(u)$ i z lematu Nakayamy wiem, �
 Mam pierścień $k[x_1,...,x_n,...]$
 
 \subsection*{ZADANIE 11.}
-{\slshape\color{yellow}Niech $A$ będzie pierścieniem $\neq0$. Pokaż, że $A^n\cong A^m\implies m=n$.
+{\slshape\color{blue}Niech $A$ będzie pierścieniem $\neq0$. Pokaż, że $A^n\cong A^m\implies m=n$.
 
 [Niech $\mathfrak{m}$ będzie ideałem maksymalnym w $A$ i niech $\phi:A^n\to A^m$ będzie izomorfizmem. Wtedy $1\otimes\phi:(A/\mathfrak{m})\otimes A^n\to (A/\mathfrak{m})\otimes A^m$ jest izomorfizmem pomiędzy przestrzeniami liniowymi wymiaru $m$ i $n$ nad ciałem $k=A/\mathfrak{m}$. Czyli $m-n$.]
 
@@ -234,7 +234,7 @@ Czyli $m\in M$ to jest suma czegoś z $\langle u_i\rangle$ i czegoś z $ker(\phi
 Z tego wnioskujemy, że $ker(\phi)\cong M/\langle u_i\rangle$ i my mówimy, że to jest skończenie generowane, bo jest suriekcja z $M$ w to cóś.
 
 \subsection*{ZADANIE 13}
-{\slshape\color{yellow}Niech $f:A\to B$ będzie homomorfizmem pierścieni i niech $N$ będzie $B$-modułem. Patrzenie na $N$ jako na $A$-moduł poprzez restrykcję skalarów daje nam $B$-moduł $N_B=B\otimes_AN$. Pokaż, że homomorfizm $g:N\to N_B$ taki, że $y\mapsto1\otimes y$ jest iniekcją i że $g(N)$ jest składnikiem sumy $N_B$ (czyli $N_B=g(N)\oplus C$ dla pewnego $C$).
+{\slshape\color{blue}Niech $f:A\to B$ będzie homomorfizmem pierścieni i niech $N$ będzie $B$-modułem. Patrzenie na $N$ jako na $A$-moduł poprzez restrykcję skalarów daje nam $B$-moduł $N_B=B\otimes_AN$. Pokaż, że homomorfizm $g:N\to N_B$ taki, że $y\mapsto1\otimes y$ jest iniekcją i że $g(N)$ jest składnikiem sumy $N_B$ (czyli $N_B=g(N)\oplus C$ dla pewnego $C$).
 
 [Zdefiniuje $p:N_B\to N$ przez $p(b\otimes y)=by$ i pokaż, że $N_B=Im(g)\oplus ker(p)$.]}
 
@@ -242,13 +242,79 @@ To, że $g$ jest iniekcją to raczej widać. Bo wpp.
 $$g(y)=1\otimes y=1\otimes y'=g(y')$$
 ale $y\neq y'$, czyli $1\otimes y\neq 1\otimes y'$.
 
-Definiuję $p$ tak jak mi każą. Po pierwsze, czym jest $ker(p)$? Na pewno będzie się w tym zawierać $ker(\phi)$ i jeszcze te $b$, dla których $by=0$.
+Chyba mam pokazać, że $ker(p)$ i $Im(g)$ są rozłączne i coś z $N$ jest albo w $ker$ albo w $Im$. Ale to chyba widać.
 
-Weźmy sobie dowolny element $n\in N_B$, wtedy $n=b\otimes n'$. 
+Niech $b\otimes n\in N_B$. Wtedy mamy dwie opcje:
+\begin{itemize}
+    \item $bn=0$, wtedy $b\otimes n\in ker(p)$
+    \item $bn\neq 0$, wtedy $b\otimes n=1\otimes bn\in Im(g)$.
+\end{itemize}
 
-Jeżeli $bn'\neq 0$
+\subsection*{ZADANIE 14}
+{\slshape\color{yellow}Częściowo uporządkowany zbiór $I$ jest skierowany, jeżeli dla każdej pary $i,j\in I$ istnieje $k\in I$ takie, że $i\leq k\;\land\;j\leq k$.
 
-Jeżeli $bn'\neq 0$, to mogę powiedzieć, że to jest $b(1n')=bp(g(n'))$. Wpp. $b\otimes n'\in ker(p)$.
+Niech $A$ będzie pierścieniem, $I$ będzie skierowanym zbiorem i niech $\{M_i\}_{i\in I}$ będzie rodziną $A$ modułów indeksowanych przez $I$. Dla każdej pary $i,j\in I$ takiej, że $i\leq j$ niech $\mu_{ij}:M_i\to M_j$ będzie $A$-homomorfizmem i załóżmy, że poniższe aksjomaty są spełnione:
+\begin{itemize}
+    \item $\mu_{ii}$ jest identycznością na $M_i$
+    \item $\mu_{ik}=\mu_{jk}\circ\mu_{ij}$ zawsze gdy $i\leq j\leq k$.
+\end{itemize}
+Wtedy moduł $M_i$ i homomorfizmy $\mu_{ij}$ są skierowanym systemem $\mathbb{M}=(M_i,\mu_{ij})$ nad zbiorem skierowanym $I$.
+
+Skonstruujemy $A$-moduł $M$ nazywany skierowaną granicą skierowanego systemu $\mathbb{M}$. Niech $C$ będzie sumą prostą $M_i$ i zidentyfikuj każdy moduł $M_i$ z jego kanonicznym obrazem w $C$. Niech $D$ będzie podmodułem $C$ generowanym przez wszystkie elementy postaci $x_i-\mu_{ij}(x_i)$ dla $i\leq j$ i $x_i\in M_i$. Niech $M=C/D$ i $\mu:C\to M$ będzie projekcją, $\mu_i$ oznacza restrykcję $\mu$ do $M_i$.
+
+Moduł $M$, albo bardziej dokładnie, para składająca się z $M$ i rodziny homomorfizmów $\mu_i:M_i\to M$ jest nazywana skierowaną granicą skierowanego systemu $\mathbb{M}$ i piszemy $\lim\limits_{\tikz[baseline] \draw[-stealth,line width=.4pt] (0ex,0.4ex) -- (3ex,0.4ex);} M_i$. Z tej konstrukcji jasno wynika, że $\mu_i=\mu_j\circ\mu_{ij}$ gdy tylko $i\leq j$.
+}
+
+No konstrukcja, coś tutaj mam zrobić sama?
+
+\subsection*{ZADANIE 15.}
+{\slshape\color{blue}
+W sytuacji jak w zadaniu 14, pokaż, że każdy element $M$ może być zapisany w formie $\mu_i(x_i)$ dla pewnego $i\in I$ i pewnego $x_i\in M_i$.
+
+Pokaż, że jeśli $\mu_i(x_i)=0$, wtedy istnieje $j\geq i$ takie, że $\mu_{ij}(x_i)=0$ w $M_j$.
+}
+
+Widzę to. Teraz pokazać.
+
+%\begin{center}
+%\begin{tikzcd}
+%    C=\bigoplus M_i\arrow[r, "\mu"] & M\\
+%    M_i\arrow[ur, "\mu_i"]\arrow[u]&\\
+%\end{tikzcd}
+%\end{center}
+Weźmy element $x\in M$. Wtedy $x=\sum x_i+D$ dla $x_i\in M_i$. Ale mamy zbiór uporządkowany, czyli istnieje $j$ takie, że $\sum x_i+D=\sum\limits_{i\leq j}x_i+D$. To mogę sobie wszystko rzucić na $M_j$, to znaczy zrobić
+$$y_j=\sum\mu_{ij}(x_i)\in M_j.$$
+ Wtedy
+ $$\sum\limits_{i\leq j}x_i-\sum\limits_{i\leq j}\mu_{ij}(x_i)=\sum\limits_{i\leq j}(x_i-\mu_{ij}(x_i))\in D$$
+Czyli $\sum\limits_{i\leq j}x_i=\sum\limits_{i\leq j}\mu_{ij}(x_i)$ w środku $C/D=M$, czyli
+$$x=y_j+D=\mu_j(y_j)$$
+\medskip
+
+Jeżeli $\mu_i(x_i)=0$, to $x_i\in D$? A to znaczy, że $x_i-\mu_{ij}(x_i)=x_i$ dla pewnego $j$, czyli $\mu_{ij}(x_i)=0$? 
+
+\subsection*{ZADANIE 16.}
+{\slshape\color{yellow}
+Pokaż, że skierowana granica jest wyznaczona (z dokładnością do izomorfizmu) przez następującą własność. Niech $N$ będzie $A$-modułem i dla każdego $i\in I$ niech $\alpha_i:M_i\to N$ będzie homomorfizmem  $A$-modułów takim, że $\alpha_i=\alpha_j\circ\mu_{ij}$ kiedy $i\leq j$. Wtedy istnieje jedyny homomorfizm $\alpha:M\to N$ taki, że $\alpha_i=\alpha\circ\mu_i$ dla wszystkich $i\in I$.
+}
+
+\begin{center}
+\begin{tikzcd}
+    & M \arrow[dr, "\alpha", dashed]&\\
+    M_i\arrow[rr, "\alpha_i"]\arrow[dr, "\mu_{ij}"]\arrow[ur, "\mu_i"] &  & N\\
+    & M_j\arrow[ur, "\alpha_{j}"]
+\end{tikzcd}
+\end{center}
+
+To, że taka istnieje to widać z diagramu. Teraz co, gdyby były dwie takie strzałki? $\alpha'$ i $\alpha$? Wtedy
+$$\alpha_i=\alpha\circ\mu_i$$
+$$\alpha_i=\alpha'\circ\mu_i$$
+a z drugiej strony
+$$\alpha_i=\alpha_j\circ\mu_{ij}=(\alpha\circ\mu_j)\circ\mu_{ij}$$
+$$\alpha_i=\alpha_j\circ\mu_{ij}=(\alpha'\circ\mu_j)\circ\mu_{ij}$$
+
+\section*{ZADANIE 17.}
+\excercise{Niech $\mathbb{M}=(M_i,\mu_{ij}),\mathbb{N}=(N_i,\nu_{ij})$ będą skierowanymi układami $A$ modułów nad tym samym skierowanym zbiorem. Niech $M,N$ będą skierowaną granicą i $\mu_i$}
+
 
 
 
