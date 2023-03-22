@@ -1,17 +1,24 @@
 \documentclass{article}
 
-\usepackage[polish, light-theme]{../../../lecture_notes}
+\usepackage[polish]{../../../lecture_notes}
 
 \title{Lista 5\smallskip\\{\normalsize Rachunek Prawdopodobieństwa}}
 \author{Weronika Jakimowicz}
 \date{23.03.2023}
+\usepackage{ocgx}
 
 \begin{document}
 \maketitle
 \thispagestyle{empty}
 
-\excercise[u]{Czy $\lambda$-układ jest zawsze $\sigma$-ciałem?}
+\begin{center}
+\slshape Eksperymentowałam z LaTeXem i plik trzeba pobrać, żeby zobaczyć ukryte rozwiązania. Po kliknięciu na "Odkrycie rozwiązania" powinno się pojawić spisane rozumowanie.
+\end{center}
 
+\excercise[d]{Czy $\lambda$-układ jest zawsze $\sigma$-ciałem?}
+\switchocg{ocg1}{\textbf{\color{orange}Odkrycie rozwiązania}}
+
+\begin{ocg}{OCG 1}{ocg1}{0}
 Definicja $\lambda$-układu to rodzina $\mathfrak{L}$ podzbiorów $\Omega$ taka, że
 \begin{itemize}
   \item $\Omega\in\mathfrak{L}$
@@ -19,18 +26,42 @@ Definicja $\lambda$-układu to rodzina $\mathfrak{L}$ podzbiorów $\Omega$ taka,
   \item $A_1\subseteq A_2\subseteq...\in \mathfrak{L}\implies\bigcup A_i\in\mathfrak{L}$
 \end{itemize}
 
-Rozważam sobie teraz zdarzenia niezależne. I ja mówię, że one tworzą taki system, ale nie ma to szansy być sigma ciałem? Może kiedyś to zrobię.
+%Rozważam sobie teraz zdarzenia niezależne. I ja mówię, że one tworzą taki system, ale nie ma to szansy być sigma ciałem? Może kiedyś to zrobię.
+
+Ustalmy sobie dowolne $F\in\Omega$. Niech 
+$$\mathfrak{L}=\{A\in\Omega\;:\;\prob{A}\prob{F}=\prob{A\cap F}\}.$$
+Jest to $\lambda$-układ, bo
+\begin{itemize}
+    \item $\Omega\in\mathfrak{L}$, bo $\prob{\Omega\cap F}=\prob{F}1$, a $\prob{\Omega}=1$
+  \item Jeżeli $A\subseteq B$ oraz $A,B\in\mathfrak{L}$, to wtedy
+  \begin{align*}
+     \prob{(B\setminus A)\cap F}&=\prob{(B\cap A^c)\cap F}\overset{(\heartsuit)}{=}\prob{A\cap B^c}\prob{F}=\prob{B\setminus A}\prob{F}
+  \end{align*}
+  gdzie $(\heartsuit)$ wynika z faktu, że sigma ciało generowane przez zdarzenia niezależne jest niezależne. Czyli $A\setminus B\in\mathfrak{L}$/
+   \item Jeśli $A_1\subseteq A_2\subseteq...\in\mathfrak{L}$. Teraz chcę pokazać, że $\bigcup A_i\in\mathfrak{L}$. Ale równoważnie mogę pokazać, że 
+   $$\Omega\setminus\bigcup A_i=\left[\bigcup A_i\right]^c=\bigcap A_i^c\in\mathfrak{L}$$
+   korzystając z tego, że $\Omega\in\mathfrak{L}$ i $\bigcup A_i\subseteq \Omega$. No dobrze, ale to, że $\prob{F\cap\bigcap A_i^c}$, gdzie $\prob{F\cap A_i^c}=\prob{F}\prob{A_i^c}$ już było pokazywane na poprzedniej liście i nie ma sensu powtarzać ten dowód.
+\end{itemize}
+
+Czyli zbiór zdarzeń niezależnych jest $\lambda$-układem, teraz chcę pokazać konkretny przykład, kiedy nie jest to $\sigma$-ciało.
+
+Rzucamy dwa razy monetą. Niech $A$ będzie zbiorem, że pierwszy wypadnie orzeł, wtedy $\prob{A}=\frac12$. Niech $\mathfrak{L}$ zawiera zdarzenia niezależne od $A$, to na przykład $\{(O, O), (R, R)\}$ i $\{(O, O), (R, O)\}$. Oba te zdarzenia są niezależna od $A$, czyli należą do $\mathfrak{L}$. Ale już ich suma, czyli $\{(O, O), (R, R), (R, O)\}$ nie należy do $\mathfrak{L}$.
+\end{ocg}
+
+
 
 \excercise{Niech $X$ i $Y$ będą zmiennymi losowymi. Oznaczmy przez $\mu_X$ i $\mu_Y$ ich rozkłady. Pokaż, że rodzina
 $$\mathfrak{L}=\{A\in Bor(\R)\;:\;\mu_X(A)=\mu_Y(A)\}$$
 jest $\lambda$-układem.}
-
-Najpierw zajebiście by było poznać definicje tych rozkładów. XD
+%Najpierw zajebiście by było poznać definicje tych rozkładów. XD
 
 \excercise[u]{Dane są miary probabilistyczne $\mu$ na $\R$ oraz $\nu$ na $\R^2$ takie, że dla dowolnych $s,t$
 $$\mu((-\infty,s])\cdot\mu([t,\infty))=\nu((-\infty,s]\times[t,\infty)).$$
 Pokaż, że $\nu=\mu\otimes\mu$.}
 
+\switchocg{ocg2}{\textbf{\color{orange}Odkrycie bardzo wymachanego rozwiązania}}
+
+\begin{ocg}{OCG2}{ocg2}{1}
 Z wykładu Miara i Całka wiemy, że $Bor(\R\times\R)=Bor(\R)\otimes Bor(\R)$, czyli każdy zbiór z $Bor(\R^2)$ zapisuje się jako $A\times B$ dla $A,B\in Bor(\R)$.
 
 Co więcej wiem, że $Bor(\R)=\sigma(\{(-\infty,s]\;:\;s\in\R\})=\sigma(\{[t,\infty)\;:\;t\in\R\})$, czyli
@@ -57,9 +88,13 @@ Nasza miara $\nu$ zachowuje się jak miara produktowa na zbiorze generujących $
 %Skorzystam z wiedzy z Miary i całki. Niech $F=(\infty, s]\times [t,\infty)$ i oznaczmy przez
 %$$F_x=\{y\;:\;(x,y)\in F\}$$
 
-\newpage
-
+\end{ocg}
 \excercise[d]{Dane są dwie miary probabilistyczne $\mu$ i $\nu$ na $(\R,Bor(\R))$ takie, że dla dowolnego $t>0$ mamy $\nu([-t,t])=\mu([-t,t])$. Uzasadnić, że $\mu(A)=\nu(A)$ dla dowolnego symetrycznego zbioru $A\in Bor(\R)$.}
+
+\switchocg{ocg3}{\textbf{\color{orange}Odkrycie bardzo wymachanego rozwiązania}}
+
+\begin{ocg}{OCG3}{ocg3}{0}
+ALE TO WIDAAAAĆ
 
 Rozważmy zbiór $A\cap [-n,n]$, bo $A=\bigcup\limits_{n\in\N}(A\cap[-n,n])$ i $\mu(A)=\lim\limits_{n\to\infty}\mu(A\cap [-n,n])$, tak samo dla $\nu$. 
 
@@ -70,36 +105,35 @@ więc wystarczy, że ograniczę się do zbiorów takiej postaci. Mamy
     \mu([-p,-q)\cup(q,p])&=\mu([-p,p]\setminus[-q,q])=\mu([-p,p])-\mu([-q,q])=\\
     &=\nu([-p,p])-\nu([-q,q])=\nu([-p,p]\setminus[-q,q])=\nu([-p,-q)\cup(q,p])
 \end{align*}
-
+\end{ocg}
 \excercise[d]{Wykonujemy niezależnie ciąg identycznych doświadczeń, w których prawdopodobieństwo pojedynczego sukcesu wynosi $p$. Niech $X$ będzie momentem otrzymania pierwszego sukcesu. Wyznacz rozkład zmiennej losowej $X$.}
 
+\switchocg{ocg4}{\textbf{\color{orange}Odkrycie bardzo wymachanego rozwiązania}}
+
+\begin{ocg}{OCG4}{ocg4}{0}
 Czyli mam zdarzenie $\omega$, które jest ciągiem $(P, P, P, ..., P, S, P, S,...)$ kodującym czy na $i$-tym miejscu był sukces czy porażka. Wtedy $X(\omega)=i$ takie, że $\omega_i=S$ i dla każdego $k<i$ $\omega_k=P$.
 
 Czyli to jest rozkład dyskretny i $\prob{X=k}=(1-p)^{k-1}p$?
+\end{ocg}
 
 \excercise[u]{Wykonujemy niezależnie ciąg identycznych doświadczeń, w których prawdopodobieństwo pojedynczego sukcesu wynosi $p_n=\frac{\lambda}{n},\lambda>0$. W ciągu jednej sekundy wykonujemy $n$ doświadczeń. Niech $X_n$ będzie momentem otrzymania pierwszego sukcesu. Wyznacz rozkład zmiennej losowej $X_n$. Zbadaj zachowanie tego rozkładu, gdy $n\to\infty$.}
 
+\switchocg{ocg5}{\textbf{\color{orange}Odkrycie bardzo wymachanego rozwiązania}}
+
+\begin{ocg}{OCG5}{ocg5}{0}
 Tutaj jest rozkład Poisson'a, ale dlaczego?
 
 Przy nieskończoności można de l'Hopitalem to zrobić, ale uuuu
-
-\newpage
-
-\excercise[u]{Dane są miary probabilistyczne $\mu$ na $\R$ oraz $\nu$ na $\R^2$ takie, że dla dowolnych $s,t$
-$$\mu((-\infty,s])\cdot\mu([t,\infty))=\nu((-\infty,s]\times[t,\infty)).$$
-Pokaż, że $\nu=\mu\otimes\mu$.}
-
-Z wykładu Miara i Całka wiemy, że $Bor(\R\times\R)=Bor(\R)\otimes Bor(\R)$, czyli każdy zbiór z $Bor(\R^2)$ zapisuje się jako $A\times B$ dla $A,B\in Bor(\R)$.
-
-Co więcej wiem, że $Bor(\R)=\sigma(\{(-\infty,s]\;:\;s\in\R\})=\sigma(\{[t,\infty)\;:\;t\in\R\})$, czyli
-$$Bor(\R^2)=\sigma(\{(-\infty,s]\times[t,\infty)\})$$
-Nasza miara $\nu$ zachowuje się jak miara produktowa na zbiorze generujących $\sigma$-ciało $Bor(\R^2)$, czyli zachowuje się tak na całym $Bor(\R^2)$ i to kończy dowód?
+\end{ocg}
 
 \excercise[d]{Wykaż, że rozkłady z dwóch poprzednich zadań mają tzw. własność braku pamięci: jeśli $X$ ma rozkład geometryczny bądź wykładniczy, to
 $$\prob{X>t+s|X> t}=\prob{X>s}$$
 %$$\text{\scriptsize\color{blue}chyba słaba nierówność, bo inaczej nie działało}$$
 gdzie $s,t\in\N$ dla rozkładu geometrycznego oraz $s,t\in\R^+$ w przypadku rozkładu wykładniczego. (*) Udowodnij, że są to jedyne procesy z własnością braku pamięci: geometryczny na $\N$, wykładniczy jest jedynym bezatomowym rozkładem z brakiem pamięci na $\R^+$.}
 
+\switchocg{ocg6}{\textbf{\color{orange}Odkrycie rozwiązania}}
+
+\begin{ocg}{OCG6}{ocg6}{1}
 Rozkład geometryczny to
 $$\prob{X=k}=(1-p)^{k-1}p$$
 Mi jest potrzebne prawdopodobieństwo, ze pierwsze zwycięstwo będzie powyżej $t+s$, jeżeli pierwsze zwycięstwo jest powyżej $t$?
@@ -161,6 +195,36 @@ $$\prob{X>x}=\prob{X>1}^x$$
 nazwijmy teraz $\prob{X>1}=e^{-\lambda}$, żeby otrzymać
 $$\prob{X>x}=\left(e^{-\lambda}\right)^x=e^{\ln(e^{-\lambda})^x}=e^{x\ln e^{-\lambda}}=e^{-x\lambda}$$
 co jest dokładnie postacią rozkładu geometrycznego.
+\end{ocg}
+
+\excercise{(\emph{Twierdzenie Poissona}) Niech $p_{k,n}$ będzie prawdopodobieństwem zajścia dokładnie $k$ sukcesów w $n$ próbach Bernoulliego o prawdopodobieństwie pojedynczego sukcesu $p_n$. Dla każdego ustalonego $k\in\N$ wyznacz
+$$\lim\limits_{n\to\infty}p_{k,n},\text{ jeśli }\lim\limits_{n\to\infty}np_n=\lambda>0$$
+}
+\switchocg{ocg7}{\textbf{\color{orange}Odkrycie rozwiązania}}
+
+\begin{ocg}{OCG7}{ocg7}{0}
+Po pierwsze, wiemy ile wynosi $p_{k,n}={n\choose k}p_n^{k}(1-p_n)^{n-k}$. Teraz chcemy sprawdzić, co się dzieje w nieskończoności
+\begin{align*}
+    \lim\limits_{n\to\infty}p_{k,n}&=\lim\limits_{n\to\infty}{n\choose k}p_n^{k}(1-p_n)^{n-k}=\lim\limits_{n\to\infty}\frac{n!}{(n-k)!k!}(1-\frac{np_n}{n})^{-k}\left[\frac{np_n}{n}\right]^{k}\left[1-\frac{np_n}{n}\right]^n
+\end{align*}
+W tym momencie wypadałoby skorzystać z tego, co wiem o $\lim np_n$. Niech $\lambda_n=np_n$, wtedy $\lim\limits_{n\to\infty}\lambda_n=\lambda$ i mamy, że
+\begin{align*}
+    \lim\limits_{n\to\infty}p_{k,n}&=\lim\limits_{n\to\infty}\frac{n!}{(n-k)!k!}(1-\frac{\lambda_n}{n})^{-k}\frac{\lambda_n^k}{n^k}\left[1-\frac{\lambda_n}{n}\right]^n=\\
+    &=\frac{\lambda^k}{k!}\lim\limits_{n\to\infty}\frac{n(n-1)...(n-k+1)}{n^k}\left[1-\frac{\lambda_n}{n}\right]^{-k}\left[1-\frac{\lambda_n}{n}\right]^n
+\end{align*}
+\end{ocg}
+
+\switchocg{ocg7a}{\textbf{\color{orange}Druga część}}
+
+\begin{ocg}{OCGG7}{ocg7a}{0}
+I teraz to jest tak. Ułamek na początku, tj. $\frac{n(n-1)...(n-k+1)}{n^k}$ będzie zbiegać do $1$, bo wydzielamy górę i dół przez $n^k$, i na górze zostaje nam $1(1-\frac1n)(1-\frac2n)...$, co zbiega do $1$. Drugi czynnik, czyli $\left[1-\frac{\lambda_n}{n}\right]^{-k}$ zbiega do $1$, bo $\frac{\lambda_n}{n}$ to na górze zbiega do stałej, to na dole do nieskończoności, więc całość zbiega do $0$ i tak naprawdę podnowimy $(1-0)$ do potęgi $-k$. Ostatni czynnik jest najciekawszy, ale wiem, że $(1-\frac{a}{n})^n\to e^{-a}$, czyli w tym wypadku mam
+$$\lim\left[1-\frac{\lambda_n}{n}\right]^n=e^{-\lim\lambda_n}=e^{-\lambda}.$$
+Łącząc wszystko w całość, dostaję
+$$\lim\limits_{n\to\infty}p_{k,n}=\frac{\lambda^k}{k!}e^{-\lambda}$$
+\end{ocg}
+
+
+
 
 
 
