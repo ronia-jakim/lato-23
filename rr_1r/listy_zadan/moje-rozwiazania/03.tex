@@ -159,9 +159,14 @@ $$\color{purple}f(y, t)=\begin{cases}
     1
 \end{cases}$$
 
-Na chłopski rozum, to rozwiązanie jest po prostu złożeniem dwóch rozwiązań i wynosi $y=|t|$, ale jeśli popatrzymy na to ze strony Picarda, to dla
-$$R=\{(t, y)\;:\;0\leq t\leq t+a,\;|y|\leq b\}$$
-funkcja $f$ nie jest ciągła, bo od prawej strony dąży do $1$, ale $f(0, 0)=-1$ i nie śmiga.
+%Na chłopski rozum, to rozwiązanie jest po prostu złożeniem dwóch rozwiązań i wynosi $y=|t|$, ale jeśli popatrzymy na to ze strony Picarda, to dla
+%$$R=\{(t, y)\;:\;0\leq t\leq t+a,\;|y|\leq b\}$$
+%funkcja $f$ nie jest ciągła, bo od prawej strony dąży do $1$, ale $f(0, 0)=-1$ i nie śmiga.
+
+$y'=f(y,t),\quad y(0)=0$
+$$f(y, t)=\begin{cases}-1&t\leq 0,\;y\in\R\\1&t>0,\;y\in\R\end{cases}$$
+to nie jest ciągłe, więc nie będzie rozwiązania mocnego (czyli ciągłego). Ale słabe rozwiązanie już istnieje, bo spełnia odcałkowane równanie liniowe czy coś takiego. Są zwykle całe klasy rozwiązań i w zleżności od tego, na co chcemy patrzeć to to znajdziemy. Tutaj słabym rozwiązaniem jest
+$$y(t)=|t|$$
 
 \subsection*{ZADANIE 8.}
 \emph{\color{blue}Udowodnij, że równanie $y'=f(y)$, $y\in\R$, $f\in C^1$, nie może mieć rozwiązań okresowych różnych od stałej.}
@@ -177,6 +182,14 @@ funkcja $f$ nie jest ciągła, bo od prawej strony dąży do $1$, ale $f(0, 0)=-
 Co by znaczyło, że $y'$ ma rozwiązanie okresowe różne od stałej? Po pierwsze, $0\neq y'(t_0)=f(y_0)$ i co więcej, jeśli $y$ jest rozwiązaniem i $y$ jest okresowe, to dla $T$ - okresu $y$ musi zajść
 $$\int_0^Ty'ds=0,$$
 bo ona rośnie o tyle samo co maleje, więc pochodna jest symetryczna względem $OX$. Czyli również pochodna jest okresowa.
+
+%\begin{illustration}
+%    \draw[->] (0, -2)--(0,4);
+%    \draw[->] (-2, 0)--(4, 0);
+%    \draw (0, 0.2)..controls(1, 1)and(2, 4)..(3, 2) node [right] {y};
+%\end{illustration}
+
+$y(t+T)=y(t)$. Dla każdego $t\in[0,T]$ z twierdzenia o wartości średniej mamy, ze $(\exists\;c\in [0, T])\;y'(c)=\frac1{T}|y(T)-y(0)|=0$, co oznacza, że $f(y(c))=0$. Mając funkcję $y(t)\equiv y(c)$, ale mamy jedyne takie rozwiązanie, więc koniec.
 
 \subsection*{ZADANIE 9.}
 \emph{\color{purple}Udowodnij, że $\R^n$ z normami (a) euklidesową, (b) taksówkową, są przestrzeniami Banacha.}
@@ -235,6 +248,69 @@ $$\|F(x)-F(y)\|\leq k\|x-y\|$$
     &\leq|\lambda|\max\int_a^b|\sin(u(y)+x)-\sin(v(y)+x)|dy\\
     &=|\lambda|\int_a^b\|u-v\|dy=|\lambda|(b-a)\|u-v\|
 \end{align*}
-czyli $\lambda\in[0, {1\over b-a}]$? Znaczy chyba to mi śmiga nawet jeśli $[a, b]\neq[0, 1]$, bo $\sin x$ jest prawie liniowy.
+Ostatnie przejście jest z mean value theorem:
+$$\frac{|\sin(a)-\sin(b)|}{|a-b|}=|\cos(c)|\leq 1$$
+$$|\sin(a)-\sin(b)|\leq |a-b|$$
+Czyli $\lambda\in[0, {1\over b-a}]$? 
+%Znaczy chyba to mi śmiga nawet jeśli $[a, b]\neq[0, 1]$, bo $\sin x$ jest prawie liniowy.
+
+\subsection*{ZADANIE 12}
+{\slshape\color{purple}Znajdź $b>0$ oraz domknięty podzbiór przestrzeni $C[0,b]$ na którym operator $F$
+$$F(u)(x)=1+\int_0^xu^3(y)dy$$
+jest kontrakcją}
+
+Krzysztof wskazuje jawnie taką przestrzeń (na co Maciek mówi zbiór pusty)
+
+\begin{align*}
+    \|F(u)(x)-F(u)(x)\|&=\|\int_0^xu^3(y)-v^3(y)dy\|=\max\left|\int_0^xu^3(y)-v^3(y)dy\right|=\max\left|\int_0^x(u-v)(u^2+uv+v^2)dy\right|\leq\\
+    &\leq\max\int_0^x|u-v||u^2+uv+v^2|dy\leq\int_0^x\|u-v\||u^2+uv+v^2|dy=\\
+    &=\|u-v\|\int_0^x|u^2+uv+v^2|dy=(\text{\Coffeecup})
+\end{align*}
+I to jest moment, w którym wybieramy przestrzeń
+$$M=\{u\in C[0,b]\;:\;\|u\|\leq A\}$$
+\begin{align*}
+(\text{\Coffeecup})&\leq\|u-v\|\int_0^x|u^2|+|uv|+|v|dy\leq\|u-v\|\int_0^b|u^2|+|uv|+|v^2|dy\\
+&\leq\|u-v\|\int_0^b\|u^2\|+\|uv\|+\|v^2\|dy\leq \|u-v\|\int_0^b[a^2+a^2+a^2]dy=\\
+&=\|u-v\|b\cdot3a^2
+\end{align*}
+czyli $3ba^2<1$.
+
+\subsection*{ZADANIE 16.}
+{\slshape\color{purple}Zbadaj ilość rozwiązań zagadnienia w zależności od wartości parametru $a$:
+
+(a)$y'=y^a.\;y(0)=0$
+}
+
+Rozważamy przypadki
+\begin{enumerate}
+    \item $a\geq 1\implies y'(t)=y^a(t)$ i z twierdzenia Picarda mamy jedyność rozwiązań
+    \item $0<a<1\implies$ nieskończenie wiele rozwiązań. Pochodna $y^a$ nie jest ciągłe, więc mamy tylko istnienie z Peano. Znajdźmy je
+    $$\int\frac{y'}{y^a}ds=\int 1ds$$
+    $$Ay^{1-a}-C=t$$
+    $$y=\begin{cases}0&t<C\\(t-C)^{\frac{1}{1-a}}A\end{cases}$$
+    wymagamy, żeby $y(0)=0$
+    \item $a=0$, to $y=t$ i to jest jedyne z Picarda
+    \item $a\leq 0$ $y'(t)=y^{-|a|}(t)$, czyli rozwiązujemy $y'y^{|a|}=1$ i to już jest proste. 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}

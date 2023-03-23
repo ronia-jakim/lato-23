@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Problem List 3\smallskip\\{\normalsize Algebra 2r}}
+\author{Weronika Jakimowicz}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+\begin{problem}[3]{u}
+Let $v_1,...,v_n$ be vertices of a regular $n$-gon inscribed in a circle on the plane $\R^2$ with equation $x^2+y^2=1$. What is the linear dimension over $\Q$ of the system of vectors $v_1,...,v_n$.
+\end{problem}
+
+Without the loss of generality, I will consider polygons with one vertex in $(1, 0)$. Then, the remaining vertices are in $(\cos\frac{2\pi k}{n},\sin\frac{2\pi k}{n})$, for $k=1,...,n-1$. Now, let me switch where I live and let us consider roots of
+$$x^n-1.$$
+We have $n$ roots $z_1,...,z_n$ in $\C$. Notice, that $z_k=\cos\frac{2\pi k}{n}+i\sin\frac{2\pi k}{n}$ and adding complex numbers works almost like adding vectors in $2D$. The minimal polynomial over $\Q$ of each of $z_k$ is $F_n(x)$. Therefore, $dim(v_1,...,v_n)=dim(z_1,...,z_n)=\phi(n)$, where $\phi$ is Euler's function.
+
+\begin{problem}[4]{u}
+    Assume that $K\supseteq F(p)$ is a finite field extension of $F(p)$. Assume that $a\in K$ is a primitive root of $1$ of degree $m$. Let $n$ be the smallest natural number $>0$ such that $m|p^n-1$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $n$ equals the degree of $a$ over $F(p)$
+        \item Prove that $n|\phi(m)$. Give an example where $n<\phi(m)$.
+    \end{enumerate}
+\end{problem}
+
+Well, I think I kinda showed it before XD
+
+
+
+\begin{problem}[6]{d}
+    Find the minimal polynomials over $\Q$ fot the following numbers:
+    
+    (a) $\sqrt{2}+\sqrt{3}$
+\end{problem}
+\begin{align*}
+    x-(\sqrt{2}+\sqrt{3})=0\\
+    x-\sqrt{2}=\sqrt{3}\\
+    (x-\sqrt{2})^2=3\\
+    x^2-x2\sqrt{2}+2=3\\
+    x^2-1=x2\sqrt{2}\\
+    (x^2-1)^2=8x^2\\
+    x^4-2x^2+1=8x^2\\
+    {\color{blue}x^4-10x^2+1=0}
+\end{align*}
+
+
+
+
+\end{document}

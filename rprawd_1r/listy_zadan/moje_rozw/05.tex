@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[polish]{../../../lecture_notes}
+\usepackage[polish, light-theme]{../../../lecture_notes}
 
 \title{Lista 5\smallskip\\{\normalsize Rachunek Prawdopodobieństwa}}
 \author{Weronika Jakimowicz}
@@ -223,12 +223,55 @@ $$\lim\left[1-\frac{\lambda_n}{n}\right]^n=e^{-\lim\lambda_n}=e^{-\lambda}.$$
 $$\lim\limits_{n\to\infty}p_{k,n}=\frac{\lambda^k}{k!}e^{-\lambda}$$
 \end{ocg}
 
+\excercise{Zmienna losowa $X$ ma rozkład normalny $N(0,1)$. Niech $Y=e^X$, $Z=X^2$. Wyznacz dystrybuanty i gęstości zmiennych losowych $X$ i $Y$.}
+
+\switchocg{ocg8}{\textbf{\color{orange}Internet górą}}
+
+\begin{ocg}{OCG8}{ocg8}{1}
+Wiemy, że zmienna losowa $X$ ma dystrybuantę
+$$\prob{X\leq t}=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^te^{-\frac{s^2}{2}}ds$$
+i funkcję gęstości $f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$. Teraz chcę to samo dla $Y$ i $Z$.
 
 
+Internet podpowiada, żeby użyć całki Stieltjesa, co ma sens, bo liczymy $Y$ względem $X$. Czyli jesteśmy sobie nieświadomi, co się dzieje pod spodem i myślimy, że funkcja gęstości $Y$ to $e^s$. Ale to $s$ nie jest byle jakie, bo my tam pod spodem ukryjemy dystrybuantę $X$? Ma to sens, bo całkujemy względem miary.
+\begin{align*}
+    \prob{Y\leq t}&=\int_{-\infty}^te^sdF(s)=\int_{-\infty}^te^sf(s)ds=A\int_{-\infty}^te^{\frac{1}{2}[2s-s^2]}ds=\\
+    &=Ae^\frac{1}{2}\int e^{-\frac{1}{2}[s^2-2s+1]}ds
+\end{align*}
+i to już jest zwinięcie do wzoru skróconego mnożenia i podstawienie/
 
+Drugi podpunkt analogicznie.
 
+Ale to można by było chyba zrobić podobnie co ja niżej, rozbijając na przypadki.
 
+\begin{align*}
+\prob{Y=e^X\leq t}&=\prob{\ln(Y)=X\leq\ln(t)}=\int_{-\infty}^{\ln(t)}e^{-\frac{s^2}{2}}ds=\\
+&=\begin{bmatrix}u=e^s\\\ln(u)=s\\du=e^sds=uds\end{bmatrix}=\int_{-\infty}^{t}e^{-\frac{\ln(u)^2}{2}}\frac{1}{u}du=\\
+&=\int_{-\infty}^t
+\end{align*}
 
+\end{ocg}
+
+\excercise{Zmienna losowa $X$ ma rozkład Cauchy'ego, tzn. rozkład z gęstością
+$$g(x)=\frac1\pi\frac{1}{1+x^2}$$
+Udowodnij, że $\frac1{X}$ ma ten sam rozkład co $X$.}
+
+\switchocg{ocg9}{\textbf{\color{orange}Odkrycie machania}}
+
+\begin{ocg}{OCG9}{ocg9}{0}
+
+1. $t> 0$
+\begin{align*}
+=\int_t^\infty g(x)dx=\prob{X\geq \frac1t}&=\prob{t\leq \frac1X} 
+\end{align*}
+
+wolfram wysiadł :<
+
+2. $t<0$
+\begin{align*}
+\prob{X\geq\frac1t}=\prob{t\leq\frac1X}
+\end{align*}
+\end{ocg}
 
 
 

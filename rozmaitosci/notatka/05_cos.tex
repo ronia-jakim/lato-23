@@ -1,0 +1,142 @@
+\section{Różniczkowalność odwzorowań pomiędzy rozmaitościami}
+
+\subsection{Podstawowe definicje}
+\begin{definition}[odwzorowanie różniczkowalne w punkcie]
+Niech $M,N$ będą gładkimi rozmaitościami i niech $f:M\to N$ będzie ciągłe. Niech $p\in M$ i $q=f(p)$. 
+\begin{enumerate}
+    \item Takie $f$ jest \important{$C^r$-różniczkowalne} ($r\in\N\cup\{\infty\}$) w punkcie $p$, jeśli mapa $(U,\phi)$ wokół $p$ i $(V,\psi)$ wokół $q$ złożenie 
+$$\psi\circ f\circ\phi^{-1}:\phi(U\cap f^{-1}(V))\to \psi(V)$$
+jest $C^r$-różniczkowalne w punkcie $\phi(p)$. Złożenie jak wyżej oznaczamy $\color{blue}\hat{f}=\psi\circ f\circ\phi^{-1}$ nazywamy \acc{wyrażeniem $f$ w mapach $(U,\phi),(V,\psi)$}
+{\large\color{orange}TUTAJ OBRAZEK}
+    \item $f$ jest \important{$C^r$ na otoczeniu $p$} jeśli dla dowolnych $(U,\phi),(V,\psi)$ jak wyżej $\hat{f}$ posiada ciągłe pochodne cząstkowe rzędu $\leq r$ na pewnym otwartym otoczeniu $\phi(p)$.
+\end{enumerate}
+\end{definition}
+
+\begin{fact}[różniczkowalność dla dowolnej $\iff$ dla jednej]
+Jeżeli $f$ wyrażona w mapach $(U,\phi),(V,\psi)$ jest $C^r$-różniczkowalna w punkcie $\phi(p)$, to wyrażona w dowolnych mapach $(U',\phi'),(V',\psi')$ gładko zgodnych z mapami poprzednimi jest $C^r$-różniczkowalna.
+\end{fact}
+
+\begin{proof}
+
+Niech $\hat{f}=\psi f \phi^{-1}$, $\overline{f}=\psi' f(\phi')^{-1}$. Niech $\phi(\phi')^{-1}=\alpha$, $\psi'\psi^{-1}=\beta$ będą odwzorowaniami przejścia.
+
+Zauważmy, że $\overline{f}=\beta \hat{f}\alpha$, bo każdy umie rozpisać to sobie. Ponieważ wszystkie te funkcje są $C^r$ lub gładkie, to i całość jest $C^r$. Oczywiście pomijamy dowodzenie, że wszystkie te złożenia są dobrze określone na odpowiednich wzorach.
+\end{proof}
+
+\begin{definition}[globalna $C^r$-różniczkowalność]
+    Odwzorowanie $f:M\N$ to jest [wszędzie] $C^r$-różniczkowalne, jeżeli jest $C^r$ różniczkowalne na otoczeniu każdego punktu $p\in M$.
+\end{definition}
+
+\begin{fact}[równoważna def globalnej $C^r$-różniczkowalności]\label{fact4:4}
+    $f$ jest globalnie $C^r$-różniczkowalna $\iff$ dla dowolnych $(U,\phi)$ na $M$ i $(V,\psi)$ na $N$ $\psi f\phi^{-1}$ jest różniczkowalne na całej swojej dziedzinie określoności.
+\end{fact}
+\begin{proof}
+Trywialne i pozostawiamy jako ćwiczenie.
+\end{proof}
+
+\begin{remark}[weryfikowalnie $C^r$]
+    $C^r$-różniczkowalność $f$ wystarczy weryfikować tylko dla map z ustalonych atlasów na $M$ i $N$, co wynika z faktu \ref{fact4:4}
+\end{remark}
+
+\begin{fact}[złożenie gładkich jest gładkie]
+    Złożenie gładkich odwzorowań pomiędzy gładkimi rozmaitościami jest gładkie.
+\end{fact}
+
+\begin{proof}
+    Ustalmy, z czym tu mamy doczynienia. Niech $f:M\to N$ i $g:N\to P$ będą gładkimi odwzorowaniami między rozmaitościami. Niech $p\in M, q=f(p)\in N, s=g(q)=g(f(p))\in P$. Niech $(U,\phi),(V,\psi),(W,\xi)$ będą mapami wokół $p,q,s$. Wiemy, że $\psi f\phi^{-1}$ i $\xi g\psi^{-1}$ są gładkie. 
+
+    Zauważmy, ze na odpowiednio mniejszym otwartym otoczeniu punktu $\phi(p)$ zachodzi następująca równość odwzorowań. Mianowicie, jeśli wyrazimy to złożone odwzorowanie $g\circ f$ w mapach $(U,\phi),(W,\xi)$, to zachodzi równość:
+    $$\xi(f\circ g)\phi^{-1}=(\xi g\psi^{-1})(\psi f\phi^{-1})$$
+    i to jest w jakimś podzbiorze $\R^n$, więc jest gładkie i rzeczywiste. Stąd złożenie dwóch takich funkcji jest gładkie na pewnym otoczeniu otwartym $p$. Ale to zachodzi dla dowolnego punktu $p\in M$, skąd wynika globalna gładkość.
+\end{proof}
+
+Im dalej w las będziemy coraz bardziej leniwi i zamiast pisać dowody pokroju tego co wyżej, będziemy widzieć że to z definicji i nie pisać dowodów $\star\star\star$.
+
+\begin{fact}[rząd jakobianu jest dobrze określony]
+    Dla gładkiego odwzorowania $f:M\to N$, rząd macierzy pierwszych pochodnych cząstkowych 
+    $$\left(\frac{\partial(\psi f\phi^{-1})_i}{\partial x_j}(\phi(p))\right)_{i,j}$$ 
+    nie zależy od wyboru map $(U,\phi),(V,\psi)$ wokół $p$ i $f(p)$.
+\end{fact}
+\begin{proof}Ćwiczenia\end{proof}
+
+\begin{definition}[rząd funkcji]
+\acc{Rzędem $f$ w punkcie $p\in M$} nazywamy rząd macierzy pierwszych pochodnych cząstkowych w punkcie $\phi(p)$.
+
+Rząd w $p$ równy zero określamy też terminem, że \acc{pochodna $f$ w $p$ jest zerowa}.
+\end{definition}
+
+\begin{definition}[dyfeomorfizm]
+    Gładkie odwzorowanie $f:M\to N$ jest \important{dyffeomorfizmem}, jeśli jest bijekcją i odwzorowanie odwrotne jest także gładkie. Rozmaitości między którymi istnieje dyfeomorfizm nazywamy \acc{dyfeomorficznymi} i traktujemy je jako jednakowe.
+\end{definition}
+
+\begin{fact}[wymiar dyfeomorficznych]
+    Dyfeomorficzne rozmaitości mają ten sam wymiar.
+\end{fact}
+\begin{proof}Ćwiczenia
+\end{proof}
+
+\begin{remark}[dygresja o dyfeomorfizmach]
+$ $\newline
+    \begin{enumerate}
+        \item $C^1$ vs $C^\infty$: pojęcia dyfeomorfizmu można zmodyfikować do $C^r$-dyfeomorfizmu.
+        
+        Wcześniej pokazaliśmy, że $C^1$-rozmaitość posiada $C^1$-zgodną $C^\infty$ strukturę. Jeśli dwie $C^\infty$-rozmaitości są $C^1$-dyfeomorficzne, to są również $C^\infty$-dyfeomorficzne. Stąd klasyfikacja $C^1$-rozmaitości (z dokładnością do $C^1$-dyfeomorfizmu) pokrywa się z klasyfikacją $C^\infty$-dyfeomorfizmów.
+        \item $C^0$ vs $C^\infty$: $C^0$ dyfeomorfizm to po prostu homeomorfizm. 
+        
+        Wiemy już, że istnieją $C^0$-rozmaitości nieposiadające żadnej $C^\infty$-struktury. Istnieją $C^0$-rozmaitości posiadające wiele (parami niedyfeomorficznych) $C^\infty$ struktur. 
+
+        Milnov pokazał, że istnieją $S^n$ dla $n\geq7$ takie, że istnieją takie parami niedyfeomorficzne strutktury. Otóż można sobie z tym zjechać do jeszcze niższych wymiarów, mianowicie Freedman i niezaleznie Donadson, że na $\R^4$ mamy nieprzeliczalnie wiele parami niedyfeomorficznych gładkich struktur. Dla wymiaróww $\leq3$ pokazano, że tak nie można egzotykować. 
+    \end{enumerate}
+\end{remark}
+
+\subsection{Dyskretne ilorazy rozmaitości gładkich przez grupy dyffeomorfizmów}
+
+\begin{definition}[grupa dyfeomorfizmów]
+    \acc{Grupa $G$ dyfeomorfizmów rozmaitości $M$} to dowolny niepusty zbiór dyfeomorfizmów $g:M\to M$, który jest zamknięty na operację składania i brania odwrotności. Elementem identycznym jest $id_M$, a odwrotne to dyfeomorfizmy odwrotne. Grupa $G$ działa przez dyfeomorfizmy na rozmaitość $M$.
+\end{definition}
+
+\begin{definition}[orbita, rozbicie]
+    \acc{Orbitą} punktu $x\in M$ względem działania $G$ na $M$ nazywamy zbiór
+    $$\color{blue}G(x)=\{g(x)\;:\;g\in G\}$$
+    Rodzina wszystkich orbit tworzy \acc[b]{rozbicie rozmaitości $M$} na podzbiory.
+\end{definition}
+Dwie orbity są albo całkiem rozłączne, albo pokrywają się.
+
+\begin{definition}
+    Zbiór orbit to $M/G$. $M/G$ tak naprawdę oznacze przestrzeń ilorazową działania $G$ na $M$, czyli przestrzeń topologiczną której elementami są orbity działania $G$ na $M$, zaś topologia jest \acc{ilorazowa}. To znaczy, że zbiór orbit jest otwarty w tym ilorazie $\iff$ suma tych orbit tworzy otwarty zbiór w $M$.
+\end{definition}
+
+Na przykład, jeśli $U\subseteq M$ jest otwarty, to $G(U)/G:=\{G(x)\;:\;x\in U\}$, to ten zbiór jest zbiorem otwarty w $M/G$. Co więcej, każdy otwarty zbiór w $M/G$ ma postać $G(U)/G$ jak wyżej. Czyli jeśli $\set{B}$ jest bazą na $M$, to wtedy 
+$$\{G(U)/G\;:\;U\in\set{B}\}$$
+jest bazą w $M/G$ [ćwiczenia].
+
+\begin{conclusion}
+    Iloraz $M/G$ zawsze posiada przeliczalną bazę na topologii.
+\end{conclusion}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -229,12 +229,37 @@
 
 \RequirePackage{cleveref}
 
+\RequirePackage{enumitem}
+
 \newcommand\excercise[2][r]{\begin{exc}%
     \ifx d#1{\slshape\color{purple}#2}\else
     \ifx u#1{\slshape\color{blue}#2}\else
     {\slshape\color{yellow}#2}%
     \fi\fi%
 \end{exc}}
+
+\newcommand\col[1]{%
+    \ifx d#1\color{purple}\else
+    \ifx u#1\color{blue}\else
+    \color{yellow}%
+    \fi\fi%
+}
+
+\NewDocumentEnvironment{problem}{o m}{%
+    \IfNoValueTF{#1}
+    {\begin{exc}\slshape 
+        \IfNoValueTF{#2}
+        {\color{yellow}}
+        {\col{#2}}
+    }
+    {\renewcommand{\theexc}{#1}\begin{exc}
+        \IfNoValueTF{#2} 
+        {\color{yellow}}
+        {\col{#2}}
+    }
+}
+    {\end{exc}}
+
 
 %%= = = = = = = = = = = = = = = = = = = = = = = = = = = =%%
 
