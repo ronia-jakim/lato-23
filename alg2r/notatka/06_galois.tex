@@ -76,8 +76,43 @@ $\impliedby$
 Załóżmy nie wprost, że na mocy \ref{uwaga:6:2}. istnieje $f\in Gal(\hat{K}/K)$ takie, że $f[L]\neq L$. Ale $L$ i $f[L]$ są wzajemnie sprzężone, więc wybierzmy $a\in L\setminus f[L]$. Symetrycznie, $a'\in f[L]\setminus L$, $f':f[L]\isomorphism L$ spełnia warunek \hyperref[aaaa]{{\color{yellow}(\Coffeecup)}}.
 
 Niech $w_a(x)$ jest wielomianem minimalnym $a$ nad $K$. Wtedy $w_a(X)=f(w_a(x))$, bo $f\restriction K=id_K$. Czyli $w_a$ jest wielomianem minimalnym dla $b=f(a)/K$. Czyli $L\overset{f}{\cong}_Kf[L]$. Z \hyperref[aaaa]{{\color{yellow}(\Coffeecup)}} wiemy, że $w_a(x)$ rozkłada się nad $L$ na czynniki liniowe. Czyli $w_a(x)....f[L]...$, co daje nam sprzeczność, bo $a$ jest pierwiastkiem $w_a(X)$, ale $a\notin f[L]$.
+\end{proof}
+
+\begin{definition}[skończone rozszerzenie ciała]
+Rozszerzenie ciał $K\subseteq L$ jest skończone, jeśli $[L:K]<\infty$.
+\end{definition}
+
+\begin{theorem}[skończone i normalne $\iff$ ciało rozkładu wielomianu]
+    Niech $K\subseteq L$ będą rozszerzeniami ciał. Wtedy następujące warunki są równoważne:
+    \begin{enumerate}
+        \item rozszerzenie $K\subseteq L$ jest skończone i normalne
+        \item $L$ jest ciałem rozkładu pewnego wielomianu
+    \end{enumerate}
+\end{theorem}
+\begin{proof} Bez straty ogólności załóżmy, że $K\subseteq L\subseteq\hat{K}$.
+
+$(2)\implies(1)$
+
+Załóżmy, że $L$ jest ciałem rozkłądu pewnego wielomianu. Wtedy $L=K(a_1,...,a_n)$, gdzie $a_1,...,a_n$ to wszystkie pierwiastki wielomianu $w(x)$ w $\hat{K}$.
+
+Niech $f\in Gal(\hat{K}/K)$, wtedy $f(a_1,...,f(a_n)$ to też wszystkie pierwiastki wielomianu $w(x)$. Stąd 
+$$f[L]=K(f(a_1),...,f(a_n))=K(a_1,...,a_n)=L,$$
+zatem rozszerzenie $K\subseteq L$ jest normalne i skończone.
+
+$(1)\implies(2)$
+
+Niech $K\subseteq L$ będzie skończone i normalne. Wtedy $L=K(a_1,...,a_n)$ dla pewnych $a_1,...,a_n\in L$ i $\{a_1,...,a_n\}$ będzie bazą $L$ nad $K$. Wtedy istnieje $w\in K[X]\setminus\{0\}$ takie, że $w(a_1)=...=w(a_n)=0$, zatem 
+$$L\supseteq\{\text{ pierwiastki }w\}\supseteq\{a_1,...,a_n\}.$$
+
 
 \end{proof}
+
+
+
+
+
+
+
 
 
 
