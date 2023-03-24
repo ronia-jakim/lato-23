@@ -37,3 +37,5 @@
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.1\else \numberline {6.1}Uwaga\fi \thmtformatoptarg {jednorodność $\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}$}}{26}{remark.6.1}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.2\else \numberline {6.2}Uwaga\fi }{26}{remark.6.2}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.3\else \numberline {6.3}Twierdzenie\fi \thmtformatoptarg {rozszerzenie jest normalne}}{27}{theorem.6.3}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}6.4\else \numberline {6.4}Definicja\fi \thmtformatoptarg {skończone rozszerzenie ciała}}{27}{definition.6.4}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.5\else \numberline {6.5}Twierdzenie\fi \thmtformatoptarg {skończone i normalne $\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Leftarrow \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}$ ciało rozkładu wielomianu}}{27}{theorem.6.5}%
