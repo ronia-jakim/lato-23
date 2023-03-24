@@ -78,9 +78,7 @@ Załóżmy nie wprost, że na mocy \ref{uwaga:6:2}. istnieje $f\in Gal(\hat{K}/K
 Niech $w_a(x)$ jest wielomianem minimalnym $a$ nad $K$. Wtedy $w_a(X)=f(w_a(x))$, bo $f\restriction K=id_K$. Czyli $w_a$ jest wielomianem minimalnym dla $b=f(a)/K$. Czyli $L\overset{f}{\cong}_Kf[L]$. Z \hyperref[aaaa]{{\color{yellow}(\Coffeecup)}} wiemy, że $w_a(x)$ rozkłada się nad $L$ na czynniki liniowe. Czyli $w_a(x)....f[L]...$, co daje nam sprzeczność, bo $a$ jest pierwiastkiem $w_a(X)$, ale $a\notin f[L]$.
 \end{proof}
 
-\begin{definition}[skończone rozszerzenie ciała]
-Rozszerzenie ciał $K\subseteq L$ jest skończone, jeśli $[L:K]<\infty$.
-\end{definition}
+Rozszerzenie ciał $K\subseteq L$ jest \important{skończone}, jeśli $[L:K]<\infty$.
 
 \begin{theorem}[skończone i normalne $\iff$ ciało rozkładu wielomianu]
     Niech $K\subseteq L$ będą rozszerzeniami ciał. Wtedy następujące warunki są równoważne:
@@ -104,20 +102,141 @@ $(1)\implies(2)$
 Niech $K\subseteq L$ będzie skończone i normalne. Wtedy $L=K(a_1,...,a_n)$ dla pewnych $a_1,...,a_n\in L$ i $\{a_1,...,a_n\}$ będzie bazą $L$ nad $K$. Wtedy istnieje $w\in K[X]\setminus\{0\}$ takie, że $w(a_1)=...=w(a_n)=0$, zatem 
 $$L\supseteq\{\text{ pierwiastki }w\}\supseteq\{a_1,...,a_n\}.$$
 
-
+{\large\color{orange}COŚ TUTAJ JEST NIE TAK}
 \end{proof}
 
+\textbf{Przykłady:} 
+\begin{enumerate}
+    \item Niech $K\subseteq L$ będą ciałami skończonymi, wtedy $K\subseteq L$ jest ciałem normalnym, bo $|L|=p^n$, $w_{p^n-1}(x)=x^{p^n-1}-1$ i $L$ jest ciałem rozkładu $w$ nad $K$.
+    \item $\Q\subseteq\Q(\sqrt[3]{2})$ to rozszerzenie skończone, ale nie normalne. Jest tak, bo
+        \begin{itemize}
+            \item $x^3-2$ jest nierozkładalny nad $\Q$ (kryterium Eisteina)
+            \item W ciele $\C$ $x^3-2$ ma $3$ pierwiastki, z których tylko jeden jest w $\Q(\sqrt[3]{2})\subseteq\R$a
+        \end{itemize}
+\end{enumerate}
 
+\begin{remark}
+    Niech $K\subseteq L\subseteq \hat{K}$ i niech $L_1$ będzie ciałem generowanym przez $\bigcup\{f[L]\;:\;f\in Gal(\hat{K}/K)\}$. Wtedy $L_1$ to \important{normalne domknięcie ciała $L$ w $\hat{K}$}. Wtedy
+    \begin{enumerate}
+        \item Rozszerzenie $K\subseteq L_1$ jest normalne
+        \item Jeśli $K\subseteq L_2$ i $L\subseteq L_2$ są normalne, to istnieje monomorfizm $L_1\to L_2$ taki, że $f\restriction K=id$.
+    \end{enumerate}
+\end{remark}
+\begin{proof}
+    (1) Z \ref{uwaga:6:2}
 
+    (2)
 
+    Bez straty ogólności załóżmy, że $K\subseteq L\subseteq L_2\subseteq\hat{K}$ i $K\subseteq L\subseteq L_2\subseteq\hat{K}$. Niech $f\in Gal(\hat{K}/K),f[L]\subseteq L_2$. W takim razkie $\bigcup\{f[L]\;:\;f\in Gal(\hat{K}/K)\}\subseteq L_2$, z czego wynika, że $L_1\subseteq L_2$.
+\end{proof}
 
+\subsection{Rozszerzenia rozdzielcze}
 
+\begin{bbox}
+\begin{itemize}[leftmargin=*]
+    \item Niech $K$ będzie ciałem i $a\in \hat{K}$. Mówimy, że $a$ jest \important{rozdzielczy nad $K$}, gdy wielomian minimalny $a$, $w_a(x)\in K[X]$
+    \item Algebraiczne rozszerzenie $K\subseteq L$ jest \important{rozszerzeniem rozdzieliczym}, gdy dla każdego $a\in L$ $a$ jest rozdzielcze nad $K$.
+    \item Wielimian $w(x)\in K[X]$ jest \important{rozdzielczy}, gdy $w$ ma tylko pierwiastki jednokrotne w $\hat{K}$.
+\end{itemize}
+\end{bbox}
 
+\begin{remark}[nierozkładalny a rozdzielczy]
+Załóżmy, że $w(x)\in K[X]$ jest wielomianem nierozkładalnym stopnia $>0$. Wtedy
+\begin{enumerate}
+    \item $w(x)$ jest rozdzielczy $\iff$ $w(x)$ i $w'(x)$ są względnie pierwsze
+    \item Jeśli $char(K)=0$, to $w$ jest rozdzielczy
+    \item Jeśli $char(K)=p>0$, to $w$ jest nierozdzielczy $\iff$ $w(x)\in K[X^p]$, to znaczy $w(x)=v(x^p$ dla pewnego $v(x)\in K[X]$).
+\end{enumerate}
+\end{remark}
+\begin{proof}
+    Dowód zadanie  z listy 4
+\end{proof}
 
+\textbf{Przykłady:}
+\begin{enumerate}
+    \item Niech $K\subseteq L$ będzie rozdzielcze i $K\subseteq L_1\subseteq L$. Wtedy $L_1\subseteq L$ też jest rozdzielcze [ćwiczenia]
+    \item Jeśli $char(K)=0$, to każde rozszerzenie algebraiczne ciała $K$ jest rozdzielcze.
+    \item Niech $K\subseteq L$ będą ciałami skończonymi. Wtedy $K\subseteq L$ jest rozdzielcze.
+    
+    Ciał $L$ rozkładu wielomianu $x^{p^n}-x$ o pierwiastkach jednokrotnych.
+    \item Rozszerzeni nierozdzielnicze: niech $K=F_p(X)\subseteq L=K(\sqrt[p]{x})$. Niech $w_a(T)=T^p-x\in K[T]$ będzie wielomianem minimalnym $a=\sqrt[p]{x}$. Wtedy $w_a'=0$, czyli w ciele $L$ istnieje $p$-krotny pierwiastek $w_a$: $w_a(T)=(t-a)^p$.a
+\end{enumerate}
 
+\begin{lemma}\label{lemat:6:7}
+    $ $\newline
+    \begin{enumerate}
+        \item Jeśli $a\in\hat{K}$, to $|\{f(a)\;:\;f\in Gal(\hat{K}/K)\}|\leq$ stopień $a$ nad $K$
+        \item $a$ jest rozdzielczy nad $K$ $\iff$ w podpunkcie (1) jest równość. 
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    $$\{f(a)\;:\;f\in Gal(\hat{K}/K)\}\overset{\ref{uwaga:6:1s}}{=}\{\text{pierwiastki wielomianu minimalnego }w_a\in K[X]\text{ nad } K\}$$
+    czyli $deg(a/K)=deg(w_a)$.
+\end{proof}
 
+\begin{bbox}
+    Element $a\in L$ nazywamy \important{elementem pierwotnym} rozszerzenia $K\subseteq L$, gdy $L=K(a)$.
+\end{bbox}
 
+\begin{theorem}[Abela o elemencie pierwotnym]
+    Niech $K\subseteq L$ będzie rozszerzeniem skończonym, $L=K(a_1,...,a_n)$ i $a_1,...,a_n$ rozdzielcze nad $K$. Wtedy istnieje $a^*\in L$ rozdzielczy nad $K$ taki, że $L=K(a^*)$.
+\end{theorem}
+\begin{proof}
+    Bez starty ogólności załóżmy, że $K\subseteq L\subseteq \hat{K}$. Rozważmy dwa przypadki:
+    \begin{enumerate}
+        \item $K$ jest skończone. Wtedy $L$ także jest skończone, a $L^*$ jest cykliczna. Niech więc $a^*\in L^*$ będzie generatorem $L^*$. Wtedy $L=K(a^*)$.
+        \item $K$ jest nieskończone.
+        
+        Dowód przez indukcję względem $n$. Dla $n=1$ jest oczywiste. Robimy więc krok indukcyjny $(n-1)\implies n$:
+        $$K(a_1,...,a_{n-1})=K(b)$$
+        $$K(a_1,...,a_{n-1}, a_n)=K(b, a_n)$$
+        Niech teraz $k$ będzie stopniem $b$ nad $K$, a $m$ - stopniem $a_n$ nad $K(b)$. Z lematu \ref{lemat:6:7} wiemy, że istnieją $f_1,...,f_k\in Gal(\hat{K}/K)$ takie, że $f_1(b),...,v_k(b)$ są parami różne.  Niech więc $f_{1,1},...,f_{1,m}\in G(\hat{K}/K(b))$ takie, że $f_{1,1}(a),...,f_{1,m}(a)$ są parami różne. 
 
+        Dla $i=1,...,k,j=1,...,m$ niech $f_{i,j}=f_i\circ f_{1,j}\in Gal(\hat{K}/K)$.
+        \begin{center}
+            \begin{tikzcd}
+                K(b)(a)\arrow[r, "f_{i,j}"] & K(b, f_{1,j}(a))\arrow[r, "f_i"] & K(f_i(b), f_i(f_{1,j}(a)))\\
+                K(b)\arrow[r]\arrow[u, "\subseteq"]\arrow[ur, "\subseteq"] & K(f_i(b))\arrow[ur, "\subseteq"]\\
+                K\arrow[u,"\subseteq"] & K\arrow[u, "\subseteq"]
+            \end{tikzcd}
+        \end{center}
+        Zauważmy, że 
+        $$\langle i,j\rangle\neq\langle i',j'\rangle\implies\langle f_{i,j}(a),f_{i,j}(b)\rangle\neq\langle f_{i',j'}(a), f_{i',j'}(b)\rangle,$$
+        bo są dwie możliwości: 
+        \begin{itemize}
+            \item $i\neq i'$, wtedy $f_{i,j}=f_i(b)\neq f_{i'}(b)=f_{i',j'}(b)$
+            \item $i=i'\;\land\;j\neq j'$, wtedy $f_{ij}(a)=f_i(f_{1,j}(a))\neq f_{i'}(f_{1,j}(a))=f_{i'j'}(a)$, bo $f'_{1,j}(a)\neq f'_{1, j'}(a)$.
+        \end{itemize}
+        Skoro $K$ było nieskończone, to istnieje $c\in K$ takie, że dla $\langle i,j\rangle\neq\langle i',j'\rangle$ mamy
+        $$f_{i,j}(b)+f_{i,j}(a)\cdot c\neq f_{i',j'}(b)+f_{i',j'}(a)\cdot c,$$
+        bo
+        $$F(x)=\prod\limits_{\langle i,j\rangle\neq\langle i',j'\rangle}[f_{i,j}(b)+f_{ij}(a)x-(f_{i'j'}(b)+f_{i'j'}(a)x)]$$
+        i $c$ po prostu nie jest pierwiastkiem $F$.
+
+        Postulujemy, że $K(b,a_n)=K(a^*)$, gdzie $a^*=b+a_nc$ jest elementem pierwotnym.
+
+        $\supseteq$ jest jasne
+
+        $\subseteq$ $f_{ij}(a^*)$, $1\leq i\leq k,1\leq j\leq m$ parami różne.
+
+        Wiemy, że $deg(a^*/K)\geq k\cdot m$, z drugiej strony
+        $$k\cdot m\leq [K(a^*):K]\leq [K(a_b,b):K]=[K(b):K][K(a_n,b):K(b)]=km$$
+        czyli wszędzie wyżej są równości i mamy $K(a^*)=K(a_n,b)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{conclusion}
+    $ $\newline
+    \begin{enumerate}
+        \item Jeśli $L=K(a_1,...,a_n)$ i $a_i$ są rozdzielcze nad $K$, to $L\supseteq K$ też jest rozdzielcze.
+        \item $K\subseteq L$ jest rozdzielcze i $L\subseteq M$ jest rozdzielcze, to $K\subseteq M$ też jest rozdzielcze.
+    \end{enumerate}
+\end{conclusion}
+\begin{proof}
+    \begin{enumerate}[leftmargin=*]
+        \item Niech $L=K(a)$ i $a$ jest rozdzielczy nad $K$. Załóżmy, że $b\in L$ nie jest rozdzielczy nad $K$. Wtedy $L=K(b,a)$. Niech
+    \end{enumerate}
+\end{proof}
 
 
 

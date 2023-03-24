@@ -37,5 +37,9 @@
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.1\else \numberline {6.1}Uwaga\fi \thmtformatoptarg {jednorodność $\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}$}}{26}{remark.6.1}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.2\else \numberline {6.2}Uwaga\fi }{26}{remark.6.2}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.3\else \numberline {6.3}Twierdzenie\fi \thmtformatoptarg {rozszerzenie jest normalne}}{27}{theorem.6.3}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}6.4\else \numberline {6.4}Definicja\fi \thmtformatoptarg {skończone rozszerzenie ciała}}{27}{definition.6.4}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.5\else \numberline {6.5}Twierdzenie\fi \thmtformatoptarg {skończone i normalne $\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Leftarrow \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}$ ciało rozkładu wielomianu}}{27}{theorem.6.5}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.4\else \numberline {6.4}Twierdzenie\fi \thmtformatoptarg {skończone i normalne $\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Leftarrow \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}$ ciało rozkładu wielomianu}}{27}{theorem.6.4}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.5\else \numberline {6.5}Uwaga\fi }{28}{remark.6.5}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.6\else \numberline {6.6}Uwaga\fi \thmtformatoptarg {nierozkładalny a rozdzielczy}}{28}{remark.6.6}%
+\contentsline {lemma}{\ifthmt@listswap Lemat\nobreakspace {}6.7\else \numberline {6.7}Lemat\fi }{28}{lemma.6.7}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.8\else \numberline {6.8}Twierdzenie\fi \thmtformatoptarg {Abela o elemencie pierwotnym}}{29}{theorem.6.8}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}6.9\else \numberline {6.9}Wniosek\fi }{30}{conclusion.6.9}%
