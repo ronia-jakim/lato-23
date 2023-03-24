@@ -234,9 +234,35 @@ Załóżmy, że $w(x)\in K[X]$ jest wielomianem nierozkładalnym stopnia $>0$. W
 \end{conclusion}
 \begin{proof}
     \begin{enumerate}[leftmargin=*]
-        \item Niech $L=K(a)$ i $a$ jest rozdzielczy nad $K$. Załóżmy, że $b\in L$ nie jest rozdzielczy nad $K$. Wtedy $L=K(b,a)$. Niech
+        \item Niech $L=K(a)$ i $a$ jest rozdzielczy nad $K$. Załóżmy, że $b\in L$ nie jest rozdzielczy nad $K$. Wtedy $L=K(b,a)$.
+        \begin{illustration}
+        \node (L1) at (0, 0) {$n\cdot m$};
+        \node (C1) at (2.3, 0) {$n$};
+        \node (R1) at (4, 0) {$m$};
+        \node (L2) at (0, -1) {$deg(a/K)$};
+        \node (C2) at (3.5, -1) {$deg(b/K)\cdot deg(a/K(b))$};
+        \node (L3) at (0, -2) {$[K(a):K]$};
+        \node (C3) at (3.6, -2) {$[K(b):K]\cdot [K(a,b):K(b)]$};
+        \node[rotate=90] at (0,-.5) {$=$};
+        \node[rotate=90] at (2.3,-0.5) {$=$};
+        \node[rotate=90] at (4,-.5){$=$};
+        \node[rotate=90] at (0,-1.5){$=$};
+        \node[rotate=90] at (2.3,-1.5) {$=$};
+        \node[rotate=90] at (4,-1.5) {$=$};
+        \node at (1.2, -1) {$=$};
+        \node at (1.2, -2) {$=$};
+        \end{illustration}
+        Wybierzmy teraz $g\in K[X]$ takie, że $g(a)=b$. Wtedy
+        $$n\cdot m=|\{f(a)\;:\;f\in Gal(\hat{K}/K)\}|=(\star),$$
+        bo $a$ jest rozdzielczy nad $K$. Dalej, 
+        $$(\star)=|\{(f(b), f(a))\;:\;f\in Gal(\hat{K}/K)\}|=(\star\star),$$
+        bo $f(b)$ ma $k<n$ możliwości, gdyż $b$ nie jest rozdzielczy nad $K$ i korzystamy z \ref{lemat:6:7}. Przy ustalonym $f(b)$ skakać po $f(a)$ możemy na co najwyżej $m$ sposobów, bo $deg(a/K(b))=m=deg(f(a)/K(f(b))$. Czyli koniec końców
+        $$(\star\star)\leq k\cdot m<n\cdot m,$$
+        co daje sprzeczność.
+        \item Podobny dowód zostawiony studentowi do pokiwania głową, że rozumie a w duszy płacz bo co się dzieje?
     \end{enumerate}
 \end{proof}
+
 
 
 

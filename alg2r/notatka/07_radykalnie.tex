@@ -1,0 +1,37 @@
+\section{Rozszerzenia radykalne (czysty Bangladesz)}
+
+\begin{bbox}
+    Niech $K\subseteq L\subseteq \hat{K}$ jak zwykle. Wtedy
+    \begin{itemize}
+        \item[\PHtunny] $a\in L$ jest \important{czysto nierozdzielczy} nad $K$, czyli \acc[b]{radykalny}, gdy wielomian minimalny $a$ nad $K$, $w_a(x)\in K[X]$, ma tylko jeden pierwiastek w $\hat{K}$.
+        \item[\PHtunny] $K\subseteq L$ jest \important{rozszerzeniem radykalnym} (czysto nierozdzielczym), gdy dla każdego $a\in L$ $a$ jest radykalne nad $K$.
+    \end{itemize}
+\end{bbox}
+
+\begin{remark}
+    $ $\newline
+    \begin{enumerate}
+    \item Jeśli $char(K)=0$, to $a$ nad $K$ jest czysto nierozdzielczy $\iff$ $a\in K$.
+    \item $a$ jest radykalne nad $K$ $\iff$ dla każdego $f\in Gal(\hat{K}/K)$ $f(a)=a$
+    \item Jeśli $char(K)=p$, to $a$ jest radykalne nad $K$ $\iff$ istnieje $n\geq 0$ $a^{p^n}\in K$.
+    \end{enumerate}
+\end{remark}
+\begin{proof}
+$ $\newline
+\begin{enumerate}[leftmargin=*]
+    \item $w_a(x)$ ma tylko pierwiastki jednokrotne, gdy $char(K)=0$
+    \item Oczywiste $\star$
+    \item $\impliedby$ oczywiste: $w_a(x)\in K[X]$ dzieli $x^{p^n}-a^{p^n}=(x-a)^{p^n}\in K[X]$
+
+    $\implies$ Dowodzimy indukcją po $n=deg(a/K)$. Niech $w_a(x)=(x-a)^n\in K[X]$i $w_a'(x)=n(x-a)^{n-1}\in K[X]$ i $w_a'\in I(a/K)$ gdy $n>1$, czyli $w_a'(x)=0,$ więc $p|n$. Niech więc $n=p\cdot n_1$ i wtedy $w_a(x)=(x^p-a^p)^{n_1}$ i $a^p$ jest radykalny nad $K$, bo $deg(a^p/K)\leq n_1<n$. Z założenia indukcyjnego istnieje $k\geq 0$ takie, że $(a^p)^{p^k}=a^{p^{k+1}}\in K$ i to jest to, czego szukaliśmy. 
+\end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
