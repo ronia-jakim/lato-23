@@ -294,15 +294,15 @@
 { }
 {\thmname{#1}\thmnumber{ #2}\thmnote{}}
 
-%\newtheoremstyle{excStyle}
-%{5pt}
-%{5pt}
-%{}
-%{}
-%{\bfseries}
-%{.}
-%{}
-%{\thmname{#1}\thmnumber{ #2}\thmnote{}}
+\newtheoremstyle{excStyle}
+{5pt}
+{5pt}
+{}
+{}
+{\bfseries\color{orange}\large}
+{.}
+{ }
+{\thmname{#1}\thmnumber{ #2}\thmnote{}}
 
 \newcommand{\theoname}{Theorem}
 \newcommand{\defname}{Definition}
@@ -366,8 +366,8 @@
 ]{theorem}
 
 \declaretheorem[
-  title={\excname}%,
-%  style=excStyle
+  title={\excname},
+  style=excStyle
 ]{exc}
 
 

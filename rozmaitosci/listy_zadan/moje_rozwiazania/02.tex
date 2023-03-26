@@ -3,14 +3,15 @@
 \usepackage[polish]{../../../lecture_notes}
 
 \begin{document}
-\subsection*{ZADANIE 1.}
-\excercise[d]{Dla ciągłych funkcji rzeczywistych $f,g:M\to\R$ na rozmaitości gładkiej $M$, oraz dla $\varepsilon > 0$ mówimy, że $g$ jest $\varepsilon$-aproskymacją $f$, jeśli $\|f-g\|<\varepsilon$ (tzn. dla każdego $x\in M$ mamy $|f(x)-g(x)|<\varepsilon$).
+\begin{problem}{d}
+{Dla ciągłych funkcji rzeczywistych $f,g:M\to\R$ na rozmaitości gładkiej $M$, oraz dla $\varepsilon > 0$ mówimy, że $g$ jest $\varepsilon$-aproskymacją $f$, jeśli $\|f-g\|<\varepsilon$ (tzn. dla każdego $x\in M$ mamy $|f(x)-g(x)|<\varepsilon$).
 \begin{enumerate}[label=(\alph*)]
     \item Uzasadnij, że dla każdego $\varepsilon>0$ każda ciągła funkcja $F:M\to\R$ posiada gładką $\varepsilon$-aproksymację.
     \item Rozszerz ten wynik do sytuacji, gdy $\varepsilon:M\to\R$ jest dowolną ciągłą dodatnią funkcją rzeczywistą, zaś $\varepsilon$-aproksymacja funkcji $f$ to dowolna taka funkcja $g$, że dla każdego $x\in M$ mamy $|f(x)-g(x)|<\varepsilon(x)$.
     \item Niech $D\subseteq M$ będzie dowolnym domkniętym podzbiorem. Dla dowolnego $\varepsilon$ jak w punkcie (b) uzasadnij, że dowolna funkcja ciągła $f:M\to\R$, która jest gładka na pewnym otwartym otoczeniu zbioru $D$, posiada gładką $\varepsilon$-aproksymację $g:M\to\R$ taką, że $g\restriction D=f\restriction D$.
 \end{enumerate}
 } 
+\end{problem}
 
 \emph{(a)}
 
@@ -106,8 +107,10 @@ gdzie $g$ to jest $\varepsilon$-aproksymacja $f$ z punktu $(b)$.
     \draw[very thick, yellow] (1.2, -2)--(0.8,-3)--(-0.8, -3)--(-1.2,-2);
 \end{illustration}
 
-\subsection*{ZADANIE 2.}
-\excercise[u]{Dla niezwartej rozmaitości gładkiej $M$ skonstruuj gładką funkcję $f:M\to\R$ taką, że dla każdego naturalnego $n$ przeciwobraz $f^{-1}([-n,n])$ jest zwartym podzbiorem w $M$. Funkcje o tej własności nazywają się funkcjami właściwymi. Wskazówka: wykorzystaj zadanie $6$ z listy $1$: uzasadnij też najpierw następujący fakt pomocniczy: istnieje ciąg otwartych zbiorów $V_i$ takich, że $\bigcup\limits_{i\in\N}V_i=M$, oraz dla każdego $i$ domknięcie $cl(V_i)$ w $M$ jest zwarte i zawarte w $V_{i+1}$.}
+
+\begin{problem}{u}
+{Dla niezwartej rozmaitości gładkiej $M$ skonstruuj gładką funkcję $f:M\to\R$ taką, że dla każdego naturalnego $n$ przeciwobraz $f^{-1}([-n,n])$ jest zwartym podzbiorem w $M$. Funkcje o tej własności nazywają się funkcjami właściwymi. Wskazówka: wykorzystaj zadanie $6$ z listy $1$: uzasadnij też najpierw następujący fakt pomocniczy: istnieje ciąg otwartych zbiorów $V_i$ takich, że $\bigcup\limits_{i\in\N}V_i=M$, oraz dla każdego $i$ domknięcie $cl(V_i)$ w $M$ jest zwarte i zawarte w $V_{i+1}$.}
+\end{problem}
 
 Zadanie $6$ w liście $1$ mówi, że każda rozmaitość $M$ jest przeliczalną sumą otwartych podzbiorów homeomorficznych z otwartymi kulami w $\R^n$, których domknięcia w $M$ sa homeomorficzne z domkniętymi kulami w $\R^n$.
 
@@ -148,8 +151,9 @@ Teraz potrzebujemy, żeby $f^{-1}[-n,n]$ było zwarte. Jak to się ma dla $f^{-1
 
 
 
-\subsection*{ZADANIE 3.}
-\excercise{Niech $\set{U}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami prezwartymi i niech $\{f_j\}$ będzie gładkim rozkładem jedności wpisanym w $\set{U}$. Uzasadnij, że funkcja $h=\sum j\circ f_j$ jest gładką funkcją właściwą o dodatnich wartościach. Uzasadnij, że funkcja ta, jak każda rzeczywista funkcja właściwa ograniczona od dołu, posiada globalne minimum (czyli taki punkt $p\in M$ że dla każdego $x\in M$ zachodzi $f(x)\geq f(p)$.}
+\begin{problem}{u}
+{Niech $\set{U}$ będzie dowolnym pokryciem rozmaitości $M$ zbiorami prezwartymi i niech $\{f_j\}$ będzie gładkim rozkładem jedności wpisanym w $\set{U}$. Uzasadnij, że funkcja $h=\sum j\circ f_j$ jest gładką funkcją właściwą o dodatnich wartościach. Uzasadnij, że funkcja ta, jak każda rzeczywista funkcja właściwa ograniczona od dołu, posiada globalne minimum (czyli taki punkt $p\in M$ że dla każdego $x\in M$ zachodzi $f(x)\geq f(p)$.}
+\end{problem}
 
 Mamy funkcję $h=\sum j\circ f_j$. Jest gładka i tnie się niepusto tylko ze skończenie wieloma zbiorami z pokrycia. Chcemy pokazać, że to jest ograniczone od dołu. Jest właściwa, bo wiemy, że poza sumą zbiorów $U_1,...,U_n$ to jest suma większa niż $n$. Zbiory te są prezwarte, suma skończenie wielu zbiorów prezwartych jest prezwarty. Czyli 
 $$h^{-1}[-n,n]\subseteq\bigcup\limits_{i\leq n}U_i.$$
@@ -157,8 +161,9 @@ Mamy pokazać, że istnieje minimum, czyli cośtam gdzie cośtam jest realizowan
 
 Weźmy sobie punkt $p$ taki, że $n\leq h(p)< n+1$. Teraz chcemy dzielić sobie rozmaitość na sumę od $U_1,...,U_{n+1}$ i na resztę. I teraz na dopełnienu sumy $U_1,...,U_{n+1}$ na pewno nie znajdę minimum, bo na tym dopełnieniu ta suma jest większa niż $n+1$. Ni cholery nie zrozumiałam.
 
-\subsection*{ZADANIE 4.}
-\excercise{Dla rozmaitości $M$ z brzegiem skonstruuj taką gładką funkcję $f:M\to[0,\infty)$ taką, że $\partial M=f^{-1}(0)$ oraz rząd $f$ w dowolnym punkcie brzegowym wynosi $1$.}
+\begin{problem}{u}
+{Dla rozmaitości $M$ z brzegiem skonstruuj taką gładką funkcję $f:M\to[0,\infty)$ taką, że $\partial M=f^{-1}(0)$ oraz rząd $f$ w dowolnym punkcie brzegowym wynosi $1$.}
+\end{problem}
 
 Rząd funkcji 
 
@@ -183,6 +188,75 @@ Idea jest taka, że patrzymy na pochodną funkcji $D(f\circ\psi^{-1})$ to gradie
 AAAAA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA
 
 Ten lemat to w sumie trzeba zmienic, ale to i tak zdjęcia zrobię
+
+\begin{problem}{}
+Uzasadnij, że naturalne włożenie $i:S^n\to\R^{n+1}$ jest gładkie.
+\end{problem}
+
+To nie tak, że po prostu mamy identyczność?
+
+\begin{problem}{d}
+Niech $M,N$ będą rozmaitościami różniczkowalnymi i niech $f:M\to N$ będzie przekształceniem gładkim, zaś $g:N\to\R$ gładką funkcją rzeczywistą. Uzasadnij z definicji, że złożenie $g\circ f:M\to \R$ jest funkcją gładką.
+\end{problem}
+
+Niech $p\in M$, $q=f(p)\in N$ i $s=g(q)=g(f(p))\in\R$. Teraz ustalamy sobie mapy $(U,\phi),(V,\psi)$ wokół $p$ i $q$. Wiem, że $\psi\circ f\circ\phi^{-1}$ i $g\circ\psi^{-1}$ są gładkie i obie przyjmują i oddają wartości rzeczywiste, czyli ich złożenie na pewno będzie gładkie:
+$$(g\psi^{-1})(\psi f\phi^{-1})=g\psi^{-1}\psi f\phi^{-1}=g f\phi^{-1}$$
+jest gładkie, to jak włożymy do tego $\phi(p)$ też będzie gładkie. Koniec. 
+
+\begin{illustration}
+    \draw (0, 0) ellipse (1 and 1.5);
+    \draw (3, 0) ellipse (1 and 1.5);
+    \draw (0.2, -2) rectangle (2.8, -5);
+    \node (p) at (0, 0.5) {$p$};
+    \node (q) at (2.8, 0.3) {$q$};
+    \node (s) at (1.5, -3) {$s$};
+    \draw[->] (p)--(q) node[midway, above] {$f$};
+    \draw[->] (q)--(s) node[midway, above] {$g$};
+    \draw[->] (p)..controls(-1, -0.5)and(-1, -2)..(0, -3) node[midway, left] {$\phi$};
+    \draw[->] (q)..controls(4, -0.5) and (4, -2)..(3.2,-3) node[midway, right] {$\psi$};
+\end{illustration}
+
+\begin{problem}{d}
+Sprawdź, że dla naturalnej struktury rozmaitości gładkiej na produkcie $M\times N$ dwóch rozmaitości gładkich rzutowania $M\times N\to M$ i $M\times N\to N$ są odwzorowaniami gładkimi.
+\end{problem}
+
+Na poprzedniej liście już pokazaliśmy, że jest to ziomek gładki i chyba, że $(U_\alpha\times V_\beta, \phi_\alpha\times \psi_\beta)$ to jest atlas na produkcie kartezjańskim.
+
+Weźmy sobie funkcję $f:M\times N\to M$ taką, że $f(p,q)=p$.
+
+Niech $(p,q)\in M\times N$ i bierzemy mapy $(p,q)\in (U\times V,\phi\times \psi)$, $p\in(U,\phi)$. Chcę, żeby
+$$\phi f(\phi\times\psi)^{-1}$$
+było gładkie w punkcie $(\phi\times\psi)(p,q)$.
+\begin{align*}
+    \phi f(\phi\times\psi)^{-1}(\phi\times\psi)(p,q)=\phi(f(p,q))=\phi(p)
+\end{align*}
+no a to jest bardzo gładki?
+
+\begin{problem}{}
+Niech $\mathfrak{L}$ będzie rozmaitością prostych na płaszczyźnie.
+\begin{enumerate}[label=(\alph*)]
+    \item Zdefiniuj rozmaitość kierunków prostych na płaszczyźnie i pokaż, że odwzorowanie przyporządkowujące prostej z $\mathfrak{L}$ jej kierunek jest gładkie.
+    \item Pokaż, że odwzorowanie $\mathfrak{L}\to\mathfrak{L}$ przyporządkowujące każdej prostej prostopadłą do niej przechodzącą przez punkt $(0,0)$ jest gładkie.
+    \item Dane są gładkie funkcje $p:\R\to\R^2$ i $\theta:\R\to\R$. Niech $L:\R\to\mathfrak{L}$ będzie odwzorowaniem w którym $L(t)$ jest prostą przechodzącą przez punkt $p(t)$ i mającą kierunek $\theta(t)$ (liczony w mierze łukowej, tak, że wartości różniące się o $\pi$ oznaczają ten sam kierunek). Wykaż za pomocą map dla $\mathfrak{L}$, że $L$ jest odwzorowaniem gładkim (gładką krzywą w $\mathfrak{L}$).
+\end{enumerate}
+\end{problem}
+
+Nie rozumiem czego ode mnie wymagają.
+
+\begin{problem}{}
+Odwzorowanie $F:S^3\to S^2$ zadane jest wzorem $F(z,w)=(z\overline{w}+w\overline{z},iw\overline{z}-iz\overline{w},z\overline{z}-w\overline{w})$, gdzie $S^3$ traktujemy jako podzbiór w $\C^2$ zadany równaniem $|z|^2+|w|^2=1$. Uzasadnij za pomocą wyliczenia w mapach, że $F$ jest odwzorowaniem gładkim. Wcześniej uzasadnij, że jest ono dobrze określone.
+\end{problem}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
