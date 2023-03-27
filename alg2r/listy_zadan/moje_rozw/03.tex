@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{../../../lecture_notes}
+\usepackage[light-theme]{../../../lecture_notes}
 
 \title{Problem List 3\smallskip\\{\normalsize Algebra 2r}}
 \author{Weronika Jakimowicz}
@@ -10,24 +10,16 @@
 \maketitle
 \thispagestyle{empty}
 
-\begin{problem}[1]{}
-Let $K$ be a field.
-\begin{enumerate}[label=(\alph*)]
-    \item Prove that the field extension $L\supseteq K$ is transcendental, where $L=K(X)$ is the field of rational functions in varriable $X$ over $K$.
-    \item Let $M=L[\sqrt{X}]$ be an algebraic extension of the field $L$ by an element $Y=\sqrt{X}$ such that $Y^2-X=0$ in the field $M$. Prove that $M$ and $L$ are isomorphic over $K$.
-\end{enumerate}
-\end{problem}
+%\begin{problem}[1]{}
+%Let $K$ be a field.
+%\begin{enumerate}[label=(\alph*)]
+%    \item Prove that the field extension $L\supseteq K$ is transcendental, where $L=K(X)$ is the field of rational functions in varriable $X$ over $K$.
+%    \item Let $M=L[\sqrt{X}]$ be an algebraic extension of the field $L$ by an element $Y=\sqrt{X}$ such that $Y^2-X=0$ in the field $M$. Prove that $M$ and $L$ are isomorphic over $K$.
+%\end{enumerate}
+%\end{problem}
 
-\emph{(b)}
 
-\begin{center}
-\begin{tikzcd}
-    M=L[\sqrt{X}] & & L=K[X]\\
-    & K &
-\end{tikzcd}
-\end{center}
-
-\begin{problem}[3]{u}
+\begin{problem}[3]{d}
 Let $v_1,...,v_n$ be vertices of a regular $n$-gon inscribed in a circle on the plane $\R^2$ with equation $x^2+y^2=1$. What is the linear dimension over $\Q$ of the system of vectors $v_1,...,v_n$.
 \end{problem}
 
@@ -35,13 +27,13 @@ Without the loss of generality, I will consider polygons with one vertex in $(1,
 $$x^n-1.$$
 We have $n$ roots $z_1,...,z_n$ in $\C$. Notice, that $z_k=\cos\frac{2\pi k}{n}+i\sin\frac{2\pi k}{n}$ and adding complex numbers works almost like adding vectors in $2D$. The minimal polynomial over $\Q$ of each of $z_k$ is $F_n(x)$. Therefore, $dim(v_1,...,v_n)=dim(z_1,...,z_n)=\phi(n)$, where $\phi$ is Euler's function.
 
-\begin{problem}[4]{u}
-    Assume that $K\supseteq F(p)$ is a finite field extension of $F(p)$. Assume that $a\in K$ is a primitive root of $1$ of degree $m$. Let $n$ be the smallest natural number $>0$ such that $m|p^n-1$.
-    \begin{enumerate}[label=(\alph*)]
-        \item Prove that $n$ equals the degree of $a$ over $F(p)$
-        \item Prove that $n|\phi(m)$. Give an example where $n<\phi(m)$.
-    \end{enumerate}
-\end{problem}
+%\begin{problem}[4]{u}
+%    Assume that $K\supseteq F(p)$ is a finite field extension of $F(p)$. Assume that $a\in K$ is a primitive root of $1$ of degree $m$. Let $n$ be the smallest natural number $>0$ such that $m|p^n-1$.
+%    \begin{enumerate}[label=(\alph*)]
+%        \item Prove that $n$ equals the degree of $a$ over $F(p)$
+%        \item Prove that $n|\phi(m)$. Give an example where $n<\phi(m)$.
+%    \end{enumerate}
+%\end{problem}
 
 Well, I think I kinda showed it before XD
 
@@ -62,6 +54,45 @@ Well, I think I kinda showed it before XD
     x^4-2x^2+1=8x^2\\
     {\color{blue}x^4-10x^2+1=0}
 \end{align*}
+
+
+\begin{problem}[7]{d}
+Prove (using Liouville Lemma) that the number
+$$\sum\limits_{n=1}^\infty \frac{1}{2^{n!}}$$
+is transcendental. (the real numbers, whose transcendence follows from Liouville Lemma are called Liouville numbers).
+\end{problem}
+
+Liouville Lemma states that if $a\in\R$ is an algebraic number of degree $N>1$, then there exists $c\in\R_+$ such that for all $\frac{p}{q}\in\Q$ the following is true:
+$$\left|a-\frac{p}{q}\right|\geq\frac{c}{q^N}$$
+If a number fails to meet this criterion, then it is called transcendental.
+
+Ok, so I have no clue what the degree of my number is, but let me assume that it is some $N\in\N$. Now, let
+$$p=\sum\limits_{n=1}^{N+k}2^{(N+k)!\cdot n!}.$$
+Then, we have that
+$$\sum\limits_{n=1}^\infty\frac{1}{2^{n!}}=\frac{p}{2^{(N+k)!}}+\sum\limits_{n=N+k}^\infty \frac{1}{2^{n!}}$$
+with $q=2^{(N+k)!}$. From this we get
+\begin{align*}
+    \left|\sum\limits_{n=1}^\infty\frac{1}{2^{n!}}-\frac{p}{2^{(N+k)!}}\right|&=\left|\sum\limits_{n=N+k+1}^\infty\frac{1}{2^{n!}}\right|\leq\text{(\Coffeecup)}
+\end{align*}
+and notice that
+\begin{align*}
+    \sum\limits_{n=N+k+1}^\infty\frac{1}{2^{n!}}\leq \sum\limits_{n=N+k+1}^\infty\frac{1}{2^n}=\frac{1}{2^{(N+k+1)!}}\frac{1}{1-\frac12}=\frac{2}{2^{(N+k+1)!}}
+\end{align*}
+\begin{align*}
+    \text{(\Coffeecup)}\leq\frac{2}{2^{(N+k+1)!}}=\frac{2}{q^{N+k+1}}<\frac{1}{q^{N+k}}  
+\end{align*}
+for any $k\in\N$ and so we cannot choose one universal $c$ such that this inequality changes to $\geq$ for all. Thus, the number from the problem is a Liouville number.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
