@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage[polish]{../../../lecture_notes}
+
+\title{Lista 6\\{\normalsize Rachunek Prawdopodobieństwa 1R}}
+\author{Weronika Jakimowicz}
+\date{}
+
+\usepackage{wrapfig}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{problem}{d}
+Niech $(X,Y)$ będzie $2$-wymiarową zmienną losową o rozkładzie zadanym gęstością $f(x,y)=C(x+y)$ dla $0\leq y\leq x\leq 1$ i $f(x,y)=0$ poza tym zbiorem. Znajdź wartość $C$. Znajdź rozkłady brzegowe. Czy zmienne losowe $X$ i $Y$ są niezależne?
+\end{problem}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+\begin{tikzpicture}
+    \filldraw[color=green, pattern=dots, pattern color=green](0, 0)--(4.8, 0)--(4.8, 4.8)--cycle;
+    \draw[->](-0.3, 0)--(5.3, 0) node [above] {x};
+    \draw[->](0, -0.3)--(0, 5.3) node [left] {y};
+\end{tikzpicture}
+\end{wrapfigure}
+Mamy dane
+$$f(x,y)=\begin{cases}C(x+y)&0\leq y\leq x\leq1\\0&wpp\end{cases}$$
+i w pierwszej kolejności pytamy o wartość zmiennej $C$. Wiemy, że 
+$$\int_{\R^2}f(x,y)=1,$$ 
+a ponieważ my żyjemy w świecie trójkąta pod $y=x$, to mamy:
+$$1=\int\limits_0^1\int\limits_0^xC(x+y)dydx=C\int_0^1(x^2+\frac{x^2}{2})dx=C(\frac{1}{3}+\frac{1}{6})$$
+czyli z moich bardzo precyzyjnych kalkulacji wynika, że $C=2$.
+
+Teraz pora na rozkłady brzegowe. 
+\begin{align*}
+    \prob{X\in A}&=\prob{(X,Y)\in A\times\R}=\int_{A\times\R}f(x,y)dydx=\int_A\int_\R2(x+y)dydx=\\
+    &=\int_A\int_0^x2(x+y)dydx=\int_A{3x^2}dx
+\end{align*}
+\begin{align*}
+    \prob{Y\in B}&=\prob{(X,Y)\in\R\times B}=\int_{\R\times B}f(x,y)dydx=\int_\R\int_Bf(x,y)dydx=\int_B\int_\R f(x,y)dxdy=\\
+    &=\int_B\int_y^12(x+y)dxdy=\int_B[1+2y-3y^2]dy
+\end{align*}
+
+Na pytanie, czy są to zmienne niezależne odpowiadamy patrząc na gęstości tych dwóch zmiennych losowych. Żeby były niezależne, musiałoby zachodzić
+$$f(x,y)=f_X(x)f_Y(y)$$
+Tutaj mamy
+$$f_X(x)f_Y(y)=3x^2(1+2y-3y^2)\neq2(x+y)$$
+więc są bardzo zależne.
+
+
+\begin{problem}[5]{}
+Zmienne losowe $X$ i $Y$ są niezależne. Pokaż, że jeżeli $X$ nie ma atomów, to $P(X=Y)=0$.
+\end{problem}
+
+Ponieważ $X$ nie ma atomów, to zbiór $\{x\;:\;\prob{X=x}>0\}=\emptyset$.
+
+Niech $\omega\in\Omega$ taki, że $X(\omega)=t=Y(\omega)$ dla pewnego $t\in\R$. Dla wygody, niech $T=\{t\}$. Ponieważ zdarzenia są niezależne, to:
+\begin{align*}
+    \prob{X=Y}&=\prob{X\in T, Y\in T}=\prob{X\in T}\prob{Y\in T}=\prob{X=t}\prob{Y=t}=0,
+\end{align*}
+gdyż $X$ jest bezatomowa.
+
+\begin{problem}[7]
+Pokaż, że zmienne losowe $X_1,...,X_n$ o gęstościach $f_1,...,f_n$ są niezależne $\iff$ zmienna $X=(X_1,...,X_n)$ ma gęstość
+$$f(x_1,...,x_n)=f_1(x_1)...f_n(x_n)$$
+\end{problem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
