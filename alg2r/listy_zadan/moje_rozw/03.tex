@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[light-theme]{../../../lecture_notes}
+\usepackage{../../../lecture_notes}
 
 \title{Problem List 3\smallskip\\{\normalsize Algebra 2r}}
 \author{Weronika Jakimowicz}
@@ -10,13 +10,59 @@
 \maketitle
 \thispagestyle{empty}
 
-%\begin{problem}[1]{}
-%Let $K$ be a field.
-%\begin{enumerate}[label=(\alph*)]
-%    \item Prove that the field extension $L\supseteq K$ is transcendental, where $L=K(X)$ is the field of rational functions in varriable $X$ over $K$.
-%    \item Let $M=L[\sqrt{X}]$ be an algebraic extension of the field $L$ by an element $Y=\sqrt{X}$ such that $Y^2-X=0$ in the field $M$. Prove that $M$ and $L$ are isomorphic over $K$.
-%\end{enumerate}
-%\end{problem}
+\begin{problem}[1]{}
+Let $K$ be a field.
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that the field extension $L\supseteq K$ is transcendental, where $L=K(X)$ is the field of rational functions in varriable $X$ over $K$.
+    \item Let $M=L[\sqrt{X}]$ be an algebraic extension of the field $L$ by an element $Y=\sqrt{X}$ such that $Y^2-X=0$ in the field $M$. Prove that $M$ and $L$ are isomorphic over $K$.
+\end{enumerate}
+\end{problem}
+
+\emph{(b)}
+
+We kave $L=K(X)$ and $M=L[Y]$ and $Y^2-x=0$. We claim that $L\cong_KM$.
+$$f_1:L\to M$$
+$$f_1(p)=p(Y)$$
+$$f_2:M\to L$$
+$$y\mapsto x$$
+$$x\mapsto x^2$$
+
+So take a function $h\in L$, then $f_2(f_1(h))=f_2(h(y))=h(x)$
+
+\begin{problem}[2]{}
+Let $K$ be a field.
+\begin{enumerate}[label=(\alph*)]
+    \item Let $g\in K(X)\setminus K$. Prove that $X$ is algebraic over the field $K(g)$. In particular $[K(X):K(g)]<\infty$. What is the degree of this extreme?
+    \item For $g$ as in $(c)$ prove that $K(g)$ is isomorphic with $K(X)$ over $K$.
+\end{enumerate}
+\end{problem}
+
+\emph{(a)}
+
+First of all, we know that there exist $p,q\in K[Y]$ such that
+$$g=\frac{p}{q}$$
+$$gq=p$$
+and so
+$$g(x)q(y)-p(y)=w(y)\in K(g)[Y]$$
+Now consider $w(x)$
+$$w(x)=g(x)q(x)-p(x)=p(x)-p(x)=0$$
+hence, $X$ is algebraic over $K(g)$.
+
+%$deg(w)=max(deg(p),deg(q))$.
+$[K(X):K(g)]=max(deg(p),deg(q))$.Because $\frac{1}{g}$ and $g$ generate the same extension, then we can assume that $deg(p)\geq deg(q)=k$. It is obvious that $deg(w)\leq k$, we need to show that $deg(w)\geq k$.
+
+Take $(1,...,x^{k-1})$ which is linearly independent. We take some coefficients $a_0,...,a_{k-1}\in K(g)$  such that
+$$a_0+a_1x+...+a_{k-1}x^{k-1}=0$$
+Now, multiply by all denominators of $a_i$ to obtain
+$$a_0'+a_1'x+...+a_{k-1}'x^{k-1}=0$$
+Therefore, $a_i'$ are all polynomials and we have:
+$$a_i'=b_i+\frac{p}{q}R_i(\frac{p}{q}),$$
+where $b_i\in K$: we just take a constant term and remove $x$ from it.
+
+Notice that there exists $b_i\neq0$, otherwise we could just divide the whole thing by $\frac{p}{q}$ and repeat the process one more time.
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 
 
 \begin{problem}[3]{d}

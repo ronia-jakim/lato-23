@@ -27,6 +27,51 @@ $ $\newline
 \end{enumerate}
 \end{proof}
 
+\begin{bbox}
+Niech $K\subseteq L$ będzie rozszerzeniem algebraicznym. Definiujemy
+\begin{enumerate}
+    \item \acc{rozdzielcze domknięcie} $K$ w $L$: $sep_L(K)=\{a\in L\;:\;a\text{ radykalne nad } K\}$
+    \item \acc{radykalne domknięcie} (czysto nierozdzielcze) $K$ w $L$: $rad_L(K)=\{a\in L\;:\;a\text{ radykalny nad }K\}$
+\end{enumerate}
+\end{bbox}
+
+\begin{conclusion}[przekrój $sep_L$ i $rad_L$]
+$K\subseteq sep_L(K)$ i $rad_L(K)\subseteq L\subseteq \hat{K}$ to ciała takie, że $sep_L(K)\cap rad_L(K)=K$.
+\end{conclusion}
+\begin{proof}
+Fakt, że $sep_L(K)$ jest ciałem wynika z \ref{wniosek:6:9}. Natomiast to, że $rad_L(K)$ jest ciałem wynika z tego, że
+$$rad_L(K)=L\cap\bigcap\limits_{f\in Gal(\hat{K}/K)}Fix(f)=\{a\in\hat{K}\;:\;f(a)=a\}$$
+
+Dalej, dla $a\in sep_L(K)\cap rad_L(K)$ mamy $w_a(x)=x-a$ jest wielomianem minimalnym $a$ nad $K$.
+\end{proof}
+
+\begin{bbox}
+\begin{itemize}%[leftmargin=*]
+    \item[\PHrosette] $\hat{K}^s=sep_{\hat{K}}(K)$ jest rozdzielczym domknięciem $K$
+    \item[\PHrosette] $\hat{K}^r=rad_{\hat{K}}(K)$ jest radykalnym domknięciem $K$.
+\end{itemize}
+\end{bbox}
+
+\begin{remark}
+$ $\newline
+\begin{enumerate}
+    \item Gdy $K\subseteq L\subseteq\hat{K}$, to $sep_L(K)=\hat{K}^s\cap L$, $rad_L(K_=\hat{K}^r\cap L$
+    \item Załóżmy, że $K\subseteq L\subseteq M\subseteq\hat{K}$, wtedy $K\underset{rad}{\subseteq}L\underset{rad}{\subseteq}M\iff K\underset{rad}{\subseteq} M$
+    \item Jeśli $char(K)=0$, to $sep_L(K)=K^{alg}(L)$ i $rad_L(K)=K$, oraz $\hat{K}^s=\hat{K}$, $\hat{K}^r=K$.
+\end{enumerate}
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
