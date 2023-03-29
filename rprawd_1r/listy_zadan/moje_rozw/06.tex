@@ -47,6 +47,14 @@ Tutaj mamy
 $$f_X(x)f_Y(y)=3x^2(1+2y-3y^2)\neq2(x+y)$$
 więc są bardzo zależne.
 
+\begin{problem}[4]{}
+Niech $X_1,...,X_n$ będą niezależnymi zmiennymi losowymi o rozkładzie wykładniczym z parametrem $1$. Znajdź rozkład $Y=\min\limits_{1\leq i\leq n}X_i$. Czy $X_n$ i $Y$ są niezależne?
+\end{problem}
+
+Mają rozkład wykładniczy, więc funkcja gęstości $X_i$ to:
+$$f_i(t)=\lambda_ie^{-\lambda_i t}$$
+jeśli $t\geq 0$, wpp. mamy $0$.
+
 
 \begin{problem}[5]{}
 Zmienne losowe $X$ i $Y$ są niezależne. Pokaż, że jeżeli $X$ nie ma atomów, to $P(X=Y)=0$.
@@ -60,10 +68,73 @@ Niech $\omega\in\Omega$ taki, że $X(\omega)=t=Y(\omega)$ dla pewnego $t\in\R$. 
 \end{align*}
 gdyż $X$ jest bezatomowa.
 
-\begin{problem}[7]
+\begin{problem}[7]{d}
 Pokaż, że zmienne losowe $X_1,...,X_n$ o gęstościach $f_1,...,f_n$ są niezależne $\iff$ zmienna $X=(X_1,...,X_n)$ ma gęstość
 $$f(x_1,...,x_n)=f_1(x_1)...f_n(x_n)$$
 \end{problem}
+
+\begin{center}
+Niezależne $\iff$ $f(x_1,...,x_n)=f_1(x_1)...f_n(x_n)$
+\end{center}
+
+$\implies$
+
+Nirch $T_i\subseteq\R$, wtedy z niezależności zmiennych mamy:
+\begin{align*}
+    \prob{X_1\in T_1,...,X_n\in T_n}&=\int_{T_1}...\int_{T_n}f(x_1,...,x_n)dx_1...dx_n=\\
+    &=\int_{T_1}f_1(x_1)dx_1...\int_{T_n}f_n(x_n)dx_n=\prob{X_1\in T_1}...\prob{X_n\in T_n}
+\end{align*}
+rozpisując krok po kroku:
+\begin{align*}
+    \prob{X_1\in T_1}...\prob{X_n\in T_n}&=\int_{T_1}f_1(x_1)dx_1...\int_{T_n}f_n(x_n)dx_n=\int_{T_1}f_1(x_1)\int_{T_2}f_2(x_2)dx_2dx_1...\int_{T_n}f_n(x_n)dx=\\
+    &=\int_{T_1}\int_{T_2}f_1(x_1)f_2(x_2)dx_2dx_1...\int_{T_n}f_n(x_n)dx_n=...=\int_{T_1}...\int_{T_n}f_1(x_1)...f_n(x_n)dx_1...dx_n=\\
+    &=\int_{T_1}...\int_{T_n}f(x_1,...x_n)dx_1...dx_n=\prob{X_1\int T_1,...,X_n\in T_n}
+\end{align*}
+Ponieważ dzieje się tak dla dowolnych $T_i$, to funkcje pod całką muszą się równać (prawie wszędzie?). Czyli
+$$f(x_1,...,x_n)=f_1(x_1)...f_n(x_n).$$
+
+$\impliedby$
+
+Wychodzimy z tego, że
+$$f(x_1,...,x_n)=f_1(x_1)...f_n(x_n).$$
+Wybierając dowolne $T_i\subseteq\R$ i całkując obie strony dostajemy:
+\begin{align*}
+\int_{T_1}...\int_{T_n}f(x_1,...,x_n)dx_1...dx_n&=\int_{T_1}...\int_{T_n}f_1(x_1)...f_n(x_n)dx_1...dx_n=\\
+&=\int_{T_1}...\int_{T_{n-1}}f_1(x_1)...f_{n-1}(x_{n-1})dx_1...dx_n\int_{T_n}f_n(x_n)dx_n=...\\
+&=\int_{T_1}f_1(x_1)dx_1...\int_{T_n}f_n(x_n)dx_n
+\end{align*}
+Prawa strona równania to iloczyn $\prob{X_1\in T_1}...\prob{X_n\in T_n}$, a lewa to $\prob{X_1\in T_1,...,X_n\in T_n}$ i znowu dzieje się tak bez względu na wybór $T_i$, czyli mamy równość i zmienne są niezależne.
+
+\begin{problem}[8]{d}
+Z odcinka $[0,1]$ losujemy niezależnie w sposób jednostajny liczby $X_1,X_2,...$. Uzasadnij, że z prawdopodobieństwem $1$ ciąg $\{X_n\}$ jest gęsty w odcinku $[0,1]$.
+\end{problem}
+
+Weźmy sobie dowolną kulę na odcinku $[0,1]$ o promieniu $r$ i środku $x$: $B_r(x)$. Prawdopodobieństwo, że ani jedna ze zmiennych w nią trafi wynosi $1-2r$ (tutaj $r\leq\frac12$). Losujemy niezależnie, więc zmienne są niezależne. Jeśli rozważymy pierwsze $n$ zmiennych, to prawdopodobieństwo, że ani jedna z nich wpadnie w $B_r(x)$ wynosi:
+\begin{align*}
+    \prob{X_1\in B_r(x)^c,X_2\in B_r(x)^c,...X_n\in B_r(x)^c}&=\prob{X_1\in B_r(x)^c}...\prob{X_n\in B_r(x)^c}=(1-2r)^n
+\end{align*}
+Chcemy użyć lematu Borela-Cantelliego, więc sprawdzamy sumę:
+\begin{align*}
+    \sum_{n\in\N}(1-2r)^n=\frac{1}{1-(1-2r)}=\frac{1}{2r}<\infty
+\end{align*}
+czyli z prawdopodobieństwem $1$ skończenie wiele zmiennych nie trafi do $B_r(x)$, czyli nieskończenie wiele z nich do $B_r(x)$ trafi. Tak się dzieje dla każdej kuli, więc z prawdopodobieństwem $1$ przetniemy dowolną kulę - tworzy się gęsty podzbiór $[0,1]$.
+
+\begin{problem}[9]{d}
+Zmienne losowe $X$ i $Y$ są niezależne i mają rozkłady wykładnicze z parametrami $\lambda$ i $\mu$ odpowiednio. Znajdź rozkład zmiennej losowej $X+Y$.
+\end{problem}
+
+Co wiemy? Że gęstość $X$ to $f_X(t)=\lambda e^{-\lambda t}$ gdy $t\geq 0$, a gęstość $Y$ to $f_Y(t)=\mu e^{-\mu t}$ gdy $t\geq 0$. Dalej, wiem że
+$$f(t_x, t_y)=f_X(t_x)f_Y(t_y)$$
+a poszukuję $\prob{X+Y=t}$
+
+Skrypt mówi, że sploty is the way (ale miałam nawet ten sam pomysł!). Nie mogę puścić całki aż do $\infty$, bo wtedy mi się zeruje $e^{t-s}$ dla $s>t$. Czyli:
+$$\prob{X+Y=t}=\int_0^t\prob{X=a, Y=t-a}da,$$
+a w mowie skryptowej:
+\begin{align*}
+    \prob{X+Y=t}&=f_x\star f_y(t)=\int_0^t f_x(t-s)f_y(s)ds=\lambda\mu\int_0^t e^{-\lambda(t-s)}e^{-\mu s}ds=\\
+    &=\lambda\mu e^{-\lambda t}\int_0^t e^{\lambda s-\mu s}ds=\lambda\mu e^{-\lambda t}\int_0^t e^{s(\lambda-\mu)}ds=\frac{\lambda\mu}{\lambda-\mu}[e^{-\lambda t}-e^{-\mu t}]
+\end{align*}
+
 
 
 

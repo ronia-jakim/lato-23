@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage[polish]{../../lecture_notes}
+
+\begin{document}
+
+\begin{problem}[15]{d}
+W sytuacji jak w zadaniu 14 pokaż, że każdy element $M$ można przedstawić jako $\mu_i(x_i)$ dla pewnego $i\in I$ oraz $x_i\in M_i$.
+
+Pokaż również, że jeżeli $\mu_i(x_i)=0$, wtedy istnieje $j\geq i$ takie, że $\mu_{ij}(x_i)=0$ w $M_j$.
+\end{problem}
+
+Po pierwsze, weźmy sobie jakieś $x\in M$. Ono tak naprawdę siedzi w $C$ ale bez $D$ (bo $M=C/D$), czyli $x=\sum \mu_i(x_i)$. Super. To teraz my wiemy, że $i$ jest częściowo uporządkowane i że elementy $C$ mają niezera na skończenie wielu miejscach, czyli musi istnieć jakieś $j$ takie, że
+$$x=\sum \mu_i(x_i)=\sum_{i\leq j}\mu_i(x_i).$$
+Ale my mamy powiedzialne, że jeśli $i\leq j$, to $\mu_i=\mu_j\circ\mu_{ij}$, czyli
+$$\sum_{i\leq j}\mu_i(x_i)=\sum_{i\leq j}\mu_j(\mu_{ij}(x_i))=\mu_j\left[\sum\mu_{ij}(x_i)\right],$$
+a przecież $\sum_{i\leq j}\mu_{ij}(x_i)\in M_j$
+
+\begin{problem}[16]{}
+Pokaż, że skierowana granica jest określona (z dokładnością do izomorfizmu) przez następującą własność. Niech $N$ będzie $A$-modułem i niech dla każdego $i\in I$ $\alpha_i:M_i\to N$ będzie homomorfizmem $A$-modułów takim, że $\alpha_i=\alpha_j\circ\mu_{ij}$ zawsze gdy $i\leq j$. Wtedy istnieje unikalny homomorfizm $\alpha:M\to N$ taki, że $\alpha_i=\alpha\circ\mu_i$ dla wszystkich $i\in I$.
+\end{problem}
+
+Istnieje, bo tak XD
+
+\begin{center}\begin{tikzcd}
+    M_i\arrow[dd, "\mu_{ij}" left]\arrow[dr, "\mu_i" below]\arrow[drr, "\alpha_i"] & &\\
+    & M\arrow[r, "\alpha"] & N\\
+    M_j\arrow[ur, "\mu_j"]\arrow[urr, "\alpha_j" below] & &
+\end{tikzcd}\end{center}
+
+\begin{problem}[17]{u}
+Niech $(M_i)_{i\in I}$ będzie rodziną podmodułów $A$-modułu takich, że dla każdej pary indeksów $i,j\in I$ istnieje $k\in I$ takie, że $M_i+M_j\in M_k$. Zdefiniujemy $i\leq j$ przez $M_i\subseteq M_j$ i niech $\mu_{ij}:M_i\to M_j$ będzie włożeniem $M_i$ w $M_j$. Pokaż, że
+$$\dlim M_i=\sum M_i=\bigcup M_i.$$
+W szczególności, dowolny $A$-moduł jest skierowana granicą skończenie generowanych podmodułów.
+\end{problem}
+
+Najpierw to drugie pytanie. Niech $S$ będzie zbiorem skończenie generowanych podmodułów $M$. Od razu widać, że jest to zbiór uporządkowany przez zawieranie. Niech $x\in M$. No raczej nie może być nieskończoną sumą generatorów, tylko musi być sumowany przez skończenie wiele ziomeczków, czyli jego generatory są w skończenie wielu $M_i$, czyli są w $\bigcup M_i$, czyli jest to $\dlim M_i$ na mocy pierwszej części ćwiczenia.
+
+To teraz powrót do pierwszej części zadanka. Wydaje mi się, że $\bigcup M_i\subseteq\sum M_i$ jest dość proste. $\sum M_i\subseteq\dlim M_i$ brzmi jak coś z definicji. Zostaje mi, że $\dlim M_i\subseteq\bigcup M_i$. To weźmy sobie dowolnego $x\in M$, wiem że istnieje $x_i\in M_i$ takie, że $\mu_i(x_i)=x$ no i to mi chyba kończy dowód? Bo $\mu_i$ to tak naprawdę identyczność obcięta do $M_i$? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
