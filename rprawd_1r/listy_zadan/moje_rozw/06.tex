@@ -62,9 +62,9 @@ Zmienne losowe $X$ i $Y$ są niezależne. Pokaż, że jeżeli $X$ nie ma atomów
 
 Ponieważ $X$ nie ma atomów, to zbiór $\{x\;:\;\prob{X=x}>0\}=\emptyset$.
 
-Niech $\omega\in\Omega$ taki, że $X(\omega)=t=Y(\omega)$ dla pewnego $t\in\R$. Dla wygody, niech $T=\{t\}$. Ponieważ zdarzenia są niezależne, to:
+Szukamy tak naprawdę $\prob{X=t, Y=t}$ po wszystkich $t$. Ponieważ zdarzenia są niezależne, to:
 \begin{align*}
-    \prob{X=Y}&=\prob{X\in T, Y\in T}=\prob{X\in T}\prob{Y\in T}=\prob{X=t}\prob{Y=t}=0,
+    \prob{X=Y}&=i\int_{-\infty}^\infty\prob{X=t, Y=t}dt=\int\prob{X=t}\prob{Y=t}dt=\int0dt=0,
 \end{align*}
 gdyż $X$ jest bezatomowa.
 

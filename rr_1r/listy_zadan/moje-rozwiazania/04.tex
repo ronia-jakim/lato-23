@@ -10,17 +10,88 @@
 \maketitle
 \thispagestyle{empty}
 
-\begin{problem}{}
+\begin{problem}{d}
 Załóżmy, że funkcja $f=f(t,y)$ jest klasy $C^1$ na zbiorze $t_0\leq t<\infty$, $-\infty<y<\infty$ oraz spełnia dodatkowe oszacowanie $|f(t,y)|\leq K$ na całym tym zbiorze dla pewnej stałej $K>0$. Udowodnić, że rozwiązanie zagadnienia
 $$y'=f(t,y),\quad y(t_0)=y_0$$
 istnieje dla wszystkich $t\geq t_0$.
 \end{problem}
 
-Euler generalnie robi małe kroczki i w ten sposób dostaje szacowanie rozwiązania równania.
+Z zajęć:
 
-Jeśli $h\to 0$, to spełniona jest równość:
-$$y'(t)=\frac{y(t+h)-y(t)}{h}$$
-To ja tak sobie mogę dojść od $t_0$ do $t$ lols
+Z Picarda mamy istnienie rozwiązania na $(\beta, \alpha)$ i załóżmy nie wprost, że $\alpha<\infty$. Wtedy mamy $\beta<T_1<T_2<\alpha$ i z twierdzenia o wartości średniej:
+$$|y(T_2)-y(T_1)|=x'(c)|T_2-T_1|\leq K|T_2-T_1|.$$
+Rozważmy ciąg Cauchy'ego $\{T_n\}$ taki, że $|y(T_n)-x(T_m)|\leq K|T_n-T_m|$. Czyli $\{x(T_n)\}$ jest ciągiem Cauchy'ego. Jesteśmy w przestrzeni Banacha, więc jest on zbieżny. Niech $\lim_{n\to\infty}x(T_n)=x_1$. To samo dla $T_n$: $\lim_{n\to\infty}T_n=t_1$.
+
+Rozważmy nowe zagadnienie $x'=f(t,y)$ i warunek początkowy to $x(t_1)=x_1$. I powtarzamy procedurę.
+
+
+%Euler generalnie robi małe kroczki i w ten sposób dostaje szacowanie rozwiązania równania.
+
+%Plan jest taki, że korzystamy z Peano, że istnieje, a tam ograniczoność $f$ przez cośtam mean value theorem.
+%
+%Założenia Peano:
+%\begin{itemize}
+%    \item $f$ ciągła OK
+%    \item $a,b>0$ OK
+%    \item $R=\{(t, y)\;:\;t_0\leq t\leq t_0+\alpha,|y-y_0|\leq b\}$
+%    \item $M=\max_{(t,y)\in R}|f(t,y)|$
+%    \item $\alpha=\min\{a,\frac{b}{M}\}$
+%\end{itemize}
+%Wtedy $y$ ma co najmniej jedno rozwiązanie na $[t_0,t_0+\alpha]$. Tutaj chcę móc wyjść $t_0+\alpha$ dowolnie daleko.
+
+%Weźmy $[t_0, t_0+T)$. Rozwiązanie istnieje na tym przedziale, bo to nawet z Picarda wynika, a Pewano nawet słabsze jest. Wiemy, że $M=\max(|f(t,x)|)\leq K$, $\alpha=\min(a, \frac{b}{M})$, $a$ możemy wybierać dowolnie, $b$ możemy wybrać jako $T=\frac{b}{K}$ $b=KT$ i nikt mi nie zabroni.
+%
+%Teraz chcemy pokazać, że 
+%$$\lim_{t\in [t_0, t_0+T)}|y(t)|<\infty.$$
+%Wiem, że dla dowolnego $t\in[t_0,t_0+T)$ zachodzi
+%$$\frac{y(t)-y(t_0)}{t-t_0}=y'(c)\leq K$$
+%z mean value theorem. 
+%Czyli
+%$$\infty>K|t-t_0|\geq |y(t)-y(t_0)|$$
+%a ponieważ $|y(t_0)|<\infty$, to $|y(t)|<\infty$, co kończy dowód?
+%
+
+Z Picarda cośtam cośtam mam jakiś przedział $[t_0, \alpha_1]$ że jest określone, potem $[\alpha_1,\alpha_2]$ etc. Granicyje i dostaję przedział $[t_0,\alpha)$ na którym jest dobrze określone. Moja teza, to że $y(\alpha)$ isnieje i wynosi
+$$y_\alpha=y_0+\int_{t_0}^\alpha f(s,y)ds,$$
+bo ta całeczka faktycznie istnieje:
+\begin{align*}
+    |y(\alpha)|=\left|y_0+\int_{t_0}^\alpha f(s, y(s))ds\right|\leq |y_0|+\int_{t_0}^\alpha|f(s,y)|ds\leq y_0+\int_{t_0}^\alpha Kds=y_0+K(\alpha-t_0)<\infty
+\end{align*}
+sprawdźmy, czy $\lim y(t)=$ moja wartość.
+$$\lim_{t\to\alpha}\left[y(t)-y_\alpha\right]=\lim\left[y_0+\int_{t_0}^tf(s,y)ds-y_0-\int_{t_0}^\alpha f(s, y)ds\right]=\lim\int_{t_0}^t f(s,y)ds-\lim\int_{t_0}^t-y_\alpha=0$$
+Czyli śmiga.
+
+\begin{problem}{}
+Udowodnij, że poniższe równania uzupełnione warunkiem początkowym $y(0)=1$ mają rozwiązanie dla wszystkich $t\geq0$.
+\end{problem}
+
+\emph{\color{green}a) $y'=t^3-y^3$}
+
+Tutaj pochodna jest ograniczone jest od góry przez $t$, a od dołu przez $-1$,
+
+
+%\begin{align*}
+%y'=t^3-y^3\\
+%\int_0^t\frac{y'}{(t-y)(t^2+yt+y^2)}ds=t\\
+%\int_0^t\left[\frac{2t+y}{3t^2(t^2+ty+y^2)}-\frac{1}{3t^2(t-y)}\right]
+%\end{align*}
+
+\emph{\color{green}(b) $x'=tx+e^{-x}$}
+
+\begin{problem}{}
+Uzasadnij, że zagadnienie $y'=1+y^2$, $y(0)=0$ nie ma rozwiązania określonego na całej proste.
+\end{problem}
+
+Znaczy bo to jest $y=\tan{t+c}$ XD
+
+Alternatywnie, nie ma górnego ograniczenia na $|y(t)|$, bo to sobie roooośnie więc nie wyśmignie z tego $\lim|y(t)|$.
+
+
+
+
+
+
+
 
 
 
