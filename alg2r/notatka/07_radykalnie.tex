@@ -61,6 +61,37 @@ $ $\newline
 \end{enumerate}
 \end{remark}
 
+\begin{fact}
+Załóżmy, że $K\subseteq L\subseteq\hat{K}$, $K_s= sep_L(K)$, $K_r=rad_L(K)$, $L'=K_s\cdot K_r$ i niech $L'=K_s\cdot K_r$ będzie złożeniem ciał $K_s$ i $K_r$ w $L$ (tzn. ciało generowane w $L$ przez $K_s\cup K_r$: $L'=K_s(K_r)=K_r(K_s)$). Wtedy:
+\begin{enumerate}
+    \item $[L':K]=[K_s:K]\cdot[K_r:K]$
+    \item Gdy $K\subseteq L$ jest rozszerzeniem normalnym, to $K_s\circ K_r=L$
+    \item $K_s\subseteq L$ jest radykalne, a $K_r\subseteq L'$ rozdzielcze 
+\end{enumerate}
+\end{fact}
+\begin{proof}
+Jeśli $chark(K)=0$, to problem jest trywialny, bo $K_r=K$, $K_s=L$ i $L'=L$.
+
+Załóżmy więc, że $char(K)=p>0$.
+
+\begin{illustration}
+\node at (0,0) {kiedyś mi się zechce to rysować.};
+\end{illustration}
+
+\begin{enumerate}[leftmargin=*]
+    \item $L'=K_r(K_s)\supseteq K_r\supsteq K$, więc:
+    $$[L':K]=[K_r(K_s):K_r][K_r:K]$$
+    Wystarczy pokazać, że $[K_s:K]=[K_r(K_s):K_r]$. To można zrobić pokazując, że dla wszystkich $K_r^0$ i $K_s^0$ takich, że $\subseteq K_r^0\subseteq K_r$ i $K\subseteq K_s^0\subseteq K_s$ są skończone mamy $[K_s^0:K]=[K_r^0(K_s^0):K_r^0]$.
+
+    Zadanie z listy $4$: Załóżmy, że $K\subseteq L, M\subseteq\hat{K}$ są rozszerzeniami ciała takie, że $L\cap M=K$. Jeśli dla wszystkich $L_0,M_0$ takich, że $K\subseteq L_0\subseteq L$ i $K\subseteq M_0\subseteq M$ są skończone i $[L_0(M_0):L_0]=[M_0:K]$, to $[L(M):L]=[M:K]$.
+    {\large\color{orange}DOKOŃCZYĆ DOWODZIK}
+\end{enumerate}
+
+\end{proof}
+
+
+
+
 
 
 
