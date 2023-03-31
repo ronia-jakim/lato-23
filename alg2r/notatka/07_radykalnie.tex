@@ -65,7 +65,7 @@ $ $\newline
 Załóżmy, że $K\subseteq L\subseteq\hat{K}$, $K_s= sep_L(K)$, $K_r=rad_L(K)$, $L'=K_s\cdot K_r$ i niech $L'=K_s\cdot K_r$ będzie złożeniem ciał $K_s$ i $K_r$ w $L$ (tzn. ciało generowane w $L$ przez $K_s\cup K_r$: $L'=K_s(K_r)=K_r(K_s)$). Wtedy:
 \begin{enumerate}
     \item $[L':K]=[K_s:K]\cdot[K_r:K]$
-    \item Gdy $K\subseteq L$ jest rozszerzeniem normalnym, to $K_s\circ K_r=L$
+    \item Gdy $K\subseteq L$ jest rozszerzeniem normalnym, to $K_s\cdot K_r=L$
     \item $K_s\subseteq L$ jest radykalne, a $K_r\subseteq L'$ rozdzielcze 
 \end{enumerate}
 \end{fact}
@@ -112,7 +112,13 @@ Załóżmy więc, że $char(K)=p>0$.
         $$\sum k_ia^i=0,\;k_i\in K_r^0$$
         Niech $l$ będzie takie, że $k_i^{p^l}\in K$ dla wszystkich $i$, wtedy
         $$\sum k_i^{p^l}a^{ip^l}=0\implies (\forall\;i)\;k_i=0$$
+        Czyli $[K_r^0(a):K_r^0]\leq[K(a):K]=n$ i $1,a,...,a^{n-1}$ jest bazą $K_r^0(a)/K_r^0$.
     \end{itemize}
+    \item Bez straty ogólności załóżmy, że $[L:K]<\infty$, bo 
+    $$L=\bigcup\{L_0:K\underset{skon,norm}{\subseteq} L_0\subseteq L\}$$
+    \begin{enumerate}
+        \item Niech $a\in L\supseteq K_r$
+    \end{enumerate}
 \end{enumerate}
 
 \end{proof}
