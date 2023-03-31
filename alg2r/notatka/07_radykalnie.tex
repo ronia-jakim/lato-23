@@ -117,13 +117,43 @@ Załóżmy więc, że $char(K)=p>0$.
     \item Bez straty ogólności załóżmy, że $[L:K]<\infty$, bo 
     $$L=\bigcup\{L_0:K\underset{skon,norm}{\subseteq} L_0\subseteq L\}$$
     \begin{enumerate}
-        \item Niech $a\in L\supseteq K_r$
+        \item Niech $a\in L\supseteq K_r$, postulujemy, że $a$ jest rozdzielczy nad $K_r$. Niech $a=a_1,a_2,...,a_n$ będą wszystkimi pierwiastkami wielomianu $w_a(X)\in K[X]$ i niech 
+        $$v(x)=\prod\limits_{i=1}^n(x-a_i).$$
+        Wtedy dla $f\in Gal(\hat{K}/K)$ mamy $f[L]=L$, więc $f$ permutuje $\{a_1,...,a_n\}$. Stąd $f(v(x))=v(x)$, czyli $f$ zachowuje współczynniki $v(x)$. To onzacza, że $v(x)\in K_r[X]$ i mamy, że $a$ jest rozdzielczy nad $K_r$.
+        \item $L\supseteq K_s$ jest radykalne: z uwagi 6.6(3) wiemy, że jeśli $a\in L$ to dla pewnego $l$ mamy $a^{p^l}$ jest rozdzielcze nad $K$. Czyli $a^{p^l}\in K_s$, więc $a$ jest radykalny nad $K_s$.
     \end{enumerate}
-\end{enumerate}
 
+    Z podpunktów wyżej  wiemy, że $L\subseteq K_r\cdot K_s$ jest rozszerzeniem rozdzielczym i radykalnym, więc $L=K_r\cdot K_s$.
+    \item $L\supseteq K_s$ jest radykalne w sposób analogiczny do rozumowania wyżej. $L'\supseteq K_r$ jest rozdzielcze, bo $L'=K_r[K_s]$.
+\end{enumerate}
 \end{proof}
 
+\subsection{Stopień rozdzielczy, radykalny ciała}
 
+\begin{bbox}
+$K\subseteq L\subseteq\hat{K}$
+
+Definiujemy \acc{$[L:K]_s=[sep_L(K):K]$} jako \important{stopień rozdzielczy} ciała $L$ nad $K$ oraz \acc{$[L:K]_r=[L:sep_L(K)]$} jako \important{stopień radykalny} $L$ nad $K$. 
+\end{bbox}
+
+Z wyników wyżej dostajemy
+$$[L:K]=[L:K]_s\cdot[L:K]_r,$$
+bo $K\subseteq sep_L(K)$ jest rozdzielcze, a $sep_L(K)\subseteq L$ jest radykalne.
+
+\begin{remark}
+$K\subseteq L\subseteq\hat{K}$
+\begin{enumerate}
+    \item Jeśli $K\subseteq L$ jest rozdzielcze, to $[L:K]=|\{f\restriction L\;:\;f\in Gal(\hat{K}/K)\}|=|\{f:L\to\hat{K}\;:\;f\restriction K=id\}|$
+    \item Ogólnie, $[L:K]_s=|\{f\restriction L\;:\;f\in Gal(\hat{K}/K)\}|$ (jak wyżej)
+\end{enumerate}
+\end{remark}
+\begin{proof}
+Rozważamy $[L:K]<\infty$. Przypadek ogólny $[L:K]$ można zredukować do przypadku skończonego, co jest ćwiczeniem na liście [wskazówka: \emph{rozważyć odpowiednią bazę liniową $L$ nad $K$}]
+\begin{enumerate}[leftmargin=*]
+    \item Z twierdzenia Abela $L=K(a)$ i dla $f\in Gal(\hat{K}/K)$, $f\restriction L$ jest wyznaczone jednoznacznie przez $f(a)$. Wiemy, że $f(a)\in\{\text{pierwiastki }w_a(x)\}$, których jest $n=[L:K]$.
+    \item DUPA
+\end{enumerate}
+\end{proof}
 
 
 
