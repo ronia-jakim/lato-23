@@ -75,16 +75,44 @@ Jeśli $chark(K)=0$, to problem jest trywialny, bo $K_r=K$, $K_s=L$ i $L'=L$.
 Załóżmy więc, że $char(K)=p>0$.
 
 \begin{illustration}
-\node at (0,0) {kiedyś mi się zechce to rysować.};
+    \draw (0,0) circle (0.7) node {$K$};
+    \draw (-0.53, -0.53)..controls(-3.5, -0.4)and(-3.5, 2.4)..(-0.53,0.53);
+    \draw (0.53, -0.53)..controls(3.5, -0.4)and(3.5, 2.4)..(0.53,0.53);
+    
+    \draw(2.6, 1.05)..controls(1.5, 3)and(-1.5, 3)..(-2.6, 1.05);
+    \draw(2.6, 1.05)..controls(1.5, 4.5)and(-1.5, 4.5)..(-2.6, 1.05);
+    \node at (1.7, 0.3) {$K_r$};
+    \node at (-1.7, 0.3) {$K_s$};
+    \node at (0, 1.5) {$L'$};
+    \node at (0, 3) {$L$};
 \end{illustration}
 
 \begin{enumerate}[leftmargin=*]
     \item $L'=K_r(K_s)\supseteq K_r\supseteq K$, więc:
     $$[L':K]=[K_r(K_s):K_r][K_r:K]$$
-    Wystarczy pokazać, że $[K_s:K]=[K_r(K_s):K_r]$. To można zrobić pokazując, że dla wszystkich $K_r^0$ i $K_s^0$ takich, że $\subseteq K_r^0\subseteq K_r$ i $K\subseteq K_s^0\subseteq K_s$ są skończone mamy $[K_s^0:K]=[K_r^0(K_s^0):K_r^0]$.
+    Wystarczy pokazać, że $[K_s:K]=[K_r(K_s):K_r]$. 
 
     Zadanie z listy $4$: Załóżmy, że $K\subseteq L, M\subseteq\hat{K}$ są rozszerzeniami ciała takie, że $L\cap M=K$. Jeśli dla wszystkich $L_0,M_0$ takich, że $K\subseteq L_0\subseteq L$ i $K\subseteq M_0\subseteq M$ są skończone i $[L_0(M_0):L_0]=[M_0:K]$, to $[L(M):L]=[M:K]$.
-    {\large\color{orange}DOKOŃCZYĆ DOWODZIK}
+    
+    W takim razie wystarczy, że pokażemy
+    $$[K_r(K_s):K]=[K_s:K]$$
+    korzystając z zadania 4 (wyżej). Niech $K\subseteq K_r^0\subseteq K_r$ i $K\subseteq K_s^0\subseteq K_s$, pierwsze rozszerzenia są skończone. Na mocy twierdzenia Abela możemy wybrać $a\in K_s^0$ takie, że $K_s^0=K(a)$. Wtedy również
+    $$K_r^0(K_s^0)=K_r^0(a)$$
+    i $[K_s^0:K]=$ stopień $a$ nad $K$, $[K_r^0(a):K_r^0]=$ stopień $a$ nad $K_r^0$. Wystarczy pokazać, że oba te stopnie się zgadzają.
+
+    Niech $n=[K(a):K]=$ stopień $a$ nad $K$. Wtedy
+    $$1,a,...,a^{n-1}$$
+    to baza liniowa $K(a)$ nad $K$. Przez to, że $a$ jest rozdzielczy nad $K$ i $p=char(K)$, to $K(a)=K(a^p)$ [zad. 7 lista 4], czyli dla każdego $l>0$
+    $$1,a^{p^l},...,a^{(n-1)p^l}$$
+    też jest bazą $K(a)$ nad $K$.
+
+    Pokażemy, że $1,a,...,a^{n-1}$ jest bazą liniową $K_r^0(a)$ nad $K_r^0$:
+    \begin{itemize}
+        \item liniowa niezależność:
+        $$\sum k_ia^i=0,\;k_i\in K_r^0$$
+        Niech $l$ będzie takie, że $k_i^{p^l}\in K$ dla wszystkich $i$, wtedy
+        $$\sum k_i^{p^l}a^{ip^l}=0\implies (\forall\;i)\;k_i=0$$
+    \end{itemize}
 \end{enumerate}
 
 \end{proof}
