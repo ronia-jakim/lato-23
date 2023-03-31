@@ -1,1 +1,149 @@
-\section{Norma, ślad}
+\section{Przekształcenia liniowe}
+
+Od teraz $K\subseteq L$ to będzie skończone rozszerzenie ciała, $L$ będzie przestrzenią liniową nad $K$ o wymiarze $dim_KL=[L:K]$. Dla $a\in L$ będziemy opisywać homomorfizm
+$$f_a:L\to L$$
+$$f_a(z)=a\cdot z$$
+będący $K$-liniowym przekształceniem.
+
+\subsection{Norma, ślad}
+
+\begin{bbox}
+\begin{itemize}
+    \item[\PHtunny] $N_{L/K}(a)=det(f_a)$ jest normą homomorfizmu $f_a$
+    \item[\PHtunny] $Tr_{L/K}(a)=Tr(f_a)$ jest śladem $f_a$.
+\end{itemize}
+\end{bbox}
+
+\begin{fact}
+Niech $\{f_1,...,f_\}=\{f:L\to \hat{K}\;:\;f\restriction K=id\}$, $k=[L:K]_s$ i $a\in L$. Wtedy
+\begin{enumerate}
+    \item 
+\end{enumerate}
+\end{fact}
+\begin{proof}
+\begin{enumerate}[leftmargin=*]
+    \item DOPISAĆ
+    \item Jeśli $[L:K]_r\neq 1$, to $[L:K]_r=p^l$ dla $l\geq 1$ i $T_r(a)=0$
+    \begin{enumerate}
+        \item $a\in K_s$, to $tr_{L/K}(a)=[L:K_s]\cdot Tr_{K_s/K}(a)\underset{{\scriptsize char(K)=p}}{=}0$
+        \item $a\notin K_s$, wtedy $w_a(x)\in K[X]$ nie jest rozdzielczy na mocy 6.6(4). Czyli $K[X^p]\ni w_a(x)=x^{tp}+a_{(t-1)p}x^{(t-1)p}+...$. Stąd $a_{tp-1}=0=Tr_{L/K}(a)=[L:K(a)]\underbrace{Tr_{K(a)/K}(a)}_{=0}$
+    \end{enumerate}
+    \item Jeśli $[L:K]_r=1$, to $L=K$ i $K\subseteq L$ jest rozdzielcze. Patrzymy na ciąg
+    $$K\subseteq K(a)\subseteq L$$
+    mamy
+    $$Tr_{L/K}(a)=[L:K(a)]\cdot Tr_{K(a)/K}(a)$$
+    Możemy wziąc $b$ takie, że $K(a,b)=L$. Teraz liczymy homomorfizmy $L\underset{K}{\to} \hat{K}$
+\end{enumerate}
+\end{proof}
+
+\subsection{Rozszerzenia Galois}
+\begin{bbox}
+$K\subseteq L\subseteq\hat{K}$
+\begin{itemize}
+    \item[\PHtunny] Mówimy, że rozszerzenie algebraiczne jest \acc{Galois}, gdy dla każdego $a\in L\setminus K$ istnieje $f\in Gal(L/K)$ takie, że $f(a)\neq a$.
+    \item[\PHtunny] Niech $G\leq Aut(L)$. Wtedy \important{ciałem punktów stałych} grupy $G$ nazywamy 
+    $$L^G=\{a\in L\;:\;(\forall\;f\in G)\;f(a)=a\}=\bigcap_{f\in G}Fix(f)$$
+\end{itemize}
+\end{bbox}
+
+\textbf{Uwaga:} Jeśli $K\subseteq L$ jest algebraiczne, to $K\subseteq L$ jest Galois $\iff$ $K=L^{G(L/K)}$ [ćwiczenia].
+
+\textbf{Przykłady:}
+\begin{enumerate}
+    \item $L=K(a)$ i $a$ jest algebraiczne nad $K$. $w_a$ jest wielomianem minimalnym dla $a$ i $a=a_1,...,a_k$ są wszystkie pierwiastki $w_a$ w $L$. Wtedy $G(L/K)\ni F$ jest wyznaczone przez $f(a)\in \{a_1,...,a_k\}$. Stąd też $|Gal(L/K)|\leq k\leq [L:K]$.
+    \item $L=K(a_1,...,a_k)\supseteq K$ jest ciałem rozkładu wielomianu $w(x)\in K[X]$ ($a_1,...,a_k$ to wszystkie pierwiastki $w$ w $L$). $Gal(L/K)\ni f$ jest wyznaczone przez $f\restriction\{a_1,...,a_n\}\in Sum(\{a_1,...,a_n\})$ i istnieje monomorfizm $G(L/K)\to Sum(\{a_1,...,a_n\})$ taki, że $f\mapsto f\restriction\{a_1,...,a_n\}$.
+    \item $\zeta_a\in\C$ jest pierwiastkiem pierwotnym z $1$ sotpnia $m$. Wtedy $[\Q[\eta_1]:\Q]=\phi(m)$ i $\eta_1\in\{\zeta_1,...,\zeta_{\phi(m)}\subseteq\C$ to wszystkie pierwiastki pierwotne stopnia $m$ z $1$ w $\C$. Dowolny $Gal(\Q[\zeta_1]/\Q)\ni f$ jest wyznaczony przez $f(\zeta_1)$ (może być dowolny $\zeta_i$, $1\leq i\leq m$), bo $Gal(\Q[\zeta_1]/\Q)=\Q(\zeta_i)$. Czyli $f(\zeta_1)=\zeta_1^{l_f}$ dla pewnego $0< l_f<$ takiego, że $gcd(m, l_f)=1$. Czyli $Gal(\Q(\zeta_1)/\Q)\cong \Z_m^k$ takie, że $f\mapsto l_f$.
+\end{enumerate}
+
+\begin{theorem}
+Niech $K\subseteq L$ będzie algebraiczne. Wtedy $K\subseteq L$ jest Galois $\iff$ $K\subseteq L$ jest rozdzielcze i normalne.
+\end{theorem}
+\begin{proof}
+Bez starty ogólności niech $L\subseteq\hat{K}$
+
+$\implies$ Niech $a\in L\setminus K$ i niech $a=a_1,...,a_n\in L$, wszystkie parami różne, będą pierwiastkami $w_a(x)\in K[X]$ w $L$.
+
+Niech $v(x)=(x-a_1)(x-a_2)...(x-a_n)\in L[X]$, wtedy $v(x)|w_a(x)$ i $v(x)$ jest niezmienniczy względem $Gal(L/K)$ [$f$ permutuje $a_1,...,a_n$]. Czyli $v(x)\in L^{Gal(L/K)}[X]=K[X]$, bo $K\subseteq L$ jest Galois. Stąd $w_a|v$, więc $v=w$ jest rozdzielczy i rozkłada się nad $L$ na czynniki liniowe. Stąd wynika, że $K\subseteq L$ jest rozdzielcze i normalne.
+
+$\impliedby$
+
+Weźmy $a\in L\setminus K$ i niech $w_a(x)$ będzie wielomianem minimalnym [rozdzielczym]. Istnieje $a\neq a'\in L$ będące innym pierwiastkiem $w_a$ w $L$ (bo $L$ normalne). Istnieje $f\in Gal(\hat{K}/K)$ takie, że $f(a)=a'$. Ponieważ $K\subseteq L$ było normalne, to $f[L]=L$ i mamy $f\restriction L\in Gal(L/K)$, $f\restriction L(a)\neq a$, czyli z uwagi wcześniej $K\subseteq L$ jest Galois.
+\end{proof}
+
+\begin{conclusion}
+Załóżmy, że mamy $K\subseteq L\subseteq M\subseteq K$. $K\subseteq M$ jest rozszerzeniem Galois $\iff$ $L\subseteq M$ jest Galois.
+\end{conclusion}
+
+\begin{theorem}[Artin]
+Twierdzenie Artina: niech $G\leq Aut(L)$, wtedy $L^G\subseteq L$ jest rozszerzeniem Galois i $[L:L^G]=|G|$.
+\end{theorem}
+\begin{proof}
+Niech $G\leq Gal(L/L^G)$, wtedy:
+\begin{itemize}
+    \item dla każdego $x\in L\setminus L^G$ istnieje $f\in Gal(L/L^G)$ takie, że $f(x)=x$
+    \item $L^G\subseteq L$ jest algebraiczne:
+
+    Niech $a\in L\setminus L^G$, $\{a=a_0,...,a_l\}=G(a)$ będzie orbitą $a$ w $L$. Niech $w(x)=(x-a_0)(x-a_1)...(x-a_n)\in L[X]$. Wtedy dla każdego $g\in G$ mamy $g(w(x))=w(x)$ i $w\in L^G[X]\implies a$ jest algebraiczny nad $L^g$.
+
+    Ponieważ $deg(w)\leq |G|$, to $[L^G(a):L^g]\leq |G|$. $L^g$ jest rozdzielczym rozszerzeniem $L$, co razem z twierdzeniem Abela daje nam $[L:L^G]\leq |G|$ i $L=L^G(a)$ dla pewnego $a$. Czyli $w_a(x)\in L^G[X]$ jest wielomianem minimalnym $a$ nad $L^G$, więc $deg(w_a)\leq|G|$. 
+
+    $L^g\subseteq L$ jest rozdzielcze i normalne. Czyli $|Gal(L^G/L)|=deg(w_a)=[L:L^G]\leq|G|$. Ponieważ $G\leq Gal(L/L^G)$, to $G=Gal(L/L^G)$ i $[L:L^g]=|G|$
+\end{itemize}
+\end{proof}
+
+\begin{conclusion}
+Niech $K\subseteq L$ będzie skończonym rozszerzeniem Galois. Wtedy $[L:K]=|Gal(L/K)|$
+\end{conclusion}
+
+\begin{proof}
+Niech $G=Gal(L/K)$, wtedy $K=L^G$ i $G$ jest skończona i z twierdzenia Artina $[L:K]=[L:L^G]=|G|$
+\end{proof}
+
+\begin{bbox}
+$K\subseteq L\subseteq\hat{K}$. Definiujemy
+$$\set{L}=\{L'\;:\;K\subseteq L'\subseteq L\}$$
+$$\set{G}=\{H:H\leq Gal(L/K)\}$$
+\end{bbox}
+
+Od razu pojawiają nam się naturalne homomorfizmy:
+$$\Gamma:\set{L}\to\set{G}$$
+$$L'\mapsto Gal(L/L')\leq Gal(L/K)$$
+
+$$\Lambda:\set{G}\to\set{L}$$
+$$G\mapsto [K\subseteq]L^{G}\subseteq L$$
+
+\begin{theorem}[podstawowe twierdzenie teorii Galois]
+Załóżmy, że $K\subseteq L$ jest skończonym rozszerzeniem Galois Wtedy $\Gamma$ jest bijekcją i $\Lambda=\Gamma^{-1}$. 
+\end{theorem}
+
+\begin{proof}
+$$\set{L}\ni L'\overset{\Gamma}{\mapsto}Gal(L/L')\overset{\Lambda}{\mapsto}L^{Gal(L/L')}=L',$$
+bo $L'\subseteq L$ jest Galois i używamy 8.3.
+
+Czyli $\Lambda\circ\Gamma=od_\set{L}$. Tak samo w drugą stronę:
+$$\set{G}\ni H\overset{\Lambda}{\mapsto}L^H\subseteq K\overset{\Gamma}{\mapsto}Gal(L/L^H)=H$$
+\end{proof}
+
+\setcounter{theorem}{8}
+
+\begin{conclusion}
+$K\subseteq L$ jest skończone i Galois. Dla $H\leq Gal(L/K)$ mamy $H\triangleleft Gal(L/K)$ $\iff$ $K\subseteq L^H$ jest normalne.
+
+Ponadto wtedy $Gal(L^H/K)\cong Gal(L/K)/H$
+\end{conclusion}
+
+Przed dowodem ćwiczenie, które pojawi się na liście zadań:
+
+Niech $K\subseteq L'\subseteq L\subseteq\hat{K}$ takie, że $K\subseteq L$ jest normalne (może być też skończone). Wtedy $K\subseteq L'$ jest normalne $\iff$ dla każdej $f\in Gal(L/K)$ $f[L']=L'$ [ćwiczenia].
+
+\begin{proof}
+Weźmy sobie $f\in Gal(L/K)$
+{\large\color{orange}RYSUNEK}
+
+Struktura $2$-sortowa:
+$$(L, Gal(L/K),\star)$$
+gdzie $L$ daje strukturę ciała, $Gal(L/K)$ daje strukturę grupy, a $\star$ jest działaniem $Gal(L/K)$ na $L$. Wtedy $f:L\isomorphism L$ indukuje izomorfizm:
+$$\hat{f}:Aut(L)\isomorphism Aut(L)$$
+$$\hat{f}(\phi)=f\circ\phi\circ f^{-1}$$
+To znaczy $\hat{f}=j_f\in ???(Aut(L))$
+\end{proof}
