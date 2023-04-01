@@ -17,12 +17,23 @@ będący $K$-liniowym przekształceniem.
 \begin{fact}
 Niech $\{f_1,...,f_\}=\{f:L\to \hat{K}\;:\;f\restriction K=id\}$, $k=[L:K]_s$ i $a\in L$. Wtedy
 \begin{enumerate}
-    \item 
+    \item $N_{L/K}(a)=\left[\prod\limits_{i=1}^kf_i(a)\right]^{[L:K]_r}$
+    \item $Tr_{L/K}(a)=[L:K]_r\cdot\sum\limits_{i=1}^kf_i(a)$.
 \end{enumerate}
 \end{fact}
+    Rozważmy najpierw przypadek, gdy $L_K(a)$ i $a$ jest rozdzielczy nad $K$. Niech $w_a(x)=x^k+a_{k-1}x^{k-1}+...+a_1x+a_0\in K[X]$ będzie wielomianem minimalnym dla $a$ nad $K$.Niech $b_1=a,...,b_n\in\hat{K}$ będą pierwiastkami $w_a$ i możemy założyć bez straty ogólności, że $b_i=f_i(a)$. W takim razie, jeśli popatrzymy na $w_a$ w $\hat{K}$, to mamy
+    $$w_a=\prod(x-b_i)$$
+    $$a_{k-1}=-\sum b_i$$
+    $$a_0=(-1)^k\prod b_i$$
+    Na mocy zadania 4 z listy 5 dostajemy więc
+    $$\begin{array}{l}
+        N_{L/K}(a)=(-a)^ka_0=\prod f_i(a)\\
+        Tr_{L/K}(a)=-a_{k-1}=\sum f_i(a)
+    \end{array}$$
+
 \begin{proof}
 \begin{enumerate}[leftmargin=*]
-    \item DOPISAĆ
+    \item Niech $a\in L$. Wtedy{\large\color{orange}O JEZU JA NIE MYŚLĘĘĘ}
     \item Jeśli $[L:K]_r\neq 1$, to $[L:K]_r=p^l$ dla $l\geq 1$ i $T_r(a)=0$
     \begin{enumerate}
         \item $a\in K_s$, to $tr_{L/K}(a)=[L:K_s]\cdot Tr_{K_s/K}(a)\underset{{\scriptsize char(K)=p}}{=}0$

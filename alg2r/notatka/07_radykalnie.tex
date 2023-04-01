@@ -139,7 +139,6 @@ Definiujemy \acc{$[L:K]_s=[sep_L(K):K]$} jako \important{stopień rozdzielczy} c
 Z wyników wyżej dostajemy
 $$[L:K]=[L:K]_s\cdot[L:K]_r,$$
 bo $K\subseteq sep_L(K)$ jest rozdzielcze, a $sep_L(K)\subseteq L$ jest radykalne.
-
 \begin{remark}
 $K\subseteq L\subseteq\hat{K}$
 \begin{enumerate}
@@ -151,8 +150,20 @@ $K\subseteq L\subseteq\hat{K}$
 Rozważamy $[L:K]<\infty$. Przypadek ogólny $[L:K]$ można zredukować do przypadku skończonego, co jest ćwiczeniem na liście [wskazówka: \emph{rozważyć odpowiednią bazę liniową $L$ nad $K$}]
 \begin{enumerate}[leftmargin=*]
     \item Z twierdzenia Abela $L=K(a)$ i dla $f\in Gal(\hat{K}/K)$, $f\restriction L$ jest wyznaczone jednoznacznie przez $f(a)$. Wiemy, że $f(a)\in\{\text{pierwiastki }w_a(x)\}$, których jest $n=[L:K]$.
-    \item DUPA
+    \item $l\supseteq K_s$ to rozszerzenie radykalne, więc $f\restriction L$ jest wyznaczone przez $f\restriction K_s$. Dlatego:
+    $$|\{f\restriction L\;:\;f\in Gal(\hat{K}/K)\}|=|\{f\restriction K_s\;:\;f\in Gal(\hat{K}/K)\}|=[K_s:K]=[L\underset{\underset{\scriptscriptstyle sep_L(K)}{\rotatebox{90}{=}}}{:K_s]}$$
+    %\rotatebox[origin=l]{-90}{$\scriptscriptstyle=sep_L(K)$}}{K_s}]
 \end{enumerate}
+\end{proof}
+
+\textbf{\large\color{blue}Uwaga. }{\slshape Jeśli $char(K)=p$ i $[L:K]_r<\infty$, to $[L:K]_r$ jest potęgą $p$.}
+
+\begin{proof}
+Indukcja względem $[L:K]_r=[L:K_s]$. Bez starty ogólności załóżmy, że $K=K_s$. Niech $a\in L\setminus K$, wtedy $a$ jest radykalne nad $K$, czyli istnieje minimalne $l$ takie, że  $a^{p^l}\in K$.
+
+Niech $a'=a^{p^{l-1}}$, wtedy $a'\in L\setminus K$ i $(a')^p\in K$, dlatego $w_{a'}(x)=x^p-(a')^p$ i $K\subseteq K(a')\subseteq L$, pierwsze rozszerzenie ma stopień $p$, a drugie jest radykalne.
+
+Mamy $[L:K(a')]<[L:K]$, więc z założenia indukcyjnego $[L:K(a')]=p^r\implies [L:K]=p^{r+1}$
 \end{proof}
 
 
