@@ -247,11 +247,26 @@ Nie rozumiem czego ode mnie wymagają.
 Odwzorowanie $F:S^3\to S^2$ zadane jest wzorem $F(z,w)=(z\overline{w}+w\overline{z},iw\overline{z}-iz\overline{w},z\overline{z}-w\overline{w})$, gdzie $S^3$ traktujemy jako podzbiór w $\C^2$ zadany równaniem $|z|^2+|w|^2=1$. Uzasadnij za pomocą wyliczenia w mapach, że $F$ jest odwzorowaniem gładkim. Wcześniej uzasadnij, że jest ono dobrze określone.
 \end{problem}
 
+$S^3$ mogę zanurzyć w $\R^4$, ale ja mam myśleć w terminach $\C^2$, czyli moje zbiory $U_1^\pm,U_2^\pm,U_3^\pm,U_4^\pm$ będą zbiorami które mają dla nieparzystych indeksów $Re(z)$ jest większe lub mniejsze niż $0$, a dla parzystych to $Im(z)$ jest warunkowane.
+
+To jak wyglądałaby mi mapa $\phi_1^+:\C^2\to\R^3$ na
+$$U_1^+=\{(z,w)\;:\;Re(z)>0\}?$$
+$$\phi_1^+(z,w)=(Im(z), Re(w),Im(w))$$
+
+Aby pokazać gładkość $F$, muszę brać dowolny $(p,q)\in S^3$ i mapę $(U,\phi)$ zawierającą $(p,q)$. Potem dobieram mapę $(V,\psi)$ zawierającą $F(p,q)$ i sprawdzam, że $\psi\circ F\circ\phi^{-1}$ jest gładkie.
+
+Dobra, bierem $(p,q)\in S^3$ i żeby mi było dobrze w życiu, to chcę, aby $(p,q)\in U_1^+$, czyli $Re(p)>0$. Wtedy
+\begin{align*}
+    F(p,q)=(p\overline{q}+q\overline{p}, i[q\overline{p}-p\overline{q}], |p|-|q|)
+\end{align*}
+Na $S^2$ ustalam mapy $V_1^\pm,V_2^\pm,V_3^\pm$ i ten obraz musi wpadać w jedną z nich. Chyba mnie nie obchodzi w którą, bo ma szansę wpaść w każdą z nich, w zależności od tego jak będzie wyglądać $q$?
 
 
-
-
-
+Niech $(x,y,z)=\phi(p,q)$, tzn. $p=w+ix,q=y+iz$.
+\begin{align*}
+    \psi\circ F\circ\phi^{-1}(x, y, z)=\psi(2(wy+xz),2(wz+xy),w^2+x^2-y^2-z^2)
+\end{align*}
+Nie ważne które usuniemy, zawsze dostajemy funkcję gładką, więc i całość jest gładka?
 
 
 
