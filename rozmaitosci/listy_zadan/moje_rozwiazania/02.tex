@@ -268,9 +268,111 @@ Niech $(x,y,z)=\phi(p,q)$, tzn. $p=w+ix,q=y+iz$.
 \end{align*}
 Nie ważne które usuniemy, zawsze dostajemy funkcję gładką, więc i całość jest gładka?
 
+\begin{problem}[10]{}
+Zrobiliśmy
+\end{problem}
+
+\begin{problem}[11]{}
+Zrobiliśmy
+\end{problem}
+
+\begin{problem}[12]{}
+    Znajdź dyfeomorfizm pomiędzy $\R^n\setminus\{0\}$ a rozmaitością produktową $\R\times S^{n-1}$.
+\end{problem}
+
+Z grubsza chcemy rzucać $(-\infty,0]\mapsto (-1,0]$. 
+
+Bierzemy punkt $p\in\R^n$, rzucamy go na sferę i dostajemy  $q\in S^{n-1}$ i robimy $(g(p),q)$, gdzie $g(p)$ to jest jakaś funkcja odległości od $p$ do $0$.
+
+Jeszcze trzeba udowodnić, że to jest gładkie, bo że jest wzajemnie jednoznaczne to możemy uwierzyć.
+
+Na $\R^n\setminus\{0\}$ mamy jedną mapę - identyczność. Na $\R\times S^{n-1}$ mamy jakąś mapę $V\subseteq \R\times S^{n-1}$, BSO  $V=\R\times S_1^+$.
+
+\begin{center}
+\begin{tikzcd}
+    \R^n\setminus\{0\}\arrow[r, "f"]\arrow[d, symbol=\supseteq] & \R\times S^{n-1}\arrow[d,symbol=\supseteq]\\
+    %\rotatebox{90}{$\subseteq$} & \rotatebox{90}{$\subseteq$}\\
+    U\arrow[d, "\phi"] & V=\R\times S_1^+\arrow[d, "\psi"]\\
+    \R^n\arrow[r, dashed, "\psi\circ f\circ\phi^{-1}"] & \R\times\R^{n-1}
+\end{tikzcd}
+\end{center}
+
+Weźmy więc $p\in \R^n$ że jest w tych odpowiednich mapach. Rozważamy
+$$\psi\circ\phi^{-1}(p)=\psi\circ f(p)=\psi(g(|OP|), \frac{p}{|OP|})=(g(|OP|),\frac{p_2}{|OP|},\frac{p_3}{|OP|},...,\frac{p_{n-1}}{|OP|})$$
+
+\begin{problem}[13]{}
+Pomijamy bo jest podobne do 12
+\end{problem}
+
+\begin{problem}[14]{}
+LOL pomijamy
+\end{problem}
+
+\begin{problem}[15]{}
+LOOL
+\end{problem}
+
+Ustalamy grupę: $G=\{e, a\}$, grupa ilorazowa to
+$$S^n/G=\{\{x, -x\}\;:\;x\in S^n\}$$
+czyli zbiór prostych przechodzących przez $0$.
+
+Mamy pokazać wolność i właściwą nieciągłość.
+
+\textbf{Wolność:}
+
+Bierzemy $g\in G\setminus\{id\}$ i pokazujemy, że dla zawsze $g(p)\neq p$, co jest oczywiste, bo mamy tylko antypodyczne no i ono nie ma punktów stałych.
+
+\textbf{Właściwa nieciągłość:}
+
+Dla każdego punktu istnieje zwarte otoczenie, że obrazy przez to zwarte otoczenie są parami rozłączne czy jakiś taki bullshit.
+
+Czyli bierzemy $p\in S^n$ i $K$ zwarte takie, że $\{g\;:\;g(K)\cap K\neq \emptyset\}$ jest skończone. No ale ciężko jest mieć nieskończony podzbiór zbioru dwuelementowego.
+
+\begin{problem}[16]{}
+HUHUHUHU
+\end{problem}
+
+$$S^n/\pm I=\R P^n$$
+
+\begin{problem}[17]{}
+
+\end{problem}
+
+To że zamknięty na odwracanie i składane etc, to że działa w sposób wolny też widać. Wystarczy pokazać coś o właściwej nieciągłości.
+
+Chcemy ustalić zbiór zwarty $K$ i popatrzeń na wszystkie $k$ takie, że $K\cap f_k(K)\neq\emptyset$. Przez to, że $K$ jest zwarty, to jest ograniczony jakimś kołem od zewnątrz i od wewnątrz, bo zbiór zwarty nie może za bardzo mieć otoczniea $0$, bo to $0$ wyrzuciliśmy bla bla bla. 
+
+Więc zamiast patrzeć co $f_k$ robi z $K$, możemy patrzeć co robi z symetrycznym względem $0$ pierścieniem, no a dalej to widać.
+
+Co jest przestrzenią ilorazową? Jak skleimy te brzegi pierścieni, to dostajemy jakiśtam torus. Dokładniej to $S^n\times S^1$. Czyli dla $n=1$ mamy torusik.
+
+\begin{problem}[18]{}
+trollolololo
+\end{problem}
+
+Rozważamy $S^3$, ale rozważamy ją jako podzbiór $\C^2$
+$$S^3=\{(z_1,z_2)\;:\;(z_1,z_2)\subseteq\C^2\}$$
+
+Takie spojrzenie daje nam to, że mamy działanie grupy
+$$g_n(z_1,z_2)=(e^{\frac{2\pi i n}{p}}\cdot z_1,e^{\frac{2\pi inq}{p}}\cdot z_2)$$
+czyli to jest takie uogólnione obracanie.
+
+Ponoć łatwo jest zobaczyć, że
+$$\{g_0,...,g_{p-1}\}=\Z/p\Z$$
+czyli $S^3/p\Z$ istnieje i jest gładkie i cośtam cośtam.
+
+\begin{problem}[19]{}
+Ono coś mówi i jest ponoć bardzo pomocne.
+\end{problem}
+
+Mamy odwzorowanie $f:M\to N$ pomiędzy rozmaitościami, ale interesuje nas rozmaitość $M/G$.
 
 
 
+
+$F(Gx)=f(x)$, rząd $G_x(F)=$ rząd $x(f)$.
+
+Bierzemy sobie jakąś orbitę $Gx$ i jakieś otoczenie z definicji, potem bierzemy inwers tego otoczenia i śmigamy dalej.
 
 
 

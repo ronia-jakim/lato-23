@@ -172,6 +172,14 @@
 \usetikzlibrary{cd}
 \usetikzlibrary{patterns, patterns.meta}
 
+\tikzset{
+  symbol/.style={
+      draw=none,
+          every to/.append style={
+                edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+                  }
+                  }
+
 \newenvironment{illustration}
     {\begin{center}\begin{tikzpicture}}
     {\end{tikzpicture}\end{center}}
