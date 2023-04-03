@@ -1,12 +1,14 @@
 \documentclass{article}
 
-\usepackage{../../../lecture_notes}
+\usepackage[light-theme]{../../../lecture_notes}
 
 \title{Problem List 4}
 \author{Weronika Jakimowicz}
-\date{sometime in the future}
+\date{\scriptsize sometime in the future}
 
 \begin{document}
+\maketitle\thispagestyle{empty}
+
 \begin{problem}[1]{}
 Calculate cyclotomic polynomials
 $$F_1(X),F_2(X),F_4(X),F_8(X),F_{16}(X),F_{15}(X)$$
@@ -51,6 +53,64 @@ $$F_8(x)=x^4+1\mapsto x^4+1$$
 $$F_{16}(x)=x^8+1\mapsto x^8+1$$
 $$F_{15}(x)=x^8-x^7+x^6-x^5+x^4-x^3+x^2-x+1\mapsto x^8+2x^7+x^6+2x^5+x^4+2x^3+x^2+2x+1$$
 
-Most of them are irreducible as they have no roots in $\Z_3$ but $F_{15}(2)=681\mod 3=0$
+Let me start from $F_{15}(x)$. I see that $2$ divides $F_{15}(x)$ and it is easy to check that $(x+1)^8=F_{15}(x)$ in $\Z_3$.
+
+Now, $F_4(x)$, it has no roots in $\Z_3$ and because it is a quadratic polynomial, it cannot be divided by any other polynomial than one of degree $1$. Hence, it is irreducible.
+
+$F_8(x)$ also has no roots in $\Z_3$ so we surely cannot split it into a linear polynomial and a polynomial of degree $3$. The only hope is in two polynomials of degree $2$. Let us check
+$$(x^2+x+2)(x^2+2x+2)=x^4+{\color{yellow}2x^3}+{\color{blue}2x^2}+{\color{yellow}x^3}+{\color{blue}2x^2}+{\color{green}2x}+{\color{blue}2x^2}+{\color{green}x}+1=x^4+1$$
+
+$F_{16}(x)$ is the worst because I cannot find a decomposition using simple tricks but showing that it is irreducible can be a little painful. I will leave it for now and most probably forget to return to it later. I apologize.
+
+%Suppose that
+%$$x^4+1=(x^2+ax+b)(x^2+cx+d)$$
+%then
+%$$\begin{cases}bd=1\\ad+bc=0\\c+a=0\\d+b+ac=0\end{cases}$$
+%we have that $d=b^{-1}$ and $c=-a$. Hence, if we put this into the second equation, we get:
+%$$0=ab^{-1}-ab=a(b^{-1}-b)$$
+%\begin{enumerate}
+%    \item if $a=0$, then $c=0$ and from the third equation: $b+b^{-1}=0\implies b^2+1=0\implies b^2=2$ which cannot happen if $b\in\{0,1\}$ and even powers of $2$ are $1$ modulo $3$ so this gives a contradiction
+%    \item if $b^{-1}-b=0$, then $b=b^{-1}\implies b^2=1$ and the arguments is the same as above.
+%\end{enumerate}
+%This shows that $x^4+2$ is irreducible over $\Z_3$.
+
+
+%Most of them are irreducible as they have no roots in $\Z_3$ but $F_{15}(2)=681\mod 3=0$
+
+\begin{problem}[2]{}
+Describe the normal closures of the following field extensions:
+\begin{enumerate}[label=(\alph*)]
+    \item $\Q[\sqrt[n]{2}]\supseteq\Q$
+    \item $\Q(\sqrt[n]{X})\supseteq\Q(X)$
+    \item $\C(\sqrt[n]{X})\supseteq\C(X)$
+    \item $\Q[\zeta]\supseteq\Q$, where $\zeta$ is a primitive root of $1$ of degree $n>1$.
+\end{enumerate}
+(hint: in $(a)-(c)$ find the minimal polynomial, in $(c)$ use the fact that $\C$ is algebraically closed, in (b) notice that $X$ may be replaced by any transcendental number, this is not necessary, but it helps.)
+\end{problem}
+
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item $\Q[\sqrt[n]{2}]\supseteq\Q$
+
+    The minimal polynomial for $\sqrt[n]{2}$ over $\Q$ is $w(x)=x^n-2$ and its roots are of form
+    $$a_k=\sqrt[n]{2}e^{\frac{2\pi i}{n}k}$$
+    Now, I know that an extension of a field is normal if for any polynomial, if it has one root, then it has all the roots. So I need to find the minimal field that contains all those roots and $\Q[\sqrt[n]{2}]$ and it is
+    $$L=\Q(a_1,...,a_n=\sqrt[n]{2})$$
+    because we have already showed that it is the smallest field such that $a_1,...,a_n$ are contained within it.
+\end{enumerate}
+
+\begin{problem}[3]{}
+Prove that every field extension of degree $2$ is normal.
+\end{problem}
+
+Let $K$ be a field and $f\in K[X]$ be a polynomial of degree $2$, WLOG $f$ is monic. We consider $K(a)$, where $f(a)=0$. Let us assume that
+$$f(x)=\alpha_0+\alpha_1x+x^2$$
+for $\alpha_0,\alpha_1\in K$. We know that if $a,b$ are solutions of $f$, then $a+b=-\alpha_1\implies b=-\alpha_1-a\in K$, hence both roots of $f$ are in our extension $K(a)$ and $K(a)$ is normal.
+%$$\begin{cases}a+b=-{\alpha_1}\\ab={\alpha_0}\end{cases}$$
+
+%Any other $\beta\in K(a)$ is either in $K$ or is of form $\beta=a^kb^l\gamma,k>0\;or\;l>0,\gamma\in K$. Then $x-\gamma\in K[X]\subseteq L[X]$ and 
+%Any other $\beta\in K(a)$ is of form $\beta=a^kb^l\gamma,\gamma\in K$. We have the minimal polynomial of $\beta$ is $x-\beta\in L[X]$.
+
+
+
 
 \end{document}
