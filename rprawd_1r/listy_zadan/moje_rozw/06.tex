@@ -6,6 +6,9 @@
 \author{Weronika Jakimowicz}
 \date{}
 
+%\usepackage{unicode-math}
+%\newcommand{\d}[1]{\symbf{d#1}}
+
 \usepackage{wrapfig}
 
 \begin{document}
@@ -47,6 +50,76 @@ Tutaj mamy
 $$f_X(x)f_Y(y)=3x^2(1+2y-3y^2)\neq2(x+y)$$
 więc są bardzo zależne.
 
+\begin{problem}[2]{}
+Zmienna losowa $(X, Y)$ ma rozkład z gęstością $g(x,y)=C\cdot xy\cdot\mathds{1}_{[0,1]^2}$.
+\begin{enumerate}[label=(\alph*)]
+    \item Wyznaczyć $C$.
+    \item Obliczyć $\prob{X+Y\leq1}$
+    \item Wyznaczyć rozkład zmiennej losowej $\frac{X}{Y}$.
+    \item Czy zmienne $X$ i $Y$ są niezależne?
+    \item Czy $\frac{X}{Y}$ i $Y$ są niezależne?
+\end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item To będzie całeczką $\star$
+    \begin{align*}
+        1=\int\int_{\R^2}g(x,y)\;dxdy=C\int_0^1\int_0^1xydxdy=C\int_0^1y\frac{1}{2}\;dy=\frac{C}{4}\implies C=4
+    \end{align*}
+    %\item 
+    %Możemy to zrobić na dwa sposoby: pamiętać, że w skrypcie są sploty, albo dojść do tego mozolnym rozumowaniem. Zrobimy to drugie bo tak.
+%
+    \item Ustalmy sobie najpierw $s$ i niech $X=s$. Wtedy $X+Y\leq 1\iff Y\leq1-s$. Takie prawdopodobieństwo liczymy w następujący sposób:
+    $$\prob{X=s, Y\leq 1-s}=\int_0^{1-s}g(s,t)\;dt.$$
+    Super, ale $s$ może być dowolnym punktem z przedziału $[0, 1]$, więc my chcemy zliczyć wartości dla każdego takiego $s$. W tym pomaga nam kolejna całka:
+    $$\prob{X+Y\leq 1}=\int_0^1\prob{X=s, Y\leq 1-s}=\int_0^1\int_0^{1-s}4\cdot st \;{dtds}$$
+   % \item Ustalmy sobie $t$ i zastanówmy się, kiedy mamy $\frac{X}{Y}\leq t$, $X\leq tY$. Wartości $X$ chodzą od $0$ do $1$, czyli wybierzmy sobie $s\in[0,1]$. Wtedy
+   % $$\prob{\frac{X}{Y}\leq t}\geq\prob{X\leq s, \frac{s}{t}\leq Y}$$
+   % my liczymy po wszystkich takich $s$, czyli
+   % \begin{align*}
+   %     \prob{\frac{X}{Y}\leq t}&=\int_0^1\prob{X\leq s,\frac{s}{t}\leq Y}\;ds=\int_0^1\int_{\frac{s}{t}}^1g(s, p)\;dpds=\\
+   %     &=\begin{bmatrix}u=\frac{s}{t}\\du=\frac{1}{t}ds\end{bmatrix}=\int_0^1t\int_u^1g(u, p)\;dpdu
+   % \end{align*}
+   % Chcemy znaleźć rozkład zmiennej $\frac{X}{Y}$, co możemy zrobić szukając dystrybuanty. Wszystko i tak jest izomorficzne $\star$
+   % \begin{align*}
+   %     \prob{\frac{X}{Y}\leq t}&=\prob{X\leq tY}=\int_\R\prob{X\leq ts}\;ds=(\Coffeecup)
+   % \end{align*}
+   % tutaj szybko zauważamy, że wartości $Y=[0,1]$, czyli ta całka nie jest po $\R$ tylko po $[0,1]$.
+   % \begin{align*}
+   %     (\Coffeecup)=\int_0^1\prob{X\leq ts}\;ds
+   % \end{align*}
+   \item Policzymy dystrybuantę. Do tego potrzebuję się zastanowić, kiedy $\frac{X}{Y}\leq t$? Ustalmy sobie $Y=s$, wtedy $\frac{X}{Y}=\frac{X}{s}\leq t\implies X\leq ts$
+   \begin{align*}
+        \prob{\frac{X}{Y}\leq t}&=\int_0^1\prob{X\leq ts, Y=s}\;ds=\int_0^1\int_0^{ts}\prob{X=p, Y=s}\;dpds=\\
+        &=\int_0^1\int_0^{ts}4ps\;dpds=2\int_0^1t^2s^2\;ds=\frac{2}{3}t^2
+   \end{align*}
+   \item Do sprawdzania, czy zmienne $X$ i $Y$ są niezależne potrzebujemy znać rozkłady brzegowe, czyli rzuty na $X$ i na $Y$. Będę liczyć dystrybuantę tych rzutów:
+   \begin{align*}
+        \prob{X\leq t}&=\prob{X\leq t, Y\in[0,1]}=\\
+        &=\int_0^t\int_0^1g(p, s)\;dsdp=\\
+        &=2\int_0^tp\;dp=t^2
+    \end{align*}
+   %=tC\int_0^1s\;ds=2t$$
+   $$\prob{Y\leq t}=\int_0^t\int_0^1g(p, s)\;dsdp=t^2$$
+   Teraz sprawdzamy, czy $\prob{X\leq x, Y\leq y}=\prob{X\leq x}\prob{Y\leq y}$
+   \begin{align*}
+        \prob{X\leq x, Y\leq y}&=\int_0^x\int_0^yg(s, t)\;dtds=\int_0^x4s\int_0^yt\;dtds=\\
+        &=\int_0^x2sy^2\;ds=x^2y^2
+   \end{align*}
+   Czyli zmienne są niezależne.
+   \item Zmienne są niezależne, jeśli $\prob{A}\prob{B}=\prob{A\cap B}$. U nas niech
+   $$A=\{\omega\;:\;\frac{X(\omega)}{Y(\omega)}\leq t\}\quad\left[\prob{A}=\prob{\frac{X}{Y}\leq t}\right]$$
+   $$B=\{\omega\;:\;Y(\omega)\leq s\}\quad\left[\prob{B}=\prob{Y\leq s}\right]$$
+   $$A\cap B=\{\omega\;:\;\frac{X(\omega)}{Y(\omega)}\leq t\;i\;Y(\omega)\leq s\}=\{\omega\;:\;X(\omega)\leq tY(\omega)\;i\;Y(\omega)\leq s\}$$
+   Pierwsze dwa prawdopodobieństwa już mamy, zostaje nam obliczyć prawdopodobieństwo przekroju.
+   \begin{align*}
+        \prob{A\cap B}&=\prob{X\leq tY, Y\leq s}=\int_0^s\prob{X\leq ty, Y=y}\;dy=\\
+        &=\int_0^s\int_0^{ty}\prob{X=x, Y=y}\;dxdy=\int_0^s\int_0^{ts}4xy\;dxdy=\\
+        &=2\int_0^syt^2y^2\;dy=\frac{1}{2}t^2{s^4}
+   \end{align*}
+   No i wyszło, że są zależne [co jest dość rozsądnym wynikiem].
+\end{enumerate}
+
 \begin{problem}[4]{}
 Niech $X_1,...,X_n$ będą niezależnymi zmiennymi losowymi o rozkładzie wykładniczym z parametrem $1$. Znajdź rozkład $Y=\min\limits_{1\leq i\leq n}X_i$. Czy $X_n$ i $Y$ są niezależne?
 \end{problem}
@@ -64,7 +137,7 @@ Ponieważ $X$ nie ma atomów, to zbiór $\{x\;:\;\prob{X=x}>0\}=\emptyset$.
 
 Szukamy tak naprawdę $\prob{X=t, Y=t}$ po wszystkich $t$. Ponieważ zdarzenia są niezależne, to:
 \begin{align*}
-    \prob{X=Y}&=i\int_{-\infty}^\infty\prob{X=t, Y=t}dt=\int\prob{X=t}\prob{Y=t}dt=\int0dt=0,
+    \prob{X=Y}&=\int_{-\infty}^\infty\prob{X=t, Y=t}dt=\int\prob{X=t}\prob{Y=t}dt=\int0dt=0,
 \end{align*}
 gdyż $X$ jest bezatomowa.
 
