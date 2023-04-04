@@ -136,7 +136,7 @@ RET = [P[0], P[1]]
 for i in {2, ..., n-1}:
     j = i-1
     przec = (RET[j-1][1] - P[i][1]) / (P[i][0]-RET[j-1][0])
-    while i >= 0 &&  (P[i][0] * przec + P[i][1]) >= (RET[j][0] * przec + RET[j][1]):
+    while i >= 0 && (P[i][0] * przec + P[i][1]) >= (RET[j][0] * przec + RET[j][1]):
         RET.pop_back()
         przec = (RET[j-1][1] - P[i][1]) / (P[i][0]-RET[j-1][0])
         j = j-1
