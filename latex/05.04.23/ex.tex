@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{./bibb.bib}
+\renewbibmacro{in:}{}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+
+\title{Finite groups}
+\author{Weronika Jakimowicz}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Groups are a common way to formalize the notion of symmetries in mathematics. Finite groups in turn are simply groups with finitely many elements. Unsurprisingly, one of the most important invariants of a finite group $G$ is its cardinality $|G|$. For example, one has
+
+\begin{theorem}\label{theorem:1.1}
+    Let $G$ be a group whose cardinality $|G|$ is a square of a prime number $p$. Then $G$ is isomorphic to $\Z_p\times\Z_p$ or $\Z_{p^2}$.
+\end{theorem}
+
+More specifically, one also has
+
+\begin{theorem}\label{theorem:1.2}
+    Let $G$ be a group whose cardinality $|G|$ is a prime number $p$. Then $G$ is isomorphic to $\Z_p$.
+\end{theorem}
+
+Both of those are consequences of
+
+\begin{theorem}\cite[Proposition 2.2]{Lang}
+    Let $G$ be a finite group and $H$ a subgroup of $G$. Then $|H|$ divides $|G|$.
+\end{theorem}
+
+\section{Sylow Theorems}
+A common tool to study finite groups is the use of so-called Sylow-subgroups.
+\begin{theorem}\cite[Thereom 6.4]{Lang}
+Let $G$ be a finite group, $p$ a prime number and $p^{M_p(G)}$ the maximal power of $p$ dividing $G$. A subgroup $S$ of $G$ with $S=p^{M_p(G)}$ is called a $p$-Sylow subgroup of $G$. Let $n_p(G)$ be the number of $p$-Sylow-subgroup of $G$. Then
+$$n_p(G)\equiv1\mod p^{M_p(G)}\text{ and }n_p(G)\text{ divides }\frac{|G|}{p^{M_7(G)}}$$
+holds. Further, all $p$-Sylow-subgroups of $G$ are conjugates in $G$.
+\end{theorem}
+
+This can often be used to determine groups explicitly only with the information of $|G|$. For example, one has the following application. Let$G$ be a finite group with $|G|=35$. Then
+$$n_7(G)\equiv 1\mod7^{M_6(G)}=7\text{ and }n_7(G)\text{ divides }\frac{|G|}{7^{M_7(G)}}=5.$$
+But this implies that $n_7(G)=1$ and so there is a unique $7$-Sylow-sbgrou $S_7$ of $G$ and so $S_7$ is a normal subgroup of $G$. But then $S_7=\Z_7$ and $G/S_7=\Z_5$ and hence $G$ is solvable. Of course, one could also use
+$$n_5(G)\equiv 1\mod5^{M_5(G)}=5\text{ and }n_5(G)\text{ divides }\frac{|G|}{5^{M_5(G)}}=7$$
+instead. In fact, one has
+
+\begin{theorem}
+Let $G$ be a subgroup whose cardinality $|G|$ is smaller than $60$. Then $G$ is solvable..
+\end{theorem}
+
+
+
+
+\printbibliography[title=Book on Algebra]
+\end{document}

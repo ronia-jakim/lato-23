@@ -110,6 +110,15 @@ for $\alpha_0,\alpha_1\in K$. We know that if $a,b$ are solutions of $f$, then $
 %Any other $\beta\in K(a)$ is either in $K$ or is of form $\beta=a^kb^l\gamma,k>0\;or\;l>0,\gamma\in K$. Then $x-\gamma\in K[X]\subseteq L[X]$ and 
 %Any other $\beta\in K(a)$ is of form $\beta=a^kb^l\gamma,\gamma\in K$. We have the minimal polynomial of $\beta$ is $x-\beta\in L[X]$.
 
+\begin{problem}[4]{}
+Assume that the field extension $K\subseteq L$ is algebraic and $f:L\to L$ is a monomorphism, $f\restriction K=id$. Prove that $f$ is "onto".
+\end{problem}
+
+Let us take any $\alpha\in L$ such that $\alpha\neq 0$. Then, since $K\subseteq L$ is algebraic, we know that there exists a minimal polynomial $w\in K[X]$ such that $w(\alpha)=0$. Let
+$$w(x)=\sum\limits_{i=0}^na_ix^i$$
+and since $w$ is minimal, then it is irreducible and $a_0\neq 0$. Now, consider
+$$f(w(\alpha))=f(\sum a_i\alpha^i)=\sum f(a_i\alpha^i)=\sum f(a_i)f(\alpha^i)=\sum a_i\cdot f(\alpha)^i$$
+Hence, $f(\alpha)$ must be another root of $w$. Since $f$ is a monomorphism, we cannot have that two roots go to the same roots but we still need all of them to permute. Hence, every element of $L$ is represented in $Im(f)$.
 
 
 

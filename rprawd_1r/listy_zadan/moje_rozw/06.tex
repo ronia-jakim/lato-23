@@ -15,7 +15,7 @@
 \maketitle
 \thispagestyle{empty}
 
-\begin{problem}{d}
+\begin{problem}[1]{d}
 Niech $(X,Y)$ będzie $2$-wymiarową zmienną losową o rozkładzie zadanym gęstością $f(x,y)=C(x+y)$ dla $0\leq y\leq x\leq 1$ i $f(x,y)=0$ poza tym zbiorem. Znajdź wartość $C$. Znajdź rozkłady brzegowe. Czy zmienne losowe $X$ i $Y$ są niezależne?
 \end{problem}
 
@@ -50,7 +50,7 @@ Tutaj mamy
 $$f_X(x)f_Y(y)=3x^2(1+2y-3y^2)\neq2(x+y)$$
 więc są bardzo zależne.
 
-\begin{problem}[2]{}
+\begin{problem}[2]{u}
 Zmienna losowa $(X, Y)$ ma rozkład z gęstością $g(x,y)=C\cdot xy\cdot\mathds{1}_{[0,1]^2}$.
 \begin{enumerate}[label=(\alph*)]
     \item Wyznaczyć $C$.
@@ -120,16 +120,85 @@ Zmienna losowa $(X, Y)$ ma rozkład z gęstością $g(x,y)=C\cdot xy\cdot\mathds
    No i wyszło, że są zależne [co jest dość rozsądnym wynikiem].
 \end{enumerate}
 
-\begin{problem}[4]{}
+\begin{problem}[3]{d}
+Niech $X$ i $Y$ będą niezależnymi zmiennymi losowymi, których rozkład jest zadany gęstością $2x\cdot\mathds{1}_[0,1]$. Znaleźć prawdopodobieństwo, że
+\begin{enumerate}[label=(\alph*)]
+    \item $X+Y<\frac{1}{2}$
+    \item $XY<\frac{1}{2}$
+    \item $|X-Y|<\frac{1}{2}$
+    \item $X^2+y^2\leq\frac{1}{2}$
+\end{enumerate}
+\end{problem}
+
+Zmienne są niezależne, więc gęstość $f_{(X, Y)}(x, y)=f_X(x)\cdot f_Y(y)$.
+
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item Robimy tym samym trikiem co wcześniej, tzn. $X+Y<\frac{1}{2}$, ustalamy $x$ takie, że $X=t$ i mamy $Y<\frac{1}{2}-t$. Zauważamy jeszcze, że $t\in[0,\frac{1}{2}]$, Czyli dostajemy
+    \begin{align*}
+        \prob{X+Y<\frac{1}{2}}&=\int_0^\frac{1}{2}\prob{X=x, Y<\frac{1}{2}-x}\;dx=\int_0^\frac{1}{2}\int_0^{\frac{1}{2}-x}\prob{X=x, Y=y}\;dydx=\\
+        &=\int_0^\frac{1}{2}\int_0^{\frac{1}{2}-x}4xy\;dydx
+    \end{align*}
+    \item \begin{align*}
+        \prob{XY<\frac{1}{2}}&=\int_0^1\prob{X=x, Y<\frac{1}{2x}}\;dx=\int_0^1\int_0^{\frac{1}{2x}}4xy\;dydx
+    \end{align*}
+    \item \begin{align*}
+        \prob{|X-Y|<\frac{1}{2}}&=\prob{-\frac{1}{2}<X-Y<\frac{1}{2}}=\int_0^1\prob{X=x,x-\frac{1}{2}<Y<x+\frac{1}{2}}\;dx
+    \end{align*}
+    a to już można sobie scałkować jak ma się ochotę.
+    \item Tutaj zauważmy, że $X\leq\frac{1}{\sqrt{2}}=a$, bo inaczej wyjdziemy poza zakres. 
+    \begin{align*}
+        \prob{X^2+Y^2\leq \frac{1}{2}}&=\int_0^a\prob{X=x, Y^2\leq \frac{1}{2}-x^2}\;dx=\int_0^a\prob{X=x, Y\leq\sqrt{\frac{1}{2}-x^2}}\;dx=\\
+        &=\int_0^a\int_0^{\sqrt{\frac{1}{2}-x^2}}4xy\;dydx
+    \end{align*}
+\end{enumerate}
+
+\begin{problem}[4]{u}
 Niech $X_1,...,X_n$ będą niezależnymi zmiennymi losowymi o rozkładzie wykładniczym z parametrem $1$. Znajdź rozkład $Y=\min\limits_{1\leq i\leq n}X_i$. Czy $X_n$ i $Y$ są niezależne?
 \end{problem}
 
-Mają rozkład wykładniczy, więc funkcja gęstości $X_i$ to:
-$$f_i(t)=\lambda_ie^{-\lambda_i t}$$
-jeśli $t\geq 0$, wpp. mamy $0$.
+%Mają rozkład wykładniczy, więc funkcja gęstości $X_i$ to:
+%$$f_i(t)=\lambda_ie^{-\lambda_i t}$$
+%jeśli $t\geq 0$, wpp. mamy $0$.
+
+Mają rozkład wykładniczy, więc funkcja gęstości $X_i$ to
+$$f_i(x)=e^{-x}\mathds{1}_{[0,\infty)}$$
+
+%Dobra, zacznijmy od wersji, że każda z osobna ma ten sam rozkład, tj.
+%$$f_X(x)=e^{-x}\cdot\mathds{1}_{[0,\infty)}$$
+
+Aby zmienne były niezależne, musimy mieć
+$$\prob{X_n= x}\prob{Y = y}=\prob{X_n = x, Y = y}$$
+
+Policzmy najpierw funkcję gęstości $Y$. Niech $k$ takie, że $X_k=Y$, wtedy:
+\begin{align*}
+    \prob{Y=y}&=\prob{X_k=y}\prod_{i\neq k}\prob{X_i\geq y}=e^{-y}\prod_{i\neq k}\int_y^\infty e^{-x}\;dx=e^{-y}\prod_{i\neq k}e^y=e^{(n-2)y}
+\end{align*}
+$k$ jest tutaj nieważne tak naprawdę.
+
+%\begin{enumerate}[leftmargin=*]
+%    \item Jeśli $x<y$ to mamy absurdalną sytuację, bo $X_n=x<Y$, ale $Y$ przyjmowało minimum. Więc wtedy $\prob{X_n=x, Y=y}=0$.
+%
+%    \item To teraz, jeśli $x>y$ mamy
+%\begin{align*}
+%    \prob{X_n=x, Y=y}=\prob{X_k=y}\prob{X_n=x}\prod_{\subsetack{i\neq k\\i\neq n}}\prob{X_i\geq y}=e^{-y}\cdot e^{-x}e^{(n-2)y}=e^{(n-3)y-x}
+%\end{align*}
+%natomiast
+%$$\prob{X_n=x}\prob{Y=y}=e^{-x}\cdot e^{(n-2)y}$$
+%czyli w tym przypadk
+Jeśli $x=y$, wtedy
+    \begin{align*}
+        \prob{X_n=x, Y=x}&=\prob{X_n=x}\prod_{i<n}\prob{X_i\geq x}=e^{-x}e^{(n-1)x}=e^{(n-2)x}
+    \end{align*}
+    ale 
+    $$\prob{X_n=x}\prob{Y=x}=e^{-x}e^{(n-2)x}=e^{(n-3)x}$$
+%\end{enumerate}
 
 
-\begin{problem}[5]{}
+
+
+
+
+\begin{problem}[5]{d}
 Zmienne losowe $X$ i $Y$ są niezależne. Pokaż, że jeżeli $X$ nie ma atomów, to $P(X=Y)=0$.
 \end{problem}
 
@@ -140,6 +209,27 @@ Szukamy tak naprawdę $\prob{X=t, Y=t}$ po wszystkich $t$. Ponieważ zdarzenia s
     \prob{X=Y}&=\int_{-\infty}^\infty\prob{X=t, Y=t}dt=\int\prob{X=t}\prob{Y=t}dt=\int0dt=0,
 \end{align*}
 gdyż $X$ jest bezatomowa.
+
+\begin{problem}[6]{d}
+Zmienne $X$ i $Y$ są niezależne. $X$ ma rzokład jednostajny na przedziale $[0,1]$, a $Y$ ma rozkład zadany przez $\prob{Y=-1}=\frac{1}{3}$, $\prob{Y=2}=\frac{2}{3}$.
+\begin{enumerate}[label=(\alph*)]
+    \item Oblicz $\prob{3X<Y}$
+    \item Wyzacz rozkład zmiennej $XY$
+\end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item W dyskretnym rozkładzie (jaki ma $Y$) dodajemy wartości, więc zrobimy to najpierw, a potem policzymy po $X$.
+    \begin{align*}
+        \prob{3X<Y}&=\frac{1}{3}\prob{3X<-1}+\frac{2}{3}\prob{3X<2}=\int_0^\frac{2}{3}\frac{2}{3}dx=\frac{4}{9}
+    \end{align*}
+    \item \begin{align*}
+        \prob{XY<t}&=\frac{1}{3}\prob{X\cdot(-1)<t}+\frac{2}{3}\prob{X\cdot 2<t}=\frac{t}{3}
+    \end{align*}
+    i obcinam nadmiar ponad $1$.
+\end{enumerate}
+
+
 
 \begin{problem}[7]{d}
 Pokaż, że zmienne losowe $X_1,...,X_n$ o gęstościach $f_1,...,f_n$ są niezależne $\iff$ zmienna $X=(X_1,...,X_n)$ ma gęstość
@@ -208,18 +298,208 @@ a w mowie skryptowej:
     &=\lambda\mu e^{-\lambda t}\int_0^t e^{\lambda s-\mu s}ds=\lambda\mu e^{-\lambda t}\int_0^t e^{s(\lambda-\mu)}ds=\frac{\lambda\mu}{\lambda-\mu}[e^{-\lambda t}-e^{-\mu t}]
 \end{align*}
 
+\begin{problem}[10]{d}
+Zmienne losowe $X$ i $Y$ są niezależne i mają rozkład wykładniczy z parametrem $1$. Udowodnić, że zmienne $\frac{X}{Y}$ oraz $X+Y$ są niezależne.
+\end{problem}
 
+To lecimy od znalezienia rozkładu $\frac{X}{Y}$, potem $X+Y$ i na końcu rozkład $(\frac{X}{Y}, X+Y)$.
 
+\begin{align*}
+    \prob{\frac{X}{Y}\leq t}&=\prob{X\leq tY}=\int_0^\infty\prob{X\leq ty, Y=y}\;dy=\int_0^\infty\int_0^{ty}\prob{X=x, Y=y}\;dxdy=\\
+    &=\int_0^\infty\int_0^{ty}e^{-x}e^{-y}\;dxdy=\int_0^\infty e^{-y}[1-e^{-ty}]\;dy=1-\frac{1}{1+t}=\frac{t}{1+t}
+\end{align*}
 
+%$$\frac{X}{Y}=t\iff X=x\;\land\;Y=\frac{t}{x}$$
 
+%\begin{align*}
+%    \prob{XY\leq t}&=\int_0^\infty\prob{X=x, Y\leq \frac{t}{x}}\;dx=\int_0^\infty\int_0^{\frac{t}{x}}e^{-x}e^{-y}\;dydx=\\
+%    &=\int_0^\infty e^{-x}[1-e^{-\frac{t}{x}}]\;dx=\int_0^\infty [e^{-x}-e^{-x-\frac{t}{x}}]\;dx=BRZYDKIE\; COS
+%\end{align*}
 
+\begin{align*}
+    \prob{X+Y\leq t}&=\int_0^t\prob{X+Y=s}\;ds=\int_0^t\int_0^s\prob{X=x, Y=s-x}\;dxds=\int_0^t\int_0^se^{-x}e^{x-s}\;dxds=\\
+    &=\int_0^t\int_0^se^{-s}\;dxds=\int_0^tse^{-s}ds=1-e^{-t}(t+1)
+    %\int_0^t\prob{X=x, Y\leq t-x}\;dx=\int_0^t\int_0^{t-x}\prob{X=x}\prob{Y=y}\;dydx=\\
+    %&=\int_0^te^{-x}[1-e^{x-t}]\;dx=1-e^{-t}-te^{-t}
+\end{align*}
 
+%$$\prob{X+Y\leq t}=\int_0^t\int_0^\infty e^{-x+y}e^{-y}\;dydx$$
 
+$$\prob{\frac{X}{Y}\leq t}\prob{X+Y\leq s}=\frac{t}{1+t}[1-e^{-s}(1+s)]$$
 
+%$$ty\leq s-y\iff y(1+t)\leq s\iff y\leq \frac{s}{1+t}$$
+%\begin{align*}
+%    \prob{\frac{X}{Y}\leq t, X+Y\leq s}&=\prob{X\leq tY, X\leq s-Y}=\int_0^s\prob{X\leq ty, X\leq s-y}\;dy=\\
+%    &=\int_0^\frac{s}{1+t}\prob{X\leq ty}\;dy+\int_{\frac{s}{1+t}}^s\prob{X\leq s-y}\;dy=\\
+%    &=\int_0^a\int_0^{ty}e^{-x}\;dxdy+\int_a^s\int_0^{s-y}e^{-x}\;dxdy=\\
+%    &=\int_0^a[1-e^{-ty}]\;dy+\int_a^s[1-e^{y-s}]\;dy=\\
+%    &=\frac{e^{-at}-1}{t}+a+e^{a-s}-a+s-1=\\
+%    &=\frac{e^{-\frac{st}{1+t}}-1+te^{\frac{-st}{1+t}}-t}{t}=[e^{-\frac{st}{1+t}}-1]\frac{1+t}{t}
+%    %&=\prob{\frac{X}{Y}\leq t, \frac{X}{Y}\leq\frac{s}{Y}-1}
+%    %=\\
+%    %&=\int_0^s\prob{X\leq min(ty, s-y)}\;dy=\int_0^t\int_0^{min(ty, s-y)} e^{-x}\;dxdy
+%\end{align*}
 
+$$\frac{X}{t}\leq Y$$
+$$Y\leq s-X$$
 
+\begin{illustration}
+    \draw[->] (0, -0.3)--(0, 5) node [left] {$Y$};
+    \draw[->] (-0.3, 0)--(7, 0) node [below] {$X$};
+    \filldraw[pattern=bricks, pattern color=blue!40!black!80] (0, 0)--(0, 2.8)--(1.8, 1.04)--cycle;
+    \draw[thick, pink] (-.2, 3) node[left] {$Y=s-X$} --(3, -0.2);
+    \draw[thick, yellow] (-0.33, -0.2)--(0, 0)--(5, 3) node [right] {$\frac{X}{t}=Y$};
+\end{illustration}
 
+\begin{align*}
+    \prob{\frac{X}{Y}\leq t,X+Y\leq s}&=\int_0^{\frac{st}{s+1}}e^{-x}\prob{\frac{x}{t}\leq Y, Y\leq s-x}\;dx=\int_0^{\frac{st}{s+1}}e^{-x}\int_{\frac{x}{t}}^{s-x}e^{-y}\;dydx=\frac{t}{t+1}[1-e^{-s}(1+s)]
+    %\frac{t}{t+1}[1-e^{-\frac{s(t+1)}{t}}]-se^{-s}
+    %[\prob{Y\leq s-x}-\prob{Y\leq\frac{x}{t}}]\;dx=\\
+    %&=\int_0^s[e^
+\end{align*}
 
+\begin{problem}[11]{d}
+Zmienne losowe $X_1,...X_n$ są niezależne i mają rozkłady Poissona z parametrami $\lambda_i$. Pokaż, że $X_1+...+X_n$ ma rozkład Poissona z parametrem $\lambda_1+...+\lambda_n$.
+\end{problem}
+
+To jest rozkład dyskretny. Gęstość $X_i$ to
+$$f_i(k)=\lambda_i^k\frac{e^{-\lambda}}{k!}$$
+
+%\begin{align*}
+%    \prob{X_1+...+X_n=t}&=\sum_{x_1=0}^t\prob{X_1=x_1,X_2+...+X_n=t-x_1}=\\
+%    &=\sum_{x_1=0}^t\sum_{x_2=0}^{t-x_1}...\sum_{x_n=0}^{t-\sum x_i}\prob{X_1=x_1,..., X_n=x_n}=\sum_{x_1=0}^t\sum_{x_2=0}^{t-x_1}...\sum_{x_n=0}^{t-\sum x_i}e^{-x_1-x_2-...-x_n}=\\
+%    &=\sum_{x_1}^t...\sum_{x_{n-1}=0}^{t-\sum_i}e^{-x_1-...-x_{n-1}}
+%\end{align*}
+
+%Chyba indukcja mi prześmignie? Bo jeśli $X_1,...,X_n$ były niezależne, to tym bardziej $X_1+...+X_{n-1}$ i $X_n$ będą niezależne. 
+
+Dowód przez indukcję:
+
+Dla $n=1$ nie ma co robić, jeśli $n=2$, to
+\begin{align*}
+    \prob{X_1+X_2=t}&=\sum_{x_1=0}^t\prob{X_1=x_1,X_2=t-x_1}=\sum_{x_1=0}^t\lambda_1^{x_1}\frac{e^{-\lambda_1}}{x_1!}\lambda_2^{t-x_1}\frac{e^{-\lambda_2}}{(t-x_1)!}=\\
+    &=\frac{e^{-(\lambda_1+\lambda_2)}}{t!}\sum_{x_1=0}^t{t\choose x_1}\lambda_1^{x_1}\lambda_2^{t-x_1}=(\lambda_1+\lambda_2)^t\frac{e^{-(\lambda_1+\lambda_2)}}{t!}
+\end{align*}
+czyli to co chcemy.
+
+Niech $\lambda=\sum\lambda_i$.
+\begin{align*}
+    \prob{X_1+...+X_n=t}&=\sum_{x_1+...+x_n=t}\lambda_1^{x_1}...\lambda_n^{x_n}\frac{e^{-\lambda}}{x_1!...x_n!}=\frac{e^{-\lambda}}{t!}\sum_{x_1+...+x_n}{t\choose x_1,...,x_n}\lambda_1^{x_1}...\lambda_n^{x_n}=\frac{e^{-\lambda}}{t!}\lambda^t
+    %\sum_{x_1=0}^t\sum_{x_2=0}^{t-x_1}...\sum_{x_{n-1}=0}^{t-\sum_0^{n-1}x_i}\lambda_1^{x_1}\lambda_2^{x_2}...\lambda_{n}^{t-\sum_0^{n-1}x_i}\frac{e^{-(\lambda_1+...+\lambda_{n})}}{x_1!(t-x_1)!...(t-\sum_0^{n-1}x_i)!}=\\
+    %&=\frac{e^{-\lambda}}{t!}\sum\lambda_1^{x_1}...\lambda_n^{t-\sum_0^{n-
+\end{align*}
+
+%\begin{lemma}
+%Jeśli $X_1,...,X_n$ są zmiennymi niezależnymi, to $X_n$ i $X_1+...+X_{n-1}$ też jest są niezależne
+%\end{lemma}
+
+%\begin{align*}
+%    \prob{X_1+...+X_{n-1}=t, X_n=s}&=
+%\end{align*}
+
+\begin{problem}[12]{w}
+Załóżmy, że $X_1$ i $X_2$ są niezależnymi zmiennymi losowymi o rozkładach odpowiednio $N(m_1\sigma_1)$ i $N(m_2,\sigma_2)$. Oblicz rozkład zmiennej losowej $X_1+X_2$.
+\end{problem}
+
+Funkcja gęstości w rozkładzie normalnym:
+$$f_i(x)=\frac{1}{\sigma_i\sqrt{2\pi}}e^{-\frac{(x-m_i)^2}{2\sigma_i^2}}$$
+
+\begin{align*}
+    \prob{X_1+X_2= t}&=\int_\R\prob{X_1=x, X_2=t-x}\;dx=\int_\R\prob{X_1=x}\prob{X_2=t-x}\;dx=\\
+    &=\int_\R\frac{1}{\sigma_1\sqrt{2\pi}}e^{-\frac{(x-m_1)^2}{2\sigma_1^2}}\frac{1}{\sigma_2\sqrt{2\pi}}e^{-\frac{(t-x_1-m_1)^2}{2\sigma_2^2}}\;dx=\\
+    &=\frac{1}{2\pi\sigma_1\sigma_2}\int_\R exp\left[-\frac{\sigma_2^2(x-m_1)^2+\sigma_1^2(t-x-m_2)^2}{2\sigma_1^2\sigma_2^2}\right]\;dx
+    %\int_\R\prob{X_1=x_1,X_2\leq t-x_1}\;dx_1=\\
+    %&=\int_\R\int_{-\infty}^{t-x_1}\frac{1}{\sigma_1\sqrt{2\pi}\sigma_2\sqrt{2\pi}}e^{-\frac{(x_1-m_1)^2}{2\sigma_1^2}}e^{-\frac{(x_2-m_2)^2}{2\sigma_2^2}}\;dx_1dx_2=\\
+    %&=\frac{1}{\sigma_1\sigma_22\pi}\int_\R e^{\frac{(x_1-m_1)^2}{2\sigma_1^2}}\int_{-\infty}
+\end{align*}
+
+O JEZU NIE?
+
+\begin{problem}[13]{d}
+Niech $\{X_n\}_{n\in\N}$ będzie ciągiem niezależnych zmiennych losowych o rozkładzie $N(0,1)$. Uzasadnij, że z prawdopodobieństwem $1$ istnieje nieskończenie wiele indeksów $n$ takich, że
+$$|X_{2n}-X_{2n+1}|\leq\frac{1}{n}.$$
+\end{problem}
+
+Szacujemy prawdopodobieństwo z zadania:
+\begin{align*}
+    \prob{|X_{2n}-X_{2n+1}|\leq\frac{1}{n}}&\geq\prob{X_1=0,-\frac{1}{n}\leq X_{2n}\leq \frac{1}{n}}=\int_{-\frac{1}{n}}^{\frac{1}{n}}\frac{1}{2\pi}e^{-\frac{y^2}{2}}\;dydx
+    %=\frac{1}{n\pi}\int_\R e^{\frac{1}{2}(x-\frac{1}{n}-x)(x-\frac{1}{n}+x)}\;dx=\\
+    %&=\frac{1}{n\pi}\int_\R e^{\frac{1}{2n}(2x-\frac{1}{n})}\;dx
+    %\prob{X_{2n}-X_{2n-1}\leq\frac{1}{n}}+\prob{X_{2n+1}-X_{2n}\leq\frac{1}{n}}
+\end{align*}
+Wykres funkcji $e^{-\frac{x^2}{2}}$ jest dla ujemnych $x$. W dodatku, funkcja ta jest parzysta. 
+
+\begin{illustration}
+\begin{axis}[axis lines=left, yticklabels={,,}, xtick={0}, xticklabels={0}]
+    \addplot [domain=-2:2,samples=200,color=blue, very thick]{e^(-x^2)};
+    \draw[dashed] (0, 0)--(0, 1);
+\end{axis}
+\end{illustration}
+
+Czyli możemy oszacować:
+\begin{align*}
+    \int_{-\frac{1}{n}}^{\frac{1}{n}}\frac{1}{2\pi}e^{-\frac{y^2}{2}}\;dy&\geq \frac{1}{2\pi}\cdot\frac{2}{n}\cdot e^{-\frac{1}{2n^2}}=\frac{1}{n\pi}e^{-\frac{1}{2n^2}}
+\end{align*}
+
+Zmienne zawierające informacje o tym, kiedy $X_{2n}=0\;\land\;|X_{2n+1}|\leq\frac{1}{n}$ są niezależne (to widać z rozpisania wyżej), więc chcę użyć lematu Borela-Cantellego.
+\begin{align*}
+    \sum\prob{\left|X_{2n}-X_{2n+1}\right|\leq\frac{1}{n}}&\geq\sum\prob{X_{2n}=0,|X_{2n+1}|\leq\frac{1}{n}}\geq\sum\frac{1}{n\pi}e^{-\frac{1}{2n^2}}\geq\\
+    &\geq\sum\frac{1}{n\pi}\geq\sum\frac{1}{n}=\infty
+\end{align*}
+No to super! Z prawdopodobieństwem $1$ nieskończenie wiele razy zdarzy się, że $X_{2n}=0$ i $|X_{2n+1}|\leq\frac{1}{n}$, czyli tym bardziej $|X_{2n}-X_{2n+1}|\leq\frac{1}{n}$ zdarzy się nieskończenie wiele razy z prawdopodobieństwem $1$.
+
+%\begin{align*}
+%    \prob{|X_{2n}-X_{2n+1}|\leq\frac{1}{n}}&=\int_\R\prob{-\frac{1}{n}\leq X_{2n}-x\leq\frac{1}{n}}\;dx=\\
+%    &=\int_\R\prob{x-\frac{1}{n}\leq X_{2n}\leq\frac{1}{n}+x}\;dx=\int_\R\int_{x-\frac{1}{n}}^{x+\frac{1}{n}} \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{y^2}{2}}\;dydx\geq\frac{1}{\sigma\sqrt{2\pi}}
+%\end{align*}
+%Czyli mam
+%$$\sum_{n\in\N}\prob{|X_{2n}-X_{2n+1}}|\leq\frac{1}{n}\geq\sum\frac{1}{\sigma\sqrt{2\pi}}=\infty$$
+
+\begin{problem}[14]{u}
+Niech $\{X_i\}_{i=1,...,5}$ będzie ciągiem niezależnych zmiennych losowych.
+\begin{enumerate}[label=(\alph*)]
+    \item Czy zmienne losowe $X_1+X_2$ oraz $X_3+X_4X_5$ są niezależne?
+    \item Czy zmienne losowe $X_1$, $X_1X_2$ są niezależne?
+\end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item TAK, SĄ NIEZALEŻNE
+    \begin{align*}
+        \prob{X_1+X_2=t,X_3+X_4X_5=s}&=\int_\R\prob{X_1=a,X_2=t-a,X_3+X_4X_5}\;da=\\
+        &=\int_\R\int_\R\prob{X_1=a,X_2=t-a,X_3=b, X_4X_5=s-b}\;dadb=\\
+        &=\int\int\int\prob{X_1=a,X_2=t-a,X_3=b,X_4=c,X_5=\frac{s-b}{c}}\;dadbdc=\\
+        &=\int\int\int\prob{X_1=a}\prob{X_2=t-a}\prob{X_3=b}\prob{X_4=c}\prob{X_5=\frac{s-b}{c}}\;dadbdc=\\
+        %&=\int\int\prob{X_3=b}\prob{X_4=c}\prob{X_5=\frac{s-b}{c}}\int\prob{X_1=a}\prob{X_2=t-a}\;dadbdc=\\
+        &=\int\int\prob{X_3=b,X_4=c,X_5=\frac{s-b}{c}}dbdc\int\prob{X_1=a,X_2=t-a}\;da=\\
+        &=\int\prob{X_3=b,X_4X_5=s-b}\;db\prob{X_1+X_2=t}=\\
+        &=\prob{X_3+X_4X_5=s}\prob{X_1+X_2=t}
+    \end{align*}
+    \item Odp.: WELES JEST CZARNY
+
+    Jeśli popatrzymy na zmienne losowe takie, że $\prob{X_i=1}=\frac{1}{2},\prob{X_i=-1}=\frac{1}{2}$, to zmienne $X_1$ i $X_1X_2$ są faktycznie niezależne:
+    \begin{align*}
+        \prob{X_1=1,X_1X_2=1}&=\prob{X_1=1,X_2=1}=\frac{1}{4}=\frac{1}{2}\left(\frac{1}{4}+\frac{1}{4}\right)=\prob{X_1=1}\prob{X_1X_2=1}\\
+        \prob{X_1=-1,X_1X_2=1}&=\prob{X_1=-1,X_2=-1}=\frac{1}{4}=\frac{1}{2}\left(\frac{1}{4}+\frac{1}{4}\right)=\prob{X_1=-1}\prob{X_1X_2=1}
+    \end{align*}
+    i tak dalej.
+
+    Jeśli natomiast popatrzymy na zmienne o rozkładzie wykładniczym z parametrem $1$, to mamy
+    %, tj. $\prob{X_1=x}=e^{-x}$ i $\prob{X_2=x}=e^{-x}$, to mamy
+    \begin{align*}
+        \prob{X_1X_2=y}&=\int_0^\infty\prob{X_1=t,X_2=\frac{y}{t}}\;dt=\int_0^\infty e^{-t}e^{-b\frac{y}{t}}\;dt=\\
+        &=\int_0^\infty e^{-t-\frac{y}{t}}\;dt
+    \end{align*}
+    \begin{align*}
+        \prob{X_1=x,X_1X_2=y}&=\prob{X_1=x,X_2=\frac{y}{x}}=\prob{X_1=x}\prob{X_2=\frac{y}{x}}=\\
+        &=e^{-x}e^{-\frac{y}{x}}
+    \end{align*}
+    Czyli, żeby zmienne były niezależne, musielibyśmy mieć
+    $$\prob{X_1X_2=y}=e^{-\frac{y}{x}},$$
+    a my mamy, że
+    $$\prob{X_1X_2=y}=\int_0^\infty e^{-\frac{x^2+y}{x}}\;dx\neq e^{-\frac{y}{x}}$$
+    Czyli tutaj nie są niezależne.
+\end{enumerate}
 
 
 

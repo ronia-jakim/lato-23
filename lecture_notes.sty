@@ -242,15 +242,17 @@
 \newcommand\excercise[2][r]{\begin{exc}%
     \ifx d#1{\slshape\color{purple}#2}\else
     \ifx u#1{\slshape\color{blue}#2}\else
+    \ifx w#1{\slshape\color{red}#2}\else
     {\slshape\color{yellow}#2}%
-    \fi\fi%
+    \fi\fi\fi%
 \end{exc}}
 
 \newcommand\col[1]{%
     \ifx d#1\color{purple}\else
     \ifx u#1\color{blue}\else
+    \ifx w#1\color{red}\else
     \color{yellow}%
-    \fi\fi%
+    \fi\fi\fi%
 }
 
 \NewDocumentEnvironment{problem}{o m}{%
