@@ -19,7 +19,7 @@ Popatrzmy sobie na przestrzeń rzucania dwa razy monetą. Niech $A=\{(O, O), (O,
 $$\begin{matrix}\{(O, O), (R, R)\} & \{(O, O), (R, O)\}\end{matrix}.$$
 Gdyby $\mathfrak{L}$ było $\sigma$-ciałem, to suma powyższych zdarzeń, czyli $\{(O, O), (R, R), (R, O)\}$, należałaby do $\mathfrak{L}$. Tak ewidentnie nie jest, bo $\prob$ przekroju wynosi $\frac{1}{4}$, a iloczyn $\prob$ to $\frac{1}{2}\cdot\frac{3}{4}$.
 
-\begin{problem}[2]{}
+\begin{problem}[2]{d}
 Niech $X$ i $Y$ będą zmiennymi losowymi. Oznaczmy przez $\mu_X$ i $\mu_Y$ ich rozkłady. Pokaż, że rodzina
 $$\mathfrak{L}=\{A\in Bor(\R)\;:\;\mu_X(A)=\mu_Y(A)\}$$
 jest $\lambda$-układem.
@@ -40,6 +40,113 @@ jest $\lambda$-układem.
         &\lim_N\prob{Y\in A_N}=\lim_N\prob{Y\in\bigcup_1^NA_i}=\prob{Y\in\bigcup A_i}=\mu_Y(\bigcup A_i)
     \end{align*}
 \end{itemize}
+
+\begin{problem}[3]{w}
+Dane są miary probabilistyczne $\mu$ na $\R$ oraz $\nu$ na $\R^2$ takie, że dla dowolnych $s,t$
+$$\mu((-\infty,s])\cdot\mu([t,\infty))=\nu((-\infty,s]\times[t,\infty)).$$
+Pokaż, że $\nu=\mu\otimes\mu$.
+\end{problem}
+
+To samo, co powiedzieć, że $Bor(\R)\otimes Bor(\R)=Bor(\R^2)$.
+
+\begin{problem}[4]{u}
+Dane są dwie miary probabilistyczne $\mu$ i $\nu$ na $(\R,Bor(\R))$ takie, że dla dowolnej liczby $t>0$ mamy $\nu([-t,t])=\mu([-t,t])$. Uzasadnić, że $\mu(A)=\nu(A)$ dla dowolnego symetrycznego zbioru $A\in Bor(\R)$ (zbiór $A$ nazywamy symetrycznym, jeżeli $A=-A$).
+\end{problem}
+
+Zauważamy, że zbiory $[-t, t]$ generują zbiór zbiorów symetrycznych i dalsza część zadania wynika z jednoznaczności generowania miary przez zbiory generujące $\sigma$-ciało.
+
+\begin{problem}[5]{d}
+Wykonujemy niezależnie ciąg identycznych doświadczeń, w których prawdopodobieństwo pojedynczego sukcesu wynosi $p$. Niech $X$ będzie momentem otrzymania pierwszego sukcesu. Wyznacz rozkład zmiennej losowej $X$.
+\end{problem}
+
+Czyli szukam prawdopodobieństwa, że pierwszy sukces będzie w $k$-tym doświadczeniu.
+\begin{align*}
+    \prob{X=k}&=(1-p)^{k-1}\cdot p
+\end{align*}
+
+\begin{problem}[6]{}
+Wykonujemy niezależnie ciąg identycznych doświadczeń, w których prawdopodobieństwo pojedyńczego sukcesu wynosi $p_n=\frac{\lambda}{n},\lambda>0$. W ciągu jednej sekundy wykonujemy $n$ doświadczeń. Niech $X_n$ będzie momentem otrzymania pierwszego sukcesu. Wyznacz rozkład zmiennej losowej $X_n$. Zbadaj zachowanie tego rozkładu, gdy $n\to\infty$.
+\end{problem}
+
+Tutaj rozkład jest prawie taki sam jak wcześniej, tzn. prawdopodobieństwo, że w $k$-tej sekundzie mamy sukces wynosi:
+\begin{align*}
+    \prob{X_n=k}&=(1-p_n)^{k-1}\cdot p_n\cdot\sum_{t=1}^n\(1-p_n)^t=\\
+    &=\left[1-\frac{\lambda}{n}\right]^{n(k-1)}\cdot\sum_{t=1}^n\left[1-\frac{\lambda}{n}\right]^t\frac{\lambda}{n}=\\
+    &=\left[1-\frac{\lambda}{n}\right]^{n(k-1)}\frac{1-(1-\lambda/n)^n}{\frac{\lambda}{n}}\frac{\lambda}{n}
+\end{align*}
+
+\begin{align*}
+    \lim_{n\to\infty}\left[1-\frac{\lambda}{n}\right]^{n(k-1)}\cdot\frac{\lambda}{n}
+\end{align*}
+
+\begin{problem}[7]{}
+Wykaż, że rozkłady z dwóch poprzednich zadań mają tzw. własność braku pamięci: jeśli $X$ ma rozkład geometryczny bądź wykładniczy, to
+$$\prob{X>t+s|X>t}=\prob{X>s}$$
+gdzie $s,t\in\N$ w przypadku rozkładu geometrycznego oraz $s,t\in\R^+$ w przypadku rozkładu wykładniczego. (*) Udowodnij, że są to jedyne procesy z własnością braku pamięci: geometryczny na $\N$, wykładniczy jest jedynym bezatomowym rozkładem z brakiem pamięci na $\R^+$
+\end{problem}
+
+Rozkład geometryczny to
+$$\prob{X=k}=(1-p)^{k-1}p$$
+Mi jest potrzebne prawdopodobieństwo, ze pierwsze zwycięstwo będzie powyżej $t+s$, jeżeli pierwsze zwycięstwo jest powyżej $t$?
+\begin{align*}
+    \prob{X>t+s|X> t}=\frac{\prob{X>t+s\text{ i }X> t}}{\prob{X>t}}=\frac{(1-p)^{t+s-1}}{(1-p)^{t-1}}=(1-p)^{s}=\prob{X>s}
+\end{align*}
+
+Analogicznie dla rozkładu wykładniczego $\prob{X>k}=\int_k^\infty\lambda e^{-\lambda x}dx=e^{-\lambda k}$:
+\begin{align*}
+    \prob{X>t+s|X> t}=\frac{\prob{X>t+s\text{ i }X> t}}{\prob{X>t}}=\frac{e^{-\lambda(t+s)}}{ e^{-\lambda t}}=e^{-\lambda s}
+\end{align*}
+
+\sep{txtColor}
+
+Przed udowodnieniem, że są to jedyne rozkłady z amnezją, przyjżyjmy się co konkretnie mówi mi warunek z zadania:
+$$\prob{X>t+s|X\geq t}=\frac{\prob{X>t+s}}{\prob{X\geq t}}=\prob{X>s}$$
+czyli
+$$\prob{X>t+s}=\prob{X>s}\prob{X> t}.$$
+Zacznijmy od rozkładu geometrycznego, tzn. $t,s\in\N$. Będę chciała potęgować, co się stanie, gdy $t=s$. Popatrzmy, co się wtedy dzieje:
+$$\prob{X>t+t}=\prob{X>t}\prob{X> t}=\prob{X>t}^2$$
+$$\prob{X>2t+t}=\prob{X>2t}\prob{X>t}=\prob{X>t}^2\prob{X>t}=\prob{X>t}^3$$
+i indukcyjnie,
+$$\prob{X>(n+1)t}=\prob{X>nt+n}=\prob{X>nt}\prob{X>t}=\prob{X>t}^{n+1}.$$
+W takim razie:
+$$\prob{X>t}=\prob{X>t\cdot1}=\prob{X>1}^t.$$
+
+Dalej, wiemy, że albo $\prob{X>t}$ albo $\prob{X\leq t}$, czyli
+$$\prob{X>t}+\prob{X\leq t}=1$$
+a z kolei $\prob{X\leq t}$ to $\prob{X=t}$ lub $\prob{X\leq t-1}$. Czyli
+$$\prob{X=t}=1-\prob{X>t}-\prob{X\leq t-1}.$$
+Z kolei $\prob{X\leq t-1}$ mogę rozpisać korzystając z 
+$$\prob{X>t}=\prob{X>(t-1)+1}=\prob{X>(t-1)}\prob{X>1}$$
+$$\prob{X>(t-1)}=\frac{\prob{X>t}}{\prob{X>1}}$$
+$$\prob{X\leq t-1}=1-\frac{\prob{X>t}}{\prob{X>1}}$$
+Czyli dostaję, że
+$$\prob{X=t}=1-\prob{X>t}-1+\frac{\prob{X>t}}{\prob{X>1}}$$
+nazwijmy $p=\prob{X=1}$, wtedy 
+$$\prob{X>1}=1-\prob{X\leq 1}=1-\prob{X=1}=1-p.$$
+Ostatecznie:
+$$\prob{X=t}=\frac{\prob{X>t}}{1-p}-\prob{X>t}=\frac{(1-p)^t}{1-p}-(1-p)^t=(1-p)^{t-1}(1-(1-p))=p(1-p)^{t-1}$$
+a to jest już nasz znajomy rozkład geometryczny.
+\medskip
+
+%Rozważamy teraz rozkład eksponencjalny
+%i od razu skorzystam z tego, co pokazałam wyżej, że
+%$$\prob{X>t}=\prob{X>1}^t.$$
+Rozważam teraz rozkład eksponencjalny, który tym na przykład różni od geometrycznego, że przyjmuje argumenty nienaturalne. Zwykle jeśli mamy dane argumenty naturalne to chcemy przejść do wymiernych i dalej do rzeczywistych, to korzystamy najpierw z ułamków, a potem z granic ciągów tychże ułamków. Spróbujmy więc jakoś uzyskać $\prob{X>\frac{p}{q}}$, wtedy zmieniając $p,q$ będę miała wszystkie liczby wymierne
+$$\prob{X>p}=\prob{X>\frac{p}{2}+\frac{p}{2}}=\prob{X>\frac{p}{2}}^2$$
+$$\prob{X>1}^{\frac{p}{2}}=\prob{X>\frac{p}{2}}$$
+%$$\prob{X>p}=\prob{X>\frac{2p}{3}+\frac{p}{3}}=\prob{X>\frac{p}{3}+\frac{p}{3}}\prob{X>\frac{p}{3}}=\prob{X>\frac{p}{3}}^3$$
+%$$\prob{X>1}^{\frac{p}{3}}=\prob{X>\frac{p}{3}}$$
+i podobnie jak wcześniej
+$$\prob{X>1}^p=\prob{X>\frac{p(q-1)}{q}+\frac{p}{q}}=\prob{X>\frac{p(q-2)}{q}}\prob{X>\frac{p}{q}}=\prob{X>\frac{p}{q}}^q$$
+$$\prob{X>1}^{\frac{p}{q}}=\prob{X>\frac{p}{q}}.$$
+%Chcę dojść teraz do $\prob{X=\frac{p}{q}}$, a potem przejść do liczb rzeczywistych.
+%$$\prob{X=\frac{p}{q}}=1-\prob{X>\frac{p}{q}}-\prob{X<\frac{p}{q}}$$
+W tym przypadku bardzo ciężko będzie mi przechodzić do równości, ale mogę za to powiedzieć, że dla każdej liczby niewymiernej $x$ znajdę ciąg liczb wymiernych taki, że $x=\lim q_n$. Jeśli będziemy teraz brać ten ciąg podchodzący od dołu, to dostaniemy ciąg wstępujących prawdopodobonieństw, bo $X>q_n\implies X>q_{n+1}$ gdy $q_{n+1}>q_n$. Czyli będziemy mogli przejść z prawą stroną do granicy i dostać
+$$\prob{X>x}=\prob{X>1}^x$$
+nazwijmy teraz $\prob{X>1}=e^{-\lambda}$, żeby otrzymać
+$$\prob{X>x}=\left(e^{-\lambda}\right)^x=e^{\ln(e^{-\lambda})^x}=e^{x\ln e^{-\lambda}}=e^{-x\lambda}$$
+co jest dokładnie postacią rozkładu geometrycznego.
+
 
 
 \end{document}

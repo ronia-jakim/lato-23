@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage[polish, light-theme]{./lecture_notes}
+
+\begin{document}
+\begin{problem}[29]{}
+Ścinając naroża sześcianu tak jak na rysunku obok, otrzymujemy bryłę nazywaną sześcio-ośmiościanem (dlaczego?). Przyjmij, że krawędź sześcianu ma długość $30$ cm, i oblicz objętość otrzymanej bryły.
+\end{problem}
+\begin{illustration}
+    \filldraw[blue!40!white!80] (0, 1)--(1, 0)--(2, 1)--(1, 2)--cycle;
+    \filldraw[blue!55!white!80] (2, 1)--(2.5, 2.25)--(3, 1.5)--(2.5, 0.25)--cycle;
+    \filldraw[blue!30!white!80] (1, 2)--(2.5, 2.25)--(2, 2.5)--(0.5, 2.25)--cycle;
+    \filldraw[blue!70!white!80] (1, 0)--(2.5, 0.25)--(2, 1)--cycle;
+    \filldraw[blue!70!white!80] (1, 0)--(0.5, 0.25)--(0, 1)--cycle;
+    \filldraw[blue!50!white!80] (2, 1)--(2.5, 2.25)--(1, 2)--cycle;
+    \filldraw[blue!25!white!80] (0, 1)--(0.5, 2.25)--(1, 2)--cycle;
+    \draw(0, 0)--(2, 0)--(2, 2)--(0, 2)--cycle;
+    \draw(0, 2)--(1, 2.5)--(3, 2.5)--(3, 0.5)--(2, 0);
+    \draw(2, 2)--(3, 2.5);
+    \draw[dashed, black!40!white!80](1, 2.5)--(1, 0.5)--(0, 0);
+    \draw[dashed, black!40!white!80] (1, 0.5)--(3, 0.5);
+\end{illustration}
+
+\begin{enumerate}[leftmargin=*]
+    \item Liczymy objętość całego sześcianu.
+    \item Szukamy wysokość ostrosłupa w narożniku (na rysunku żółte są wysokości podstawy - jaki trójkąt jest w podstawie i co wiesz o punkcie przecięcia jego wysokości?).
+    \begin{illustration}
+        \draw(0, 0)--(2, 2)--(3, 0.5);
+        \draw(0, 0)--(2, 0)--(3, 0.5);
+        \draw(2, 0)--(2, 2);
+        \draw[dashed, black!40!white!80!] (0, 0)--(3, 0.5);
+        \draw[yellow!30] (3, 0.5)--(1, 1);
+        \draw[yellow!30] (2, 2)--(1.7, 0.3);
+        \draw[yellow!30] (0, 0)--(2.55, 1.15);
+        \draw[red] (2, 0)--(1.8, 0.8) node [above] {$H$};
+    \end{illustration}
+    \item Liczymy objętość jednego takiego ostrosłupa.
+    \item Od objętości całego sześcianu odejmujemy sumę objętości wszystkich ostrosłupów z narożników.
+\end{enumerate}
+\medskip
+
+\sep{orange!30}
+\medskip
+
+\begin{problem}[11]{}
+Wnętrze wazonu ma kształt graniastosłupa prawidłowego trójkątnego o krawędzi postawy $12,4$ cm i wysokości $30$ cm. Czy w tym wazonie zmieszczą się $2$ litry wody?
+\end{problem}
+
+Najpierw przygotuj $2$ litry wody - w jakiej innej jednostce objętości będzie Ci wygodniej porównać je do objętości wazonu?
+
+Graniastosłup to bryła, która ma dwie podstawy (jakie w tym wypadku?) i wszystkie boki będące prostokątami, których jeden bok jest wysokością. Narysuj go, opisz to co wiesz i podstaw do wzoru na objętość graniastosłupa (możesz najpierw zerknąć na wzór na objętość prostopadłościanu, żeby znaleźć podobieństwa).
+
+\begin{problem}[5]{}
+Wnętrze szkatułki na drobiazgi ma kształt i wymiary graniastosłupa przedstawionego na rysunku. Oblicz pojemność tej szkatułki.
+\end{problem}
+
+\begin{illustration}
+    \filldraw[blue!60] (3, 0)--node[midway,below] {$\color{txtColor}15\;cm$}(8, 2)--(8, 5)--(3, 3)--cycle;
+    \filldraw[blue!50] (3, 3)--(8, 5)--(6.5, 6.5)--(1.5, 4.5)--cycle;
+    \filldraw[blue!40](0, 0)--node[midway, below] {$\color{txtColor}8\;cm$}(3, 0)--(3,3)--node[midway, right] {$\color{txtColor}5\;cm$}(1.5, 4.5)--node[midway,left] {$\color{txtColor}5\;cm$}(0, 3)--node[midway,left] {$\color{txtColor}8\;cm$}cycle;
+\end{illustration}
+
+Żeby wyliczyć pole podstawy, możemy je podzielić na dwie mniejsze figury: trójkąt równoramienny i kwadrat. Pole kwadratu policzysz bez problemu, natomiast do liczenia pola trójkąta proponują narysować wysokość z górnego wierzchołka, podpisać długości podstawy po obu stronach i sprawdzić w internecie co to trójkąt egipski.
+
+Jak skończysz liczyć pole podstawy, objętość wymaga tylko zauważenia który bok jest wysokością i podstawienia do wzoru.
+
+\begin{problem}[1]{}
+Oblicz pole powierzchni całkowitej ostrosłupa prawidłowego czworokątnego przedstawionego na rysunku.
+\end{problem}
+
+\begin{illustration}
+    \draw (0, 0)--(2, 0) node[midway, below]{$20\;cm$}--(3, 0.5)--(1.65, 2)--cycle;
+    \draw[dashed, black!40] (0, 0)--(1, 0.5)--(3, 0.5);
+    \draw[dashed, black!40] (1, 0.5)--(1.65, 2);
+    \draw (2, 0)--(1.65, 2);
+    \draw[thin](1.65, 2)--(2.5, 0.25);% node [midway, right] {$16\;cm$};
+    \node (LL) at (3, 1.7) {$16\;cm$};
+    \draw[->] (LL)--(2.2, 1);
+    \draw (2.75, 0.35)..controls(2.6, 0.6)..(2.3, 0.5);
+    \filldraw (2.55, 0.4) circle (.8pt);
+\end{illustration}
+
+Pole powierzchni całkowitej co pole podstawy razem z sumą pól ścian. Czy ściany w ostrosłupie prawidłowym mają różne kształty, czy wszystkie są tym samym trójkątem?
+
+\begin{problem}[15]{}
+W ostrosłupie prawidłowym czworokątnym suma długości wszystkich krawędzi podstawy jest równa sumie długości wszystkich krawędzi bocznych i wynosi $36$. Oblicz objętość tej bryły.
+\end{problem}
+
+Narysuj taki ostrosłup i niech $x$ będzie długością krawędzi postawy, a $y$ - długością krawędzi bocznej. Ile jest krawędzi bocznych w tym ostrosłupie?
+
+Napisz wyrażenie dające sumę długości krawędzi podstawy i przyrównaj to do $36$, potem wylicz długość krawędzi postawy. Powtórz to samo dla długości krawędzi bocznej (czy może od razu możesz już powiedzieć jaką ma długość ta krawędź?).
+
+Mając długość krawędzi bocznej i krawędzi podstawy, narysuj wysokość takiego ostrosłupa i spróbuj znaleźć trójkąt prostokątny, którego jednym bokiem jest długość wysokości, a długości pozostałych boków możesz odczytać z rysunku (podpowiedź: spróbuj zrobić trójkąt zawierający połowę przekątnej podstawy).
+
+
+\end{document}

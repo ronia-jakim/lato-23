@@ -120,6 +120,79 @@ and since $w$ is minimal, then it is irreducible and $a_0\neq 0$. Now, consider
 $$f(w(\alpha))=f(\sum a_i\alpha^i)=\sum f(a_i\alpha^i)=\sum f(a_i)f(\alpha^i)=\sum a_i\cdot f(\alpha)^i$$
 Hence, $f(\alpha)$ must be another root of $w$. Since $f$ is a monomorphism, we cannot have that two roots go to the same roots but we still need all of them to permute. Hence, every element of $L$ is represented in $Im(f)$.
 
+\begin{problem}[5]{d}
+Show that if $K\subseteq L\subseteq\hat{K}$ and $K\subseteq L$ is radical, then $Gal(\hat{K}/K)=Gal(\hat{K}/L)$.
+\end{problem}
+
+$K\subseteq L$ is radical means that if $a\in L$ and $w_a\in K[X]$ is the minimal polynomial of $a$, then $w_a$ has only one root in $\hat{K}$
+
+$$Gal(\hat{K}/K)=Gal(\hat{K}/L)$$
+
+$\supseteq$ is obvious because $f\restriction L=id_L$ and $id_L\restriction K=id_K$ so $f\restriction K=id_K$.
+
+$\subseteq$
+
+Take any $f\in Gal(\hat{K}/K)$ and any $a\in L$. I know that $w_a\in K[X]$ has only one root in $\hat{K}$ and that this root is $a$. Let $w_a=\sum b_ix^i$ and see that
+$$f(w_a(a))=f(\sum b_ia^i)=\sum f(b_i)f(a^i)=\sum b_if(a)^i=0$$
+so $f(a)$ must also be a root of $w_a$ and because this root is unique, then $f(a)=a$.
+
+%Take any $f\in Gal(\hat{K}/K)$ and any $a\in L$. I want to show that $f(a)=a$.
+
+%Let $w_a=\sum b_ix^i$ be the minimal polynomial of $a$. Consider
+%$$0=f(w_a(a))=f(\sum b_ixa^i)=\sum f(b_i)f(a)^i=b_if(a)^i$$
+%ok, so $f(a)$ must be yet another root of $w_a$.
+
+%How about I assume that $f(a)\neq a$? Then
+%\begin{align*}
+%    0&=w_a(a)-f(w_a(a))=\sum b_ia^i-\sum b_if(a)^i=\sum b_i[a^i-f(a)^i]
+%\end{align*}
+%Then
+%$$0=b_1[a-f(a)]+b_2[a^2-f(a)^2]+...+b_n[a^n-f(a)^n]$$
+%$$0=[a-f(a)][b_1+b_2(a+f(a))+b_3(a^2+af(a)+f(a)^2)+...+b_n(a^{n-1}+a^{n-2}f(a)+...+af(a)^{n-2}+f(a)^{n-1})]$$
+%
+%Now I only need to show that $b_1+b_2(a+f(a))+...+b_n(a^{n-1}+a^{n-2}f(a)+...+af(a)^{n-2}+f(a)^{n-1})$ cannot be equal to $0$.
+%
+
+\begin{problem}[7]{u}
+Assume that $char(K)=p>0$ and $a\in \hat{K}$ is separable over $K$. Prove that $K(a)=K(a^p)$. (Hint: consider the minimal polynomial of $a$ over $K$.)
+\end{problem}
+
+Let $w_a\in K[X]$ be the minimal polynomial of $a$ and because $a$ is separable, then $w_a(x)$ has only simple roots in $\hat{K}$. Furthermore, we cannot have $w_a(x)\in K[X^p]$.
+
+Frobenius function $F(x)=x^p$ goes brrrr? I know that $a^p$ is a root of $F(w_a(x))$ and that there exists a minimal $n$ such that $[a^p]^n=a$. Hecne, $x^pn-x$ is a polynomial with derivative equal to $-1$ that assumes $0$ at $x=a$. So, if I plug in $a^p$ it also is zero and the roots are still simple.
+
+%I know that $a^p$ is a root of $F(w_a(x))$ and that there exists a polynomial $v(x)\in K[X]$ such that $v(a^p)=a$ (which can be changed to $q(x^p)=v(x^p)$ such that $q(a)=a$ and $q\in K[X^p]$). Ok, then I know that $q(x)-x$ has a root in $a$ and it is a single root since the derivative of 
+
+%Oh, I must show that $a^p$ is separable.
+
+%$$K(a)=K(a^p)$$
+
+%$\supseteq$ is trivial
+
+%$\subseteq$ is more difficult? Is it enough to show that $a^p$ is separable?
+
+\begin{problem}[8]{}
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that if $a\in L$ is radical over $K$, then $deg(a/K)=\min\{p^n\;:\;a^{p^n}\in K\}$
+    \item Conclude that if a finite extension $K\subseteq L$ is radical, then its degree is a power of $p$ (here $p=char(K)$).
+\end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item Ok, so $w_a(x)$, the minimal polynomial of $a$, has only one root in $\hat{K}$.
+
+    I know that there exists aminimal $n$ such that $a^{p^n}\in K$ and that $w_a(x)$ divides $x^{p^n}-a^{p^n}$. From this I get that $deg(a/K)\leq p^n$.
+
+    Now, let $k=deg(a/K)$, then $w_a=(x-a)^k$ and using binomial something something
+    \begin{align*}
+        (x-a)^k&=x^k-\binom{k}{1}x^{k-1}a+...+\binom{k}{k-1}xa^{k-1}+a^k\in K[X]
+    \end{align*}
+    so firstly, $k$ must be divisible by $p$ for $\binom{k}{m}x^{k-m}a^m$ to disappear if $a\notin K$. Secondly, $a^k$ must be the lowest power of $a$ to be inside of $K$.
+\end{enumerate}
+
+
+
+
 
 
 \end{document}
