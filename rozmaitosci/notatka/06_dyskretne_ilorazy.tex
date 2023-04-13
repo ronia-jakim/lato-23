@@ -47,7 +47,7 @@ Natomiast taka przestrzeń nie jest przestrzenią Hausdorffa.
 \begin{definition}
 Działanie $G$ na $M$ przez dyfeomorfizmy jest
 \begin{itemize}
-    \item[\PHtunny] \importnat{wolne}, gdy dla każdego $g\in G\setminus\{id\}$ i dla każdego $x\in M$ jest $g(x)\neq x$,
+    \item[\PHtunny] \important{wolne}, gdy dla każdego $g\in G\setminus\{id\}$ i dla każdego $x\in M$ jest $g(x)\neq x$,
     \item[\PHtunny] \important{właściwie nieciągłe} [properly dicontinuous], gdy dla każdego zwartego $K\subseteq M$ zbiór $g\in G$, że $g(K)\cap K\neq\emptyset$ jest skończony.
 \end{itemize}
 \end{definition}
@@ -136,9 +136,54 @@ Sprawdzamy własności $q_G$ w mapach $(U,\phi)$ na $M$ oraz $(G(U)/G,\phi_G)$ n
 \item $\Z^n$ na $\R^n$ przez przesunięcia: $(k_1,...,k_n)(x_1,...,x_n)=(x_1+k_1,...,x_n+k_n)$. Można sprawdzić, że jest to działanie wolne i właściwie nieciągłe. Iloraz $\R^n/\Z^n$ jest nazywane $n$-wymiarowym torusem i jest homeomorficzne z $S^1\times...\times S^1$.
 \item $\Z$ na $S^1\times\R$ (współrzędne $\theta$ na $S^1$, $n$ na $\R$. $k\in\Z$ działa przez $k(\theta,t)=((-1)^k\theta,t+k)$. To jest nic innego jak butelka Kleina.
 \item $\Z$ działa na $[-1,1]\times\R$ przez $k(x,y)=((-1)^k,y+k)$ [wstęga mobiusa z brzegiem]
+\item $Conf_n(M)$ - \acc{przestrzeń konfiguracyjna} $n$-elementowych podzbiorów w rozmaitości $M$. Rozważmy $\underbrace{M\times M...\times M}_{n\;razy}$ i rozważmy uogólnioną przekątną 
+$$\Delta^n(M)=\{(x_1,...,x_n)\;:\;x_i=x_j\text{ dla pewnego }i\neq j\}$$
+    \begin{itemize}
+        \item nie wiem co się dzieje
+        \item grupa permutacji $S_n$ działa na $(M\times...\times M\setminus\Delta^n(M)$ przez 
+        $$\sigma(x_1,...,x_n)=(x_{\sigma(1)},...,x_{\sigma(n)})$$
+        i jest to działanie wolne, właściwie nieciągłe (bo $S_n$ jest skonczona) i $S_n$ działa w ten sposób przez dyfeomorfizmy
+    \end{itemize}
+
+Mapa w $Conf_n(M)$ wokół punktu $p=(x_1,...,x_n)$: rozważmy w $M$ wszyskie parami rozłączne otoczenia $U_i$ punktów $x_i$, zbiór 
+$$U_1\times...\times U_n\subseteq M\times...\times M\setminus(\Delta^n(M))$$
+jest naturalnym zbiorem mapowym.
+
+{\large\color{orange}Nie wieeem co się dzieje, nie słuuucham}
 \end{enumerate}
 
+\begin{remark}
+Dla gładkiego odwzorowania
+$$f:M/G\to N$$
+możemy rozważać jego "podniesieni" do odwzorowania
+$$\overline{f}=f\circ g:M\to N$$
+Odwzorowanie $\overline{f}$ jest $G$-niezmiennicze: dla każdego $g\in G$ mamy
+$$\overline{f}(x)=\overline(g(x)).$$
+Odwrotnie, mając $G$-niezmiennicze gładkie $\overline{h}:M\to N$ możemy indukować z niego gładkie odwzorowanie z ilorazu $h:M.G\to N$ poprzez:
+$$h(p)=\overline{h}(p'),$$
+gdzie $p'\in g^{-1}(p)$ to dowolny punkt z tej $G$-orbity która jest punktem $p$ w ilorazie.
+\end{remark}
 
+\subsection{Klejenie rozmaitości}
+
+
+\important{Otoczenie kołnierzowe}
+
+\begin{theorem}
+$M$-gładka $n$-rozmaitość, a $B$ to komponenta spójności brzegu $\partial M$. Wtedy istnieje dyfeomorficzne włożenie (czyli dyfeomorfizm na obraz)
+$$k:B\times[0,1)\to M$$
+na otwarte otoczenie $U$ komponenty $B$ w $M$, taki, że
+$$k(x,0)=x$$
+dla $x\in B$
+\end{theorem}
+
+\begin{definition}[klejenie rozmaitości]
+$M_1,B_1\subseteq\partial M$ oraz $M_2,B_2\subseteq\partial M_2$ i $f:B_1\to B_2$ jest dyfeomorfizmem (po cichutku: $dim(M_1)=dim(M_2),dim(B_1)=dim(B_2)$)
+
+Definiujemy
+$$M_1\cup_f M_2:=M_1\sqcup M_2/\sim$$
+gdzie relacja równoważności $\sim$ jest indukowana przez relację równoważności $x\sim f(x)\iff x\in B_1$
+\end{definition}
 
 
 
