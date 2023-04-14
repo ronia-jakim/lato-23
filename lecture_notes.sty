@@ -325,6 +325,19 @@
 
 \renewcommand{\thmtformatoptarg}[1]{: \emph{#1}}
 
+    \renewcommand{\highdepth}{60}
+    \colorlet{txtColor}{black}
+    \colorlet{pagColor}{myWhite}
+
+    \colorlet{red}{red-ltheme}
+    \colorlet{green}{green-ltheme}
+    \colorlet{orange}{orange-ltheme}
+    \colorlet{blue}{blue-ltheme}
+    \colorlet{purple}{purple-ltheme}
+    \colorlet{yellow}{yellow-ltheme}
+    
+    \colorlet{boxBckg}{pagColor!85!yellow!30}
+    \colorlet{boxLine}{pagColor!40!yellow!60}
 
 \DeclareOption{light-theme}{
     \renewcommand{\highdepth}{60}
@@ -342,6 +355,18 @@
     \colorlet{boxLine}{pagColor!40!yellow!60}
 }
 
+\DeclareOption{dark-theme}{
+    \renewcommand{\highdepth}{90}
+    \colorlet{txtColor}{myWhite}
+    \colorlet{pagColor}{myBlack}
+
+    \colorlet{red}{red-dtheme}
+    \colorlet{green}{green-dtheme}
+    \colorlet{orange}{orange-dtheme}
+    \colorlet{yellow}{yellow-dtheme}
+    \colorlet{blue}{blue-dtheme}
+    \colorlet{purple}{purple-dtheme}
+}
 
 
 \DeclareOption{polish}{
