@@ -190,7 +190,65 @@ Frobenius function $F(x)=x^p$ goes brrrr? I know that $a^p$ is a root of $F(w_a(
     so firstly, $k$ must be divisible by $p$ for $\binom{k}{m}x^{k-m}a^m$ to disappear if $a\notin K$. Secondly, $a^k$ must be the lowest power of $a$ to be inside of $K$.
 \end{enumerate}
 
+\begin{problem}[9]{}
+Assume that $K\subseteq L,M\subseteq\hat{K}$ are field extenstions such that $L\cap M=K$. Prove that if 
+$$(\forall\;K\subseteq_{fin}L_0\subset L)(\forall\;K\subseteq_{fin}M_0\subseteq M)\;[L_0(M_0):L_0]=[M_0:K],$$
+then $[L(M):L]=[M:K]$.
+\end{problem}
 
+%Well, I think I have
+$$[M_0(L_0):M_0][M_0:K]=[M_0(L_0):K]={\color{blue}[L_0(M_0):K]}=[L_0(M_0):L_0][L_0:K]$$
+
+From the previous list I know that
+$$[L(M):L][L:K]=[L(M):K]\leq[L:K][M:K]$$
+and so
+$$[L(M):L]\leq[M:K].$$
+So now I need the $\geq$ inequality.
+
+
+\begin{align*}
+    [L(M):K]&=[L(M):L_0(M_0)][L_0(M_0):K]=[L(M):L_0(M_0)][L_0(M_0):L_0][L_0:K]=\\
+    &=[L(M):L_0(M_0)][M_0:K][L_0:K]\geq[LM:L_0M_0][L_0M_0:K]=[LM:K]
+\end{align*}
+which implies that in this case
+$$[LM:K]=[L:K][M:K]$$
+and so
+$$[LM:K]=[LM:L][L:K]$$
+
+$$[L(M):K]=[L(M):M][M:K]$$
+$$[L(M):K]=[L(M):L_0(M_0)][M_0:K]$$
+
+\begin{align*}
+    [LM:K]=[LM:M][M:K]=[LM:M][M:M_0][M_0:K]=[LM:M][M:M_0][L_0M_0:L_0]\\
+    [LM:K]=[LM:L][L:L_0][L_0:K]
+\end{align*}
+
+
+
+%and so if this did not work, then I would have
+%$$[M(L):M]\neq[L:K]$$
+
+
+\begin{problem}[11]{d}
+Assume that the numbers $m,n>1$ are relatively prime and $\zeta_n,\zeta_m\in\C$ are primitive roots of $1$ of degree $n,m$ respectively. Prove that $\Q(\zeta_n)\cap\Q(\zeta_m)=\Q$. (Hint: notice that $\Q(\zeta_n,\zeta_m)=\Q(\zeta_{mn})$. Rely on the fact that $\phi(mn)=\phi(m)\phi(n)$ for any co-prme $m,n$ (without proof).)
+\end{problem}
+
+Ok, so first I show that $\Q(\zeta_n,\zeta_m)=\Q(\zeta_{nm})$.
+
+$\subseteq$
+
+$$\zeta_{nm}=e^{\frac{2\pi}{nm}}$$
+$$\zeta_{nm}^n=e^{\frac{2n\pi}{nm}}=e^{\frac{2\pi}{m}}=\zeta_m$$
+$$\zeta_{nm}^m=e^{\frac{2m\pi}{nm}}=e^{\frac{2\pi}{n}}=\zeta_n$$
+
+$\supseteq$
+$$\zeta_{nm}=e^{\frac{2\pi}{nm}}=e^{\frac{2a\pi}{m}}e^{\frac{2b\pi}{n}}=e^{\frac{2\pi(an+bm)}{mn}}$$
+
+
+
+Now I have that
+$$\phi(nm)=[\Q(\zeta_{nm}):\Q]=[\Q(\zeta_n,\zeta_m):\Q(\zeta_n)][\Q(\zeta_n):\Q]=a\cdot \phi(n)$$
+and if $\Q(\zeta_n)\cap\Q(\zeta_m)\neq\Q$, then there is some power of $\zeta_n$ that is shared with $\zeta_m$ and so it would mean that $[\Q(\zeta_n,\zeta_m):\Q(\zeta_n)]\neq\phi(m)$ which gives me a nice little contradiction.
 
 
 

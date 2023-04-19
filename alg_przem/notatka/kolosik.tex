@@ -1,0 +1,98 @@
+\documentclass[twocolumn]{article}
+
+\usepackage{../../lecture_notes}
+
+\title{Ściągawka algebra przemienna}
+\author{kaczka dziwaczka}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section{Modules}
+\subsection{Modules and module homomorphisms}
+
+If $M, N$ are $A$-modules, then $Hom_A(M,N)$ is also an $A$-module that contains all homorphisms $M\to N$.
+
+Homomorphisms $u:M'\to M$ and $v:N\to N'$ induce mappings $\overline{u}:Hom(M,N)\to Hom(M', N)$ and $\overline{v}:Hom(M, N)\to Hom(M, N')$ defined: $\overline{u}(f)=f\circ u$ and $\overline{v}(f)=v\circ f$. 
+
+Dla dowolnego $A$-modułu $M$ mamy $Hom(A, M)\cong M$ (duh)
+
+Podmoduł $M'$ modułu $M$ daje nam zajebistą grupę abelową $M/M'$ które dziedziczy strukturę $A$-modułu zdefiniowaną $a(x+M')=ax+M'$.
+\medskip
+
+Kokernel homomorfizmu $f:M\to N$ to
+$$\color{blue}Coker(f)=N/Im(f)$$
+$$M/Ker(f)\cong Im(f)$$
+
+\subsection{Operations on submodules}
+
+\begin{itemize}[leftmargin=*, label=\PHtunny]
+    \item \acc[b]{suma podmodułów} modułu $M$, $(M_i)_{i\in I}$, to wszystkie skończone sumy $\sum x_i$, gdzie $x_i\in M_i$ (i tylko skończenie wiele jest niezerowych)
+    \item \acc[b]{przekrój modułów} $\bigcap M_i$ to podmoduł $M$, czyli wszystkie podmoduły tworzą pełną kratę pod względem inkluzji (\emph{czyli każda para elementów ma sup (suma) i inf (przekrój)} :3)
+    \item monstrum: $(L/N)/(M/N)\cong L/M$ (czyli działa jak dzielenie ułamków $\star$
+    \item śmieszne: $(M_1+M_2)/M_1\cong M_2/(M_1\cap M_2)$
+    \item \acc[b]{produkt podmodułów} zwykle jest niedefiniowalny, ale już mnożenie przez ideał $\mathfrak{a}\triangleleft A$ jest do zrobienia: jest to zbiór wszystkich skończonych sum $\sum a_ix_i$, gdzie $a_i\in\mathfrak{a},x_i\in M$ i jest to podmoduł $M$ 
+    \item \acc[b]{(N:P)} dla $N,P$ podmodułów $M$ to zbiór wszystkich takich $a\in A$, że $aP\subseteq N$ i jest to ideał $A$, w szczególności \acc[b]{anihilator $M$} $(0:M)$ jest oznaczany $\color{blue}Ann(M)$
+
+    Moduł jest {\color{pink}wierny} (faithful), jeżeli $Ann(M)=0$. Jeżeli $Ann(M)=\mathfrak{a}$, to $M$ jest wierny jako $A/\mathfrak{a}$.
+\end{itemize}
+
+Jeżeli $M=\sum Ax_i$, gdzie $Ax_i$ to zbiór $ax_i$ dla wszystkich $a\in A$, to mówimy, że $M$ jest \acc{generowany} przez $x_i$. Jeżeli jest skończenie wiele generatorów, to jest skończenie generowany.
+
+\subsection{Direct sum and product}
+
+\important{Suma prosta} $M\otimes N$ dwóch $A$-modułów to zbiór wszystkich par $(x, y)$, gdzie $x\in M,y\in N$ i nadal jest to $A$-moduł. Dla rodziny $(M_i)_{i\in I}$ $A$-modułów to $\bigotimes_{i\in I}M_i$ zbiór wszystkich rodzinek $(x_i)_{i\in I}$, gdzie tylko skończenie wiele jest niezerowych. Jeżeli dopuścimy nieskończenie zerowych, to dostajemy \important{produkt prosty} $\prod_{i\in I}M_i$.
+
+Jeśli $A$ jest produktem prostym $A=\prod_{i=1}^nA_i$, to wtedy zbiór wszystkich elementów $(0,...,0,a_i,0,...,0)$ jest ideałem $A$.
+
+Mając rozkład $A=\mathfrak{a}_1\otimes...\otimes \mathfrak{a}_n$, możemy zrobić
+$$A\cong\prod_{i=1}^n(A/\mathfrak{b_i})$$
+gdzie $\mathfrak{b}_i=\otimes_{j\neq i} a_j$ co ma sens nawet.
+
+\subsection{Finitely generated modules}
+
+\acc{Wolny} $A$-moduł jest izomorficzny do $\bigotimes M_i$, gdzie $M_i\cong A$. To znaczy, jest sumą prostą $A$. Skończenie generowany $A$-moduł to po prostu skończenie wiele kopii $A$, oznaczane często $A^n$
+
+$M$ jest skończenie generowanym $A$-modułem $\iff$ $M$ jest izomorficzne do ilorazu $A^n$ dla $n\in\N$.
+
+$M$ to skończenie genrowany $A$-moduł, $\mathfrak{a}$ jest ideałem w $A$, a $\phi$ jest endomorfizmem $M$ takim, że $\phi(M)\subseteq\mathfrak{a}M$. Wtedy $\phi$ wyśmiguje:
+$$\phi^n+a_1\phi^{n-1}+...+a_n=0,$$
+gdzie $a_i$ są w $\mathfrak{a}$.
+
+Niech $M$ będzie skończenie generowanym $A$-modułem i niech $\mathfrak{a}$ będzie ideałem w $A$ takim, że $\mathfrak{a}M=M$. Wtedy istnieje $x\equiv 1\mod\mathfrak{a}$ taki, że $xM=0$.
+
+\important{Lemat Nakayamy}: niech $M$ będzie skończenie generowanym $A$-modułem i $\mathfrak{a}$ będzie ideałem zawartym w radykale Jacobsona, wtedy $\mathfrak{a}M=M\implies M=0$.
+
+Niech $M$ będzie skończenie generowanym $A$-modułem, $N$ podmodułem $M$ a $\mathfrak{a}$ będzie w Jacobsonie. Wtedy $M=\mathfrak{a}M+N\implies M=N$.
+
+Niech $A$ będzie pierścieniem lokalnym, $\mathfrak{m}$ jest ideałem maksymalnym a $M$ skończenie generowanym $A$-modułem (anihilowanym przez $\mathfrak{m}$). Niech $x_i$ będą elementami $M$ których obrazy w $M/\mathfrak{m}M$ tworzą bazę tej przestrzeni wektorowe. Wtedy $x_i$ generują $M$.
+
+\subsection{Exact sequences}
+
+Ciąg $A$-modułów i homomorfizmów
+$$...\rightarrow M_{i-1}\xrightarrow[]{f_i}M_i\xrightarrow[]{f_{i+1}}M_{i+1}\rightarrow...$$
+jest \acc[b]{dokładny w $M_i$} gdy $Im(f_i)=Ker(f_{i+1})$. Poniższe to szczególne przypadki:
+\begin{itemize}[leftmargin=*,label=\PHtunny]
+    \item $0\rightarrow M'\xrightarrow[]{f}M$ jest dokładny $\iff$ $f$ jest iniekcją
+    \item $M\xrightarrow[]{g}M''\rightarrow0$ jest dokładny $\iff$ $g$ jest surjekcją
+    \item $0\rightarrow M'\xrightarrow[]{f}M\xrightarrow[]{g}M''\rightarrow0$ jest dokładny $\iff$ $f$ jest iniekcją, $g$ jest surjekcją i $g$ indukuje izomorfizm $Coker(f)=M/f(M')\cong M''$
+\end{itemize}
+
+Jeśli mamy diagram komutujący
+
+\begin{tikzcd}
+        0\arrow[r] & M'\arrow[r, "u"]\arrow[d, "f'"] & M\arrow[r, "v"]\arrow[d, "f"] & M''\arrow[r]\arrow[d, "f''"] &0\\
+        0\arrow[r] & N'\arrow[r, "u'"] & N\arrow[r, "v'"]& N''\arrow[r] &0
+\end{tikzcd}
+
+wtedy
+\begin{align*}
+0\rightarrow Ker(f')\xrightarrow[]{\overline u}Ker(f)\xrightarrow[]{\overline{v}}Ker(f'')
+\xrightarrow[]{d}Coker(f')\\
+\xrightarrow[]{\overline{u'}}Coker(f)\xrightarrow[]{\overline{v'}}Coker(f'')\rightarrow0
+\end{align*}
+i to ma coś wspólnego z dokładną homologia $\star$
+
+\end{document}

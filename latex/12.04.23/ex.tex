@@ -1,0 +1,164 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{amsthm}
+
+
+\title{Gaußian elimination}
+\author{Weronika Jakimowicz}
+
+\def\rr{rank}
+\def\cCtn{colCount}
+
+\usepackage{coffeestains}
+\DeclareMathOperator{\rank}{\rr}
+\DeclareMathOperator{\colctn}{\cCtn}
+\newcommand{\Ab}{(A|b)}
+
+\usepackage{hyperref}
+
+%\usepackage{polski}
+
+\usepackage{cleveref}
+
+\def\lemat{Lemma}
+\def\prop{Proposition}
+\def\thm{Theorem}
+
+\newtheorem{lemma}{\lemat}[subsection]
+\newtheorem{remark}[lemma]{Remark}
+\newtheorem{theorem}[lemma]{\thm}
+\newtheorem{proposition}[lemma]{\prop}
+
+\theoremstyle{definition}
+\newtheorem{deff}[lemma]{Definition}
+
+\newif\ifpolski 
+
+\polskitrue
+
+\ifpolski
+    \usepackage{polski}
+    \color{red}
+   \crefname{lemma}{lemacik}{lemaciki}
+   \Crefname{lemma}{Lemacik}{Lemaciki}
+   \def\lemat{Lemacik}
+   \crefname{proposition}{propozycja}{propozycje}
+   \Crefname{proposition}{Propozycja}{Propozycje}
+   \def\prop{Propozycja}
+   \def\thm{Twerdzonko}
+   \crefname{theorem}{twierdzonko}{twierdzonka}
+   \Crefname{theorem}{Twierdzonko}{Twierdzonkai}
+   %\renewcommand{\rang}[1]{\text{rząd}(#1)}
+   \def\rr{rząd}
+   \def\cCtn{liczbaKolumn}
+   %usepackage{polyglossia}
+   %setdefaultlanguage{polish}
+   %\{proposition}{do}
+   %\Crefmultiformat{proposition}{do}
+   \crefrangeformat{proposition}{~#3#1#4 do~#5#2#6}
+\fi
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We will present some variant of Gaußsian elimination. In particular, the method we present is useful in fining the number of solutions to a given system of linear equations. We note that our method does not cover finding the solution set.
+\end{abstract}
+
+\setcounter{section}{-1}
+\coffeestainA{0.3}{0.85}{-25}{5cm}{1.3cm}
+
+\section{Preliminaries}
+All matrices will be over a fixed field $\mathbb{F}$
+
+\begin{deff}
+A matrix if of \emph{reduced echelon form $(REF)$} if:
+\begin{itemize}
+\item All rows consisting of only zeroes are at the bottom.
+\item The leading entry (that is the left-most nonzero entry) of every nonzero row is to the right of the leading entry of every row above.
+\end{itemize}
+\end{deff}
+
+Note that this variant doesn't require leading entries to be $1$.
+
+\begin{deff}
+Two matrices $A,B$ are \emph{row equivalent} denoted $A\sim B$ if $A$ is a product of elementary row operations on $B$.
+\end{deff}
+
+\begin{lemma}
+$\sim$ is an equivalence relation.
+\end{lemma}
+
+\begin{deff}
+Let $A$ be a matrix. Then $\colctn(A)$ is the number of columns in $A$.
+\end{deff}
+
+\begin{deff}
+Let $A$ be an REF matrix. Then $\rank(A)$ is the number of non-zero rows in $A$, equivalantly, the number of leading entries.
+\end{deff}
+
+\begin{remark}\label{rem:0:0:6}
+Let $A$ be an REF matrix. Then $\rank(A)\leq\colctn(A)$.
+\end{remark}
+
+\section{Gaußian elimination}
+\subsection{The results}
+\begin{theorem}
+For every matrix $A$, there is some matrix $B$ such that $B$ is REF and $A\sim B$.
+\end{theorem}
+
+\begin{lemma}\label{lemma:1:1:2}
+Let $(A|b)$ be an REF matrix. Then $\rank{A|b}\geq\rank(A)$.
+\end{lemma}
+
+\begin{proposition}\label{proposition:1:1:3}
+Let $(A|b)$ be an REF matrix representing a system of linear equations, such that $\rank(A)=\rank{\Ab}$. Then the system of linear equations has at least one solution.
+\end{proposition}
+
+\begin{proposition}\label{proposition:1:1:4}
+Let $\Ab$ be an REF matrix representing a system of linear equations, such that $\rank(A)<\rank{\Ab}$. Then the system of linear equations has no solutions.
+\end{proposition}
+
+\begin{proposition}\label{proposition:1:1:5}
+Let$\Ab$ be an REF matrix representing a system of linear equations, such that $\rank(A)<\colctn(A)$. If the system of equations has at least one solution, then it has at least $|\mathbb{F}|$ many solutions.
+\end{proposition}
+
+\begin{proposition}\label{proposition:1:1:6}
+Let $\Ab$ be an REF matrix representing a system of linear equations, such that $\rank(A)=\colctn(A)$. Then the system of equations has at most one solution.
+\end{proposition}
+
+\subsection{summary}\label{summ}
+We summarize the results above in \Cref{tab:1} below.
+
+\begin{table}[h]
+\begin{tabular}{|c|c||c|c|}
+\hline
+
+\multicolumn{2}{|c||}{$\rank(A)=\rank{\Ab}$} & \multicolumn{2}{|c|}{$\rank(A)<\rank{\Ab}$}\\
+\hline
+
+$\rank(A)=\colctn(A)$ & $\rank(A)>\colctn(A)$ & $\rank(A)=\colctn(A)$ & $\rank(A)>\colctn(A)$\\
+\hline
+
+$\left(\begin{matrix}1&2\\0&4\\0&0\end{matrix}\right|\left.\begin{matrix}3\\5\\0\end{matrix}\right)$
+& $\left(\begin{matrix}1&2&3\\0&0&4\\0&0&0\end{matrix}\right|\left.\begin{matrix}5\\6\\0\end{matrix}\right)$
+
+&
+$\left(\begin{matrix}1&2\\0&3\\0&0\end{matrix}\right|\left.\begin{matrix}4\\4\\4\end{matrix}\right)$
+& $\left(\begin{matrix}1&2&3\\0&2&3\\0&0&0\end{matrix}\right|\left.\begin{matrix}4\\4\\4\end{matrix}\right)$
+\\
+\hline
+
+\coffeestainC{0.4}{0.6}{-40}{-6cm}{1cm}
+One solution & $\geq|\mathbb{F}|$ solutions&\multicolumn{2}{|c|}{No solutions}\\
+\hline
+\end{tabular}
+\caption{summary}\label{tab:1}
+\end{table}
+
+By \Cref{rem:0:0:6} and \cref{lemma:1:1:2} the table covers all possible cases. By \Cref{proposition:1:1:3,proposition:1:1:4,proposition:1:1:5,proposition:1:1:6}, we obtain the number of solutions depicted in the \nameref{summ}.
+\end{document} 

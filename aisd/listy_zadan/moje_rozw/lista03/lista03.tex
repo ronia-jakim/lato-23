@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\usepackage{../../../../lecture_notes}
+
+\title{Lista 3}
+\author{AAAAAAA}
+\date{}
+
+\begin{document}
+
+
+\begin{problem}[2]{}
+    Danych jest $n$ prostych $l_1,..., l_n$ na płaszczyźnie $(l_i=a_ix+b_i)$ takich, że żadne trzy proste nie przecinają się w jednym punkcie. Mówimy, że prosta $l_i$ jest widoczna z punktu $p$, jeśli istenieje punkt $q$ na prostej $l_i$ taki, że odcinek $\overline{pq}$ nie ma wspólnych punktów z żadną inną prostą $l_j$ poza punktami $p$ i $q$. Ułóż algorytm znajdujący wszystkie proste widoczne z punktu $(0, +\infty)$.
+\end{problem}
+
+\begin{lstlisting}
+A[] <- lista gradientow
+B[] <- lista wyrazow wolnych
+
+sort(A, B) <- sortowanie po A i przestawiamy od razu B
+
+RET[] <- [0, 1]
+
+for i in range(2, n):
+    RET[] <- i
+    j <- i
+    while ptk_przec(j, j-1) < ptk_przec(j-1, j-2):
+        RET.remove(j-1)
+        j <- j-1
+
+\end{lstlisting}
+
+Lemat: Mamy prostą $L$, jeśli protsa $l_0$ jest widoczna, to każda inna prosta $l_i$ o mniejszych gradiencie też jest widoczna.
+
+\begin{problem}[4]{}
+Dane jest drzewo binarne (możesz założyć dla prostoty, że jest to pełne drzewo binarne), którego każdy wierzchołek $v_i$ skrywa pewną liczbę rzeczywistą $x_i$. Zakladamy, że wartości skrywane w wierzchołkach są różne. Mówimy, że wierzchołek $v$ jest minimum lokalnym, jeśli wartość skrywana w nim jest mniejsza od wartości skrywanych w jego sąsiadach.
+
+Ułóż algorytm znajdujący lokalne minimum odkrywając jak najmniej skrywanych wartości.
+\end{problem}
+
+\begin{lstlisting}
+V[] <- lista wartosci
+n <- ilosc wierzcholkow
+
+def find_min (v, ojciec):
+    # ojciec trzyma info czy ojciec byl wiekszy
+    if ocjciec:
+        if 2*v >= n:
+            return v
+        if V[2*v] > V[v] and V[2*v+1] > V[v]:
+            return v
+    else:
+        if 2*v >= n:
+            return -1 # bo doszlismy juz do lisci i nie znalezlismy po drodze
+
+        pot = find_min(2*v)
+
+        if V[2*v] < V[v]:
+            if pot == -1:
+                return find_min(2*v+1)
+
+        if V[2*v+1] < V[v]:
+            pot = find_min(2*v+1)
+            if pot == -1:
+                return find_min(2*v)
+
+        if pot == -1:
+            return find_min(2*v+1)
+
+\end{lstlisting}
+
+\begin{problem}[5]{}
+Dane jest nieukorzenione drzewo z naturalnymi wagami na krawędziach oraz liczba naturalna $C$.
+\begin{enumerate}[label=(\alph*)]
+    \item Ułóż algorytm obliczający, ile jest par wierzchołków odległych od siebie o $C$.
+    \item (Z) Jak w pinkcie (a), ale algorytm ma działać w czasie $O(n\log n)$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[6]{}
+Macierz $A$ rozmiaru $n\times n$ nazywamy macierzą Toreplitza, jeśli jej elementy spełniają równanie $A[i,j]=A[i-1,j-1]$ dla $2\leq i,j\leq n$.
+\begin{enumerate}[label=(\alph*)]
+    \item Podaj reprezentację macierzy Toeplitza, pozwalającą dodawać dwie takie macierze w czasie $O(n)$
+    \item Podaj algorytm, oparty na metodzie dziel i zwyciężaj, mnożenia macierzy Toeplitza przez wektor. Ile operacji arytmetycznych wymaga takie mnożenie?
+\end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alpha*), leftmargin=*]
+    \item Lista, gdzie pierwsze $n$ to pierwszy wiersz, a kolejne $n-1$ to pierwsze kolumna, dodajemy po prostu po kolei
+    \item Dla $n$ podzielnego przez $2$ zauważmy, że możemy macierz $T$ podzielić na KURWA NIE CHCE
+\end{enumerate}
+
+\end{document}
