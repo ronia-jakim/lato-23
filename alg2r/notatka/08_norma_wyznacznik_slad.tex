@@ -138,7 +138,7 @@ $$\set{G}\ni H\overset{\Lambda}{\mapsto}L^H\subseteq K\overset{\Gamma}{\mapsto}G
 \setcounter{theorem}{8}
 
 \begin{conclusion}
-$K\subseteq L$ jest skończone i Galois. Dla $H\leq Gal(L/K)$ mamy $H\triangleleft Gal(L/K)$ $\iff$ $K\subseteq L^H$ jest normalne.
+Załóżmy, że $K\subseteq L$ jest skończone i Galois. Dla $H\leq Gal(L/K)$ mamy $H\triangleleft Gal(L/K)$ $\iff$ $K\subseteq L^H(=\Lambda(H))$ jest normalne (tzn. tutaj Galois).
 
 Ponadto wtedy $Gal(L^H/K)\cong Gal(L/K)/H$
 \end{conclusion}
@@ -150,6 +150,34 @@ Niech $K\subseteq L'\subseteq L\subseteq\hat{K}$ takie, że $K\subseteq L$ jest 
 \begin{proof}
 Weźmy sobie $f\in Gal(L/K)$
 {\large\color{orange}RYSUNEK}
+
+\begin{illustration}
+    \node[rectangle, draw, minimum width=120pt, minimum height=180pt] (r) at (2, 3) {};% rectangle (4, 6);
+    \node[rectangle, draw, minimum width=120pt, minimum height=180pt] (rr) at (8, 3) {};% rectangle (4, 6);
+
+    \path (rr.north west) -- (rr.west) coordinate[pos=0.5] (rr-mid-nw);
+    \path (r.north east)--(r.east) coordinate[pos=0.5] (r-mid-ne);
+    \draw[->](r-mid-ne)..controls(4, 5)and(5.7, 5)..(rr-mid-nw) node [midway, below] {$\cong$} node [midway, above] {$f$};
+
+    \node[ellipse, draw, minimum width=80pt, minimum height=105pt] (e) at (2, 3.5) {};% ellipse (1.5 and 1.9);
+    \node at (e.north) [above] {$L$};
+    \draw[dashed] (e.west)..controls(1.5, 4)and(2.5, 4)..(e.east) node[midway,below] {$L^H$};
+    \draw(e.south west)..controls(1.5, 2.5)and(2.5,2.5)..(e.south east) node[midway,below]{$K$};
+
+    \node[ellipse, draw, minimum width=80pt, minimum height=105pt] (f) at (8, 3.5) {};% ellipse (1.5 and 1.9);
+    \draw[dashed] (f.west)..controls(7.5, 4)and(8.5,4)..(f.east) node [midway,below] {$f[L^H]=L^{\hat{f}[H]}$};
+    \node at (f.north) [above] {$L$};
+    \draw(f.south west)..controls(7.5, 2.5)and(8.5,2.5)..(f.south east) node [midway, below]{$K$};
+
+    %\draw (8, 0.8) ellipse (1 and 0.4);
+    %\draw (2, 0.8) ellipse (1 and 0.4);
+    \node[ellipse, draw,minimum width=60pt, minimum height=25pt] (fd) at (8, 0.8) {};
+    \node at (fd.north east) [above, right] {$G(L/K)$};
+
+    \node[ellipse, draw, minimum width=60pt, minimum height=25pt] (ed) at (2, 0.8) {};
+    \draw (ed.north west)..controls(1.6, 1)and(1.6,0.6)..(ed.south west) node [midway,left]{$H$};
+    \node at (ed.north east) [above, right] {$G(L/K)$};
+\end{illustration}
 
 Struktura $2$-sortowa:
 $$(L, Gal(L/K),\star)$$
