@@ -1,0 +1,160 @@
+\section{DUPAA}
+\subsection{Rozszerzenia abelowe}
+\setcounter{theorem}{2}
+
+\begin{bbox}
+Załóżmy, że $K\subseteq L$ jest skończonym rozszerzeniem Galois. Wtedy rozszerzenie $K\subseteq L$ jest abelowe (cykliczne) gdy $Gal(L/K)$ jest abelowe (cykliczne).
+\end{bbox}
+
+\begin{theorem}
+    Założmy, że $K\subseteq L_1\subseteq L$ to rozszerzenia ciał. Jeśli $K\subseteq L$ jest abelowe (cykliczne), to $K\subseteq L_1$ i $L_1\subseteq L$ też takie są.
+\end{theorem}
+\begin{proof}
+Z tego, że $Gal(L/L_1)\triangleleft Gal(L/K)$ wynika, że $K\subseteq L_1\;i\;L_1\subseteq L$ jest rozszerzeniem Galois i $Gal(L_1/K)\cong Gal(L/K)/Gal(L/L_1)$. Dlatego mamy $Gal(L/L_1)$ i $Gal(L_1/K)$ są abelowe (cykliczne).
+\end{proof}
+
+\textbf{Przykłady:}
+
+\begin{enumerate}[leftmargin=*]
+    \item Niech $K\subseteq\hat{K}$ i $\zeta\in\hat{K}$ będzie pierwiastkiem pierwotnym stopnia $n$ z $1$.
+    
+    \begin{center}\begin{tikzcd}
+    Gal(K(\zeta)/K)\arrow[r, hook] & \Z_n^*\\
+    f\arrow[r, mapsto]\arrow[u, phantom, sloped, "\in"] & l_f\arrow[u,sloped,phantom,"\in"]
+    \end{tikzcd}\end{center}
+    $l_f$ wybieramy tak, żeby $f(\zeta)=\zeta^{l_f}\;0<l_f<n$. Gdy $char(K)=0$, to homomorfizm wyżej jest izomofrizmem, wpp nie musi być to prawdą. Natomiast mamy pewność, że $K(\zeta)\supseteq K$ jest rozszerzeniem abelowym.
+    \item Niech $char(K)=p$ i $p\nmid n$. Wybierzmy $a\in K$ takie, że $\sqrt[n]{a}\notin K$. Załóżmy, że $\zeta\in K$ jest pierwiastkiem pierwotnym z $1$ stopnia $n$.
+
+    W takim przypadku, $L=K(\sqrt[n]{a})\supseteq K$ jest rozszerzeniem Galois i niech $w(x)=x^n-a$ (niekoniecznie nierozkładalny). Pierwiastki $w(a)$ w $L$ mają postać $\zeta^i\sqrt[n]{a}$ dla $i=0,...,n-1$.
+
+    Niech $f\in Gal(L/K)$ będzie wyznaczony przez $f(\sqrt[n]{a})=\zeta^{l_f}\sqrt[n]{a}$ dla $0\leq l_f<n$. Wtedy funkcja jak wyżej, tzn.
+    $$Fal(L/K)\ni f\mapsto l_f\in \Z_n^*$$
+    jest monomorfizmem, ponieważ
+    $$Gal(L/K)\ni f\mapsto l_f$$
+    $$Fal(L/K)\ni g\mapsto l_g$$
+    $$(g\circ f)(\sqrt[n]{a})=g(\zeta^{l_f}\sqrt[n]{a})=\zeta^{l_f}g(\sqrt[n]{a})=\zeta^{l_f}\zeta^{l_g}\sqrt[n]{a}=\zeta^{l_f+l_g}\sqrt[n]{a},$$
+    więc $l_{g\circ f}=l_g+_n l_f$. Z tego powodu, $Gal(L/K)$ jest grupą cykliczną.
+\end{enumerate}
+
+\begin{theorem}
+Załóżmy, że $K\subseteq L$ jest rozszerzeniem cykliczny takim, że $[L:K]=n$. Niech $\zeta\in K$ będzie pierwiastkiem pierwotnym z $1$ stopnia $n$ (czyli $p\nmid n$ gdy $char(K)=p$). Wtedy $(\exists\;a\in K)\;L=K(\sqrt[n]{a})$.
+\end{theorem}
+\begin{proof}
+Niech $\gamma\in Gal(L/K)$ będzie generatorem rozszerzenia $L$ rzędu $n$. Dla $b\in L$ niech 
+$$c(b)=b+\zeta\gamma(b)+...+\zeta^{n-1}\gamma^{n-1}(b)$$
+$$\gamma(c(b))=\gamma(b)+\zeta\gamma^2(b)+...+\zeta^{n-1}\underbrace{\gamma^n(b)}_{=b}=\zeta^{-1}c(b)$$
+$$\gamma^i(c(b))=\zeta^{-a}c(b),\;i=0,1,2,...$$
+Jeżeli $c(b)\neq 0$ [założenie ad hoc], to
+$$\{\gamma^0(c(b)),\gamma(c(b)), ...,\gamma^{n-1}(c(b)\}$$
+jest $n$-elementowym zbiorem pierwiastków wielomianu $w_{c(b)}(x)\in K[X]$, czyli
+$$[K(c(b):K]\geq n\implies K(c(b))=L,$$
+bo $K(c(b))\subseteq L$. 
+
+Mamy $c(b)^n\in K$, bo 
+$$\gamma^i(c(b)^n)=\left[\gamma^i(c(b))\right]^n=[\zeta^{-i}c(b)]^n=\zeta^{-in}c(b)^n=c(b)^n$$
+dla wszystkich $i=0,1,...,n-1$. Dlatego $c(b)=\sqrt[n]{a}$ dla $a=c(b)^n\in K$ i $L=K(\sqrt[n]{a})$.
+
+Wszystko to zachodzi pod warunkiem, że $c(b)\neq 0$, ale wiemy, że istnieje $b\in L$ takie, że $c(b)\neq 0$, bo:
+\end{proof}
+
+\begin{theorem}[twierdzenie Dedekinda o liniowej niezależności charakterów]
+Załóżmy, że $\alpha_1,...,\alpha_n\in Aut(L)$, $a_1,...,a_n\in L$ i każdy jest $\neq0$. Wtedy 
+$$(\exists\;c\in L)\;(\sum a_i\alpha_i)(c)\neq 0$$
+Innymi słowy: $\alpha_1,...,\alpha_n$ są liniowo niezależne w przestrzeni $L^L$ nad $L$.
+\end{theorem}
+\begin{proof}
+Indukcja względem $n$. Dla $n=1$ jest to oczywiste. $c=1:a_1\alpha_1(1)=a_1\neq 0$.
+
+Krok indukcyjny:
+
+Załóżmy nie prosty, że $(\forall\;x\in L)\;\sum^{n+1}a_i\alpha_i(x)=0$. Niech $a\in L$ dowolne różne od zera. Wtedy
+\begin{align*}
+(\forall\;x\in L)\;&\sum^{n+1}a_i\alpha_i(ax)=0\\
+&\sum^{n+1}(a_i\alpha_i(a))\alpha_i(x)=0\\
+&\sum^{n+1}a_i\alpha_i(a)[\alpha_{n+1}(a)]^{-1}\alpha_i(x)=0\\
+&\underbrace{\sum^{n+1}a_i\alpha_i(x)}_{=0}-\sum^{n+1}a_i\alpha_i(a)\alpha_{n+1}(a)^{-1}\alpha_i(x)=0\\
+&\sum^{n+1}\underbrace{\left[a_i-a_i\alpha_i(a)\alpha_{n+1}(a)^{-1}\right]}_{=0\text{ gdy }i=n+1}\cdot\alpha_i(x)=0\\
+&\sum^n\left[a_i-a_i\alpha_i(a)\alpha_{n+1}(a)^{-1}\right]\alpha_i(x)=0\\
+(1-\alpha_{n+1}(a)^{-1})\sum^n a_i\alpha_i(a)=0
+\end{align*}
+Z założenia indukcyjnego wiemy, że cała ta suma nie jest zerem, więc zerem musi być $1-\alpha_{n+1}$, czyli każdy poziom sumy po wymnożeniu jest zerem i:
+$$a_i-a_i\alpha_i(a)\alpha_{n+1}(a)^{-1}=0,$$
+czyli $\alpha_i(a)=\alpha_{n+1}(a)$ gdy $a_i\neq 0$. Z tego wynika, że dla każdego $a\in L$ jest $\alpha_i(a)=\alpha_{n+1}(a)$ i w takim razie $\alpha_i=\alpha_n$, co daje sprzeczność, bo $\alpha_i$ były parami różne.
+\end{proof}
+
+\subsection{Rozwiązywalne rozszerzenia ciał i rozszerzenia przez pierwiastki}
+
+\begin{bbox}
+Załóżmy, że $K\subseteq L$ jest skończonym rozszerzeniem ciał.
+\begin{enumerate}[leftmargin=*]
+    \item $K\subseteq L$ jest \important{rozszerzeniem rozwiązywalnym}, gdy $K\subseteq L$ jest Galois i $Gal(L/K)$ jest grupą rozwiązywalną.
+    \item $K\subseteq L$ jest \important{rozszerzeniem ciała przez pierwiastki} [radicals], gdy istnieje $k$ oraz 
+    $$L\subseteq L_0\supseteq L_1\supseteq...\supseteq L_k=K$$
+    takie, że dla każdego $i<k$ $L_i$ jest ciałem rozkładu wielomianu 
+    \begin{itemize}
+        \item $x^{n_i}-b_i$, $b_i\in L_{i+1}$ nad $L_{i+1}$ ($p\nmid n_i$ jeśli $char(K)=p$  
+        \item lub $x^p-x-b_i$ dla $L_{i+1}$ nad $L_{i+1}$
+    \end{itemize}
+\end{enumerate}
+\end{bbox}
+
+\begin{theorem}
+Załóżmy, że $K\subseteq L$ jest rozszerzeniem skończonym ciał. Wtedy $K\subseteq L$ jest rozszerzeniem przez pierwiastki $\iff$ istnieje $L'\supseteq L$ takie, że $K\subseteq L'$ jest rozwiązalne.
+\end{theorem}
+\begin{proof}
+$\implies$
+
+Możemy założyć, że $K\subseteq L_0$ jest rozszerzeniem Galois (przez rozszerzenie ciąg), wtedy mamy ciąg normalny grup [ćwiczenie].
+
+$$Gal(L_0/L_k)\triangleright Gal(L_0/L_{k-1}\triangleright Gal(L_0/L_{k-1})\triangleright...\triangleright Gal(L_0/L_1)\triangleright\{e\}$$
+faktorami tego ciągu są $Gal(L_i/L_{i+1})$. Wystarczy pokazać, że $L_i\supseteq L_{i+1}$ jest rozwiązywalna [wtedy można rozdrobić ciąg wyżej tak, by miał faktory abelowe].
+
+Alternatywnie: $H\triangleleft G$, jeśli $H$ jest rozwiązywalna i $G/H$ jest rozwiązywalna, to $G$ jest rozwiązywalna [ćwiczenie].
+
+Rozważamy przypadki wielomianów z definicji wyżej:
+\begin{itemize}
+    \item $x^{n_i}-b_i$
+
+    Niech $a_i=\sqrt[n_i]{b_i}\in L_i$. Wtedy $L_i=L_{i+1}(\zeta_{n_i},a_i)$, $\zeta_{n_i}$ jest pierwiastkiem pierwotnym z $1$ stopnia $n_i$.
+    $$L_i=L_{i+1}(\zeta_{n_i},a_i)\overset{\text{(\Radioactivity)}}{\supseteq} L_{i+1}(\zeta_{n_i})\supseteq L_{i+1}$$
+    Ponieważ $L_{i+1}\supseteq L_i$ jest rozszerzeniem Galois, to takie jest również rozszerzenie $\text{(\Radioactivity)}$ i $Gal(L_{i+1}\overbrace{(\zeta_{n_i},a_i)}^{L_i}/L_{i+1}(\zeta_{n_i}))\cong\Z_{n_i}^*$ jest cykliczna i abelowa.
+
+    Również rozszerzenie $L_{i+1}\subseteq L_{i+1}(\zeta_{n_i})$ jest Galois i grupa $Gal(L_{i+1}(\zeta_{n_i})/L_{i+1})$ jest abelowa.
+
+    Stąd 
+    $$Gal(L_i/L_{i+1})\overset{\text{(\Moon)}}\triangleright Gal(L_i/L_{i+1}(\zeta_{n_i})\triangleright\{e\}$$
+    i faktor w $\text{(\Moon)}$ jest izomorficzny do abelowej grupy $Gal(L_i(\zeta_{n_i})/L_{i+1})$. Czy $Gal(L_i/L_{i+1})$ jest rozwiązywalna stopnia $\leq 2$.
+
+    \item $x^p-x-b_i$
+
+    Niech $a\in L_i$ będzie peirwiastkiem wielomianu wyżej. Wtedy $a+1$ jest również pierwiastkiem, bo 
+    $$(a+1)^p-(a+1)-b_i=a^p+1^p-a-1-b_i=a^p-a-b_i=0$$
+    Dlatego $a, a+1,...,a_(p-1)\in L_i$ i wszystkie są pierwiastkami wielomianu wyżej. Stąd $L_i=L_{i+1}(a)$.
+
+    Niech $f\in Gal(L_i/L_{i+1})$ będzie wielomianem wyznaczanym przez $f(a)=a+l_f$. Przekształcanie
+    $$Fal(L_i/L_{i+1})\ni f\mapsto l_f\in \Z_p^*$$
+    daje $Gal(L_i/L_{i+1})\hookrightarrow\Z_p^*$ (w istocie jest tutaj $\cong$). Więc $l_i\supseteq L_{i+1}$ jest rozszerzeniem cyklicznym, czyli rozwiązywalny,
+\end{itemize}
+
+$\impliedby$
+
+Niech $K\subseteq L$ będzie rozszerzeniem rozwiązywalnym. Pokażemy, że jest też rozszerzeniem pierwiastkowym.
+
+Niech
+$$Gal(L/K)\triangleright G_{k-1}\triangleright G_{k-2}\triangleright...\triangleright G_0=\{e\}$$
+będzie ciągiem normalnym podgrup o faktorach abelowych i bez straty ogólności cyklicznych, prostych, tzn. $\cong\Z_q$, $q$ - liczba pierwsza. Wtedy
+\begin{center}\begin{tikzcd}[column sep=tiny]
+    L\arrow[r, phantom, sloped, "="] & L^{G_0}\arrow[r,phantom,sloped,"\supseteq"] & L^{G_1}\arrow[r,phantom,sloped,"\supseteq"]&...\arrow[r,phantom, sloped, "\supseteq"] & K\\
+    & L_0\arrow[u,phantom,sloped, "="]\arrow[r,phantom,sloped,"\supseteq"] & L_1\arrow[u,phantom,sloped,"="]\arrow[r,phantom,sloped,"\supseteq"] & ...\arrow[r, phantom,sloped,"\supseteq"] & L_k\arrow[u,phantom,sloped,"="]
+\end{tikzcd}\end{center}
+jest ciągiem rozszerzeń cyklicznych, prostych.
+
+\textbf{Claim:} Wystarczy teraz pokazać, że jeśli $K\subseteq L$ jest cykliczne, $L\subseteq\hat{K}$ i $Gal(L/K)$ jest prosta, to $K\subseteq L$ jest pierwiastkowe.
+
+\textbf{Dowód na boczku:} Niech $[L:K]=n$, $Gal(L/K)\cong\Z_n^*$, a $n$ jest liczbą pierwszą. Rozważamy przypadki charakterystym ciał:
+\begin{itemize}
+    \item $carh(K)=p\neq n$ lub $char(K)=0$
+
+    Niech $\zeta\in\hat{K}$ będziepierwiastkiem pierwotnym z $1$ stopnia $n$
+\end{itemize}
+\end{proof}
