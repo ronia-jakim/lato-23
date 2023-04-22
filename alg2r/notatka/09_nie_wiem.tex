@@ -36,7 +36,7 @@ Z tego, że $Gal(L/L_1)\triangleleft Gal(L/K)$ wynika, że $K\subseteq L_1\;i\;L
     więc $l_{g\circ f}=l_g+_n l_f$. Z tego powodu, $Gal(L/K)$ jest grupą cykliczną.
 \end{enumerate}
 
-\begin{theorem}
+\begin{theorem}\label{tw:9.4}
 Załóżmy, że $K\subseteq L$ jest rozszerzeniem cykliczny takim, że $[L:K]=n$. Niech $\zeta\in K$ będzie pierwiastkiem pierwotnym z $1$ stopnia $n$ (czyli $p\nmid n$ gdy $char(K)=p$). Wtedy $(\exists\;a\in K)\;L=K(\sqrt[n]{a})$.
 \end{theorem}
 \begin{proof}
@@ -151,10 +151,12 @@ jest ciągiem rozszerzeń cyklicznych, prostych.
 
 \textbf{Claim:} Wystarczy teraz pokazać, że jeśli $K\subseteq L$ jest cykliczne, $L\subseteq\hat{K}$ i $Gal(L/K)$ jest prosta, to $K\subseteq L$ jest pierwiastkowe.
 
-\textbf{Dowód na boczku:} Niech $[L:K]=n$, $Gal(L/K)\cong\Z_n^*$, a $n$ jest liczbą pierwszą. Rozważamy przypadki charakterystym ciał:
+\textbf{Dowód na boczku:} Niech $[L:K]=n$, $Gal(L/K)\cong\Z_n^*$, a $n$ jest liczbą pierwszą. Rozważamy przypadki charakterystyk ciał:
 \begin{itemize}
     \item $carh(K)=p\neq n$ lub $char(K)=0$
 
-    Niech $\zeta\in\hat{K}$ będziepierwiastkiem pierwotnym z $1$ stopnia $n$
+    Niech $\zeta\in\hat{K}$ będzie pierwiastkiem pierwotnym z $1$ stopnia $n$. Mamy, że $K\subseteq K(\zeta)$ i $K(\zeta)\subseteq L(\zeta)$ jest rozszerzeniem Galois. Dalej, $[L(\zeta):K(\zeta)]|[L:K]$, bo $Gal(L(\zeta)/K(\zeta))\hookrightarrow Gal(L/K)\cong\Z_n^*$. Niech $m=[L(\zeta):K(\zeta_]$, czyli $m=1$ lub $m=n$. Z twierdzenia \ref{tw:9.4} dostajemy
+    $$L(\zeta)=K(\zeta)(\sqrt[n]{a}),\;a\in K(\zeta)$$
+    gdy $m=n$. Gdy $m=1$ jest trywialne.
 \end{itemize}
 \end{proof}
