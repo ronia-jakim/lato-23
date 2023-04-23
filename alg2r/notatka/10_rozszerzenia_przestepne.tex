@@ -1,0 +1,92 @@
+\section{Rozszerzenia przestępne ciał}
+$K\subseteq L$ to rozszerzenie ciał.
+
+\begin{bbox}
+    \begin{itemize}
+        \item[\PHtunny] $K\subseteq L$ jest \important{przestępne}, gdy istnieje $a\in L$ takie, że $a$ jest przestępne nad $K$ (tzn. $I(a/K)=0$).
+        \item[\PHtunny] $K\subseteq L$ jest \important{czysto przestępne}, gdy każde $a\in L$ jest przestępne nad $K$.
+    \end{itemize}
+\end{bbox}
+
+\begin{remark}
+$a$ jest przestępne nad $K$ $\iff$ $K(a)\cong K(x)$.
+\end{remark}
+\begin{proof}
+Ćwiczenia
+\end{proof}
+
+Niech $U=\hat{U}$ będzie (dużym) ciałem oraz $K\subseteq U$ będzie podciałem. Niech $F\subseteq K$ będzie podciałem prostym.
+\begin{bbox}
+\begin{itemize}
+    \item[\PHtunny] $acl_K:P(U)\to P(U)$ to operator algebraicznego domknięcia nad $K$ taki, że dla $A\subseteq A$ $acl_K(A)=K(A)^{alg}\subseteq U$.
+    \item[\PHtunny] $A\subseteq U$ jest algebraicznie domknięte nad $K$, gdy $A=cl_K(A)$.
+\end{itemize}
+\end{bbox}
+
+\subsection{Własności}
+\begin{enumerate}
+    \item $acl_K(\emptyset)=\hat{K}$
+    \item 
+        \begin{enumerate}
+            \item $A\subseteq B\implies cl_K(A)\subseteq(B)$ \emph{monotoniczność}
+            \item $A\subseteq acl_K(A)$
+            \item $acl_K(acl_K(A))=acl_K(A)$ \emph{idempotetność}, tzn: $acl_K$ jest operatorem domknięcia.
+        \end{enumerate}
+    \item $acl_K(A)=\bigcup_{A_0\underset{sk.}{\subseteq A}}acl_K(A_0)$ \emph{skończony charakter}
+    \item \emph{własność wymiany}
+    $$a\in acl_K(A\cup\{b\}\setminus acl_K(A)\implies b\in acl_K(A\cup \{a\})$$
+\end{enumerate}
+
+\begin{proof}$ $
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item $[acl_K(A)=]K(A)^{alg}=\bigcup_{\underset{sk}{A_0\subseteq A}}K(A_0)^{alg}$
+
+$\subseteq$
+
+Weźmy $b\in K(A)^{alg}$. Wtedy istnieje $w(x)\in K(A)[X]$ takie, że $w(b)=0$ i $w\neq 0$. $w$ ma współczynniki w $K(A_0$ dla pewnego skończonego $A_0\subseteq A$, więc $b\in K(A_0)^{alg}$.
+
+\item Jeśli $a\notin \underbrace{(K(A)^{alg})}_{=L}$, to wtedy $b\notin K(A)^{alg}$, tzn. $b$ jest przestępny nad $L$ i $L(b)\cong L[Y]$. Jest tak, bo $b\in K(A)^{alg}\implies a\in K(A, b)^{alg}=K(A)^{alg}$
+
+Niech teraz $a\in K(A, b)^{alg}$ i dla wygody oznaczmy $L=K(A)^{alg}$. Wtedy $K(A,b)^{alg}=L(b)^{alg}$. Wtedy istnieje $w(x)\in L[X],w(a)=0$ i stopień $w$ jest niezerowy.
+
+Bez straty ogólności: $w(x)\in L[b][X]$ (bo $L(b)$ jest ciałem ułamków pierścienia $L[b]$).
+$$w(x)=\underset{\neq0}{c_n}x^n+...+c_1x+c_0$$
+$c_i\in L[b]$, tzn. $c_i=v_i(b)$ i $v_i\in L[Y]$. Niech 
+$$\underset{\in L[a][y]}{v(y)}=v_n(y)\cdot a^n+...+v_1(y)\cdot a+v_0(y).$$
+$$\left.\begin{array}{l}v(b)=0\\v\neq 0 [\text{ćwiczenia}]\end{array}\right\}\implies b\in acl_K(A\cup\{a\})=L(a)^{alg}$$
+\end{enumerate}
+\end{proof}
+
+\begin{bbox}
+\begin{itemize}
+    \item[\PHtunny] $A\subseteq U$ jest \important{algebraicznie niezależny} nad $K$, gdy dla każdego $a\in A$ $a\notin acl_K(A\setminus\{a\})$.
+
+    Równoważnie: dla każdego $n$ i dla wszystkich $a_1,...,a_n\in A$ parami różnych, dla każdego $w(x_1,...,x_n)\in K[\overline{X}]$ $w(\overline{a})\neq 0$.
+    \item[\PHtunny] $A$ jest \important{bazą przestępną zbioru} $B\subseteq U$ nad $K$, gdy $A$ jest algebraicznie niezależny nad $K$ i $A\subseteq B\subseteq acl_K(A)$.
+    \item[\PHtunny] \important{wymiar przestępny} $B$ nad $K$ $trdeg_K(B)$ to moc jakiejkolwiek bazy przestępnej zbioru $B$ nadk $K$.
+\end{itemize}
+\end{bbox}
+
+Gdy $K=F$ jest ciałem prostym, pomijamy je w $acl_K,trdeg_K$. {\large\color{orange}CO???}
+
+\begin{theorem}$ $
+
+\begin{enumerate}
+    \item Jeśli $A\subseteq B\subseteq U$ i $A$ jest algebraicznie niezależny nad $K$, to istnieje $A'$, $A\subseteq A'\subseteq B$, czyli baza przestępna $B$ nad $K$.
+    \item Każde dwie bazy przestępne zbioru $B$ nad $K$ są równoliczne.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Ćwiczenia (patrz: dowód dla operatora $Lin$ w przestrzeni liniowej)
+\end{proof}
+
+\textbf{Przykład}
+\begin{enumerate}
+    \item Niech $K$ będzie ciałem, $x_i, i\in I$ zmiennymi oraz $U=K(x_i\;:\;i\in I)^{alg}$. Wtedy $\{x_i\;:\;i\in I\}\subseteq U$ jest algebraicznie niezależne nad $K$ i $trdeg_K(U)=|I|$.
+    \item Jeśli $K\subseteq L\subseteq U$ oraz $\{a_i\;:\;i\in I\}$ jest bazą przestępną $L$ nad $K$, to
+    $$K(a_i\;:\;i\in I\}\cong_KK(x_i\;:\;i\in I)$$
+    $$K\subseteq K(a_i\;:\;i\in I)\subseteq L$$
+    z czego pierwsze rozszerzenie jest czysto przestepne, a drugie - algebraiczne.
+\end{enumerate}

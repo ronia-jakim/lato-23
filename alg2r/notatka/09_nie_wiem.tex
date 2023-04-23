@@ -57,7 +57,7 @@ dla wszystkich $i=0,1,...,n-1$. Dlatego $c(b)=\sqrt[n]{a}$ dla $a=c(b)^n\in K$ i
 Wszystko to zachodzi pod warunkiem, że $c(b)\neq 0$, ale wiemy, że istnieje $b\in L$ takie, że $c(b)\neq 0$, bo:
 \end{proof}
 
-\begin{theorem}[twierdzenie Dedekinda o liniowej niezależności charakterów]
+\begin{theorem}[twierdzenie Dedekinda o liniowej niezależności charakterów]\label{tw:9.5}
 Załóżmy, że $\alpha_1,...,\alpha_n\in Aut(L)$, $a_1,...,a_n\in L$ i każdy jest $\neq0$. Wtedy 
 $$(\exists\;c\in L)\;(\sum a_i\alpha_i)(c)\neq 0$$
 Innymi słowy: $\alpha_1,...,\alpha_n$ są liniowo niezależne w przestrzeni $L^L$ nad $L$.
@@ -158,5 +158,112 @@ jest ciągiem rozszerzeń cyklicznych, prostych.
     Niech $\zeta\in\hat{K}$ będzie pierwiastkiem pierwotnym z $1$ stopnia $n$. Mamy, że $K\subseteq K(\zeta)$ i $K(\zeta)\subseteq L(\zeta)$ jest rozszerzeniem Galois. Dalej, $[L(\zeta):K(\zeta)]|[L:K]$, bo $Gal(L(\zeta)/K(\zeta))\hookrightarrow Gal(L/K)\cong\Z_n^*$. Niech $m=[L(\zeta):K(\zeta_]$, czyli $m=1$ lub $m=n$. Z twierdzenia \ref{tw:9.4} dostajemy
     $$L(\zeta)=K(\zeta)(\sqrt[n]{a}),\;a\in K(\zeta)$$
     gdy $m=n$. Gdy $m=1$ jest trywialne.
+    \item $char(K)=p=n$
+
+    Niech $\gamma\in Gal(L/K)$ będzie generatorem. Z twierdzenia Dedekinda (\ref{tw:9.5}) wiemy, że istneiej $b\in L$ takie, że
+    $$K\in Tr_{L/K}(b)=\sum\limits_{i=0}^{p-1}\gamma^{i}(b)\neq 0$$
+    Dla $b'=\frac{1}{t}b$ mamy $Tr_{L/K}(b')=1$.
+
+    Niech $a=\gamma(b')+2\gamma^2(b')+...+(p-1)\gamma^{p-1}(b')$. Wtedy 
+    $$\gamma(a)=\gamma^2(b')+2\gamma^3(b')+...+\underbrace{(p-1)\gamma^p(b')}_{=b'}=a-Tr_{L/K}(b')=a-1,$$
+    ale 
+    $$\gamma(a^p-a)=\gamma(a)^p-\gamma(a)=(a-1)^p-(a-1)=a^p-a$$
+    więc $a^p-a\in Fix(\gamma)=K$. Niech $c=a^p-a$. Stąd $a$ jest pierwiastkiem $x^p-x-v$ oraz $L$ to ciało rozkładu $x^p-x-c$ nad $K$, więc $K\subseteq L$ jest pierwiastkowe.
 \end{itemize}
 \end{proof}
+
+\textbf{Przykłady:}
+\begin{enumerate}[leftmargin=*]
+    \item Niech $S_n:= Sym(\{x_1,...,x_n\})$ będzie grupą funkcji symetrycznych o $n$ zmiennych, $L=K(x_1,...,x_n)$ i $M=K(x_1,...,x_n)^{S_n}$. Wiemy, że $S_n<Aut(L)$. Z twierdzenia Artina wiemy, że $K\subseteq L$ jest rozszerzeniem Galois oraz $S_n=Gal(L/M)$.
+
+    W przypadku, gdy $n\geq5$ $S_n$ nie jest rozwiązalna, więc $M\subseteq L$ też takie nie jest. $L$ jest ciałem rozkładu wielomianu
+    \begin{align*}
+    M[T]\ni w(T)=&(T-x_1)(T-x_2)...(T-x_n)=\\
+    &=T^n-\sigma_1(\overline{x})T^{n-1}+\sigma_2(\overline{x})T^{n-2}+...+(-1)^{n-1}\sigma_{n-1}(\overline{x})T+(-1)^n\sigma_n(\overline{x})
+    \end{align*}
+    gdzie $\sigma_i(\overline{x})=\sum_{1\leq j_1<...<j_i\leq n}x_{j_1}x_{j_2}...x_{j_n}$ to bazowe funkcje symetryczne (wzory Viete'a). Mamy $\sigma_i(\overline{x})\in M=L^{S_n}$.
+    \item Gdy $K\subseteq L$ jest rozszerzeniem ciał oraz $L$ jest ciałem rozkładu nad $K$ wielomianu $w(x)$ stopnia co najwyżej $4$, to $Gal(L/K)$ wkłada się w $S_4$, a $S_4$ jest grupą rozwiązywalną. Podgrupa grupy rozwiązywalnej jest nadal rozwiązywalna, więc równanie
+    $$w(x)=0$$
+    jest rozwiązywalne przez pierwiastki.
+
+    Niech $M=L^{Gal(L/K)}$. Wtedy z twierdzenia Artina wiemy, że $K\subseteq M$ jest radykalne, a $M\subseteq L$ jest Galois (fakt 7.4.). $Gal(L/M)=Gal(L/K)\implies M\subseteq L$ jest rozszerzeniem pierwiastkowym, tzn:
+    $$L\subseteq L_0\supseteq L_1\supseteq ...\supseteq L_k=M,$$
+    wszystkie rozszerzenia $L_i\supseteq L_{i+1}$ są rozszerzeniami o pierwiastki, więc wszystkie pierwiastki $w(x)$ dają się wyrazić nad $K$ poprzez stosowanie działań ciała (włączając dzielenie, odejmowanie) oraz "pierwiastkowanie" tj. branie rozwiązań wielomianów $x^n-a$ lub $x^p-x-a$.
+
+    Gdy z kolei wielomian $w(x)$ jest stopnia $5$ to nie musi być to prawdą [ćwiczenie: czy dla $6,7$ powyższe zachodzi?]
+\end{enumerate}
+
+\textbf{\large\color{blue}Fakt}{\slshape %
+    $K(\sigma_1,...,\sigma_n)=K(x_1,...,x_n)^{S_n}$
+}
+\begin{proof}
+$\subseteq$ jasne
+
+$\supseteq$
+
+$$K(\vec{\sigma})\subseteq K(\overline{x})^{S_n}\subseteq K(\overline{x})$$
+$$n!=[K(\overline{x}):K(\overline{x})^{S_n}]\leq[K(\overline{x}):K(\vec{\sigma})]\leq n!,$$
+z czego ostatnia nierówność zachodzi, bo $K(\overline{x})$ jest ciałem rozkładu wielomianu
+$$w(T)=(T-x_1)...(T-x_n)$$
+nad $K(\sigma)$. Czyli mamy 
+$$[K(\overline{x}):K(\overline{x})^{S_n}]=[K(\overline{x}):K(\vec{\sigma})]]$$
+i zawieranie $K(\vec{\sigma})\subseteq K(\overline{x})^{S_n}$ jest tak naprawdę równością.
+\end{proof}
+
+Można też pokazać, że $K[\sigma_1,...,\sigma_n]=K[x_1,...,x_n]^{S_n}$, co jest \important{podstawowym twierdzeniem o wielomianach symetrycznych}.
+
+\textbf{Zastosowania:} czyli konstrukcje przy pomocy cyrkla i linijki. Dane są punkty $A\neq B\in \R^2$.
+\begin{itemize}
+    \item \acc[b]{cyrkiel}
+
+    Mamy okrąg $\{\begin{pmatrix}x\\y\end{pmatrix}\;:\;(x-a)^2+(y-b)^2=r^2\}$:
+    \begin{illustration}
+        \node[circle, draw, minimum size=5cm] (c) at (0, 0) {};
+        \filldraw (0, 0) circle (2pt) node [below] {$A=\begin{pmatrix}a\\b\end{pmatrix}$};
+        \filldraw (c.north east) circle (2pt) node [above] {$B=\begin{pmatrix}a'\\b'\end{pmatrix}$};
+        \draw (0,0)--(c.north east) node [midway, below] {r};
+    \end{illustration}
+    czyli $r=\sqrt{(a'-a)^2+(b'-b)^2}$
+
+    \item \acc[b]{linijka}
+    
+    Rozważamy prostą $L$ przechodzącą przez punkty $A$ i $B$, czyli o równaniu
+    $$\left|\begin{matrix}x-a&a'-a\\y-b&b'-b\end{matrix}\right|=0$$
+    \begin{illustration}
+        \filldraw (0, 0) circle (1pt) node [below] {$A$};
+        \filldraw (4, 2) circle (1pt) node [below] {$B$};
+        \draw (-1, -0.5)--(0, 0)--(4, 2)--(5, 2.5);
+        \filldraw (2, 1) circle (1pt) node [above] {$X=\begin{pmatrix}x\\y\end{pmatrix}$};
+    \end{illustration}
+\end{itemize}
+
+Niech $(a_1,b_1),...,(a_n,b_n)\in \R^2$. {\slshape Punkt $(a, b)\in \R^2$ jest konstruowany przy pomocy cyrkla i linijki na płaszczyźnie $\R^2$ z punktów $(a_1,b_1),...,(a_n,b_n)$ i punktów $(0, 1),(1,0)$ $\iff$ rozszerzenie ciał $K\subseteq K(a,b)$ jest rozszerzeniem przez pierwiastki stopnia $\leq 2$.} Tutaj oczywiście $K=\Q(a_1,b_1,...,a_n,b_n)$.
+\begin{itemize}[leftmargin=*]
+    \item Kwadratura koła:
+
+    Dane jest koło o promieniu $1$ i punkt $(0, 1)$. Szukamy kwadratu o polu $\pi$. Równoważnie problem można wyrazić jako szukanie punktu $(0, \sqrt{\pi})$. Ale $\pi$ jest liczbą przestępną, więc $\sqrt{\pi}$ też takie jest i rozwiązanie jest niemożliwe.
+
+    \item Trysekcja kąta:
+    
+    Dany jest kąt $0<\theta<\pi$ i naszym celem jest skonstruować kąt $\frac{1}{3}\theta$.
+
+    \begin{illustration}
+        \draw[->] (0, 0)--(5, 0);
+        \draw [->] (0,0)--(0, 4);
+        \draw (0, 0)--(3, 3) node [midway, above] {$1$};
+        \draw (0, 0)--(4.5, 1) node [midway, above] {$1$};
+        \draw[->] (2, 0) arc (0:45:2) node [midway, right] {$\theta$};
+        \draw[dashed](3, 3)--(3, 0);
+        \filldraw (3, 0) circle (2pt) node [below] {$b=\cos\theta$};
+        \draw[dashed] (4.5, 1)--(4.5, 0);
+        \filldraw (4.5, 0) circle (2pt);
+        \draw[->] (4.5, -1) node [below] {$a=\cos\frac{1}{3}\theta$}--(4.5, -0.3);
+        \draw[->] (4, 0) arc (0:12.5:4) node [midway, right] {$\frac{1}{3}\theta$};
+    \end{illustration}
+
+    $a$ jest algebraiczne nad $b$, bo
+    $$4a^3-3a-b=0.$$
+    Cel jest niemożliwy, gdyż $[\Q(a,b):\Q(b)]=3$.
+
+    \item Podwojenie sześcianu o krawędzi jednostkowej, równoważnie skonstruowanie $(0, a)$, gdzie $s^3=2$. Również jest to niemożliwe.
+\end{itemize}
