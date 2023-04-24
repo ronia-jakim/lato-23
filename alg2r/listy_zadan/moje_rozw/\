@@ -15,7 +15,6 @@
 
 \begin{document}
 \maketitle
-\thispagestyle{empty}
 
 \begin{problem}[1]{d}
 Assume that $char(K)=p>0$, $K\subseteq L$ is an algebraic field extension and $a\in L\setminus K$. Prove that $a^{p^l}$ is separable over $K$ for some $l\geq 0$.
@@ -84,11 +83,8 @@ I spend half an hour placing those ducks instead of writing my solutions and I r
   \node[anchor=south, xshift=-8.3cm, yshift=8cm]{\mduck{0.8}{45}};
   \node[anchor=south, xshift=8.5cm, yshift=11.5cm]{\mduck{0.6}{-35}};
   \node[anchor=south, xshift=-2cm, yshift=9.7cm] {\mduck{0.2}{0}};
-  \node[anchor=south, xshift=-2cm, yshift=2.3cm] {\mduck{0.15}{10}};
-  \node[anchor=south, xshift=8.5cm, yshift=2.3cm] {\mduck{0.3}{-20}};
-  \node[anchor=south, xshift=-9cm, yshift=-2.2cm] {\mduck{0.5}{30}};
 \end{tikzpicture}
-
+i
     \end{enumerate}
 \end{enumerate}
 
@@ -98,11 +94,7 @@ I spend half an hour placing those ducks instead of writing my solutions and I r
   \end{enumerate}
 \end{problem}
 
-Let $L=\Q(a_1,...,a_n)$ for some $a_1,...,a_n\in\C\setminus\Q$, each has the minimal polynomial of odd degree because otherwise the whole $L$ would have even degree (from $[M:K]=[M:L][L:K],K\subseteq K\subseteq M$). Since if $a_i$ is a root of a polynomial, then also $\overline{a_i}$ is a root of it. Hence, for each $i=1,...,n$ we have $\overline{a_i}\in L$.
-
-Of course, this is also true for elements from $\Q$. Each rational number is equal to its conjugate. Furthermore, since conjugation is distributive with respect to both multiplication and addition, every element has its conjugate in $L$.
-
-Therefore, conjugation is an automorphism of $L$. Applying conjugation twice to the same element $z\in\C$ gives us $z$. Furthermore, conjugation $\in Gal(L/\Q)$. And I would say that $|Gal(L/\Q)|=[L:\Q]$ cuz then I get to a nice conclusion that all those elements must be from $\R$ (conjugating them once gives the original because order of conjugation must be odd and divide $[L:\Q]$) and life is nice and peaceful.
+Let $L=\Q(a_1,...,a_n)$ for some $a_1,...,a_n\in\C\setminus\Q$, each has the minimal polynomial of odd degree because otherwise the whole $L$ would have even degree (from $[M:K]=[M:L][L:K}]$],K\subseteq K\subseteq M$)
 
 
 \end{document}
