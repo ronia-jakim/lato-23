@@ -161,6 +161,36 @@ Let $w_a\in K[X]$ be the minimal polynomial of $a$ and because $a$ is separable,
 
 Frobenius function $F(x)=x^p$ goes brrrr? I know that $a^p$ is a root of $F(w_a(x))$ and that there exists a minimal $n$ such that $[a^p]^n=a$. Hecne, $x^{pn}-x$ is a polynomial with derivative equal to $-1$ that assumes $0$ at $x=a$. So, if I plug in $a^p$ it also is zero and the derivative does not change. So the minimal polynomial of $a^p$ must divide this badboy and because of this $w_{a^p}\notin K[X^p]$?
 
+Bullshit $\uparrow$
+
+$\supseteq$ is obvious
+
+$\subseteq$
+
+%my plan:
+%\begin{enumerate}
+    %\item $(\exists\;m)\;a^{p^m}=a$
+
+    Let $w_a(x)$ be the minimal polynomial of $a$ over $K$ with $deg(w_a)=m$. Then $K(a)$ is a field with $p^m$ elements and $K(a)^*$ is a group of order $p^{m-1}$. So I have that $p^{m-1}=1$ and $p^{m-1}\cdot a=1\cdot a=a$. Noice.
+
+    %$$[K(a):K]=[K(a):K(a^p)][K(a^p)$$
+
+    %I know that $x^{p}-a^p=(x-a)^p$ has a root $a$. What if $a^p$ is not separable?
+
+    %\item $a^p$ separable
+
+    %I know that
+    %$$v(x)=x^{p^m}-x$$
+    %is zero at both $a$ and $a^p$ and its derivative is a constant $-1$. Hence, both $w_a|v$ and $w_{a^p}|v$.
+
+    $$[K(a):K]=[K(a, a^p):K(a^p)][K(a^p):K]$$
+    Since I already know that $a\in K(a^p)$, then I know that the minimal polynomial of $a$ over $K(a^p)$ has degree $1$. So $[K(a, a^p):K(a^p)]=[K(a):K(a^p)]=1$?
+    %What if $a^p$ was not separable? Then $w_{a^p}\in K[X^p]$ and so if I take the Frokajsdhf function I have that $F(w_a(x))=w_{a^p}(x^p)$. So I would say that $w_a(a^p)=0$. But this would also mean that $w_a$
+
+%\end{enumerate}
+
+
+
 %I know that $a^p$ is a root of $F(w_a(x))$ and that there exists a polynomial $v(x)\in K[X]$ such that $v(a^p)=a$ (which can be changed to $q(x^p)=v(x^p)$ such that $q(a)=a$ and $q\in K[X^p]$). Ok, then I know that $q(x)-x$ has a root in $a$ and it is a single root since the derivative of 
 
 %Oh, I must show that $a^p$ is separable.
