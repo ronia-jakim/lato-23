@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Rachunek Prawdopodobieństwa 1R\\{\normalsize Lista 8}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{problem}{}
+Zmienne losowe $X,Y$ spełniają warunki: $Var(X)=3,Cov(X,Y)=-1,Var(Y)=2$. Oblicz $Var(4X-3Y)$ oraz $Cov(2X-Y,2x+Y)$.
+\end{problem}
+
+Twierdzenie 5.16: Jeżeli $\e X^2<\infty$ dla $i=1,...,n$, to $Var(X_1+...+X_n)=\sum_{k=1}^nVar(X_k)+2\sum_{k<l}Cov(X_k,X_l)$
+$$Var(4X-3Y)=Var(4X)+Var(-3Y)+2Cov(4X,-3Y)$$
+Twierdzenie 5.15(4): kowariacja jest operatorem dwuliniowym
+%$Cov(aX+bY,Z)=aCov(X,Z)+bCov(Y,Z)$:
+$$16\cdot Var(X)+9\cdot Var(Y)-2\cdot 4\cdot3Cov(X,Y)=48+9+24=81$$
+
+\begin{align*}
+    Cov(2X-Y,2X+Y)&=Cov(2X,2X+Y)-Cov(Y,2X+Y)=\\
+    &=Cov(2X,2X)+Cov(2X,Y)-Cov(Y,2X)-Cov(Y,Y)=\\
+    &=4\cdot Var(X)+2\cdot Cov(X,Y)-2\cdot Cov(Y,X)-Var(Y)=\\
+    &=12-2=10
+\end{align*}
+
+\begin{problem}{}
+Wyznacz dystrybuantę wektora losowego $(X,Y)$ o rozkładzie jednostajnym na przekątnej kwadratu jednostkowego $[0,1]^2$ łączącej punkty $(0,0)$ i $(1,1)$. Wyznacz rozkłady brzegowe, oblicz $\e X,\e Y, Var(X), Var(Y), Cov(X, Y), Var(X+Y)$ oraz sprawdź, czy zmienne $X$ i $Y$ są niezależne. 
+\end{problem}
+
+{\rightskip=7cm %
+Długość tej prostej wynosi $\sqrt{2}$, więc gęstość to $\frac{1}{\sqrt{2}}$. Dalej, wiem, że wartości, jakie może ten wektor przyjmować są postaci $\begin{pmatrix}a\\a\end{pmatrix}$, czyli
+\begin{multicols}{2}$$F(t, k)=\prob{X\leq t,Y\leq k}=\begin{cases}0&a<0\\1&a>1\\\frac{a\sqrt{2}}{\sqrt{2}}&wpp\end{cases}$$
+\end{multicols}}
+gdzie $a=\min(t,k)$.
+
+\begin{tikzpicture}[remember picture, overlay, shift={(current page.east)}, xshift=-7cm, yshift=-6cm]
+    \filldraw[color=yellow!20!white] (0,0) rectangle (2.5,2);
+    \draw[->](0,-0.3)--(0,4);
+    \draw[->](-0.3,0)--(4,0);
+    \draw (0,0)--(3,3);
+    \draw[dashed](0, 3)--(3, 3)--(3, 0);
+    \draw[green, thick, dashed](0,2)--(2.5,2)--(2.5,0);
+    \draw[green,thick](0,0)--(2,2);
+    \node at (2.5,2) [above right] {\scalebox{0.65}{$\begin{pmatrix} t\\k\end{pmatrix}$}};
+    \draw[orange](1, -0.2)--(1, 3.5);
+    \filldraw[orange] (1, 1) circle (1.5pt);
+    \node at (1, 0) [below right] {x};
+    \draw[orange](1, 0)--(0,0);
+\end{tikzpicture}
+
+Rozkłady brzegowe:
+$$F_X(x)=\prob{X\leq x, Y\in\R}=\begin{cases}x&x\in[0,1]\\0&wpp\end{cases}$$
+$$f_X(x)=1\cdot\mathds{1}_{[0,1]}$$
+jak na rysunku. Analogicznie dla $Y$
+$$F_Y(y)=\begin{cases}y&y\in[0,1]\\0&wpp\end{cases}$$
+$$f_Y(y)=1\cdot\mathds{1}_{[0,1]}$$
+
+$$\e X=\int_\R\prob{X=x}\cdot x\;dx=\int_0^1xdx=\frac{1}{2}$$
+$$\e Y=\int_\R\prob{Y=y}\cdot y\;dy=\int_0^1ydy=\frac{1}{2}$$
+
+$$Var(X)=\e[X-\e X]^2=\int_0^1\left[x-\frac{1}{2}\right]^2dx=\frac{1}{12}$$
+$$Var(Y)=\frac{1}{12}$$
+
+\begin{align*}
+    Cov(X,Y)&=\e XY-\e X\e Y=\e X^2-\frac{1}{4}=\\
+    &=\int_0^1\prob{X=x,Y\in\R}xdx-\frac{1}{4}=\\
+    &=\int_0^1\prob{X=x,Y=x}xdx-\frac{1}{4}=\\
+    &=\int_0^1x^2-\frac{1}{4}=\frac{1}{3}-\frac{1}{4}=\frac{1}{12}
+\end{align*}
+%\frac{1}{3}-\frac{1}{4}=\frac{1}{12}$$
+%\e[(X-\e X)(Y-\e Y)]=\e(XY-\frac{1}{2}(X+Y)+\frac{1}{4})=$$
+$$Var(X+Y)=Var(X)+Var(Y)+2\cdot Cov(X, Y)=\frac{2}{12}+2\cdot{1}{12}=\frac{1}{3}$$
+
+%$$\mathfrak{Z}$$
+
+\begin{problem}{}
+$d$-wymiarowa zmienna losowa $X$ ma rozkład normalny $N(m,A^{-1})$ o gęstości
+$$g(x)=\frac{\sqrt{det(A)}}{(2\pi)^{\frac{d}{2}}}\exp\left[-\frac{1}{2}\langle A(x-m),(x-m)\rangle\right].$$
+Udowodnij, że $\e X=m$ oraz $\Lambda=A^{-1}$ jest macierzą kowariancji $X$. 
+\end{problem}
+
+\begin{problem}{}
+Niech $X_1$ i $X_2$ będą niezależnymi zmiennymi losowymi o rozkładzie $N(0,1)$. Wykaż, że zmienne losowe $\frac{X_1+X_2}{\sqrt{2}}$ i $\frac{X_1-X_2}{\sqrt{2}}$ są niezależne i obie mają rozkład $N(0,1)$.
+\end{problem}
+
+\begin{problem}{}
+Niech $X=(X_1,X_2,...,X_n)$ będzie wektorem losowym o standardowym rozkładzie normalnym $N(0,I)$, gdzie $I$ jest macierzą identyczności. Sprawdź, że $X_1,X_2,...,X_n$ są niezależnymi zmiennymi losowymi o jednakowym standardowym rozkładzie normalnym $N(0,1)$.
+\end{problem}
+
+\begin{problem}{}
+Niech $X_1,X_2,...,X_n$ będą wzajemnie nieskorelowanymi zmiennymi losowymi takimi, że ich łączny rozkład jest normalny. Wykazać, że $X_1,X_2,...,X_n$ są niezależne.
+\end{problem}
+
+\begin{problem}{}
+Niech $X_1,...,X_n$ będą niezależnymi zmiennymi losowymi o rozkładzie normalnym $N(0,1)$ oraz niech $a=(a_1,...,a_n)$ i $b=(b_1,...,b_n)$ będą ustalonymi wektorami. Pokaż, że zmienne losowe
+$$W=\sum_{j=1}^na_jX_j,\quad Z=\sum_{j=1}^n b_jX_j$$
+są niezależne $\iff$ wektory $a$ i $b$ są prostopadłe. Opisz rozkłady $W$ i $Z$.
+\end{problem}
+
+\begin{problem}{}
+Podaj przykład nieskorelowanych zmiennych losowych o rozkładzie normalnym, które nie są niezależne.
+\end{problem}
+
+\begin{problem}{}
+(\textbf{Transformata Boza=M\"ullera}) Pokaż, że jeśli zmienne losowe $X,Y$ są niezależne o rozkładzie jednostajnym na $(0,1)$, to
+$$U=\sqrt{-2\log X}\cos(2\pi Y) \quad i\quad V=\sqrt{-2\log X}\sin(2\pi Y)$$
+są niezależne i mają rozkład $N(0,1)$.
+\end{problem}
+
+\begin{problem}{}
+Niech $A_1,...,A_{2021}\in\set{F}$ będą zbiorami o własności $\prob{A_i}\geq\frac{1}{2}$. Wykaż, że istnieje $\omega\in\Omega$ taka, że $\omega\in A_i$ dla przynajmniej $1011$ wartości $i$.
+\end{problem}
+
+\begin{problem}{}
+Dane są dwa ciągi $\{X_n\}_{n\geq1},\{Y_n\}_{n\geq 1}$ zbieżne prawie wszędzie do zmiennych $X,Y$. Pokaż, że jeśli dla każdego $n$ zmienne $X_n$ i $Y_n$ mają ten sam rozkład, to $X$ i $Y$ też mają ten sam rozkład.
+\end{problem}
+
+\end{document}

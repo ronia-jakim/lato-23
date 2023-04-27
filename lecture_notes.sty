@@ -21,6 +21,8 @@
 \sloppy
 \justifying
 
+\RequirePackage{multicol}
+
 \RequirePackage{parskip}
 \newcommand{\findent}{{\setlength{\parindent}{5mm}\indent}}
 
@@ -56,6 +58,9 @@
 \DeclareDocumentCommand\prob{g}{\mathbb{P}
     \IfNoValueF {#1} {\left[#1\right]}
     }
+
+\newcommand\e{\mathbb{E}}
+
 \renewcommand{\hat}[1]{\widehat{#1}}
 
 \newcommand{\onto}{onto}
@@ -177,6 +182,8 @@
 
 \usetikzlibrary{cd}
 \usetikzlibrary{patterns, patterns.meta}
+
+\RequirePackage{tikzpagenodes}
 
 \tikzset{
   symbol/.style={
