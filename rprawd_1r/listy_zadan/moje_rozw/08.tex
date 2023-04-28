@@ -84,7 +84,30 @@ Udowodnij, że $\e X=m$ oraz $\Lambda=A^{-1}$ jest macierzą kowariancji $X$.
 \end{problem}
 
 $X$ jest $d$-wymiarowe, czyli $X=(X_1,...,X_d)$. Czyli
-$$\e X=\int_$$
+$$\e X=(\e X_1, \e X_2...,\e X_d),$$
+więc wystarczy pokazać, że dla każdego $i$ $\e X_i=m_i$.
+
+Zaczynamy od tego, że $A$ musi być symetryczna i nieujemna, żeby potem mogła być macierzą kowariancji. Czyli w szczególności, $A$ jest diagonalizowalna o wartościach własnych rzeczywistych. Niech więc
+$$A=Q^TDQ,$$
+$Q$ jest ortogonormalna i $D=(\lambda_1,...,\lambda_d)$.
+
+Policzmy najpierw rozkłady brzegowy tego zła:
+\begin{align*}
+    \e X_k&=\int_\R...\int_\R x_kg(x_1,...,x_d)\;dx_{1,...,k-1,k+1,...d}=\\
+    &=\int...\int\frac{\sqrt{det(Q^TDQ)}}{(2\pi)^{d/2}}x_kexp\left[-\frac{1}{2}\langle Q^TDQ(x-m),(x-m)\rangle\right]=\\
+    &=\int...\int\frac{\sqrt{det(Q)det(D)det(Q)}}{(2\pi)^{d/2}}exp\left[-\frac{1}{2}\langle DQ(x-m),Q(x-m)\rangle\right]=\\
+    &=\begin{bmatrix}z=Q(x-m)\\dz=detQdx\end{bmatrix}=\\
+    &=\int \frac{det(Q)\sqrt{det(D)}}{(2\pi)^{d/2}}\exp\left[-\frac{1}{2}\langle Dz,z\rangle\right]\cdot(det(Q))^{-1}dz=\\
+    &=\int\frac{\sqrt{det(D)}}{(2\pi)^{d/2}}\exp\left[-\frac{1}{2}\sum\lambda_iz_i^2\right]dz=\\
+    &=\int\frac{\sqrt{\prod\lambda_i}}{(2\pi)^{d/2}}\prod\exp\left[-\frac{1}{2}\lambda_iz_i^2\right]dz=\\
+    &=\frac{\sqrt{\prod\lambda_i}}{(2\pi)^{d/2}}e^{-1/2\lambda_k(x_k-m_k)^2}\int e^{-1/2\lambda_1z_1^2}\int...\int e^{-1/2\lambda_dz_d^2}\;dz_{1,...,k-1,k+1,d}=\\
+    &=\frac{\sqrt{\lambda_k}}{(2\pi)^{\frac{1}{2}}}e^{-1/2\lambda_k(x_k-m_k)^2}%\frac{\sqrt{\lambda_k}}{\sqrt{2\pi}}e^{-1/2\lambda_k(
+\end{align*}
+bo całki się zwijają do $\int e^{-1/2\lambda_iz_i^2}dz_i=\frac{\sqrt{2\pi}}{\sqrt{\lambda_i}}$ i tak jakby przy $k$-tej współrzędnej nie podstawiam
+
+\begin{align*}
+    \e X_k&=\int_\R xg_k(x)dx=\int_\R x\cdot\frac{\sqrt{\lambda_k}}{\sqrt{2\pi}}e^{-1/2\lambda_k(x-m_k)^2}dx=
+\end{align*}
 
 \begin{problem}{}
 Niech $X_1$ i $X_2$ będą niezależnymi zmiennymi losowymi o rozkładzie $N(0,1)$. Wykaż, że zmienne losowe $\frac{X_1+X_2}{\sqrt{2}}$ i $\frac{X_1-X_2}{\sqrt{2}}$ są niezależne i obie mają rozkład $N(0,1)$.

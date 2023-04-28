@@ -1,0 +1,210 @@
+\subsection{Moduły}
+
+\emph{Przestrzenie liniowe nad pierścieniami}
+
+\begin{definition}
+    Niech $R$ będzie pierścieniem z $1$, niekoniecznie przemienny. $(M,+,r)_r\in R$ jest modułem nad $R$, gdy spełnia aksjomaty przestrzeni liniowej nad $R$.
+
+    Moduł może być:
+    \begin{itemize}
+        \item[\PHtunny] lewostronny, wtedy $M\ni x\mapsto rx$ dla każdego $r,x$ jest w $M$
+        \item[\PHtunny] prawostronny (analogicznie, $xr\in M$).
+    \end{itemize}
+\end{definition}
+
+Łączność mnożenia w modułach:
+
+\begin{tabular}{ p{5cm} p{5cm} p{5cm} }
+lewostronna & prawostronna & mieszana \\
+
+$r_1(r_2m)=(r_1r_2)m$
+
+&
+
+$(mr_1)r_2=m(r_1r_2)$
+
+&
+
+jeśli jesteśmy w lewostronnym module:
+
+$(mr_2)r_1=m(r_2r_1)$
+
+i nie to samo co przy prawostronnym
+\end{tabular}
+
+\textbf{Przykłady:}
+
+\begin{enumerate}
+    \item $R=K$ to ciała, $K$-moduł to przestrzeń liniowa nad $K$
+    \item $G$ jest grupą abelową, wtedy $G$ jest $\Z$-modułem
+    \item $G$ ejst grupą abelową, wtedy $End(G)$ są pierścieniem z jednością i $G$ jest modułem nad $end(G)$
+    \item Załóżmy, że $j:R\to End(G)$ jest homomorfizmem pierścieni z $1$. Wtedy $j$ wyznacza na $G$ strukturę $R$-modułu. Na odwrót: gdy $G(+r)_{r\in R}$ jest {\large\color{orange}ZMAZAŁ MI}
+    \item Gdy $R_1\subseteq R$ jest podpierścieniem z $1$, to $R$ jest modułem nad $R_1$.
+    \item Gdy $j:R_1\to R$ ejst homomorfizmem pierścieni z jednością i $M=(M,+,r)_{r\in R}$ jest $R$-modułem, to $M$ jest $R_1$-modułem z dzialaniem indukowanym przez $j$.
+    \item $R$ jest pierścieniem z jednością i $I\subseteq R$ jest ideałem lewostronnym. Wtedy $I$ jest $R$-modułem.
+\end{enumerate}
+
+\begin{remark}
+    Niech $M$ będzie $R$-modułem, wtedy
+    \begin{enumerate}
+    \item $0\cdot m=0\in M$
+    \item $r\cdot 0=0$
+    \item $(-1)m=-m$
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}
+Przekrój dowolnej niepustej rodziny podmodułów $M$ jest podmodułem $M$.
+\end{remark}
+
+\textbf{Przykład:}
+
+$\{0\}\subseteq M$ jest podmodułem zerowym.
+
+\begin{conclusion}
+    Niech $A\subseteq M$. Wtedy istnieje najmniejszy podmoduł (ze względu na zawieranie) $N\subseteq M$ taki, że $A\subseteq M$. Jest to \acc[b]{podmoduł generowany przez $A$}
+    $$N=\{\sum r_ia_i\;:\;r_i\in R,\;a_i\in A\}\cup\{0\}$$
+\end{conclusion}
+
+\begin{enumerate}
+    \item Jeśli $N_1,N_2\subseteq M$ są podmodułami, to $N_1+N_2$ też jest podmodułem. To samo, jeśli weźmiemy $n$ takich podmodułów.
+    \item Prdukt $R$-modułów $M,N$, czyli $M\times N$, też jest $R$-modułem
+    \item $M=N_1\oplus...\oplus N_n$ jest modułem dla $N_1,...,N_n$ podmodułów $M$
+\end{enumerate}
+
+\important{Homomorfizm modułów} $h:M\to N$ działa tak samo jak zwykle. Nazwy izo-, endo-, auto-, mono- nadal są applicable.
+
+Niech $h:M\to N$ będzie homomorfizmem $R$-modułów. Dla $N'\subseteq N$ podmodułu $h^{-1}[N']$ jest podmodułem $M$. Dla $M'\subseteq M$ $h[M']\subseteq N$. 
+
+$M/M'$ to \acc[b]{moduł ilorazowy}.
+
+\begin{theorem}[zasadnicze twierdzenie o homommoorfizmie $R$-modułów] Zasadnicze twierdzenie o homomorfizmie $R$-modułów. Niech $M,N$ będą modułami i
+$$M\xrightarrow[\forall\;f]N$$
+Wtedy istnieje dokładnie jeden $\overline f$ taki, że
+
+\begin{center}
+\begin{tikzcd}
+    M\arrow[r,"\forall\;f"] \arrow[d, "iloraz"]& N\\
+    M/ker(F)\arrow[ur, dashed, "\exists!\;\ovelrine f" right]
+\end{tikzcd}
+\end{center}
+
+\end{theorem}
+
+\begin{theorem}$ $
+
+\begin{center}\begin{tikzcd}
+M\arrow[r, "f"]\arrow[d, "g"] & N\\
+U\arrow[ur, dashed, "\exists\;h\iff ker(f)\supseteq ker(g)" right]
+\end{tikzcd}
+\end{center}
+
+\end{theorem}
+
+$h:M\to N$ jest $1-1$ $\iff ker(h)=\{0\}$
+
+\subsection{Cel: zrozumieć moduły}
+
+\begin{bbox}
+Dany jest $R$-moduł $M$. Gdy $M=\bigoplus_i M_i$, gdzie $M_i\subseteq M$ jest małymi podmodułami o zrozumiałej strukturze, to struktura $M$ też jest zrozumieała.
+\end{itemize}
+\end{bbox}
+
+\begin{definition}
+Mówimy, że $R$-moduł $M$ jest \important{prosty}, gdy $M\neq 0$ i dla każdego $N\subseteq M$ podmodułu, $N=0$.
+
+Pierścień enodmorfizmów $R$-modułu $M$
+$$End_R(M)=\{\text{endomorfizmy }M\}$$
+jest podpierścieniem $End(M, +)$.
+\end{definition}
+
+\begin{lemma}[lemat Schura] Lemat Schura: jeśl i$M$ jest $R$-modułem prostym, to $End_R(M)$ jest pierścieniem z dzieleniem (prawie ciało, poza tym, że nie musi być przemienny).
+\end{lemma}
+\begin{proof}
+Niech $0\neq f\in End_R(M)$. Wtedy $Im(f)=M$, bo jest to niezerowy podmoduł $M$, a $M$ przecież było modułem prostym. Stąd właśnie $Im$ jest całością. $ker(f)=\{0\}$, czyli $f$ jest $1-1$ i "na".
+\end{proof}
+
+Załóżmy, że $M$ jest $R$-modułem oraz $K=End_R(M)$ jest pierścieniem z dzieleniem ("ciało nieprzemienne"). Uwaga! nie zakładamy prostości $M$ (ale możliwe że to wyniknie z $K$-pierścień z dzieleniem). Wtedy o $M$ możemy myśleć jako o $K$-module. Załóżmy, że $n=\dim_K(M)<\infty$. Wtedy $End_K(M)\cong M_{n\times n}(K)$.
+
+Wybierzmy $r\in R$ i niech $\phi_r:M\to M$ takie, że $\phi_r(m)=r\cdot m$. Wtedy $\phi_r\in End_K(M)$ (? gdy $R$-przemienny ? - zadanie)
+
+\begin{center}\begin{tikzcd}
+r\arrow[r, mapsto] & m(\phi_r)\in M_{n\times n}(K)\\
+R\arrow[u, phantom, sloped, "\in"]\arrow[r, "\text{homomorfizm pierścieni z }1"] & M_{n\times n}(K)
+\end{tikzcd}\end{center}
+
+Powyższe jest rozwinięte jako teoria reprezentacji pierścieni
+
+\begin{bbox}
+Niech $R$ będzie pierścieniem z $1\neq 0$ i $M$ będzie $R$-modułem.
+
+\begin{itemize}%[leftmargin=*]
+    \item[\PHtunny] Układ $\{m_i\}\subseteq M$ jest \important{liniowo niezależny}, gdy
+    $$(\forall\;\{r_i\}\subseteq R)\;\sum r_im_i=0\implies(\forall\;i)\;r_i=0$$
+    \item[\PHtunny] Liniowa zależność jest zaprzeczeniem
+    \item[\PHtunny] $S\ubseteq M$ jest liniowo niezależny, gdy układ $\{m_i\}=S$ (bez powtórzeń)
+    \item[\PHtunny] $B\subseteq M$ jest bazą, gdy:
+    \begin{itemize}
+        \item jest liniowo niezależny
+        \item generuje $M$ jako $R$-moduł
+        \item $Lin_R(B)=M$.
+    \end{itemize}
+\end{itemize}
+
+\end{bbox}
+
+\textbf{Przykład:}
+
+\begin{enumerate}
+    \item $\{0\}\subseteq M$ jest liniowo niezależny, natomiast układ $(m_0,m_0)$ jest liniowo zależny, bo $1\cdot m_0+(-1)\cdot m_0=0$.
+    \item $\Q$ jako $\Z$-moduł $(a, b)$ jest liniowo zależny dla wszystkich $a,b\in\Q$.
+
+    Bez straty ogólności $a,b\neq 0$ i $a\neq b$. $a=\frac{m}{n},b=\frac{p}{q}$, czyli
+    $$(np)\cdot a-(qm)\cdot b=pm-mp=0$$
+
+    W takim razie, $\Q$ nie ma bazy jako $\Z$-moduł.
+\end{enumerate}
+
+\begin{bbox}
+\important{(Abstrakcyjna) suma prosta} rodziny modułów (koprodukt) to
+$$\bigsqcup M_i=\obigcup M-i=\{f\in\bigsqcap M_i\;:\;\{i\in I\;:\;f(i)\neq 0\}\text{ jest skończony}\}$$
+\end{bbox}
+
+\begin{remark}
+Jeśli dla każdego $i\in I$ istnieje $M_i\to M$ to istnieje dokładnie 1 $h:\bigcsqcup M_i\to M$ taki, że dla każdego $i_0$
+
+\begin{center}\begin{tikzcd}
+M_{i_0}\arrow[r, "g_{i_0}"]\arrow[d, "f_{i_0}"] & M\\
+\bigsqcup M_i\arrow[ur, "h", dashed]
+\end{tikzcd}\end{center}
+
+Jest to nazywane własnością uniwersalności.
+\end{remark}
+
+\begin{remark}
+$M=M_1\oplus M_2$ dla podmodułów $M_1,M_2\subseteq M$. Wtedy dla 
+$$g_i=id_{M_i}:M_i\to M,$$ 
+dla $h$ z uwagi wcześniej
+$$h:M_1\sqcup M_2\to M$$
+to jest izomorfizm modułów.
+\end{remark}
+\begin{proof}
+Ćwiczenia
+\end{proof}
+
+\begin{definition}
+$M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
+\end{definition}
+
+\textbf{Przykłady}:
+
+\begin{enumerate}
+    \item $R$ jest wolnym $R$-modułem z bazą $\{1\}$. 
+    \item $\Q$ nie jest wolnym $\Z$-modułem
+    \item $\{M_i\}$ są rodziną wolnych $R$-modułów, wtedy $\bigsqcup M_i$ jest wolnym $R$-modułem.
+
+    Niech $B_i\subseteq M_i$ będą bazami. Wtedy 
+    $$f_{i_0}:M_{i_0}\isomorphism f_{i_0}[M_{i_0}]\subseteq\bigsqcup M_i$$
+    $$\bigcup f_i[B_i]$$
+    jest bazą $\bisqcup M_i$.
+\end{enumerate}
