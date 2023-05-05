@@ -85,7 +85,7 @@ Wtedy istnieje dokładnie jeden $\overline f$ taki, że
 \begin{center}
 \begin{tikzcd}
     M\arrow[r,"\forall\;f"] \arrow[d, "iloraz"]& N\\
-    M/ker(F)\arrow[ur, dashed, "\exists!\;\ovelrine f" right]
+    M/ker(F)\arrow[ur, dashed, "\exists!\;\overline f" right]
 \end{tikzcd}
 \end{center}
 
@@ -106,8 +106,7 @@ $h:M\to N$ jest $1-1$ $\iff ker(h)=\{0\}$
 \subsection{Cel: zrozumieć moduły}
 
 \begin{bbox}
-Dany jest $R$-moduł $M$. Gdy $M=\bigoplus_i M_i$, gdzie $M_i\subseteq M$ jest małymi podmodułami o zrozumiałej strukturze, to struktura $M$ też jest zrozumieała.
-\end{itemize}
+Dany jest $R$-moduł $M$. Gdy $M=\bigoplus_i M_i$, gdzie $M_i\subseteq M$ jest małymi podmodułami o zrozumiałej strukturze, to struktura $M$ też jest zrozumiała.
 \end{bbox}
 
 \begin{definition}
@@ -142,7 +141,7 @@ Niech $R$ będzie pierścieniem z $1\neq 0$ i $M$ będzie $R$-modułem.
     \item[\PHtunny] Układ $\{m_i\}\subseteq M$ jest \important{liniowo niezależny}, gdy
     $$(\forall\;\{r_i\}\subseteq R)\;\sum r_im_i=0\implies(\forall\;i)\;r_i=0$$
     \item[\PHtunny] Liniowa zależność jest zaprzeczeniem
-    \item[\PHtunny] $S\ubseteq M$ jest liniowo niezależny, gdy układ $\{m_i\}=S$ (bez powtórzeń)
+    \item[\PHtunny] $S\subseteq M$ jest liniowo niezależny, gdy układ $\{m_i\}=S$ (bez powtórzeń)
     \item[\PHtunny] $B\subseteq M$ jest bazą, gdy:
     \begin{itemize}
         \item jest liniowo niezależny
@@ -167,11 +166,12 @@ Niech $R$ będzie pierścieniem z $1\neq 0$ i $M$ będzie $R$-modułem.
 
 \begin{bbox}
 \important{(Abstrakcyjna) suma prosta} rodziny modułów (koprodukt) to
-$$\bigsqcup M_i=\obigcup M-i=\{f\in\bigsqcap M_i\;:\;\{i\in I\;:\;f(i)\neq 0\}\text{ jest skończony}\}$$
+$$\bigsqcup M_i= M-i=\{f\in\bigcap M_i\;:\;\{i\in I\;:\;f(i)\neq 0\}\text{ jest skończony}\}$$
+{\large\color{orange}ZMIENIC NA SQCUP}
 \end{bbox}
 
 \begin{remark}
-Jeśli dla każdego $i\in I$ istnieje $M_i\to M$ to istnieje dokładnie 1 $h:\bigcsqcup M_i\to M$ taki, że dla każdego $i_0$
+Jeśli dla każdego $i\in I$ istnieje $M_i\to M$ to istnieje dokładnie 1 $h:\bigsqcup M_i\to M$ taki, że dla każdego $i_0$
 
 \begin{center}\begin{tikzcd}
 M_{i_0}\arrow[r, "g_{i_0}"]\arrow[d, "f_{i_0}"] & M\\
@@ -206,5 +206,232 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
     Niech $B_i\subseteq M_i$ będą bazami. Wtedy 
     $$f_{i_0}:M_{i_0}\isomorphism f_{i_0}[M_{i_0}]\subseteq\bigsqcup M_i$$
     $$\bigcup f_i[B_i]$$
-    jest bazą $\bisqcup M_i$.
+    jest bazą $\bigcup M_i$.
 \end{enumerate}
+
+\begin{remark}
+  Niech $R$ będzie pierścieniem z jednością, a $M$ $R$-modułem. Niech $A=\{a_i\;:\;i\in i\}\subseteq M$ będzie podzbiorem bez powtórzeń. Następujące warunki są równoważne:
+  \begin{enumerate}
+    \item $A$ jest bazą
+    \item dla każdego $m\in M$ istnieją jedyne $r_i\in R$ takie, że $m=\sum r_ia_i$ i jest ich skończenie wiele
+    \item dla każdego $N$ $R$-modułu dla każdej funkcji $g:A\to N$ istnieje jedyna funkcja $g':M\to N$ indukowana przez $g$.
+  \end{enumerate}
+\end{remark}
+\begin{proof}
+  $(1)\iff(2)$ jak w algebrze liniowej.
+
+  $(2)\implies(3)$
+
+  Weźmy dowolny $m\in M$, wtedy
+  $$g'(m)=\sum r_ig(a_i)$$
+  jest jedyną dobrą definicją.
+
+  $(3)\implies(1)$
+  \begin{itemize}
+    \item $A$ generuje $M$:
+
+      Niech $M'=\langle A\rangle\subseteq M$. Rozważmy 
+
+      \begin{center}\begin{tikzcd}
+        M\arrow[r, "j"] & M/M'\\
+        M\arrow[ur, "0"]
+      \end{tikzcd}\end{center}
+
+      $g=j\restriction A=0\restriction A=0$, więc na mocy $(3)$
+      \begin{center}\begin{tikzcd}
+        A\arrow[r, "g=0"]\arrow[d, phantom, sloped, "\subseteq"] & M/M'\\
+        M\arrow[ur, "\exists!g'" right]
+      \end{tikzcd}\end{center}
+    \item $A$ jest liniowo niezależne:
+
+      Załóżmy, że istnieje $\sum r_{i_k}a_{i_k}=0$, $r_{i_k}\neq 0$. Niech $g:A\to R$ takie, że
+      $$g(a_0)=\begin{cases}0&i\neq i_0\\1&i=i_0\end{cases}.$$
+      Na mocy $(3)$ wiemy, że istnieje dokładnie jedno $g':M\to R$ takie, że
+      $$0=g'(0)=g'(\sum r_ia_i)=\sum r_ig(a_i)=r_{i_0}\cdot 1=r_{i_0}\neq 0$$
+      co daje sprzeczność.
+  \end{itemize}
+\end{proof}
+
+\begin{remark}
+  \begin{enumerate}
+    \item Jeśli $A=\{a_i\}_{i\in I}$ jest bazą $M$ to wtedy
+      \begin{enumerate}
+        \item $Ra_i$ jest  podmodułem $M$
+        \item $M=\oplus Ra_i$
+      \end{enumerate}
+    \item Jeśli $A$ jest dowolnym zbiorem, to istnieje $R$-moduł $M$ o bazie $A$. Wtedy
+        $$M=\sqcup_{a\in A} R_a$$
+        i wtedy $R_a\cong R$
+  \end{enumerate}
+\end{remark}
+\textbf{Przykład:} $\Z$ jest modułem wolnym (wolna grupa abelowa).
+
+\begin{theorem}
+  Załóżmy, że $R$ jest przemienny. Wtedy każde dwie bazy $R$-modułu $M$ są równoliczne.
+\end{theorem}
+\begin{proof}
+  Redukujemy do algebry liniowej. Niech $I\triangleright R$ będzie maksymalnym ideałem i niech $M'=IM\subseteq M$ będzie podmodułem generowanym przez
+  $$\{im\;:\;i\in I,m\in M\}.$$
+  Wtedy, jeśli popatrzymy na $M/M'$, to ma on naturalną strukturę modułu nad $R/I$. Dla $(m+M')$ i $(r+I)$ definiujemy
+  $$(r+I)(m+M')=(rm+M')$$
+  oraz dodawanie jak w grupie ilorazowej.
+
+  Niech $B_1,B_2\subseteq M$ będą bazami $M$. Ustalmy ilorazowe homomorfizmy
+  $$j:M\to M/M'$$
+  $$l:R\to R/I.$$
+  Chcemy pokazać, że $j[B_1],j[B_2]$ są bazami $M/M'$ jako $R/I$-modułu.
+  \begin{itemize}
+    \item generowanie:
+      
+      $$M\ni m=\sum r_ib_i\implies j(m)=\sum j(r_ib_i)=\sum [r_ib_i+M']=\sum (r_i+I)(m_i+M')=\sum l(r_i)j(b_i)$$
+    \item liniowa niezależność:
+
+      Naszym celem jest pokazać, że jeśli 
+      $$\sum l(r_i)j(b_i)=0\implies l(r_i)=0$$
+      to wtedy
+      $$j(\sum r_ib_i)=0.$$
+      Wiemy, że $\sum r_ib_i\in IM=M'$. Dalej:
+      $$\sum r_ib_i=\sum r'_jm_j'$$
+      dla $r_j'\in I$ oraz $m_j'\in M$. Niech więc $m_j'=\sum s_{ij}b_i$ dla $s_{ij}\in R$ oraz $b_i\in B_1$. Wtedy
+      $$\sum r_j'm_j'=\sum_{i,j} r_j's_{ij}b_i=\sum_i\left[\sum_j r_j's_{ij}\right]b_i=\sum_ir_ib_i$$
+      Sokoro dla każdego $i$ mamy $r_i=\sum_jr_j's_{ij}\in I$, to dla każdego $i$ $l(r_i)=0$ w $R/I$. Więc $j[B_1]$ jest liniowo niezależny w $M/M'$ jako układ. Ponieważ możemy ustalić
+      $$j:B_1\bijection j[B_1]$$
+      to $B_1\sim j[B_1]$ oraz $B_2\sum j[B_2]$. Ale $R/I$ jest ciałem, więc $M/M'$ jest przestrzenią liniowa nad $R/I$, więc ponieważ $j[B_i]$ są bazami tej przestrzeni liniowej, to
+      $$j[B_1]\sim j[B_2]$$
+      $$B_1\sim B_2$$
+  \end{itemize}
+\end{proof}
+
+\begin{remark}
+  Każdy $R$-moduł $M$ jest homomorficznym obrazem $R$-modułu wolnego.
+\end{remark}
+\begin{proof}
+  Taki sam jak dla:
+  \begin{itemize}
+    \item grupy wolnej
+    \item wolnej grupy abelowej
+    \item algebry wolnej w rozmaitości algebraicznej
+  \end{itemize}
+\end{proof}
+
+\begin{fact}
+  Załóżmy, że $M,N$ są $R$-modułami, $N$ jest wolny i $f:M\to N$ jest epimorfizmem. Wtedy $M\cong ker(f)\oplus N$. Więcej: istnieje $N'\cong N$ taki, że $M=ker(f)\oplus N'$.
+\end{fact}
+\begin{proof}
+  Niech $B\subseteq N$ będzie bazą modułu $N$.
+
+  \begin{illustration}
+    \draw (0, 0) rectangle (4, 3);
+    \draw (1.5, 0) rectangle (2, 3);
+    \draw (0, -2) rectangle (4, -3);
+    \node at (4.3, -2.5) {$N$};
+    \node at (4.3, 1.5) {$M$};
+    \node at (1.7, 3.5) {$ker(f)$};
+    \filldraw (1, 2) circle (2pt) node [above]{$b'$};
+    \draw[->](0.9, 1.8)..controls (0.5, 1) and (0.5, -1.5).. (0.9, -2.2);
+    \draw[<-](1.1, 1.8)..controls (1.5, 1) and (1.5, -1.5).. (1.1, -2.2);
+    \filldraw (1, -2.5) circle (2pt) node [below] {$b$};
+
+    \draw[->>] (1.7, -0.3)--(1.7, -2.3) node [midway, right] {$f$};
+    \filldraw (1.7, -2.4) circle (2pt) node [below] {0};
+    \draw [->] (3, -1.8)..controls (3.5, -1.6)and(4, -1.3)..(3.5, -0.5) node [midway, right] {$g'$};
+  \end{illustration}
+
+  Dla $b\in B$ ustalamy $b'\in M$ takie, że $f(b')=b$. Niech $g:B\to M$ takie, że $g(b)=b'$. Z uwagi 11.4(3) wiemy, że istnieje jedyne $g':N\to M$ $R$ liniowe takie, że $g'$ rozszerza $g$.
+
+  Wtedy $f\circ g':N\to N$ i $(f\circ g')\restriction B=id_B$, czyli z uwagi $11.4(3)$ $f\circ g'=id_B$. Stąd $g'$ jest $1-1$. Czyli $N\cong g'[N]\subseteq M$.
+
+  Pokażemy teraz, że $M=ker(f)\oplus g'[N]$. Weźmy dowolny $m\in M$. Wtedy
+  $$m=\underbrace{(m-(g'f)(m))}_{ker(f)}+\underbrace{(g'f)(m)}_{\in g'[N]}$$
+  bo 
+  $$g(m-(g'f)(m))=f(m)-(fg')f(m)-f(m)=0.$$
+  Pozostaje nam pokazać, że $ker(f)\cap g'[N]=0$. Niech $m\in ker(f)\cap g'[N]$. Wtedy $m=g'(n)$. Ale wtedy $0=f(m)=(fg')(n)=n$. Wobec tego $n=0$, więc $m=g'(n)=g'(0)=0$.
+\end{proof}
+
+\begin{definition}$ $
+
+  \begin{itemize}
+    \item[\PHtunny] $R$-moduł $N$ jest \important{projektywny}, jeśli dla każdego $M$ i każdego epimorfizmu $f:M\to N$ mamy $M=ker(f)\oplus M'$ dla pewnych podmodułów $M'\subseteq M$. 
+
+      Jest to równoważne [ćwiczenia] istnieniu $g:N\to M$ takiego, że $f\circ g=id_N$.
+
+      \begin{center}\begin{tikzcd}
+        M & N
+      \end{tikzcd}\end{center}
+
+      to znaczy, że $f$ rozszczepia się.
+    \item[\PHtunny] $R$-moduł $M$ jest \important{injektywny} wtedy, gdy dla każdego $N$ i każdego monomorfizmu $g:M\hookright N$ istnieje $N'\subseteq N$ taki, że $N=Im(g)\oplus N'$. To znaczy, obraz $g$ jest \acc[i]{składnikiem prostym} $N$.
+  \end{itemize}
+\end{definition}
+
+\textbf{Przykłady:} 
+\begin{enumerate}
+  \item Moduł wolny jest projektywny
+  \item W przypadku, gdy $R$ jest ciałem, to każdy $R$-modul jest projektywny i injektywny.
+\end{enumerate}
+
+\begin{definition}[moduł cykliczny]
+  Załóżmy, że $R$ jest pierścieniem przemiennym z jednością. Mówimy, że $M$ jest \important{$R$-modułem cyklicznym}, gdy jest generowany przez pojedynczy element. To znaczy, że istnieje $a\in M$ takie, że
+  $$M=Ra.$$
+\end{definition}
+
+\textbf{Przykłady:}
+\begin{enumerate}
+  \item $R=R1$ jest modułem cyklicznym
+  \item $M$ jest $R$-modułem. i $a\in M$, to wtedy $Ra\subseteq M$ jest podmodułem cyklicznym.
+\end{enumerate}
+
+\begin{remark}[cykliczny $\iff M\cong R/I$]
+  $M$ jest modułem cyklicznym $\iff$ $M\cong R/I$ jako $R$-moduły dla pewnego $I\triangleright R$.
+\end{remark}
+\begin{proof}
+  $\impliedby$ $R/I$ jest generowany przez $1+I$ i to jest koniec.
+
+  $\implies$
+
+  $M=aR$, wtedy $f:R\to M$, $r\mapsto ra$, jest epimorfizmem $R$-modułów. Czyli jeśli $I=ker(f)$, to $R/I\cong M$.
+\end{proof}
+
+\begin{definition}$ $
+
+  \begin{itemize}[torsje, moduł torsyjny]
+    \item[\PHtunny] Dla $a\in M$ $I_a=\{r\in R\;:\;ra=0\}\triangleright R$ jest \important{torsją} elementu $a$.
+    \item[\PHtunny] $a$ jest \imporant{torsyjny}, gdy $I_a\neq 0$. W przeciwnym przypadku mówimy, że $a$ jest \acc[i]{beztorsyjny}.
+    \item[\PHtunny] Mówimy, że $M$ jest \important{modułem torsyjnym}, gdy każdy jego element jest torsyjny. $M$ jest \acc[b]{beztorsyjny}, gdy każdy niezerowy element jest beztorsyjny.
+    \item[\PHtunny] $M_t=\{a\in M\;:\;a\text{ jest torsyjny}\}$ nazywamy \important{??? torsyjnym} $M$
+  \end{itemize}
+\end{definition}
+
+\begin{remark}$ $
+
+  \begin{enumerate}
+    \item $M_t$ jest podmodułem $M$
+    \item $M/M_t$ jest beztorsyjny.
+  \end{enumerate}
+\end{remark}
+\begin{proof}$ $
+
+  \begin{enumerate}
+    \item ćwiczenie
+    \item Załóżmy, że $m+M_t$ jest torsyjny. Czyli $r(m+M_t)=0+M_t$ dla pewnego $r\neq 0$. Ale to oznacza, że $rm\in M_t$. To znaczy, że $r'(rm)=0$ dla pewnego $r'\neq 0$. Ale wtedy $(r'r)m=0$ i $r'r\neq 0$, bo $R$ jest dziedziną. Czyli $m$ jest torsyjny i $m\in M_t$. W takim razie $m+M_t=0$ 
+  \end{enumerate}
+\end{proof}
+
+\textbf{Przykłady:} grupy abelowe torsyjne/beztorsyjne (jako $\Z$-moduły)
+
+\subsection{Moduły skończenie generowane}
+
+\begin{theorem}
+  $R$ jest pierścieniem przemiennym z $1\neq 0$. Niech $M,N$ będą $R$-modułami oraz $f:M\to N$ jest epimorfizmem. Niech $M'=ker(f)$, $N\cong M/M'$.
+
+  \begin{enumerate}
+    \item $N,M'$ są skończenie generowane, to $M$ też jest skończenie generowane
+    \item $M$ jest skończenie generowany, to wtedy $N$ też taki jest
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item CIĄG DALSZY NASTĄPI
+    \item Ćwiczenia.
+  \end{enumerate}
+\end{proof}
