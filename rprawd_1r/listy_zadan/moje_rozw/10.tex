@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Rachunek Prawdopodobieństwa 1R\\{\normalsize Lista 10}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle\thispagestyle{empty}
+
+\begin{problem}{d}
+  Pokaż, że jeśli $0<p<q$, to
+  $$\left(\e|X|^p\right)^\frac{1}{p}\leq\left(\e|X|^q\right)^\frac{1}{q}$$
+\end{problem}
+
+  Dowód taki, jak wiele dowodów na analizie funkcjonalnej.
+
+\begin{align*}
+  \e|X|^p&=\e|X\cdot 1|^p\overset{\star}{\leq} \left[\e(|X|^p)^\frac{q}{p}\right]^\frac{p}{q}\left[\e1^{\frac{q}{q-p}}\right]^\frac{q-p}{q}=\left[\e|X|^q\right]^\frac{p}{q}
+\end{align*}
+  $$\left[\e|X|^p\right]^\frac{1}{p}\leq \left[\e|X|^q\right]^\frac{1}{q}$$
+
+  $\star$ wynika z nierówności H\"oldera dla $\frac{q}{p}$ i $\frac{q}{q-p}$. Wszystko śmiga, bo $\e$ to tak naprawdę całkowanie względem miary $\prob{|X|^p}$, więc np. $\e1=\int 1\;d\prob{|X|^p}=1$ bo prawdopodobieństwo całości to dokładnie $1$.
+
+\begin{problem}{d}
+  (\emph{Reguła $n$ sigm}) Pokaż, że jeśli $Var(X)=\sigma^2<\infty$, to
+  $$\prob{|X-\e X|>n\sigma}\leq\frac{1}{n^2}$$
+\end{problem}
+
+Nierówność Czebyszewa:
+$$\prob{|X-\mu|>\lambda}\leq\frac{\e(f(|X-\mu|))}{f(\lambda)}.$$
+Niech $\lambda=n\sigma$ i $f(x)=x^2$. Podstawiając do wzoru wyżej:
+$$\prob{|X-\mu|>n\sigma}\leq\frac{\e|X-\mu|^2}{n^2\sigma^2}=\frac{Var(X)}{n^2\sigma^2}=\frac{1}{n^2}$$
+
+\begin{problem}{}
+  Sprawdzić, że zdarzenie $\{\lim_{n\to\infty}X_n=a\}$ należy do $F_\infty$.
+\end{problem}
+
+
+
+
+
+\end{document}
