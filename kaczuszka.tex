@@ -1,0 +1,20 @@
+%\NeedsTeXFormat{LaTeX2e}
+%\ProvidesPackage{kaczuszka}
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+
+\definecolor{y}{HTML}{FFCC00}
+\definecolor{bb}{HTML}{FFCC00}
+%\definecolor{bb}{HTML}{323232}
+
+\def\dupa{fill=y, draw=bb, line width=3mm}
+
+\def\kaczka{
+  \begin{scope}
+    \filldraw[fill=y, draw=bb, line width=3mm] (0, 0) ellipse (2.1cm and 2cm);
+    \filldraw[fill=y, draw=bb, line width=3mm] (1.8, -4) ellipse (4cm and 3.2cm);
+  \end{scope}
+}
+
+%\endinput
