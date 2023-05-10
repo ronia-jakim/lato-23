@@ -15,7 +15,7 @@
   $$\left(\e|X|^p\right)^\frac{1}{p}\leq\left(\e|X|^q\right)^\frac{1}{q}$$
 \end{problem}
 
-  Dowód taki, jak wiele dowodów na analizie funkcjonalnej.
+Dowód taki, jak wiele dowodów na analizie funkcjonalnej.
 
 \begin{align*}
   \e|X|^p&=\e|X\cdot 1|^p\overset{\star}{\leq} \left[\e(|X|^p)^\frac{q}{p}\right]^\frac{p}{q}\left[\e1^{\frac{q}{q-p}}\right]^\frac{q-p}{q}=\left[\e|X|^q\right]^\frac{p}{q}
@@ -34,15 +34,69 @@ $$\prob{|X-\mu|>\lambda}\leq\frac{\e(f(|X-\mu|))}{f(\lambda)}.$$
 Niech $\lambda=n\sigma$ i $f(x)=x^2$. Podstawiając do wzoru wyżej:
 $$\prob{|X-\mu|>n\sigma}\leq\frac{\e|X-\mu|^2}{n^2\sigma^2}=\frac{Var(X)}{n^2\sigma^2}=\frac{1}{n^2}$$
 
-\begin{problem}{}
+\begin{problem}{u}
   Sprawdzić, że zdarzenie $\{\lim_{n\to\infty}X_n=a\}$ należy do $F_\infty$.
 \end{problem}
 
-\newpage
-\begin{illustration}
-  \kaczka 
-\end{illustration}
- 
+Chyba wystarczy zauważyć, że dla dowolnego $i$ oraz ciągu $Y_j=X_{i+j-1}$ zachodzi $\lim Y_j=\lim X_j=a$ oraz ciąg $Y_j\subseteq F_{i, \infty}$. Stąd $(\forall\;i)\;\{\lim X_n=a\}\in F_{i,\infty}\implies\{\lim X_n=a\}\in \bigcap F_{i,\infty}=F_\infty$.
 
+\begin{problem}[5]{u}
+  Zbadaj zbieżność szeregu $\sum X_n$, jeśli $\{X_n\}$ jest ciągiem niezależnych zmiennych losowych o rozkładach:
+
+  \begin{enumerate}[label=(\alph*)]
+    \item $\prob{X_n =2^{-n}}=\prob{X_n=0}=\frac12$
+    \item $\prob{X_n=\frac{1}{n}}=1-\prob{X_n=0}=\frac{1}{n\log n}$
+  \end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*)]
+  \item $\prob{X_n=2^{-n}}=\prob{X_n=0}=\frac12$
+
+      Tutaj kolejne wyrazy to albo $\frac{1}{2^n}$, albo $0$, więc
+      $$\sum X_n\leq\sum2^{-n}=2$$
+      co jest bardzo skończone.
+
+  \item $\prob{X_n=\frac{1}{n}}=1-\prob{X_n=0}=\frac{1}{n\log n}$
+
+    Zakładam, że dla $n=1$ zachodzi $\prob{X_n=\frac{1}{n}}=1$, bo $\log n=\infty$.
+
+    Ponieważ $\sum_{n=1}^{2137}X_n<\infty$ (sumujemy skończenie wiele skończonych wyrazów), to wystarczy pokazać, że $\sum_{n=2137}^\infty X_n<\infty$. Czyli dla twierdzenia Kołmogorowa liczę:
+    $$\sum_{n=2137}^\infty\e X_i=\sum \frac{1}{n^2\log n}\leq\sum\frac{1}{n^2}<\infty$$
+    $$\sum_{n=2137}^\infty Var X_i=\sum[\e(X^2)-(\e X)^2]=\sum\e(X^2)-\sum(\e X)^2\leq \sum \frac{1}{n^2}\cdot\frac{1}{n\log n}-\sum\frac{1}{n^4}<\infty$$
+
+    W takim razie na mocy twierdzenia Kołmogorowa, $\sum X_n$ zbiega prawie na pewno.
+\end{enumerate}
+
+\begin{problem}[6]{d}
+  Niech $\{X_n\}$ będzie ciągiem niezależnych zmiennych losowych takich, że $X_n$ ma rozkład jednostajny $U[-n,n]$. Dla jakich wartości parametru $p>0$ szereg $\sum\frac{X_n}{n^p}$ jest zbieżny prawie wszędzie?
+\end{problem}
+
+$$\e X_n=\int_{-n}^n x\cdot \frac{1}{2n}\;dx=\frac{1}{2n}\cdot 0$$
+czyli $\sum \e X_n=0<\infty$
+$$Var X_n=\e X^2-(\e X)^2=\e X^2=\int x\cdot\prob{X_n^2=x}\;dx=\int x\cdot\prob{X_n=\sqrt{x}}\;dx=\int_0^{n^2}x\cdot\frac{1}{2n}\;dx=\frac{n^3}{4}$$
+
+Czyli normalnie ten szereg jest rozbieżny, ale możemy rozważać za to zmienne $Y_n=\frac{X_n}{n^p}$ o rozkładzie jednostajnym na $[-n^{1-p},n^{1-p}]$. Wtedy $\e Y_n$ pozostaje zerem, bo nadal mamy całkę po symetrycznym przedziale z nieparzystej funkcji, ale wariacja się zmienia:
+$$Var\; Y_n=Var(n^{-p}X_n)=n^{-2p}Var(X_n)=n^{-2p}\cdot \frac{n^3}{4}=\frac{n^3}{4n^{2p}}$$
+Chcemy, aby
+$$\sum \frac{n^3}{4n^{2p}}<\infty,$$
+co jest prawdą na pewno dla $p>2$ [$2p-3>1$]. Dla $0<p<2$ mamy szereg ograniczony od dołu przez szereg harmoniczny, a on jest bardzo niezbieżny.
+
+\begin{problem}[7]{u}
+  Niech $\prob{X_n=n}=\prob{X_n=-n}=\frac{1}{n^3},\;\prob{X_n=0}=1-\frac{2}{n^3}$. Pokaż, że $\sum X_n$ jest zbieżny p.p. chociaż $\sum Var(X_n)=\infty$.
+\end{problem}
+
+Ustalmy dowolne $c>0$ jak w twierdzeniu Kołmogorowa o 3 szeregach. Zauważmy, że jeśli $n>c$, to $\e X_n^{(c)}=0$, bo jedyną wartością jaką może $X_n^{(c)}$ przyjąć jest $0$ (przez obcięcie). W takim razie, wariacja $X_n^{(c)}$ też jest równa zerem. Czyli seregi $\sum \e X_n^{(c)}$ i $\sum Var(X_n^{(c)})$ mają skończenie wiele niezerowych wyrazów, więc są zbieżne.
+
+Pozostaje roztłumaczyć $\sum\prob{|X_n|>c}$, który dla odmiany ma niezerowe wyrazy tylko dla $n>c$. Weźmy takie $n$ i zauważmy, że $\prob{|X_n|>c}=\frac{2}{n^3}$, czyli
+$$\sum \prob{|X_n|>c}=\sum\frac{2}{n^3}<\infty,$$
+więc na mocy twierdzenia Kołmogorowa o 3 szeregach mamy $\sum X_n<\infty$ p.n.
+
+\begin{problem}[10]{}
+  Zbadaj zbieżność szeregu $\sum X_n$ jeśli $\{X_n\}$ jest ciągiem niezależnych zmiennych losowych o rozkładzie 
+  $$\prob{X_n=a_n}=\prob{X_n=-a_n}=\frac12$$
+  dla pewnego ciągu $\{a_n\}$.
+\end{problem}
+
+Jeśli $\sum |a_n|<\infty$ to $\sum X_n\leq\sum|X_n|=\sum|a_n|<\infty$.
 
 \end{document}
