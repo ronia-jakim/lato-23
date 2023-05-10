@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\usepackage{../../lecture_notes}
+
+\begin{document}
+
+\begin{problem}[8]{}
+  Let $S, T$ be multiplicatively closed subsets of $A$, such that $S\subseteq T$. Let $\phi:S^{-1}A\to T^{-1}A$ be the homomorphism which maps each $\frac{a}{s}\in S^{-1}A$ to $\frac{a}{s}$ considered as a member of $T^{-1}A$. Show that the following statements are equivalent:
+  \begin{enumerate}
+    \item $\phi$ is bijective
+    \item $(\forall\;t\in T)\;\frac{t}{1}$ is a unit in $S^{-1}A$
+    \item $(\forall\;t\in T)(\exists\;x\in A)\;xt\in S$
+    \item Every prime ideal which meets $T$ also meets $S$
+  \end{enumerate}
+\end{problem}
+
+$1\implies 2$ Obvious?
+
+%Take any $t\in T$. We know that because $\phi$ is bijective, there exists a unique $\phi(\frac{t}{1})$ and also $\phi(\frac{1}{t})$. We also know that $\frac{t}{1}\cdot\frac{1}{t}=\frac{t}{t}=\frac{1}{1}=1$ so $\phi(\frac{t}{1}\cdot\frac{1}{t})=1$.
+
+$2\implies 3$ Take any $t\in T$. We know that $\frac{t}{1}$ is a unit in both $T^{-1}A$ and $S^{-1}A$. Hence, there exists $\frac{a}{s}$ such that $\frac{t}{1}\cdot\frac{a}{s}=\frac{at}{s}=1$ which implies that $at\in S$
+
+$3\implies 4$ 
+
+\end{document}
