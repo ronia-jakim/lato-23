@@ -360,7 +360,7 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
       \end{tikzcd}\end{center}
 
       to znaczy, że $f$ rozszczepia się.
-    \item[\PHtunny] $R$-moduł $M$ jest \important{injektywny} wtedy, gdy dla każdego $N$ i każdego monomorfizmu $g:M\hookright N$ istnieje $N'\subseteq N$ taki, że $N=Im(g)\oplus N'$. To znaczy, obraz $g$ jest \acc[i]{składnikiem prostym} $N$.
+    \item[\PHtunny] $R$-moduł $M$ jest \important{injektywny} wtedy, gdy dla każdego $N$ i każdego monomorfizmu $g:M\hookrightarrow N$ istnieje $N'\subseteq N$ taki, że $N=Im(g)\oplus N'$. To znaczy, obraz $g$ jest \acc[i]{składnikiem prostym} $N$.
   \end{itemize}
 \end{definition}
 
@@ -392,11 +392,11 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
   $M=aR$, wtedy $f:R\to M$, $r\mapsto ra$, jest epimorfizmem $R$-modułów. Czyli jeśli $I=ker(f)$, to $R/I\cong M$.
 \end{proof}
 
-\begin{definition}$ $
+\begin{definition}[torsje, moduł torsyjny]$ $
 
-  \begin{itemize}[torsje, moduł torsyjny]
+  \begin{itemize}
     \item[\PHtunny] Dla $a\in M$ $I_a=\{r\in R\;:\;ra=0\}\triangleright R$ jest \important{torsją} elementu $a$.
-    \item[\PHtunny] $a$ jest \imporant{torsyjny}, gdy $I_a\neq 0$. W przeciwnym przypadku mówimy, że $a$ jest \acc[i]{beztorsyjny}.
+    \item[\PHtunny] $a$ jest \important{torsyjny}, gdy $I_a\neq 0$. W przeciwnym przypadku mówimy, że $a$ jest \acc[i]{beztorsyjny}.
     \item[\PHtunny] Mówimy, że $M$ jest \important{modułem torsyjnym}, gdy każdy jego element jest torsyjny. $M$ jest \acc[b]{beztorsyjny}, gdy każdy niezerowy element jest beztorsyjny.
     \item[\PHtunny] $M_t=\{a\in M\;:\;a\text{ jest torsyjny}\}$ nazywamy \important{??? torsyjnym} $M$
   \end{itemize}

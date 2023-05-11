@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Algebra 2R\\{\normalsize Lista 6}}
+\author{Weronika Jakimowicz}
+\date{}
+
+\begin{document}
+
+\begin{problem}[]{}
+  Prove that in the definition of field extension by radicals  (before Thm. 9.6) we ay assume that $L_k\subseteq L_0$ is Galois.
+%  Udowodnić, że w definicji rozszerzenia ciał przez pierwiastki możemy założyć, że $L_k\subseteq L_0$ jest Galois.
+\end{problem}
+
+The definition of field extension by radicals given during the lecture goes as follow:
+
+{\slshape
+$K\subseteq L$ is e.b.r. if there exists $k$ and 
+$$[L\subseteq]L_0\supseteq L_1\supseteq...\supseteq L_k= K$$
+such that for every $i<k$ $L_i$ is the splitting field of one of the following polynomials:
+\begin{itemize}
+  \item $x^{n_i}-b_i,b_i\in L_{i+1}$ ($p\nmid n_i$ when $char(K)=p$)
+  \item $x^p-x-b_i,b_i\in L_{i+1}$
+\end{itemize}
+}
+
+Theorem 9.6 states that:
+
+{\slshape
+  Assume that $K\subseteq L$ is a finite field extension. Then $K\subseteq L$ is an extension by radicals $\iff$ there exists $L'\supseteq L$ such that $K\subseteq L'$ is solvable.
+}
+
+In the proof of this theorem we assumed that $K\subseteq L_0$ is Galois so now I have to prove that we did not lie.
+
+Firstly, I am going to say that any splitting field is algebraic. Then, $L_k\subseteq L_0$ is a splitting field and so is algebraic. Hence, to show that $L_k\subseteq L_0$ is Galois I only need to show that it is normal and separable.
+
+\begin{description}
+  \item[NORMAL:]$ $
+
+    I know that $K\subseteq L$ is normal $\iff$ every $f\in K[X]$ splits into linear polynomials in $L[X]$
+
+    Take any $f\in L_k[X](=K[X])$. 
+
+  \item[SEPARABLE:]$ $
+
+    TO BE CONTINUED
+\end{description}
+
+\end{document}
