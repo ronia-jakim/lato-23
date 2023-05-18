@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage[polish]{../../../lecture_notes}
+
+\title{Lista 7}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{problem}{u}
+  Monika wybrała się do kasyna w Las Vegas mając przy sobie 255\$. Jako cel postawiła sobie wygranie $1$ dolara i wyjście z kasyna z kwotą 256\$. Podczas tej wizyty obstawiała kolory. Wszystkie pola poza 0 i 00 są czerwone lub czarne (po 18 pól). Poprawne wskazanie koloru (z prawdopodobieństwem $\frac{18}{38}$ podwaja zaryzykowaną kwotę. Monika zastosowała następującą strategię: postanowiła, że będzie grać kolejno o 1\$, 2\$, 4\$, 8\$, 16\$, 32\$, 64\$, 128\$. Jeżeli w jednej z gier wygra, zabiera nagrodę i opuszcza kasyno z 256\$ dolarami. Obliczyć prawdopodobieństwo, że jej się powiodło. Obliczyć wartość oczekiwaną wygranej.
+\end{problem}
+
+Chyba nie rozumiem tej gry.
+
+\begin{problem}{d}
+  Oblicz $\e X$ jeżeli $X$ jest zmienną o rozkładzie
+  \begin{enumerate}[label=(\alph*)]
+    \item $Poiss(\lambda)$
+    \item $Exp(\lambda)$
+    \item $Geom (p)$
+  \end{enumerate}
+\end{problem}
+
+To jest po prostu liczenie całki lub sumy?
+
+\begin{enumerate}[label=(\alph*)]
+  \item $Poiss(\lambda)$
+
+  \begin{align*}
+    \sum_{k> 0}k\cdot \frac{\lambda^ke^{-\lambda}}{k!}=\sum_{k>0}\frac{\lambda^ke^{-\lambda}}{(k-1)!}=\lambda e^{-\lambda}\sum_{k>0}\frac{\lambda ^{k-1}}{(k-1)!}=\lambda e^{-\lambda}\cdot e^{\lambda}=\lambda
+  \end{align*}
+  bo ta suma to wzór Taylora.
+
+  \item $Exp(\lambda)$
+
+  \begin{align*}
+    \int_0^\infty x\lambda e^{-\lambda x}\;dx=\begin{bmatrix}u=x & du = dx\\
+    v=-e^{-\lambda x} & dv=\lambda e^{-\lambda x}\end{bmatrix}=\int_0^\infty e^{-\lambda x}\;dx=\frac{1}{\lambda}
+  \end{align*}
+
+  \item $Geom(p)$
+
+    $$\sum x^k=\frac{1}{1-x}$$
+    $$\sum k\cdot x^{k-1}=\frac{1}{(1-x)^2}$$
+
+    \begin{align*}
+      \sum_{k>0}k\cdot (1-p)^{k-1}\cdot p=p\cdot\sum_{k>0}k\cdot (1-p)^{k-1}=\frac{p}{(1-(1-p))^2}=\frac{1}{p}
+    \end{align*}
+\end{enumerate}
+
+\begin{problem}{}
+  Zmienna losowa $X$ ma rozkład jednostajny $U[0, 1]$. Obliczyc $\e Y$ jeżeli
+
+  \begin{enumerate}[label=\alph*)]
+    \item $Y=e^X$
+    \item $Y=\cos^2(\pi X)$
+  \end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=\alph*)]
+  \item $Y=e^X$
+    
+  Chcę poznać $f_Y$, czyli liczę dystrybuantę i różniczkuję:
+  \begin{align*}
+    F_y(t)=\prob{Y\leq t}=\prob{e^X\leq t}=\prob{X\leq \ln t}=\int_0^{\ln t}1\;dx=\ln t
+  \end{align*}
+  czyli $f_Y(t)=\frac{1}{t}$. Wartości $Y$ są z przedziału $[e^0, e^1]$:
+  $$\e Y=\int_1^ey\cdot\frac{1}{y}\;dy=e-1$$
+  
+  \item $Y=\cos^2(\pi X)$
+
+  Zgaduję, że to tak samo jak wcześniej:
+  \begin{align*}
+    F_y(t)&=\prob{Y\leq t}=\prob{\cos^2(\pi X)\leq t}=\prob{\cos(\pi X)\in[-|t|, |t|]}=\\
+          &=\prob{X\in[-\frac{}{}}.
+  \end{align*}
+
+  {\large\color{red}TUTAJ MI SIĘ ODECHCIAŁO}
+
+\end{enumerate}
+
+\begin{problem}{}
+  Zmienna losowa $X$ ma rozkład jednostajny $U[0, 1]$. Obliczyć $\e X, \e[1/(1+X^5)]$.
+\end{problem}
+$$\e X=\int_0^1x\;dx=\frac{1}{2}$$
+
+\begin{align*}
+  \e[1/(1+X^5)]=\int_0^1
+\end{align*}
+
+\end{document}
