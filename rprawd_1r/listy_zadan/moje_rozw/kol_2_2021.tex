@@ -43,7 +43,7 @@ Tutaj korzystam z MPWL? Bo $X_n$ są niezależne i mają ten sam rozkład o $\e 
   Dla jakich wartości $a$ zmienne losowe $Y_1=aX_1+X_2$ oraz $Y_2=X_1+aX_2$ są niezależne?
 \end{problem}
 
-Zadanie 6 na liście 8: Jeśli $X_1,...,X_n$ są nieskorelowane i ich łączny rozkład jest normalny, to są one niezależne. Już wiem, że $\Sigma$ jest macierzą kowariacji, czyli
+Zadanie 6 na liście 8: Jeśli $X_1,...,X_n$ są nieskorelowane i ich łączny rozkład jest normalny, to są one niezależne. Już wiem, że $\Sigma$ jest macierzą kowariancji, czyli
 $$Cov(Y_1, Y_2)=Cov(aX_1+X_2, X_1+aX_2)=aCov(X_1, X_1)+(a^2+1)Cov(X_1, X_2)+aCov(X_2, X_2)=a+(a^2+1)+2a=a^2+3a+1=0$$
 Ja nie podołam takiemu zadaniu.
 
@@ -51,6 +51,24 @@ Ja nie podołam takiemu zadaniu.
   Niech $X$ i $Y$ będą niezależnymi zmiennymi losowymi o rozkładzie wykładniczym z parametrami $\lambda$ i $\mu$. Zdefiniujemy $Z=\min\{X, Y\}$. Oblicz $\e Z$ oraz $var(Z)$.
 \end{problem}
 
-Jutro rano.
+\begin{align*}
+  F_Z(t)&=\prob{Z\leq t}=\prob{min(X, Y)\leq t}=1-\prob{min(X, Y)\geq t}=\\
+        &=1-\prob{X\geq t}\prob{Y\geq t}
+\end{align*}
+i internet mówi, że
+$$f_Z(t)=(\lambda+\mu)\exp\left[-t(\lambda+\mu)\right]$$
+
+$$\sum t\cdot (\lambda+\mu)\exp[-t(\lambda+\mu)]$$
+a to już jest jakaś pochodna z $\sum x^t=\frac{1}{1-t}$
+
+\begin{problem}{}
+  Niech $\{X_n\}$ będzie ciągiem niezależnych zmiennych losowych takich, że $X_n$ ma rozklad $U(-n,n)$. Dla jakich wartości $\alpha$ szereg
+  $$\sum\frac{X_i}{i^\alpha}$$
+  jest zbieżny p.w?
+\end{problem}
+
+RTo leci z B-C?
+
+$$(\forall\;\varepsilon>0)(\exists\;N)(\forall\;n>N)\;|S_n-l|<\varepsilon$$
 
 \end{document}
