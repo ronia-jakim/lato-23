@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Rachunek Prawdopodobieństwa 1R\\Klasówka 2\\Dzień Dziecka 2021}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{problem}{u}
+Na $20$ krzesłach, przy okrągłym stole, usiadło $10$ dziewczyn i $10$ chłopaków w sposób losowy (tzn. taki, że każde możliwe ich usadzenie jest jednakowo prawdopodobne). Niech $X$ oznacza liczbę dziewczyn, które siedzą pomiędzy chłopakami (tzn. trójek $CDC$). Oblicz $\e X$.
+\end{problem}
+
+Wybieram $10$ krzeseł dla dziewczynek i ustawiam na ${20\choose 10}$ sposobów. Ale teraz układ okrągły krzeseł mogłam rozciąć w $20$ różnych miejscach by stworzyć taki ciąg, więc jedna unikalna opcja siedzenia to u mnie $20$ rozróżnialnych ciągów, stąd:
+$$|Kombinacje|=\frac{1}{20}{20\choose 10}$$
+
+Ponumerujmy teraz krzesła od $1$ do $20$ i wprowadźmy nową zmienną losową:
+$$Y_i=\begin{cases}1&\text{w i-tym krzesle siedzi dziewczynka otoczona chłopcami}\\0&wpp\end{cases}$$
+Teraz zastanówmy się, jakie jest prawdopodobieństwo, że $Y_i\neq 0$?
+$$\prob{Y_i=1}=\frac{1}{8}$$
+bo $\frac{1}{2}$ to szansa, że siedzi dziewczynka, a $\frac{1}{4}$ to szansa, że $i-1$ i $i+1$ są okupowane przez chłopców, gdyż płeć siedzącego daje zmienne niezależne.
+
+Czyli
+$$\e X=\e[\sum Y_i]=\sum^{20} \frac{1}{8}=\frac{20}{8}$$
+
+\begin{problem}{}
+  Zmienne losowe $X_1,X_2,...$ są niezależne i maja rozkład wykładniczy z parametrem $1$. Wykaż, że ciąg
+  $$\frac{X_1+X_2+...+X_n+n}{X_1^2+...+X_n^2+\sqrt{n}}$$
+  jest zbieżny prawie na pewno. Oblicz jego granicę.
+\end{problem}
+
+Tutaj korzystam z MPWL? Bo $X_n$ są niezależne i mają ten sam rozkład o $\e |X_1|=\e X_1=1 <\infty$, tak samo $\e |X_1^2|=\e X_1^2=\int x^2 e^{- x}dx=2<\infty$. Czyli
+\begin{align*}
+  \frac{\sum X_i+n}{\sum X_i^2+\sqrt{n}}=\frac{\frac{1}{n}[\sum X_i+n]}{\frac{1}{n}[\sum X_i^2+\sqrt{n}}=\frac{\frac{1}{n}\sum X_i+1}{\frac{1}{n}\sum X_i^2+\frac{\sqrt{n}}{n}}\to \frac{1+1}{2+0}
+\end{align*}
+
+\begin{problem}{}
+  Niech $X_1$ i $X_2$ będą zmiennymi losowymi o łącznym rozkładzie $N(m, \Sigma)$, gdzie $m=(0, 0)$,
+  $$\Sigma=\begin{pmatrix}1&1\\1&2\end{pmatrix}$$
+  Dla jakich wartości $a$ zmienne losowe $Y_1=aX_1+X_2$ oraz $Y_2=X_1+aX_2$ są niezależne?
+\end{problem}
+
+Zadanie 6 na liście 8: Jeśli $X_1,...,X_n$ są nieskorelowane i ich łączny rozkład jest normalny, to są one niezależne. Już wiem, że $\Sigma$ jest macierzą kowariacji, czyli
+$$Cov(Y_1, Y_2)=Cov(aX_1+X_2, X_1+aX_2)=aCov(X_1, X_1)+(a^2+1)Cov(X_1, X_2)+aCov(X_2, X_2)=a+(a^2+1)+2a=a^2+3a+1=0$$
+Ja nie podołam takiemu zadaniu.
+
+\begin{problem}{}
+  Niech $X$ i $Y$ będą niezależnymi zmiennymi losowymi o rozkładzie wykładniczym z parametrami $\lambda$ i $\mu$. Zdefiniujemy $Z=\min\{X, Y\}$. Oblicz $\e Z$ oraz $var(Z)$.
+\end{problem}
+
+Jutro rano.
+
+\end{document}
