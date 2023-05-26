@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Rachunek Prawdopodobieństwa 1R\\{\large Kolokwium 2}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{problem}{}
+  W nieskończonej puli jest $n$ różnych (jednakowo prawdopodobnych) typów kuponów. Niech $X$ będzie zmienną losową oznaczającą ilość typów kuponów w losowo wybranym zbiorze $k$ kuponów. Wyznaczyć $\e X$ oraz $Var(X)$.
+\end{problem}
+
+Wprowadźmy zmienne pomocnicze:
+$$Y_i=\begin{cases}1&\text{i-ty rodzaj pojawia się}\\0&wpp\end{cases},$$
+wtedy $X=\sum_{1\leq i\leq n} Y_i$.
+
+Do policzenia $\e X$ potrzebuję znać $\prob{Y_i=1}$, gdy losuję $k$ losów.
+\begin{align*}
+  \prob{Y_i=1}&=1-\prob{Y_i=0}=1-\frac{(n-1)^k}{n^k},
+\end{align*}
+czyli
+$$\e X=\e\sum Y_i=\sum \e Y_i=\sum (1-\frac{(n-1)^k}{n^k})=n-\frac{(n-1)^k}{n^{k-1}}$$
+
+To teraz wariacja:
+\begin{align*}
+  Var(X)&=Var(\sum Y_i)=\sum Var(Y_i)+2\sum Cov(Y_i, Y_j)=\\
+        &=\sum[\e Y_i^2-(\e Y_i)^2]+2\sum[\e Y_iY_j-(\e Y_i)(\e Y_j)]=\\
+\end{align*}
+No i teraz tak: $\e Y_i^2=\e Y_i$, bo zmienia się tylko fakt, że w gruncie rzeczy to, że mnożymy prawdopodobieństwo przez $1^2$ a nie $1$. Natomiast $\e Y_iY_j$ trzeba policzyć prawdopodobieństwo, że oba są jedynką.
+\begin{align*}
+  \prob{Y_iY_j=1}&=1-\prob{Y_iY_j=0}=1-\prob{Y_i=0}-\prob{Y_j=0}+\prob{Y_i=0, Y_j=0}=\\
+                 &=1-2\cdot\frac{(n-1)^{k}}{n^{k}}+\frac{(n-2)^k}{n^k}
+\end{align*}
+No i teraz wystarczy podstawić, ale mi się nie chce!
+
+\begin{problem}{}$ $\newline
+  \begin{enumerate}[label=(\alph*)]
+    \item Niech $X$ będzie zmienną losową o rozkładzie z gęstością postaci
+      $$f_X(x)=\frac{1}{x^2}\cdot\mathds{1}_{(1,\infty)}(x)$$
+      Wyznaczyć rozkład (dystrybuantę lub gęstość) zmiennej losowej $Y=\frac{1}{X}$. Co to za rozkład? Znaleźć $\e Y=\e (\frac{1}{X})$ i porównać z $\frac{1}{\e X}$, o ile to możliwe.
+    \item Znaleźć wartość oczekiwaną pola koła, którego promień jest zmienną losową o rozkładzie wykładniczym $\set{E}x(1)$ z gęstością postaci $f(x)=e^{-x}\mathds{1}_{(0,\infty)}(x)$.
+  \end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*)]
+  \item Ponieważ wartości $X$ są dodatnie, takie też będą wartości $Y$. Dokładniej, $Y\in (0, 1]$.
+
+    Wyznaczanie dystrybuanty dla $t\in (0, 1]$ (dla $t\geq 1$ będzie zawsze $1$, a dla $t\leq 0$ powinno być zerem):
+    $$F_Y(t)=\prob{Y\leq t}=\prob{\frac{1}{X}\leq t}=\prob{\frac{1}{t}\leq X}=\int_{\frac{1}{t}}^\infty\frac{1}{x^2}dx=t,$$
+    czyli $f_Y(t)=1$, czyli $Y$ ma rozkład jednostajny.
+
+    \begin{align*}
+      \e Y&=\int_0^1x\cdot 1\;dx=\frac{1}{2}\\
+      \e\frac{1}{X}&=\int_1^\infty\frac{1}{x}\cdot\frac{1}{x^2}\;dx=\frac{1}{2}
+    \end{align*}
+
+    \begin{align*}
+      \e X&=\int_1^\infty x\cdot\frac{1}{x^2}\;dx=\text{niecałkowalne!!!}
+    \end{align*}
+
+  \item Pole koła to $\pi r^2$, tylko tutaj zamiast $r^2$ używam $X^2$:
+    \begin{align*}
+      \e Pole&=\pi\cdot\e X^2=\pi\int_0^\infty x^2\cdot e^{-x}\;dx=\pi\cdot\Gamma(3)=2\pi
+    \end{align*}
+\end{enumerate}
+
+\begin{problem}{} $ $\newline
+  \begin{enumerate}[label=(\alph*)]
+    \item Znaleźć prawdopodobieństwo, że trójmian kwadratowy $\varepsilon-2A\varepsilon+B$ nie ma pierwiastków rzeczywistych, jeśli $A,B$ są niezależnymi zmiennymi losowymi o jednakowym rozkładzie wykładniczymi $\set{E}x(\lambda)$ z gęstością postaci $f_A(x)=f_B(x)=\lambda e^{-\lambda x}\mathds{1}_{(0,\infty)}(x)$.
+  \end{enumerate}
+\end{problem}
+
+  \begin{enumerate}
+    \item Tutaj trzeba chyba pamiętać jak działała delta :<
+
+      $$\Delta=4A^2-4B$$
+      i żeby nie było rozwiązań rzeczywistych potrzebuję, żeby to cacko było ujemne.
+
+      \begin{align*}
+        \prob{4A^2-4B< 0}&=\prob{A^2-B<0}=\prob{A^2<B}=\int_0^\infty\prob{x^2<B}\cdot f_A(x)\;dx=\\
+                         &=\int_0^\infty\int_{x^2}^\infty f_A(x)\cdot f_B(y)\;dydx=\int_0^\infty\int_{x^2}^\infty \lambda^2 e^{-\lambda x}e^{-\lambda y}\;dydx=\\
+                         &=\lambda\int_0^\infty e^{-\lambda x}\cdot e^{-\lambda x^2}\;dx=\lambda\int_0^\infty e^{-\lambda(x^2+x)}\;dx=\\
+                         &=\lambda\int_0^\infty e^{-\lambda(x^2+x+\frac{1}{4})}e^{\frac{\lambda}{4}}\;dx=
+      \end{align*}
+      boże, od tego miejsca to już tylko przestawianie zmiennych i takie chuju muju.
+\end{enumerate}
+
+\end{document}
