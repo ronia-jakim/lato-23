@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\usepackage{../lecture_notes}
+
+\begin{document}
+\begin{enumerate}
+  \item Niech zmienne losowe $X_n$ są niezależne i mają rozkład $U(0, 1)$. Udowodnić, że granica
+    $$\lim_{n\to\infty}\frac{X_1X_2+X_2X_3+...+X_{n-1}X_n}{n}\quad \text{p.n.}$$
+    istnieje i podać jej wartość.
+  \item Ciąg $(X_n)_{n\in\N}$ zmiennych takich, że zmienna losowa $X_n$ ma rozkład zadany przez
+    $$\begin{matrix}\prob{X_n=2^n}=\frac{1}{n^2}& & &\prob{X_n=2^{-n}}=1-\frac{1}{n^2}\end{matrix}$$
+    Pokaż, że szereg $\sum\limits_{n=1}^\infty$ jest zbieżny p.n..
+  \item Niech $X_n$ będzie ciągiem takim, że rozkład zmiennej $X_n$ jest określony przez
+    $$\prob{X_n=\frac{j}{n}}=\frac{2j}{n(n+1)}.$$
+    Udowodnij, że ciąg jest zbieżny według rozkładu i znajdź rozkład graniczny.
+  \item W trójkącie równobocznym $ABC$ o boku $1$ losujemy punkt $D$. Niech $X$ będzie zmienną losową oznaczającą pole trójkąta $ABD$. Wyznacz rozkład $X$, a potem $\e X$ oraz $Var\; X$.
+  \item Day jest ciąg $X_n$ niezależnych zmiennych losowych takich, że $X_n$ ma rozkład
+    $$\begin{matrix}\prob{X_n=1}=\frac{1}{n}& & & &\prob{X_n=0}=1-\frac{1}{n}\end{matrix}.$$
+    Pokaż, że
+    $$\frac{X_1+X_2+...+X_n}{\log n}\xrightarrow[]{\;\prob\;}1$$
+\end{enumerate}
+\end{document}
