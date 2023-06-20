@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage{../../../lecture_notes}
+
+\title{Algebra 2R\\{\normalsize Problem list 9}}
+\author{Weronika Jakimowicz}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{problem}{}
+  \begin{enumerate}[label=(\alph*)] $ $\newline
+    \item Prove that $(\Z_n,+_n)\otimes_\Z(\Z_m,+_m)\cong(\Z_d,+_d)$ (tensor product of $\Z$-modules), where $d=GCD(m,n)$
+    \item More generally, let $I,J\triangleright R$. Prove that $R/I\otimes_R R/J\cong R/(I+J)$
+  \end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*)]
+  \item Let $L=(\Z_n,+_n)\otimes_\Z(\Z_m,+_m)$. Take any $a\otimes b\in L$, then
+    $$a\otimes b=ab\otimes 1=1\otimes ab$$
+    so $a\otimes b\neq 0$ means that $ab$ is not divisible by $n$ nor by $m$. So it also must not be divisible my $d$. And we have that $L$ is created by adding $1\otimes 1$ (like in a cyclic group) and so to get $0$ we have to add an amount divisible by $n$ and $m$ - so at most $gcd(n, m)$ times. This means that $d\otimes 1=1\otimes d$ is actually a zero element (something like $d=ord(L)$ but I am not sure if this is a group or if this has a different name). 
+
+    Hence the kernel of $a\otimes b\mapsto ab\mod d$ (let us call this homomorphism \PHcat) is just $0\otimes 0$. By isomorphism theorems that I still remember from Algebra 1R we get that
+    $${\scriptstyle(L=L/0=)}\;L/ker\;\text{\PHcat}\cong Im\;\text{\PHcat}$$
+    and it is obvious that $Im\;\text{\PHcat}=\Z_d$ because if I keep $a=1$ and move $b$ from 0 to $d-1$ then I get every element from $\Z_d$.
+
+    Why is $\text{\PHcat}$ a homomorphism? Because
+    $$ab+a'b'\mapsfrom(a\otimes b)+(a'\otimes b')=(ab\otimes 1)+(a'b'\otimes 1)=(ab+a'b'\otimes 1)\mapsto 1\cdot (ab+a'b')=ab+a'b'\;{\color{green}\checkmark}$$
+
+%
+%    \begin{center}
+%      \begin{tikzcd}
+%        0\arrow[r] & \Z\arrow[r, "\text{\PHcat}"] & \Z\arrow[r, "\phi"] & \Z/n\Z\arrow[r] & 0
+%      \end{tikzcd}
+%    \end{center}
+%
+%    This is an exact sequence because $Im(\text{\PHcat})=Ker(\phi)$. What will happen when I tensor it with $\Z/m\Z$?
+%
+%    \begin{center}
+%      \begin{tikzcd}
+%        0\arrow[r] & \Z\otimes\Z/m\Z \arrow[r] & \Z\otimes\Z/m\Z \arrow[r] & \Z/n\Z\otimes\Z/m\Z \arrow[r] & 0
+%      \end{tikzcd}
+%    \end{center}
+%    
+%    It does not need to be exact because $\Z/n\Z$ need not be flat but from "Commutative Algebra" by Michael Atiyah and someone I know that $\Z\otimes\Z/m\Z\cong\Z/m\Z$ so:
+%
+%    \begin{center}
+%      \begin{tikzcd}
+%        0\arrow[r] & \Z/m\Z \arrow[r] & \Z/m\Z \arrow[r] & \Z/n\Z\otimes\Z/m\Z \arrow[r] & 0
+%      \end{tikzcd}
+%    \end{center}
+%
+\end{enumerate}
+
+\begin{problem}[3]{}
+  Assume $M$ is a simple $R$-module. Prove that $End_R(M)\cong R/I$ for some maximal ideal $I\triangleright R$.
+\end{problem}
+
+From Schur's lemma I know that every endomorphism of a simple module is actually a bijection. Hence, for every $\text{\PHcat}\in End_R(M)$ we have some $\text{\PHcat}^{-1}\in End_R(M)$. What is left is to show that this is commutative and $End_R(M)$ is a field.
+
+Take $f,g\in End_R(M)$ and any $m\in End_R(M)$. $f(m)=rm$ and $g(m)=sm$ for some $r,s\in R$ because $Rm$ is a submodule of $M$, it is not zero hence it must be the whole thing. So now since $R$ is commutative I have:
+$$f\circ g(m)=f(g(m))=f(sm)=sf(m)=srm=rsm=rg(m)=g(rm)=g(f(m))=g\circ f(m)$$
+
+Now it is simple to show that $f(x)=rx$ is the only way an endomorphism must look like because if $f(m)=rm, f(n)=sn$ (once again, $Rm, Rn$ are submodules) then $f(m+n)=f(m)+f(n)=rm+sn$ but on the other hand there is some $p$ such that $f(m+n)=p(m+n)$ and $p(m+n)=rm+sn\implies p-r=s-p\implies p+p=r+s\implies p=r=s$.
+
+So given $f\in End_R(m), f(x)=rx$ we can do $f\mapsto r$ and this is a unique mapping plus $r$ must a unit from the Schur's lemma in the first paragraph.
+
+%This one needs two parts: the first one to show that every endomorphism is just an action of some element from $R$ and the second that this element must be a unit.
+%
+%\begin{description}
+%  \item[the first part] This one was more tricky than the next one. 
+%  \item[the second part] Take any $\text{\PHcat}\in End_R(M)$ such that $\text{\PHcat}(x)=ax$. Then we must have some $\text{\PHcat}^{-1}$ such that $\text{\PHcat}^{-1}\circ\text{\PHcat}(x)=x$ because any kernel (or image) of endomorphism would be a submodule ($m\in ker(\phi)\implies\phi(rm)=r\phi(m)=r0=0\implies rm\in ker(\phi)$). Since I have already established that every endomorphism is an action of some element from $R$, I need to show that $\text{\PHcat}(x)=a^{-1}x$ which is quite trivial because
+%    $$\text{\PHcat}^{-1}\circ\text{\PHcat}(x)=\text{\PHcat}^{-1}(ax)=b\cdot ax=x\implies b=a^{-1}$$
+%    So basically this second part was Schur's lemma which was covered during lectures but I did not check my notes prior to writing this.
+%\end{description}
+
+\end{document}

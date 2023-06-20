@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\usepackage{../../lecture_notes}
+
+\usetikzlibrary{mindmap}
+
+\geometry{a3paper, landscape}
+
+\begin{document}
+
+\begin{center}\begin{tikzpicture}[mindmap, 
+  root concept/.append style = {concept color = green!50},
+  level 1 concept/.append style = {concept color = green!50},
+  level 2 /.append style = {concept color = orange!50}]
+
+  \node [concept] {Przestrzenie styczne}
+    child { node[concept] (R1) {Przypadek $\R^n$}
+             child { node[concept] (RR1) {geometryczna przestrzeń styczna do $a$} \node[annotation] at (RR1.south) $\R_a^n:=\{a\}\times\R^n$} 
+          }
+      }
+    ;
+
+\end{tikzpicture}\end{center}
+
+\end{document}
