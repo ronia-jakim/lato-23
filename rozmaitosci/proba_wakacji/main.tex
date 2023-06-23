@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage[polish]{../../lecture_notes}
+\usepackage{marginnote}
+\usepackage{wrapfig}
+
+\title{Rozmaite cierpienia}
+\author{}
+\date{}
+
+\geometry{
+  a4paper,
+  right={50mm},
+  total={145mm, 267mm},
+  marginpar={35mm}
+}
+
+\pagestyle{plain}
+
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\scriptsize
+  \@setminipage
+}
+\makeatother
+
+
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\newgeometry{total={180mm, 267mm}}
+\maketitle
+\thispagestyle{empty}
+\newpage
+%
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+%
+\restoregeometry
+%
+\input{pochodnie.tex}
+\newpage
+
+\newgeometry{total={180mm, 267mm}}
+\listoftheorems
+\restoregeometry
+
+\end{document}

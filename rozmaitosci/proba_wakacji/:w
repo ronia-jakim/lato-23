@@ -1,0 +1,171 @@
+\section{Wektory styczne}
+
+\textbf{Oznaczenia z analizy matematycznej:}
+\begin{itemize}
+  \item dla gładkiej funkcji $f:(a, b)\to\R^n$ takiej, że $f=(f_1,...,f_n)$ i dla $t\in (a, b)$ pochodną nazywamy wektor
+    $$f'(t)=\frac{\partial f}{\partial t}(t)=\begin{pmatrix}f_1'(t)\\f_2'(t)\\...\\f_n'(t)\end{pmatrix}$$
+  \item dla gładkiego odwzorowania $f:U\to\R^m$, $U\subseteq \R^n$ i $p\in U$ oznaczamy macierz pierwszych pochodnych cząstkowych w punkcie $p$ przez $D_pf$. Dokładniej, jeśli $f=(f_1,...,f_m)$ i $f_i:U\to\R^m$ są wszystkie gładkie, to
+    $$D_pf=\begin{pmatrix}\frac{\partial f_1}{\partial x_1}(p) & \frac{\partial f_1}{\partial x_2}(p) & \hdots & \frac{\partial f_1}{\partial x_n}(p)\\
+      \vdots & \vdots & \vdots & \vdots\\
+    \frac{\partial f_m}{\partial x_1}(p) & \frac{\partial f_m}{\partial x_2}(p) & \hdots & \frac{\partial f_m}{\partial x_n}(p) \end{pmatrix}$$
+    Tym samym symbolem oznaczamy też odwzorowanie liniowe $\R^n\to\R^m$ zadane tą macierzą (różniczka $f$ w $p$).
+\end{itemize}
+
+\subsection{Przestrzeń styczna - definicja kinematyczna}
+
+Przestrzeń styczną będziemy definiować przez styczność krzywych gładkich.
+\marginpar[]{J.M. Lee definiuje przestrzeń styczną przy pomocy derywacji oraz przedstawia możliwość użycia m.in. kiełków funkcji gładkich}
+
+Niech $M$ będzie gładką rozmaitością. \acc[b]{Krzywą gładką} na $M$ nazywamy gładkie odwzorowanie $c:(a, b)\to M$. O krzywej gładkiej $c$ takiej, że $c(t_0)=p$ mówimy, że jest \acc[i]{zbazowana w $p$}. Zbiór par $(c, t_0)$ krzywych zbazowanych w $p$ oznaczamy ${\color{green}C_pM}$.
+
+\begin{definition}[styczność krzywych w mapie]
+  Niech $\phi:U\to \R^n$ będzie mapą wokół $p$. Krzywe $(c_1,t_1)$ i $(c_2, t_2)$ zbazowane w $p$ są do siebie styczne w mapie $(U,\phi)$ jeśli $(\phi\circ c_1)'(t_1)=(\phi\circ c_2)'(t_2)$.
+\end{definition}
+
+\begin{lemma}[styczność w jednej mapie $\iff$ styczność w każdej mapie]
+  Jeżeli $(c_1,t_1),(c_2,t_2)\in C_pM$ są styczne w mapie $(U,\phi)$ wokół $p$, to są też styczne w dowolnej innej mapie $(W, \psi)$ wokół $p$ (zgodnej z $(U, \phi)$.
+\end{lemma}
+
+\begin{proof}
+  \begin{align*}
+    (\psi\circ c_1)'(t_1)&=[(\psi\circ\phi^{-1})\circ(\phi\circ c_1)(t_1)]'=D_{\phi(p)}(\psi\circ\phi^{-1})\circ [(\phi\circ c_1)'(t_1)]=\\
+                         &=D_{\phi(p)}(\psi\circ\phi^{-1})[(\phi\circ c_2)'(t_2)]=[(\psi\circ\phi^{-1})\circ(\phi\circ c_2)(t_2)]'\\
+                         &=(\psi\circ c_2)'(t_2)
+  \end{align*}
+\end{proof}
+
+\begin{definition}[styczność krzywych]
+  Krzywe $(c_1,t_1),(c_2,t_2)\in C_pM$ są styczne, jeżeli są styczne w pewnej (równoważnie każdej) mapie wokół $p$.
+\end{definition}
+
+Relacja styczności krzywych jest relacją równoważności na $C_pM$, bo jest zwrotnia, symetryczna i przechodnia ($(\phi\circ c_1)'(t_1)=(\phi\circ c_2)'(t_2)\text{ i }(\phi\circ c_2)'(t_2)=(\phi\circ c_3)'(t_3)\implies(\phi\circ c_1)'(t_1)=(\phi\circ c_3)'(t_3)$).
+
+\begin{definition}[przestrzeń styczna]
+  \important{Przestrzenią styczną} do $M$ w punkcie $p$ nazywamy zbiór klas abstrakcji relacji styczności krzywych zbazowanych w $p$
+  $$T_pM:=C_pM/stycznosc$$
+  Klasę abstrakcji krzywej $(c, t_0)\in C_pM$ oznaczamy przez $[c, t_0]$ lub $c'(t_0)$. Elementy przestrzeni $T_pM$ nazywamy \acc[b]{wektorami stycznymi} do $M$ w punkcie $p$.
+\end{definition}
+
+\subsection{Struktura wektorowa przestrzeni $T_pM$}
+
+Dla mapy $\phi:U\to \R^n$ wokół $p\in M$ określamy dwa odwzorowania:
+\begin{align*}
+  &\phi_p^*:T_pM\to\R^n\quad\; \phi_p^*([c, t_0])=(\phi\circ c)'(t_0)\in \R^n\\
+  &\lambda_{\phi,p}:\R^n\to T_pM\quad \lambda_{\phi,p}(v)=[c_v, 0]
+\end{align*}
+gdzie $c_v(t)=\phi^{-1}(\phi(p)+tv)$. Odwzorowanie $\phi_p^*$ jest dobrze określone z definicji $T_pM$ (wszystkie krzywe z jednej klasy abstrakcji mają tę samą pochodną w jednej mapie).
+
+\begin{lemma}
+  $\phi^*_p\circ\lambda_{\phi, p}=id_{\R^n}$ oraz $\lambda_{\phi, p}\circ\phi_p^*=id_{T_pM}$, czyli $\phi_p^*$ i $\lambda_{\phi,p}$ są one wzajemnie jednoznacze i do siebie odwrotne.
+\end{lemma}
+
+\begin{proof}
+  Niech $v\in\R^n$, wtedy
+  \begin{align*}
+    \phi_p^*\circ\lambda_{\phi, p}(v)&=\phi^*_p([c_v, 0])=(\phi\circ c_v)'(0)=\frac{d}{dt}_{{\scriptstyle|t=0}}\phi(\phi^{-1}(\phi(p)+t\cdot v))=\\
+                                     &=\frac{d}{dt}_{{\scriptstyle|t=0}}(\phi(p)+tv)=v &\checkmark
+  \end{align*}
+
+  Niech $[c, t_0]\in T_pM$
+  $$\lambda_{\phi, p}\circ\phi_p^*([c, t_0])=\lambda_{\phi, p}((\phi\circ c)'(t_0))=[c_{(\phi\circ c)'(t_0)}, 0]$$
+  gdzie $c_{(\phi\circ c)'(t_0)}(t)=\phi^{-1}(\phi(p)+t(\phi\circ c)'(t_0))$. W mapie $\phi$ zachodzi więc:
+  $$(\phi\circ c_{(\phi\circ c)(t_0)})'(0)=\frac{d}{dt}_{{\scriptstyle|t=0}}[\phi(p)+t\cdot(\phi\circ c)'(t_0)]=(\phi\circ c)'(t_0)$$
+  W takim razie $(c, t_0)$ i $(c_{(\phi\circ c)'(t_0)}, 0)$ są krzywymi stycznymi i mamy $[c, t_0]=[(c_{(\phi\circ c)'(t_0)}, 0]$ i w takim razie $\lambda_{\phi, p}\circ\phi_p^*([c, t_0])=[c, t_0]\quad\checkmark$.
+\end{proof}
+
+\begin{fact}[struktura przestrzeni wektorowej na przestrzeni stycznej]
+Na przestrzeni stycznej $T_pM$ istnieje dokładnie jedna struktura przestrzeni wektorowej, dla której odwzorowania $\phi_p^*$ oraz $\lambda_{\phi, p}$ dla wszystkich map $\phi$ wokół $p$ są liniowymi izomorfizmami. 
+\end{fact}
+
+Struktura ta jest zadana przez operacje dodawania wektorów i mnożenia ich przez skalary następująco:
+\begin{itemize}
+  \item dla $X, Y\in T_pM$: $X+Y:=\lambda_{\phi, p}(\phi^*_p(X)+\phi^*_p(Y))$ (suma w środku jest sumą w $\R^n$)
+  \item dla $a\in\R$: $a\cdot X:=\lambda_{\phi, p}(a\cdot \phi_p^*(X))$ (mnożenie przez skalar w $\R^n$).
+\end{itemize}
+
+\begin{proof} Struktura przestrzeni wektorowej musi być przeniesiona z $\R^n$ przez $\lambda_{\phi, p}$. Wystarczy więc uzasadnić, że dla różnych map $\phi,\psi$ wokół $p$ przeniesione z $\R^n$ na $T_pM$ struktury liniowe pokrywają się, to znaczy złożenie odwzorowań
+
+\begin{center}\begin{tikzcd}
+\R^n\arrow[r, "\lambda_{\phi, p}"]&T_pM\arrow[r, "\psi_p^*=\lambda_{\psi,p^{-1}}"]&\R^n
+\end{tikzcd}\end{center} 
+
+jest liniowe.
+
+\begin{align*}
+  \psi_p^*\circ\lambda_{\phi,p}(v)&=\psi_p^*([c_v,0])=(\psi\circ c_v)'(0)=\frac{d}{dt}_{{\scriptstyle|t=0}}\psi\circ\phi^{-1}(\phi(p)+tv)=\\
+                                  &=D_{\phi(p)}(\psi\circ\phi^{-1})[\frac{d}{dt}_{{\scriptstyle|t=0}}(\phi(p)+tv)]=D_{\phi(p)}(\psi\circ\phi^{-1})(v)
+\end{align*}
+Przekształcenie $\psi_p^*\circ\lambda_{\phi, p}$ pokrywa się z działaniem macierzy $D_{\phi(p)}(\psi\circ\phi^{-1})$, a więc jest liniowe.
+
+\end{proof}
+
+O odwzorowaniu $\phi_p^*:T_pM\to\R^n$ można myśleć jak o "mapie" dla $T_pM$ stowarzyszonej z mapą $\phi$ otoczenia punktu $p$. W tej mapie działania na wektorach z $T_pM$ sprowadzają się do zwykłych działań na wektorach w $\R^n$.
+
+\textbf{Przykład:}
+\begin{itemize}
+  \item Dla $M=\R^n$ mamy wyróżnioną mapę $\phi:M=\R^n\to \R^n$, $\phi=id_{\R^n}$. Dla każdego $p\in M$ mapa ta, poprzez $\phi_p^*=(id_{\R^n})^*$ kanonicznie utożsamia $T_p\R^n$ z $\R^n$.
+  \item Analogiczna sytuacja zachodzi z $M=U\subseteq\R^n$ otwartego podzbioru i $p\in U$, gdzie inkluzja $i:U\to\R^n$ jest traktowana jako mapa.
+\end{itemize}
+
+\begin{wrapfigure}{r}{5.5cm}
+\centering
+\begin{tikzpicture}
+  %\draw plot [smooth cycle] coordinates {(0, 0) (-0.4, -0.5) (-0.5, -1) (-0.4, -1.7) (-0.2, -2) (0, -1.9) (0.4, -1.5) (0.5, -1.1) (0.55, -0.7) (0.4, -0.3)};
+  \draw plot [smooth] coordinates {(0, 0) (1, -0.2) (2.3, 0.2) (2.8, 0.2) (3.5, 0) (4.1, -0.3) (4.3, -1) (4.1, -1.7) (3.5, -2) (2.8, -2.2) (2.3, -2.2) (1, -1.7) (0, -2)};
+  \draw (0, -1) ellipse(0.3 and 1);
+  \draw (2, -1)..controls(2.2, -1.5)and(2.9, -1.3)..(3.2, -0.8);
+  \draw (2.2, -1.24)..controls(2.3, -0.8)and(2.8, -0.8)..(3, -1.05);
+  \filldraw (0.3, -1) circle (1.2pt) node [left] {$p$};
+  \draw (0.3, -1)..controls(0.5, -1.2)and(0.9, -1)..(1, -0.8);
+  \draw (0.3, -1)..controls(0.5, -1.1)and(0.9, -1.2)..(1, -1.5);
+\end{tikzpicture}
+\end{wrapfigure}
+Dla rozmaitości $M$ z brzegiem i $p\in \partial M$ dopuszczamy dodatkowo krzywe gładkie $c:[t_0, b)\to M $ oraz $c:(a, t_0[\to M$ takie, że $c(t_0)=p$ oraz pary $(c, t_0)$ jako elementy $C_pM$. Inaczej dla niektórych "kierunków" wektorów nie istniałyby odpowiednie krzywe reprezentujące te wektory. Styczność na $T_pM$ określa się potem w sposób analogiczny jak dla rozmaitości bez brzegu.
+\medskip
+
+Wektory styczne do $M=\R^n$ (lub $U\subseteq \R^n$) w punkcie $p$ odpowiadające wektorom bazowym $e_1=(1,0,0,...,0), e_2=(0, 1, 0, ..., 0) ,...,e_n=(0,0,0,...,1)$ oznaczamy przez $\frac{\partial}{\partial x_1}(p),\frac{\partial}{\partial x_2}(p),...,\frac{\partial}{\partial x_n}(p)$. Tworzą one bazę $T_p\R^n$ ($T_pU$), zaś dowolny wektor z $T_p\R^n$ ($T_pU$) ma postać $\sum_{i=1}^na_i\frac{\partial}{\partial x_i}(p)$.
+\marginpar[]{Sens wprowadzenia takiego oznaczenia stanie się jasny później, gdy wektory utożsamimy z tzw. derywacjami}[0cm]
+
+Analogicznie, dla dowolnej rozmaitości $M$ i $p\in M$ oraz mapy $\phi$ wokół $p$ przeciwobraz przez $\phi_p^*:T_pM\to\R^n$ wersorów $e_1,...,e_n$ oznaczamy:
+$$\color{green}(\phi_p^*)^{-1}(e_i)=\frac{\partial}{\partial\phi_i}(p).$$
+Elementy te tworzą bazę $T_pM$ i dowolny wektor z $T_pM$ ma postać $\sum a_i\frac{\partial}{\partial\phi_i}(p)$.
+
+\begin{figure}[h]
+  \begin{illustration}
+    \draw(2, 2)rectangle(4, 4) node [above] {$\R^n$};
+    \draw[->] (3, 1.8)--(3, 4.2);
+    \draw[->] (1.8, 3)--(4.2, 3);
+    \draw[->, very thick] (3, 3)--(3, 3.7) node [left] {$e_2$};
+    \draw[->, very thick] (3, 3)--(3.7, 3) node [below] {$e_1$};
+
+    \draw(-2, 0) arc (180:270:1);
+    \draw(-1, 0) arc (220:280:1);
+    \draw(-0.9, -0.1) arc (110:30:0.6);
+    \draw(-1, -1) arc (90:45:2);
+    \draw(0.41, -1.578) arc (220:300:1.5);
+    \draw(2.3,-1.915) arc (300:400:1.2);
+    \draw(2.626, -0.104) arc (50:90:3);
+
+    \draw plot [smooth, tension=1] coordinates {(0.7, 0.6) (0, 0.7)  (-1.4,1) (-2, 0)};
+
+    \draw plot[domain=0:350,smooth cycle, xshift=1.5cm, yshift=-0.8cm] (\x:0.5+rnd*0.2);
+    \node at (0.8, -1.3) {$U$};
+
+    \draw (0.5, -1.8)--(3, -1.5)--(2.5, 0.2)--(0, -0.1) node [above] {$T_pM$} -- cycle;
+    \draw[very thick, ->] (1.5, -0.8)--(1.05, 0.3);
+    \draw[very thick, ->] (1.5, -0.8)--(3, -0.55);
+    
+    \draw[<-] (4, -2)--(4, -4);
+    \draw[->] (3, -3)--(5, -3) node [above] {$\R^n$};
+
+
+    \draw plot[domain=0:350,smooth cycle, xshift=4cm, yshift=-3cm] (\x:0.4+rnd*0.2);
+
+    \draw[->] (2.3, -1)..controls(3, -1)and(3.5, -1.8)..(3.7, -2.5) node [midway, above] {$\phi$};
+
+    \draw[->] (2.7, 0)..controls(3, -0.1)and(4, 0.2)..(3.5, 1.8) node [midway, right] {$\phi_p^*$};
+    
+    \draw (1.1, -0.1)..controls(0.5, -0.2)and(0, 0.5)..(-0.5, 1.7) node [above] {$\frac{\partial}{\partial\phi_2}(p)$};
+    \draw (3.1, -0.5)..controls(3.5, -0.5)and(4, 0)..(5, 1.5) node [above] {$\frac{\partial}{\partial\phi_1}(p)$};
+  \end{illustration}
+\end{figure}
