@@ -102,6 +102,7 @@ Przekształcenie $\psi_p^*\circ\lambda_{\phi, p}$ pokrywa się z działaniem mac
 
 O odwzorowaniu $\phi_p^*:T_pM\to\R^n$ można myśleć jak o "mapie" dla $T_pM$ stowarzyszonej z mapą $\phi$ otoczenia punktu $p$. W tej mapie działania na wektorach z $T_pM$ sprowadzają się do zwykłych działań na wektorach w $\R^n$.
 
+\phantomsection\label{mapa na T_pR}
 \textbf{Przykład:}
 \begin{itemize}
   \item Dla $M=\R^n$ mamy wyróżnioną mapę $\phi:M=\R^n\to \R^n$, $\phi=id_{\R^n}$. Dla każdego $p\in M$ mapa ta, poprzez $\phi_p^*=(id_{\R^n})^*$ kanonicznie utożsamia $T_p\R^n$ z $\R^n$.
@@ -221,6 +222,50 @@ $$D_{\phi(p)}(\psi f\phi^{-1})=\left(\frac{\partial(\psi f\phi^{-1})_i}{\partial
 $$df_p\left[\sum a_i\frac{\partial}{\partial\phi_i}(p)\right]=\sum_i\left[\sum_j\frac{\partial(\psi f\phi^{-1})}{\partial x_j}(\phi(p))\cdot a_j\right]\frac{\partial}{\partial\psi_i}(f(p)) $$
 
 \textbf{Przykłady:}
-\begin{enumerate}
-  \item Niech $\phi:U\to\R^n$ będzie mapą wokół $p\in M$. Możemy ją potraktować jako gładkie odwzorowanie między dwiema rozmaitościami. Wówczas różniczka $d\phi_p:\underset{{\scriptstyle =T_pM}}{T_pU}\to T_{\phi(p)}\R^n$
-\end{enumerate}
+\begin{itemize}
+  \item Niech $\phi:U\to\R^n$ będzie mapą wokół $p\in M$. Możemy ją potraktować jako gładkie odwzorowanie między dwiema rozmaitościami. Wówczas różniczka $d\phi_p:\underset{{\scriptstyle =T_pM}}{T_pU}\to T_{\phi(p)}\R^n$ jest wówna odwzorowaniu "mapowemu" $\phi_p^*:T_pM\to\R^n$.
+
+    \begin{proof}
+      Niech $[c, t_0]\in T_pM$, wtedy
+      $$d\phi_p([c, t_0])=[\phi\circ c, t_0]\in T_{\phi(p)}\R^n$$
+      Mapę $(id_{\R^n})^*_{\phi(p)}:T_{\phi(p)}\R^n\to \R^n$ \hyperref[mapa na T_pR]{kanonicznie utożsamiliśmy} z $id_{\R^n}$, stąd też
+      $$d\phi_p([c, t_0])=(id_{\R^n}\circ\phi\circ c)'(t_0)=(\phi\circ c)'(t_0),$$
+      a z kolei
+      $$\phi_p^*([c, t_0])=(\phi\circ c)'(t_0)\in\R^n$$
+      z definicji tego odwzorowania.
+    \end{proof}
+  \item Dla gładkiej krzywej $c:(a, b)\to M$ oraz $t_0\in (a, b)$, różniczka $dc_{t_0}:T_{t_0}(a, b)\to T_{c(t_0)}M$ jest jedynym przekształceniem liniowym, które wersor z $\R\cong T_{t_0}(a, b)$ przekształca na wersor $[c, t_0]=c'(t_0)\in T_{c(t_0)}M$.
+  \item Rozważmy gładką funkcję $f:M\to \R$ i $p\in M$. Różniczka $df_p:T_pM\to T_{f(p)}\R\cong \R$ jest funkcjonałem liniowym na $T_pM$. 
+\end{itemize}
+
+\begin{definition}[pochodna kierunkowa]
+Dla funkcji $f:M\to\R$ możemy wybrać wektor styczny $X=[c, t_0]\in T_pM$ i zdefiniować \important{pochodną kierunkową} funkcji $f$ w kierunku wektora $X$: 
+$$\color{blue}Xf=df_p(X)=df_p([c, t_0])=(f\circ c)'(t_0).$$
+\end{definition}
+
+Pochodna kierunkowa ma następujące własności:
+\begin{itemize}
+  \item $X(f+g)=Xf+Xg$
+  \item $X(f\cdot g)=g(p)\cdot Xf+f(p)\cdot Xg$ (\acc[i]{reguła Leibniza})
+    \begin{proof}
+      \begin{align*}
+        X(f\cdot g)&=[(f\cdot g)\circ c]'(t_0)=[(f\circ c)\cdot(g\circ c)]'(t_0)=\\
+                            &=(f\circ c)'(t_0)\cdot(g\circ c)(t_0)+(f\circ c)(t_0)\cdot(g\circ c)'(t_0)=\\
+                            &=Xf\cdot g(p)+f(p)\cdot Xg
+      \end{align*}
+    \end{proof}
+  \item dla $a\in \R$ $(aX)f=a(Xf)$
+  \item jeśli $X, Y\in T_pM$, to $(X+Y)f=Xf+Yf$
+    \begin{proof}
+      $$(X+Y)f=df_p(X+Y)=df_p(X)+df_p(Y)=Xf+Yf$$
+    \end{proof}
+\end{itemize}
+
+\textbf{Przykłady:}
+\begin{itemize}
+  \item \marginpar{Stąd oznaczenie $\frac{\partial}{\partial x_i}(p)$, które ma charakter operatorowy związany z działaniem tego wektora na funkcjach $f_n$}Jeśli $X=\frac{\partial}{\partial x_i}(p)\in T_p\R^n$ i mamy gładką funkcję $f:\R^n\to\R$, to wówczas $Xf=\frac{\partial f}{\partial x_i}(p)$. 
+  \item \marginpar{$\frac{\partial f}{\partial\phi_i}$ jest to $i$-ta pochodna cząstkowa $f$ w mapie $\phi$ w punkcie $p$}Jeśli $X=\frac{\partial}{\partial\phi_i}(p)\in T_pM$ i $f:M\to\R$ jest funkcją gładką, to oznaczamy 
+    $$Xf=\frac{\partial(f\phi^{-1})}{\partial x_i}(\phi(p)=:\frac{\partial f}{\partial \phi_i}(p)$$
+  \item Podobnie jak wyżej, jeśli $X=\sum a_i\frac{\partial}{\partial \phi_i}(p)$, to
+    $$Xf=\sum a_i\frac{\partial f}{\partial\phi_i}(p)=\sum a_i\frac{\partial f\circ\phi^{-1}}{\partial x_i}(\phi(p))$$
+\end{itemize}
