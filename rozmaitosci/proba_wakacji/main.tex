@@ -15,6 +15,14 @@
   marginpar={35mm}
 }
 
+
+\declaretheorem[
+  name={Przykłady},
+  style=remarkStyle,
+]{exmp}
+
+\newenvironment{example}{\textbf{\large\color{green}Przykłady:}$ $\newline\begin{enumerate}[leftmargin=*]}{\end{enumerate}}
+
 \pagestyle{plain}
 
 \makeatletter
