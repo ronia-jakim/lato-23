@@ -564,14 +564,24 @@ Dla $U\subseteq H^n$ otwartego i $f:U\to\R^m$ mówimy, że $f$ jest \important{g
   \end{proof}
 \item Inny atlas na $D^n$, składający się tylko z dwóch map:
   \begin{illustration}
+    \node[rectangle, shading=axis, left color=white, right color=blue!15, shading angle=90, anchor=north, minimum width=5cm, minimum height=4cm] at (-2.5, 2) {};
+
+    \node[rectangle, shading=axis, left color=white, right color=yellow!20, shading angle=-90, anchor=north, minimum width=5cm, minimum height=4cm] at (4, 2) {};
+    \node at (3.5, -1.5) {$\color{yellow}H_A^n$};
+
+    \node at (-2, -1.5) {$\color{blue}H_B^n$};
     \draw (0, 0) circle (1.5);
     \draw (1.5, 0) circle (1.5);
     \draw (0, 2)--(0, -2);
     \draw (1.5, 2)--(1.5, -2);
-    \draw (0.75, 0) circle (0.75);
+    \filldraw[color=black, fill=orange!20] (0.75, 0) circle (0.75);
+    \node at (1.3, -0.75) {$D^n$};
 
     \filldraw (0, 0) circle (1.5pt) node [left] {$A$};
     \filldraw (1.5, 0) circle (1.5pt) node [right] {$B$};
   \end{illustration}
+  Niech $A$ i $B$ będą punktami styczności dwóch prostych równoległych do dysku $D^n$. Rozważmy zbiory
   $$U_A=D^n\setminus\{A\}$$
+  $$U_B=D^n\setminus\{B\}$$
+  oraz odwzorowania $\phi_A:U_A\to H_A^n$ i $\phi_B:U_B\to H_B^n$ będące inwersjami dysku względem sfer $S^n$ o środkach w $A$ i $B$ oraz promieniu $2$.
 \end{example}
