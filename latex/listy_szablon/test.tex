@@ -1,0 +1,145 @@
+\documentclass{article}
+
+% ustawiamy geometrię strony, tj. jakiej wielkości są marginesy etc.
+%\usepackage[showframe]{geometry} % rysuje ramkę na marginesy
+\usepackage{geometry}
+\geometry{a4paper, total={190mm, 277mm}}
+
+% dla polskich znaków
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% żeby przerzucało troszkę ładniej do nowej linijki
+\usepackage{microtype}
+
+% takie basic paczuszki
+\usepackage{amsthm} % do twierdzeń
+\usepackage{thmtools} % też do twierdzeń
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% to takie moje magiczne rzeczy, pozwala dodawać troszkę logiki do poleceń i środowisk
+\usepackage{xparse}
+
+% do tworzenia kolumn
+\usepackage{multicol}
+
+% żeby zmieniać styl enumerate
+\usepackage{enumitem}
+
+\newtheoremstyle{zadankoStyle}
+{2pt}
+{2pt}
+{}
+{}
+{\bfseries}
+{.}
+{ }
+{\thmname{#1}\thmnumber{ #2}\thmnote{}}
+
+\declaretheorem[title={}, style=zadankoStyle]{cw}
+
+\NewDocumentEnvironment{podpunkty}{ o }
+{%
+  \IfNoValueTF{#1}
+  {} % nie chcemy wielu kolumn
+  {  % chcemy podpunkty w kolumnach
+    \begin{multicols}{#1}
+  }
+  \begin{enumerate}[label=\alph*), leftmargin=12mm]
+}
+{%
+  \end{enumerate}
+  \IfNoValueTF{#1}
+  {}
+  {%
+    \end{multicols}
+  }
+}
+
+\NewDocumentEnvironment{zadanko}{ o }{%
+    \IfNoValueTF{#1}
+    {\begin{cw}} % kontynuujemy numerację
+    {%\renewcommand{\thecw}{#1}\begin{cw} % zmieniamy numerację
+      \setcounter{cw}{#1}\begin{cw}
+    }
+}
+    {\end{cw}}
+
+\title{Zagadnienia 1, 2, 3}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{zadanko}
+  Wskaż liczbę, która nie jest wielokrotnością $3$:
+  
+  \begin{podpunkty}[4]
+    \item 30
+    \item 452
+    \item 99012
+    \item 27
+  \end{podpunkty}
+\end{zadanko}
+
+\begin{zadanko}
+  Wskaż liczbę, która jest wielokrotnością $9$:
+  
+  \begin{podpunkty}[2]
+    \item 2727
+    \item 330
+    \item 17
+    \item 77
+  \end{podpunkty}
+\end{zadanko}
+
+\begin{zadanko}[50]
+  Wybierz wszystkie liczby podzielne przez $2$ lub $5$:
+
+  \begin{podpunkty}[3]
+    \item 23456
+    \item 230
+    \item 45
+    \item 123
+    \item 985
+  \end{podpunkty}
+\end{zadanko}
+
+\begin{zadanko}
+  Podaj przykład liczby całkowitej, ale nie naturalnej.
+\end{zadanko}
+
+\begin{zadanko}
+  Wskaż wszystkie liczby pierwsze spośród podanych:
+  
+  \begin{podpunkty}[3]
+  \item 13
+  \item 50
+  \item 23
+  \item 49
+  \item 34
+  \item 17
+  \end{podpunkty}
+\end{zadanko}
+
+\begin{zadanko}
+  Wyznacz wszystkie dzielniki liczb:
+  
+  \begin{podpunkty}
+  \item 33
+  \item 24
+  \end{podpunkty}
+\end{zadanko}
+
+\begin{zadanko}
+  Rozłóż na czynniki pierwsze:
+  
+  \begin{podpunkty}
+  \item 12
+  \item 99
+  \end{podpunkty}
+\end{zadanko}
+
+\end{document}
