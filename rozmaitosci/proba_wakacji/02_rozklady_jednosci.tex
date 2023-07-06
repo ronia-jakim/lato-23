@@ -42,7 +42,7 @@ Warto nadmienić, że relacja bycia rozdrobnieniem jest przechodnia.\marginpar{$
 
 Warto przypomnieć, że każda rozmaitość topologiczna jest parazwarta. \marginpar{Dowód: patrz Lee strona 36-37}Dowód tego lematu wykorzystuje w istotny sposób lokalną zwartość, czyli istnienie dla każdego punktu otoczeń prezwartych (po domknięciu zwartych). Własność ta została udowodniona na ćwiczeniach.
 
-\begin{remark}
+\begin{remark}\label{uwaga:2.4}
 Rozdrobnienie wynikające z parazwartości rozmaitości topologicznych można z góry uznać za składające się z prezwartych zbiorów mapowych.
 \end{remark}
 
@@ -50,4 +50,26 @@ Rozdrobnienie wynikające z parazwartości rozmaitości topologicznych można z 
 Niech $\{U_\alpha\}$ będzie pokryciem $M$. Łatwo jest znaleźć rozdrobnienie $\{U'_\gamma\}\prec\{U_\alpha\}$ złożone ze zbiorów prezwartych mapowych. Wystarczy obraz każdego $U_\alpha$ w $\R^n$ pokryć zbiorami prezwartymi i wrócić z nimi na $M$. Z faktu, że rozmaitości są parazwarte dostajemy lokalnie skończone rozdrobnienie $\{V_\beta\}\prec\{U'_\gamma\}$, które z przechodności $\prec$ jest też rozdrobnieniem $\{U_\alpha\}$. Dodatkowo, każdy $V_\beta$ zawiera się w pewnym $U'_\gamma$, które były mapowe i prezwarte, więc i $V_\beta$ taki jest.
 \end{proof}
 
-{\large\color{red}JESTEM NA 2 UWADZE Z ROZKLADOW JEDNOSCI}
+\begin{remark}
+  Niech $\{A_\alpha\}$ będzie lokalnie skończoną rodziną parazwartych podzbiorów rozmaitości $M$. Wtedy dla każdego $A_{\alpha_0}$ podrodzina
+  $$\{A_\alpha\;:\;A_\alpha\cap A_{\alpha_0}\neq\emptyset\}$$
+  jest skończona.
+\end{remark}
+
+\begin{proof}
+  Załóżmy nie wprost, że dla pewnego $A_{\alpha_0}$ podrodzina $\{A_\alpha\;:\;A_\alpha\cap A_{\alpha_0}\neq\emptyset\}$ jest nieskończona. Możemy w takim razie wybrać z niej ciąg $A_{\alpha_i}$ oraz ciąg punktów $x_i\in A_{\alpha_i}\cap A_{\alpha_0}$. Ciąg $x_i$ ma punkt skupienia w pewnym $p\in cl(A_{\alpha_0})$. 
+
+  Ponieważ $p$ jest punktem skupienia $x_i$, to dowolne otwarte otoczenie $U_p$ punktu $p$ zawiera nieskończenie wiele elementów $x_i$. W takim razie $U_p$ przecina się z nieskończenie wieloma zbiorami $A_\alpha$. Jest to sprzeczne z lokalną skończonościa $\{A_\alpha\}$.
+\end{proof}
+
+W uwadze \ref{uwaga:2.4} pokazaliśmy mapowość i prezwartość zbiorów z rozdrobnienia $\{V_\beta\}$ wynikającego z parazwartości rozmaitości topologicznych. Możemy teraz dodatkowo zapewnić sobie istnienie interesujących nas zbiorów zwartych:
+
+\begin{remark}
+  Niech $\{V_\beta\}$ będzie lokalnie skończonym rozdrobnieniem pokrycia $M$ składającym się ze zbiorów mapowych. Wtedy dla każdego $\beta$ istnieje zwarty zbiór $D_\beta\subseteq V_\beta$ taki, że
+  $$\bigcup D_\beta=M$$
+  to znaczy możemy wybrać "rozdrobnienie" przy pomocy zwartych zbiorów, które nadal pokrywa $M$.
+\end{remark}
+
+\begin{proof}
+  Ponieważ $V_\beta$ są zbiorami mapowymi, to o każdym z nich możemy myśleć jak o otwartym podzbiorze w $\R^n$ poprzez utożsamienie go z otwartym zbiorem $\overline{V_\beta}=\phi_\beta(V_\beta)$ dla mapy $(V_\beta, \phi_\beta)$.
+\end{proof}
