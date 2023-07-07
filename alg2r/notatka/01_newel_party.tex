@@ -149,7 +149,7 @@ Tutaj $K(X_1,...,X_n)$ to \acc{ciało ułamków pierścienia} $K[\overline a]$ w
 \indent 2. $I(\overline a_1/K)=I(\overline a_2/K)$.
 \end{remark}
 
-\begin{proof}
+\begin{proof} $ $\newline
 
 %\begin{center}
 % $K[\overline a]\isomorphism K[\overline b]$ \acc{$\implies$} $I(\overline a/K)=I(\overline b/K)$
@@ -180,7 +180,7 @@ Tutaj $K(X_1,...,X_n)$ to \acc{ciało ułamków pierścienia} $K[\overline a]$ w
 
 $1\implies 2$
 
-Implikacja jest jasna, bo dla $g(\overline X)\in K[\overline X]$, bo $g(\overline a_1)=0$ w $K[\overline a_1]$ $\iff$ $g(f(\overline a_1))=0$, a $f(\overline a_1)=\overline a_2$.
+Implikacja jest jasna, bo dla $g(\overline X)\in K[\overline X]$ mamy $g(\overline a_1)=0$ w $K[\overline a_1]$ $\iff$ $g(\phi(\overline a_1))=0$, a $\phi(\overline a_1)=\overline a_2$, czyli $g(\overline{a}_2)=0$. Stąd $g\in I(\overline{a}_1/K)\iff g\in I(\overline{a}_2/K)$.
 
 $1\impliedby 2$
 
@@ -193,7 +193,10 @@ $$\ker(\phi_{\overline a_1})=I(\overline a_1/K).$$
 
 Tak samo dla $\overline a_2$ możemy określić analogicznie odwzorowanie ewaluacyjne $\phi_{\overline a_2}:K[\overline X]\to K[\overline a_2]$. Wtedy
 $$I(\overline a_2/K)=\ker(\phi_{\overline a_2}),$$
-ale ponieważ $I(\overline a_1/K)=I(\overline a_2/K)$, to $\ker(\phi_{\overline a_1})=\ker(\phi_{\overline a_2})$. Oznaczmy $I=I(\overline a_1/K)=I(\overline a_2/K)$. Widzimy, że $\phi_{\overline a_i}\restriction K=id_k$.
+ale ponieważ $I(\overline a_1/K)=I(\overline a_2/K)$, to $\ker(\phi_{\overline a_1})=\ker(\phi_{\overline a_2})$. Oznaczmy $I=I(\overline a_1/K)=I(\overline a_2/K)$. Widzimy, że $\phi_{\overline a_i}\restriction K=id_k$ (wielomiany mające tylko wyraz stały nie zmieniają wartości po podstawieniu $x$).
+
+Z twierdzenia o izomorfizmie wiemy, że istnieją izomorfizmy
+$$f_i:K[\overline{X}]/ker(\phi_{\overline{a}_i})= K[\overline{X}]/I(\overline{a}_i/K)=K[\overline{X}]/I\;\isomorphism\; Im(\phi_{\overline{a}_i})=K[\overline{a}_i]$$
 
 \begin{illustration}
     \node (K) at (4, 0) {$K[\overline X]$};
@@ -207,10 +210,16 @@ ale ponieważ $I(\overline a_1/K)=I(\overline a_2/K)$, to $\ker(\phi_{\overline 
     \draw[->, dashed] (K[X]/I)--(K[a2]) node [midway, below] {$f_2$} node [midway, above] {$\cong$};
 \end{illustration}
 
-Niech $f=f_2f_1^{-1}:K[\overline a_1]\to K[\overline a_2]$ jest funkcją spełniającą warunki punktu 1.
+Niech $f=f_2f_1^{-1}:K[\overline a_1]\to K[\overline a_2]$. Jako złożenie dwóch izomorfizmów $f$ również jest izomorfizmem. Pozostaje sprawdzić, czy $f(\overline{a}_1)=\overline{a}_2$.
+
+$f(\overline{a}_1)=f_2(f_1^{-1}(\overline{a}_1))$ i zauważmy, że $f_1^{-1}(\overline{a}_1)=w(\overline{X})\in K[\overline{X}]/I$, gdzie $w(\overline{X})=\overline{X}$.
+Idąc po kolei wynika to z tego, że $f_1\circ j=\phi_{\overline{a}_1}$. 
+
+Gdy włożymy w lewą stronę $w(\overline{X})=\overline{X}$ dostajemy $f_1\circ j(w)=f_1(\overline{X})$ (gdy oczywiście $\overline{a}_i\neq 0$), a z kolei po włożeniu tego do prawej strony wychodzi $\phi_{\overline{a}_1}(w)=w(\overline{a}_1)=\overline{a}_1$ i mamy, że $f_1(w)=\overline{a}_1\implies f_1^{-1}(\overline{a}_1)=w$.
+$$f(\overline{a}_1)=f_2(f_1^{-1}(\overline{a}_1))=f_2(w)=w(\overline{a}_2)=\overline{a}_2$$
 \end{proof}
 
-{\large\color{orange}MOŻE TUTAJ ŁADNIE SPRAWDZIĆ ŻE NAPRAWDĘ JEST TO DOBRZE SPEŁNIAJĄCA WARUNKI FUNKCJA?}
+%{\large\color{orange}MOŻE TUTAJ ŁADNIE SPRAWDZIĆ ŻE NAPRAWDĘ JEST TO DOBRZE SPEŁNIAJĄCA WARUNKI FUNKCJA?}
 
 \textbf{\large\color{blue}Uwaga.}
     \emph{Niech $I\triangleleft K[\overline X]$ \acc{noetherowskiego} pierścienia $K[\overline X]$. Niech $I=(f_1,...,f_m)$ dla pewnych $f_i\in K[\overline X]$. Wtedy istnieje rozszerzenie pierścienia $S\supseteq K$ oraz $\overline a\subseteq S$ - rozwiązanie ogólne układu $f_1(\overline X)=...=f_m(\overline X)=0$ takie, że $\color{blue}I(\overline a/K)=I$.}

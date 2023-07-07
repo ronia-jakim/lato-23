@@ -41,10 +41,15 @@ i nie to samo co przy prawostronnym
 \begin{enumerate}
     \item $R=K$ to ciała, $K$-moduł to przestrzeń liniowa nad $K$
     \item $G$ jest grupą abelową, wtedy $G$ jest $\Z$-modułem
-    \item $G$ ejst grupą abelową, wtedy $End(G)$ są pierścieniem z jednością i $G$ jest modułem nad $end(G)$
-    \item Załóżmy, że $j:R\to End(G)$ jest homomorfizmem pierścieni z $1$. Wtedy $j$ wyznacza na $G$ strukturę $R$-modułu. Na odwrót: gdy $G(+r)_{r\in R}$ jest {\large\color{orange}ZMAZAŁ MI}
+    \item $G$ jest grupą abelową, wtedy $End(G)$ są pierścieniem z jednością ($id_G$) i działaniami zdefiniowanymi dla $f, g\in End(G)$:
+      $$(f+g)(x)=f(x)+g(x)$$
+      $$(f\cdot g)(x)=f(g(x)).$$
+      Grupa $G$ może być traktowana jako moduł nad $End(G)$ z działaniem zadanym przez $f\cdot x=f(x)$ dla $f\in End(G)$ i $x\in G$.
+    \item Załóżmy, że $j:R\to End(G)$ jest homomorfizmem pierścieni z $1$. Wtedy $j$ wyznacza na $G$ strukturę $R$-modułu poprzez działanie: $r\cdot x=j(r)\cdot x$ dla $r\in R$ i $x\in G$.
+      %
+      %Z drugiej strony, gdy $(G, +, r)_{r\in R}$ jest $R$-modułem, to dla $r\in R$ mamy $j(r):G\to G$, czyli $j(r)\in End(G)$. Możemy więc zdefiniować $j(r)(g):=r\cdot g$. Możemy więc zamienić $R$-moduł $(G, +, R)$ na $End(G)$
     \item Gdy $R_1\subseteq R$ jest podpierścieniem z $1$, to $R$ jest modułem nad $R_1$.
-    \item Gdy $j:R_1\to R$ ejst homomorfizmem pierścieni z jednością i $M=(M,+,r)_{r\in R}$ jest $R$-modułem, to $M$ jest $R_1$-modułem z dzialaniem indukowanym przez $j$.
+    \item Gdy $j:R_1\to R$ jest homomorfizmem pierścieni z jednością i $M=(M,+,r)_{r\in R}$ jest $R$-modułem, to $M$ jest $R_1$-modułem z dzialaniem indukowanym przez $j$. To znaczy, dla $r_1\in R_1$ oraz $x\in M$ mamy $r_1\cdot x:=j(r_1)\cdot x$.
     \item $R$ jest pierścieniem z jednością i $I\subseteq R$ jest ideałem lewostronnym. Wtedy $I$ jest $R$-modułem.
 \end{enumerate}
 
@@ -91,30 +96,30 @@ $\{0\}\subseteq M$ jest podmodułem zerowym.
 
 \begin{enumerate}
     \item Jeśli $N_1,N_2\subseteq M$ są podmodułami, to $N_1+N_2$ też jest podmodułem. To samo, jeśli weźmiemy $n$ takich podmodułów.
-    \item Prdukt $R$-modułów $M,N$, czyli $M\times N$, też jest $R$-modułem
-    \item $M=N_1\oplus...\oplus N_n$ jest modułem dla $N_1,...,N_n$ podmodułów $M$
+    \item Produkt $R$-modułów $M,N$, czyli $M\times N$, też jest $R$-modułem
+    \item $M=N_1\oplus...\oplus N_k$ jest modułem dla $N_1,...,N_k$ podmodułów $M$. Dodatkowo, dla każdego $m\in M$ istnieją jedyne $n_1,...,n_k$ takie, że $m=n_1+...+n_k$.
 \end{enumerate}
 
 \important{Homomorfizm modułów} $h:M\to N$ działa tak samo jak zwykle. Nazwy izo-, endo-, auto-, mono- nadal są applicable.
 
-Niech $h:M\to N$ będzie homomorfizmem $R$-modułów. Dla $N'\subseteq N$ podmodułu $h^{-1}[N']$ jest podmodułem $M$. Dla $M'\subseteq M$ $h[M']\subseteq N$. 
+Niech $h:M\to N$ będzie homomorfizmem $R$-modułów. Dla $N'\subseteq N$ podmodułu $h^{-1}[N']$ jest podmodułem $M$. Dla $M'\subseteq M$ podmodułem jest $h[M']\subseteq N$.
 
-$M/M'$ to \acc[b]{moduł ilorazowy}.
+O odwzorowaniu $F:M_1\times...\times M_n\to M$ mówimy, że jest $n$-liniowym odwzorowaniem $R$-modułów, gdy jest liniowe na każdej współrzędnej.
 
-\begin{theorem}[zasadnicze twierdzenie o homommoorfizmie $R$-modułów] Zasadnicze twierdzenie o homomorfizmie $R$-modułów. Niech $M,N$ będą modułami i
-$$M\xrightarrow[\forall\;f]N$$
-Wtedy istnieje dokładnie jeden $\overline f$ taki, że
+Dla $M'\subseteq M$ podmodułu definiujemy \acc[b]{moduł ilorazowy} jako $M/M'=\{m+M'\;:\;m\in M\}$. Warstwy działają tutaj tak samo jak w grupach czy pierścieniach ilorazowych.
+
+\begin{theorem}[zasadnicze twierdzenie o homommoorfizmie $R$-modułów] Zasadnicze twierdzenie o homomorfizmie $R$-modułów. Niech $M,N$ będą modułami. Wtedy dla każdego $f:M\to N$ istnieje dokładnie jeden $\overline f$ taki, że
 
 \begin{center}
 \begin{tikzcd}
-    M\arrow[r,"\forall\;f"] \arrow[d, "iloraz"]& N\\
+    M\arrow[r,"\forall\;f"] \arrow[d, "iloraz" left]& N\\
     M/ker(F)\arrow[ur, dashed, "\exists!\;\overline f" right]
 \end{tikzcd}
 \end{center}
 
 \end{theorem}
 
-\begin{theorem}$ $
+\begin{theorem}[o faktoryzacji] Niech $f:M\to N$ i $g:M\to U$ będą homomorfizmami $R$-modułów. Wtedy $h:U\to N$ istnieje $\iff$ $ker(g)\subseteq ker(g)$.
 
 \begin{center}\begin{tikzcd}
 M\arrow[r, "f"]\arrow[d, "g"] & N\\
@@ -124,7 +129,13 @@ U\arrow[ur, dashed, "\exists\;h\iff ker(f)\supseteq ker(g)" right]
 
 \end{theorem}
 
-$h:M\to N$ jest $1-1$ $\iff ker(h)=\{0\}$
+Zbiór wszystkich homomorfizmów między modułem $M$ i $N$ oznaczamy 
+$${\color{blue}Hom_R(M, N)}=\{h:M\to N\;:\;h\text{ jest homomorfizmem }R\text{-modułów}\}.$$ 
+Tak jak w przypadku homomorfizmów między grupami czy pierścieniami, mamy $h:M\to N$ jest różnowartościowe $\iff$ $ker(h)=\{0\}$.
+
+Dla $R$ będącego przemiennym pierścieniem $Hom_R(M, N)$ można traktować jako $R$-moduł definiując działania dla $m\in M$ przez:
+$$\begin{array}{l ll l}(h_1+h_2)(m)=h_1(m)+h_2(m) & & & h_1,h_2\in Hom_R(M, N)\\
+(rh)(m)=r\cdot h(m) & & & r\in R\end{array}$$
 
 \subsection{Cel: zrozumieć moduły}
 
@@ -134,13 +145,13 @@ Dany jest $R$-moduł $M$. Gdy $M=\bigoplus_i M_i$, gdzie $M_i\subseteq M$ jest m
 
 \begin{definition}
 Mówimy, że $R$-moduł $M$ jest \important{prosty}, gdy $M\neq 0$ i dla każdego $N\subseteq M$ podmodułu, $N=0$.
-
-Pierścień enodmorfizmów $R$-modułu $M$
-$$End_R(M)=\{\text{endomorfizmy }M\}$$
-jest podpierścieniem $End(M, +)$.
 \end{definition}
 
-\begin{lemma}[lemat Schura] Lemat Schura: jeśl i$M$ jest $R$-modułem prostym, to $End_R(M)$ jest pierścieniem z dzieleniem (prawie ciało, poza tym, że nie musi być przemienny).
+Pierścień enodmorfizmów $R$-modułu $M$ definiujemy jako
+$$End_R(M)=\{h:M\to M\;:\;h\text{ - homomorfizm modułów}\}.$$
+Jest to podpierścień pierścienia $End(M, +)$, który traktuje $M$ jako grupę względem dodawania.
+
+\begin{lemma}[lemat Schura] Lemat Schura: jeśli $M$ jest $R$-modułem prostym, to $End_R(M)$ jest pierścieniem z dzieleniem (prawie ciało, poza tym, że nie musi być przemienny).
 \end{lemma}
 \begin{proof}
 Niech $0\neq f\in End_R(M)$. Wtedy $Im(f)=M$, bo jest to niezerowy podmoduł $M$, a $M$ przecież było modułem prostym. Stąd właśnie $Im$ jest całością. $ker(f)=\{0\}$, czyli $f$ jest $1-1$ i "na".
@@ -191,19 +202,31 @@ Niech $R$ będzie pierścieniem z $1\neq 0$ i $M$ będzie $R$-modułem.
 \end{enumerate}
 
 \setcounter{theorem}{0}
-\subsection{Moduły proste}
+\subsection{Suma prosta modułów}
 
 \begin{bbox}
 \important{(Abstrakcyjna) suma prosta} rodziny modułów (koprodukt) to
-$$\bigsqcup M_i= M-i=\{f\in\bigsqcap M_i\;:\;\{i\in I\;:\;f(i)\neq 0\}\text{ jest skończony}\}$$
+$$\bigsqcup M_i= \bigoplus M_i=\{f\in\bigsqcap M_i\;:\;\{i\in I\;:\;f(i)\neq 0\}\text{ jest skończony}\}$$
 \end{bbox}
 
-\begin{remark}
-Jeśli dla każdego $i\in I$ istnieje $M_i\to M$ to istnieje dokładnie 1 $h:\bigsqcup M_i\to M$ taki, że dla każdego $i_0$
+Innymi słowy, elementy sumy prostej to krotki $(m_1,...,m_n,...)$ takie, że tylko dla skończenie wielu $i$ mamy $m_i\neq 0$. Dla każdego $j$ istnieje naturalne włożenie $f_j:M_j\to \bigsqcup M_i$ zdefiniowane przez $f_j(m)=(0,...,0,m,0,...)$, gdzie $m$ występuje na $j$-tej pozycji.
+
+Najprostszy przypadek sumy prostej to suma dwóch modułów: $M\oplus N$. Działania w tym module definiujemy przez:
+$$\begin{array}{l ll l}
+  (m_1\oplus n_1)+(m_2\oplus n_2)=(m_1+m_2)\oplus(n_1+n_2) & & & m_i\in M,\;n_i\in N\\
+  r(m\oplus n)=(rm)\oplus (rn) & & & r\in R,\; m\in M,\; n\in N.
+\end{array}
+$$
+Przyjęło się uznawać za naturalne przekształcenie $h:\bigoplus M_i\to M$ zadane przez 
+$$h(m_1,...,m_n,...)=\sum m_i\in M.$$ 
+Stąd elementu $\bigoplus M_i$ czasem oznacza się przez $\sum m_i$.
+
+\begin{remark}\label{uwaga:11.1}
+Jeśli dla każdego $i\in I$ istnieje $M_i\to M$ to istnieje dokładnie jeden $h:\bigsqcup M_i\to M$ taki, że dla każdego $i_0$
 
 \begin{center}\begin{tikzcd}
 M_{i_0}\arrow[r, "g_{i_0}"]\arrow[d, "f_{i_0}"] & M\\
-\bigsqcup M_i\arrow[ur, "h", dashed]
+\bigsqcup M_i\arrow[ur, "\exists!\;h" right, dashed]
 \end{tikzcd}\end{center}
 
 Jest to nazywane własnością uniwersalności.
@@ -215,17 +238,19 @@ Jest to nazywane własnością uniwersalności.
 
 \begin{remark}
 $M=M_1\oplus M_2$ dla podmodułów $M_1,M_2\subseteq M$. Wtedy dla 
-$$g_i=id_{M_i}:M_i\to M,$$ 
-dla $h$ z uwagi wcześniej
+$$g_i=id_{M_i}:M_i\to M$$ 
+oraz $h$ jak z uwagi \ref{uwaga:11.1}
 $$h:M_1\sqcup M_2\to M$$
-to jest izomorfizm modułów.
+jest izomorfizm modułów.
 \end{remark}
 \begin{proof}
 Ćwiczenie, łatwy.
 \end{proof}
 
+\subsection{Baza modułu}
+
 \begin{definition}
-$M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
+  $M$ jest \important{wolnym $R$-modułem}, gdy $M$ ma bazę.
 \end{definition}
 
 \textbf{Przykłady}:
@@ -243,7 +268,7 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
       \end{proof}
 \end{enumerate}
 
-\begin{remark}
+\begin{remark}\label{uwaga:11.4}
   Niech $R$ będzie pierścieniem z jednością, a $M$ $R$-modułem. Niech $A=\{a_i\;:\;i\in i\}\subseteq M$ będzie podzbiorem bez powtórzeń. Następujące warunki są równoważne:
   \begin{enumerate}
     \item $A$ jest bazą
@@ -286,7 +311,7 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
   \end{itemize}
 \end{proof}
 
-\begin{remark}
+\begin{remark}$ $\newline
   \begin{enumerate}
     \item Jeśli $A=\{a_i\}_{i\in I}$ jest bazą $M$ to wtedy
       \begin{enumerate}
@@ -304,7 +329,7 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
   Załóżmy, że $R$ jest przemienny. Wtedy każde dwie bazy $R$-modułu $M$ są równoliczne.
 \end{theorem}
 \begin{proof}
-  Redukujemy do algebry liniowej. Niech $I\triangleleft R$ będzie maksymalnym ideałem i niech $M'=IM\subseteq M$ będzie podmodułem generowanym przez
+  Problem redukujemy do algebry liniowej. Niech $I\triangleleft R$ będzie maksymalnym ideałem i niech $M'=IM\subseteq M$ będzie podmodułem generowanym przez
   $$\{im\;:\;i\in I,m\in M\}.$$
   Wtedy, jeśli popatrzymy na $M/M'$, to ma on naturalną strukturę modułu nad $R/I$. Dla $(m+M')$ i $(r+I)$ definiujemy
   $$(r+I)(m+M')=(rm+M')$$
@@ -347,19 +372,19 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
     \item algebry wolnej w rozmaitości algebraicznej
   \end{itemize}
 
-  Niech $N=\bigsqcup_{m\in M}R_m$ będzie $R$-modułem wolnym o bazie $M$. Równie dobrze możemy wziąć $N=\bigsqcup_{a\in A} R_a$, gdzie $A$ generuje $M$.
+  Niech $N=\bigsqcup_{m\in M}Rm$ będzie $R$-modułem wolnym o bazie $M$. Równie dobrze możemy wziąć $N=\bigsqcup_{a\in A} Ra$, gdzie $A$ generuje $M$.
 
   \begin{center}
     \begin{tikzcd}[row sep=tiny]
-      d\;:\;M\arrow[dr, "na"]\arrow[dd, phantom, sloped, "\subseteq"]\\
+      id\;:\;M\arrow[dr, "na"]\arrow[dd, phantom, sloped, "\subseteq"]\\
       & M\\
       (\exists!\;f)\;:\;N\arrow[ur, "R-liniowe" below right]
     \end{tikzcd}
   \end{center}
 
-  Z uwagi 11.4(3) $f$ istnieje i jest epimorfizmem.
+  Z uwagi \ref{uwaga:11.4}(3) $f$ istnieje i jest epimorfizmem.
 
-  {\large\color{orange}SOME MORE THINKING}
+  %{\large\color{orange}SOME MORE THINKING}
 \end{proof}
 
 \begin{fact}
@@ -385,18 +410,20 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
     \draw [->] (3, -1.8)..controls (3.5, -1.6)and(4, -1.3)..(3.5, -0.5) node [midway, right] {$g'$};
   \end{illustration}
 
-  Dla $b\in B$ ustalamy $b'\in M$ takie, że $f(b')=b$. Niech $g:B\to M$ takie, że $g(b)=b'$. Z uwagi 11.4(3) wiemy, że istnieje jedyne $g':N\to M$ $R$ liniowe takie, że $g'$ rozszerza $g$.
+  Dla $b\in B$ ustalamy $b'\in M$ takie, że $f(b')=b$. Niech $g:B\to M$ takie, że $g(b)=b'$. Z uwagi \ref{uwaga:11.4}(3) wiemy, że istnieje jedyne $g':N\to M$ $R$-liniowe takie, że $g'$ rozszerza $g$.
 
-  Wtedy $f\circ g':N\to N$ i $(f\circ g')\restriction B=id_B$, czyli z uwagi $11.4(3)$ $f\circ g'=id_B$. Stąd $g'$ jest $1-1$. Czyli $N\cong g'[N]\subseteq M$.
+  Wtedy $f\circ g':N\to N$ i $(f\circ g')\restriction B=id_B$, czyli z uwagi \ref{uwaga:11.4} $f\circ g'=id_N$. Stąd $g'$ jest $1-1$. Czyli $N\cong g'[N]\subseteq M$.
 
   Pokażemy teraz, że $M=ker(f)\oplus g'[N]$. Weźmy dowolny $m\in M$. Wtedy
-  $$m=\underbrace{(m-(g'f)(m))}_{ker(f)}+\underbrace{(g'f)(m)}_{\in g'[N]}$$
+  $$m=\underbrace{(m-(g'f)(m))}_{ker(f)}+\underbrace{(g'f)(m)}_{g'[N]}$$
   bo 
-  $$g(m-(g'f)(m))=f(m)-(fg')f(m)-f(m)=0.$$
+  $$f(m-(g'f)(m))=f(m)-(fg')f(m)-f(m)=0.$$
   Pozostaje nam pokazać, że $ker(f)\cap g'[N]=0$. Niech $m\in ker(f)\cap g'[N]$. Wtedy $m=g'(n)$. Ale wtedy $0=f(m)=(fg')(n)=n$. Wobec tego $n=0$, więc $m=g'(n)=g'(0)=0$.
 
-  {\large\color{orange}COŚ TUTAJ CHYBA JEST ŹLE}
+  %{\large\color{orange}COŚ TUTAJ CHYBA JEST ŹLE}
 \end{proof}
+
+\subsection{Moduły projektywne, cykliczne, torsyjne}
 
 \begin{definition}$ $
 
@@ -406,7 +433,8 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
       Jest to równoważne [ćwiczenia] istnieniu $g:N\to M$ takiego, że $f\circ g=id_N$.
 
       \begin{center}\begin{tikzcd}
-        M & N
+        & M\arrow[d, "\forall\; f", twoheadrightarrow]\\
+        N\arrow[ur, "\exists\;g"]\arrow[r, "id"] & N
       \end{tikzcd}\end{center}
 
       to znaczy, że $f$ rozszczepia się.
@@ -448,7 +476,7 @@ $M$ jest wolnym $R$-modułem, gdy $M$ ma bazę.
     \item[\PHtunny] Dla $a\in M$ $I_a=\{r\in R\;:\;ra=0\}\triangleright R$ jest \important{torsją} elementu $a$.
     \item[\PHtunny] $a$ jest \important{torsyjny}, gdy $I_a\neq 0$. W przeciwnym przypadku mówimy, że $a$ jest \acc[i]{beztorsyjny}.
     \item[\PHtunny] Mówimy, że $M$ jest \important{modułem torsyjnym}, gdy każdy jego element jest torsyjny. $M$ jest \acc[b]{beztorsyjny}, gdy każdy niezerowy element jest beztorsyjny.
-    \item[\PHtunny] $M_t=\{a\in M\;:\;a\text{ jest torsyjny}\}$ nazywamy \important{??? torsyjnym} $M$
+    \item[\PHtunny] $M_t=\{a\in M\;:\;a\text{ jest torsyjny}\}$ nazywamy \important{częścią torsyjną} modułu $M$
   \end{itemize}
 \end{definition}
 
