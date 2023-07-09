@@ -1,1 +1,30 @@
 \section{Własności produktu tensorowego}
+
+\textbf{Przykład:} po pierwsze zauważmy, że $R[X]$ i $R[Y]$ to $R$-moduły. Możemy powiedzieć, że $R[X]\otimes R[Y]\cong R[X, Y]$ w tym sensie, że
+$$R[X]\times R[Y]\xrightarrow[]{\otimes} R[X,Y]$$
+dane przez $W(X)\otimes V(Y)=W(X)\cdot V(Y)$. Odwzorowanie to spełnia warunek \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}}:
+
+\begin{center}\begin{tikzcd}[column sep=large, row sep = large]
+  R[X]\times R[Y]\arrow[rr, "\otimes"]\arrow[dr, "g\text{ 2-liniowe}" below left] & & R[X, Y]\arrow[dl, "\exists!\;h\text{ R-liniowe?}" below right, dashed]\\
+  & N
+\end{tikzcd}\end{center}
+a więc homomorfizm $h$ musi spełniać warunek
+$$h(W(X)\cdot V(Y))=g(W(X), V(Y))$$
+dla wszystkich $W(X)\in R[X]$ oraz $V(Y)\in R[Y]$. Ten warunek wraz z $R$-liniowością $h$ wyznacza je na całym $R[X, Y]$ w sposób jednoznaczny na diagramie wyżej.
+
+Dlaczego jednak $h$ istnieje? Rozpocznijmy od jednomianów $\{X^nY^m\}_{n,m\geq0}$ jako bazy $R[X,Y]$. Mamy
+$$h(X^nY^m)=g(X^n,Y^m)$$
+jest dobrze zdefiniowane. Dla wielomianu $W(X,Y)\in R[X, Y]$ takiego, że
+$$W(X,Y)=\sum_{n,m}r_{n,m}X^nY^m$$
+a więc
+$$h(W)=h(\sum_{n,m}r_{n,m}X^nY^m)=\sum_{n,m}r_{n,m}h(X^nY^m)=\sum_{n,m}r_{n,m}g(X^n,Y^m).$$
+Czyli funkcja $h$ działa na wszystkich wielomianach z $R[X,Y]$.
+\medskip
+
+\textbf{\large\color{blue}Wniosek.} W takim razie, jeśli $M_n$ jest wolnym $R$-modułem wymiaru $n$ o bazie $\{b_1,...,b_n\}$ a $M_m$ jest wolnym $R$-modułem wymiaru $m$ o bazie $\{c_1,...,c_m\}$, to $M_n\otimes M_m$ jest $R$-modułem o bazie $\{b_i\otimes c_j\}_{\substack{i\leq n\\j\leq m}}$ i wymiarze $n\cdot m$.
+
+\begin{proof}
+  $M_n\cong R_{<n}[X]$, gdzie $R_{<n}[X]$ jest modułem wielomianów stopnia $<n$. Wtedy
+  $$M_n\otimes M_m\cong R_{<n}[X]\otimes R_{<m}[Y]\cong R_{<n<m}[X, Y]$$
+  gdzie $R_{<n<m}[X,Y]$ to moduł wielomianów $W(X, Y)$ takich, że $deg_X(W)<n$ oraz $deg_Y(W)<m$. Dalszy ciąg dowodu podąża za rozumowaniem z przykładu wyżej.
+\end{proof}
