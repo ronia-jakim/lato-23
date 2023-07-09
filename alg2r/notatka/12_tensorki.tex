@@ -1,0 +1,129 @@
+\section{Iloczyn tensorowy modułów}
+\setcounter{section}{11}
+\setcounter{theorem}{15}
+\subsection{Funkcja dwuliniowa}
+
+\begin{definition}[$R$-dwuliniowe] Niech $R$ będzie pierścieniem przemiennym z $1$, a $M_1, M_2, N$ będą $R$-modułami. Mówimy wówczas, że $f:M_1\times M_2\to N$ jest \important{$R$-dwuliniowe}, gdy $f$ jest $R$-liniowe na każdej współrzędnej, to znaczy
+  $$f(m_1+m_1', m_2)=f(m_1,m_2)+f(m_1',m_2)$$
+  $$f(m_1,m_2+m_2')=f(m_1,m_2)+f(m_1,m_2')$$
+  $$f(rm_1,m_2)=rf(m_1,m_2)=f(m_1,rm_2)$$
+\end{definition}
+
+\begin{remark} Zazwyczaj $f$ jak w definicji wyżej nie jest $R$-liniowe.
+\end{remark}
+\begin{align*}
+  f(m_1+m_1', m_2+m_2')&=f(m_1, m_2+m_2')+f(m_1', m_2+m_2')=\\
+                       &=f(m_1,m_2)+f(m_1, m_2')+f(m_1',m_2)+f(m_1',m_2'){\color{red}\neq f(m_1,m_2)+f(m_1',m_2')}
+\end{align*}
+
+Zazwyczaj również $Im(f)=f[M_1\times M_2]\subseteq N$ nie jest podmodułem, ale generuje podmoduł $[Im(f)]\subseteq N$.
+
+\begin{bbox}
+Chcemy znaleźć funkcję $f:M_1\times M_2\to \text{coś}$ dwuliniową taką, że to "coś" jest $R$-modułem generowanym przez $Im(f)$ i to "coś" jest tak duże jak to tylko możliwe.
+
+Niech $X$ będzie $R$-modułem wolnym o bazie $\{\langle m_1,m_2\rangle\;:\;m_1\in M_1,m_2\in M_2\}$
+
+\begin{center}
+  \begin{tikzcd}[column sep=large, row sep=large]
+    M_1\times M_2\arrow[rr, "f_0"]\arrow[dr, "f=j\circ f_0" left] &    & X\arrow[dl, "j"]\\
+                                                             & X/L
+  \end{tikzcd}
+\end{center}
+
+Niech $f_0:M_1\times M_2\to X$ będzie funkcją zadaną przez 
+$$f_0(m_1,m_2)=\langle m_1,m_2\rangle.$$ 
+Taka funkcja nie jest $2$-liniowa, czyli musimy utożsamić w $X$ pewne elementy tak, aby $f_0$ stało się $2$-liniowe. Innymi słowy, chcemy znaleźć najmniejszy podmoduł $L\subseteq X$ taki, że 
+$$f=j\circ f_0$$ 
+jest $R$-dwuliniowe, gdzie $j:X\to X/L$ jest odwzorowaniem ilorazowym.
+\end{bbox}
+\setcounter{section}{12}
+\setcounter{theorem}{0}
+
+\subsection{Konstrukcja produktu tensorowego}
+
+\begin{fact}
+  Odwzorowanie $f:M_1\times M_2\to X/L$ jest $R$-dwuliniowe $\iff$ dla wszystkich $m_1,m_1'\in M$ i $m_2,m_2'\in M_2$ oraz $r\in R$ mamy:
+  \begin{itemize}
+    \item $\langle m_1+m_1', m_2\rangle-[\langle m_1,m_2\rangle+\langle m_1',m_2\rangle]\in L$
+    \item $r\langle m_1,m_2\rangle-\langle rm_1,m_2\rangle\in L$
+    \item $\langle m_1,m_2+m_2'\rangle-[\langle m_1,m_2\rangle+\langle m_1,m_2'\rangle]\in L$
+    \item $r\langle m_1,m_2\rangle-\langle m_1,rm_2\rangle\in L$
+  \end{itemize}
+\end{fact}
+
+\begin{proof}
+  Łatwy [można przeczytać w "Commutative Algebra" $\sim$ M. Atiyah].
+\end{proof}
+
+\begin{definition}
+  \important{Produkt tensorowy} modułów $M_1$ i $M_2$ to funkcja 
+  $$f:M_1\times M_2\to X/L,$$
+  gdzie $X/L$ jak wyżej zwykle oznaczamy przez \acc{$M_1\otimes M_2$}. Element produktu tensorowego, czyli $f(m_1,m_2)$, oznaczamy przez \acc{$m_1\otimes m_2$}.
+
+  Analogicznie, dla $M_1,...,M_k$ $R$-modułów, odwzorowanie $R$-$k$-liniowe $f(m_1,...,m_k):={\color{blue}m_1\otimes...\otimes m_k}$ też jest produktem tensorowym.
+
+  \acc[i]{Tensory proste} $m_1\otimes m_2$ ($m_1\otimes...\otimes m_k$) generują $M_1\otimes M_2$ ($M_1\otimes...\otimes M_k$). Pozostałe elementy to \acc[i]{tensory złożone} i są to $R$-liniowe kombinacje tensorów prostych.
+\end{definition}
+
+\begin{remark}\label{uwaga:12.3}
+  Dla każdego $g:M_1\times M_2\to N$ $R$-dwuliniowego istnieje dokładnie jedno $h:M_1\otimes M_2\to N$ $R$-liniowe takie, że diagram
+
+  \begin{center}\begin{tikzcd}[column sep=large, row sep=large]
+    M_1\times M_2\arrow[rr, "\otimes=f"]\arrow[dr, "g" below] & & M_1\otimes M_2\arrow[dl, dashed, "h"]\\
+                                      & N
+  \end{tikzcd}\end{center}
+
+  komutuje. Warunek wyżej jest nazywany \acc[b]{warunkiem uniwersalności}
+\end{remark}
+
+\begin{proof}Przyjrzyjmy się diagramowi:
+
+  \begin{center}\begin{tikzcd}[column sep=large, /tikz/column 3/.style={column sep=0mm}, row sep=large]
+    & M_1\otimes M_2=X/L\arrow[dd, dashed, bend right=30, "h" below left]\\
+    M_1\times M_2\arrow[ur, "f"]\arrow[dr, "g"]\arrow[rr, hookrightarrow, "f_0=id" above right] & & X\arrow[ul, "j\text{: ilorazowe}" above right]\arrow[dl, "\parbox{3cm}{ l\footnotesize : R-homomorfizm $l(\langle m_1,m_2\rangle)=g(m_1,m_2)$ }"] &
+    \leftarrow\text{\footnotesize R-moduł wolny o bazie }\scriptstyle M_1\times M_2\\
+                                 & N
+  \end{tikzcd}\end{center}
+
+  Warunek na funkcję $l$ wyznacza ją jednoznacznie, gdyż $X$ jest modułem wolnym, a my wyznaczyliśmy na co przechodzą elementy jego bazy.
+
+  \phantomsection\label{warunek:z:12.3}
+  Jeśli funkcja $g=f\circ f_0$ jest dwuliniowa, to $\underbrace{ker(l)\supseteq L}_{{\color{purple}\text{\PHcat}}}$, bo:
+  \begin{align*}
+    g(m_1+m_1', m_2)=g(m_1, m_2)+g(m_1', m_2)&\implies \\
+    l(\langle m_1+m_1', m_2\rangle)=l(\langle m_1,m_2\rangle)+l(\langle m_1',m_2\rangle)&\implies\\
+    0=l(\langle m_1+m_1', m_2\rangle) - [l(\langle m_1, m_2\rangle)+l(\langle m_1', m_2\rangle)]=&\\
+    =l(\underbrace{\langle m_1+m_1',m_2\rangle-[\langle m_1,m_2\rangle + \langle m_1',m_2\rangle]}_{\in L})=0&
+  \end{align*}
+
+  Analogicznie dla pozostałych generatorów $L$. W takim raize, 
+  $$\{\text{generatory }L\}\subseteq ker(l)\implies \underbrace{L}_{{\scriptstyle ker(j)}}\subseteq ker(l).$$
+
+  Z twierdzenia o faktoryzacji $R$-homomorfizmów istnieje dokładnie jedno $h:M_1\otimes M_2\to N$ takie, że diagram
+
+  \begin{center}\begin{tikzcd}
+    & M_1\otimes M_2\arrow[dd, dashed, "h"]\\
+    M_1\times M_2\arrow[ur, "f" above left]\arrow[dr, "g" below left] &   & X\arrow[ul, "j" above right]\arrow[dl, "l" below left]\\
+                                            & N
+  \end{tikzcd}\end{center}
+  komutuje. Udowodnienie jedyności $h$ zostawiamy jako ćwiczenie.
+\end{proof}
+
+\begin{remark} Warunek \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}} z uwagi \ref{uwaga:12.3} wyznacza $M_1\otimes M_2$ z dokladnością do $\cong$.
+\end{remark}
+
+\begin{proof} Przy użyciu toerii kategorii.
+
+  Załóżmy, że $M_1\times M_2\xrightarrow[f']{} M_1\otimes' M_2$ jest $R$-dwuliniowe i spełnia warunek \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}}. 
+
+  \begin{center}\begin{tikzcd}
+    & M_1\times M_2\arrow[dd, "\exists!\;h" left, bend right=30]\\
+    M_1\times M_2\arrow[ur, "f"]\arrow[dr, "f'" below left]\\
+    & M_1\otimes' M_2\arrow[uu, "\exists!\;h'" right, bend right=30]
+  \end{tikzcd}\end{center}
+  gdzie istnienie $h$ i $h'$ wynika z warunku \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}}.
+
+  Zauważmy, że $h\circ h'=id_{M_1\otimes' M_2}$ oraz $h'\circ h=id_{M_1\otimes M_2}$, czyli $h$ jest izomorfizmem $R$-modułów i diagram wyżej komutuje.
+
+  {\large\color{orange}TE NOTATKI SĄ POURYWANE}
+\end{proof}

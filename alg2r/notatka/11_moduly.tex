@@ -499,7 +499,7 @@ jest izomorfizm modułów.
 
 \subsection{Moduły skończenie generowane}
 
-\begin{theorem}
+\begin{theorem}\label{twierdzenie:11.14}
   $R$ jest pierścieniem przemiennym z $1\neq 0$. Niech $M,N$ będą $R$-modułami oraz $f:M\to N$ jest epimorfizmem. Niech $M'=ker(f)$, $N\cong M/M'$.
 
   \begin{enumerate}
@@ -509,7 +509,7 @@ jest izomorfizm modułów.
 \end{theorem}
 \begin{proof}$ $\newline
   \begin{enumerate}
-    \item Niech $\{n_1,...,n_k\}\subseteq N$ i $\{m_1,...,m_l\}\subseteq M$ będą zbiorami generatorów. Weźmy $n_1',...,n_k'\in M$ takie, że $f(n_i')=n_i$.
+    \item Niech $\{n_1,...,n_k\}\subseteq N$ i $\{m_1,...,m_l\}\subseteq M'$ będą zbiorami generatorów. Weźmy $n_1',...,n_k'\in M$ takie, że $f(n_i')=n_i$.
     
       \begin{illustration}
         \draw[thick](0, 0)rectangle(5, 3) node[above right]{$M$};
@@ -545,3 +545,48 @@ jest izomorfizm modułów.
     \item Ćwiczenie, łatwe. $A\subseteq M\implies f[A]$ generuje $N$, gdzie $A$ jest zbiorem generatorów $M$.
   \end{enumerate}
 \end{proof}
+
+\begin{conclusion} Załóżmy, że $R$ jest pierścieniem przemiennym. Wtedy następujące warunki są równoważne:
+
+  \begin{enumerate}
+    \item $R$ jest pierścieniem noetherowskim
+    \item Jeśli $M$ jest skończenie generowanym $R$-modułem i $N\subseteq M$ jest jego podmodułem, to $N$ też jest skończenie generowany. 
+  \end{enumerate}
+\end{conclusion}
+
+\begin{proof}$ $\newline
+  \begin{itemize}[leftmargin=19mm]
+    \item[(2)$\implies$(1)] Niech $I\triangleleft R$. Zauważmy, że $R=R\cdot 1$ jest skończenie generowanym $R$-modułem cyklicznym. Z tego względu, $I\subseteq R$ również jest skończenie generowanym $R$-modułem. W takim razie, każdy ideał $I\triangleleft R$ jest skończenie generowany i $R$ jest pierścieniem noetherowskim.
+    \item[(1)$\implies$(2)] Weźmy $R$-moduł $M$ generowany przez $\{m_1,...,m_l\}$. Niech $W=Rm_1\oplus ...\oplus Rm_l$ będzie $R$-modułem wolnym o bazie $\{m_1,...,m_l\}$.
+
+      Rozważmy epimorfizm $\phi:W\to M$ zadany przez $\phi(m_i)=m_i$ oraz podmoduł $N\subseteq M$:
+
+      \begin{center}
+        \begin{tikzcd}
+          W\arrow[r, "\phi", twoheadrightarrow] & M\\
+          N'=\phi^{-1}[N]\arrow[u, phantom, sloped, "\subseteq"] & N\arrow[u, sloped, phantom, "\subseteq"]
+        \end{tikzcd}
+      \end{center}
+
+      Wystarczy pokazać, że $N'$ jest skończenie generowanym podmodułem $W$ (bo baza $N$ będzie $\leq $ niż baza $N'$ przez fakt, że $\phi$ jest surjekcją).
+
+      Indukcja względem ilości elementów bazy $M$:
+
+      \begin{itemize}
+        \item[$l=1$] Wtedy $W\cong R$. Niech $\psi:W\isomorphism R$ oraz $N''=\psi[N']$ będzie podmoudłem $R$. Podmoduły pierścienia to jego ideały. Z noetherowskości $R$ mamy, że $N''=\psi[N']$ jest skończenie generowanym ideałem. W takim razie $N'$ również jest skończenie generowany, gdyż $\psi$ było izomorfizmem.
+        \item[$l>1$] Załóżmy, że teza zachodzi dla wszystkich $l'<l$. Niech $\pi:W\to R$ będzie rzutem na $l$-tą współrzędną (czyli ostatnią).
+
+          \begin{center}
+            \begin{tikzcd}[column sep=large]
+              W\arrow[r, "\pi"] & R\\
+              N'\arrow[u, sloped, phantom, "\subseteq"]\arrow[r, "\phi_{\restriction N'}"] & \pi[N']\arrow[u, sloped, phantom, "\subseteq"]
+            \end{tikzcd}
+          \end{center}
+
+          $\pi[N']$ jest podmodułem pierścienia $R$, więc działa jak ideał. Ideały w pierścieniu noetherowskim są skończenie generowane, czyli $\pi[N']$ jest skończenie generowany.
+
+          Sprawdźmy teraz $ker(\phi_{\restriction N'})\subseteq \underbrace{R\times ...\times R}_{l-1}\times\{0\}\cong \underbrace{R\times...\times R}_{l-1}$ jest podmodułem modułu o bazie z $(l-1)$ elementami, czyli na mocy założenia indukcyjnego $ker(\phi_{\restriction N'})$ jest skończenie generowane. Na mocy twierdzenia \ref{twierdzenie:11.14}(1) $N'$ jest więc skończenie generowany ($\pi_{\restriction N'}:N'\to .\pi[N']$ jest homomorfizmem, $ker(\pi_{\restriction N'})$ jest skończenie generowany i $\pi[N']\cong N'/ ker(\pi_{\restriction N'})$ również jest skończenie generowany).
+      \end{itemize}
+  \end{itemize}
+\end{proof}
+
