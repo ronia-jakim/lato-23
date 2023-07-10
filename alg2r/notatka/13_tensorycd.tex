@@ -10,7 +10,7 @@ dane przez $W(X)\otimes V(Y)=W(X)\cdot V(Y)$. Odwzorowanie to spełnia warunek \
 \end{tikzcd}\end{center}
 a więc homomorfizm $h$ musi spełniać warunek
 $$h(W(X)\cdot V(Y))=g(W(X), V(Y))$$
-dla wszystkich $W(X)\in R[X]$ oraz $V(Y)\in R[Y]$. Ten warunek wraz z $R$-liniowością $h$ wyznacza je na całym $R[X, Y]$ w sposób jednoznaczny na diagramie wyżej.
+dla wszystkich $W(X)\in R[X]$ oraz $V(Y)\in R[Y]$. Ten warunek wraz z $R$-liniowością $g$ wyznacza $h$ na całym $R[X, Y]$ w sposób jednoznaczny na diagramie wyżej. Nie trudno też sprawdzić, że $h\circ \otimes=g$, co daje komutowanie diagramu.
 
 Dlaczego jednak $h$ istnieje? Rozpocznijmy od jednomianów $\{X^nY^m\}_{n,m\geq0}$ jako bazy $R[X,Y]$. Mamy
 $$h(X^nY^m)=g(X^n,Y^m)$$
@@ -28,3 +28,202 @@ Czyli funkcja $h$ działa na wszystkich wielomianach z $R[X,Y]$.
   $$M_n\otimes M_m\cong R_{<n}[X]\otimes R_{<m}[Y]\cong R_{<n<m}[X, Y]$$
   gdzie $R_{<n<m}[X,Y]$ to moduł wielomianów $W(X, Y)$ takich, że $deg_X(W)<n$ oraz $deg_Y(W)<m$. Dalszy ciąg dowodu podąża za rozumowaniem z przykładu wyżej.
 \end{proof}
+
+\textbf{\large\color{green}Własności iloczynu tensorowego:}
+
+\begin{enumerate}
+  \item $M_1\otimes M_2\cong M_2\otimes M_1$
+  \item $(M_1\otimes M_2)\otimes M_3\cong M_1\otimes (M_2\otimes M_3)\cong M_1\otimes M_2\otimes M_3$
+  \item $R\otimes M\cong M$
+\end{enumerate}
+
+\begin{proof}$ $\newline
+  \begin{enumerate}
+    \item Ćwiczenie
+    \item Ćwiczenie
+    \item Niech $f:R\times M\to M$ będzie $R$-dwuliniowym odwzorowaniem zadanym przez
+      $$f(r,m)=r\cdot m.$$
+      Wystarczy teraz pokazać, że $f$ spełnia warunek \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}}:
+
+      \begin{center}\begin{tikzcd}
+        R\times M\arrow[rr, "f"]\arrow[dr, "g" below left] & & M \arrow[dl, dashed, "\exists!\;h\text{ R-liniowe}"]\\
+                                 & N
+      \end{tikzcd}\end{center}
+
+      Funkcja $h$ zdefiniowana przez
+      $$h(m)=h(f(1,m))=g(1,m)$$
+      jest jedyna ze względu na jedyność $g$. Jest też $R$-homomorfizmem, bo $g$ jest $R$-liniowe na drugiej współrzędnej.
+
+      Diagram komutuje, bo $g$ jest $R$-liniowe na obu współrzędnych, a więc
+      $$(h\circ f)(r, m)=h(rm)=g(1, rm)=r\cdot g(1, m)=g(r, m)$$
+  \end{enumerate}
+\end{proof}
+
+\begin{remark}\label{uwaga:13.1}$ $\newline
+  \begin{enumerate}
+    \item Jeśli $A\subseteq M$ i $B\subseteq N$ są zbiorami generującymi te moduły, to $A\otimes B=\{a\otimes b\;:\;a\in A,b\in B\}$ jest generatorem $M\otimes N$.
+    \item Załóżmy, że $f:M\to M'$ i $g:N\to N'$ są $R$-liniowe. Wtedy istnieje dokładnie jedno $R$-liniowe
+      $$h:M\otimes N\to M'\otimes N'$$
+      zdefiniowane przez
+      $$h(m\otimes n)=f(m)\otimes g(n)$$
+  \end{enumerate}
+\end{remark}
+
+\begin{proof}$ $\newline
+
+  \begin{center}\begin{tikzcd}[column sep=6em, row sep=6em]
+    M\times N\arrow[d, "f\times g" left]\arrow[r, "\otimes"]\arrow[dr, "\otimes\circ(f\times g)"] & M\otimes N\arrow[d, dashed, "\exists!\;h"]\\
+    M'\times N'\arrow[r, "\otimes" below] & M'\otimes N'
+  \end{tikzcd}\end{center}
+
+  Gdzie $h(m\otimes n)=f(m)\otimes g(n)$.
+
+  Funkcja $\otimes\circ(f\times g)$ jest dwuliniowa, bo
+  \begin{align*}
+    \otimes\circ(f\times g)(x+y, n)&=\otimes(f(x)+f(y), g(n))=(f(x)+f(y))\otimes g(n)=\\
+                                   &=f(x)\otimes g(n)+f(y)\otimes g(n)=\\
+                                   &=\otimes\circ(f\times g)(x, n)+\otimes\circ(f\times g)(y, n)
+  \end{align*}
+
+  $R$-liniowość $h$, jego jedyność oraz komutowanie diagramu wyżej pokazujemy tak jak w dowodach wcześniejszych uwag.
+\end{proof}
+
+\subsection{Iloczyn tensorowych funkcji}
+
+\begin{definition} $f\otimes g=h$ jak z uwagi \ref{uwaga:13.1} nazywamy \important{iloczynem tensorowym} $f$ i $g$
+\end{definition}
+
+\begin{remark}$ $\newline
+  \begin{enumerate}
+    \item $ $\newline \begin{tikzcd}[column sep=2em, row sep=2em]
+        M\arrow[rr, "f"]\arrow[dr, "f'\circ f" below left] & &M'\arrow[dl, "f'"] & N\arrow[rr, "g"]\arrow[dr, "g'\circ g" below left] & &N'\arrow[dl, "g'"] & M\otimes N\arrow[rr, "f\otimes g"]\arrow[dr, "X" below left]" & & M'\otimes N'\arrow[dl, "f'\otimes g'"]\\
+                                                & M'' & & & N'' & & & M''\otimes N''
+      \end{tikzcd}
+      [dowód: wystarczy sprawdzić $X=(f'\otimes g')\circ(f\otimes g)=(f'\circ f)\otimes (g'\circ g)$]
+    \item $id_M\otimes id_N=id_{M\otimes N}$
+    \item $\phi:Hom(M, M')\times Hom(N, N')\to Hom(M\otimes M', N\otimes N')$ zadane przez $\phi(f, g)=f\otimes g$ jest $R$-dwuliniowe.
+  \end{enumerate}
+\end{remark}
+
+\begin{remark}
+  Dla $R$-modułu $M$ oraz $R$-modułów $\{N_i\}_{i\in I}$ istnieje izomorfizm
+  $$\psi:M\otimes (\bigoplus_{i\in I} N_i)\isomorphism \bigoplus_{i\in I} (M\otimes N_i)$$
+  zadany przez
+  $$\psi(m\otimes\sum n_i)=\sum_im\otimes n_i$$
+\end{remark}
+
+\begin{proof}
+  Rozważmy diagram
+
+  \begin{center}\begin{tikzcd}[column sep=2em, row sep=3em]
+    M\times\bigoplus_iN_i\arrow[rr, "\psi"]\arrow[dr, "g" below left] & &\bigoplus_i(M\otimes N_i)\arrow[dl, "\exists!\;h", dashed]\\
+                                         & N
+  \end{tikzcd}\end{center}
+  Musimy pokazać istnienie i jedyność $h$ oraz komutowanie diagramu (ostatnie jest trywialne).
+
+  \begin{description}
+    \item[istnienie h] pokażemy najpierw dla dowolnego $i$, a następnie korzystając z własności uniwersalności $\bigoplus_i$ przeniesiemy na całą sumę prostą.
+
+      \begin{center}\begin{tikzcd}
+        M\times N_i\arrow[rr, "\otimes"]\arrow[dr, "g\restriction M\times N_i"] & & M\otimes N_i\arrow[dl, "\exists!\;h_i"]\\
+                                                                                & N
+      \end{tikzcd}\end{center}
+      $h_i$ definiujemy wtedy jako
+      $$h_i(m\otimes n_i)=g(m, n_i)$$
+      a jego istnienie oraz jedyność udowadniamy tak jak wcześniej.
+
+      Ponieważ dla każdego $i$ istnieje dokładnie jedna funkcja $h_i$, to z własności uniwersalności $\bigoplus$ możemy stwierdzić, że dla każdego $i$ istnieje $\exists!\;h:\bigoplus (M\otimes N_i)\to N$ takie, że
+      
+      \begin{center}\begin{tikzcd}[column sep=1em, row sep=3em]
+        \bigoplus_i(M\otimes N_i)\arrow[rr, "h"] & & N\\
+                                                 & M\otimes N_i\arrow[ul, sloped, "\supseteq" below left]\arrow[ur, "h_i"]
+      \end{tikzcd}\end{center}
+
+      to znaczy
+      $$h(m\otimes n_i)=h_i(m\otimes n_i)=g(m, n_i),$$
+      czyli
+      $$h(\sum_im\otimes n_i)=\sum_ih_i(m\otimes n_i)=\sum_ig(m, n_i)=g(m, \sum n_i).$$
+      Dla $N=M\otimes(\bigoplus N_i)$ dostajemy $h$-izomorfizm oraz $h(\sum m\otimes n_i)=m\otimes\sum n_i$.
+    \item[jedyność h] sprawdzamy dla elementów $\sum m\otimes n_i$, gdyż generują one $\bigoplus (M\otimes N_i)$:
+      $$(h\circ\psi)(m\otimes\sum n_i)=h(\sum_im\otimes n_i)=g(m, \sum_in_i)$$
+      i od razu widać, że diagram jak wyżej komutuje.
+  \end{description}
+\end{proof}
+
+\subsection{Iloczyny zewnętrzne}
+
+\begin{bbox}
+Niech $R=K$ będzie ciałem, a $V$ będzie przestrzenią liniową nad $K$. Zdefiniujmy
+$$\color{blue}V^{\otimes n}=\underbrace{V\otimes...\otimes V}_{n}.$$
+
+Zdefiniujmy działanie $\sigma\in S_n$ działa na $V\otimes ...\otimes V$ przez permutowanie współrzędnych w tensorach prostych, tzn.
+$$\sigma(v_1\otimes...\otimes v_n)=v_{\sigma(1)}\otimes...\otimes v_{\sigma(n)}$$
+\end{bbox}
+
+\begin{definition}
+  Niech $x\in V^{\otimes n}$. Mówimy, że
+  
+  \begin{itemize}
+    \item $x$ jest \important{symetryczny}, jeśli dla każdego $\sigma\in S_n$ mamy $\sigma(x)=x$
+    \item $x$ jest \important{antysymetryczny}, jeśli dla każdego $\sigma\in S_n$ $\sigma(x)=sgn(\sigma)\cdot x$.
+  \end{itemize}
+
+      Dalej, definiujemy zbiory
+      $$\color{blue}\Lambda^nV=\{x\in V^{\otimes n}\;:\;x\text{ antysymetryczny}\}$$
+      $$\color{blue}S^nV=\{x\in V^{\otimes n}\;:\;x\text{ symetryczny}\}$$
+\end{definition}
+
+Jeśli $char(K)=0$, to wówczas $\Lambda^nV,S^nV\leq V^{\otimes n}$.
+
+Gdy $n=2$, to mamy $V\otimes V=\Lambda^2V\oplus S^2V$ rozumiane jako
+$$V\otimes V\ni x=\frac{1}{2}(x+\sigma(x))+\frac{1}{2}(x-\sigma(x))\in \Lambda^2V\oplus S^2V,$$
+gdzie $\sigma=(1, 2)\in S_2$ (bo drugi element $S_2$ to identyczność). Widzimy, że $S^2V\cap \Lambda^2V=\{0\}$.
+
+O $n$-liniowej funkcji $f:\underbrace{V\times...\times V}_{n}\to W$ mówimy, że jest
+\begin{itemize}
+  \item \acc[b]{symetryczna}, gdy dla każdego $\sigma\in S_n$ mamy $f(v_{\sigma(1)},...,v_{\sigma(n)})=f(v_1,...,v_n)$
+  \item \acc[b]{antysymetryczna}, gdy dla każdego $\sigma\in S_n$ mamy $f(v_{\sigma(1)},...,v_{\sigma(n)})=sgn(\sigma)\cdot f(v_1,...,v_n)$
+\end{itemize}
+
+\textbf{Przykład:} funkcja $det:K^n\times...K^n\to K$ jest antysymetryczna.
+
+\begin{bbox}
+Dla $x\in V^{\otimes n}$ definiujemy
+\begin{itemize}
+  \item ${\color{blue}x_s}=\frac{1}{n!}\sum_{\sigma\in S_n}\sigma(x)\in S^nV\leq V^{\otimes n}$
+  \item ${\color{blue}x_a}=\frac{1}{n!}\sum_{\sigma\in S_n}sgn(\sigma)\cdot\sigma(x)\in\Lambda^nV\leq V^{\otimes n}$.
+\end{itemize}
+
+Wtedy funkcja $f$ zadana przez
+$$f(v_1,..,.v_n)=v_1\land...\land v_n=(v_1\otimes...\otimes v_n)_a$$
+jest $n$-liniowa antysymetryczna, a diagram
+\begin{center}\begin{tikzcd}
+V_1\times...\times V_n\arrow[rr, "f"]\arrow[dr, "\substack{\scriptstyle g\text{: n-liniowe}\\\text{ antysymetryczne}}" below left] & &\Lambda^nV\arrow[dl, dashed, "\exists!\;h\text{ liniowe}"]\\
+                                                                                        & W
+\end{tikzcd}\end{center}
+komutuje.
+\end{bbox}
+
+\begin{remark} Niech $K$ będzie ciałem takim, że $char(K)\neq 2$ i niech $\{e_1,....,e_n\}\subseteq V$ będzie bazą $V$ nad $K$. Wtedy
+  $$\{e_{i_1}\land...\land e_{i_n}\;:\;1\leq i_1<i_2<...<i_n\leq k\}$$
+  jest bazą $\Lambda^nV$.
+
+  Stąd też gdy $n< k$
+  $$dim(\Lambda^nV)=\binom{k}{n}$$
+  $$dim(\Lambda^kV)=1$$
+  i dla $n:k$ $dim(\Lambda^nV)=0$.
+\end{remark}
+
+\textbf{Przykłady:}
+
+\begin{enumerate}
+  \item Mamy $v\land v=-v\land v=0$, gdyż $\{v, v\}$ i $\{v, -v\}$ nie są zbiorami liniowo niezależnymi.
+  \item Dla $v_1,v_2\in V$ liniowo niezależnych nad $K$ mamy
+    $$v_1\land v_2=r\cdot w_1\land w_2$$
+    dla $r\neq 0$ wtedy i tylko wtedy, gdy
+    $$Lin(v_1,v_2)=Lin(w_1,w_2)$$
+  \item Poprzedni przykład możemy uogólnić dla $v_1,...,v_n\in V$ liniowo niezależnych. Wtedy dla $w_1,...,w_n\in V$ mamy
+    $$(\exists\;r\neq 0)\;v_1\land ...\land v_n=r\cdot w_1\land...\land w_n\iff Lin(v_1,...,v_n)=Lin(w_1,...,w_n)$$
+  \item $(V\otimes W)^*\cong V^*\otimes W^*$ i $\Lambda^nV^*\cong (\Lambda^nV)^*$
+  \item więcej przykładów w analizie wielowymiarowej, geometrii różniczkowej, formach różniczkowych etc.
+\end{enumerate}

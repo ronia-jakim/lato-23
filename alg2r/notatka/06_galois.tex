@@ -99,10 +99,11 @@ zatem rozszerzenie $K\subseteq L$ jest normalne i skończone.
 
 $(1)\implies(2)$
 
-Niech $K\subseteq L$ będzie skończone i normalne. Wtedy $L=K(a_1,...,a_n)$ dla pewnych $a_1,...,a_n\in L$ i $\{a_1,...,a_n\}$ będzie bazą $L$ nad $K$. Wtedy istnieje $w\in K[X]\setminus\{0\}$ takie, że $w(a_1)=...=w(a_n)=0$, zatem 
-$$L\supseteq\{\text{ pierwiastki }w\}\supseteq\{a_1,...,a_n\}.$$
+Niech $K\subseteq L$ będzie skończone i normalne. Wtedy $L=K(a_1,...,a_n)$ dla pewnych $a_1,...,a_n\in L$ i $\{a_1,...,a_n\}$ będzie bazą $L$ nad $K$. Wtedy wiemy, że dla każdego $i$ istnieje $w_i\in K[X]\setminus\{0\}$ taki, że $w_(a_i)=0$ i $w_i$ rozkłada się na czynniki liniowe (bo $K\subseteq L$ normalne). Niech więc $w(x)=\prod w_i(x)$. Zachodzi $w(a_i)=0$ dla każdego $i$ i $w$ rozkłada się na czynniki liniowe w $L$, bo każdy $w_i$ się rozkładał. Zatem 
+$$L\supseteq\{\text{ pierwiastki }w\}\supseteq\{a_1,...,a_n\}$$
+i $L$ jest ciałem rozkładu $w\in K[X]$. 
 
-{\large\color{orange}COŚ TUTAJ JEST NIE TAK}
+%{\large\color{orange}COŚ TUTAJ JEST NIE TAK}
 \end{proof}
 
 \textbf{Przykłady:} 
@@ -170,7 +171,7 @@ Załóżmy, że $w(x)\in K[X]$ jest wielomianem nierozkładalnym stopnia $>0$. W
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    $$\{f(a)\;:\;f\in Gal(\hat{K}/K)\}\overset{\ref{uwaga:6:1s}}{=}\{\text{pierwiastki wielomianu minimalnego }w_a\in K[X]\text{ nad } K\}$$
+    $$\{f(a)\;:\;f\in Gal(\hat{K}/K)\}\overset{\ref{uwaga:6:1}}{=}\{\text{pierwiastki wielomianu minimalnego }w_a\in K[X]\text{ nad } K\}$$
     czyli $deg(a/K)=deg(w_a)$.
 \end{proof}
 

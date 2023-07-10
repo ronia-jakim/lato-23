@@ -1,11 +1,11 @@
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}1.1\else \numberline {1.1}Fakt\fi }{4}{fact.1.1}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}1.1\else \numberline {1.1}Fakt\fi }{3}{fact.1.1}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.2\else \numberline {1.2}Uwaga\fi }{4}{remark.1.2}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.3\else \numberline {1.3}Uwaga\fi }{5}{remark.1.3}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.4\else \numberline {1.4}Uwaga\fi }{6}{remark.1.4}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.5\else \numberline {1.5}Uwaga\fi }{6}{remark.1.5}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}1.6\else \numberline {1.6}Twierdzenie\fi }{7}{theorem.1.6}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.3\else \numberline {1.3}Uwaga\fi }{4}{remark.1.3}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.4\else \numberline {1.4}Uwaga\fi }{5}{remark.1.4}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}1.5\else \numberline {1.5}Uwaga\fi }{5}{remark.1.5}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}1.6\else \numberline {1.6}Twierdzenie\fi }{6}{theorem.1.6}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}1.7\else \numberline {1.7}Wniosek\fi }{7}{conclusion.1.7}%
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}1.8\else \numberline {1.8}Fakt\fi }{8}{fact.1.8}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}1.8\else \numberline {1.8}Fakt\fi }{7}{fact.1.8}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}2.1\else \numberline {2.1}Wniosek\fi }{9}{conclusion.2.1}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}2.2\else \numberline {2.2}Wniosek\fi }{10}{conclusion.2.2}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}2.3\else \numberline {2.3}Twierdzenie\fi }{10}{theorem.2.3}%
@@ -13,16 +13,16 @@
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}3.2\else \numberline {3.2}Uwaga\fi }{12}{remark.3.2}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}3.3\else \numberline {3.3}Uwaga\fi }{12}{remark.3.3}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}3.4\else \numberline {3.4}Twierdzenie\fi }{13}{theorem.3.4}%
-\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}3.5\else \numberline {3.5}Wniosek\fi }{13}{conclusion.3.5}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}3.5\else \numberline {3.5}Wniosek\fi }{14}{conclusion.3.5}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}3.6\else \numberline {3.6}Twierdzenie\fi }{14}{theorem.3.6}%
 \contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}4.1\else \numberline {4.1}Definicja\fi }{15}{definition.4.1}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}4.2\else \numberline {4.2}Uwaga\fi }{15}{remark.4.2}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}4.3\else \numberline {4.3}Uwaga\fi }{15}{remark.4.3}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}4.4\else \numberline {4.4}Definicja\fi \thmtformatoptarg {wielomian minimalny, stopień pierwiastka}}{16}{definition.4.4}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}4.4\else \numberline {4.4}Definicja\fi \thmtformatoptarg {wielomian minimalny, stopień pierwiastka}}{17}{definition.4.4}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}4.5\else \numberline {4.5}Uwaga\fi \thmtformatoptarg {$I(a/K)=(f)\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Relbar \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}deg(f)=\begin {bmatrix}K(a):K\end {bmatrix}$}}{17}{remark.4.5}%
 \contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}4.6\else \numberline {4.6}Fakt\fi \thmtformatoptarg {$dim_K(M)=dim_L(M)\cdot dim_K(L)$}}{17}{fact.4.6}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}4.7\else \numberline {4.7}Wniosek\fi \thmtformatoptarg {$K_{alg}$ - podciałem}}{18}{conclusion.4.7}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}4.8\else \numberline {4.8}Definicja\fi \thmtformatoptarg {(relatywne) algebraiczne domknięcie}}{18}{definition.4.8}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}4.8\else \numberline {4.8}Definicja\fi \thmtformatoptarg {(relatywne) algebraiczne domknięcie}}{19}{definition.4.8}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.1\else \numberline {5.1}Uwaga\fi \thmtformatoptarg {algebraiczne rozszerzenia ciał}}{20}{remark.5.1}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.2\else \numberline {5.2}Uwaga\fi \thmtformatoptarg {$(K_{alg}(L))_{alg}(L)=K_{alg}(L)$}}{20}{remark.5.2}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.3\else \numberline {5.3}Uwaga\fi \thmtformatoptarg {$F_m\in \mathbb {Z}\begin {bmatrix}X\end {bmatrix}$}}{20}{remark.5.3}%
@@ -30,9 +30,9 @@
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.5\else \numberline {5.5}Uwaga\fi \thmtformatoptarg {pierwiastek pierwotny a $dim_\mathbb {Q}(\mathbb {Q}(b))$}}{22}{remark.5.5}%
 \contentsline {lemma}{\ifthmt@listswap Lemat\nobreakspace {}5.6\else \numberline {5.6}Lemat\fi \thmtformatoptarg {lemat Liouville'a o aproksymacji diofatycznej}}{22}{lemma.5.6}%
 \contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}5.7\else \numberline {5.7}Definicja\fi \thmtformatoptarg {algebraiczne domknięcie}}{23}{definition.5.7}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.8\else \numberline {5.8}Uwaga\fi \thmtformatoptarg {istnieje algebraiczne domknięcie}}{23}{remark.5.8}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.8\else \numberline {5.8}Uwaga\fi \thmtformatoptarg {istnieje algebraiczne domknięcie}}{24}{remark.5.8}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}5.9\else \numberline {5.9}Twierdzenie\fi \thmtformatoptarg {jedyność domknięcia algebraicznego}}{24}{theorem.5.9}%
-\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}5.10\else \numberline {5.10}Wniosek\fi \thmtformatoptarg {$K\cong L\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Relbar \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}\cong \setbox \z@ \hbox {\mathsurround \z@ $\textstyle L$}\mathaccent "0362{L}$}}{24}{conclusion.5.10}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}5.10\else \numberline {5.10}Wniosek\fi \thmtformatoptarg {$K\cong L\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Relbar \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}\cong \setbox \z@ \hbox {\mathsurround \z@ $\textstyle L$}\mathaccent "0362{L}$}}{25}{conclusion.5.10}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}5.11\else \numberline {5.11}Uwaga\fi \thmtformatoptarg {algebraiczne rozszerzenie $1-1$ $\to $ $\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}$}}{25}{remark.5.11}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.1\else \numberline {6.1}Uwaga\fi \thmtformatoptarg {jednorodność $\setbox \z@ \hbox {\mathsurround \z@ $\textstyle K$}\mathaccent "0362{K}$}}{26}{remark.6.1}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.2\else \numberline {6.2}Uwaga\fi }{26}{remark.6.2}%
@@ -40,54 +40,60 @@
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.4\else \numberline {6.4}Twierdzenie\fi \thmtformatoptarg {skończone i normalne $\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Leftarrow \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}$ ciało rozkładu wielomianu}}{27}{theorem.6.4}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.5\else \numberline {6.5}Uwaga\fi }{28}{remark.6.5}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}6.6\else \numberline {6.6}Uwaga\fi \thmtformatoptarg {nierozkładalny a rozdzielczy}}{28}{remark.6.6}%
-\contentsline {lemma}{\ifthmt@listswap Lemat\nobreakspace {}6.7\else \numberline {6.7}Lemat\fi }{28}{lemma.6.7}%
+\contentsline {lemma}{\ifthmt@listswap Lemat\nobreakspace {}6.7\else \numberline {6.7}Lemat\fi }{29}{lemma.6.7}%
 \contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}6.8\else \numberline {6.8}Twierdzenie\fi \thmtformatoptarg {Abela o elemencie pierwotnym}}{29}{theorem.6.8}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}6.9\else \numberline {6.9}Wniosek\fi }{30}{conclusion.6.9}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}7.1\else \numberline {7.1}Uwaga\fi }{31}{remark.7.1}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}7.2\else \numberline {7.2}Wniosek\fi \thmtformatoptarg {przekrój $sep_L$ i $rad_L$}}{31}{conclusion.7.2}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}7.3\else \numberline {7.3}Uwaga\fi }{31}{remark.7.3}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}7.3\else \numberline {7.3}Uwaga\fi }{32}{remark.7.3}%
 \contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}7.4\else \numberline {7.4}Fakt\fi }{32}{fact.7.4}%
 \contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}7.5\else \numberline {7.5}Uwaga\fi }{33}{remark.7.5}%
 \contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}8.1\else \numberline {8.1}Fakt\fi }{35}{fact.8.1}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}8.2\else \numberline {8.2}Twierdzenie\fi }{36}{theorem.8.2}%
-\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}8.3\else \numberline {8.3}Wniosek\fi }{36}{conclusion.8.3}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}8.4\else \numberline {8.4}Twierdzenie\fi \thmtformatoptarg {Artin}}{36}{theorem.8.4}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}8.2\else \numberline {8.2}Twierdzenie\fi }{37}{theorem.8.2}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}8.3\else \numberline {8.3}Wniosek\fi }{37}{conclusion.8.3}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}8.4\else \numberline {8.4}Twierdzenie\fi \thmtformatoptarg {Artin}}{37}{theorem.8.4}%
 \contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}8.5\else \numberline {8.5}Wniosek\fi }{37}{conclusion.8.5}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}8.6\else \numberline {8.6}Twierdzenie\fi \thmtformatoptarg {podstawowe twierdzenie teorii Galois}}{37}{theorem.8.6}%
-\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}8.9\else \numberline {8.9}Wniosek\fi }{37}{conclusion.8.9}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.3\else \numberline {9.3}Twierdzenie\fi }{39}{theorem.9.3}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.4\else \numberline {9.4}Twierdzenie\fi }{39}{theorem.9.4}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.5\else \numberline {9.5}Twierdzenie\fi \thmtformatoptarg {twierdzenie Dedekinda o liniowej niezależności charakterów}}{40}{theorem.9.5}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.6\else \numberline {9.6}Twierdzenie\fi }{41}{theorem.9.6}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}10.1\else \numberline {10.1}Uwaga\fi }{45}{remark.10.1}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}10.2\else \numberline {10.2}Twierdzenie\fi }{46}{theorem.10.2}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}10.3\else \numberline {10.3}Definicja\fi }{47}{definition.10.3}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}10.4\else \numberline {10.4}Definicja\fi }{47}{definition.10.4}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}10.5\else \numberline {10.5}Uwaga\fi }{47}{remark.10.5}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}10.6\else \numberline {10.6}Uwaga\fi }{48}{remark.10.6}%
-\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}10.6\else \numberline {10.6}Wniosek\fi }{48}{conclusion.10.6}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}10.7\else \numberline {10.7}Twierdzenie\fi \thmtformatoptarg {zasadnicze twierdzenie o homommoorfizmie $R$-modułów}}{48}{theorem.10.7}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}10.8\else \numberline {10.8}Twierdzenie\fi \thmtformatoptarg {o faktoryzacji}}{48}{theorem.10.8}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}10.9\else \numberline {10.9}Definicja\fi }{49}{definition.10.9}%
-\contentsline {lemma}{\ifthmt@listswap Lemat\nobreakspace {}10.10\else \numberline {10.10}Lemat\fi \thmtformatoptarg {lemat Schura}}{49}{lemma.10.10}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.1\else \numberline {11.1}Uwaga\fi }{50}{remark.11.1}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.2\else \numberline {11.2}Uwaga\fi }{50}{remark.11.2}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.3\else \numberline {11.3}Definicja\fi }{50}{definition.11.3}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.4\else \numberline {11.4}Uwaga\fi }{51}{remark.11.4}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.5\else \numberline {11.5}Uwaga\fi }{51}{remark.11.5}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}11.6\else \numberline {11.6}Twierdzenie\fi }{52}{theorem.11.6}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.7\else \numberline {11.7}Uwaga\fi }{53}{remark.11.7}%
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}11.8\else \numberline {11.8}Fakt\fi }{53}{fact.11.8}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.9\else \numberline {11.9}Definicja\fi }{54}{definition.11.9}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.10\else \numberline {11.10}Definicja\fi \thmtformatoptarg {moduł cykliczny}}{54}{definition.11.10}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.11\else \numberline {11.11}Uwaga\fi \thmtformatoptarg {cykliczny $\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Leftarrow \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}M\cong R/I$}}{54}{remark.11.11}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.12\else \numberline {11.12}Definicja\fi \thmtformatoptarg {torsje, moduł torsyjny}}{54}{definition.11.12}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.13\else \numberline {11.13}Uwaga\fi }{54}{remark.11.13}%
-\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}11.14\else \numberline {11.14}Twierdzenie\fi }{55}{theorem.11.14}%
-\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}11.15\else \numberline {11.15}Wniosek\fi }{55}{conclusion.11.15}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.16\else \numberline {11.16}Definicja\fi \thmtformatoptarg {$R$-dwuliniowe}}{57}{definition.11.16}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.17\else \numberline {11.17}Uwaga\fi }{57}{remark.11.17}%
-\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}12.1\else \numberline {12.1}Fakt\fi }{57}{fact.12.1}%
-\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}12.2\else \numberline {12.2}Definicja\fi }{58}{definition.12.2}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}12.3\else \numberline {12.3}Uwaga\fi }{58}{remark.12.3}%
-\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}12.4\else \numberline {12.4}Uwaga\fi }{59}{remark.12.4}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}8.6\else \numberline {8.6}Twierdzenie\fi \thmtformatoptarg {podstawowe twierdzenie teorii Galois}}{38}{theorem.8.6}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}8.9\else \numberline {8.9}Wniosek\fi }{38}{conclusion.8.9}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.3\else \numberline {9.3}Twierdzenie\fi }{40}{theorem.9.3}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.4\else \numberline {9.4}Twierdzenie\fi }{40}{theorem.9.4}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.5\else \numberline {9.5}Twierdzenie\fi \thmtformatoptarg {twierdzenie Dedekinda o liniowej niezależności charakterów}}{41}{theorem.9.5}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}9.6\else \numberline {9.6}Twierdzenie\fi }{42}{theorem.9.6}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}10.1\else \numberline {10.1}Uwaga\fi }{47}{remark.10.1}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}10.2\else \numberline {10.2}Twierdzenie\fi }{48}{theorem.10.2}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}10.3\else \numberline {10.3}Definicja\fi }{49}{definition.10.3}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}10.4\else \numberline {10.4}Definicja\fi }{49}{definition.10.4}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}10.5\else \numberline {10.5}Uwaga\fi }{49}{remark.10.5}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}10.6\else \numberline {10.6}Uwaga\fi }{50}{remark.10.6}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}10.6\else \numberline {10.6}Wniosek\fi }{50}{conclusion.10.6}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}10.7\else \numberline {10.7}Twierdzenie\fi \thmtformatoptarg {zasadnicze twierdzenie o homommoorfizmie $R$-modułów}}{50}{theorem.10.7}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}10.8\else \numberline {10.8}Twierdzenie\fi \thmtformatoptarg {o faktoryzacji}}{50}{theorem.10.8}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}10.9\else \numberline {10.9}Definicja\fi }{51}{definition.10.9}%
+\contentsline {lemma}{\ifthmt@listswap Lemat\nobreakspace {}10.10\else \numberline {10.10}Lemat\fi \thmtformatoptarg {lemat Schura}}{51}{lemma.10.10}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.1\else \numberline {11.1}Uwaga\fi }{52}{remark.11.1}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.2\else \numberline {11.2}Uwaga\fi }{52}{remark.11.2}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.3\else \numberline {11.3}Definicja\fi }{53}{definition.11.3}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.4\else \numberline {11.4}Uwaga\fi }{53}{remark.11.4}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.5\else \numberline {11.5}Uwaga\fi }{54}{remark.11.5}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}11.6\else \numberline {11.6}Twierdzenie\fi }{54}{theorem.11.6}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.7\else \numberline {11.7}Uwaga\fi }{55}{remark.11.7}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}11.8\else \numberline {11.8}Fakt\fi }{55}{fact.11.8}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.9\else \numberline {11.9}Definicja\fi }{56}{definition.11.9}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.10\else \numberline {11.10}Definicja\fi \thmtformatoptarg {moduł cykliczny}}{57}{definition.11.10}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.11\else \numberline {11.11}Uwaga\fi \thmtformatoptarg {cykliczny $\DOTSB \tmspace +\thickmuskip {.2777em}\DOTSB \Leftarrow \joinrel \Rightarrow \tmspace +\thickmuskip {.2777em}M\cong R/I$}}{57}{remark.11.11}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.12\else \numberline {11.12}Definicja\fi \thmtformatoptarg {torsje, moduł torsyjny}}{57}{definition.11.12}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.13\else \numberline {11.13}Uwaga\fi }{57}{remark.11.13}%
+\contentsline {theorem}{\ifthmt@listswap Twierdzenie\nobreakspace {}11.14\else \numberline {11.14}Twierdzenie\fi }{57}{theorem.11.14}%
+\contentsline {conclusion}{\ifthmt@listswap Wniosek\nobreakspace {}11.15\else \numberline {11.15}Wniosek\fi }{58}{conclusion.11.15}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}11.16\else \numberline {11.16}Definicja\fi \thmtformatoptarg {$R$-dwuliniowe}}{60}{definition.11.16}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}11.17\else \numberline {11.17}Uwaga\fi }{60}{remark.11.17}%
+\contentsline {fact}{\ifthmt@listswap Fakt\nobreakspace {}12.1\else \numberline {12.1}Fakt\fi }{60}{fact.12.1}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}12.2\else \numberline {12.2}Definicja\fi }{61}{definition.12.2}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}12.3\else \numberline {12.3}Uwaga\fi }{61}{remark.12.3}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}12.4\else \numberline {12.4}Uwaga\fi }{62}{remark.12.4}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}13.1\else \numberline {13.1}Uwaga\fi }{64}{remark.13.1}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}13.2\else \numberline {13.2}Definicja\fi }{65}{definition.13.2}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}13.3\else \numberline {13.3}Uwaga\fi }{65}{remark.13.3}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}13.4\else \numberline {13.4}Uwaga\fi }{65}{remark.13.4}%
+\contentsline {definition}{\ifthmt@listswap Definicja\nobreakspace {}13.5\else \numberline {13.5}Definicja\fi }{66}{definition.13.5}%
+\contentsline {remark}{\ifthmt@listswap Uwaga\nobreakspace {}13.6\else \numberline {13.6}Uwaga\fi }{67}{remark.13.6}%

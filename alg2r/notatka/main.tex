@@ -4,8 +4,14 @@
 \usetikzlibrary{shapes.geometric}
 \usepackage{makecell}
 
-\title{Algebra 2R\smallskip\\{\scriptsize a voyage into the unknown}}
-\author{koteczek}
+\title{Algebra 2R
+}
+\author{
+  \footnotesize
+  Na podstawie wykładów\medskip\\
+  \emph{\normalsize Prof. Newelskiego}\medskip \\\footnotesize%
+  w semestrze letnim 2022/2023
+}
 \date{$\sim$}
 
 % \makeatletter
@@ -36,10 +42,31 @@
     lablb/.style={anchor=north, rotate=-45, inner sep=.5mm}
 }
 
+\usepackage{fancyhdr}
+
+\geometry{a4paper, total={170mm, 252mm}, top=22mm}
+
 \begin{document}
 \maketitle
 \thispagestyle{empty}
+\bigskip
+
+$ $\bigskip\newline
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{./kytel.jpg}
+
+{\slshape\scriptsize as long as algebra is taught in school, there will be prayer in school}
+\end{center}
+
 \newpage
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\textbf{Algebra 2R}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+\fancyfoot[L]{\color{black!20}Weronika Jakimowicz}
+\fancyfoot[R]{\color{black!20}Według wykładu Prof. Newelskiego}
 
 %Czwartek 23.03 godz. 18-20 -- odrabianie wykładu
 
@@ -71,7 +98,6 @@
 
 \newpage
 
-\includegraphics[width=\textwidth]{./kytel.jpg}
 \newpage
 
 \input{01_newel_party.tex}
@@ -114,7 +140,7 @@
 \input{13_tensorycd.tex}
 \newpage
 
-\listoftheorems
+%\listoftheorems
 %[ignoreall, show={wniosek,tw}] 
 
 \end{document}

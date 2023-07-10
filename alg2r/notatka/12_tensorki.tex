@@ -66,7 +66,7 @@ jest $R$-dwuliniowe, gdzie $j:X\to X/L$ jest odwzorowaniem ilorazowym.
 \end{definition}
 
 \begin{remark}\label{uwaga:12.3}
-  Dla każdego $g:M_1\times M_2\to N$ $R$-dwuliniowego istnieje dokładnie jedno $h:M_1\otimes M_2\to N$ $R$-liniowe takie, że diagram
+  Niech $f:M_1\times M_2\to M_1\otimes M_2$ zdefiniowane jako $f(m_1,m_2)=m_1\otimes m_2$. Jest to odwzorowanie $R$-dwuliniowe, często oznaczane po prostu przez $\otimes$. Wtedy dla każdego $g:M_1\times M_2\to N$ $R$-dwuliniowego istnieje dokładnie jedno $h:M_1\otimes M_2\to N$ $R$-liniowe takie, że diagram
 
   \begin{center}\begin{tikzcd}[column sep=large, row sep=large]
     M_1\times M_2\arrow[rr, "\otimes=f"]\arrow[dr, "g" below] & & M_1\otimes M_2\arrow[dl, dashed, "h"]\\
@@ -117,13 +117,17 @@ jest $R$-dwuliniowe, gdzie $j:X\to X/L$ jest odwzorowaniem ilorazowym.
   Załóżmy, że $M_1\times M_2\xrightarrow[f']{} M_1\otimes' M_2$ jest $R$-dwuliniowe i spełnia warunek \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}}. 
 
   \begin{center}\begin{tikzcd}
-    & M_1\times M_2\arrow[dd, "\exists!\;h" left, bend right=30]\\
+    & M_1\otimes M_2\arrow[dd, "\exists!\;h" left, bend right=30]\\
     M_1\times M_2\arrow[ur, "f"]\arrow[dr, "f'" below left]\\
     & M_1\otimes' M_2\arrow[uu, "\exists!\;h'" right, bend right=30]
   \end{tikzcd}\end{center}
   gdzie istnienie $h$ i $h'$ wynika z warunku \hyperref[warunek:z:12.3]{{\color{purple}\PHcat}}.
 
-  Zauważmy, że $h\circ h'=id_{M_1\otimes' M_2}$ oraz $h'\circ h=id_{M_1\otimes M_2}$, czyli $h$ jest izomorfizmem $R$-modułów i diagram wyżej komutuje.
+  %Zauważmy, że $h\circ h'=id_{M_1\otimes' M_2}$ oraz $h'\circ h=id_{M_1\otimes M_2}$, czyli $h$ jest izomorfizmem $R$-modułów i diagram wyżej komutuje.
 
-  {\large\color{orange}TE NOTATKI SĄ POURYWANE}
+  %{\large\color{orange}TE NOTATKI SĄ POURYWANE}
+
+  Załóżmy, że $h'\circ h=id_{M_1\otimes M_2}$, wtedy $h$ jest izomorfizmem $R$-modułów. Wiemy, że diagram wyżej komutuje, więc $h'\circ h=h'$, więc $id_{M_1\otimes M_2}=h'$, czyli $id=h'$, gdyż $h'$ było jedyne. W takim razie $M_1\otimes'M_2\cong M_1\otimes M_2$.
 \end{proof}
+
+Z tego powodu $M_1\otimes M_2$, jak i bardziej ogólnie $M_1\otimes...\otimes M_k$ możemy definiować "abstrakcyjnie" przez kategoryjny warunek uniwersalności.

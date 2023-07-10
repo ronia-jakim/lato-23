@@ -15,7 +15,7 @@ będący $K$-liniowym przekształceniem.
 \end{bbox}
 
 \begin{fact}
-Niech $\{f_1,...,f_\}=\{f:L\to \hat{K}\;:\;f\restriction K=id\}$, $k=[L:K]_s$ i $a\in L$. Wtedy
+Niech $\{f_1,...,f_k \}=\{f:L\to \hat{K}\;:\;f\restriction K=id\}$, $k=[L:K]_s$ i $a\in L$. Wtedy
 \begin{enumerate}
     \item $N_{L/K}(a)=\left[\prod\limits_{i=1}^kf_i(a)\right]^{[L:K]_r}$
     \item $Tr_{L/K}(a)=[L:K]_r\cdot\sum\limits_{i=1}^kf_i(a)$.
@@ -31,19 +31,34 @@ Niech $\{f_1,...,f_\}=\{f:L\to \hat{K}\;:\;f\restriction K=id\}$, $k=[L:K]_s$ i 
         Tr_{L/K}(a)=-a_{k-1}=\sum f_i(a)
     \end{array}$$
 
-\begin{proof}
+\begin{proof}$ $\newline
 \begin{enumerate}[leftmargin=*]
-    \item Niech $a\in L$. Wtedy{\large\color{orange}O JEZU JA NIE MYŚLĘĘĘ}
-    \item Jeśli $[L:K]_r\neq 1$, to $[L:K]_r=p^l$ dla $l\geq 1$ i $T_r(a)=0$
-    \begin{enumerate}
-        \item $a\in K_s$, to $tr_{L/K}(a)=[L:K_s]\cdot Tr_{K_s/K}(a)\underset{{\scriptsize char(K)=p}}{=}0$
-        \item $a\notin K_s$, wtedy $w_a(x)\in K[X]$ nie jest rozdzielczy na mocy 6.6(4). Czyli $K[X^p]\ni w_a(x)=x^{tp}+a_{(t-1)p}x^{(t-1)p}+...$. Stąd $a_{tp-1}=0=Tr_{L/K}(a)=[L:K(a)]\underbrace{Tr_{K(a)/K}(a)}_{=0}$
-    \end{enumerate}
-    \item Jeśli $[L:K]_r=1$, to $L=K$ i $K\subseteq L$ jest rozdzielcze. Patrzymy na ciąg
+  \item Niech $a\in L$. Wtedy
+    $$[L:K_s]=[L:sep_L(K)]=[L:K]_r=p^l\overset{zad}{\implies} a^{p^l}\in K_s.$$
+    Mamy więc
+    $$[N_{L/K}(a)]^{p^l}=N_{L/K}(\underset{{\scriptstyle\in K_s}}{a^{p^l}})\overset{zad}{=}[N_{K_s/K}(a^{p^l})]^{[L:K_s]}=[N_{K_s/K}(a^{p^l})]^{p^l}.$$
+    Niech $b=a^{p^l}$, wtedy
+    $$N_{K_s/K}(b)\overset{zad}{=}[N_{K(b)/K}(b)]^{[K_s:K(b)]}\overset{zad}{=}\prod_{i=1}^kf_i(b)$$
+    Tutaj $f_i,...,f_k:L\to \hat{K}$ są parami różne, więc $f_1\restriction K_s,...,f_k\restriction K_s:K_s\to \hat{K}$ również są parami różne.
+
+    Dlatego zachodzi
+    $$N_{L/K}(a)=N_{K_s/K}(b)=\prod_{i\leq k}f_i(\underset{{\scriptstyle=b}}{a^{p^l}})=\left[\prod_{i\leq k}f_i(a)\right]^{p^l}$$
+
+    %Niech $a\in L$ będzie rozdzielczy nad $K$ i $L=K(a)\subseteq\hat{K}$. Niech $w_a(x)=x^k+a_{k-1}x^{k-1}+...+a_1x+a_0\in K[X]$ będzie wielomianem minimalnym $a$ nad $K$. Niech $b_1=a, b_2,...,b_n\in \hat{K}$ będą pierwiastkami $w_a$.
+    \item 
+      \begin{itemize}
+        \item Jeśli $[L:K]_r\neq 1$, to $[L:K]_r=p^l$ dla $l\geq 1$ i $T_r(a)=0$
+          \begin{enumerate}
+             \item $a\in K_s$, to $tr_{L/K}(a)=[L:K_s]\cdot Tr_{K_s/K}(a)\underset{{\scriptsize  char(K)=p}}{=}0$
+              \item $a\notin K_s$, wtedy $w_a(x)\in K[X]$ nie jest rozdzielczy na mocy 6.6(4). Czyli $K[X^p]\ni w_a(x)=x^{tp}+a_{(t-1)p}x^{(t-1)p}+...$. Stąd $a_{tp-1}=0=Tr_{L/K}(a)=[L:K(a)]\underbrace{Tr_{K(a)/K}(a)}_{=0}$
+          \end{enumerate}
+        \item Jeśli $[L:K]_r=1$, to $L=K_s$ i $K\subseteq L$ jest rozdzielcze. Patrzymy na ciąg
     $$K\subseteq K(a)\subseteq L$$
     mamy
     $$Tr_{L/K}(a)=[L:K(a)]\cdot Tr_{K(a)/K}(a)$$
-    Możemy wziąc $b$ takie, że $K(a,b)=L$. Teraz liczymy homomorfizmy $L\underset{K}{\to} \hat{K}$
+    Możemy wziąc $b$ takie, że $K(a,b)=L$. Teraz liczymy homomorfizmy $L\underset{K}{\to} \hat{K}$ i dostajemy:
+    $$[L:K(a)\cdot Tr_{K(a)/K}(a)=\sum_{i\leq k}f_i(a)$$
+      \end{itemize}
 \end{enumerate}
 \end{proof}
 
@@ -51,7 +66,7 @@ Niech $\{f_1,...,f_\}=\{f:L\to \hat{K}\;:\;f\restriction K=id\}$, $k=[L:K]_s$ i 
 \begin{bbox}
 $K\subseteq L\subseteq\hat{K}$
 \begin{itemize}
-    \item[\PHtunny] Mówimy, że rozszerzenie algebraiczne jest \acc{Galois}, gdy dla każdego $a\in L\setminus K$ istnieje $f\in Gal(L/K)$ takie, że $f(a)\neq a$.
+  \item[\PHtunny] Mówimy, że rozszerzenie algebraiczne jest \acc[b]{Galois}, gdy dla każdego $a\in L\setminus K$ istnieje $f\in Gal(L/K)$ takie, że $f(a)\neq a$.
     \item[\PHtunny] Niech $G\leq Aut(L)$. Wtedy \important{ciałem punktów stałych} grupy $G$ nazywamy 
     $$L^G=\{a\in L\;:\;(\forall\;f\in G)\;f(a)=a\}=\bigcap_{f\in G}Fix(f)$$
 \end{itemize}
@@ -85,7 +100,7 @@ Weźmy $a\in L\setminus K$ i niech $w_a(x)$ będzie wielomianem minimalnym [rozd
 Załóżmy, że mamy $K\subseteq L\subseteq M\subseteq K$. $K\subseteq M$ jest rozszerzeniem Galois $\iff$ $L\subseteq M$ jest Galois.
 \end{conclusion}
 
-\begin{theorem}[Artin]
+\begin{theorem}[Artin]\label{twierdzenie Artina}
 Twierdzenie Artina: niech $G\leq Aut(L)$, wtedy $L^G\subseteq L$ jest rozszerzeniem Galois i $[L:L^G]=|G|$.
 \end{theorem}
 \begin{proof}
@@ -147,9 +162,10 @@ Przed dowodem ćwiczenie, które pojawi się na liście zadań:
 
 Niech $K\subseteq L'\subseteq L\subseteq\hat{K}$ takie, że $K\subseteq L$ jest normalne (może być też skończone). Wtedy $K\subseteq L'$ jest normalne $\iff$ dla każdej $f\in Gal(L/K)$ $f[L']=L'$ [ćwiczenia].
 
-\begin{proof}
-Weźmy sobie $f\in Gal(L/K)$
-{\large\color{orange}RYSUNEK}
+\begin{proof} Mocno rysunkowy (teoria modeli). Niestety, twórca notatek nie miał nigdy wcześniej styczności z teorią modeli.
+
+Weźmy $f\in Gal(L/K)$
+%{\large\color{orange}RYSUNEK}
 
 \begin{illustration}
     \node[rectangle, draw, minimum width=120pt, minimum height=180pt] (r) at (2, 3) {};% rectangle (4, 6);
@@ -177,9 +193,23 @@ Weźmy sobie $f\in Gal(L/K)$
     \node[ellipse, draw, minimum width=60pt, minimum height=25pt] (ed) at (2, 0.8) {};
     \draw (ed.north west)..controls(1.6, 1)and(1.6,0.6)..(ed.south west) node [midway,left]{$H$};
     \node at (ed.north east) [above, right] {$G(L/K)$};
+
+    \draw[->] (ed.south east)..controls(4, 0)and(6, 0)..(fd.south west) node [midway, above] {$\hat{f}$} node [midway, below] {$\cong$};
 \end{illustration}
 
-{\large\color{orange}NIE ROZUMIEM}
+Mamy strukturę $2$-sortową:
+$$(L, Gal(L/K), \star),$$
+gdzie $L$ to struktura ciała, $Gal(L/K)$ daje strukturę grupy, a $\star$ jest działaniem $Gal(L/K)$ na $L$.
+
+Przekształcenie $f:L\isomorphism L$ indukuje izomorfizm
+$$\hat{f}:Aut(L)\isomorphism Aut(L)$$
+$$\hat{f}(\phi)=f\circ\phi\circ f^{-1},$$
+to znaczy $\hat{f}=j_f\in Inn(Aut(L))$, gdzie $Inn(G)$ to automorfizmy powstałe przez sprzężanie $f$ z $\phi$. Ponieważ $f\restriction K=id_K$, to $f$ indukuje również $\hat{f}:Gal(L/K)\to Gal(L/K)$, czyli
+$$\hat{f}=j_f\in Inn(Gal(L/K))$$
+Mamy więc izomorfizm
+$$f\cup\hat{f}:(L, Gal(L/K), \star)\isomorphism (L ,Gal(L/K), \star).$$
+Czyli
+$$L^H=\bigcap_{g\in H} Fix(g)\implies f[L^H]=\bigcap_{g\in \hat{f}[H]}Fix(g)=L^H=L^{\hat{f}[H]}$$
 
 %Struktura $2$-sortowa:
 %$$(L, Gal(L/K),\star)$$
@@ -187,6 +217,24 @@ Weźmy sobie $f\in Gal(L/K)$
 %$$\hat{f}:Aut(L)\isomorphism Aut(L)$$
 %$$\hat{f}(\phi)=f\circ\phi\circ f^{-1}$$
 %To znaczy $\hat{f}=j_f\in ???(Aut(L))$
+\end{proof}
+
+\begin{proof} Wersja bardziej zrozumiała dla zwykłych śmiertelników.
+  
+  Pierwszą obserwację jest:
+  $$H\triangleleft Gal(L/K)\iff(\forall\;f\in Gal(L/K))\;\hat{f}[H]=fHf^{-1}=H\overset{\Gamma}{\iff} L^{\hat{f}[H]}=L^{fHf^{-1}}=L^H$$%\iff f[L^H]=L^H\iff K\subseteq L^H\text{ normalne}$$
+  \begin{align*}
+    L^{\hat{f}[H]}&=L^{fHf^{-1}}=\{a\in L\;:\;(\forall\;g\in H)\;f(g(f^{-1}(a)))=a\}=\\
+                  &=f[\{f^{-1}(a)\;:\;(\forall\;g\in H)\;g(f^{-1}(a))=f^{-1}(a)\}]=f[L^H]
+  \end{align*}
+  Czyli mamy $f[L^H]=L^{\hat{f}[L]}=L^H$, co jest możliwe $\iff$ $K\subseteq L^H$ jest rozszerzeniem normalnym.
+
+  Załóżmy, że $H\triangleleft Gal(L/K)$, tzn. $K\subseteq L^H$ jest rozszerzeniem Galois z poprzedniej części dowodu. Mamy wtedy
+  $$\phi:Gal(L/K)\twoheadrightarrow Gal(L^H/K)$$
+  czyli obcięcie identyczności do $L^H$. Jądro tego przekształcenia to:
+  $$ker(\phi)=\{f\in Gal(L/K)\;:\;f\restriction L^H=id_{L^H}\}=Gal(L/L^H)=H$$
+  tak jak w twierdzeniu Artina \ref{twierdzenie Artina}. Dlatego, na mocy twierdzenia o izomorfizmie grup, istnieje izomomrfizm
+  $$Gal(L^H/K)\cong Gal(L/K)/H$$
 \end{proof}
 
 
