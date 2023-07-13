@@ -1,0 +1,171 @@
+\section{Moduły nad pierścieniami PID}
+
+Od teraz $R$ niech będzie dziedziną ideałów głównych (PID) z $1\neq0$, a $M$ niech będzie $R$-modułem wolnym (tzn. $dim_R(M)$ jest dobrze określone).
+
+\begin{theorem} Podmoduł $R$-modułu wolnego $F$ jest wolny i wymiaru co najwyżej $dim_R(F)$.
+\end{theorem}
+
+\begin{proof}
+  Niech $F$ będzie modułem wolnym o bazie $\{b_1,...,b_n\}$, $M\subseteq F$ jego podmodułem. Dla $0<l\leq n$ rozważmy
+  $$M_l=M\cap\bigoplus_{i\leq l}Rb_i$$
+  natomiast gdy $l=0$, niech $M_l=\{0\}$.
+
+  \textbf{Uwaga:} Zauważmy, że dla każdego $l\leq n$ $M_l$ ma wymiar $dim(M_l)\leq l$. 
+
+  \begin{proof}
+  Dla $l=1$ mamy $M_1\subseteq Rb_1\cong R$ [bso. $M_1\neq\{0\}]$, więc po utożsamieniu $Rb_1$ z $R$ $M_1\triangleleft R$ jest ideałem, stąd $M_1=Ra$ jest ideałem głównym o bazie $\{a\}$ (generowanie $M_1=Ra$ przez taką bazę jest jasne, a liniowa niezależność wynika z $R$ - dziedzina).
+
+  Gdy założymy, że dla dowolnego $l$ stwierdzenie wyżej działa, możemy je pokazać dla $(l+1)$. Rozważmy rzut na $(l+1)$-współrzędną
+  $$\pi_{l+1}:M_{l+1}\to Rb_{l+1}\cong R$$
+  gdzie 
+  $$M_{l+1}\subseteq\bigoplus_{i\leq l+1}Rb_i\cong R^{l+1}.$$
+  Zauważmy, że $\pi_{l+1}[M]\triangleleft R$ możemy traktować jako podmoduł, więc:
+  
+  \begin{enumerate}
+    \item $\pi_{l+1}=0\implies M_{l+1}=ker(\pi_{l+1})=M_l$ więc z założenia indukcyjnego $dim(M_{l+1})=dim(M_l)\leq l<l+1$
+    \item $\pi_{l+1}\neq0\implies Im(\pi_{l+1})=Ra_{l+1}$ jest wolny i jest ideałem w $R$. W takim razie
+      $$\pi_{l+1}:M_{l+1}\twoheadrightarrow Ra_{l+1}$$
+      jest surjekcją i $M_{l+1}$ jest projektywny z faktu \ref{fact:11.8}. Mamy więc
+      $$M_{l+1}=ker(\pi_{l+1}\oplus N$$
+      gdzie $N\cong Ra_{l+1}$ i $M_l=ker(\pi_{l+1})$ są modułami wolnymi. W takim razie również $M_{l+1}$ jest modułem wolnym i z założenia indukcyjnego $M_l$ jest rangi co najwyżej $l$, a $Ra_{l+1}$ jest rangi jeden. Czyli $M_{l+1}$ jest rangi co najwyżej $l+1$.
+  \end{enumerate}
+  \end{proof}
+
+  W przypadku ogólnym, tzn. gdy $dim(F)$ jest nieskończny, możemy udowodnić twierdzenie korzystając z indukcji pozaskończonej (na tej samej zasadzie co w skończonym przypadku).
+\end{proof}
+
+\begin{remark}
+  Podmoduł $N$ modułu skończenie generowanego $M$ jest skończenie generowany. Jeśli $M$ ma zbiór generatorów mocy $n$, to $N$ ma zbiór generatorów mocy $\leq n$. 
+\end{remark}
+
+\begin{proof}
+  Załóżmy, że $M$ jest generowany przez $a_1,...,a_n$ i niech
+
+  \begin{center}\begin{tikzcd}
+    f:R^ n\arrow[r, twoheadrightarrow] & M\\
+    f[f^{-1}[N]\arrow[u, sloped, phantom, "\subseteq"]\arrow[r, phantom, sloped, "="] & N\arrow[u, sloped, phantom, "\subset"]
+  \end{tikzcd}\end{center}
+
+  $f$ będzie epimorfizmem takim, że
+  $$f(r_1,...,r_n)=ra_1+...ra_n.$$
+  $R^n$ będziemy traktować jako moduł wolny o standardowej bazie ($e_1,...,e_n$). Ponieważ $f^{-1}[N]$ jest modułem wolnym rangi $\leq n$, to $N$ jest generowany przez co najwyżej $n$ elementów.
+\end{proof}
+
+\begin{theorem} Załóżmy, że $M$ jest modułem skończenie generowanym. Wtedy
+
+  \begin{enumerate}
+    \item Jeśli $M$ jest beztorsyjny, to $M$ jest modułem wolnym
+    \item $M=M_t\oplus F$, gdzie $M_t$ to część torsyjna $M$, a $F\subseteq M$ jest pewnym modułem wolnym $M$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+    \item Niech $\{x_1,...,x_n\}\subseteq M$ będzie zbiorem generatorów, a $\{b_1,...,b_k\}$ będzie jego maksymalnym podzbiorem liniowo niezależnym.
+
+      Rozważmy $x_i$ dla $i=1,...,n$. Układ $\langle x_i,b_1,...,b_k\rangle$ jest liniowo zależny ze względu na maksymalność $\{b_1,...,b_k\}$, więc
+      $$a_ix_i+r_1b_1+...+r_kb_k=0$$
+      dla pewnym $a_i,r_1,...,r_k\in R$ i część jest $\neq 0$. Ponieważ $b_1,...,b_k$ były liniowo niezależne, to na pewno nie może być $a_i=0$, więc $a_ix_i\in N$, gdzie $N=Rb_1+...+Rb_k$ jest modułem wolnym.
+
+      Weźmy $a=a_1\cdot...\cdot a_n\neq 0$, bo $R$ jest dziedziną. Stąd $ax_i\in N$ dla $i=1,...,n$. Czyli dla każdego $x\in M$ mamy $ax\in N$, bo $x=\sum r_ix_i$, czyli $ax=\sum r_i\underbrace{ax_i}_{\in N}\in N$.
+
+      Rozważmy teraz $f:M\to N$ zadane przez $f(x)=ax$. Zauważmy, że $f$ jest $1-1$, bo $M$ jest beztorsyjny. W takim razie $M\cong f[M]\subseteq N$ jest podmodułem modułu wolnego, czyli $f[M]$ jest modułem wolny. Przez izomorfizm $M$ również jest modułem wolnym.
+  \item Niech $j:M\to M/M_t$ będzie przekształceniem ilorazowym. 
+
+    Zauważmy, że $M/M_t$ jest skończenie generowanym modułem beztorsyjnym, więc na mocy $(1)$ jest on wolny. Z \ref{fact:11.8} mamy więc, że $M$ jest modułem projektywnym. Stąd $M=M_t\oplus F$, gdzie $m_t=ker(j)$, a $F\cong M/M_t$.
+  \end{enumerate}
+\end{proof}
+
+\begin{definition}
+  Niech $p\in R$ będzie elementem nierozkładalnym (czyli pierwszym bo jesteśmy w pierścieniu PID) i niech $M$ będzie $R$-modułem. Mówimy, że
+
+  \begin{itemize}
+    \item $m\in M$ jest \important{$p$-torsyjny} $\iff$ $I_m=\{r\in R\;:\;rm=0\}=(p^k)$ dla pewnego $k>0$. $p^k$ można traktować jako "rząd" $m$
+    \item $M_p=\{m\in M\;:\; m\;p\text{-torsyjny}\;\lor\;m=0\}$ nazywamy \important{$p$-prymarną składową $M$} i jest to \acc[i]{podmoduł $M$}
+    \item $M$ jest \important{$p$-prymarny}, gdy $M=M_p$, tzn. dla każdego $m\in M$ istnieje $k$ takie, że $p^km=0$.
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  Niech $M$ będzie $R$-modułem, gdzie $R$ jest pierścieniem PID.
+  \begin{enumerate}
+    \item $M_p\subseteq M_t$ jest podmodułem i nazywa się go \acc[b]{$p$-prymarną składową $M$}
+    \item $M_t=\bigoplus M_{p_i}$, gdzie $p_i$ to wszystkie elementy pierwsze $R$ (z dokładnością do stowarzyszenia).
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Patrz: dowód analogicznego stwierdzenia dla grup abelowych
+\end{proof}
+
+\textbf{Przykład:} Niech $M=R/(p^k)$ i weźmy $1+(p^k)\in M$. Wtedy $M$ jest modułem cyklicznym $p$-prymarnym, a $k$ jest minimalne takie, że $p^kM=0$.
+
+\textbf{\large\color{blue}Uwaga.} Jeśli $M$ jest modułem cyklicznym $p$-prymarnym, to istnieje $k$ takie, że $M\cong R/(p^k)$.
+
+\begin{proof}Ćwiczenia\end{proof}
+
+\begin{theorem} Jeśli $M$ jest skończenie generowanym modułem $p$-prymarnym, to 
+  $$M=\bigoplus\{\text{moduły cyklicze}\}$$
+\end{theorem}
+
+\begin{proof}
+  Indukcja względem $n$-minimalnej liczby generatorów $M$.
+
+  \begin{enumerate}
+    \item $n=0$ jest trywialnym modułem
+    \item Krok indukcyjny: załóżmy, że działa dla $(n-1)$.
+
+      Niech $\{m_1,...,m_n\}\subseteq M$ będzie zbiorem generatorów $p$-prymarnego modułu $M$. Wtedy dla każdego $i$ istnieje $r_i>-$ minimalne takie, że $p^{r_i}m_i=0$. Z tego wynika, że istnieje $r=\max\{r_i\;:\;i=1,...,n\}>0$ takie, że dla każdego $m\in M$ zachodzi $p^rm=0$.
+
+      Bez straty ogólności możemy przyjąć, że $p^{r-1}m_n\neq 0$, co oznacza po prostu, że $r=r_n$. Niech teraz $j:M\to M/Rm_n$ będzie homomorfizmem ilorazowym.
+
+      \begin{illustration}
+        \node at (2.5, 6.5) {$ker(j)=Rm_n$};
+        \node at (5, 6.5) {$M$};
+        \draw (0, 3) rectangle (5, 6);
+        \draw (2.2, 3) rectangle (2.8, 6);
+        \draw (0, 0.8) rectangle (5, 1.5);
+
+        \draw[->] (2.5, 2.8)--(2.5, 1.7) node [midway, right] {$j$};
+
+        \filldraw (0.5, 4.5) circle (1.5pt) node [below] {$m_1$};
+        \filldraw (1.2, 4.5) circle (1.5pt) node [below] {$m_2$};
+        \filldraw (2.5, 4) circle (1.5pt) node [below] {$m_n$};
+        \filldraw (3.8, 4.5) circle (1.5pt);
+        \filldraw (4.5, 4.5) circle (1.5pt) node [below] {$m_5$};
+        \filldraw (2.5, 5) circle (1.5pt) node [above] {$0$};
+
+        \filldraw (1.5, 4.5) circle (1.5pt);
+        \filldraw (2, 4.5) circle (1.5pt);
+        \filldraw(3, 4.5) circle (1.5pt);
+        \filldraw(3.5, 4.5) circle (1.5pt);
+
+        \filldraw (0.5, 1.3) circle (1.5pt) node [below] {$\overline{m}_1$};
+        \filldraw (1.2, 1.3) circle (1.5pt) node [below] {$\overline{m}_2$};
+
+        \filldraw (3.8, 1.3) circle (1.5pt);
+        \filldraw (4.5, 1.3) circle (1.5pt) node [below] {$\overline{m}_{n-1}$};
+
+        \node at (5, 2) {$M/Rm_n$};
+      \end{illustration}
+
+    Dla $x\in M$ niech $\ovelrine{x}$ oznacza $j(x)$. Wtedy $\ovelrine{m}_1,...,\overline{m}_{n-1}$ generują $M/Rm_n$. Z założenia indukcyjnego mamy więc, że $M/Rm_n=\oplus\{\text{cykliczne}\}$.
+
+    Pokażemy teraz, że $M=M/Rm_n\oplus Rm_n$, tzn. że $j$ się rozszczepia i $M$ jest projektywny.
+
+    Niech $r_i>0$ będzie minimalne takie, że $p^{r_i}\overline{e}_i=0$, gdzie $M/Rm_n=R\overline{e}_1\oplus...\oplus R\overline{e}_l$ dla pewnych $e_i\in M$. Tutaj $p^{r_i}$ jest jak rząd elementu $\overline{e}_i$ w grupach abelowych.
+
+    Dla $0\leq t < r$ mamy $p^{t_i}\overline{e}_i\neq 0$, więc $p^{t_i}e_i=0$.
+
+    Chcemy teraz pokazać, że modyfikując $e_i$, ale zachowując $\overline{e}_i$ niezmienione możemy założyć, że $p^{r_i}e_i=0$.
+
+      Jeśli $p^re_i=0$, to $r_i\leq r$. Wiemy, że $p^{r_i}e_i\in Rm_n$, bo $j(p^{r_i}e_i)=0$, więc $p^{r_i}e_i=am_n$. W takim razie $p^{r-r_i}\cdot p^{r_i}e_i=0\implies p^{r-r_i}(am_n)=0$. Weźmy $a=p^la_1$, gdzie $NWD(p, a_1)=1$. Wtedy 
+      $$p^{r-r_i}(am_n)=0\implies p^{r-r_i}\cdot p^l a_1m_n=0\implies p^{r-r_i+l}a_1\in I_{m_n}=(p^r)\implies r\leq r-r_i+l,$$
+      czyli $r_i\leq l$. Stąd otrzymujemy
+      $$p^{r_i}e_i=am_n=p^la_1m_n=p^{r_i}(p^{l-r_i}a_1)m_n=p^{r_i}a'm_n$$
+      czyli
+      $$p^{r_i}(e_i-a'm_n)=0$$
+      i $e_i-a'm_n$ jest w tej samej warstwie $Rm_n$ co $e_i$, ale jest jednak różne od oryginalnego $e_i$.
+    \end{itemize}
+  \end{enumerate}
+\end{proof}
