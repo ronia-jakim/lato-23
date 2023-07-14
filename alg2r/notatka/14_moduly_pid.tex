@@ -76,6 +76,8 @@ Od teraz $R$ niech będzie dziedziną ideałów głównych (PID) z $1\neq0$, a $
   \end{enumerate}
 \end{proof}
 
+\subsection{Moduły $p$-prymarne}
+
 \begin{definition}
   Niech $p\in R$ będzie elementem nierozkładalnym (czyli pierwszym bo jesteśmy w pierścieniu PID) i niech $M$ będzie $R$-modułem. Mówimy, że
 
@@ -115,7 +117,9 @@ Od teraz $R$ niech będzie dziedziną ideałów głównych (PID) z $1\neq0$, a $
     \item $n=0$ jest trywialnym modułem
     \item Krok indukcyjny: załóżmy, że działa dla $(n-1)$.
 
-      Niech $\{m_1,...,m_n\}\subseteq M$ będzie zbiorem generatorów $p$-prymarnego modułu $M$. Wtedy dla każdego $i$ istnieje $r_i>-$ minimalne takie, że $p^{r_i}m_i=0$. Z tego wynika, że istnieje $r=\max\{r_i\;:\;i=1,...,n\}>0$ takie, że dla każdego $m\in M$ zachodzi $p^rm=0$.
+      Niech $\{m_1,...,m_n\}\subseteq M$ będzie zbiorem generatorów $p$-prymarnego modułu $M$. Wtedy dla każdego $i$ istnieje $r_i>0$ minimalne takie, że $p^{r_i}m_i=0$. Z tego wynika, że istnieje 
+      $$r=\max\{r_i\;:\;i=1,...,n\}>0$$ 
+      takie, że dla każdego $m\in M$ zachodzi $p^rm=0$.
 
       Bez straty ogólności możemy przyjąć, że $p^{r-1}m_n\neq 0$, co oznacza po prostu, że $r=r_n$. Niech teraz $j:M\to M/Rm_n$ będzie homomorfizmem ilorazowym.
 
@@ -149,7 +153,7 @@ Od teraz $R$ niech będzie dziedziną ideałów głównych (PID) z $1\neq0$, a $
         \node at (5, 2) {$M/Rm_n$};
       \end{illustration}
 
-    Dla $x\in M$ niech $\ovelrine{x}$ oznacza $j(x)$. Wtedy $\ovelrine{m}_1,...,\overline{m}_{n-1}$ generują $M/Rm_n$. Z założenia indukcyjnego mamy więc, że $M/Rm_n=\oplus\{\text{cykliczne}\}$.
+    Dla $x\in M$ niech $\overline{x}$ oznacza $j(x)$. Wtedy $\overline{m}_1,...,\overline{m}_{n-1}$ generują $M/Rm_n$. Z założenia indukcyjnego mamy więc, że $M/Rm_n=\bigoplus\{\text{cykliczne}\}$.
 
     Pokażemy teraz, że $M=M/Rm_n\oplus Rm_n$, tzn. że $j$ się rozszczepia i $M$ jest projektywny.
 
@@ -166,6 +170,83 @@ Od teraz $R$ niech będzie dziedziną ideałów głównych (PID) z $1\neq0$, a $
       czyli
       $$p^{r_i}(e_i-a'm_n)=0$$
       i $e_i-a'm_n$ jest w tej samej warstwie $Rm_n$ co $e_i$, ale jest jednak różne od oryginalnego $e_i$.
-    \end{itemize}
+
+      Niech $M'\subseteq M$ będzie generowany przez $\{e_1,...,e_l\}$ i niech 
+      $$j':M'\to M/Rm_n$$ 
+      będzie przekształceniem ilorazowym i w dodatku "na", bo $\{\overline{e}_1,...,\overline{e}_l\}$ generuje $M/Rm_n$. Mamy $ker(j')\cap M'=0$, bo wpp. 
+      $$j'(a_1e_1+...+a_le_l)=0\implies a_1\overline{e}_1+...+a_l\overline{e}_l=0$$
+      a ponieważ
+      $$M/Rm_n=\bigoplus_{i\leq l}R\overline{e}_i$$
+      to każdy z tych elementów musi być równy zero:
+      $$a_1\overline{e}_1=...a_l\overline{e}_l=0$$
+      a ponieważ $p^{r_i}$ jest "rzędem" $\overline{e}_i$, to $p^{r_i}|a_i$. Ponieważ $p^{r_i}e_i=0$, to również $a_ie_i=0$, czyli $j'$ jest różnowartościowe.
+
+      W takim razie, $j'$ jest izomorfizmem $M'\cong M/Rm_n$, a więc $M'=\oplus\{\text{cykliczne}\}$. Przez izomorfizm $M'\cong M/Rm_n$ mamy $M=M'\oplus Rm_n$, gdzie $Rm_n$ jest cykliczne, czyli $M=\oplus\{\text{cykliczne}\}$.
   \end{enumerate}
+\end{proof}
+
+\begin{remark}
+  Załóżmy, że $M$ jest skończenie generowanym $R$-modułem $p$-prymarnym. Wtedy
+  $$M\cong R/(p^{k_1})\oplus R/(p^{k_2})\oplus...\oplus R/(p^{k_l})$$
+  dla pewnych $1\leq k_1\leq ...\leq k_l$. Ponadtwo ciąg $k_1,...,k_l$ jest wyznaczony jednoznacznie.
+\end{remark}
+
+\begin{proof}
+ Z poprzedniego wniosku wiemy, że
+ $$M=M_1\oplus...\oplus M_l$$
+ gdzie dla każdego $i$ $M_i$ jest $p$-prymarny, czyli $M_i\cong R/(p^{k_i})$. Bez straty ogólności przyjmijmy, że $1\geq k_1\geq...\geq k_l$.
+
+ \textbf{\color{blue}Lemat 1:} Jeśli $N$ jest $R$-modułem, to $N/pN$ jest $R/(p)$-modułem (czyli przestrzenią liniową nad ciałem $R/(p)$.)
+
+ \textbf{\color{blue}Lemat 2:} 
+ $$p^i(R/(p^k))/p^{i+1}(R/(p^k))=\begin{cases}0 & i\geq k\\p^iR/(p^{i+1})\end{cases}$$
+ gdzie $p^iR/(p^{i+1})$ jest przestrzenią liniową nad $R/(p)$ o wymiarze 1.
+  \bigskip
+
+ Załóżmy, że $k_i<k_{i+1}$. Wtedy
+ $$p^{k_i}M=p^{k_i}(M_{i+1}\oplus...\oplus M_l)$$
+ $$p^{k_i-1}M=p^{k_i-1}(M_{j+1}\oplus...\oplus M_i\oplus M_{i+1}\oplus ...\oplus M_l),$$
+ gdzie $k_j<k_{j+1}=k_i<k_{i+1}$.
+
+ Wtedy na mocy {\color{blue}Lematu 1} $p^{k_{i}-1}M/p^{k_i}M$ jest przestrzenią liniową nad $R/(p)$ o wymiarze $(l-j)$. W dodatku mamy
+ $$p^{k_i-1}M/p^{k_i}M=p^{k_i-1}M_{j+1}/p^{k_i}M_{j+1}\oplus p^{k_i-1}M_{j+2}/p^{k_i}M_{j+2}\oplus...\oplus p^{k_i-1}M_l/p^{k_i}M_l.$$
+ Z {\color{blue}Lematu 2} wiemy, że
+ $$dim_{R/(p)}(p^{k_i-1}M_{j+1}/p^{k_i}M_{j+1})=...=dim_{R/(p)}(p^{k_i-1}M_l/p^{k_i}M_l)=1.$$
+
+ Wymiary $dim_{R/(p)}(p^{k-1}M/p^kM)$ dla $k=1,...,k_l$ pozwalają jednoznacznie odczytać $k_1\leq k_2\leq ...\leq k_l$.
+\end{proof}
+
+\subsection{Moduły nierozkładalne}
+
+\begin{definition}
+  $R$-moduł $M$ jest \important{nierozkładalny} $\iff$ $M=M_1\oplus M_2$ oznacza, że $M_1=0$ lub $M_2=0$.
+\end{definition}
+
+\textbf{\large\color{blue}Uwaga.} Moduł cykliczny $M$ jest nierozkładalny $\iff$ $M$ jest beztorsyjny (wolny) lub $p$-prymarny.
+
+\begin{proof} Ćwiczenie
+\end{proof}
+
+\begin{theorem} Jeśli $M$ jest $R$-modułem skończenie generowanym, to 
+  $$M=\bigoplus_{i\in I} M_i,$$
+  gdzie $M_i$ są nierozkładalne.
+
+  Dodatkowo, jeśli $I$ jest skończony, to $M_i$ są cykliczne i wyznaczone jednoznacznie z dokładnością do izomorfizmu i permutacji $I$.
+\end{theorem}
+
+\begin{proof}
+  Z poprzednich twierdzeń z tego rozdziału możemy założyć, że
+  $$M=F\oplus M_t$$
+  gdzie $F$ jest wolny, a $M_t=\bigoplus_{p\text{ pierwsze}} M_p$, gdzie $M_p\cong R/(p^{k_1})\oplus ...\oplus R/(p^{k_l})$, jest podmodułem torsyjnym $M$. Z tego (i faktu, że $F=R\oplus...\oplus R$) widać, że $M$ jest sumą prostą modułów nierozkładalnych.
+
+  Załóżmy teraz, że $I$ jest skończony. Wtedy z poprzedniego punktu wiemy, że
+  $$M=\underbrace{M_1\oplus ...\oplus M_r}_{\substack{beztorsyjne\\\cong R\oplus...\oplus R}}\oplus \underbrace{M_{r+1}\oplus...\oplus M_{r+s}}_{torsyjne\;\cong M_t}.$$
+
+  W takim razie $\bigoplus_{i\leq r}M_i\cong M/M_t\cong F$ jest modułem wolnym o wymiarze $r$.
+
+  Z twierdzeń 14.5 i 14.6 wiemy, że skoro $M_{r+1}$ są wszystkie modułami torsyjnymi, to $M_{r+1}=\bigoplus\{\text{moduły p-prymarne cykliczne}\}$. W takim razie
+  $$(M_t)_p=\bigoplus\{M_{r+i}\;:\;M_{r+i}\text{ p-prymarny}\}$$
+  a więc 
+  $$(M_t)_p=M_p\cong R/(p^{k_1})\oplus...\oplus R/(p^{k_l})$$
+  gdzie jednoznaczność z dokładnością do izomorfizmu dostajemy z uwagi po twierdzeniu 14.5.
 \end{proof}

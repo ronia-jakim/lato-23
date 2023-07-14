@@ -1,0 +1,163 @@
+\section{Przestrzeń liniowa jako $K[X]$-moduł}
+
+Niech $V$ będzie przestrzenią liniową nad ciałem $K$ o wymiarze $dim(V)=n<\infty$. Weźmy $\psi\in End_K(V)$. Wtedy da $f=a_0+a_1x+...+a_lx^l\in K[X]$ możemy zdefiniować:
+$$f(\psi)=a_0id_V+a_1\psi^1+...+a_l\psi^l\in End_K(V).$$
+Takie odwzorowanie $K[X]\ni f\mapsto f(\psi)\in End_K(V)$ jest homomorfizmem pierścieni, więc \acc[b]{$V$ jest $K[X]$-modułem} z działaniem $f\cdot v=f(\psi)(v)$ dla $v\in V$ i $f,\psi$ jak wyżej.
+
+\begin{remark}
+  Przestrzeń liniowa $V$ jest skończenie generowana i torsyjna jako $K[X]$-moduł.
+\end{remark}
+
+\begin{proof}
+  \begin{description}
+    \item[generowanie:] Niech $\{e_1,...,e_n\}\subseteq V$ będzie bazą $K$-liniową. W takim razie $\{e_1,...,e_n\}$ generuje $V$ jako $K[X]$-moduł, bo dla $k\in K\subseteq K[X]$ mamy $k\cdot v=kv$ w sensie przestrzeni liniowej $V$.
+    \item[torsyjność:] Dla $v\in V$ mamy
+      $$v, \psi(v),\psi^2(v),...,\psi^n(v)$$
+      są liniowo zależne w $V$, bo $dim(V)=n$. W takim razie
+      $$a_0v+a_1\psi(v)+...+a_n\psi^n(v)=0$$
+      dla pewnych $a_i\in K$. Możemy teraz wziąć $K[X]\ni f(x)=\sum a_ix^i$, wtedy $f\cdot v=0$.
+  \end{description}
+\end{proof}
+
+\textbf{\large\color{blue}Uwaga:} Jeśli $K[X]$ jest PID, to 
+$$V=\bigoplus_{\substack{p_i\in K[X]\\pierwsze}} V_{p_i}.$$
+Bycie pierwszym przez $p_i\in K[X]$ oznacza, że $p_i(x)$ jest wielomianem nierozkładalnym.
+
+Możemy utożsamić
+$$V_{p_i}\cong K[X]/(p_i^{k_1})\oplus...\oplus K[X]/(p_i^{k_l})$$
+gdzie $1\leq k_1\leq ...\leq k_l$.
+
+Jeśli $K$ jest ciałem algebraicznie domkniętym, to $f_i(x)\in K[X]$ jest nierozkładalny $\iff$ $deg(f_i)=1\iff f_i=(x-a_i)$ (z dokładnością do stowarzyszenia).
+
+\subsection{Klatki Jordana}
+
+Strukturę $K[X]/(f^{k_s})=K[X]/(x-a_i)^{k_s}$ jako $K$-modułu definiujemy przez przekształcenie ilorazowe
+$$j:K[X]\to K[X]/(x-a_i)^{k_s}.$$
+Wtedy bazą $K[X]/(x-a_i)^{k_s}$ jako $K$-modułu jest
+$$B_{i,s}=\{j(1),j(x-a_i),...,j(x-a_i)^{k_s-1}\}.$$
+Dowód tego stwierdzenia wykorzystuje fakt, że $K[X]/(x-a_i)\cong K[X]/x^s$ zadany przez $w(x)\mapsto w(x+a_i)$.
+
+Dla $0\leq u\leq k_s$ zachodzi
+$$x\cdot(x-a_i)^u=(x-a_i)^{u+1}+a_i(x-a_i)^u,$$
+czyli
+$$
+\psi(j(x-a_i)^u)=\begin{cases}a_ij(x-a_i)^u & u=k_s-1\\a_ij(x-a_i)^u+j(x-a_i)^{u+1}&0\leq u < k_s-1,\end{cases}
+$$
+więc
+$$m_{B_{i,s}}(\psi\restriction K[X]/(x-a_i)^{k_s})=\begin{bmatrix}a_i & 0 & 0 & \hdots & 0\\
+    1 & a_i & 0 & \hdots & 0\\
+    0 & 1 & a_i & \hdots & 0\\
+    \vdots\\
+  0 & 0 & 0 & \hdots & a_i\end{bmatrix}$$
+  jest klatką Jordana. Niech $B=\bigcup_{i,s}B_{i,s}$ będzie bazą Jordana $V$ dla endomorfizmu $\psi$. Wtedy $m_B(\psi)$ jest macierzą z klatkami Jordana jak wyżej na przekątnej.
+
+\begin{remark}[twierdzenie Jordana]\emph{[Twierdzenie Jordana]} Jeśli $K$ jest algebraicznie domknięte i $V$ jest przestrzenią liniową nad $V$ wymiaru $dim(V)<\infty$, a $\psi:V\to V$ jest liniowe, to istnieje baza Jordana $B\subseteq V$ dla której $m_B(\psi)$ ma postać Jordana.
+
+  Dodatkowo, rozmiary klatek $J$ w $m_B(\psi)$ są wyznaczone jednoznacznie (nie zależą od wymiaru $B$).
+\end{remark}
+
+\subsection{$R$-algebry}
+
+\begin{definition}
+  Niech $R$ będzie pierścieniem przemiennym z $1\neq 0$. Wtedy definiujemy \important{$R$-algebrę} (przemienną) jako $R$-moduł $S=(S,+,r)_{r\in R}$ z dodatkowym mnożeniem $\cdot$ takim, że $(S, +, \cdot)$ jest pierścieniem przemiennym i dla każdego $r\in R$ oraz dowolnych $s,s'\in S$ 
+  $$r(s\cdot s')=rs\cdot s'=s\cdot(rs').$$
+  $R$-algebry oznaczamy
+  $$S=(S, +, \cdot, r)_{r\in R}$$
+\end{definition}
+
+\textbf{Przykłady:}
+\begin{enumerate}
+  \item Jeśli $R$ jest pierścieniem, to $R$ jest $\Z$-algebrą.
+  \item Dla pierścienia $R$, $R[X], R[X,Y]$ są $R$-algebrami.
+  \item Jeśli $R\subseteq S$ jest podpierścieniem z $1_R=1_S$, to $S$ jest $R$-algebrą.
+\end{enumerate}
+
+\begin{remark}$ $\newline
+  \begin{enumerate}
+    \item Jeśli $S$ jest $R$-algebrą z jednostką $1$, to
+      $$\eta:R\to S$$
+      zadana przez $\eta(r)=r\cdot 1$ jest homomorfizmem $R$-algebr.
+    \item Gdy $R$ jest ciałem, to $\eta:R\hookrightarrow S$ jest włożeniem i $R$ jest podciałem pierścienia $S$.
+    \item Na odwrót, gdy $S$ jest pierścieniem z $1$ i $R\subseteq S$ jest podciałem, to $S$ jest $R$-algebrą.
+  \end{enumerate}
+\end{remark}
+
+\important{Kategorię $R$-algebr} oznaczamy przez $\color{blue}Alg_R$.
+
+Załóżmy, że $S$ jest $R$-algebrą z $1$, a $M$ jest $R$-modułem. Wtedy
+$$S\otimes_R M$$
+jest produktem tensorowym $R$-modułów i działa w oczywisty sposób jako $R$-moduł, ale też jako $S$-moduł:
+
+$$S\ni s:S\otimes_RM\to S\otimes_RM$$
+takie, że $s\cdot(s'\otimes m)=(ss')\otimes m$ dla wszystkich $s'\in S$ oraz $m\in M$.
+
+\begin{proof}
+  Rozważmy homomorfizmy $R$-modułów
+  $$S\xrightarrow[s]{}S$$
+  $$M\xrightarrow[]{id}M$$
+  jak wyżej. Wtedy
+  $$(s)\otimes id:S\otimes M\to S\otimes M$$
+  jest homomorfizmem $R$-modułów. Czyli $(S\otimes M, +, s)_{s\in S}$ jest $S$-modułem z działaniem $s\otimes id$. 
+\end{proof}
+
+\textbf{Przykłady:}
+
+\begin{enumerate}
+  \item Jeśli $G$ jest $\Z$-modułem (grupą abelową), to $\Q\otimes_\Z G$ jest $\Q$-modułem, tzn. przestrzenią liniową nad $\Q$.
+  \item Jeśli $V$ jest przestrzenią liniową nad $\R$, to $\C\otimes_\R V$ jest przestrzenią liniową nad $\C$. Nazywamy to wtedy \acc[i]{kompleksyfikacją} $V$.
+\end{enumerate}
+
+Dla $S_1,S_2$ $R$-algebr z $1$ mamy $S_1\otimes_R S_2$ jako $R$-algebrę z działaniem dla tensorów prostych $s_1\otimes s_2,s_1'\otimes s_2'\in S_1\otimes_RS_2$ zadanym przez
+$$(s_1\otimes s_2)(s_1'\otimes s_2')=(s_1s_1')\otimes (s_2s_2')$$
+a na dowolne tensory przedłużamy korzystając z dwuliniowości:
+$$(\sum s_1^i\otimes s_2^i)(\sum s_1^j\otimes s_2^j)=\sum (s_1^is_1^j)\otimes(s_2^is_2^j)$$
+
+\subsection{Radykały}
+
+\begin{bbox}
+Dla ideału $I\triangleleft R$ definiujemy jego \important{radykał} jako
+$${\color{blue}\sqrt{I}}=\{a\in R\;:\;(\exists\;n>0)\;a^n\in I\}$$
+wtedy $I\subseteq\sqrt{I}\triangleleft R$.
+\end{bbox}
+
+\begin{theorem}\emph{[Nullstellensatz Hilberta]}
+  Niech $I\triangleleft K[\overline{X}]$ i $f\in K[\overline{X}]$ taki, że
+  $$Z_{K^{alg}}(I)\subseteq Z_{K^{alg}}(f).$$
+  Wtedy $f\in\sqrt{I}$.
+
+  Tutaj dla $K\subseteq L$ rozszerzenia ciał definiujemy
+  $$Z_L(I)=\{\overline{a}\in K^n\;:\;(\forall\;g\in I)\;g(\overline{a})=0\}$$
+\end{theorem}
+
+\begin{proof}
+  Załóżmy nie wprost, że $f\notin\sqrt{I}$. Niech $J\triangleleft K[\overline{X}]$ będzie ideałem maksymalnym wśród ideałów $I'\supseteq\sqrt{I}$ takich, że $f\notin\sqrt{I'}$. Pokażemy, że $J$ jest ideałem pierwszym.
+
+  Załóżmy, że $g\cdot h\in J$, ale $g,h\notin J$. Wtedy $f\in\sqrt{(J,g)}$ i $f\in\sqrt{(J,h)}$. W takim razie istnieją $n,k$ takie, że
+      $$f^n\in (J,g)\quad f^n=j_1+w_1\cdot g$$
+      $$f^k\in (J, h)\quad j_2+w_2\cdot h$$
+      W takim razie
+      $$f^{n+k}=f^n\cdot f^k=(j_1+w_1\cdot g)(j_2+w_2\cdot h)\in (J, gh)\subseteq J\implies f\in\sqrt{J}\;\lightning$$
+\end{proof}
+
+Dla $J$ i $f$ jak wyżej w $K[\overline{X}]/J=K[\overline{a}]$, gdzie $\overline{a}=\overline{X}/J$, jest:
+\begin{itemize}
+  \item $f(\overline{a})\neq 0$, bo $f\notin J$
+  \item $\overline{a}\in Z(J)$
+  \item $K[\overline{a}]$ jest dziedziną.
+\end{itemize}
+
+Mamy 
+$$K[\overline{a}]\subseteq K[\overline{a}]_0\subseteq K[\overline{a}]_o^{alg},$$ gdzie $K[\overline{a}]_0$ jest ciałem ułamków, a $K[\overline{a}]_0^{alg}$ jest algebraicznym domknięciem $K[\overline{a}]_0$. W $K[\overline{x}]_0^{alg}$ istnieje takie $\overline{x}$, że $\overline{x}\in Z(J)\setminus Z(f)$. 
+
+\textbf{\large\color{orange}Twierdzenie.} [z teorii modeli] Jeśli $L_1\subseteq L_2$ są ciałami algebraicznie domkniętymi, to $L_1\prec L_2$, tzn. dla każdego zdania $\phi$ w języku pierścieni z parametrami w $L_1$ mamy $L_2\vDash \phi\iff L_1\vDash \phi$.
+
+Ponieważ
+$$K[\overline{a}]_0^{alg}\vDash "\exists\;\overline{x}\in Z(J)\setminus Z(f)"$$
+jest zdaniem w języku pierścieni i $K^{alg}\prec K[\overline{a}]_0^{alg}$, to również
+$$K^{alg}\vDash "\exists\;\overline{x}\in Z(J)\setminus Z(f)".$$
+
+\begin{remark}
+  Załóżmy, że $K$ jest ciałem algebraicznie domkniętym takim, że układ równań wielomianowych 
+  $$f_1(\overline{x})=...=f_k(\overline{x})=0$$
+  nie ma rozwiązań w $K$, tzn. $Z_K(f_1,...,f_n)\subseteq Z_K(1)$. Wtedy $1\in (f_1,...,f_k)$.
+\end{remark}
