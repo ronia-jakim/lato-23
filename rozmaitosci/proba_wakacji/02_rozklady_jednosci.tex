@@ -35,7 +35,7 @@ Przypomnijmy definicje, które będą przydatne przy rozkładach jedności:
 \begin{definition}[rozdrobnienie] Pokrycie $\{V_\beta\}$ przestrzeni $X$ zbiorami otwartymi nazywamy \important{rozdrobnieniem pokrycia} $\{U_\alpha\}$, jeśli każdy $V_\beta$ zawiera się w pewnym $U_\alpha$.
 \end{definition}
 
-Warto nadmienić, że relacja bycia rozdrobnieniem jest przechodnia.\marginpar{$\{W_\gamma\}\prec\{V_\beta\}\prec\{U_\alpha\}\implies\;\implies\{W_\gamma\}\prec\{U_\alpha\}$} Będziemy oznaczać ją przez $\{V_\beta\}\prec\{U_\alpha\}$.
+Warto nadmienić, że relacja bycia rozdrobnieniem jest przechodnia.\marginpar{$\scriptstyle\{W_\gamma\}\prec\{V_\beta\}\prec\{U_\alpha\}\implies\;\implies\{W_\gamma\}\prec\{U_\alpha\}$} Będziemy oznaczać ją przez $\{V_\beta\}\prec\{U_\alpha\}$.
 
 \begin{definition}[przestrzeń parazwarta] Przestrzeń topologiczna $X$ jest \important{parazwarta}, jeśli każde jej pokrycie $\{U_\alpha\}$ zbiorami otwartymi posiada lokalnie skończone rozdrobnienie $\{V_\beta\}$.
 \end{definition}
@@ -50,7 +50,7 @@ Rozdrobnienie wynikające z parazwartości rozmaitości topologicznych można z 
 Niech $\{U_\alpha\}$ będzie pokryciem $M$. Łatwo jest znaleźć rozdrobnienie $\{U'_\gamma\}\prec\{U_\alpha\}$ złożone ze zbiorów prezwartych mapowych. Wystarczy obraz każdego $U_\alpha$ w $\R^n$ pokryć zbiorami prezwartymi i wrócić z nimi na $M$. Z faktu, że rozmaitości są parazwarte dostajemy lokalnie skończone rozdrobnienie $\{V_\beta\}\prec\{U'_\gamma\}$, które z przechodności $\prec$ jest też rozdrobnieniem $\{U_\alpha\}$. Dodatkowo, każdy $V_\beta$ zawiera się w pewnym $U'_\gamma$, które były mapowe i prezwarte, więc i $V_\beta$ taki jest.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{uwaga:2.5}
   Niech $\{A_\alpha\}$ będzie lokalnie skończoną rodziną parazwartych podzbiorów rozmaitości $M$. Wtedy dla każdego $A_{\alpha_0}$ podrodzina
   $$\{A_\alpha\;:\;A_\alpha\cap A_{\alpha_0}\neq\emptyset\}$$
   jest skończona.
@@ -64,12 +64,81 @@ Niech $\{U_\alpha\}$ będzie pokryciem $M$. Łatwo jest znaleźć rozdrobnienie 
 
 W uwadze \ref{uwaga:2.4} pokazaliśmy mapowość i prezwartość zbiorów z rozdrobnienia $\{V_\beta\}$ wynikającego z parazwartości rozmaitości topologicznych. Możemy teraz dodatkowo zapewnić sobie istnienie interesujących nas zbiorów zwartych:
 
-\begin{remark}
+\begin{remark}\label{wniosek:2.6}
   Niech $\{V_\beta\}$ będzie lokalnie skończonym rozdrobnieniem pokrycia $M$ składającym się ze zbiorów mapowych. Wtedy dla każdego $\beta$ istnieje zwarty zbiór $D_\beta\subseteq V_\beta$ taki, że
   $$\bigcup D_\beta=M$$
   to znaczy możemy wybrać "rozdrobnienie" przy pomocy zwartych zbiorów, które nadal pokrywa $M$.
 \end{remark}
+\begin{illustration}
+  \draw (0, 0) circle (2cm);
+  \draw (3, 0.4) circle (2cm);
+  \node at (-1, 2) {$V_{\beta_1}$};
+  \node at (4, 2.4) {$V_{\beta_2}$};
+  \node[regular polygon, regular polygon sides=6, draw, inner sep=1.2cm] at (0, 0) {};
+  \node[regular polygon, regular polygon sides=6, draw, inner sep=1.2cm, rotate=20] at (3, 0.4) {};
+  \node at (-1, -0.8) {$D_{\beta_1}$};
+  \node at (4, 1.3) {$D_{\beta_2}$};
+\end{illustration}
 
 \begin{proof}
   Ponieważ $V_\beta$ są zbiorami mapowymi, to o każdym z nich możemy myśleć jak o otwartym podzbiorze w $\R^n$ poprzez utożsamienie go z otwartym zbiorem $\overline{V_\beta}=\phi_\beta(V_\beta)$ dla mapy $(V_\beta, \phi_\beta)$.
+
+  Każdy $V_{\beta_0}$ jest wstępującą suma mniejszych zbiorów $V_{\beta_0,k}$ dla $k\in\N$, które są otwarte i ich zwarte domknięcia zawierają się w $V_{\beta_0}$: $cl(V_{\beta_0,k})\subseteq V_{\beta_0}$. Możemy np. wybierać $V_{\beta_0,k}=B(x_0, k)\cap \{x\in V_{\beta_0}\;:\;d(x, V_{\beta_0^c}>\frac{1}{k}\}$, tzn. przekroje kul otwartych w $\R^n$ o środku w $x_0\in V_{\beta_0}$ i promieniu $k$ ze zbiorami tych $x\in V_{\beta_0}$, które są odległe od dopełnienia $V_{\beta_0}$ o co najmniej $\frac{1}{k}$.
+
+  Niech teraz $V_{\beta_1},...,V_{\beta_m}$ będą zbiorami z $\{V_\beta\}$ niepusto krojącymi $V_{\beta_0}$. Jest ich skończenie na mocy \ref{uwaga:2.5}. Wówczas $V_{\beta_1},...,V_{\beta_m}$ wraz z wcześniej stworzonymi $V_{\beta_0,k}$ jest pokryciem zwartego zbioru $cl(V_{\beta_0})$. Możemy więc z niego wybrać skończone podpokrycie postaci: $V_{\beta_1},...,V_{\beta_m},...V_{\beta_0,k_0}$. Oznacza to, że zastępując w $\{V_\beta\}$ zbiór $V_{\beta_0}$ przez zbiór $V_{\beta_0, k_0}$ dostajemy nowe pokrycie $M$ z $cl(V_{\beta_0,k_0}\subseteq V_{\beta_0}$. Powtarzamy to induktywnie dla wszystkich $V_\beta$ i wybieramy pokrycie
+  $$D_\beta=cl(V_{\beta, k}),$$
+  które spełnia wymagania z uwagi.
 \end{proof}
+
+\begin{bbox}
+Z uwag udowodnionych wyżej wynika więc, że dla dowolnego pokrycia otwartego $\{U_\beta\}$ rozmaitości topologicznej $M$ istnieje 
+\begin{itemize}
+  \item lokalnie skończone rozdrobnienie $\{V_\beta\}$ składające się ze zbiorów mapowych i parazwartych oraz
+  \item rodzina $\{D_\beta\}$ zwartych podzbiorów $D_\beta\subseteq V_\beta$, która dalej pokrywa $M$.
+\end{itemize}
+
+To samo dotyczy też rozmaitości z brzegiem.
+\end{bbox}
+
+\subsection{Twierdzenie o rozkładzie jedności}
+
+\begin{definition}[nośnik funkcji]Dla funkcji rzeczywistej $f:X\to \R$ określamy jej \important{nośnik} jako:
+  $$\color{blue}supp(f):=cl(\{x\in X\;:\;f(x)\neq0\})$$
+\end{definition}
+
+\begin{fact}\label{fakt:2.8} [z $\R^n$] Dla dowolnego otwartego $\Omega\subseteq\R^n_+$ oraz dowolnego zwartego $D\subseteq \Omega$ istnieje gładka funkcja $f:\R^n\to \R$ taka, że:
+  \begin{enumerate}
+    \item $f\geq 0$
+    \item $supp(f)\subseteq\Omega$
+    \item $f(x)>0$ dla $x\in D$
+  \end{enumerate}
+\end{fact}
+
+\begin{theorem}[o rozkładzie jedności] \emph{[O rozkładzie jedności]} Dla każdego otwartego pokrycia $\{U_\alpha\}$ rozmaitości gładkiej $M$ istnieje rodzina $\{f_i\}$ gładkich funkcji $f_i:M\to \R$ takich, że
+  \begin{enumerate}
+    \item $f_i\geq 0$
+    \item dla każdego $i$ nośnik $supp(f_i)$ zawiera się w pewnym $U_\alpha$
+    \item nośniki $\{supp(f_i)\}$ tworzą lokalnie skończone pokrycie $M$
+    \item dla każdego $x\in M$ $\sum f_i(x)=1$ [suma ta jest skończona wokół każdego $x$ dzięki 3.]
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Niech $\{V_j\}\prec\{U_\alpha\}$ będzie lokalnie skończonym pokryciem otwartym prezwartymi zbiorami mapowymi. Niech $D_j\subseteq V_j$ będą zbiorami zwartymi, które dalej pokrywają $M$ (na mocy \ref{wniosek:2.6}). Dzięki faktowi z $\R^n$ \ref{fakt:2.8} wiemy, że dla każdego $j$ istnieje gładka funkcja $h_j:M\to\R$ taka, że:
+\begin{enumerate}
+  \item $h\geq 0$
+  \item $supp(h_j)\subseteq V_j$
+  \item $h_j(x)>0$ dla $x\in D_j$
+\end{enumerate}
+
+Niech teraz $h(x)=\sum_jh_j(x)$. Jest to dobrze określona definicja, gdyż $supp(h_j)$ tworzą rodzinę lokalnie skończoną (bo $\{V_j\}$ taka jest). Z lokalnej skończoności nośników wynika, że $h$ jest gładka na $M$.
+
+Dostajemy też $h(x)>0$, bo $D_j$ pokrywają całe $M$, a więc dla każdego $x\in M$ istnieje $i$ takie, że $x\in D_i$, a więc $h_i(x)>0$.
+
+Określmy $f_j(x)=\frac{h_j(x)}{h(x)}$. Wiemy, że $f_j:M\to\R$ jest gładka na $M$, $supp(f_j)=supp(h_j)\subseteq V_j$, więc rodzina $\{supp(f_j)\}$ jest lokalnie skończona i każdy $supp(f_j)$ zawiera się w pewnym $U_\alpha$. Wreszcie mamy
+$$\sum f_j(x)=\sum\frac{h_j(x)}{h(x)}=\frac{\sum h_j(x)}{h(x)}=\frac{\sum h_j(x)}{\sum h_j(x)}=1$$
+dla każdego $x\in M$.
+\end{proof}
+
+\begin{definition}[rozkład jedności] Rodzina funkcji $\{f_j\}$ jak w dowodzie twierdzenia wyżej jest nazywana \important{rozkładem jedności} wpisanym w pokrycie $\{U_\alpha\}$.
+\end{definition}

@@ -1,19 +1,24 @@
-\documentclass{article}
+\documentclass[twoside]{article}
 
 \usepackage[polish]{../../lecture_notes}
 \usepackage{marginnote}
 \usepackage{wrapfig}
 
+\usetikzlibrary{shapes.geometric}
+
 \title{Rozmaite cierpienia}
 \author{}
 \date{}
 
-\geometry{
-  a4paper,
-  right={50mm},
-  total={145mm, 267mm},
-  marginpar={35mm}
-}
+%\geometry{
+%  a4paper,
+%  right={50mm},
+%  total={145mm, 267mm},
+%  marginpar={35mm}
+%}
+
+
+\geometry{a4paper, total={150mm, 252mm}, top=22mm, marginpar={25mm}, right={40mm}}
 
 
 \declaretheorem[
@@ -36,6 +41,8 @@
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
+\usepackage{fancyhdr}
+
 \begin{document}
 \newgeometry{total={180mm, 267mm}}
 \maketitle
@@ -47,6 +54,14 @@
 \newpage
 %
 \restoregeometry
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RE, LO]{\textbf{Rozmaitości różniczkowalne}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[CE, CO]{\thepage}
+\fancyfoot[LE, RO]{\color{black!20}Weronika Jakimowicz}
+\fancyfoot[RE, LO]{\color{black!20}Według wykładu Prof. Świątkowskiego}
+
 %
 %\input{00_motywacja.tex}
 %\newpage
