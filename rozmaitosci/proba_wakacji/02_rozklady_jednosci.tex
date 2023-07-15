@@ -124,12 +124,21 @@ To samo dotyczy też rozmaitości z brzegiem.
 \end{theorem}
 
 \begin{proof}
-Niech $\{V_j\}\prec\{U_\alpha\}$ będzie lokalnie skończonym pokryciem otwartym prezwartymi zbiorami mapowymi. Niech $D_j\subseteq V_j$ będą zbiorami zwartymi, które dalej pokrywają $M$ (na mocy \ref{wniosek:2.6}). Dzięki faktowi z $\R^n$ \ref{fakt:2.8} wiemy, że dla każdego $j$ istnieje gładka funkcja $h_j:M\to\R$ taka, że:
+Niech $\{V_j\}\prec\{U_\alpha\}$ będzie lokalnie skończonym pokryciem otwartym prezwartymi zbiorami mapowymi. Niech $D_j\subseteq V_j$ będą zbiorami zwartymi, które dalej pokrywają $M$ (na mocy \ref{wniosek:2.6}).
+
+Niech $(V_j, \phi_j)$ będzie mapą na $M$ i niech
+$$\overline{D}_j=\phi(D_j)\subseteq\phi_j(V_j)=\overline{V}_j$$
+będzie zbiorem zwartym. Dzięki faktowi z $\R^n$ \ref{fakt:2.8} wiemy, że dla każdego $j$ istnieje gładka funkcja $\overline{h}_j:\R^n\to\R$ taka, że:
 \begin{enumerate}
-  \item $h\geq 0$
-  \item $supp(h_j)\subseteq V_j$
-  \item $h_j(x)>0$ dla $x\in D_j$
+  \item $\overline{h}_j\geq 0$
+  \item $supp(\overline{h}_j)\subseteq \overline{V}_j$
+  \item $\overline{h}_j(x)>0$ dla $x\in D_j$.
 \end{enumerate}
+Zdefiniujmy teraz funkcję $h_j:M\to\R$ taką, że:
+$$h_j(x)=\begin{cases}\overline{h}_j\circ\phi_j(x)&x\in V_j\\0&x\notin V_j\end{cases}$$
+Żeby pokazać gładkość $h_j$, wystarczy pokazać jej gładkość na pewnym otoczeniu każdego punktu. 
+
+Na otoczeniu punktów z $V_j$ funkcja jest oczywiście gładka jako złożenie dwóch funkcji gładkich. Dla $p\notin V_j$ istnieje otwarte otocznie $U_p$ które jest rozłączne z $supp(h_j)$, a więc jest otwartym otoczenie na którym $h_j$ jest stale równe zero. Taka funkcja jest oczywiście gładka.
 
 Niech teraz $h(x)=\sum_jh_j(x)$. Jest to dobrze określona definicja, gdyż $supp(h_j)$ tworzą rodzinę lokalnie skończoną (bo $\{V_j\}$ taka jest). Z lokalnej skończoności nośników wynika, że $h$ jest gładka na $M$.
 
@@ -142,3 +151,71 @@ dla każdego $x\in M$.
 
 \begin{definition}[rozkład jedności] Rodzina funkcji $\{f_j\}$ jak w dowodzie twierdzenia wyżej jest nazywana \important{rozkładem jedności} wpisanym w pokrycie $\{U_\alpha\}$.
 \end{definition}
+
+\subsection{Zastosowania rozkładów jedności}
+
+Zazwyczaj rozkłady jedności służą do konstruowania gładkich funkcji, które są określone na całym $M$ i spełniają pewne wymagania. Z pomocą rozkładów jedności będziemy też "globalizować" inne obiekty na rozmaitościach, np. pola wektorowe, metryki Riemanna czy formy różniczkowalne.
+
+\begin{example}
+\item Niech $F_1,F_2$ będą domkniętymi rozłącznymi podzbiorami gładkiej rozmaitości $M$. Wówczas istnieje gładka funkcja $f:M\to[0,1]$ taka, że 
+  $$f\restriction F_1\equiv 1$$ 
+  oraz $f\restriction F_2\equiv 0$.
+
+  \begin{proof}
+    Niech $U_i=M\setminus F_i$, wtedy $\{U_1,U_2\}$ jest pokryciem $M$. Niech $\{f_i\}$ będzie rozkładem jedności wpisanym w $\{U_1,U_2\}$. Określmy 
+    $$f(x)=\sum_{supp(f_j)\subseteq U_2}f_j(x).$$
+
+    Weźmy $x\in F_1$, wtedy wszystkie nośniki $supp(f_i)$ zawierające $x$ zawierają się w $U_2$, zatem dla takich $x$ jest
+    $$f(x)=\sum f_i(x)=1$$
+
+    Jeśli $x\in F_2$, to nośniki $supp(f_i)$ zawierające $x$ nie mogą zawierać się w $U_2$. W takim razie $f(x)=0$.
+  \end{proof}
+\item Rozważmy istnienie gładkiej funkcji $f:M\to\R$ takiej, że 
+  $$f(p)=\begin{cases}=0&p\in\partial M\\>0&p\in Int(M)\end{cases}$$
+
+  Niech $\{U_\alpha\}$ będzie dowolnym pokryciem zbiorami mapowymi, a $f_\alpha:U_\alpha\to\R^n$ będą lokalnie gładkimi funkcjami takimi, że
+  $$f_\alpha=\begin{cases}\overline{f}_\alpha\circ\phi_\alpha&U_\alpha\cap\partial M\neq\emptyset\\1&U_\alpha\cap\partial M=\emptyset\end{cases}$$
+  gdzie $\overline{f}_\alpha:\overline{U}_\alpha\to\R$ jest zdefiniowane jako
+  $$\overline{f}_\alpha(x_1,...,x_n)=x_n.$$
+
+  Niech $\{h_\beta\}$ będzie rozkładem jedności wpisanym w $\{U_\alpha\}$. Dla każdego $\beta$ wybieramy $\alpha(\beta)$ takie, że $supp(h_\beta)\subseteq U_{\alpha(\beta)}$. Definiujemy $h_\beta':M\to\R$ przez
+  $$h_\beta'=h_\beta\circ f_{\alpha(\beta)}.$$
+  Wtedy $h_\beta'$ jest gładkie oraz $supp(h_\beta')\subseteq supp(h_\beta)$, więc rodzina nośników $\{supp(h_\beta')\}$ jest lokalnie skończona.
+
+  Zdefiniujmy teraz
+  $$f(x)=\sum h_\beta',$$
+  które z lokalnej skończoności nośników $\{supp(h_\beta'\}$ jest dobrze określone.
+
+  \begin{itemize}
+    \item $p\in\partial M$, to dla każdego $\beta$ $h_\beta'(p)=0$, więc $f(p)=0$.
+    \item $p\in Int(M)$, to wtedy istnieje $\beta$ takie, że $h_\beta(p)>0$, a ponieważ dla $\gamma\neq\beta$ $h_\gamma'(p)\geq0$, to $f(p)>0$.
+  \end{itemize}
+\item Dla dowolnego $A\subseteq M$ domkniętego oraz $A\subseteq U\subseteq M$ otwartego istnieje \marginpar{Po angielsku taka funkcja nazywa się \emph{bump function}}funkcja $f:M\to\R$ taka, że dla $x\in A$ $f(x)=1$ oraz $supp(f)\subseteq U$.
+  
+  \begin{proof}
+    Niech $U_1=U$ oraz $U_2=M\setminus A$, zbiory te pokrywają całe $M$. Niech $h_1,h_2$ będzie rozkładem jedności wpisanym w to pokrycie. Wtedy funkcja $h_1$ ma poszukiwane własności, bo dla $x\in A$ mamy $h_2(x)=0$, więc $1=h_1(x)+h_2(x)=h_1(x)$.
+  \end{proof}
+\item Funkcja $f:M\to\R$ jest nazywana \emph{exhaust function}, jeśli dla każdego\marginpar{Dowód istnienia to wniosek 2.28 z Lee.} $c\in\R$ $f^{-1}((-\infty,c])$ jest zwartym podzbiorem $M$. Kiedy idąc po liczbach naturalnych $n$ rozpatrujemy $f^{-1}((-infty, n])$, to po drodze zahaczamy o wszystkie zwarte zbiory w $M$, stąd też nazwa. Dowód istnienia exhaust function korzysta z rozkładów jedności $\{h_i\}$ wpisanych w dowolne pokrycie prezwartymi zbiorami oraz funkcji $f(x)=\sum_{j\geq 1}j\cdot\phi_j(x)$.
+\end{example}
+
+\subsection{Alternatywna wersja twierdzenia o rozkładzie jedności}
+
+\begin{theorem}
+  Dla dowolnego otwartego pokrycia $\{U_\alpha\}_{\alpha\in A}$ rozmaitości gładkiej $M$ istnieje rodzina $\{f_\alpha\}$ gładkich funkcji $f_\alpha:M\to\R$ takich, że
+  \begin{enumerate}
+    \item $f_\alpha\geq0$
+    \item $supp(f_\alpha)\subseteq U_\alpha$
+    \item nośniki $\{supp(f_\alpha)\}$ tworzą lokalnie skończone pokrycie $M$ [czyli wiele spośród $f_\alpha$ jest zerowych]
+    \item dla każdego $x\in M$ $\sum f_\alpha(x)=1$
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Znowu szkic dowodu za pomocą wyjściowej wersji twierdzenia.
+
+  Rozważmy rodzinę $\{f_j\}_{j\in J}$ jak w wyjściowej wersji twierdzenia. Dla każdego $j\in J$ wybieramy $\alpha(j)\in A$ takie, że $supp(f_j)\subseteq U_{\alpha(j)}$. Zdefiniujmy
+  $$f_\alpha=\sum_{j:\alpha(j)=\alpha}f_j.$$
+  Z lokalnej skończoności nośników $supp(f_j)$ wiemy, że $f_\alpha$ również jest funkcją gładką. Warunek $4$ zachodzi w sposób oczywisty, tak samo warunek $1$.
+
+  Warunki $2$ i $3$ w łatwy sposób wynikają z obserwacji, że dla dowolnej lokalnie skończonej rodziny podzbiorów $P_t$ w przestrzeni $X$, $cl(\bigcup P_t)=\bigcup cl(P_t)$.
+\end{proof}

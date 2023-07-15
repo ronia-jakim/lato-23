@@ -103,11 +103,13 @@ Rodzina $\set{X}$ podzbiorów $M$ jest \acc[i]{lokalnie skończona}, jeżeli ka�
   \important{Mapą} na rozmaitości topologicznej $M$ nazywamy parę $(U, \phi)$, gdzie $U$ jest otwartym podzbiorem $M$, zaś $\phi:U\to\overline{U}=\phi(U)\subseteq\R^n$ jest homeomorfizmem na otwarty podzbiór w $\R^n$. Zbiór $U$ nazywamy wtedy \acc[b]{zbiorem mapowym}
 \end{definition}
 
-Ponieważ każda rozmaitość topologiczna jest lokalnie euklidesowa, to $M$ jest pokrywana zbiorami mapowymi.
+Ponieważ każda rozmaitość topologiczna jest lokalnie euklidesowa, to $M$ jest pokrywana zbiorami mapowymi. 
 
-Dla mapy $(U, \phi)$ takiej, że $p\in U$ i $\phi(p)=0\in\R^n$ mówimy, że jest \acc[i]{mapą wokół $p$}.
+Dla mapy $(U, \phi)$ takiej, że $p\in U$ i $\phi(p)=0\in\R^n$ mówimy, że jest \acc[i]{mapą wokół $p$}. Za pomocą translacji możemy każdą mapę zawsze przesunąć tak, aby $\phi(p)=0$. Czyli możemy odgórnie zakładać, że mapa $(U,\phi)$ jest mapą o początku w $p$.
 
-Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc[i]{lokalną parametryzacją} $M$.
+Często będziemy przechodzić do coraz to mniejszych zbiorów mapowych poprzez branie odwzorowań obciętych co nie burzy gładkości ani zgodności z atlasem. Pozwoli to np. zakładać, że dla $p\notin F$ domkniętego bierzemy mapę $(U,\phi)$ taką, że $U\cap F=\emptyset$.
+
+Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc[i]{lokalną parametryzacją} $M$. Ponieważ o mapie można myśleć jako o przeniesieniu siatki współrzędnych $(x_1,...,x_n)$ z $\overline{U}=\phi(U)$ przez $\phi^{-1}$ na $U$, to będziemy często utożsamiać $U\subseteq M$ z $\overline{U}$. O punkcie $p\in M$ takim, że $\phi(p)=(x_1,...,x_n)$ będziemy myśleć jako o $p=(x_1,...,x_n)$.
 
 \begin{illustration}
 %\draw[help lines,step=1] (0, 0) grid (12,4);
@@ -175,6 +177,7 @@ Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc
     \item Produkt kartezjański dwóch (lub $k$) rozmaitości topologicznych rozmaitością topologiczną [ćwiczenia].
     \item $n$-torus jest przestrzenią produktową $\mathds{T}^n=S^1\times...\times S^1$ i $n$-rozmaitością topologiczną. $\mathds{T}^2$ nazywamy po prostu torusem.
 \end{example}
+
 
 \subsection{Rozmaitości gładkie (różniczkowalne)}
 
@@ -448,6 +451,18 @@ Z każdego maksymalnego atlasu $C^1$-rozmaitości można wybrać atlas złożony
   \item W rozmaitości konforemnej mapy zachowują kąty między punktami.
   \item Istnieją też rozmaitości kawałkami liniowe (PL)...
 \end{itemize}
+
+\subsection{Różniczkowalność odwzorowań rozmaitości}
+
+\begin{definition}[odwzorowanie $C^k$-różniczkowalne]
+Dla $M, N$ gładkich rozmaitości i $f:M\to N$ ciągłej mówimy, że $f$ jest \important{$C^k$-różniczkowalna} w punkcie $p$, jeśli dla dowolnych map $(U,\phi)\ni p$ oraz $(V,\psi)\ni f(p)$ złożenie
+$$\psi\circ f\circ\phi^{-1}:\phi[U\cap f^{-1}(V)]\to \psi(V)$$
+jest $C^k$-różniczkowalne w punkcie $\phi(p)$.
+\end{definition}
+
+\begin{illustration}
+  \node at (0,0) {ZRÓB RYSUNEK};
+\end{illustration}
 
 \subsection{Definiowanie rozmaitości gładkiej $X$ za pomocą samego atlasu}
 
