@@ -248,7 +248,7 @@ Dlatego chcemy móc założyć, że $\phi\circ\psi^{-1}$ jest przekształceniem 
   Mapy $(U, \phi), (V, \psi)$ nazywamy (gładko) \important{zgodnymi}, gdy $\phi\circ\psi^{-1}$ i $\psi\circ\phi^{-1}$ są odwzorowaniami gładkimi.
 \end{definition}
 
-Odwzorowania $\phi\psi^{-1}$ nazywamy \acc[i]{odwzorowaniami przejścia} z jednej mapy do drugiej. Jeśli $\phi\psi^{-1}$ i $\psi\phi^{-1}$ są gładkie, to są one wzajemnie do siebie odwrotnymi bijekcjami. Takie odwzorowania nazywamy \acc[b]{dyfeomorfizmami} pomiędzy otwartymi podzbiorami $\R^n$. Zauważmy, że w każdym punkcie Jakobian, czyli wyznacznik macierzy pochodnych cząstkowych, jest dla dyfeomorfizmów niezerowy [ćwiczenia].
+Odwzorowania $\phi\psi^{-1}$ nazywamy \acc[i]{odwzorowaniami przejścia} z jednej mapy do drugiej. Jeśli $\phi\psi^{-1}$ i $\psi\phi^{-1}$ są gładkie, to są one wzajemnie do siebie odwrotnymi bijekcjami. Takie odwzorowania nazywamy \acc[b]{dyfeomorfizmami} (def. \ref{definicja:dyfeomorfizmy}) pomiędzy otwartymi podzbiorami $\R^n$. Zauważmy, że w każdym punkcie Jakobian, czyli wyznacznik macierzy pochodnych cząstkowych, jest dla dyfeomorfizmów niezerowy [ćwiczenia].
 
 W ogólnym przypadku, gdy $U\cap V\neq \emptyset$, rysunek wygląda:
 \begin{illustration}
@@ -419,20 +419,6 @@ Warto zaznaczyć, że zgodność atlasów jest relacją zwrotnią i przechodnią
 Każdy atlas $\set{A}$ na $M$ zawiera się w dokładnie jednym atlasie maksymalnym, złożonym ze wszystkich map zgodnych z $\set{A}$ [ćwiczenia]. Dodatkowo, zgodne atlasy zawierają się w tym samym atlasie maksymalnym. Wtedy można definiować rozmaitość gładką jako parę $(M, \set{A})$, gdzie $M$ jest rozmaitością topologiczną, a $\set{A}$ jest pewnym gładkim atlasem maksymalnym.
 \bigskip
 
-\textbf{Dopowiedzenie o funkcjach gładkich}
-
-Funkcja $f:M\to\R$ jest gładka względem atlasu $\set{A}$ na $M$, jeśli dla każdej mapy $(U, \phi)\in\set{A}$ $f\circ\phi^{-1}$ jest gładka.
-
-\begin{fact}[gładkość względem atlasu]$ $\newline
-  \begin{itemize}
-    \item Jeśli $f:M\to\R$ jest gładka względem $\set{A}$, zaś $(U, \phi)$ jest mapą zgodną z $\set{A}$, to $f\circ\phi^{-1}$ jest gładka.
-    \item Jeśli $\set{A}_1$ i $\set{A}_2$ są zgodnymi atlasami, to $f:M\to\R$ jest gładka względem $\set{A_1}$ $\iff$ $f$ jest gładka względem $\set{A}_2$ $\iff$ $f$ jest gładka względem atlasu maksymalnego $\set{A}_{max}$ zawierającego $\set{A}_1$ i $\set{A_2}$.
-  \end{itemize}
-\end{fact}
-\begin{proof}
-  Ćwiczenia
-\end{proof}
-
 \subsection{Warianty pojęcia rozmaitości różniczkowalnej}
 
 Mówimy, że mapy $(U,\phi),(V, \psi)$ są \acc[i]{$C^k$-zgodne} jeśli $\phi\circ\psi^{-1}$ i $\psi\circ\phi^{-1}$ są funkcjami klasy $C^k$ (posiadają pochodne cząstkowe rzędów $\leq k$). $C^k$-atlas to z kolei rodzina $C^k$-zgodnych map, która określa strukturę $C^k$-rozmaitości na $M$. Struktura $C^k$-rozmaitości jest słabsza niż rozmaitości gładkiej i nie da się na niej zdefiniować map klasy $C^m$ dla $m>k$.
@@ -452,17 +438,157 @@ Z każdego maksymalnego atlasu $C^1$-rozmaitości można wybrać atlas złożony
   \item Istnieją też rozmaitości kawałkami liniowe (PL)...
 \end{itemize}
 
-\subsection{Różniczkowalność odwzorowań rozmaitości}
+\subsection{Dopowiedzenie o funkcjach gładkich}
 
-\begin{definition}[odwzorowanie $C^k$-różniczkowalne]
+Funkcja $f:M\to\R$ jest gładka względem atlasu $\set{A}$ na $M$, jeśli dla każdej mapy $(U, \phi)\in\set{A}$ $f\circ\phi^{-1}$ jest gładka.
+
+\begin{fact}[gładkość względem atlasu]$ $\newline
+  \begin{itemize}
+    \item Jeśli $f:M\to\R$ jest gładka względem $\set{A}$, zaś $(U, \phi)$ jest mapą zgodną z $\set{A}$, to $f\circ\phi^{-1}$ jest gładka.
+    \item Jeśli $\set{A}_1$ i $\set{A}_2$ są zgodnymi atlasami, to $f:M\to\R$ jest gładka względem $\set{A_1}$ $\iff$ $f$ jest gładka względem $\set{A}_2$ $\iff$ $f$ jest gładka względem atlasu maksymalnego $\set{A}_{max}$ zawierającego $\set{A}_1$ i $\set{A_2}$.
+  \end{itemize}
+\end{fact}
+\begin{proof}
+  Ćwiczenia
+\end{proof}
+
+\begin{fact}
+  Złożenie gładkich odwzorowań pomiędzy rozmaitościami jest gładkie.
+\end{fact}
+
+\begin{proof}
+  Niech $f:M\to N$ i $g:N\to P$ będą gładkimi funkcjami. Weźmy $p\in M$ oraz oznaczmy $q=f(p)\in N,\;s=g(q)=g(f(p))\in P$. Niech $(U,\phi),(V,\psi),(W,\xi)$ będą mapami odpowiednio wokół $p,q,s$.
+
+  Wiemy, że $\psi f\phi^{-1}$ oraz $\xi g\psi^{-1}$ są funkcjami gładkimi. Chcemy sprawdzić, czy $\xi (g\circ f)\phi^{-1}$ jest funkcją gładką.
+  $$\xi(g\circ f)\phi^{-1}=(\xi g\psi^{-1})\circ (\psi f\phi^{-1})$$
+  jest złożeniem dwóch funkcji gładkich między $\R^n$-ami, więc $g\circ f$ jest gładką funkcją między rozmaitościami.
+\end{proof}
+
+\begin{definition} \important{Rzędem funkcji} $f:M\to N$ $C^1$-różniczkowalnego (def. \ref{definicja:1.12}) w punkcie $p$ nazywamy rząd macierzy pierwszych pochodnych cząstkowych odwzorowania $\psi f\phi^{-1}$ w $\phi(p)$.
+\end{definition}
+
+\begin{fact} Powyższa liczba [rząd funkcji w $p$] nie zależy od wyboru mapy wokół $p$ ani wokół $f(p)$.
+\end{fact}
+
+\begin{proof}
+  Szkicowy.
+
+  Dla map $(U,\phi),(V,\psi)$ oraz $(U',\phi'),(V',\psi')$ chcemy porównać rząd macierzy jakobianu $\hat{f}=\psi f\phi^{-1}$ oraz $\hat{\hat{f}}=\psi'f(\phi')^{-1}$. Wiemy, że
+  $$\hat{\hat{f}}=\alpha \hat{f}\beta,$$
+  gdzie $\alpha=\psi'\psi^{-1}$ i $\beta=\phi(\phi')^{-1}$.
+
+  Macierz jakobianu złożenia to iloczyn macierzy jakobianu funkcji składowych. Macierz jakobianu odwzorowań przejścia jest nieosobliwa [są one bijekcjami]. W takim razie domnożenie przez jakobian $\alpha$ i $\beta$ nie zmieni rzędu jakobianu $\hat{f}$.
+\end{proof}
+
+\subsection{Dyfeomorfizmy}
+
+\begin{definition}[dyfeomorfizm]\label{definicja:dyfeomorfizmy} Gładkie odwzorowanie $f:M\to N$ nazywamy \important{dyfeomorfizmem}, jeśli jest wzajemnie jednoznaczne (bijekcja) oraz odwzorowanie do niego odwrotne $f^{-1}$ jest gładkie.
+
+  Dwie rozmaitości $M, N$ są \acc[b]{dyfeomorficzne}, jeśli istnieje między nimi dyfeomorfizm. Są one wtedy nierozróżnialne jako gładkie rozmaitości.
+\end{definition}
+
+Wyżej powiedzieliśmy, że każda $C^1$-rozmaitość posiada $C^1$-zgodną strukturę $C^\infty$ rozmaitości. Teraz możemy dopowiedzieć, że jeśli dwie $C^\infty$-rozmaitości są $C^1$-dyfeomorficzne, to są one też $C^\infty$-dyfeomorficzne. Stąd klasyfikacja $C^1$ rozmaitości różniczkowalnych z dokładnością do $C^1$-dyfeomorfizmu jest taka sama jak klasyfikacja $C^\infty$ rozmaitości z dokładnością do $C^\infty$ dyfeomorfizmu.
+
+Wiemy już, że istnieją $C^0$-rozmaitości bez struktury $C^\infty$-rozmaitości. Możemy teraz dodać do tego fakt, że istnieją $C^0$-rozmaitości które nie są dyfeomorficznie zgodne jako $C^\infty$ rozmaitości. W 1956 pokazano, że dla sfer $S^n$ $n\geq 7$ istnieje skończenie wiele takich niedyfeomorficznych struktur. 
+
+W latach 1980 pokazano, że na $\R^4$ istnieje nieprzeliczalnie wiele struktur o których mowa wyżej. Z kolei przypadku $\leq 3$ związek pomiędzy $C^0$ a $C^\infty$ jest taki jak pomiędzy $C^1$ a $C^\infty$.
+
+\subsection{$C^k$-różniczkowalność odwzorowań rozmaitości}
+
+\begin{definition}[odwzorowanie $C^k$-różniczkowalne]\label{definicja:1.12}
 Dla $M, N$ gładkich rozmaitości i $f:M\to N$ ciągłej mówimy, że $f$ jest \important{$C^k$-różniczkowalna} w punkcie $p$, jeśli dla dowolnych map $(U,\phi)\ni p$ oraz $(V,\psi)\ni f(p)$ złożenie
 $$\psi\circ f\circ\phi^{-1}:\phi[U\cap f^{-1}(V)]\to \psi(V)$$
 jest $C^k$-różniczkowalne w punkcie $\phi(p)$.
+
+$f$ jest $C^k$ na otoczeniu $p$, jeśli $\psi\circ f\circ\phi^{-1}$ jest $C^k$ różniczkowalne na pewnym otwartym otoczeniu $\phi(p)$.
 \end{definition}
 
-\begin{illustration}
-  \node at (0,0) {ZRÓB RYSUNEK};
-\end{illustration}
+\begin{center}
+\scalebox{0.9}{
+\begin{tikzpicture}
+  \draw[rounded corners=35pt](6,-1)--(4.2,-1)--(2,-2)--(0,0)--(2,2)--(4.2,1)--(7,1)--(9.2,2)--(11,0)
+--(9,-2)--(6,-1);
+  \draw (1.5,0.2) arc (175:315:1cm and 0.5cm);
+  \draw (3,-0.28) arc (-30:180:0.7cm and 0.3cm);
+%  \draw (5.8,0) arc (0:360:0.5cm and 1cm);
+  \draw (7.5,0.2) arc (175:315:1cm and 0.5cm);
+  \draw (9,-0.28) arc (-30:180:0.7cm and 0.3cm);
+%  \node (a) at (-13:5.8) {$\partial M$};
+%  \node (a) at (26:2.5) {$\tilde{M}$};
+
+  \draw (11, -4) ellipse (2.5 and 1.3);
+  \draw (9.8, -3.85) arc (200:340:1.3 and 0.6);
+  \draw (10, -4) arc (170:10:1 and 0.4);
+
+  \filldraw[orange!40] (5.9, 0.8) arc (90:-120:0.6);
+  \node at (6.5, 1.05) {$\color{orange}U\cap f^{-1}(V)$};
+  \node at (5.1, 0.5) {$U$};
+  
+  \filldraw (6, 0.3) circle (2pt) node [below] {$p$};
+  \filldraw (9.5, -3.5) circle (2pt);% node [above] {$f(p)$};
+  \node at (9.6, -3) {$f(p)$};
+
+  \path[->] (6.1, 0.3) edge [bend left=20] node [above] {$f$} (9.4, -3.5);
+
+  \draw (5.9, 0.2) circle (0.6);
+  \draw (9.4, -3.7) ellipse (0.4  and 0.6);
+
+  \node at (9.6, -4.5) {$V$};
+
+%    \draw[double distance=5mm] () arc (0:180:1);
+%    \draw[double distance=5mm] () arc (180:360:1);
+
+  \draw[<-] (7, -3)--(7, -5);
+  \draw[->] (6, -4)--(8, -4);
+
+  \draw (7.2, -3.8) ellipse (0.5 and 0.7);
+  \filldraw (7.2, -3.8) circle (2pt) node [below] {$\psi(f(p))$};
+  \node at (6.8, -3) {$\psi(V)$};
+  \path[->] (9, -3.5) edge [bend right=20] node [above] {$\psi$} (7.7, -3.7);
+
+
+  \filldraw[orange!40] (3,-2.9) arc (90:-120:0.6);
+
+  \draw[<-] (3, -2.5)--(3, -4.5);
+  \draw[->] (2, -3.5)--(4, -3.5);
+
+  \draw (3, -3.5) circle (0.6);
+  \filldraw (3.3, -3.3) circle (2pt) node [below] {$\phi(p)$};
+
+  \path[->] (5.3, -0.1) edge [bend right=20] node [above] {$\phi$} (3.2, -2.9);
+  \node at (4.2, -4.3) {$\color{orange}\phi[U\cap f^{-1}(V)]$};
+  \node at (2.5, -2.7) {$\phi(U)$};
+
+  \path[->] (3.4, -3.1) edge [bend left=20] node [above] {$\psi\circ f\circ\phi^{-1}$} (6.7, -3.7);
+\end{tikzpicture}
+}
+\end{center}
+
+Funkcję $\psi\circ f\circ\phi^{-1}$ jest nazywana \important{wyrażeniem $f$ w mapach} $(U,\phi)$ i $(V,\psi)$ lub też wyrażeniem $f$ w lokalnych współrzędnych zadanych przez te mapy.
+
+\begin{fact}\label{fakt:1.12}
+  Jeśli $f$ wyrażona w mapach $(U,\phi)$ i $(V,\psi)$ jest $C^k$-różniczkowalna w pukcie $\phi(p)$ [na jego otoczniu] to wyrażona w innych mapach $(U',\phi'),(V',\psi')$ też jest $C^k$ różniczkowalna wokół $p$ [na jego otoczeniu].
+\end{fact}
+
+\begin{proof}
+  Niech $\hat{f}=\psi f\phi^{-1}$ a $\hat{\hat{f}}=\psi'f(\phi')^{-1}$. Oznaczmy odwzorowania przejścia $\alpha=\phi(\phi')^{-1}$ oraz $\beta=\psi'\psi^{-1}$. Zachodzi
+  $$\hat{\hat{f}}=\beta\circ\hat{f}\circ\alpha=(\psi'\psi^{-1})\circ(\psi f\phi^{-1})(\phi(\phi')^{-1})=\psi' f(\phi')^{-1}.$$
+  Zarówno $\hat{\hat{f}}$ jak i $\beta\hat{f}\alpha$ są funkcjami określonymi na pewnych podzbiorach $\R^n$ oraz $\alpha(\phi'(p))=\phi(p)$. W takim razie jeśli $\hat{f}$ jest funkcją $C^k$-różniczkowalną, to $\hat{\hat{f}}$ jako złożenie funkcji gładkich z funkcją $C^k$-różniczkowalna też takie jest.
+\end{proof}
+
+Dzięki tej obserwacji możemy definiować $C^k$-różniczkowalność funkcji jako bycie $C^k$-różniczkowalną w dowolnej mapie. Możemy więc dobrać sobie mapę w której sprawdzamy $C^k$-różniczkowalność tak, aby dowód był wygodny.
+
+\begin{remark} Funkcja $f:M\to N$ jest $C^k$-różniczkowalna $\iff$ dla dowolnych map $(U,\phi)$ oraz $(V,\psi)$ wyrażenie $\psi\ f\phi^{-1}$ funkcji $f$ jest $C^k$-różniczkowalne na całym zbiorze, na którym jest ono określone.
+\end{remark}
+
+Pojęcia:
+\begin{itemize}
+  \item odwzorowań gładkich
+  \item różniczkowalności w punkcie (otoczeniu)
+  \item dyfeomorfizmu
+  \item rzędu odwzorowania w punkcie
+\end{itemize}
+oraz ich własności bez zmian przenoszą się na rozmaitości gładkie z brzegiem (def. \ref{definicja:1.19}).
 
 \subsection{Definiowanie rozmaitości gładkiej $X$ za pomocą samego atlasu}
 
@@ -536,7 +662,7 @@ Dla $U\subseteq H^n$ oznaczymy $\partial U=U\cap \partial H$ oraz $int(U)=U\cap 
 
 Dla $U\subseteq H^n$ otwartego i $f:U\to\R^m$ mówimy, że $f$ jest \important{gładka}, gdy jest obcięciem do $U$ gładkiej funkcji $\hat{f}:\hat{U}\to\R^m$, $\hat{U}\subseteq\R^n$ otwartego, $U\subseteq\hat{U}$. \emph{Pochodne cząstkowe funkcji $f$ są dobrze określone na $int(U)$, a ponieważ są ciągłe, to są również dobrze określone na $\partial U$} (tzn. nie zależą od wyboru rozszerzenia $\hat{f}$). Z analizy matematycznej wiemy, że rozszerzenia $\hat{f}$ istnieje $\iff$ wszystkie pochodne cząstkowe $f$ w $int(U)$ w sposób ciągły rozszerzają się do $\partial U$.
 
-\begin{definition}[rozmaitość z brzegiem]
+\begin{definition}[rozmaitość z brzegiem]\label{definicja:1.19}
   $M$ jest \important{gładką rozmaitością z brzegiem}, jeśli posiada atlas $\{(U_\alpha,\phi_\alpha)\}$, $U_\alpha\subseteq M$ i $\phi_\alpha:U_\alpha\to H^n$ i $\overline{U_\alpha}=\phi_\alpha(U_\alpha)$ jest otwarty w $H^n$, gdzie odwzorowania przejścia są gładkie (tzn. $\phi_\alpha\phi_\beta^{-1}$ są dyfeomorfizmami pomiędzy otwartymi podzbiorami w $H^n$).
 \end{definition}
 
