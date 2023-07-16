@@ -322,3 +322,134 @@ jest \acc[b]{bazą topologii} w $M/G$. Z tego powodu $M/G$ \textbf{zawsze posiad
   \end{itemize}
   Zatem $M/G$ jest $n$-wymiarową rozmaitością topologiczną.
 \end{fact}
+
+\subsection{Gładki atlas na $M/G$}
+
+Niech $U\subseteq M$ spełnia warunek:
+\begin{center}
+\phantomsection
+\label{warunek_gladki_atlas}
+  {\color{orange}(\PHcat)} $U$ jest zbiorem mapowym oraz dla każdych $g_1,g_2\in G$, $g_1\neq g_2\implies g_1(U)\cap g_2(U)=\emptyset$.
+\end{center}
+
+Zauważmy, że każdy $p\in M$ ma otoczenie $U$ spełniające \hyperref[warunek_gladki_atlas]{\color{orange}(\PHcat)}, a zatem każda orbita $G(p)\in M/G$ ma otoczenie postaci $G(U)/G$ ze zbiorem $U$ spełniającym \hyperref[warunek_gladki_atlas]{\color{orange}(\PHcat)}.  Dla takiego $U$ odwzorowanie
+$$i_U:U\to G(U)/G$$
+$$p\mapsto G(p)$$
+jest homeomorfizmem. Niech teraz $\phi:I\to\overline{U}\subseteq \R^n$ będzie mapą z atlasu $\set{A}$. Wtedy
+$$\phi_G:G(U)/G\to \overline{U}\subseteq\R^n$$
+$$\phi_G=\phi\circ i_U^{-1}$$
+jest obiecującym kandydatem na mapę dla $M/G$. Rozważmy rodzinę
+$$\set{A}_G=\{(G(U)/G, \phi_G)\;:\;U \text{ spełnia \hyperref[warunek_gladki_atlas]{\color{orange}(\PHcat)} oraz }(U,\phi)\in\set{A}\}.$$
+%Pokażemy, że wówczas
+%\begin{itemize}
+%  \item $\set{A}_G$ jest gładko zgodny, więc jest gładkim atlasem na $M/G$
+%  \item odwzorowanie ilorazowe $q_G:M\to M/G$ zadane przez $q_G(x)=G(x)$ jest gładkie i jest lokalnym dyfeomorfizmem.
+%\end{itemize}2
+\begin{fact} Odwzorowanie ilorazowe $q_G:M\to M/G$ zadane przez
+  $$q_G(x)=G(x)\in M/G$$
+  jest gładkie i jest lokalnym dyfeomorfizmem.
+\end{fact}
+
+\begin{proof}$ $\newline
+  \begin{illustration}
+    \draw[<-] (0, 2)--(0, -2);
+    \draw[->] (-2, 0)--(2, 0);
+    \draw plot [smooth cycle] coordinates {(-1.5, 1) (-0.8, 1.5) (0.6, 1.3) (1.3, 0.8) (1.4, -0.5) (0.7, -1.7) (-0.4, -1.8) (-1.3, -0.3)};
+    \path (3.5, -0.5) edge [bend left=10] (4, 1.5);
+    \path (4, 1.5) edge [bend left=10] (7, 1.5);
+    \path (7, 1.5) edge [bend right=10] (6.5, -0.5);
+    \path (6.5, -0.5) edge [bend right=10] (3.5, -0.5);
+    \draw plot [smooth cycle] coordinates {(4.3, 0.3) (4.5, 1) (5.3, 1.3) (6, 1) (5.4, 0.1) (4.7, -0.1) };
+    \node at (6.2, 1.4) {$U$};
+    \node at (4, 1.8) {$M$};
+    \path[->] (4.3, 0.8) edge [bend right=20] node [above] {$\phi$} (1.3, 0.9);
+    \node at (0.6, 1.5) {$\overline{U}$};
+    \draw[rotate around={30:(5, -3)}] (5, -3) ellipse (1.8 and 1.5);
+    \draw plot [smooth cycle] coordinates {(5, -2.8) (5.7, -2) (5.3, -1.8) (4.4, -2.1) (4, -2.5)};
+    \path[->] (4.4, -2) edge [bend right=20] node [below] {$\phi_G=\phi\circ i_U^{-1}$} (1.4, -0.7);
+    \path[->] (5.4, -0.1) edge [bend left=20] node [right] {$i_u=q_G\restriction U$} (5.4, -1.7);
+    %\filldraw (6.4,-3.75) circle (1.5pt);
+    %\filldraw (3.6, -2.25) circle (1.5pt);
+    \path (6.4, -3.75) edge [bend left=15] (3.6, -2.25);
+    \node at (6.5, -4) {$M/G$};
+    \node at (6.3, -2.3) {$G(U)/G$};
+    \node at (-2, -1) {$\R^n$};
+  \end{illustration}
+  Zakładamy, że $\set{A}_G$ tworzy gładki atlas [fakt \ref{gładki_atlas_na_ilorazie}]. Wtedy $q_G$ obcięte do mapowego $U$ musi spełniać \hyperref[warunek_gladki_atlas]{\color{orange}(\PHcat)}, więc jest bijekcją na otwary podzbiór w $M/G$. Ponadto
+  $$\phi_G\circ q_G\circ\phi^{-1}=\phi\circ i_U^{-1}\circ i_U\phi^{-1}=id_{\overline{U}}$$
+  czyli $q_G$ musi być funkcją gładką, bo inaczej $id_{\overline{U}}$ takie nie będzie. Stąd $q_G$ jest dyfeomorfizmem.
+\end{proof}
+
+\begin{fact}\label{gładki_atlas_na_ilorazie}
+  $\set{A}_G$ jest gładko zgodny, więc jest gładkim atlasem na $M/G$.
+\end{fact}
+
+\begin{proof}
+  Niech $(G(U)/G, \phi_G)$ oraz $(G(V)/G, \psi_G)$ będą mapami związanymi z $(U,\phi)$ i $(V,\psi)$ na zbiorach $U,V$ spełniającymi \hyperref[warunek_gladki_atlas]{\color{orange}(\PHcat)}. Rozważmy odwzorowanie przejścia
+  $$\psi_G\circ\phi_G^{-1}:\phi_G(G(U)/G\cap G(V)/G)\to \psi_G(G(U)/G\cap G(V)/G)$$
+  wiemy, że zachodzi
+  $$\psi_G\circ\phi_G^{-1}=\psi\circ i_V^{-1}\circ[\phi\circ i_V^{-1}]^{-1}=\psi\circ i_V^{-1}\circ i_U\circ \phi^{-1}$$
+  czyli wystarczy, żeby 
+  $$i_V^{-1}i_U:U\cap i_U^{-1}(G(V)/G)\to V\cap i_V^{-1}(G(U)/G)$$
+  było gładkie.
+  \begin{illustration}
+    \path (0, 0) edge [bend left=20] (1, 2);
+    \path (1, 2) edge [bend left=10] (5, 2);
+    \path (5, 2) edge [bend right=20] (4, 0);
+    \path (4, 0) edge [bend right=10] (0, 0);
+
+    %\draw plot [smooth cycle, round corners=5pt] coordinates {(1, 0.2) (0.6, 0.3)(1, 0.8) (1.3, 1.3) (1.1, 1.5) (1.5, 1.75) (1.8, 1.86) (3, 1.8) (4, 1.7) (4.3, 1.5) (4.1, 1.2) };
+    %\draw plot [smooth cycle, round corners = 10pt] coordinates {(1.5, 0.3) (0.5, 0.7) (1.3, 1.3) (2.8, 1.7) (3.3, 1.8) (3.5, 1.7) (3.7, 1.3) (4.5, 0.7)};
+    \filldraw[green!20] (3.7, 0.7) arc (-60:220:0.5 and 0.3);
+    \filldraw[green!20] (1, 0.7) arc (220:10:0.5 and 0.3);
+    \draw (1, 0.7) arc (210:-30: 1.6 and 0.8);
+    \filldraw[color=black, fill=green!20] (1, 0.7) arc (240:340: 0.6 and 0.7);
+    \filldraw[color=black, fill=green!20] (3.78, 0.7) arc (-60:-160: 0.6 and 0.7);
+    \draw (1.85, 1.05) arc (160:20:0.575 and 0.5);
+    \node at (4, 2.4) {$M$};
+    \node at (1.5, 1.9) {$U$};
+    
+    \begin{scope}[yshift=-30]
+    \begin{scope}[rotate=20]
+      \filldraw[green!20] (1, -1.7) arc (200:35:0.5 and 0.4);
+      %\filldraw[green!20] (3.8, -1.6) arc (-40:200:0.4 and 0.3);
+    \draw (1, -1.7) arc (210:-30: 1.6 and 1);
+    \filldraw[color=black, fill=green!20] (1, -1.7) arc (240:340: 0.6 and 0.7);
+    \draw (3.78, -1.7) arc (-60:-160: 0.6 and 0.7);
+    \draw (1.85, -1.35) arc (160:20:0.575 and 0.5);
+    \end{scope}
+    \end{scope}
+
+    \begin{scope}[yshift=-60, xshift=160]
+    \begin{scope}[rotate=200]
+      \filldraw[green!20] (1, -1.7) arc (200:35:0.48 and 0.38);
+    \draw (1, -1.7) arc (210:-30: 1.6 and 1);
+    \filldraw[color=black, fill=green!20] (1, -1.7) arc (240:340: 0.6 and 0.7);
+    \draw (3.78, -1.7) arc (-60:-160: 0.6 and 0.7);
+    \draw (1.85, -1.35) arc (160:20:0.575 and 0.5);
+    \end{scope}
+    \end{scope}
+
+    \path (0, -6.5) edge [bend left=20] (1, -4);
+    \path (1, -4) edge [bend left=10] (5, -4);
+    \path (5, -4) edge [bend right=20] (4, -6.5);
+    \path (4, -6.5) edge [bend right=10] (0, -6.5);
+
+    \begin{scope}[yshift=-90, xshift=120]
+    \begin{scope}[rotate=200]
+    \filldraw[green!20] (3.7, 0.7) arc (-60:220:0.5 and 0.3);
+    \filldraw[green!20] (1, 0.7) arc (220:10:0.5 and 0.3);
+    \draw (1, 0.7) arc (210:-30: 1.6 and 0.8);
+    \filldraw[color=black, fill=green!20] (1, 0.7) arc (240:340: 0.6 and 0.7);
+    \filldraw[color=black, fill=green!20] (3.78, 0.7) arc (-60:-160: 0.6 and 0.7);
+    \draw (1.85, 1.05) arc (160:20:0.575 and 0.5);
+
+%      \filldraw[green!20] (1, -1.7) arc (200:35:0.5 and 0.4);
+%    \draw (1, -1.7) arc (210:-30: 1.6 and 1);
+%    \filldraw (1, -1.7) arc (240:340: 0.6 and 0.7);
+%    \draw (3.78, -1.7) arc (-60:-160: 0.6 and 0.7);
+%    \draw (1.85, -1.35) arc (160:20:0.575 and 0.5);
+    \end{scope}
+    \end{scope}
+  \end{illustration}
+\end{proof}
