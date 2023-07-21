@@ -406,10 +406,10 @@ $$\set{A}_G=\{(G(U)/G, \phi_G)\;:\;U \text{ spełnia \hyperref[warunek_gladki_at
     \filldraw[color=black, fill=green!20] (1, 0.7) arc (240:340: 0.6 and 0.7);
     \filldraw[color=black, fill=green!20] (3.78, 0.7) arc (-60:-160: 0.6 and 0.7);
     \draw (1.85, 1.05) arc (160:20:0.575 and 0.5);
-    \node at (4, 2.4) {$M$};
+    \node at (5, 1.4) {$M$};
     \node at (1.5, 1.9) {$U$};
     
-    \begin{scope}[yshift=-30]
+    \begin{scope}[yshift=-60]
     \begin{scope}[rotate=20]
       \filldraw[green!20] (1, -1.7) arc (200:35:0.5 and 0.4);
       %\filldraw[green!20] (3.8, -1.6) arc (-40:200:0.4 and 0.3);
@@ -420,7 +420,7 @@ $$\set{A}_G=\{(G(U)/G, \phi_G)\;:\;U \text{ spełnia \hyperref[warunek_gladki_at
     \end{scope}
     \end{scope}
 
-    \begin{scope}[yshift=-60, xshift=160]
+    \begin{scope}[yshift=-90, xshift=160]
     \begin{scope}[rotate=200]
       \filldraw[green!20] (1, -1.7) arc (200:35:0.48 and 0.38);
     \draw (1, -1.7) arc (210:-30: 1.6 and 1);
@@ -430,12 +430,12 @@ $$\set{A}_G=\{(G(U)/G, \phi_G)\;:\;U \text{ spełnia \hyperref[warunek_gladki_at
     \end{scope}
     \end{scope}
 
-    \path (0, -6.5) edge [bend left=20] (1, -4);
-    \path (1, -4) edge [bend left=10] (5, -4);
-    \path (5, -4) edge [bend right=20] (4, -6.5);
-    \path (4, -6.5) edge [bend right=10] (0, -6.5);
+    \path (0, -8.5) edge [bend left=20] (1, -6);
+    \path (1, -6) edge [bend left=10] (5, -6);
+    \path (5, -6) edge [bend right=20] (4, -8.5);
+    \path (4, -8.5) edge [bend right=10] (0, -8.5);
 
-    \begin{scope}[yshift=-90, xshift=120]
+    \begin{scope}[yshift=-145, xshift=120]
     \begin{scope}[rotate=200]
     \filldraw[green!20] (3.7, 0.7) arc (-60:220:0.5 and 0.3);
     \filldraw[green!20] (1, 0.7) arc (220:10:0.5 and 0.3);
@@ -451,5 +451,65 @@ $$\set{A}_G=\{(G(U)/G, \phi_G)\;:\;U \text{ spełnia \hyperref[warunek_gladki_at
 %    \draw (1.85, -1.35) arc (160:20:0.575 and 0.5);
     \end{scope}
     \end{scope}
+
+    \node (ll) at (-1, 2) {$\overline{U}\subseteq\R^n$};
+    \path[->] (0.7, 1) edge [bend left=20] node [midway, above] {$\phi$} (ll);
+
+    \node (ab) at (2.5, 3) {$U\cap i_u^{-1}(G(V)/G)$};
+    \path[->] (1.3, 1) edge (ab);
+    \path[->] (3.3, 1) edge (ab);
+
+    \path[->] (1, 0) edge [bend right=20] node [midway, left] {$i_U$} (1.3, -2);
+
+    \node (a) at (4, -1) {$G(U)/G$};
+    \node (b) at (4, -4) {$G(V)/G$};
+    \node (aabb) at (6.5, -2.5) {$G(V)/G\cap G(U)/G$};
+    \node at (0.3, -2.5) {$M/G$};
+    \path[->] (3.9, -2.3) edge [bend right=10] (aabb);
+    \path[->] (1.8, -3) edge [bend right=20] (aabb);
+
+    \path[->] (1.3, -6.5) edge [bend left=20] node [midway, left] {$i_V$} (1.8, -3.9);
+    \node at (5, -6.8) {$M$};
+    \node at (3, -8) {$V$};
+    \node (pysio) at (-1, -6.5) {$V\cap i_V^{-1}(G(U)/G)$};
+
+    \node (kk) at (-0.5, -10) {$\overline{V}\subseteq\R^n$};
+    \path[->] (1, -8) edge [bend left=20] node [midway, left] {$\psi$} (kk);
+
+    \path [->] (1.3, -7.3) edge [bend left=20] (pysio);
+    \path[->] (3.2, -6.5) edge [bend right=10] (pysio);
   \end{illustration}
+
+  Złożenie
+  $$i_V^{-1}\circ i_U:U\cap i_U^{-1}(G(V)/G)\to V\cap i_V^{-1}(G(U)/G)$$
+  jest homeomorfizmem otwartych podzbiorów w $M$. Weźmy $y=i_V^{-1}i_U(x)$, wtedy
+  $$G(x)\ni i_U(x)=i_V(y)\in G(y)$$
+  czyli $x$ i $y$ są w tej samej orbicie działania $G$. W takim razie istnieje $g_x\in G$ takie, że $y=g_x(x)$. Z ciągłości $i_V^{-1}i_U$ możemy wywnioskować, że przyporządkowanie $x\mapsto g_x$ musi być stałe na komponentach spójności. W przeciwnym przypadki obraz spójnej komponenty przez ciągłe $i_V^{-1}i_U$ przeciąłby zbiory $g(U)$ dla kilku różnych $g$, a te są rozłączne dla różnych $g$. Stąd obraz nie byłby spójny, co daje sprzeczność.
+
+  Komponenty spójności $U\cap i_U^{-1}(G(V)/G)$ są otwarte w $M$. Na każdej takiej komponencie $W$ mamy $i_V^{-1}i_U(x)=g(x)$ dla ustalonego $g$, które jest zależne od doboru komponenty (może być różne dla różnych komponent). Zatem 
+  $$\psi_G\phi_G^{-1}=\psi i_V^{-1}i_U\phi^{-1}$$
+  jest zadane an $\phi(W)$ wzorem
+  $$\psi_G\phi_G^{-1}(x)=\psi\circ g\circ\phi^{-1}(x).$$
+  Odwzorowanie $\psi g\phi$ jest wyrażeniem dyfeomorfizmu $g$ w mapach $\phi$ i $\psi$, więc jest gładkie. Z tego wynika, że $\psi_G\phi_G^{-1}$ jest gładkie na każdej komponencie spójności dziedziny, czyli jest gładkie.
 \end{proof}
+
+\textbf{\large\color{blue}Uwaga.} Iloraz $M/G$ dla wolnego i właściwie nieciągłego działania grupy dyfeomorfizmów $G$ na rozmaitość $M$ z brzegiem jest rozmaitością z brzegiem.
+
+\begin{example}
+  \item Działanie $\Z^n$ na $\R^n$ przez przesunięcia. Wtedy $\R^n/\Z^n=T^n$ to $n$-wymiarowy torus.
+  \item $\Z$ działa na produkcie $S^1\times\R$ tak, że dla $k\in\Z$ mamy
+    $$k\cdot(\theta, t)=((-1)^k\theta, t+k)$$
+    Jest to przesunięcie z odpowiednią potęgą odbicia. Iloraz $(S^1\times\R)/\Z$ jest butelką Kleina.
+  \item $\Z$ działa na $[-1,1]\times\R$ przez
+    $$k\cdot(x,y)=((-1)^kx,y+k)$$
+    a iloraz $([-1,1]\times\R)/\Z$ jest wstęgą M\"obiusa.
+  \item $Conf_n(M)$ jest przestrzenią konfiguracyjną $n$-elementowych podzbiorów gładkiej rozmaitości $M$ (bez brzegu), tzn. jej punkty opisują wszystkie możliwe położenia punktów w układzie.
+
+  $Conf_n(M)$ można wyrazić jako iloraz działania nieciągłej grupy dyfeomorfizmów. Rozważmy produkt $\underbrace}{M\times...\times M}_{n}$ oraz tzw. uogólnioną przekątną $\Delta^n(M)$ złożoną z punktów
+  $$(x_1,...,x_n)\in M\times...\times M$$
+  takich, że $x_i=x_j$. Zbiór $\Delta^n(M)$ jest domknięty w $M\times...\times M$, więc $M\times...\times M\setminus\Delta^n(M)$ jest otwarty i składa się z $(x_1,...,x_n)$ takich, że $x_1$ są parami różne. Grupa permutacji $S_n$ działa na $M\times...\times M\setminus\Delta^n(M)$ przez
+  $$\sigma(x_1,...,x_n)=(x_{\sigma(1)},...,x_{\sigma(n)}).$$
+  Wtedy $(M\times...\times M\setminus\Delta^n(M))/S_n=Conf(M)$. Takie działanie jest wolne i właściwie nieciągłe, bo $S_n$ jest skończone. Dodatkowo, każda taka funkcja $\sigma$ jest dyfeomorfizmem.
+
+  \textbf{\large\color{orange}TRZEBABY DOPISAĆ}
+\end{example}
