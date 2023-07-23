@@ -44,6 +44,8 @@
 %\renewcommand{\familydefault}{\sfdefault}
 
 \usepackage{fancyhdr}
+%\usepackage{insbox}
+%\input{insbox}
 
 \begin{document}
 \newgeometry{total={180mm, 267mm}}
@@ -72,6 +74,7 @@
 \fancyfoot[CE, CO]{\thepage}
 \fancyfoot[LE, RO]{\color{black!20}Weronika Jakimowicz}
 \fancyfoot[RE, LO]{\color{black!20}Według wykładu Prof. Świątkowskiego}
+\setlength{\headheight}{12.1pt}
 
 %
 %\input{00_motywacja.tex}
@@ -86,12 +89,15 @@
 \input{03_dyskretne_ilorazy.tex}
 \newpage
 %
-\input{pochodnie.tex}
+\input{04_wektory_styczne.tex}
+\newpage
+%
+\input{05_pole_wektorowe.tex}
 \newpage
 
-\thispagestyle{empty}
-\newgeometry{total={180mm, 267mm}}
-\listoftheorems
-\restoregeometry
+%\thispagestyle{empty}
+%\newgeometry{total={180mm, 267mm}}
+%\listoftheorems
+%\restoregeometry
 
 \end{document}
