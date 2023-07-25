@@ -1,8 +1,9 @@
-\documentclass[twoside]{article}
+\documentclass[a5paper, twoside]{article}
  
 \usepackage[polish]{../../lecture_notes}
 \usepackage{marginnote}
 \usepackage{wrapfig}
+
 
 \usetikzlibrary{shapes.geometric}
 
@@ -19,9 +20,16 @@
 %  marginpar={35mm}
 %}
 
-
-\geometry{a4paper, total={150mm, 249mm}, top=25mm, marginpar={25mm}, right={40mm}}
-
+%\geometry{a4paper, total={150mm, 249mm}, top=25mm, marginpar={25mm}, right={40mm}}
+\geometry{
+%  showframe,
+  a5paper, 
+  total={104.5mm, 165mm}, 
+  top=18.5mm, 
+  marginpar={15.5mm}, 
+  right={26mm},
+  headsep=5mm
+}
 
 \declaretheorem[
   name={Przykłady},
@@ -39,6 +47,16 @@
 }
 \makeatother
 
+%\sectionfont{\scalefont{0.88}\color{orange}}
+%\subsectionfont{\scalefont{0.8}\color{orange}}
+
+
+\makeatletter %only needed in preamble
+\renewcommand\Large{\@setfontsize\Large{12pt}{9}}
+\renewcommand\large{\@setfontsize\large{10pt}{9}}
+\renewcommand\scriptsize{\@setfontsize\scriptsize{5pt}{5}}
+\renewcommand\small{\@setfontsize\small{6pt}{6}}
+\makeatother
 
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
@@ -47,8 +65,18 @@
 %\usepackage{insbox}
 %\input{insbox}
 
+\usepackage{scalefnt}
+
 \begin{document}
-\newgeometry{total={180mm, 267mm}}
+
+\setlength{\belowdisplayskip}{5pt} \setlength{\belowdisplayshortskip}{5pt}
+\setlength{\abovedisplayskip}{5pt} \setlength{\abovedisplayshortskip}{5pt}
+
+\scalefont{0.7}
+
+%\fontsize{8}{3}\selectfont
+
+%\newgeometry{total={133.5mm, 180mm}}
 \maketitle
 \thispagestyle{empty}
 \bigskip
@@ -66,14 +94,14 @@
 \thispagestyle{empty}
 \newpage
 %
-\restoregeometry
+%\restoregeometry
 \pagestyle{fancy}
 \fancyhead{} % clear all header fields
-\fancyhead[RE, LO]{\textbf{Rozmaitości różniczkowalne}}
+\fancyhead[RE, LO]{\textbf{\scalefont{0.7}Rozmaitości różniczkowalne}}
 \fancyfoot{} % clear all footer fields
-\fancyfoot[CE, CO]{\thepage}
-\fancyfoot[LE, RO]{\color{black!20}Weronika Jakimowicz}
-\fancyfoot[RE, LO]{\color{black!20}Według wykładu Prof. Świątkowskiego}
+\fancyfoot[CE, CO]{\scalefont{0.7}\thepage}
+\fancyfoot[LE, RO]{\color{black!20}\scalefont{0.7}Weronika Jakimowicz}
+\fancyfoot[RE, LO]{\color{black!20}\scalefont{0.7}Według wykładu Prof. Świątkowskiego}
 \setlength{\headheight}{12.1pt}
 
 %

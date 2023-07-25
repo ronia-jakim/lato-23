@@ -62,7 +62,7 @@ Jeśli teraz oznaczymy $b_i=a_\circ\phi:U\to\R$, to wówczas
 $$X(p)=\sum b_i(p)\cdot\frac{\partial}{\partial\phi_i}(p).$$
 
 \begin{fact}
-  Pole $X:M\to TM$ jest gładkim polem wektorowym na $M$ $\iff$ w mapaie $(U,\phi)$ na $M$ i odpowiadającej jej mapie $(TU,\overline{\phi})$ na $TM$ wyraża się jako
+  Pole $X:M\to TM$ jest gładkim polem wektorowym na $M$ $\iff$ w mapie $(U,\phi)$ na $M$ i odpowiadającej jej mapie $(TU,\overline{\phi})$ na $TM$ wyraża się jako
   $$X(p)=\sum b_i(p)\cdot\frac{\partial}{\partial\phi_i}(p)$$
   dla pewnych gładkich $b_i:U\to\R$.
 \end{fact}
@@ -116,8 +116,38 @@ Niech $M$ będzie rozmaitością z niepustym brzegiem $\partial M$.
   $$d(\psi\phi^{-1})_{\phi(p)}=D_{\phi(p)}(\psi\phi^{-1})$$
   jest jej pochodną. Dodatkowo, wiemy, że $\psi\phi^{-1}$ jest bijekcją, więc na pewno $D_{\phi(p)}(\psi\phi^{-1})(e_n)$ nie może się zerować. Zarówno $\psi$ jak i $\phi$ są mapami wokół brzegu $\partial M$, czyli tak naprawdę:
   $$\psi\phi^{-1}:H^n\to H^n$$
-  W takim razie, $D_{\phi(p)}(\psi\phi^{-1})(e_n)>0$ i mamy
-  $$a_n\cdot\frac{\partial}{\partial\phi_n}(p)=\underbrace{a_n\cdot D_{\phi(p)}(\phi\psi^{-1})(e_n)}_{>0}\cdot\frac{\partial}{\partial\psi_n}$$
+  W takim razie, $D_{\phi(p)}(\psi\phi^{-1})(e_n)\in \{(x_1,...,x_n)\in\R^n\;:\;x_n>0\}$.% i 
+  %$$a_n\cdot\frac{\partial}{\partial\phi_n}(p)=\underbrace{a_n\cdot D_{\phi(p)}(\phi\psi^{-1})(e_n)}_{>0}\cdot\frac{\partial}{\partial\psi_n}$$
+
+  \begin{center}
+  \scalebox{0.6}{
+  \begin{tikzpicture}
+    \filldraw[orange!40] (6.5, 0) ellipse (1 and 0.7);
+    \draw[->, very thick] (6.5, 0)--(6, 0.2);
+      \draw[rounded corners=35pt](7,-1)--(4.2,-1)--(2,-2)--(0,0) -- (2,2)--(4.2,1)--(7,1);
+      \draw (1.5,0.2) arc (175:315:1cm and 0.5cm);
+      \draw (3,-0.28) arc (-30:180:0.7cm and 0.3cm);
+      \filldraw[color=black, fill=blue!30!black!60](7.5,0) arc (0:360:0.5cm and 1cm);
+      \filldraw (6.5, 0) circle (1.5pt) node [right] {$\color{white}p$};
+      \node at (6, 0.5) {$X$};
+
+      \filldraw[orange!40] (9.5, 0) arc (180:0:1 and 1.8);
+      \draw[->] (9, 0)--(12, 0);
+      \draw[->] (10.5, -1)--(10.5, 2.5);
+      \filldraw(10.3, 0) circle (1.5pt) node [below] {$\phi(p)$};
+      \draw[very thick, ->] (10.3, 0)--(11, 1.2) node [above] {$\overline{\phi}X$};
+      
+      \filldraw[orange!40] (-4, 0) arc (180:0:1.1 and 1.3);
+      \draw[<-] (-1.5, 0)--(-4.5, 0);
+      \draw[->] (-3, -1)--(-3, 2);
+      \filldraw (-2.8, 0) circle (1.5pt) node [below] {$\psi(p)$};
+      \draw[->, very thick] (-2.8, 0)--(-3.2, 1) node [above] {$\overline{\psi}(p)$};
+      
+      \path[->, thick] (6.3, 0.4) edge [bend left=40] node [midway, above] {$\phi$} (9.7, 0.5);
+      \path[->, thick] (6.1, -0.4) edge [bend left=50] node [midway, below] {$\psi$} (-1.8, -0.1);
+      \path[->, thick] (10, 1.3) edge [bend right=20] node [midway, above] {$\psi\phi^{-1}$} (-1.8, 0.8);
+  \end{tikzpicture}}
+  \end{center}
   
 
   %więc $Y$ zapisane w bazie $\frac{\partial}{\partial\psi_n}$ma ściśle dodatnią ostatnią współrzędną.
@@ -223,8 +253,389 @@ Jako złożenie odwzorowań gładkich, samo też jest odwzorowaniem gładkim.
   \end{align*}
 \end{proof}
 
-\begin{theorem} Dla \marginpar{Krzywe całkowe wyrażenia pola $X$ w mapie $(U,\phi)$ to wyrażenie krzywych całkowych pola $X$ w tej samej mapie.}każdego $p\in M$ istnieje krzywa całkowa o początku w $p$, tzn. krzywa całkowa $\gamma:(-\epsilon,\epsilon)\to M$ taka, że $\gamma(p)=p$
+Krzywe całkowe mają \important{następujące własności}:
+\begin{itemize}
+  \item dla każdego $p\in M$ istnieje krzywa całkowa o początku w $p$ (twierdzenie \ref{istnienie krzywych calkowych})
+  \item jeśli krzywe całkowe przecinają się, to są sobie równe (uwaga \ref{jednoznacznosc krzywych calkowych})
+  \item krzywe całkowe pola na otoczeniu pewnego punktu $p\in M$ są gładko zależne (fakt \ref{gladka zaleznosc od punktu poczatkowego})
+\end{itemize}
+Które zostaną udowodnione niżej.
+
+\begin{theorem}\label{istnienie krzywych calkowych} Dla \marginpar{Krzywe całkowe wyrażenia pola $X$ w mapie $(U,\phi)$ to wyrażenie krzywych całkowych pola $X$ w tej samej mapie.}każdego $p\in M$ istnieje krzywa całkowa o początku w $p$, tzn. krzywa całkowa $\gamma:(-\varepsilon,\varepsilon)\to M$ taka, że $\gamma(0)=p$
 \end{theorem}
 
 \begin{proof}
+  Niech $(U,\phi)$ będzie mapą na $M$ taką, że powiązane z nią pole wektorowe na $T\R^n$ spełnia
+  $$[d\phi(X)](u)=\sum_{i\leq n}a_i(u)\frac{\partial}{\partial{x_i}}(u),$$ 
+  gdzie $\phi(p)=x_0\in\phi(U)\subseteq\R^n$. Wystarczy pokazać, że istnieje krzywa całkowa pola $d\phi(X)$ o początku $x_0$.
+
+  Poszukiwana krzywa rozwiązuje równanie różniczkowe zwyczajne w $\R^n$:
+  $$c'(t)=[a_1(c(t)), ...,a_n(c(t))]$$
+  z warunkiem początkowym $c(0)=x_0$.
 \end{proof}
+
+\begin{remark}\label{jednoznacznosc krzywych calkowych}
+  Niech $\gamma_1,\gamma_2:(a,b)\to M$ będą krzywymi całkowymi pola $X\in\mathfrak{X}(M)$. Jeśli istnieje $t_0\in(a,b)$ takie, że 
+  $$\gamma_1(t_0)=\gamma_2(t_0)$$
+  to krzywe te są równe.
+\end{remark}
+
+\begin{proof}
+  Rozważmy zbiór
+  $$A=\{t\in(a,b)\;:\;\gamma_1(t)=\gamma_2(t)\}.$$
+  Jest on domknięty, gdyż $\gamma_1$ i $\gamma_2$ są funkcjami ciągłymi. Ze względu na to, że $\gamma_i$ jest rozwiązaniem równania różniczkowego zwyczajnego tak jak w dowodzie wyżej, to zbiór ten jest otwarty (rozwiązania równań różniczkowych zwyczajnych są lokalnie jednoznaczne). Wiemy, że $t_0\in A$, więc zbiór $A$ jest niepusty. Odcinek $(a,b)$ jest spójny, czyli skoro $A\subseteq(a,b)$ jest zbiorem jednocześnie otwartym i domkniętym, to może być pusty (ale $t_0$) lub być całością. Stąd $A=(a,b)$.
+\end{proof}
+
+\begin{fact}\label{gladka zaleznosc od punktu poczatkowego} Dla każdego $p\in M$ istnieje $p\in U_p\subseteq M$ oraz gładka funkcja
+  $$\Gamma:(-\varepsilon,\varepsilon)\times U_p\to M$$
+  taka, że dla każdego $q\in U_p$ $\gamma_q:(-\varepsilon,\varepsilon)\to M$ określone przez
+  $$\gamma_q(t)=\Gamma(t,q)$$
+  jest krzywą całkową pola $X$ o początku w $q$.
+\end{fact}
+
+\begin{proof}
+  Wynika z analogicznego faktu dla równań różniczkowych zwyczajnych.
+\end{proof}
+
+\begin{definition}
+  Pole wektorowe $X\in\mathfrak{X}(M)$ jest \important{zupełne}, jeśli dla każdego $p\in M$ istnieje krzywa całkowa $\gamma:\R\to M$ o początku w $p$. To znaczy każda lokalnie określona krzywa całkowa przedłuża się do całego $\R$.
+\end{definition}
+
+%\begin{multicols}{2}
+\begin{example}
+\item Rozważmy pole wektorowe
+  $$X(u,v)=-v\frac{\partial}{\partial u}(u,v)+u\frac{\partial}{\partial v}(u,v)$$
+  na $\R^2$. Jest ono zupełne, gdyż krzywe całkowe mają postać
+  $$\gamma(t)=(\;r\cdot\cos(t+t_0),\;r\cdot\sin(t+t_0)\;)$$
+  i są określone na całym $\R$.
+
+  To samo pole ale określone na $Int(H^2)=\{(x,y)\;:\;y>0\}$ nie jest zupełne.
+
+\begin{illustration}
+\begin{axis}[
+    xmin = -3, xmax = 3,
+    ymin = -3, ymax = 3,
+    zmin = 0, zmax = 1,
+    axis equal image,
+    axis lines = middle,
+    xtick distance = 1,
+    ytick distance = 1,
+    ticks = none,
+    view = {0}{90},
+    scale = 1.25,
+    %title = {\bf Vector Field $F = [-y,x]$},
+    height=7cm,
+    %xlabel = {$x$},
+    %ylabel = {$y$},
+    colormap/viridis,
+    %colorbar,
+    %colorbar style = {
+    %    ylabel = {Vector Length}
+    %}
+]
+ 
+\addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+        %u = {-y/sqrt(x^2+y^2)},
+        %v = {x/sqrt(x^2+y^2)},
+        u = {-y},
+        v = {x},
+        scale arrows = 0.4,
+    },
+    quiver/colored = {mapped color},
+    -stealth,
+    domain = -2:2,
+    domain y = -2:2,
+    samples=7,
+    thick
+] {0};
+ 
+\end{axis}
+ 
+\end{illustration}
+\end{example}
+%\end{multicols}
+
+\begin{fact}
+  Jeśli $X\in\mathfrak{X}(M)$ jest zupełnym polem wektorowym, a dla każdego $p\in M$ 
+  $$\gamma_p:\R\to M$$ 
+  jest maksymalnie przedłużoną krzywą całkową pola $X$ o początku w $p$, to
+  $$\Gamma:\R\times M\to M$$
+  określone przez
+  $$\Gamma(t,p)=\gamma_p(t)$$
+  jest odwzorowaniem gładkim.
+
+  Ponadto, dla każdego $t\in\R$ odwzorowanie $\phi_t:M\to M$ zadane przez
+  $$\phi_t(p)=\gamma_p(t)$$
+  jest dyfeomorfizmem rozmaitości $M$, a przyporządkowanie $t\mapsto\phi_t$ jest homomorfizmem grupy $\R$ w grupę dyfeomorizmów $M$ ($\R\to Diff(M)$).
+\end{fact}
+
+\begin{proof}
+  Gładkość odwzorowania $\Gamma$ wynika z gładkiej lokalnej zależności krzywych całkowych od punktu początkowego. Tak samo jak dla równań różniczkowych gładka zależność lokalna pociąga gładką zależność globalną.
+
+  W takim razie $\phi_t=\Gamma(t, \cdot)$ jest gładkim odwzorowaniem $M\to M$, gdzie oczywiście $\phi_0=id_M$. Weźmy dowolne $t,s\in\R$, wtedy
+  \begin{align*}
+    \frac{d}{dt}\phi_t(\phi_s(p))&=X(\phi_t(\phi_s(p))\\
+    \frac{d}{dt}\phi_{t+s}(p)=X(\phi_{s+t}(p))
+  \end{align*}
+  są krzywymi całkowymi. Rozważmy teraz krzywe całkowe $\alpha(t)=(\phi_t\circ\phi_s)(p)$ oraz $\beta(t)=\phi_{t+s}(p)$. Mamy
+  $$\alpha(0)=(\phi_0\circ\phi_s)(p)=(id_M\circ\phi_s)(p)=\phi_s(p)$$
+  $$\beta(0)=\phi_{0+s}(p)=\phi_s(p),$$
+  czyli $\alpha$ oraz $\beta$ są obie krzywymi całkowymi o początku w punkcie $\phi_s(p)$, więc na mocy \ref{jednoznacznosc krzywych calkowych} mamy
+  $$\phi_t\circ\phi_s=\alpha=\beta=\phi_{t+s}$$
+
+  Z równości $\phi_{t+s}=\phi_t\circ\phi_s$ wynika, że:
+  \begin{itemize}
+    \item $\phi_t$ jest dyfeomorfizmem, bo 
+      $$\phi_t\circ\phi_{-t}=\phi_{-t}\circ\phi_t=\phi_{t+(-t)}=\phi_0=id_M$$
+    \item $t\mapsto \phi_t$ jest homomorfizmem $\R\to Diff(M)$.
+  \end{itemize}
+\end{proof}
+
+  Rodzina $\{\phi_t\}$ jak wyżej jest nazywana \important{potokiem pola} $X$ lub \acc[b]{jednoparametrową grupą dyfeomorfizmów} generowaną przez $X$. Pojawia się też określenie \emph{potok fazowy} pola $X$.
+
+  Krzywe całkowe $t\mapsto \phi_t(p)$ są nazywane \important{trajektoriami potoku} $\{\phi_t\}$, trajektoriami pola $X$, krzywymi fazowymi pola $X$, liniami sił etc.
+
+\begin{example}
+\item W przykładzie pola zupełnego
+  $$X(u,v)=-v\frac{\partial}{\partial u}+u\frac{\partial}{\partial v}$$
+  na $\R^2$ jak wyżej mamy potok
+  $$\phi_t(u,v)=(\;u\cos t-v\sin t,\;u\sin t+v\cos t\;)$$
+  będący obrotem wokół $(0,0)$ o kąt $t$. Na zielono niżej przedstawiono $\phi_{40^\circ}$.
+
+\begin{illustration}
+\begin{axis}[
+    xmin = -3, xmax = 3,
+    ymin = -3, ymax = 3,
+    zmin = 0, zmax = 1,
+    axis equal image,
+    axis lines = middle,
+    xtick distance = 1,
+    ytick distance = 1,
+    ticks = none,
+    view = {0}{90},
+    scale = 1.25,
+    %title = {\bf Vector Field $F = [-y,x]$},
+    height=7cm,
+    %xlabel = {$x$},
+    %ylabel = {$y$},
+    %colormap/viridis,
+    %colorbar,
+    %colorbar style = {
+    %    ylabel = {Vector Length}
+    %}
+]
+ 
+\addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+        %u = {-y/sqrt(x^2+y^2)},
+        %v = {x/sqrt(x^2+y^2)},
+        u = {x*cos(40)-y*sin(40)},
+        v = {x*sin(40)+y*cos(40)},
+        scale arrows = 0.2,
+    },
+    green,
+    -stealth,
+    domain = -3:3,
+    domain y = -3:3,
+    samples=14,
+] {0};
+%\addplot3[
+%    point meta = {sqrt(x^2+y^2)},
+%    quiver = {
+%        %u = {-y/sqrt(x^2+y^2)},
+%        %v = {x/sqrt(x^2+y^2)},
+%        u = {x*cos(-60)-y*sin(-60)},
+%        v = {x*sin(-60)+y*cos(-60)},
+%        scale arrows = 0.2,
+%    },
+%    orange,
+%    -stealth,
+%    domain = -3:3,
+%    domain y = -3:3,
+%    samples=14,
+%] {0};
+\addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+        %u = {-y/sqrt(x^2+y^2)},
+        %v = {x/sqrt(x^2+y^2)},
+        u = {-y},
+        v = {x},
+        scale arrows = 0.4,
+    },
+    %quiver/colored = {mapped color},
+    -stealth,
+    domain = -2:2,
+    domain y = -2:2,
+    samples=7,
+    thick
+] {0};
+ 
+\end{axis}
+ 
+\end{illustration}
+\end{example}
+
+\begin{definition}
+  Jednoparametrową grupą dyfeomorfizmów na rozmaitości $M$ nazywamy
+  \begin{itemize}
+    \item każdy homomorfizme $\R\to Diff(M)$ gładko zależny od $t\in\R$ lub, równoważnie,
+    \item każdą rodzinę $\{\phi_t\}_{t\in\R}$ dyfeomorfizmów gładko zależną od $t$, taką, że $\phi_{t+s}=\phi_t\circ\phi_s$ dla każdego $t,s\in\R$.
+  \end{itemize}
+\end{definition}
+
+Pole wektorowe $X\in\mathfrak{X}(M)$, które nie jest zupełne wyznacza jedynie tzw. lokalną jednoparametrową grupę dyfeomorfizmów, tzn. rodzinę
+$$\{(U_\alpha,\varepsilon_\alpha,\phi^\alpha)\}_{\alpha}$$
+taką, że
+\begin{enumerate}
+  \item zbiory $U_\alpha\subseteq M$ są otwarte i pokrywają $M$
+  \item $\phi^\alpha:(-\varepsilon_\alpha,\varepsilon_\alpha)\times U_\alpha\to M$ jest gładkie
+  \item $\phi^\alpha(0,p)=p$ dla każdego $p\in U_\alpha$
+  \item oznaczając 
+    $$\phi^\alpha_t(p)=\phi^\alpha(t,p)$$
+    jeśli $s,s+t\in(-\varepsilon_\alpha,\varepsilon_\alpha)$, $t\in(-\varepsilon_\beta,\varepsilon_\beta)$ oraz $\phi_s^\alpha(p)\in U_\beta$, to wówczas
+    $$\phi_t^\beta\circ\phi_s^\alpha(p)=\phi_{t+s}^\alpha(p)$$
+\end{enumerate}
+
+Każdy $(U_\alpha,\varepsilon_\alpha,\phi^\alpha)$ tworzony jest z lokalnych krzywych całkowych pola $X$ gładko zależnych po punktu początkowego:
+$$t\mapsto \phi^\alpha(t,p)$$
+jest krzywą całkową pola $X$ o początku w $p$. To znaczy 
+$$\phi^\alpha(0,p)=p$$
+$$\frac{\partial}{\partial t}\phi^\alpha(t,p)=X(\phi^\alpha(t,p)).$$
+Taką rodzinę nazywamy też \acc[b]{potokiem pola $X$}, zaś $X$ to jej \acc[i]{potok generujący}.
+
+\begin{theorem}
+  Każda abstrakcyjna jednoparametrowa grupa dyfeomorfizmów $M$ jest potokiem pewnego zupełnego pola wektorowego $X\in\mathfrak{X}(M)$.
+
+  Ponadto, jeśli patrzymy na prawdziwą jednoparametrową grupę dyfeomorfizmów, to generujące ją pole $X$ jest zupełne.
+\end{theorem}
+
+\begin{proof}
+  Niech $\{(U_\alpha,\varepsilon_\alpha,\phi^\alpha)\}$ będzie rodziną dyfeomorfizmów jak wyżej. 
+
+  Określmy pole $X\in\mathfrak{X}(M)$. Jeśli $p\in U_\alpha$, to 
+  $$X(p)=\frac{\partial}{\partial t}_{t=0}\phi^\alpha(t, p)\in T_pM$$
+  według punktu 3. wyżej.
+
+  Takie pole jest dobrze określone, tzn. jeśli $p\in U_\alpha\cap U_\beta$, to
+  $$\frac{\partial}{\partial t}_{t=0}\phi^\alpha(t,p)=\frac{\partial}{\partial t}_{t=0}\phi^\beta(t,p).$$
+  Można to pokazać stosując warunek 4. wyżej dla $s=0$. Weźmy $\phi_s^\alpha(p)=\phi_0^\alpha=p\in U_\beta$, więc dla $t\in(-\varepsilon,\varepsilon)$, gdzie $\varepsilon=min(\varepsilon_\alpha,\varepsilon_\beta)$, zachodzi
+  $$\phi_t^\beta(p)=\phi_{t}^\beta(\phi_s^\alpha(p))=\phi_{t+s}^\alpha(p)=\phi_{t+0}^\alpha=\phi_t^\alpha(p).$$
+  Stąd wynika równość pochodnych.
+
+  Pokażemy, że na pojedynczym $U_\alpha$ tak określone pole $X$ jest polem gładkim. Niech $Z$ będzie pomocniczym polem na produkcie $(-\varepsilon_\alpha,\varepsilon_\alpha)\times U_\alpha$ zadanym przez
+  $$Z(t,p)=\frac{d}{ds}_{s=t}(s, p)=\frac{\partial}{\partial t}(t,p).$$
+  Oczywiście, jest to gładkie odwzorowanie
+  $$Z:(-\varepsilon_\alpha,\varepsilon_\alpha)\times U_\alpha)\to T[(-\varepsilon_\alpha,\varepsilon_\alpha)\times U_\alpha]$$
+  które daje również
+  $$d\phi^\alpha:T[(-\varepsilon_\alpha,\varepsilon_\alpha)\times U_\alpha]\to TM.$$
+  Ponadto, dla $p\in U_\alpha$ zachodzi
+  $$X(p)=d\phi^\alpha\circ Z(0,p)$$
+  i łatwo jest już sprawdzić gładkość w lokalnych mapach na $U_\alpha$.
+
+  Pokażemy teraz, że krzywe $t\mapsto\phi^\alpha(t,p)$ są krzywymi całkowymi pola $X$, tzn. sprawdzimy, że
+  $$\frac{d}{dt}_{t=t_0}\phi^\alpha(t,p)=X(\phi^\alpha(t_0,p))$$
+  dla każdego $p\in U_\alpha$ oraz $t_0\in(-\varepsilon_\alpha,\varepsilon_\alpha)$.
+
+  Zbiory postaci $U_\alpha$ pokrywają całe $M$, stąd istnieje $\beta$ takie, że $\phi^\alpha(t_0,p)\in U_\beta$, przy czym może się zdarzyć, że $\beta=\alpha$. Wtedy
+  $$\frac{d}{dt}_{t=t_0}\phi^\alpha(t,p)=\frac{d}{ds}_{s=0}\phi^\alpha(t_0+s,p)=\frac{d}{ds}_{s=0}\phi^\beta_s(\phi^\alpha_{t_0}(p))=X(\phi^\alpha_{t_0}(p))$$
+  przedostatnia równość wynika z warunku 4, a ostatnia równość to oczywiście sposób w jaki $X$ jest zdefiniowane.
+\end{proof}
+
+\begin{theorem}
+  Jeśli $X\in\mathfrak{X}(M)$ ma nośnik zwarty, to $X$ jest zupełne.
+
+  Na zwartej rozmaitości $M$ każde pole $X\in\mathfrak{X}(M)$ ma nośnik zwarty, więc każde jest zupełne.
+\end{theorem}
+
+\begin{proof}
+  Nośnik $supp(X)$ możemy pokryć skończoną rodziną zbiorów $U_{\alpha_i}$, dla których istnieją odpowiednie 
+  $$\phi^{\alpha_i}:(-\varepsilon_{\alpha_i},\varepsilon_{\alpha_i})\times U_{\alpha_i}\to M.$$
+  Wtedy dla $\varepsilon=\min_i\{\varepsilon_{\alpha_i}\}$ możemy stworzyć krzywe całkowe o początku w dowolnym $p\in M$ i określone na przedziale $(-\varepsilon,\varepsilon)$. Ponieważ tak dobrane $\varepsilon$ jest jednostajne na całym $M$, to możemy w ten sposób dobrane krzywe całkowe przedłużać w nieskończoność w obie strony, a więc pole z którym są one powiązane jest polem zupełnym.
+\end{proof}
+
+\subsection{Zastosowania potoków pól wektorowych}
+
+\begin{example}
+  \item Jeśli $M$ jest rozmaitością spójną, a $p,q\in M$, to istnieje dyfeomorfizm $f:M\to M$ taki, że $f(p)=q$. Określamy tę własność tranzytywnością dyfeomorfizmów na punktach spójnej rozmaitości.
+
+    \begin{proof}
+      Ponieważ $M$ jest spójna, to $p$ możemy z $q$ połączyć kawałkami gładką krzywą $\gamma$. Mówiąc dokładniej, istnieje
+      $$\gamma:[a,b]\to M$$
+      oraz $a=a_0<a_1<...<a_n=b$ takie, że $\gamma\restriction[a_i,a_{i+1}]$ jest gładkim włożeniem. Oznacza to, $\gamma\restriction[a_i,a_{i+1}]$ jest różnowartościowa i pochodna nie zeruje się na żadnym punkcie $t\in[a_i,a_{i+1}]$. Dodatkowo wymagamy, by $\gamma(a)=p$ i $\gamma(b)=q$.
+
+      Dla każdego $i\in\{0,...,n-1\}$ skonstruujmy dyfeomorfizm $f_i:M\to M$ taki, że 
+      $$f_i(\gamma(a_i))=\gamma(a_{i+1}).$$
+      Wówczas dyfeomorfizm $f=f_{n-1}\circ ...\circ f_1\circ f_0$ będzie dyfeomorfizmem którego istnienie chcemy dowieźć.
+
+      Dla $i\in\{0,1,...,n-1\}$ rozważmy pole wektorowe $X_i$ o nośniku zwartym takie, że
+      $$X_i(\gamma\restriction[a_i,a_{i+1}](t))=\frac{d}{dt}\gamma\restriction[a_i,a_{i+1}](t)$$
+      dla $t\in[a_i,a_{i+1}]$. Takie pole może zostać skonstruowane za pomocą rozkładów jedności i jest ono zupełne.
+
+%      Rozważmy pokrycie $M$ zbiorami otwartymi $U_1= \gamma((a_i, a_{i+1}))$, $U_2\ni a_i$ oraz $U_3\ni a_{i+1}$. Rozważmy teraz rozkład jedności $\{f_1,f_2, f_3\}$ wpisany w to pokrycie. Definiujemy
+%      $$Y_1(\gamma(t))=\frac{d}{dt}\gamma(t)$$
+%      oraz
+%      $$Y_2=\frac{d}{dt}_{t=a_i}\gamma(t)$$
+%      $$Y_3=\frac{d}{dt}_{t=a_{i+1}}\gamma(t)$$
+%      Niech teraz $X_i=\sum f_jY_j$. Jest to pole wektorowe takie jak potrzebujemy wyżej.
+
+      Oznaczmy $\gamma\restriction[a_i,a_{i+1}]=\gamma^i$. Rozważmy mapę $(U,\phi)$ na $M$. Wtedy 
+      $$\phi\circ\gamma^i=(\;\gamma_1^i(t),\;...,\;\gamma_n^i(t)\;).$$
+      Ponieważ $(\gamma^i)'(t)\neq 0$, to dla ustalonego $t_0$ możemy przyjąć, że $(\gamma_1^i)'(t_0)\neq 0$. Z twierdzenia o funkcji odwrotnej wiemy, że $\gamma_1^i$ jest gładko odwracalne wokół $t_0$. Nakładając $\gamma_1^{-1}$ lokalnie wokół $t_0$ na $\phi\circ\gamma^i(t)$ dostajemy dyfeomorfizm
+      $$(x_1,...,x_n)\mapsto(\gamma_1^{-1}(x_1),x_2,...,x_n)$$
+      dający mapę $\psi$, w której 
+      $$\psi\gamma^i(t)=(\;t,\gamma_2(t),\;...,\;\gamma_n(t)\;).$$
+      Zdefiniujmy lokalnie pole $Y_\alpha$ przez
+      $$Y_\alpha(x_1,...,x_n)=[1,\gamma_2'(x_1),...,\gamma_n'(x_1)]$$
+      Wtedy 
+      $$(\psi\gamma^i)'(t)=Y_\alpha(\psi\gamma^i(t)).$$
+      Wystarczy w pokrycie ze zbiorem odpowiadającym mapie $\psi$ wpisać rozkład jedności i zdefiniować $X_i=\sum f_\alpha Y_\alpha$, gdzie $Y_\alpha$ różne niż to opisane wyżej jest zerowe.
+
+      Krzywa $\gamma\restriction[a_i,a_{i+1}]$ jest krzywą całkową tego pola. Zatem potok $\phi_t^{X_i}$ tego pola spełnia warunek
+      $$\phi_{a_{i+1}-a_i}^{X_i}(\gamma(a_i))=\gamma(a_{i+1}).$$
+      
+      Bierzemy więc $f_i=\gamma_{a_{i+1}-a_i}^{X_i}$.
+    \end{proof}
+  \item Niech $p\in M$ oraz $X\in C^\infty(TM)$ takie, że $X(p)\neq 0$. Wówczas istnieje otoczenie $p\in U$ oraz mapa $\phi:U\to \R^n$ taka, że pole $X$ w tej mapie wyraża się $X=\frac{\partial}{\partial x_1}$. [\acc[i]{Wyprostowanie pola wektorowego}]
+
+    Wyrażenie pola $X\in C^\infty(TM)$ w mapie $\phi:U\to\R^n$ to zapisanie pola 
+    $$d\phi(X)=d\phi_{\phi^{-1}(u)}(X(\phi^{-1}(u))$$
+    dla $u\in\phi(U)\subseteq\R^n$, w postaci
+    $$\sum_{i\leq n}X_i(u)\cdot\frac{\partial}{\partial x_i}(u)$$
+    
+    \begin{proof}
+      Problem jest lokalny wokół $p$, więc wystarczy rozumienie go w dowolnej mapie wokół $p$. Możemy od razu przyjąć, że $X$ jest polem wektorowym na $U\subseteq\R^n$ postaci
+      $$X=\sum X_i(u)\cdot\frac{\partial}{\partial x_i}(u).$$
+      Załóżmy, że punktowi $p$ odpowiada punkt $u_0\in U$ taki, że $u_0=(0,...,0)$.
+
+      Przyjmijmy, że $X_1(u_0)\neq 0$, bo $X(u_0)\neq 0$. Niech $\phi_t$ oznacza lokalny potok wokół $u_0$, tzn.
+      $$\phi_t(u)=\phi(t, u),$$
+      gdzie $\phi:(-\varepsilon,\varepsilon)\times U_0\to U$ i $U_0\subseteq U$ jest mniejszym otoczeniem $p$. Ponadto, niech $\phi(0,u)=u$ oraz 
+      $$\frac{\partial}{\partial t}\phi(t,u)=X(\phi(t,u)).$$
+
+      Oznaczmy zbiór otwarty
+      $$\Omega=\{(u_2,...,u_n)\;:\;(0,u_2,...,u_n)\in U_0\}\subseteq\R^{n-1}$$
+      i rozważmy funkcję
+      $$F:(-\varepsilon,\varepsilon)\times\Omega\to U$$
+      $$F(t, (u_2,...,u_n))=\phi_t(0,u_2,...,u_n)=\phi(t,(0,u_2,...,u_n)).$$
+      Jej Jakobian ma postać
+      $$DF(0,...,0)=\begin{bmatrix}x_1(u_0) & 0 & \hdots & 0\\
+      x_2(u_0) & 1 & \hdots & 0\\
+      \vdots & 0 & & \vdots\\
+      x_n(u_0) & 0 & \hdots & 1\end{bmatrix}$$
+      $$det(DF(0,...,0))=x_1(u_0)\neq 0,$$
+      zatem na otoczeniu $(0,...,0)$ $F$ jest dyfeomorfizmem. Potraktujmy więc $F^{-1}$ jako nową mapę wokół $u_0=(0,...,0)$. Pokażemy, że $dF^{-1}(X)=\frac{\partial}{\partial t}$:
+      \begin{align*}
+        (dF\restriction(t, u_2,...,u_n))^{-1}(X(F(t,u_2,...,u_n))&=\frac{\partial}{\partial t}(t, u_2,...,u_n)\\
+        (dF\restriction(t, u_2,...,u_n))(\frac{\partial}{\partial t}(t,u_2,...,u_n))&=\frac{d}{dt}F(t, u_2,...,u_n)=\\
+                                                                                    &=\frac{d}{dt}\phi_t(0,u_2,...,u_n)=\\
+                                                                                    &=X(\phi_t(0,u_2,...,u_n))=X(F(t,u_2,...,u_n))
+      \end{align*}
+    \end{proof}
+  \item\phantomsection\label{dowod otoczenia kolnierzowego}\hyperref[otoczenie kolnierzowe definicja]{\important{Otocznie kołnierzowe}} [twierdzenie 3.1]  brzegu zwartej rozmaitości.
+
+    Niech $M$ będzie zwartą rozmaitością o niepustym brzegu $\partial M\neq\emptyset$, a $X$ niech będzie polem wektorowym na $M$, które na brzegu jest skierowane do wewnątrz $M$.
+\end{example}

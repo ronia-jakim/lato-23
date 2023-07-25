@@ -45,7 +45,10 @@ gdzie punktów $A$ i $B$ nie da się rozdzielić za pomocą rozłącznych zbior�
 
 Ogólniej, warunek ten mówi, że lokalnie topologiczne własności z $\R^n$ przenoszą się na $M$ przez homeomorfizmy, np dla podzbioru $U\subseteq M$ i homeomorfizmu $\phi:U\to\overline{U}\subseteq\R^n$:
 
-\begin{illustration}
+\begin{center}
+\scalebox{0.7}{
+
+\begin{tikzpicture}
 %\draw[help lines,step=1] (0, 0) grid (12,4);
 \draw[rounded corners=36pt](6,-1)--(4.2,-1)--(2,-2)--(0,0)--(2,2)--(4.2,1)--(7,1)--(9.2,2)--(11,0)
 --(9,-2)--(6,-1);
@@ -64,7 +67,10 @@ Ogólniej, warunek ten mówi, że lokalnie topologiczne własności z $\R^n$ prz
 \node at (11, 3.8) {$\overline{U}=\phi(U)$};
 \draw[smooth, ->, tension=1] plot coordinates {(5, 0.3) (6, 0.4) (8, 1.2) (9.3, 2.5)};
 \node at (8.3, 1.1) {$\phi$};
-\end{illustration}
+\end{tikzpicture}
+
+}
+\end{center}
 
 Dodatkowo, dla dowolnego \emph{zwartego} $\overline K\subseteq\overline{U}$ jego odpowiednik na $M$, czyli $K=\phi^{-1}(\overline{K})\subseteq U$, jest \emph{domknięty i zwarty} [ćwiczenia]. Jeśli zaś $\overline{K}$ jest zbiorem domknięty w $\overline{U}$, ale niezwartym, to nie zawsze $K$ jest domknięty w $M$. Weźmy np. $\phi:U\to\overline{U}=\R^n$ i zbiór domknięty $\overline{K}=\R^n$ (cała przestrzeń jest jednocześnie domknięta i otwarta). Wtedy $K=\phi^{-1}(\overline{K})=U$ jest otwartym podzbiorem  $M$ mimo, że $\overline{K}$ jest otwarte.
 
@@ -111,7 +117,9 @@ Często będziemy przechodzić do coraz to mniejszych zbiorów mapowych poprzez 
 
 Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc[i]{lokalną parametryzacją} $M$. Ponieważ o mapie można myśleć jako o przeniesieniu siatki współrzędnych $(x_1,...,x_n)$ z $\overline{U}=\phi(U)$ przez $\phi^{-1}$ na $U$, to będziemy często utożsamiać $U\subseteq M$ z $\overline{U}$. O punkcie $p\in M$ takim, że $\phi(p)=(x_1,...,x_n)$ będziemy myśleć jako o $p=(x_1,...,x_n)$.
 
-\begin{illustration}
+\begin{center}
+\scalebox{0.7}{
+\begin{tikzpicture}
 %\draw[help lines,step=1] (0, 0) grid (12,4);
 \draw[rounded corners=36pt](6,-1)--(4.2,-1)--(2,-2)--(0,0)--(2,2)--(4.2,1)--(7,1)--(9.2,2)--(11,0)
 --(9,-2)--(6,-1);
@@ -130,7 +138,9 @@ Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc
 %\node at (11, 3.8) {$\overline{U}=\phi(U)$};
 \draw[smooth, ->, tension=1] plot coordinates {(5, 0.3) (6, 0.4) (8, 1.2) (9.3, 2.5)};
 \node at (8.3, 1.1) {$\phi$};
-\end{illustration}
+\end{tikzpicture}
+}
+\end{center}
 \bigskip
 
 \begin{example}
@@ -140,7 +150,9 @@ Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc
       Oznaczmy przez $\pi_1:\R^n\times\R^k\to\R^n$ projekcję na $\R^n$, tzn. $\pi_1(x, y)=x\in\R^n$. Wtedy funkcja $\phi:\Gamma(f)\to U$ będąca obcięciem $\pi_1$ do $\Gamma(f)$. Ponieważ $\phi$ jest obcięciem funkcji ciągłej, to samo również jest ciągłe. W dodatku, funkcja $\phi^{-1}:\R^n\to\Gamma(f)$ dana przez $\phi^{-1}(x)=(x, f(x))\in\Gamma(f)$, jest ciągłą funkcją odwrotną do $\phi$. W takim razie, $\phi$ jest homeomorfizmem między $U$ a $\Gamma(f)$ i wykres funkcji ciągłych jest lokalnie euklidesowy. Jako podzbiór $\R^n\times\R^k$ jest też przestrzenią Hausdorffa oraz ma przeliczalną bazę. W takim razie, wykres ciągłej funkcji jest rozmaitością topologiczną.
     \item Sfery $S^n$ są $n$-rozmaitościami, które wkładają się w $\R^{n+1}$ ($S^n=\{(x_1,...,x_{n+1})\in\R^{n+1}\;:\;\sum x_i^2=1\}$).
 
-\begin{illustration}
+      \begin{center}
+      \scalebox{0.8}{
+\begin{tikzpicture}
     \shade[ball color=yellow, opacity=0.3] (2.3,0.3) arc (0:-180:2.3 and 0.6) arc (180:0:2.3 and 2.3);
     \shade[ball color=green, opacity=0.3] (2.3, -0.3) arc (0:-180:2.3 and 2) arc (180:0:2.3 and 0.6);
     \draw[color=yellow, opacity=0.5] (2.3,0.3) arc (0:-180:2.3 and 0.6) arc (180:0:2.3 and 2.3);
@@ -157,7 +169,9 @@ Mapy nazywa się też czasem \acc[i]{lokalnymi współrzędnymi} na $M$ lub \acc
     %\draw (-3, -5)--(3, -3);
     %\draw (-3, -4)--(3, -4);
     \draw[->] (0, -2.5)--(0, -3) node [midway, left] {$\phi_i^\pm$};
-\end{illustration}
+\end{tikzpicture}
+}
+\end{center}
   
       Rozważmy rodzinę par $\{(U_i^{\pm},\phi^{\pm}_i)\;:\;i=1,...,n+1\}$ na $S^n$ zdefiniowanych jako:
       $$U_i^+=\{x\in S^n\;:\;x_i>0\}$$
@@ -212,7 +226,9 @@ Funkcja $f:M\to\R$ \important{wyrażona w mapie} $(U,\phi)$ to złożenie $f\cir
 
 W tej definicji pojawia się pewien problem: dla jednej mapy $(U, \phi)$ $f$ może gładka, ale jeśli przejdziemy z obrazu mapy $(U, \psi)$ to może się okazać, że $f_2=f_1\circ\psi\circ\phi^{-1}$ nie jest gładka:
 
-\begin{illustration}
+\begin{center}
+\scalebox{0.8}{
+\begin{tikzpicture}
   \draw (0, 0) arc (150:80:3);
   \draw (3.1, 1.45) arc (50:10:4);
   \draw (0, 0) arc (70:20:3);
@@ -240,7 +256,9 @@ W tej definicji pojawia się pewien problem: dla jednej mapy $(U, \phi)$ $f$ mo�
   \node at (2.8, -2.3) {$\R$};
 
   \draw[<-] (-2, 2.3)..controls(0, 3.5)and(5, 3.5)..(7, 2.3) node [midway, above] {$\psi\circ\phi^{-1}$};
-\end{illustration}
+\end{tikzpicture}
+}
+\end{center}
 
 Dlatego chcemy móc założyć, że $\phi\circ\psi^{-1}$ jest przekształceniem gładkim.
 
@@ -251,7 +269,9 @@ Dlatego chcemy móc założyć, że $\phi\circ\psi^{-1}$ jest przekształceniem 
 Odwzorowania $\phi\psi^{-1}$ nazywamy \acc[i]{odwzorowaniami przejścia} z jednej mapy do drugiej. Jeśli $\phi\psi^{-1}$ i $\psi\phi^{-1}$ są gładkie, to są one wzajemnie do siebie odwrotnymi bijekcjami. Takie odwzorowania nazywamy \acc[b]{dyfeomorfizmami} (def. \ref{definicja:dyfeomorfizmy}) pomiędzy otwartymi podzbiorami $\R^n$. Zauważmy, że w każdym punkcie Jakobian, czyli wyznacznik macierzy pochodnych cząstkowych, jest dla dyfeomorfizmów niezerowy [ćwiczenia].
 
 W ogólnym przypadku, gdy $U\cap V\neq \emptyset$, rysunek wygląda:
-\begin{illustration}
+\begin{center}
+  \scalebox{0.7}{
+\begin{tikzpicture}
   \draw (0, 0) arc (150:80:3);
   \draw (3.1, 1.45) arc (50:10:4);
   \draw (0, 0) arc (70:20:3);
@@ -294,7 +314,9 @@ W ogólnym przypadku, gdy $U\cap V\neq \emptyset$, rysunek wygląda:
   \node at (2.8, -2.3) {$\R$};
 
   \draw[<-] (-2, 2.3)..controls(0, 3.5)and(5, 3.5)..(7, 2.3) node [midway, above] {$\psi\circ\phi^{-1}:\phi(U\cap V)\to\psi(U\cap V)$};
-\end{illustration}
+\end{tikzpicture}
+}
+\end{center}
 
   Mapy $(U, \phi)$ i $(V, \psi)$ nazywamy zgodnymi, jeśli:
   \begin{itemize}
@@ -323,8 +345,9 @@ W ogólnym przypadku, gdy $U\cap V\neq \emptyset$, rysunek wygląda:
   bo usuwamy $i$-tą współrzędną i numery poprzednich współrzędnych spadają o $1$ w dół,
   $$\phi_j^+(U_i^+\cap U_j^+)=\{x\in\R^n\;:\;|x|<1, x_i>0\}$$
   bo w tym przypadku usunęliśmy współrzędną na prawo od $i$, więc jej położenie nie zmienia się.
-  \begin{figure}[h!]
-    \begin{illustration}
+  \begin{figure}[h!]\centering
+    \scalebox{0.7}{
+    \begin{tikzpicture}
       \filldraw[color=black, fill=blue!40] (-3, 0) arc (180:0:3cm);
       \filldraw[color=blue!40, fill=blue!40](-3, 0.02) arc (180:360:3cm and 1cm);
       \filldraw[color=black, fill=blue!40] (0, 3) arc (90:-90:3cm);
@@ -365,7 +388,8 @@ W ogólnym przypadku, gdy $U\cap V\neq \emptyset$, rysunek wygląda:
       \draw[->] (j)..controls(4, -1)and(5, -2.5)..(4, -4) node [midway, right] {$\phi_j^+$};
 
     \draw[->] (3, -4.5)..controls(1.5, -3.5)and(-0.5, -3.5)..(-2, -4.5) node [midway, below] {$\phi_i^+(\phi_j^+)^{-1}$};
-    \end{illustration}
+    \end{tikzpicture}
+  }
   \end{figure}
 
   \begin{center}\begin{tikzcd}
@@ -504,7 +528,7 @@ $f$ jest $C^k$ na otoczeniu $p$, jeśli $\psi\circ f\circ\phi^{-1}$ jest $C^k$ r
 \end{definition}
 
 \begin{center}
-\scalebox{0.9}{
+\scalebox{0.7}{
 \begin{tikzpicture}
   \draw[rounded corners=35pt](6,-1)--(4.2,-1)--(2,-2)--(0,0)--(2,2)--(4.2,1)--(7,1)--(9.2,2)--(11,0)
 --(9,-2)--(6,-1);

@@ -2,12 +2,15 @@
 
 \subsection{Klejenie rozmaitości wzdłuż brzegu}
 
+\phantomsection\label{otoczenie kolnierzowe definicja}
 \begin{theorem}[otoczenie kołnierzowe] Niech $M$ będzie gładką $n$-rozmaitościa, a $B$ niech będzie kompotentą brzegu $\partial M$. Wtedy istnieje dyfeomorficzne (dyfeomorfizm na obraz) włożenie
   $$K:B\times[0, 1)\to M$$
   na otwarte otoczenie $U$ komponenty $B$ w $M$ takie, że $K(x, 0)=x$ dla $x\in B$.
+
+  \important{Otoczenie kołnierzowe} to otwarte otoczenie $U$ brzegu $\partial M$ na $M$, wraz z dyfeomorfizmem $F:[0,1)\times\partial M\to U$ takie, że $F(0,x)=x$.
 \end{theorem}
 
-\begin{proof}Dowód za kilka wykładów przy pomocy potoków wektorowych.
+\begin{proof}Dowód za kilka wykładów przy pomocy potoków wektorowych (\hyperref[dowod otoczenia kolnierzowego]{Rozdział 5.4}).
 
   \begin{illustration}
     \filldraw[orange!25] (6.5, 0) arc (0:360: 0.5cm and 1cm);
@@ -34,7 +37,8 @@ $$M_1\cup_fM_2=M_1\sqcup M_2/\sim.$$
 \textbf{Struktura} na $M_1\cup_fM_2$ jest częściowo odziedziczona po $M_1$ i $M_2$. Dodatkowo sklejamy zbiory $U_i$ utożsamiając je z produktami $B_i\times[0,1)$ za pomocą $B_i$:
 $$K_i:B_i\otimes [0,1)\to M_i$$
 
-  \begin{illustration}
+\begin{center}\scalebox{0.7}{
+  \begin{tikzpicture}
     \filldraw[orange!25] (6.5, 0) arc (0:360: 0.5cm and 1cm);
     \filldraw[orange!25] (6, 1)--(7, 1)--(7, -1)--(6, -1);
     \draw[orange] (6, 1) arc (90:270:0.5cm and 1cm);
@@ -66,7 +70,8 @@ $$K_i:B_i\otimes [0,1)\to M_i$$
 
     \path[->] (6, -0.5) edge [bend right=20] (6.75, -1.7);
     \path[->] (7.5, -0.5) edge [bend left=20] (6.85, -1.7);
-  \end{illustration}
+  \end{tikzpicture}
+}\end{center}
 
 Na $M_1\cup_fM_2$ istnieją trzy rodzaje map:
 \begin{enumerate}

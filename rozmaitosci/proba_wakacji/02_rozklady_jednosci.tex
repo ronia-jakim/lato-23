@@ -2,7 +2,9 @@
 
 Rozważmy rozmaitość z brzegiem $M$. \marginpar{Bardziej ogólnie, możemy chcieć dla dowolnego zbioru domkniętego $D\subseteq M$ znaleźć funkcję, która dla $p\in D$ jest równa zero, a na $M\setminus D$ ma wartości ściśle dodatnie.}Chcielibyśmy mieć narzędzie, które pozwoli nam tworzyć gładkie funkcje $f:M\to\R$ takie, że $f(p)=0$ gdy $p\in\partial M$ oraz $f(p)>0$ dla dowolnego $p\in Int(M)$.
 
-\begin{illustration}
+\begin{center}
+  \scalebox{0.8}{
+\begin{tikzpicture}
   \filldraw[color=green, fill=green!30, rotate around={20:(7, -0.5)}] (7, -0.5) arc (300:30:0.7 and 0.5);
 
   \filldraw[color=green, fill=green!30] (9.5,0.5) arc (180:0:0.5);
@@ -17,7 +19,9 @@ Rozważmy rozmaitość z brzegiem $M$. \marginpar{Bardziej ogólnie, możemy chc
   \node (a) at (-12:7.5) {$\partial M$};
 
   \draw[->] (6.3, -0.5)..controls(7, -1)and(8, -0.5)..(9.7, 0.6) node [midway, above] {$\phi$};
-\end{illustration}
+\end{tikzpicture}
+}
+\end{center}
 
 Lokalnie, na zbiorze mapowym $(U_\alpha,\phi)$ możemy funkcję spełniającą wymagania wyżej zadać przy pomocy funkcji wychodzącej z $\overline{U_\alpha}=\phi(U_\alpha)$
 $$f_\alpha:\overline{U_\alpha}\to\R,\quad f(x_1,...,x_n)=x_n,$$
