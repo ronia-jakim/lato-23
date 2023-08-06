@@ -161,7 +161,7 @@ Niech $M$ będzie rozmaitością z niepustym brzegiem $\partial M$.
   Pole wektorowe $X:M\to TM$ jest \important{skierowane do wewnątrz} $M$, jeśli dla każdego $p\in\partial M$ $X(p)$ jest skierowany do wewnątrz $M$.
 \end{definition}
 
-\begin{fact}
+\begin{fact}\label{fakt:5.7}
   Na każdej rozmaitości gładkiej z brzegiem $M$ istnieje gładkie pole wektorowe $X$ skierowane do wewnątrz $M$.
 \end{fact}
 
@@ -636,6 +636,147 @@ Taką rodzinę nazywamy też \acc[b]{potokiem pola $X$}, zaś $X$ to jej \acc[i]
       \end{align*}
     \end{proof}
   \item\phantomsection\label{dowod otoczenia kolnierzowego}\hyperref[otoczenie kolnierzowe definicja]{\important{Otocznie kołnierzowe}} [twierdzenie 3.1]  brzegu zwartej rozmaitości.
+    \marginpar{Otoczenie kołnierzowe to otwarte otoczenie $U\subseteq\partial M$ w $M$ wraz z dyfeomorfizmem 
 
-    Niech $M$ będzie zwartą rozmaitością o niepustym brzegu $\partial M\neq\emptyset$, a $X$ niech będzie polem wektorowym na $M$, które na brzegu jest skierowane do wewnątrz $M$.
+    $\scriptstyle F:[0,1)\times\partial M\to U$ 
+
+  takim, że 
+
+$F(0, x)=x$.} Pokażemy istnienie otoczenia kołnierzowego.
+
+  \begin{proof}
+    Niech $M$ będzie zwartą rozmaitością o niepustym brzegu $\partial M\neq\emptyset$, a $X$ niech będzie polem wektorowym na $M$, które na brzegu jest skierowane do wewnątrz $M$ (istnienie takiego pola: \ref{fakt:5.7}). Oznacza to, że w mapie $\psi:U_p\to \R^n_+$ wokół punktu $p\in\partial M$, gdzie $\R_+^n=\{(x_1,...,x_n)\;:\;x_1\geq0\}$ pole $X$ ma postać 
+    $$X(x)=\sum_{i\leq n}X_i(x)\frac{\partial}{\partial x_i}$$
+    gdzie $X_1(0,x_2,...,x_n)>0$.
+
+    Dla każdego $p\in\partial M$ istnieje lokalna krzywa całkowa $\gamma:[0,\varepsilon)\to M$ pola $X$ o początku w $p$, tzn. $\gamma(0)=p$. Ponadto, istnieje również gładka funkcja
+    $$\phi_p:[0,\varepsilon)\times U_p\to M$$
+    taka, że odwzorowanie $t\mapsto\phi_p(t,q)$ jest krzywą całkową pola $X$ o początku w $q$ dla każdego $q\in U_p$.
+    
+    Ponieważ $M$ jest zwarte, to każde lokalne jednostronne rozwiązanie równania różniczkowego można dowolnie przedłużać, otrzymując gładkie
+    $$\phi:[0,\infty)\times M\to M$$
+    takie, że $t\mapsto \phi(t,x)$ są krzywymi całkowymi pola $X$.
+
+    Określmy funkcję $F:[0,\infty)\times\partial M\to M$ taką, że
+    $$F(t,p)=\phi(t,p).$$
+    Wtedy funkcja $F$ ma maksymalny rząd we wszystkich punktach $(0,p)$, bo macierz Jakobianu w mapie $\psi_p$ ma postać
+    $$DF_{(0,p)}=\begin{bmatrix}X_1(p)&0&\hdots&0\\X_2(p)&1&\hdots&0\\\vdots&\vdots&\ddots&\vdots\\X_n(p)&0&\hdots&1\end{bmatrix}$$
+    czyli $\det DF_{(0,p)}=X_1(p)>0$. Zatem istnieje $\varepsilon>0$ taki, że obcięcie $F\restriction[0,\varepsilon\times\partial M$ jest gładkie i w każdym punkcie ma rząd $n$ (maksymalny). Do pokazania, że $F\restriction[0,\varepsilon)\times\partial M$ jest otoczeniem kołnierzowym wystarczy różnowartościowość $F\restriction[0,\varepsilon)\times\partial M$ (dyfeomorfizm na otwarte otoczenie brzegu).
+
+    Załóżmy, że $F(t_1,p_1)=F(t_2,p_2)$, gdzie $t_1\geq t_3$. Wówczas z jednoznaczności krzywych całkowych dostajemy
+    $$F(p_1,t_1-t_2)=F(p_2,0)=p_2.$$
+    Gdyby $t_1>t_2$, to istniałaby krzywa całkowa $\gamma[0,t_1-t_2]\to M$ zadana przez $\gamma(t)=F(p_1,t)$, gdzie $\gamma(t_1-t_2)=p_2$, co jest niemożliwe, bo z punktu $p_2\in\partial M$ nie da się poprowadzić krzywej całkowej "wstecz". Stąd też $t_1=t_2$ i $F(p_1,t_1-t_2)=F(p_1,0)=p_1$, czyli $p_2=p_1$.
+  \end{proof}
 \end{example}
+
+\subsection{Interpretacja pól wektorowych jako derywacji}
+
+\begin{definition}
+  \important{Derywacja} (lub \acc[b]{różniczkowanie}) w punkcie $p\in M$ to operator
+  $$L_p:\{\text{funkcje gładkie określone na otoczniach otwartych }p\}\to \R$$
+  który jest dodatkowo:
+  \begin{enumerate}
+    \item liniowy, tzn. $L_p(f+g)=L_p(f)+L_p(g)$ oraz $L_p(c\cdot f)=c\cdot L_p(f)$ dla wszystkich $c\in\R$ oraz funkcji gładkich $f,g$
+    \item spełniający regułę Leibnitza
+      $$L_p(f\cdot g)=f(p)\cdot L_p(g)+g(p)\cdot L_p(f)$$
+  \end{enumerate}
+
+  Należy rozumieć, że $f+g$ i $f\cdot g$ są określone na przekroju dziedzin $f$ oraz $g$.
+\end{definition}
+
+Ponieważ derywacje działają w pobliżu punktu $p$, to możemy założyć $M=\R^n$ oraz $p=(0,...,0)$ przez wyrażenie wszystkich obiektów w odpowiedniej mapie.
+
+\begin{example}
+  \item Niech $X\in T_pM$ będzie wektorem stycznym. Wówczas pochodna w kierunku $X$ jest przykładem derywacji w punkcie $p$ ($L_p(f)=X f$).
+\end{example}
+
+Niech $1_U$ oznacza funkcję stałą równą $1$ na otoczeniu $U$ punktu $p$. Wówczas
+$$L_p(1_U)=L_p(1_U\cdot 1_U)=1_U\cdot L_p(1_U)+1_U\cdot L_p(1_U)=2L_p(1_U)$$
+zatem $L_p(1_U)=0$. Jeśli teraz $c_U$ oznacza funkcję stałą równą $c$ na otoczeniu $p\in U$, to dzięki liniowości $L_p$ mamy
+$$L_p(c_U)=cL_p(1_U)=c\cdot 0=0.$$
+Zatem każda derywacja $L_p$ przyjmuje wartość $0$ na funkcjach stałych.
+
+Jeśli $f:U\to \R$ i $p\in U$ oraz $p\in V\subseteq U$, to $L_p(f)=L_p(f\restriction V)$. W takim razie, jeśli $f,g$ pokrywają się na otoczeniu $p$, to $L_p(f)=L_p(g)$.
+
+\begin{lemma}
+  Dowolna gładka funkcja $f$ [po wyrażeniu w mapie] określona na kuli wokół $p=(0,...,0)\subseteq\R^n$ przedstawia się w postaci 
+  $$f(x)=f(0)+\sum_{i\leq n}x_i\cdot h_i(x),$$ 
+  gdzie $h_i$ są gładkimi funkcjami takimi, że $h_i(0)=\frac{\partial}{\partial x_i}(0)$ dla $i=1,...,n$.
+\end{lemma}
+
+\begin{proof}
+  Ustalmy $x=(x_1,...,x_n)\in\R^n$. Wówczas
+  $$f(x)-f(0)=\int_0^1\frac{d}{dt}f(tx)dt=\sum_{i\leq n}\int_0^1x_i\frac{\partial f}{\partial x_i}(tx)dt=\sum_{i\leq n}x_i\int_0^1\frac{\partial f}{\partial x_i}(tx)dt$$
+  Zatem kładąc $h_i(x)=\int_0^1\frac{\partial f}{\partial x_i}(tx)dt$ dostajemy szukaną postać $f(x)$.
+\end{proof}
+
+\begin{theorem}
+  Każda derywacja $L_p$ w punkcie $p$ jest pochodną kierunkową w kierunki pewnego wektora $X\in T_pM$. Wektor o tej własności jest jedyny.
+\end{theorem}
+
+\begin{proof}
+  Rozważmy wektor $X$ zadany
+  $$X=\sum_{i\leq n}L_p(x_i)\cdot\frac{\partial}{\partial x_i}(p)$$
+  gdzie $x_i$ jest traktowane jako funkcja wokół $p=(0,....,0)$.
+
+  Pokażemy, że dla dowolnej funkcji gładkiej $f$ zachodzi $Xf=L_pf$.
+
+  Niech $f(x)=f(0)+\sum x_ih_i(x)$, gdzie $h_i(0)=\frac{\partial}{\partial x_i}f(0)$. Wówczas
+  \begin{align*}
+    L_p(f)&=L_p(f(0)+\sum x_ih_i)=\\
+          &=L_p(f(0))+\sum L_p(x_ih_i)=\\
+          &=0+\sum[h_i(p)L_p(x_i)+x_i(0)L_p(h_i)]=\\
+          &=\sum \frac{\partial f}{\partial x_i}(0)L_p(x_i)=Xf
+  \end{align*}
+  Jedyność $X$ wynika z łatwej obserwacji, że różne wektory $X\in T_pM$ są wyznaczane przez różne derywacje.
+\end{proof}
+
+\begin{definition}
+  \important{Derywacja} na $M$ to operacja
+  $$L:C^\infty(M)\to C^\infty(M)$$
+  która jest liniowa i spełnia regułę Leibniza:
+  $$L(f\cdot g)=L(f)\cdot g+L(g)\cdot f$$
+\end{definition}
+
+\begin{example}
+\item Gładkie pole wektorowe $X$ na $M$ określa derywację na $M$ poprzez $L(f)=Xf$ lub dokładniej $L(f)(p)=X(p)f$.
+\end{example}
+
+\begin{theorem}
+  Każda derywacja na $M$ jest określona przez gładkie pole wektorowe $X$ na $M$. Takie pole jest wyznaczone w sposób jednoznaczny.
+\end{theorem}
+
+\begin{proof}
+  W każdym punkcie $p\in M$ derywacja $L$ na $M$ wyraża derywację w punkcie $p$ poprzez
+  $$L_p(f)=L(\hat{f})(p),$$
+  gdzie $\hat{f}$ jest rozszerzeniem $f$ do całego $M$. Z poprzedniego twierdzenia wiemy, że w każdym $p\in M$ istnieje wektor $X(p)\in T_pM$ taki, że $L_p$ jest przez niego zadana. Pozostaje teraz wykazać, że pole wektorowe $X$ zadane w ten sposób jest gładkie.
+
+  Załóżmy, że $X$ nie jest gładkie. To znaczy, że istnieje $i$ oraz mapa $\psi$ wokół $p\in M$ takie, że $i$-ta współrzędna $X$ wyrażonego w mapie $\psi$ wokół $p$ nie jest gładką funkcją. Dałoby się więc znaleźć gładką funkcję $f$ na $M$ dla której $X_pf$ nie jest gładkie. Ale tak być nie może, więc sprzeczność.
+\end{proof}
+
+Twierdzenia powyżej mówią o istnieniu jednoznacznej korespondencji
+
+\begin{center}\begin{tikzcd}
+\left\{\substack{\text{derywacje na}\\\text{rozmaitości }M}\right\}\arrow[r, leftrightarrow, "1-1"] & \left\{\substack{\text{gładkie pola}\\ \text{wektorowe X} \\\text{na rozmaitości M}}\right\}
+\end{tikzcd}\end{center}
+zadanej przez działanie pola $X$ na funkcja $f$ poprzez pochodną kierunkową w poszczególnych punktach:
+$$Xf(p):=X_pf$$
+
+Tak jak w przypadku $1_U$ możemy pokazać, że $L(0_M)=0_M$:
+$$L(0_M)=L(0_M+0_M)=2L(0_M)\implies L(0_M)=0_M$$
+
+\begin{lemma}
+  Niech $f\in C^\infty(M)$, a $L$ niech będzie derywacją na $M$. Rozważmy zbiór
+  $$Z_f=\{x\in M\;:\;f(x)=0\}.$$
+  Wówczas dla każdego $p\in Int(Z_f)$ mamy $L(f)(p)=0$.
+\end{lemma}
+
+\begin{proof}
+  Niech $g\in C^\infty(M)$ i niech $g(p)\neq 0$, $supp(g)\subseteq Int(Z_f)$. Wówczas $f\cdot g\equiv 0$, stąd
+  $$0\equiv L(f\cdot g)=L(f)g+L(g)\cdot f$$
+  i dalej
+  $$0=L(f)(p)\cdot g(p)+L(g)(p)\cdot f(p)=L(f)(p)\cdot g(p)$$
+  ponieważ $g(p)\neq 0$ dla pewnego $p\in Int(Z_f)$, to musi być $L(f)(p)=0$.
+\end{proof}
+
+Jeśli $f,g\in C^\infty(M)$ zgadzają się na pewnym otoczeniu $p\in M$, to $L(f)(p)=L(g)(p)$, gdyż $0=L(f-g)(p)=L(f)(p)-L(g)(p)$.
