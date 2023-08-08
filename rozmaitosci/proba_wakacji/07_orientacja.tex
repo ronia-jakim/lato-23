@@ -1,0 +1,27 @@
+\section{Rozmaitości orientowalne}
+
+\subsection{Orientacja w przestrzeni wektorowej $V$ wymiaru $n$}
+
+Niech $B(V)$ będzie zbiorem wszystkich baz $b=(v_1,...,v_n)$ przestrzeni $V$. Dla baz $b_1=(v_1,...,v_n)$ oraz $b_2=(w_1,...,w_n)$ macierz przejścia $M_{b_1,b_2}=(a_{ij})_{n\times m}$ to taka macierz, że $w_k=\sum a_{ik}v_i$. Równoważnie jest to macierz przekształcenia $V\to V$ takiego, że $v_i\mapsto w_i$, czyli wyrażenia wektorów zapisanych za pomocą $w_i$ w bazie $b_1$. Macierz $M_{b_1,b_2}$ jest macierzą nieosobliwą. Opiszmy więc relację na $B(V)$
+$$b_1\sim b_2\iff \det(M_{b_1,b_2})>0$$
+
+\begin{lemma}
+  Relacja $b_1\sim b_2\iff \det(M_{b_1,b_2})>0$ jest relacją równoważności która ma dwie klasy abstrakcji.
+\end{lemma}
+
+\begin{proof}$ $
+
+  Zaczniemy od udowodnienia, że jest to relacja równoważności:
+  \begin{description}
+    \item[zwrotność:] $M_{b,b}=I_{n\times n}$, a z kolei $\det(I)=1>0$
+    \item[symetryczność:] zauważmy, że $M_{b_2,b_1}=M_{b_1,b_2}^{-1}$, czyli $\det(M_{b_2,b_1})=\frac{1}{\det(M_{b_1,b_2})}$.
+    \item[przechodniość:] wynika z prostej kalkulacji $M_{b_1,b_3}=M_{b_1,b_2}\cdot M_{b_2,b_3}$ oraz
+      $$\det(M_{b_1,b_3})=\det(M_{b_1,b_2})\det(M_{b_2,b_3})$$
+  \end{description}
+
+  Relacja ta ma dwie klasy abstrakcji, bo jeśli $b_1\not\sim b$ oraz $b_2\not\sim b$, to wówczas tak jak przy przechodniości $M_{b_1,b_2}=M_{b_1,b}\cdot M_{b,b_2}$ i $\det(M_{b_1,b_2})$ jako iloczyn dwóch wartości ujemnych jest dodatni. Stąd $b_1\sim b_2$.
+\end{proof}
+
+\begin{definition}
+  \important{Orientacją} na przestrzeni wektorowej $V$ nazywamy dowolną klasę abstrakcji relacji $\sim$ na zbiorze $B(V)$.
+\end{definition}
