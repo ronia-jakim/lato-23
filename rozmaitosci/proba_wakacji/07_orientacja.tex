@@ -59,12 +59,12 @@ ma dodatni wyznacznik. Jest to macierz przejścia z bazy $\left(\frac{\partial}{
 \end{definition}
 
 \begin{remark}
-  Jeśli rozmaitość $M$ jest orientowalna i spójna, to można na niej zdać dokładnie $2$ różne orientacje. 
+  Jeśli rozmaitość $M$ jest orientowalna i spójna, to można na niej zdać dokładnie $2$ różne orientacje.\marginpar{Dowód uwagi nie został zaprezentowany na wykładzie - czytasz fantazję autora notatek.} 
 
   Co więcej, można powiedzieć, że jeśli $M$ jest orientowalna, to $M$ jest spójna $\iff$ $M$ posiada 2 orientacje.
 \end{remark}
 
-\begin{proof}{\color{red}\large To wymaga dowodu}
+\begin{proof}%{\color{red}\large To wymaga dowodu}
 %
 %  \textbf{Orientowalność, posiada co najmniej 2}
 %
@@ -80,9 +80,48 @@ ma dodatni wyznacznik. Jest to macierz przejścia z bazy $\left(\frac{\partial}{
 
   Udowodnimy tylko pierwszą wersję uwagi.
 
-  Niech $M$ będzie orientowalną i spójną rozmaitością. Wówczas na $M$ istnieje atlas $\set{A}$ taki, że każde dwie mapy na nim mają odwzorowanie przejścia z dodatnim wyznacznikiem jakobianem w każdym punkcie. Skupmy się na jednej takiej mapie, $(U,\phi)\in\set{A}$. Zadaje ona bazę $\left(\frac{\partial}{\partial\phi_1},...,\frac{\partial}{\partial\phi_n}\right)$ na $T_pM$ dla $p\in U$. Możemy ją przenieść na $\R^n$ poprzez $\phi^*_p$, niech $(v_1,...,v_n)$ będą odpowiadającymiiiiiii
+  Jeśli $M$ jest orientowalną rozmaitością, to istnieje na niej atlas $\set{A}$ zadający na $M$ orientację. Niech $(U,\phi)\in\set{A}$ i rozważmy $-\phi=-1\circ\phi$, gdzie $-1$ to funkcja zwracająca przeciwieństwo liczby w $\R^n$: $x\mapsto -x$. Wówczas łatwo zauważyć, że $(U,-\phi)$ to nadal mapa na $M$ oraz, że atlas $\set{A}'=\{(U,-\phi)\;:\;(U,\phi)\in\set{A}\}$ nie ma orientacji zgodnej z $\set{A}$ ale nadal zadaje orientację na $M$.
+
+%  taki, że dla każdych $(U,\phi,V,\psi)\in \set{A}$ oraz wszystkich $p\in U\cap V$ bazy $b_1=(\frac{\partial}{\partial\phi_1},...,\frac{\partial}{\partial\phi_n})$ oraz $b_2=(\frac{\partial}{\partial\psi_1},...,\frac{\partial}{\partial\psi_n})$ należą do tej samej klasy abstrakcji relacji $\sim$ na zbiorze wszystkich baz $B(T_pM)$. Wówczas $(U,-\phi)$, gdzie $-\phi$ jest złożenie funkcji $-1:x\mapsto -x$ z $\phi$, zadaje bazę $b_3=(-\frac{\partial}{\partial\phi_1},...,-\frac{\partial}{\partial\phi_n})$ na $T_pM$, która ma inną orientację niż $b_1$, bo
+%  $$D((-\phi)\phi^{-1})=D(-1\phi\phi^{-1})=D(-1)<0.$$
+%  W takim razie lokalnie na $U$ możemy zadać dwie różne orientacje.
+
+  Niech $\set{A}_1,\set{A}_2$ będą atlasami które nie mają zgodnych orientacji. Rozważmy zbiór
+  $$X=\{p\in M\;:\;(\exists\;(U,\phi)\in\set{A}_1)(\exists\;(V,\psi)\in\set{A}_2)(\exists\;p\in U\cap V)\det(D_p\phi\psi^{-1})>0\}.$$
+  Chcemy pokazać, że $X$ jest otwarty i jednocześnie $M\setminus X$ jest otwarte. Wówczas $X=M$ (co implikuje, że na $M$ jest tylko jedna orientacja) lub $X=\emptyset$, czyli $\set{A}_1,\set{A}_2$ są dwoma różnymi orientacjami i jakakolwiek inna orientacja musiałaby zgadzać się z $\set{A}_1$ lub $\set{A}_2$ na całym $M$ (bo $X'=M$, gdzie $X'$ to punkty w których nowa orientacja zgadza się z $\set{A}_1$ lub $\set{A}_2$).
+
+  Niech $p\in X$ oraz wybierzmy $(U,\phi)\in\set{A}_1$ oraz $(V,\psi)\in\set{A}_2$ takie, że $p\in U\cap V$. Wiemy, że $\phi\psi^{-1}(p)$ ma dodatni wyznacznik jakobianu przejścia. Załóżmy, że $U\subseteq V$, bo mapy możemy wybierać dowolnie małe. Rozważmy odwzorowanie $f:U\to\R$ takie, że 
+  $$f(q)=\det(D_q\phi\psi^{-1}).$$ 
+  Jest to odwzorowanie ciągłe jako iloczyn i suma skończenie wielu ciągłych pochodnych $\phi\psi^{-1}$. Co więcej, $f(p)>0$, czyli z ciągłości $f$ wiemy, że cały wykres $f$ ma wartości ściśle dodatnie. Czyli $U\subseteq X$, a ponieważ w $\set{A}_1$ jest przeliczalnie wiele map, to tylko przeliczalnie wiele zbiorów z $\set{A}_1$ może zawierać się w $X$, które nie jest całym $M$. Stąd wiemy, że $X$ jest sumą przeliczalnie wielu zbiorów otwartych, a więc sam też jest otwarty. Analogicznie możemy postąpić dla $M\setminus X$, dostając, że zarówno $X$ jak i $X^C$ jest zbiorem otwartym, czyli $X=\emptyset$ lub $X=M$ ze spójności $M$.
 \end{proof}
 
 \begin{fact}
   Rozmaitość $M$ jest \acc[b]{nieorientowalna} $\iff$ istnieje ciągła droga $b(t):[0,1]\to B(M)$ taka, że $b(0),b(1)\in T_pM$ oraz $b(0)\not\sim b(1)$ w $T_pM$.
 \end{fact}
+
+
+Endomorfizm liniowy $F:V\to V$ zachowuje orientację, gdy $F(b)\sim b$.
+
+\begin{definition}
+  Dyfeomorfizm $f:M\to M$ spójnej orientowalnej rozmaitości $M$ \important{zachowuje orientację}, gdy dla pewnej (równoważnie dowolnej) orientacji na $M$, rozumianej jako zgodny wybór klas równoważności baz w przestrzeniach stycznych $T_pM$, różniczka $df_q$ w pewnym (równoważnie każdym)  punkcie $q\in M$ zachowuje orientację.
+\end{definition}
+
+\begin{remark} Dyfeomorfizm $f$ zachowuje orientację $M$ $\iff$ po wyrażeniu w mapach dowolnego atlasu $\set{A}$ zadającego orientację na $M$, zachowuję orientację, tzn. spełnia warunek
+  $$\det(D(\psi f\phi^{-1}))>0$$
+  dla pewnego (równoważnie każdego) $p\in M$
+\end{remark}
+
+\begin{remark}
+  Ciągła krzywa w zbiorze ??? bazowych na wiązce stycznej $TM$ orientowalnej rozmaitości $M$ nie wyprowadza poza klasę orientacji.
+\end{remark}
+
+\begin{example}
+\item $\R^n$ jest rozmaitością orientowalną z dokładnie dwoma orientacjami (bo jest spójna i jest orientowalna)
+\item $S^n$ również posiada dwie orientacje (jest spójna)
+\item Produkt rozmaitości również zachowuje orientalność, stąd torusy $T^n=S^1\times...\times S^1$ są orientowalne.
+\item Iloraz orientowalnej rozmaitości przez wolną i właściwie nieciągłą grupę dyfeomorfizmów zachowujących orientację jest rozmaitością orientowalną, na przykład $S^1=\R/\Z$ czy $T^2=\R^2/\Z^2$. 
+
+  Z kolei jeśli $M$ jest spójna, orientowalna, zaś wolna i właściwie niecągła grupa dyfeomorfizmów $G$ zawiera dyfeomorfizm zmieniający orientację, to iloraz $M/G$ jest rozmaitością nieorientowalną, na przykład $\R P^{2k}=S^{2k}/\Z_2$ (przy czym $\R P^{2k+1}=S^{2k+1}/\Z_2$ są orientowalne) czy wstęga M\"obiusa $S^1\times [-1,1]/\Z_2$.
+\item Jeśli $M,N,P$ są orientowalnymi rozmaitościami oraz $P\subseteq N$, $f:M\to N$ jest gładkie, a $P$ składa się z samych rozmaitości regularnych (tzn. jest obrazem włożenia w $N$), to $f^{-1}(P)$ jest orientowalne, np. $SL(2\R)=(\det)^{-1}(1)$ jest orientowalna.\textbf{\large\color{red}NIE MAM POJĘCIA CO TU JEST W NOTATCE NAPISANE}
+\end{example}
+
