@@ -23,5 +23,66 @@ $$b_1\sim b_2\iff \det(M_{b_1,b_2})>0$$
 \end{proof}
 
 \begin{definition}
-  \important{Orientacją} na przestrzeni wektorowej $V$ nazywamy dowolną klasę abstrakcji relacji $\sim$ na zbiorze $B(V)$.
+  \important{Orientacją} na przestrzeni wektorowej $V$ nazywamy dowolną klasę abstrakcji relacji $\sim$ jak wyżej na zbiorze $B(V)$.
 \end{definition}
+
+Następujące operacje na bazie $b=(v_1,...,v_n)$ dają bazy z tej samej klasy abstrakcji (tj. macierz przejścia ma dodatni wyznacznik)
+\begin{itemize}
+  \item parzysta permutacja wektorów bazy (złożenie parzystej liczby transpozycji)
+  \item mnożenie wektorów z bazy przez dodatnie współczynniki
+  \item zamiana jednego z wektorów $v_k$ na wektor
+  $$v_k'=v_k+\sum_{i\neq k}a_iv_i$$
+  dla parzystych współczynników $a_i\in \R$
+  \item dowolne kombinacje operacji wymienionych wyżej
+  \item dowolna ciągła modyfikacja bazy (w przestrzeni baz)
+\end{itemize}
+
+W przestrzeni $\R^3$ klasy abstrakcji rozpoznaje się za pomocą reguły śruby prawoskrętnej. W $\R^2$ natomiast klasy orientacji są zadane przez kierunek obrotu (o kąt $<\pi$) drugiego wektora bazy względem pierwszego wektora bazy, zgodny lub przeciwny do ruchu wskazówek zegara.
+
+Następujące modyfikacje bazy $b=(v_1,...,v_n)$ wyprowadzają ją poza klasę abstrakcji, czyli zmieniają orientację:
+\begin{itemize}
+  \item nieparzysta permutacja wektorów bazy, np. transpozycja dowolnych dwóch wektorów
+  \item pomnożenie jednego z wektorów bazy przez ujemny współczynnik
+\end{itemize}
+\bigskip
+
+Na rozmaitości $M$ każda mapa $(U,\phi)$ zadaje dla każdego $p\in U$ orientację w przestrzeni stycznej $T_pM$ przez klasę abstrakcji bazy $(\frac{\partial}{\partial\phi_1}(p),...,\frac{\partial}{\partial\phi_n}(p))$. Dwie mapy $(U,\phi)$ oraz $(V,\psi)$ \important{zadają tę samą orientację na przestrzeni $T_pM$} dla $p\in U\cap V$ wtedy, gdy Jakobian odwzorowania przejścia
+$$\left[\frac{\partial(\phi\psi^{-1})_k}{\partial x_j}(\psi(p))\right]_{j,k}$$
+ma dodatni wyznacznik. Jest to macierz przejścia z bazy $\left(\frac{\partial}{\partial\psi_i}\right)$ do bazy $\left(\frac{\partial}{\partial\phi_i}\right)$.
+
+\begin{definition}$ $
+  \begin{enumerate}
+    \item \important{Orientacją} rozmaitości $M$ nazywamy wybór atlasu $\set{A}=\{(U_\alpha,\phi_\alpha)\}$ dla $M$, takiego że każde dwie mapy $(U_\alpha,\phi_\alpha),(V_\beta,\psi_\beta)$ mają dodatni wyznacznik jakobianu odwzorowania przejścia $\phi\psi^{-1}$ w każdym punkcie $p\in U_\alpha\cap V_\beta$.
+    \item Rozmaitość jest \important{orientowalna}, jeśli posiada atlas jak wyżej. W przeciwnym razie jest \acc[b]{nieorientowalna}.
+    \item Dwa atlasy $\set{A}_1,\set{A}_2$ jak wyżej zadają tę \acc[i]{samą orientację}, jeśli dla każdej mapy $(U,\phi)\in \set{A}_1$ i dla każdej mapy $(V,\psi)\in\set{A}_2$ jakobian odwzorowania przejścia $\phi\psi^{-1}$ ma dodatni wyznacznik w każdym punkcie $p\in U\cap V$.
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  Jeśli rozmaitość $M$ jest orientowalna i spójna, to można na niej zdać dokładnie $2$ różne orientacje. 
+
+  Co więcej, można powiedzieć, że jeśli $M$ jest orientowalna, to $M$ jest spójna $\iff$ $M$ posiada 2 orientacje.
+\end{remark}
+
+\begin{proof}{\color{red}\large To wymaga dowodu}
+%
+%  \textbf{Orientowalność, posiada co najmniej 2}
+%
+%  Chyba mogę wejść sobie najpierw w $\R^{n}$, tam coś porobić na $T_pM$ wyrażonym w lokalnych współrzędnych i potem chuju muju kurwa ciulu?
+%
+%  \textbf{Co najwyżej 2 struktury}
+%
+%  Załóżmy, że mamy $\set{A}_1,\set{A}_2,\set{A}$ atlasy jak w punkcie 1. wyżej na rozmaitości $M$ takie, że istnieją mapy $(U,\phi)\in \set{A}_1,(V,\psi)\in\set{A}_2$ oraz $(W,\theta)\in\set{A}$ takie, że $\phi\theta^{-1}$ i $\theta\psi^{-1}$ mają ujemny wyznacznik jakobianu. Fakt z analizy mówi, że jakobian 
+%  $$\phi\psi^{-1}=(\phi\theta^{-1})(\theta\psi^{-1})$$ 
+%  jest iloczynem jakobianów poszczególnych funkcji, stąd
+%  $$\det(D\phi\psi^{-1})=\det(D\phi\theta^{-1}\circ D\theta\psi^{-1})=\det(D\phi\theta^{-1})\cdot\det(D\theta\psi^{-1})>0$$
+%  jako iloczyn dwóch wartości ujemnych. Stąd jeśli $\set{A}_1\not\sim\set{A}$ i $\set{A}_2\not\sim\set{A}$ oznacza, że musi być $\set{A}_1\sim\set{A}_2$, gdzie $\sim$ rozumiemy jako posiadanie przez atlasy tej samej orientacji.
+
+  Udowodnimy tylko pierwszą wersję uwagi.
+
+  Niech $M$ będzie orientowalną i spójną rozmaitością. Wówczas na $M$ istnieje atlas $\set{A}$ taki, że każde dwie mapy na nim mają odwzorowanie przejścia z dodatnim wyznacznikiem jakobianem w każdym punkcie. Skupmy się na jednej takiej mapie, $(U,\phi)\in\set{A}$. Zadaje ona bazę $\left(\frac{\partial}{\partial\phi_1},...,\frac{\partial}{\partial\phi_n}\right)$ na $T_pM$ dla $p\in U$. Możemy ją przenieść na $\R^n$ poprzez $\phi^*_p$, niech $(v_1,...,v_n)$ będą odpowiadającymiiiiiii
+\end{proof}
+
+\begin{fact}
+  Rozmaitość $M$ jest \acc[b]{nieorientowalna} $\iff$ istnieje ciągła droga $b(t):[0,1]\to B(M)$ taka, że $b(0),b(1)\in T_pM$ oraz $b(0)\not\sim b(1)$ w $T_pM$.
+\end{fact}
