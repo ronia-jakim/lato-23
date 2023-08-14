@@ -6,5 +6,236 @@
 \end{definition}
 
 \begin{illustration}
-  
+  %\draw[orange, step=0.2] (-2, -2) grid (6, 6);
+
+  \path (-1, -2) edge [bend left=20] (1, -1.5);
+  \path (1, -1.5) edge [bend right=20] (0.5, 0.5);
+  \path (0.5, 0.5) edge [bend right=20] (-1.5, 0);
+  \path (-1.5, 0) edge [bend left=20] (-1, -2);
+
+  %\filldraw[pattern=crosshatch] (0, -0.3) circle (0.5);
+  \filldraw[color=orange, pattern=crosshatch, pattern color=orange, smooth cycle, rounded corners=0.5mm] plot coordinates{(-0.5, -0.3) (-0.1, -0.8) (0.7, -0.2) (0, 0.3)};
+
+  \draw[->] (3, -0.5)--(3, 3.5);
+  \draw[->] (1, 1.5)--(5, 1.5);
+
+  \draw[orange, pattern={Stars[points=7, angle=20, radius=3pt, distance=7pt]}, pattern color = orange!40] (3, 1.5) circle (1.3);
+
+  \path (-1, 1) edge [bend left=10] (-0.2, 0.3);
+  \node at (-1.2, 1.3) {$\color{orange}U_p$};
+
+  \node at (-1.3, -2) {$M$};
+  \path[very thick, green] (-1, -1.2) edge [bend right=30] (-0.2, -0.5);
+  \path[very thick, green] (-0.2, -0.5) edge [bend left=30] (0.6, 0.4);
+  \node at (-0.8, -0.8) {$\color{green}N$};
+
+  \draw[ultra thick, green] (1.7, 1.5)--(4.3, 1.5);
+  \draw[ultra thick, green] (1.7, 1.55)--(4.3, 1.55);
+  \draw[ultra thick, green] (1.7, 1.45)--(4.3, 1.45);
+
+  \node (A) at (4, -0.5) {$\color{green}\phi(U_p\cap N)$};
+  \path [<-, green] (3.5, 1.4) edge [bend right=10] (A);
+
+  \path[->] (0.2, -0.3) edge [bend right=20] node [midway, above] {$\phi$} (2, 1);
+
+  \node at (3.4, 3.3) {$\R^{m-n}$};
+  \node at (4.7, 1.2) {$\R^n$};
+  \node at (2, 0) {$\R^m$};
+
+  \node at (4.3, 2.3) {$\color{orange}V$};
 \end{illustration}
+
+Możemy to również rozumieć, że wokół każdego $p\in N$ istnieje lokalny układ współrzędnych $(x_1,...,x_m)$ na otwartym otoczeniu $U_p\subseteq M$ taki, że $U_p\cap N$ wyraża się w tym układzie jako $\{x_{n+1}=...=x_m=0\}$.
+
+\begin{remark}
+  Każda $n$-wymiarowa podrozmaitość $N\subseteq M^m$ jest $n$-wymiarową gładką rozmaitością.
+\end{remark}
+
+\begin{proof}
+  Wybierzemy na $N$ atlas, a następnie udowodnimy jego zgodność.
+
+  Jako mapy wybierzemy pary postaci $(U_p\cap N, \Pi_n^m\circ \phi)$, gdzie $(U_p,\phi)$ są mapami na $M$ jak w definicji wyżej, natomiast 
+  $$\Pi_n^m:\R^m\to \R^n$$
+  jest rzutowaniem, tzn:
+  $$\Pi_n^m(x_1,...,x_n,x_{n+1},...,x_m)=(x_1,...,x_n).$$
+  W takim razie $\Pi_n^m\circ\phi$ to pierwsze $n$ współrzędnych gładkiej mapy $\phi$, czyli jest gładką funkcją z $N$ w $\R^n$.
+
+  \begin{illustration}
+    %\draw[orange, step=0.2] (-2, -2) grid (6, 6);
+
+    \path (-1, -2) edge [bend left=20] (2, -1.5);
+    \path (2, -1.5) edge [bend right=20] (1.5, 0.5);
+    \path (1.5, 0.5) edge [bend right=20] (-1.5, 0);
+    \path (-1.5, 0) edge [bend left=20] (-1, -2);
+
+    \path[very thick, green] (-1, -1.2) edge [bend right=30] (0.3, -0.5);
+    \path[very thick, green] (0.3, -0.5) edge [bend left=30] (1.6, 0.4);
+    
+    \draw (-0.1, -0.5) ellipse (0.6 and 0.5);
+    \node at (-0.7, -1) {$U_p$};
+    \filldraw (0.1, -0.75) circle (1.5pt) node [below] {$p$};
+
+    \path[->] (0.1, -0.6) edge [bend left=60] node [midway, above] {$\psi=\Pi_n^m\phi$} (2.2, 0.9);
+
+    \draw[rotate around={30:(0.7, -0.2)}] (0.7, -0.2) ellipse (0.6 and 0.4);
+    \node at (1.3, -0.7) {$U_p'$};
+    \filldraw (0.7, 0) circle (1.5pt) node [below] {$p'$};
+
+    \path[->] (0.7, -0.1) edge [bend right=60] (2.2, -2.1);
+    \node at (0.5, -1.7) {$\psi'=\Pi_n^m\phi'$};
+
+    \draw[->] (3, 0)--(3, 2);
+    \draw[->] (2, 1)--(4, 1);
+
+    \draw (3, 1) ellipse (0.6 and 0.4);
+    \draw[ultra thick, green] (2.4, 1)--(3.6, 1);
+    
+    \node at (3.6, 1.4) {$V$};
+
+    \draw[->] (3, -3)--(3, -1);
+    \draw[->] (2, -2)--(4, -2);
+
+    \draw (3, -2) ellipse (0.6 and 0.5);
+    \draw[ultra thick, green] (2.4, -2)--(3.6, -2);
+    
+    \node at (3.6, -1.5) {$V'$};
+  \end{illustration}
+
+  Wybierzmy mapy $(U_p,\phi)$ i $(U_p',\phi')$ jak wyżej i posługujmy się notacją jak na ilustracji. Chcemy sprawdzić, czy $\psi'\psi^{-1}$ jest mapą gładką.
+  $$\psi'\psi^{-1}=(\Pi_n^m\phi')(\Pi_n^m\phi)^{-1}=(\Pi_n^m\phi')(\phi^{-1}i),$$
+  gdzie $i:\psi(N\cap U_p)\to V$ jest włożeniem zadanym wzorem
+  $$i(x_1,...,x_n)=(x_1,...,x_n, \underbrace{0...,0}_{m-n\text{ zer}}).$$
+  Wiemy już, że $\Pi_n^m$, $\phi$, $\phi'$ oraz $i$ są gładkie, czyli również $\psi'\psi^{-1}$ jako ich złożeniem jest funkcją gładką.
+\end{proof}
+
+\begin{example}
+  \item Dla $m$-rozmaitości $M$ oraz $n$-rozmaitości $N$ i otwartego $U\subseteq M$, graf gładkiej funkcji $f:U\to N$
+    $$\Gamma(f)=\{(x,f(x))\;:\;x\in U\}\subseteq M\times N$$
+    jest $m$-podrozmaitością $M\times N$.
+\end{example}
+
+\subsection{Podrozmaitości zadane przez odwzorowanie włożenia}
+
+\begin{definition}
+  Odwzorowanie $f:N\to M$ jest \important{immersją}, gdy rząd $f$ w każdym punkcie jest równy wymiarowy $\dim N$, tzn.
+  $$(\forall\;x\in N)\; rank(f,x)=\dim N$$
+\end{definition}
+
+Oczywiście, aby $f$ było immersją, musimy mieć $\dim(N)\leq\dim(M)$ oraz dla każdego $p\in N$ różniczka
+$$df_p:T_pN\to T_{f(p)}M$$
+musi być \acc[b]{różnowartościowa}.
+
+\begin{definition}
+  Immersję $f$ nazywamy \important{gładkim włożeniem}, jeśli jest homeomorfizmem na swój obraz.
+\end{definition}
+
+\begin{example}
+  \item Wstęga Mobiusa bez brzegu $M=\R\times(-1,1)/\Z$ może być włożona w $\R^3$.
+
+    \begin{proof}
+      Działanie $\Z$ na $\R\times(-1,1)$ jest zdefiniowane jako $k(x,y)=(x+k\cdot2\pi, (-1)^k\cdot y)$. Dla wybranego $(x,y)\in M$ rozważmy funkcje
+      $$N(x)=(\;\cos x,\; \sin x,\; 0\;)$$
+      %$$T(x)=(\;-\sin x,\;\cos x,\;0\;)$$
+      $$V(x)=(\;0,\;0,\;1\;)$$
+      $$K(x)=\sin \frac{x}{2}\cdot N(x)+\cos \frac{x}{2}\cdot V(x)$$
+      %\begin{illustration}
+      %  \begin{axis}[axis lines=middle,
+      %      xmin=-2.5,
+      %      xmax=2.5,
+      %      ymin=-2.5,
+      %      ymax=2.5,
+      %      zmin=-2.5,
+      %      zmax=2.5,
+      %      xlabel=$x$,
+      %      ylabel=$y$,
+      %      zlabel=$z$
+      %    ]
+      %    \addplot3[ samples=100] ({cos(deg(x))}, {sin(deg(x))}, 0);
+      %    \addplot3[
+      %      mark=*, 
+      %      green
+      %    ] coordinates {(0, 0, 1)};
+      %    \addplot3[mark=none] coordinates{(}
+      %  \end{axis}
+      %\end{illustration}
+
+      Rozważmy funkcję 
+      $$f:\R\times(-1,1)\to\R^3$$
+      zadaną przez
+      $$f(x,y)=2\cdot N(x)+y\cdot K(x)=(\;2\cos x+ y\cdot\sin\frac{x}{2},\; 2\sin x+y\cdot\sin\frac{x}{2},\; y\cdot\cos\frac{x}{2}\;)$$
+     % \begin{illustration}
+     %   \begin{axis}[
+     %       axis lines=middle,
+     %       xmin=-2.5,
+     %       xmax=2.5,
+     %       ymin=-2.5,
+     %       ymax=2.5,
+     %       zmin=-2.5,
+     %       zmax=2.5,
+     %       xlabel=$x$,
+     %       ylabel=$y$,
+     %       zlabel=$z$
+     %       ]
+     %     \addplot3[
+     %       mark=none,
+     %       surf,
+     %       opacity=0.8
+     %       ] ({cos(deg(x))}, {sin(deg(x))}, 0);
+
+     %     \addplot3[
+     %     mark = none,
+     %     surf,
+     %     opacity=0.2
+     %     ](
+     %       {2*cos(deg(x))+y*sin(deg(x/2))},
+     %       {2*sin(x)+y*sin(deg(x/2))},
+     %       {y*cos(deg(x/2))}
+     %     );
+
+
+     %     \addplot3[
+     %       mark=none,
+     %       %surf,
+     %       opacity=0.6,
+     %       color=blue,
+     %       %domain=-2:2
+     %       ] ({sin(deg(x/2))*cos(deg(x))}, {sin(deg(x/2)) *sin(deg(x))}, {cos(deg(x/2))});
+     %   \end{axis}
+     % \end{illustration}
+
+      $f$ jest immersją pasa $\R\times(-1,1)$ w $\R^3$. Wystarczy sprawdzić rząd $f$ w dowolnym punkcie $(x,y)$:
+      \begin{align*}
+        D_{(x,y)}f=&
+        \begin{bmatrix} 
+          \frac{1}{2}y\cos\frac{x}{2}-2\sin x & \sin\frac{x}{2}\\
+          \frac{1}{2}y\cos\frac{x}{2}+2\cos x & \sin\frac{x}{2}\\
+          -\frac{1}{2}y\sin\frac{x}{2} & \cos\frac{x}{2}
+        \end{bmatrix}
+      \end{align*}
+      łatwo zauważyć, że kolumny tej macierzy są liniowo niezależne gdy $y\neq 0$, gdyż wtedy ostatnie współrzędne ($\sin\frac{x}{2}$ i $\cos\frac{x}{2}$) są liniowo niezależnymi funkcjami. Jeśli natomiast $y= 0$, to aby wektory były liniowo zależne, musiałoby istnieć $a,b$ takie, że
+      $$\begin{cases}\frac{a}{2}y\cos\frac{x}{2}-2a\sin x+b\sin\frac{x}{2}=0\\
+      \frac{a}{2}y\cos\frac{x}{2}+2a\sin x+b\sin\frac{x}{2}=0\end{cases}$$
+      po dodaniu obu równań dostajemy, że
+      $$0=ay\cos\frac{x}{2}+(2b)\sin\frac{x}{2}=(2b)\sin\frac{x}{2}$$
+      dla dowolnego $x$ (bo $y=0$), ale tak się dzieje tylko jeśli $2b=0$.
+
+      Sprawdźmy teraz, czy $f$ zachowuje działanie grupy $\Z$ na $\R\times(-1,1)$:
+      \begin{align*}
+        f(k(x,y))=&f(x+k2\pi,(-1)^ky)=\\
+        =&\begin{bmatrix}
+          2\cos(x+2k\pi)+(-1)^ky\sin(\frac{x}{2}+k\pi)\\
+          2\sin(x+2k\pi)+(-1)^ky\sin(\frac{x}{2}+k\pi)\\
+          (-1)^k\cos(\frac{x}{2}+k\pi)
+        \end{bmatrix}
+      \end{align*}
+      oczywiście czynniki $\cos(x+2k\pi)=\cos(x)$ pozostają bez zmiany. Tak samo $\sin(\frac{x}{2}+k\pi)$ dla parzystego $k$. Dla $k$ nieparzystego natomiast mamy $\sin(\frac{x}{2}+k\pi)=-\sin\frac{x}{2}$, czyli 
+      $$(-1)^k\sin(\frac{x}{2}+k\pi)=(-1)^k\cdot(-\sin\frac{x}{2})=\sin\frac{x}{2}$$
+      tak jak chcieliśmy. Tak samo dla $\cos(\frac{x}{2}+k\pi)=-\cos\frac{x}{2}$, stąd
+      $$f(k(x,y))=f(x,y)$$
+      a więc istnieje funkcja indukowana przez $f$
+      $$\overline{f}:\R\times(-1,1)/\Z\to\R^3$$
+      o własności $rank(\overline{f},x)=rank(f,x)$.
+
+      Nietrudno też sprawdzić, że $\overline{f}$ jest homeomorfizmem na swój obraz, co zostaje zostawione jako ćwiczenie dla czytelnika.
+    \end{proof}
+\end{example}
