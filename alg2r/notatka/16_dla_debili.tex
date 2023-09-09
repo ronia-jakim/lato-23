@@ -1,0 +1,151 @@
+\makeatletter
+\renewcommand{\formatsection}{\thesection: }
+\makeatother
+
+\section{Spis definicji i ważniejszych twierdzeń}
+
+\begin{description}[font=\color{green}, leftmargin=15mm]
+  \item[Rozwiązanie ogólne] układu $U=(f_1,...,f_m)$ to $\overline{a}=(a_1,...,a_n)$ takie, że $I(\overline{a}/R)=(f_1,...,f_m)$, gdzie $f_i\in R[x_1,..., x_n]$ oraz $\overline{a}\in S^n$, gdzie $S\supseteq R$.
+  \item[] Niech $\overline{a}_i\in L_i\supseteq K$ ($i=1,2$). Wtedy $I(\overline{a}_1/K)=I(\overline{a}_2/K)\iff (\exists\;\phi:K[\overline{a}_i]\to K[\overline{a}_2])\;\phi\restriction K=id_K\text{ i }\phi(\overline{a}_1)=\overline{a}_2$.
+  \item[Ciała $L_1$ i $L_2$ są izomorficzne nad $K$], gdzie $K\subseteq L_i$, wtw. istnieje izomorfizm $f:L_1\to L_2$ taki, że $f\restriction K=id_K$.
+  \item[$L\supseteq K$ jest ciałem rozkładu nad $K$] wielomianu $f\in K[x]$ jeśli:
+    \begin{enumerate}
+      \item $f$ rozkłada się w $L[x]$ na czynniki liniowe
+      \item $L$ jest rozszerzeniem $K$ o wszystkie pierwiastki $f$.
+    \end{enumerate}
+
+    Ciało rozkładu wielomianu jest \acc[i]{jedyne z dokładnością do izomorfizmu nad $K$}.
+  \item[Ciało algebraicznie domknięte] to ciało $L$ takie, że każdy $f\in L[x]$ o stopniu $>0$ posiada w $L$ pierwiastek (każdy wielomian rozkłada się na czynniki liniowe).
+  \item[Ciało proste] nie zawiera żadnego właściwego podciała.
+  \item[Pierwiastki z jedności:]
+    \begin{enumerate}
+      \item $a\in R$ jest pierwiastkiem z jedności stopnia $n$ jeśli $a^n-1=0$
+      \item $\mu_n(R)=\{a\in R\;:\;a^n-1=0\}$ jest \acc[b]{grupą pierwiastków z 1 stopnia n}
+      \item $\mu(R)=\{a\in R\;:\;(\exists\;n)a^n-1=0\}=\bigcup\mu_n(R)$ jest grupą pierwiastków z 1. Jest to torsyjna grupa abelowa i jest podgrupą $R^*$
+      \item $a$ jest \acc[b]{pierwiastkiem pierwotnym} stopnia n z 1 jeśli $a\in\mu_n(R)$ i dla każdego $k<n$ $a\notin\mu_k(R)$.
+    \end{enumerate}
+  \item[Element $a$ jest algebraiczny] jeśli istnieje $f\in K[x]$ taki, że $f(a)=0$.
+
+    Jeśli $a$ jest algebraiczny nad $K$, to $K[a]=K(a)$, tzn. $K[a]$ jest ciałem.
+  \item[Element $a$ jest przestępny] jeśli dla każdego $f\in K[x]$ $f(a)\neq 0$.
+  \item[Rozszerzenie algebraiczne] składa się z samych elementów algebraicznych.
+
+    Niech $K\subseteq L\subseteq M$, wtedy $K\subseteq M$ jest algebraiczne $\iff$ $K\subseteq L$ oraz $L\subseteq M$ są algebraiczne.
+  \item[Stopień rozszerzenia:] jeśli $K\subseteq L$ jest rozszerzeniem ciała, to $L$ możemy traktować jako \acc[i]{przestrzeń liniową} nad $K$. Definiujemy wtedy stopień rozszerzenia $[L:K]=dim_K(L)$ jako rozmiar bazy $L$ nad $K$.
+  \item[Algebraiczne domknięcie $K$ w $L$]: $K_{alg}(L)=\{a\in L\;:\;a\text{ jest algebraiczny}\}$
+  
+    Mówimy, że $K$ jest \acc[i]{relatywnie algebraicznie domknięte w $L$} jeśli $K_{alg}(L)=K$.
+  \item[Funkcja Eulera:] $\phi(m)=|\{k\in\N\;:\;0\leq k<m\;:\;NWD(k,m)=1\}|$. 
+  \item[$m$-ty wielomian cyklotoniczny:] zdefiniujmy $\{k\in\N\;:\;NWD(k,m)=1\}=\{m_1,...,m_{\phi(m)}\}$ i niech $a\in\mu_m(R)$ będzie generatorem tej grupy. Wtedy wielomian
+    $$F_m(x)=(x-a^{m_1})...(x-a^{m_{\phi(m)}})$$
+    nazywamy $m$-tym wielomianem cyklotonicznym.
+
+    Wiemy, że $w_m(x)=x^m-1=F_m(x)\prod_{\substack{d<m\\d|m}}F_d(x)$.
+
+  \item[Lemat Liouville'a:] jeśli $a\in\R$ jest liczbą algebraiczną stopnia $N>1$, to istnieje $c=c(a)\in\R$ takie, że dla każdego $r=\frac{p}{q}\in\Q$ zachodzi
+    $$\left|a-\frac{p}{q}\right|\geq\frac{c}{q^N}$$
+    Jeśli liczba nie spełnia tego lematu, to jest liczbą przestępną.
+
+  \item[Domknięcie algebraiczne $\hat{K}=K^{alg}$] to ciało $L\subseteq K$, które jest algebraicznie domkniętym rozszerzeniem algebraicznym $K$ (każdy $a\in L$ jest pierwiastkiem wielomianu z $K[x]$).
+
+    Jest to najmniejsze algebraicznie domknięte ciało zawierające $K$.
+
+    Domknięcie algebraiczne jest \acc[i]{jedyne z dokładnością do izomorfizmu nad $K$}
+
+  \item[Izomorfizm ciał przenosi się na izomorfizm ich domknięć algebraicznych] dokładniej, jeśli $f:K\isomorphism L$, to istnieje $h:\hat{K}\isomorphism\hat{L}$ taki, że $h\restriction K=f$.
+    
+  \item[Grupa Galois] rozszerzenia $K\subseteq L$ to grupa $Gal(L/K)=\{f\in Aut(L)\;:\;f\restriction K=id_K\}=Aut(L/K)$. Jest to podgrupa wszystkich automorfizmów ciała $L$.
+
+  Grupa $Gal(\hat{K}/K)$ jest nazywana \acc[b]{absolutną grupą Galois} ciała $K$.
+
+\item[Rozszerzenie normalne] to rozszerzenie algebraiczne $K\subseteq L$ takie, że dla wszystkich $f:L\to K$ zachodzi $f[L]\subseteq\hat{K}$ oraz $f[L]$ jest jedno dla wszystkich takich $f$.
+
+  Rozszerzenie jest normalne $\iff$ dla każdego $f\in Gal(\hat{K}/K)$ mamy $f[L]=L$.
+
+  \item[]  Rozszerzenie algebraiczne $K\subseteq L$ jest normalne $\iff$ dla każdego $b\in L$ wielomian minimalny $f\in K[x]$ rozkłada się w $L[x]$ na iloczyn czynników liniowych.
+
+  \item[Rozszerzenie skończone i normalne] $L\subseteq K$ $\iff$ $L$ jest ciałem rozkładu pewnego wielomianu.
+
+  \item[Normalne domknięcie ciała:] niech $K\subseteq L$ i niech $L_1$ będzie generowane przez $\bigcup\{f[L]\;:\;f\in Gal(\hat{K}/K)\}$. Wtedy
+    \begin{enumerate}
+      \item $L_1$ jest normalnym domknięciem ciała $L$ w $\hat{K}$
+      \item rozszerzenie $K\subseteq L_1$ jest normalne
+      \item $K\subseteq L_2$ i $L\subseteq L_2$ są normalne, to istnieje monomorfizm $L_1\to L_2$ który po obcięciu do $K$ jest $id_K$.
+    \end{enumerate}
+  \item[Element rozdzielczy:] $a\in\hat{K}$ jest rozdzielczy nad $K$ gdy wielomian minimalny $w_a(x)\in K[x]$ ma jedynie pierwiastki pojedyncze. Wielomian taki nazywamy \acc[b]{wielomianem rozdzielczym}.
+  \item[Rozszerzenie rozdzielcze] to rozszerzenie algebraiczne którego wszystkie elementy są rozdzielcze nad $K$.
+  \item[Wielomian $w(x)$ jest nierozdzielczy] $\iff$ $w\in K[x^p]$.
+  \item[] Jeśli $a\in\hat{K}$, to $|\{f(a)\;:\;f\in Gal(\hat{K}/K)\}|\leq deg(a)$, a jeśli $a$ jest rozdzielczy to zamiast $\leq$ jest $=$.
+  \item[Element pierwotny] $L\supseteq K$ to $a\in L$ takie, że $L=K(a)$.
+
+    Jeśli $K\subseteq L$ jest rozszerzeniem skończonym takim, że $L=K(a_1,...,a_n)$ i $a_i$ są rozdzielcze nad $K$, to istnieje $a\in L$ rozdzielczy nad $K$ taki, że $L=K(a)$.
+    
+  \item[Rozszerzenia radykalne:] $K\subseteq L$
+    \begin{enumerate}
+      \item $a\in L$ jest czysto nierozdzielczy [\acc[b]{radykalny}] nad $K$ gdy wielomian minimalny $w_a$ ma tylko jeden pierwiastek w $K$
+      \item $K\subseteq L$ jest \acc[b]{rozszerzeniem radykalnym} gdy każdy $a\in L$ jest radykalny.
+    \end{enumerate}
+
+    $a$ jest radykalne nad $K$ $\iff$ dla każdego $f\in Gal(\hat{K}/K)$ $f(a)=a$. Jeśli z kolei $char(K)=p$, to $a$ radykalne $\iff$ istnieje $n$ takie, że $a^{p^n}\in K$.
+
+  \item[Domknięcie rozdzielcze $K$ w $L$] $sep_L(K)=\{a\in L\;:\;a\text{ rozdzielcze nad }K\}$. Oznaczamy $\hat{K}^s=sep_{\hat{K}}(K)$ jako \acc[b]{rozdzielcze domknięcie} $K$.
+  \item[Domknięcie radykalne $K$ w $L$] $rad_L(K)=\{a\in L\;:\;a\text{ radykalne nad }K\}$. Oznaczamy $\hat{K}^r=rad_{\hat{K}}(K)$ jako \acc[b]{radykalne domknięcie} $K$.
+  \item[Stopień rozdzielczy] rozszerzenia $L$ nad $K$ definiujemy $[L:K]_s=[sep_L(K):K]$.
+  \item[Stopień radykalny] rozszerzenia $L$ nad $K$ to z kolei $[L:K]_r=[rad_L(K)]$.
+  \item[Rozszerzenie Galois] to rozszerzenie algebraiczne $K\subseteq L$ takie, że dla każdego $a\in L\setminus K$ istnieje $f\in Gal(L/K)$ taki, że $f(a)\neq a$.
+
+    $K\subseteq L$ jest Galois $\iff$ $K\subseteq L$ jest rozdzielcze i normalne.
+
+    Niech $K\subseteq L\subseteq M$. Wtedy $K\subseteq M$ jest Galois $\iff$ $L\subseteq M$ jest Galois.
+  \item[Twierdzenie Artina:] jeśli $G<Aut(L)$, to $L^G=\{a\in :\;:\;(\forall\;f\in G)\;f(a)=a\}\subseteq L$ jest rozszerzeniem Galois i $[L:L^G]=|G|$.
+  \item[Stopień rozszerzenia Galois] jeśli $K\subseteq L$ jest skończonym rozszerzeniem Galois, to $[L:K]=|Gal(L/K)|$.
+  \item[] Dla $K\subseteq L$ skończonego i Galois oraz $H\leq Gal(L/K)$ mamy $H\triangleleft Gal(L/K)\iff K\subseteq L^H$ jest normalne.
+
+  \item[Rozszerzenie abelowe] to skończone rozszerzenie Galois dla którego grupa Galois jest cykliczna.
+
+  \item[Rozszerzenie rozwiązywalne] to rozszerzenie Galois dla którego grupa Galois jest rozwiązywalna.
+  \item[Rozszerzenie ciała przez pierwiastki] $K\subseteq L$ to rozszerzenie dla którego istnieje $k$ oraz $L\subseteq L_0\supseteq L_1\supseteq...\supseteq L_k=K$ takie, że dla każdego $i<k$ ciało $L_i$ jest ciałem rozkładu nad $L_{i+1}$ wielomianu
+    \begin{enumerate}
+      \item $x^{n_i}-b_i$ dla $b_i\in L_{i+1}$ lub
+      \item $x^p-x-b_i$ dla $b_i\in L_{i+1}$.
+    \end{enumerate}
+
+  \item[] $K\subseteq L$ jest skończonym rozszerzeniem przez pierwiastki $\iff$ istnieje $L'\supseteq L$ takie, że $K\subseteq L'$ jest rozwiązywalna.
+
+  \item[Rozszerzenie przestępne] posiada element $a$ przestępny nad $K$ (tzn. $I(a/K)=0$). \acc[b]{Rozszerzenie czysto przestępne} składa się wyłącznie z elementów przestępnych.
+
+    $a$ jest elementem przestępnym, jeśli $K(a)\cong K(x)$.
+
+  \item[Domknięcie algebraiczne] $U=\hat{U}$ jest dużym ciałem, $F\subseteq K\subseteq U$, gdzie $F$ jest ciałem prostym, wtedy
+    \begin{enumerate}
+      \item ${\color{blue}acl_K}:\set{P}(U)\to\set{P}(U)$ jest operatorem domknięcia algebraicznego który podzbiór $A\subseteq U$ przekształca na $K(A)^{alg}$
+      \item $A\subseteq U$ jest \acc{algebraicznie domknięty} nad $K$ gdy $A=ack_K(A)$.
+    \end{enumerate}
+  \item[Podzbiór algebraicznie niezależny] spełnia $(\forall\;a\in A)\;a\notin acl_K(A\setminus\{a\})$.
+
+    Równoważnie, dla każdego $n$ oraz $a_1,...,a_n\in A$ parami różnych dla każdego $w(x_1,...,x_n)\in K[\overline{x}]$ $w(\overline{a})\neq0$.
+  \item[Baza przestępna] to algebraicznie niezależny podzbiór $B\subseteq A$ taki, że $B\subseteq A\subseteq acl_K(B)$. \acc[b]{Wymiar przestępny} $A$ nad $K$ to moc jego bazy przestępnej.
+  \item[Lemat Schura:] jeśli $M$ jest $R$-modułem prostym, to $End_R(M)$ jest pierścieniem z dzieleniem (prawie ciało, ale niekoniecznie jest przemienny)
+  \item[Podzbiór liniowo niezależny w $R$-module] $\{m_i\}\subseteq M$ znaczy, że jeśli $\sum r_im_i=0$, to $r_i=0$ dla każdego $i$.
+  \item[Baza modułu] spełnia:
+    \begin{enumerate}
+      \item jest liniowo niezależna
+      \item generuje $M$ jako $R$-moduł (czyli dowolny $M\ni m=\sum r_ib_i$ dla $r_i\in R$ oraz $b_i$ z bazy)
+      \item $Lin_R(B)=M$
+    \end{enumerate}
+  \item[Suma prosta modułów] to $\bigsqcup M_i=\bigoplus M_i=\{f\in\prod M_i\;:\;\{i\in I\;:\;f(i)\neq 0\}\text{ jest skończony}\}$ (skończenie wiele współrzędnych jest niezerowych).
+  \item[Moduł wolny] posiada bazę.
+  \item[] Każdy $R$-moduł $M$ jest obrazem pewnego $R$-modułu wolnego przez homomorfizm.
+  \item[] Niech $M,N$ będą $R$-modułami i $N$ jest wolny. Niech $f:M\to N$ będzie epimorfizmem, wtedy $M\cong ker(f)\oplus N$.
+  \item[Moduł projektwyny] $N$ dla każdego epimorfizmu $f:M\to N$ ma $M=ker(f)\oplus M'$ dla $M'\subseteq M$.
+
+    Równoważnie isnieje $g:N\to M$ takie, że $fg=id_N$ [$f$ \acc[i]{rozszczepia się}].
+  \item[Moduł injektywny] $M$ to taki, że dla każdego $N$ i każdego monomorfizmu $g:M\to N$ istnieje $N'\subseteq N$ taki, że $N=Im(g)\oplus N'$, tzn. obraz $g$ jest \acc[i]{składnikiem prostym} $N$.
+  \item[Moduł cykliczny] jest generowany przez pojedynczy element, tzn. $M=Ra$ dla pewnego $a\in M$.
+  \item[Torsje] $ $\newline
+    \begin{enumerate}
+      \item $a$ jest \acc[b]{torsyjny} gdy istnieje $r\neq 0$ takie, że $ra=0$
+      \item $M$ jest \acc[b]{modułem torsyjnym} gdy każdy element jest torsyjny. Jeśli każdy element jest beztorsyjny to $M$ jest modułem \acc[b]{beztorsyjnym}
+      \item $M_t=\{a\in M\;:\;a\text{ jest torsyjny}\}$ jest \acc[b]{częścią torsyjną} $M$ i jest jego podmodułem.
+    \end{enumerate}
+\end{description}

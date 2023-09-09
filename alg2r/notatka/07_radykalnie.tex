@@ -30,7 +30,7 @@ $ $\newline
 \begin{bbox}
 Niech $K\subseteq L$ będzie rozszerzeniem algebraicznym. Definiujemy
 \begin{enumerate}
-    \item \acc{rozdzielcze domknięcie} $K$ w $L$: $sep_L(K)=\{a\in L\;:\;a\text{ radykalne nad } K\}$
+    \item \acc{rozdzielcze domknięcie} $K$ w $L$: $sep_L(K)=\{a\in L\;:\;a\text{ rozdzielcze nad } K\}$
     \item \acc{radykalne domknięcie} (czysto nierozdzielcze) $K$ w $L$: $rad_L(K)=\{a\in L\;:\;a\text{ radykalny nad }K\}$
 \end{enumerate}
 \end{bbox}
@@ -55,7 +55,7 @@ Dalej, dla $a\in sep_L(K)\cap rad_L(K)$ mamy $w_a(x)=x-a$ jest wielomianem minim
 \begin{remark}
 $ $\newline
 \begin{enumerate}
-    \item Gdy $K\subseteq L\subseteq\hat{K}$, to $sep_L(K)=\hat{K}^s\cap L$, $rad_L(K_=\hat{K}^r\cap L$
+    \item Gdy $K\subseteq L\subseteq\hat{K}$, to $sep_L(K)=\hat{K}^s\cap L$, $rad_L(K)=\hat{K}^r\cap L$
     \item Załóżmy, że $K\subseteq L\subseteq M\subseteq\hat{K}$, wtedy $K\underset{rad}{\subseteq}L\underset{rad}{\subseteq}M\iff K\underset{rad}{\subseteq} M$
     \item Jeśli $char(K)=0$, to $sep_L(K)=K^{alg}(L)$ i $rad_L(K)=K$, oraz $\hat{K}^s=\hat{K}$, $\hat{K}^r=K$.
 \end{enumerate}
@@ -133,7 +133,7 @@ Załóżmy więc, że $char(K)=p>0$.
 \begin{bbox}
 $K\subseteq L\subseteq\hat{K}$
 
-Definiujemy \acc{$[L:K]_s=[sep_L(K):K]$} jako \important{stopień rozdzielczy} ciała $L$ nad $K$ oraz \acc{$[L:K]_r=[L:sep_L(K)]$} jako \important{stopień radykalny} $L$ nad $K$. 
+Definiujemy \acc{$[L:K]_s=[sep_L(K):K]$} jako \important{stopień rozdzielczy} ciała $L$ nad $K$ oraz \acc{$[L:K]_r=[L:rad_L(K)]$} jako \important{stopień radykalny} $L$ nad $K$. 
 \end{bbox}
 
 Z wyników wyżej dostajemy

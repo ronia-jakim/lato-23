@@ -20,7 +20,7 @@ Niech $U=\hat{U}$ będzie (dużym) ciałem oraz $K\subseteq U$ będzie podciałe
 \begin{bbox}
 \begin{itemize}
     \item[\PHtunny] $acl_K:P(U)\to P(U)$ to operator algebraicznego domknięcia nad $K$ taki, że dla $A\subseteq A$ $acl_K(A)=K(A)^{alg}\subseteq U$.
-    \item[\PHtunny] $A\subseteq U$ jest algebraicznie domknięte nad $K$, gdy $A=cl_K(A)$.
+    \item[\PHtunny] $A\subseteq U$ jest algebraicznie domknięte nad $K$, gdy $A=acl_K(A)$.
 \end{itemize}
 \end{bbox}
 
@@ -29,13 +29,13 @@ Niech $U=\hat{U}$ będzie (dużym) ciałem oraz $K\subseteq U$ będzie podciałe
     \item $acl_K(\emptyset)=\hat{K}$
     \item 
         \begin{enumerate}
-            \item $A\subseteq B\implies cl_K(A)\subseteq(B)$ \emph{monotoniczność}
+            \item $A\subseteq B\implies acl_K(A)\subseteq(B)$ \emph{monotoniczność}
             \item $A\subseteq acl_K(A)$
             \item $acl_K(acl_K(A))=acl_K(A)$ \emph{idempotetność}, tzn: $acl_K$ jest operatorem domknięcia.
         \end{enumerate}
     \item $acl_K(A)=\bigcup_{A_0\underset{sk.}{\subseteq A}}acl_K(A_0)$ \emph{skończony charakter}
     \item \emph{własność wymiany}
-    $$a\in acl_K(A\cup\{b\}\setminus acl_K(A)\implies b\in acl_K(A\cup \{a\})$$
+    $$a\in acl_K(A\cup\{b\})\setminus acl_K(A)\implies b\in acl_K(A\cup \{a\})$$
 \end{enumerate}
 
 \begin{proof}$ $
