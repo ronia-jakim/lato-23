@@ -1,0 +1,38 @@
+\section{Bulion definicji i twierdzeń}
+
+\begin{description}[leftmargin=15mm, font=\color{green}]
+  \item[Rozmaitość topologiczna] wymiaru $n$
+    \begin{enumerate}
+      \item przestrzeń Hausdorffa
+      \item przeliczalna baza topologii
+      \item lokalnie euklidesowa (każdy punkt ma otwarte otoczenie homeomorficzne z otwartym podzbiorem $\R^n$)
+    \end{enumerate}
+  \item[Rodzina lokalnie skończona] podzbiorów $M$ to rodzina, że dla każdego $p\in M$ możemy znaleźć otoczenie, które przecina się co najwyżej ze skończoną liczbą zbiorów z tej rodziny.
+  \item[Rozdrobnienie pokrycia] $\set{U}$ to pokrycie $\set{V}$ takie, że dla każdego $U\in\set{U}$ możemy znaleźć $V\in\set{V}$ takie, że $V\subseteq U$.
+  \item[Spójność rozmaitości:] 
+    \begin{enumerate}
+      \item Rozmaitości są lokalnie spójne, tzn. posiadają bazę zbiorów łukowo spójnych.
+      \item Rozmaitość jest spójna $\iff$ jest łukowo spójna.
+    \end{enumerate}
+  \item[] Każda rozmaitość jest lokalnie zwarta, tzn. każdy punkt posiada zwarte otoczenie.
+  \item[Mapa] na rozmaitości to para $(U,\phi)$ taka, że $U$ jest otwartym podzbiorem $M$, a $\phi:U\to\overline{U}=\phi(U)$ jest homeomorfizmem na otwarty podzbiór w $\R^n$. Mapy często są nazywane \acc[b]{lokalnymi współrzędnymi} lub \acc[b]{lokalną parametryzacją} na $M$.
+  \item[Mapy gładko zgodne] $(U,\phi),(V,\psi)$ mają gładkie funkcje przejścia $\phi\psi^{-1}$ i $\psi\phi^{-1}$.
+  \item[Gładki atlas] na $M$ to zbiór map $\{(U_\alpha,\phi_\alpha)\}$ takich, że
+    \begin{enumerate}
+      \item $\{U_\alpha\}$ pokrywają $M$
+      \item każde dwie mapy są gładko zgodne.
+    \end{enumerate}
+  \item[Funkcja gładka] $f:M\to N$ jest gładka po wyrażeniu w każdej mapie $(U,\phi)$ na $M$ i $(V\psi)$, tzn. $\psi f\phi^{-1}$.
+  \item[Dyfeomorfizm] to gładka bijekcja między rozmaitościami.
+  \item[Rozmaitość gładka] to para $(M,\set{A})$, gdzie $M$ jest rozmaitością topologiczną, a $\set{A}$ jest pewnym atlasem gładkim na $M$.
+
+    Czasem wymaga się, aby $\set{A}$ było \acc[b]{atlasem maksymalnym}, tzn. posiadało wszystkie mapy zgodne z $\set{A}$.
+  \item[Rząd funkcji] $f:M\to N$ w punkcie $p$ to rząd macierzy pierwszych pochodnych cząstkowych odwzorowania $\psi f\phi^{-1}$ w punkcie $\phi(p)$ (ilość lnz. kolumn w macierzy jakobiego).
+  \item[Rozmaitość z brzegiem] posiada atlas funkcji na $H^n$ (rzeczywistą półprzestrzeń) zamiast na $\R^n$. Definiujemy: $ $\newline
+    \begin{enumerate}
+      \item $\partial M=\{p\in M\;:\;\text{w pewnej [każdej] mapie }p\in(U_\alpha,\phi_\alpha)\;\phi_\alpha(p)\in\partial H^n\}$, gdzie $\partial H^n=\{(x_1,...,x_n)\in\R^n\;:\;x_n=0\}$
+      \item $int(M)=\{p\in M\;:\;(\exists\;(U_\alpha,\phi_\alpha)\;\phi_\alpha(p)\in int(H^n)\}$, gdzie $int(H^n)=\{(x_1,...,x_n)\in\R^n\;:\;x_n>0\}$.
+    \end{enumerate}
+
+  \item[STRONA 19]
+\end{description}
